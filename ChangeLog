@@ -11,6 +11,7 @@ current CVS
 -Smooth mouse movements inside zoom vew (very low CPU consumption)
 -Zero CPU usage when magnifier window is hidden/minimized
 -Using default key shortcuts for various actions
+-Checkbox to show/hide mouse cursor
 
 ver 0.7
 -Printing and compiling for KDE 2.x
