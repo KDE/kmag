@@ -3,10 +3,17 @@
 Simple Install
 ==============
 
-Login as root and type ./install in the directory to install.
+Login as root and type ./install-root in the directory to install.
 -or-
 If you do not have root access on the machine, run ./install-user in 
 the directory.
+
+If you want to compile the program for KDE3, run ./configure with
+options similar to these:
+
+--prefix=/opt/kde3 --enable-mt --with-qt-dir=/usr/lib/qt3
+
+Then run make and make install (as root).
 
 Basic Installation
 ==================
