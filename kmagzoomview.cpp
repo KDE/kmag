@@ -144,7 +144,7 @@ void KMagZoomView::followMouse(bool follow)
 /**
  * Called when the widget is hidden. Stop refresh when this happens.
  */
-void KMagZoomView::hideEvent( QHideEvent * e)
+void KMagZoomView::hideEvent( QHideEvent* )
 {
   // Save the state of the refresh switch.. the state will be restored
   // when showEvent is called
@@ -160,7 +160,7 @@ void KMagZoomView::hideEvent( QHideEvent * e)
 /**
  * Called when the widget is shown. Start refresh when this happens.
  */
-void KMagZoomView::showEvent( QShowEvent * e)
+void KMagZoomView::showEvent( QShowEvent* )
 {
   // Check if refresh switch was ON when hide was called and if currently it is OFF
   if(m_refreshSwitchStateOnHide && !m_refreshSwitch) {
@@ -175,7 +175,7 @@ void KMagZoomView::showEvent( QShowEvent * e)
  *
  * @param p
  */
-void KMagZoomView::paintEvent(QPaintEvent * p)
+void KMagZoomView::paintEvent(QPaintEvent* )
 {
   if(m_grabbedZoomedPixmap.isNull())
     return;
