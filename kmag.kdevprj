@@ -23,12 +23,12 @@ cflags=
 cppflags=
 cxxflags=\s-O3
 ldadd=-lkdeprint $(LIB_KDEUI) $(LIB_KDECORE) $(LIB_QT)
-ldflags=\s\s
+ldflags=\s  \s
 
 [General]
-AMChanged=true
+AMChanged=false
 author=Sarang Lakare
-configure_args=--prefix=/usr
+configure_args=--prefix=/usr\s
 email=sarang@users.sourceforge.net
 kdevprj_version=1.3
 lfv_open_groups=GNU,Headers,Others,Sources,User Interface
