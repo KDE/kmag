@@ -33,6 +33,11 @@
 <holder>Sarang Lakare</holder>
 </copyright>
 
+<copyright>
+<year>2004</year>
+<holder>Olaf Schmidt</holder>
+</copyright>
+
 <legalnotice>&FDLNotice;</legalnotice>
 
 
@@ -106,18 +111,9 @@ captured from a part of the screen. The part of the screen which is magnified is
 as the <quote>selection window</quote>.
 </para>
 <para>
-You can use &kmag; to magnify the same part of the screen all the time, or you can let &kmag;
-magnify the region around the mouse cursor (think of it as a moving lens). The default mode
-of operation is the former. To see the marking of the part of the screen that is being
-magnified, you can select <guilabel>Selection Window</guilabel>. It is
-always better to turn <guilabel>Selection Window</guilabel> off once
-you know the placement of the selection window.
-
-</para>
-<para>
-To magnify the contents around the mouse cursor, select <guilabel>Follow Mouse</guilabel>. Now
-as you move the mouse, you will see that the screen around the mouse cursor
-is magnified and shown in the magnifier window.
+By default, &kmag; magnifies the region around the mouse cursor (think of it as a moving lens).
+Alternatively, you can ask &kmag; to magnify an chosen area of the screen
+(<guilabel>Selection Window Mode</guilabel>) or the whole screen (<guilabel>Whole Screen Mode</guilabel>).
 </para>
 <para>
 If you would prefer not to see the mouse cursor in the zoomed image, select
@@ -128,34 +124,34 @@ Thus, it shows the default &kde;/&Qt; cursor.
 <sect1 id="changing-selection-window">
 <title>Changing the part of the screen to be magnified</title>
 <para>
-When not in <guilabel>Follow Mouse</guilabel> mode, the selection window can be changed as needed. The selection
-window can be moved or resized.
-This can be done using the mouse in the following way:
+When in <guilabel>Selection Window Mode</guilabel>, the selection window can be moved and resized.
+You can also change the position and size of the selection window using the arrow keys on the keyboard,
+or by clicking into the zoom window:
 </para>
 
 <variablelist>
 <varlistentry>
-<term><mousebutton>Left</mousebutton> mouse button</term>
+<term><keycap>Arrow keys</keycap> or
+<mousebutton>Left</mousebutton> mouse button</term>
 <listitem>
-<para>By keeping this mouse button pressed and moving the
-mouse, you can grab and drag the contents of the zoom window.</para>
+<para>By keeping the left mouse button pressed and moving the
+mouse, you can grab and drag the contents of the zoom window.
+You can also use the arrow keys.</para>
 </listitem>
 </varlistentry>
 <varlistentry>
-<term><keycombo>&Shift;<mousebutton>Left</mousebutton></keycombo> or
+<term><keycombo>&Shift;<keycap>Arrow Keys</keycap></keycombo> or
+<keycombo>&Shift;<mousebutton>Left</mousebutton></keycombo> or
 <mousebutton>Middle</mousebutton> mouse button.</term>
 <listitem>
-<para>By using this combination, you can change the position of the
-selection window on the screen. As soon as you use the above
-combination, you will see the current position of the selection
-window. You can now move the mouse to drag the selection window
-around. When you are satisfied with its position, just leave all the
-buttons that you had pressed.
+<para>By additionally pressing shift or using the middle mouse button,
+you can move the selection window.
 </para>
 </listitem>
 </varlistentry>
 <varlistentry>
-<term><keycombo>&Ctrl;<mousebutton>Left</mousebutton></keycombo> mouse
+<term><keycombo>&Ctrl;<keycap>Arrow Keys</keycap></keycombo> or
+<keycombo>&Ctrl;<mousebutton>Left</mousebutton></keycombo> mouse
 button</term>
 <listitem>
 <para>By using this combination, you can resize the selection
@@ -173,7 +169,7 @@ is kept constant and the bottom-right corner is movable.</para>
 <para>&kmag; comes with lots of features. Its possible to print the zoomed
 image directly to a printer, save the image to a file, copy the zoomed
 image to the clipboard (which can be later used to paste in other applications),
-show different mouse cursors and more.
+rotate the magnification image and more.
 </para>
 
 </sect1>
@@ -194,6 +190,26 @@ button in &konqueror;), zoom-in, zoom-out &etc;</para>
 <entry><keycombo>&Ctrl;<keycap>S</keycap></keycombo></entry>
 <entry><para>This will save the contents of the zoom window to a
 file.</para>
+</entry>
+</row>
+<row>
+<entry><keycap>F1</keycap></entry>
+<entry><para>Switch to "Follow Mouse Mode".</para>
+</entry>
+</row>
+<row>
+<entry><keycap>F2</keycap></entry>
+<entry><para>Switch to "Selection Window Mode".</para>
+</entry>
+</row>
+<row>
+<entry><keycap>F3</keycap></entry>
+<entry><para>Switch to "Whole Screen Mode".</para>
+</entry>
+</row>
+<row>
+<entry><keycap>F4</keycap></entry>
+<entry><para>Show or hide the mouse cursor in the magnified image.</para>
 </entry>
 </row>
 <row>
@@ -229,7 +245,7 @@ clipboard.</para>
 
 </chapter>
 
-<!-- 
+<!--
 <chapter id="faq">
 <title>Questions and Answers</title>
 
