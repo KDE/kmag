@@ -8,21 +8,13 @@ kmag_LDADD   = -lkdeprint $(LIB_KDEUI) $(LIB_KDECORE) $(LIB_QT) $(LIBSOCKET)
 
 EXTRA_DIST = main.cpp version.h kmag.cpp kmag.h kmagui.rc kmag.desktop lo32-app-kmag.png lo16-app-kmag.png kmagselrect.cpp kmagselrect.h hi16-app-kmag.png kmagzoomview.cpp kmagzoomview.h 
 
-install-data-local:
-	$(mkinstalldirs) $(kde_appsdir)/Applications/
-	$(INSTALL_DATA) $(srcdir)/kmag.desktop $(kde_appsdir)/Applications/kmag.desktop
-	$(mkinstalldirs) $(kde_icondir)/locolor/32x32/apps/
-	$(INSTALL_DATA) $(srcdir)/lo32-app-kmag.png $(kde_icondir)/locolor/32x32/apps/kmag.png
-	$(mkinstalldirs) $(kde_icondir)/locolor/16x16/apps/
-	$(INSTALL_DATA) $(srcdir)/lo16-app-kmag.png $(kde_icondir)/locolor/16x16/apps/kmag.png
-	$(mkinstalldirs) $(kde_icondir)/hicolor/16x16/apps/
-	$(INSTALL_DATA) $(srcdir)/hi16-app-kmag.png $(kde_icondir)/hicolor/16x16/apps/kmag.png
-
 uninstall-local:
 	-rm -f $(kde_appsdir)/Applications/kmag.desktop
-	-rm -f $(kde_icondir)/locolor/32x32/apps/kmag.png
-	-rm -f $(kde_icondir)/locolor/16x16/apps/kmag.png
-	-rm -f $(kde_icondir)/hicolor/16x16/apps/kmag.png
+
+KDE_ICON = kmag 
+
+kmagdir = $(kde_appsdir)/Applications
+kmag_DATA = kmag.desktop
 
 # set the include path for X, qt and KDE
 INCLUDES= $(all_includes)
