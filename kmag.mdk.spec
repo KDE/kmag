@@ -1,5 +1,5 @@
 %define name kmag
-%define version 0.7
+%define version 0.8
 %define release 1
 
 Name: 		%{name}
@@ -13,7 +13,7 @@ URL:		http://kmag.sourceforge.net
 Packager:	Sarang Lakare <sarang@users.sf.net>
 Buildroot: 	%_tmppath/%{name}-%{version}-buildroot
 BuildRequires:  gcc-cpp db3 readline pam popt libtermcap2 zlib1 XFree86-devel XFree86-libs Mesa-common
-BuildRequires:  automake arts autoconf diffutils kdelibs file kdesupport-devel
+BuildRequires:  automake arts autoconf diffutils kdelibs file 
 BuildRequires:  m4 texinfo gettext libjpeg62-devel kdelibs-devel gcc-c++ libbinutils2 libbzip2_1
 BuildRequires:  db1 freetype2 libjpeg62 libmng1 libpng libqt2 libqt2-devel rpm-build
 
@@ -66,12 +66,17 @@ rm -rf $RPM_BUILD_ROOT
 %dir %_datadir/apps/kmag/
 %_datadir/apps/kmag/*.rc
 #
-%doc README NEWS COPYING AUTHORS
+#%doc README COPYING AUTHORS
 #%doc %_docdir/HTML/en/*.docbook
-#%doc %_docdir/HTML/en/kmag/*.docbook
+%doc %_docdir/HTML/en/kmag/*.docbook
+%doc %_docdir/HTML/en/kmag/images/*.png
 #%doc %_docdir/HTML/en/kmag/common
 
 %changelog
+* Sun Apr 21 2002 Sarang Lakare <sarang@users.sf.net> 0.8-1mdk
+- Rebuilding ver 0.8 for LM8.2/LM8.1
+- Added KDE documentation and removed GNU documentation
+
 * Tue Nov 20 2001 Sarang Lakare <sarang@users.sf.net> 0.6-1mdk
 - Rebuilding ver 0.6 for LM8.0
 
