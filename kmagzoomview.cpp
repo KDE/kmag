@@ -723,8 +723,9 @@ void KMagZoomView::fitToWindow()
 void KMagZoomView::grabFrame()
 {
   // check if kmag window is visible.. if not, don't use any CPU!
-  if(!isVisible())
+  if(topLevelWidget()->isMinimized() || !isVisible()) {
     return;
+  }
 
   // check if follow-mouse is enabled
   if(m_followMouse) {
