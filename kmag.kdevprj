@@ -16,8 +16,8 @@ type=DATA
 [Config for BinMakefileAm]
 addcxxflags=
 bin_program=kmag
-cxxflags= -O0 -g3 -Wall
-ldadd= -lkfile -lkdeui -lkdecore $(LIB_QT)
+cxxflags=-O0 -g3 -Wall
+ldadd=-lkfile -lkdeui -lkdecore $(LIB_QT)
 ldflags=
 [General]
 AMChanged=false
@@ -26,7 +26,7 @@ configure_args=--with-qt-dir=/usr/lib/qt2 --prefix=/usr
 email=sarang@users.sourceforge.net
 kdevprj_version=1.3
 lfv_open_groups=User Interface
-make_options= -j1
+make_options=-j1
 makefiles=Makefile.am,kmag/Makefile.am,doc/Makefile.am,doc/en/Makefile.am,po/Makefile.am
 modifyMakefiles=true
 project_name=Kmag
@@ -73,10 +73,10 @@ install=false
 install_location=
 type=DATA
 [Workspace_1]
-browser_file=file:/home/lsarang/oss/kmag/kmag//doc/en/HTML/index.html
-cpp_file=/home/lsarang/oss/kmag/kmag/kmag/main.cpp
-header_file=/home/lsarang/oss/kmag/kmag/doc/en/index.docbook
-openfiles=Untitled.h,Untitled.cpp,/home/lsarang/oss/kmag/kmag/kmag/kmag.h,/home/lsarang/oss/kmag/kmag/kmag/main.cpp,/home/lsarang/oss/kmag/kmag/AUTHORS,/home/lsarang/oss/kmag/kmag/doc/en/HTML/commands.html,/home/lsarang/oss/kmag/kmag/doc/en/HTML/using-kapp.html,/home/lsarang/oss/kmag/kmag/doc/en/index.docbook
+browser_file=file:/usr/share/doc/HTML/default/kdevelop/tutorial/index.html
+cpp_file=/home/lsarang/oss/kmag/kmag/main.cpp
+header_file=/home/lsarang/oss/kmag/README
+openfiles=Untitled.h,Untitled.cpp,/home/lsarang/oss/kmag/kmag/kmag.h,/home/lsarang/oss/kmag/kmag/main.cpp,/home/lsarang/oss/kmag/INSTALL,/home/lsarang/oss/kmag/kmag.lsm,/home/lsarang/oss/kmag/README
 show_outputview=true
 show_treeview=true
 [doc/Makefile.am]
