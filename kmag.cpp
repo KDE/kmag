@@ -1,3 +1,4 @@
+//$Id$
 /***************************************************************************
                           kmag.cpp  -  description
                              -------------------
@@ -38,7 +39,7 @@
 
 #define ID_STATUS_MSG 1
 
-KmagApp::KmagApp(QWidget* , const char* name):KMainWindow(0, name)
+KmagApp::KmagApp(QWidget* , const char* name):KMainWindow(0, name, WStyle_MinMax | WType_TopLevel | WDestructiveClose | WStyle_ContextHelp | WStyle_StaysOnTop)
 {
   config=kapp->config();
 
@@ -71,33 +72,37 @@ void KmagApp::initActions()
   filePrint = KStdAction::print(this, SLOT(slotFilePrint()), actionCollection());
   fileQuit = KStdAction::quit(this, SLOT(slotFileQuit()), actionCollection());
   editCopy = KStdAction::copy(this, SLOT(slotEditCopy()), actionCollection());
-  zoomIn = KStdAction::zoomIn(view, SLOT(slotZoomIn()), actionCollection());
-	zoomOut = KStdAction::zoomOut(view, SLOT(slotZoomOut()), actionCollection());
-	KStdAction::whatsThis();
-	refreshSwitch = KStdAction::zoom(this, SLOT(slotToggleRefresh()), actionCollection());
+  zoomIn = KStdAction::zoomIn(this, SLOT(slotZoomIn()), actionCollection());
+  zoomOut = KStdAction::zoomOut(this, SLOT(slotZoomOut()), actionCollection());
+  refreshSwitch = KStdAction::zoom(this, SLOT(slotToggleRefresh()), actionCollection());
   viewToolBar = KStdAction::showToolbar(this, SLOT(slotViewToolBar()), actionCollection());
   viewStatusBar = KStdAction::showStatusbar(this, SLOT(slotViewStatusBar()), actionCollection());
 
   fileNewWindow->setStatusText(i18n("Opens a new application window"));
-  filePrint ->setStatusText(i18n("Prints out the actual document"));
+  filePrint ->setStatusText(i18n("Print the contents [in future!]"));
   fileQuit->setStatusText(i18n("Quits the application"));
-  editCopy->setStatusText(i18n("Copies the selected section to the clipboard"));
+  editCopy->setStatusText(i18n("Copies the magnified contents to the clipboard [in future!]"));
   viewToolBar->setStatusText(i18n("Enables/disables the toolbar"));
   viewStatusBar->setStatusText(i18n("Enables/disables the statusbar"));
 
   refreshSwitch->setIcon("stop.png");
+  refreshSwitch->setText(i18n("Stop Update"));
   refreshSwitch->setToolTip(i18n("Click to stop window refresh"));
-  refreshSwitch->setWhatsThis(i18n("Clicking on this icon will start/stop updating of the\
-  display. Stopping the update will zero the processing power required(CPU usage)."));
+  refreshSwitch->setWhatsThis(i18n("Clicking on this icon will <b>start</b> / <b>stop</b>\
+  updating of the display. Stopping the update will zero the processing power\
+  required (CPU usage)."));
+
+  zoomIn->setWhatsThis(i18n("Click on this button to <b>zoom-in</b> on the selected region."));
+  zoomOut->setWhatsThis(i18n("Click on this button to <b>zoom-out</b> on the selected region."));
 
   // use the absolute path to your kmagui.rc file for testing purpose in createGUI();
   createGUI();
-	// add zoomIn and zoomOut to the toolbar
-	zoomIn->plug(toolBar());
-	zoomOut->plug(toolBar());
+  // add zoomIn and zoomOut to the toolbar
+  zoomIn->plug(toolBar());
+  zoomOut->plug(toolBar());
   // create toolbar with the slider
   //m_zoomSlider = new KIntNumInput(2, toolBar(0), 10, "Zoom");
- // m_zoomSlider->setFixedWidth(256);
+  //m_zoomSlider->setFixedWidth(256);
   //m_zoomSlider->setRange(1, 16, 1, true);
   //m_zoomSlider->setLabel(QString("Zoom"), AlignLeft | AlignVCenter);
   //toolBar("mainToolBar")->insertWidget(0, m_zoomSlider->sizeHint().width(), m_zoomSlider);
@@ -251,17 +256,51 @@ bool KmagApp::queryExit()
 // SLOT IMPLEMENTATION
 /////////////////////////////////////////////////////////////////////
 
+void KmagApp::slotZoomIn()
+{
+  view->slotZoomIn();
+
+  if(!view->zoomInOk()) {
+    // meaning that no more zooming-in is possible
+    // -> disable zoom-in icon
+    zoomIn->setEnabled(false);
+  }
+
+  // check if zoomOut icon was disabled.. enable it
+  if(!zoomOut->isEnabled())
+    zoomOut->setEnabled(true);
+
+}
+
+void KmagApp::slotZoomOut()
+{
+  view->slotZoomOut();
+
+  if(!view->zoomOutOk()) {
+    // meaning that no more zooming-in is possible
+    // -> disable zoom-in icon
+    zoomOut->setEnabled(false);
+  }
+
+  // check if zoomIn icon was disabled.. enable it
+  if(!zoomIn->isEnabled())
+    zoomIn->setEnabled(true);
+}
+
+
 void KmagApp::slotToggleRefresh()
 {
   view->toggleRefresh();
   if(view->getRefreshStatus()) {
     refreshSwitch->setIcon("stop.png");
-    refreshSwitch->setToolTip(i18n("Click to stop window refresh"));
+    refreshSwitch->setText(i18n("Stop Update"));
+    refreshSwitch->setToolTip(i18n("Click to stop window update"));
     slotStatusMsg(i18n("Ready."));
   } else {
     refreshSwitch->setIcon("reload.png");
-    refreshSwitch->setToolTip(i18n("Click to start window refresh"));
-    slotStatusMsg(i18n("Window refresh stopped."));
+    refreshSwitch->setText(i18n("Start Update"));
+    refreshSwitch->setToolTip(i18n("Click to start window update"));
+    slotStatusMsg(i18n("Window update stopped."));
   }
 }
 

@@ -1,3 +1,5 @@
+//$Id$
+
 /***************************************************************************
                           main.cpp  -  description
                              -------------------
@@ -37,11 +39,11 @@ static KCmdLineOptions options[] =
 int main(int argc, char *argv[])
 {
 	// about the application
-  KAboutData *aboutData = new KAboutData("kmag", I18N_NOOP("K Magnifier"), "0.4",
+  KAboutData *aboutData = new KAboutData("kmag", I18N_NOOP("K Magnifier"), "0.4+",
                                          I18N_NOOP("Screen Magnifier for KDE2"),
                                          KAboutData::License_GPL,
                                          "(C) 2001, Sarang Lakare","",
-                                         "http://www.cs.sunysb.edu/~lsarang");
+                                         "http://kmag.sourceforge.net");
 
   // about the authors
   aboutData->addAuthor("Sarang Lakare",
@@ -50,7 +52,7 @@ int main(int argc, char *argv[])
 	aboutData->addAuthor("Claudiu Costin", "Performance, usability", "claudiuc@work.ro",
                        "http://www.ro.kde.org");
   aboutData->addAuthor("Santanu Chaudhari",
-                       "Current Maintainer","sachaudh@ic..sunysb.edu", NULL);
+                       "Current Maintainer","sachaudh@ic.sunysb.edu", NULL);
   aboutData->addAuthor("Michael Forster",
                        "Original Idea & Author (KDE1)", "forster@fmi.uni-passau.de");
 

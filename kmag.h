@@ -1,3 +1,4 @@
+//$Id$
 /***************************************************************************
                           kmag.h  -  description
                              -------------------
@@ -139,6 +140,10 @@ class KmagApp : public KMainWindow
     void slotStatusMsg(const QString &text);
     /// Toggle the refreshing of the window
     void slotToggleRefresh();
+
+    void slotZoomIn();
+
+    void slotZoomOut();
 
   private:
     /** the configuration object of the application */
