@@ -109,26 +109,26 @@ as the <quote>selection window</quote>.
 You can use &kmag; to magnify the same part of the screen all the time, or you can let &kmag;
 magnify the region around the mouse cursor (think of it as a moving lens). The default mode
 of operation is the former. To see the marking of the part of the screen that is being
-magnified, you can select <guilabel>Selection window</guilabel>. It is
-always better to turn <guilabel>Selection window</guilabel> off once
+magnified, you can select <guilabel>Selection Window</guilabel>. It is
+always better to turn <guilabel>Selection Window</guilabel> off once
 you know the placement of the selection window.
 
 </para>
 <para>
-To magnify the contents around the mouse cursor, select <guilabel>Follow mouse</guilabel>. Now
+To magnify the contents around the mouse cursor, select <guilabel>Follow Mouse</guilabel>. Now
 as you move the mouse, you will see that the screen around the mouse cursor
 is magnified and shown in the magnifier window.
 </para>
 <para>
-If you would prefer not to see the mouse cursor in the zoomed image, de-select
-<guilabel>Mouse cursor</guilabel>. Please note that &kmag; cannot yet find out the current cursor shape.
+If you would prefer not to see the mouse cursor in the zoomed image, select
+<guilabel>Hide Mouse Cursor</guilabel>. Please note that &kmag; cannot yet find out the current cursor shape.
 Thus, it shows the default &kde;/&Qt; cursor.
 </para>
 
 <sect1 id="changing-selection-window">
 <title>Changing the part of the screen to be magnified</title>
 <para>
-When not in <guilabel>Follow mouse</guilabel> mode, the selection window can be changed as needed. The selection
+When not in <guilabel>Follow Mouse</guilabel> mode, the selection window can be changed as needed. The selection
 window can be moved or resized.
 This can be done using the mouse in the following way:
 </para>
@@ -229,17 +229,6 @@ clipboard.</para>
 
 </chapter>
 
-<chapter id="developers">
-<title>Developer's Guide to &kmag;</title>
-
-<para>
-You are welcome to contribute to &kmag; in any way you want. Please
-join the kmag-devel mailing list at kmag-devel@lists.sf.net. For more
-info please visit <ulink url="http://kmag.sf.net">http://kmag.sf.net</ulink>.
-</para>
-
-</chapter>
-
 <!-- 
 <chapter id="faq">
 <title>Questions and Answers</title>
@@ -267,7 +256,14 @@ distribution. -->
 &kmag;
 </para>
 <para>
-Program copyright 2002 Sarang Lakare <email>sarang@users.sf.net</email>
+Program copyright 2001-2003 Sarang Lakare <email>sarang@users.sf.net</email>
+</para>
+<para>
+Contributors:
+<itemizedlist>
+<listitem><para>Michael Forster <email>forster@fmi.uni-passau.de</email> (original author)</para></listitem>
+<listitem><para>Olaf Schmidt <email>ojschmidt@kde.org</email></para></listitem>
+</itemizedlist>
 </para>
 
 
@@ -288,29 +284,14 @@ Documentation copyright 2002 Sarang Lakare <email>sarang@users.sf.net</email>
 <sect1 id="getting-kmag">
 <title>How to obtain &kmag;</title>
 
-<para>
-You can always access the latest version of &kmag; in both source and binary (executable) form at
-the &kmag; web site:
-<ulink url="http://kmag.sf.net">http://kmag.sf.net</ulink>.
-</para>
+&install.intro.documentation;
+
 </sect1>
 
-<sect1 id="requirements">
-<title>Requirements</title>
+<sect1 id="compilation">
+<title>Compilation and Installation</title>
 
-<para>
-&kmag; requires you to have &kde; installed on your system. More specifically, &kmag;
-requires the kdebase and the kdelibs package from &kde;. Until version 0.7,
-&kmag; was being developed on &kde; version 2.x. Since then, it is developed using
-&kde; 3.x. Version 0.8 of &kmag; compiles on both &kde; 2 and &kde;3. Efforts will be made
-to keep &kmag; compilable on &kde; 2, but there is no guarantee. You are welcome to
-maintain the backport. Other than these, there
-are no other requirements for &kmag;.</para>
-
-<para>You can use &kmag; with other desktop environments such as
-GNOME, windowmaker &etc;. as long as you have kdebase and kdelibs
-installed.</para>
-
+&install.compile.documentation;
 
 </sect1>
 
