@@ -73,7 +73,7 @@ static uchar phand_bits[] = {
 
 KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
   : QFrame(parent, name),
-    m_selRect(0, 0, 128, 128),
+    m_selRect(0, 0, 128, 128, this),
     m_grabTimer(parent),
     m_mouseViewTimer(parent),
     m_latestCursorPos(0,0),
@@ -86,7 +86,7 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
   setMouseTracking(TRUE);
   setFrameStyle(QFrame::WinPanel | QFrame::Sunken);
   setLineWidth(0);
-  setBackgroundColor(QColor("grey"));
+  setBackgroundMode (NoBackground);
   setFocusPolicy(QWidget::StrongFocus);
   
   // init the zoom matrix
@@ -202,11 +202,19 @@ void KMagZoomView::paintViewImage(QPaintDevice *dev, bool updateMousePos)
   // get a rectangle centered inside the frame
   QRect pRect(pixmapRect());
 
-  // get rectangular area that needs to be repainted
-  //QRect uRect(e->rect());
-
   // get the rectangle inside the frame
   QRect wRect(contentsRect());
+
+  // Paint empty areas black
+  QPainter pa (dev);
+  if (pRect.x() > 0) {
+    pa.fillRect (0,0,pRect.x(),wRect.height(), Qt::black);
+    pa.fillRect (pRect.x()+pRect.width(),0,wRect.width()-pRect.width()-pRect.x(),wRect.height(), Qt::black);
+  }
+  if (pRect.y() > 0) {
+    pa.fillRect (0,0,wRect.width(),pRect.y(), Qt::black);
+    pa.fillRect (0,pRect.y()+pRect.height(),wRect.width(),wRect.height()-pRect.height()-pRect.y(), Qt::black);
+  }
 
   // A pixmap which will be eventually displayed
   QPixmap *zoomView;
@@ -226,93 +234,48 @@ void KMagZoomView::paintViewImage(QPaintDevice *dev, bool updateMousePos)
     zoomView = &m_grabbedZoomedPixmap;
   }
 
-  if(m_grabbedZoomedPixmap.width() < wRect.width() &&
-     m_grabbedZoomedPixmap.height() < wRect.height()) {
-    // zoomed image is smaller than the display area
-    // there is a need to clear the window first
-    // a paint area that is to be painted on
-    QPixmap paintArea(wRect.size());
-    QPainter pa(&paintArea);
+  int width = m_grabbedZoomedPixmap.width();
+  int height = m_grabbedZoomedPixmap.height();
+  int xdiff = width - wRect.width();
+  int ydiff = height - wRect.height();
 
-    pa.setBackgroundColor(Qt::black);
-  
-    // clear the paint area
-    pa.eraseRect(paintArea.rect());
+  // set the (x,y) of start of the part of zoom image to display
+  // and the w,h of the part to display
+  if(xdiff >= 0) {
+    // center the shown part of image to the mouse position
+    xdiff = mousePos.x() - (int)(wRect.width()/2.0);
+    // Is the mouse at the border of the part?
+    if (xdiff < 0)
+      xdiff = 0;
+    else if (xdiff + wRect.width() > width)
+      xdiff = width - wRect.width();
 
-    // draw the pixmap on the paint area
-    bitBlt(&paintArea, pRect.x(), pRect.y(), zoomView);
+    width = wRect.width();
+  }
+  else
+    xdiff = 0;
 
-    // bitBlt the paintArea pixmap on the widget  
-    bitBlt(dev, QPoint(0,0), &paintArea);
-  } else {
-    int width = m_grabbedZoomedPixmap.width();
-    int height = m_grabbedZoomedPixmap.height();
-    int xdiff = width - wRect.width();
-    int ydiff = height - wRect.height();
+  if(ydiff >= 0) {
+    // center the shown part of image to the mouse position
+    ydiff = mousePos.y() - (int)(wRect.height()/2.0);
+    // Is the mouse at the border of the part?
+    if (ydiff < 0)
+      ydiff = 0;
+    else if (ydiff + wRect.height() > height)
+      ydiff = height - wRect.height();
 
-    // set the (x,y) of start of the part of zoom image to display
-    // and the w,h of the part to display
-    if(xdiff >= 0) {
-      // center the shown part of image to the mouse position
-      xdiff = mousePos.x() - (int)(wRect.width()/2.0);
-      // Is the mouse at the border of the part?
-      if (xdiff < 0)
-        xdiff = 0;
-      else if (xdiff + wRect.width() > width)
-        xdiff = width - wRect.width();
+    height = wRect.height();
+  }
+  else
+    ydiff = 0;
 
-      width = wRect.width();
-    }
+  // The rect corr. to the part of zoom view whish should be shown
+  QRect srcRect(xdiff, ydiff, width, height);
 
-    if(ydiff >= 0) {
-      // center the shown part of image to the mouse position
-      ydiff = mousePos.y() - (int)(wRect.height()/2.0);
-      // Is the mouse at the border of the part?
-      if (ydiff < 0)
-        ydiff = 0;
-      else if (ydiff + wRect.height() > height)
-        ydiff = height - wRect.height();
+  // bitBlt this part on to the widget.
+  bitBlt(dev, QPoint(pRect.x(), pRect.y()), zoomView, srcRect);
 
-      height = wRect.height();
-    }
-
-    if(xdiff < 0 || ydiff < 0) {
-      // only one of the sides is larger than the display area
-      if(xdiff < 0)
-        xdiff = 0;
-      else
-        ydiff = 0;
-
-      // there is a need to clear the window first
-      // a paint area that is to be painted on
-      QPixmap paintArea(wRect.size());
-      QPainter pa(&paintArea);
-
-      pa.setBackgroundColor(Qt::black);
-    
-      // clear the paint area
-      pa.eraseRect(paintArea.rect());
-
-      // The rect corr. to the part of zoom view whish should be shown
-      QRect srcRect(xdiff, ydiff, width, height);
-
-      // bitBlt zoom view onto the paint area
-      bitBlt(&paintArea, QPoint(pRect.x(), pRect.y()), zoomView, srcRect);
-
-      // bitBlt the paintArea pixmap on the widget  
-      bitBlt(dev, QPoint(0,0), &paintArea);
-    } else { // the zoom image is larger than the display    
-      // The rect corr. to the part of zoom view whish should be shown
-      QRect srcRect(xdiff, ydiff, width, height);
-
-      // bitBlt this part on to the widget.
-      bitBlt(dev, QPoint(0,0), zoomView, srcRect);
-    } //if(xdiff < 0 || ydiff < 0)
-
-  } //if-else(xdiff < 0 && ydiff <0)   
-
-
-  if(zoomView != &m_grabbedZoomedPixmap)  
+  if(zoomView != &m_grabbedZoomedPixmap)
     delete zoomView;
 }
 
@@ -352,7 +315,7 @@ void KMagZoomView::paintMouseCursor(QPaintDevice *dev, QPoint mousePos)
       QBitmap mask( 16, 16, left_ptrmsk_bits, TRUE );
       sCursor.setMask(mask);
       sCursor = sCursor.xForm(m_zoomMatrix);
-                
+
       // since hot spot is at 3,1
       pz.drawPixmap(mousePos.x()-(int)(3.0*m_zoom), mousePos.y()-(int)m_zoom, sCursor);
     }
@@ -377,7 +340,7 @@ void KMagZoomView::paintMouseCursor(QPaintDevice *dev, QPoint mousePos)
           QBitmap mask( 16, 16, left_ptrmsk_bits, TRUE );
           sCursor.setMask(mask);
           sCursor = sCursor.xForm(m_zoomMatrix);
-                    
+
           // since hot spot is at 3,1
           pz.drawPixmap(mousePos.x()-(int)(3.0*m_zoom), mousePos.y()-(int)m_zoom, sCursor);
         }
@@ -386,7 +349,7 @@ void KMagZoomView::paintMouseCursor(QPaintDevice *dev, QPoint mousePos)
           QBitmap sCursor( 32, 32, phand_bits, TRUE );
           QBitmap mask( 32, 32, phandm_bits, TRUE );
           sCursor.setMask(mask);
-                    
+
           pz.drawPixmap(mousePos.x(), mousePos.y(), sCursor);
         break;
       } // switch(cursor)
@@ -805,10 +768,12 @@ void KMagZoomView::grabFrame()
     } else if(newCenter.y() >=  QApplication::desktop()->height()-m_selRect.height()/2) {
       // set Y to the maximum possible Y
       newCenter.setY(QApplication::desktop()->height()-m_selRect.height()/2-1);
-    }              
+    }
     // move to the new center
     m_selRect.moveCenter(newCenter);
 
+    // update the grab rectangle display
+    m_selRect.update();
   }
 
   //QRect r = pixmapRect();
@@ -825,9 +790,6 @@ void KMagZoomView::grabFrame()
 
   // call repaint to display the newly grabbed image
   repaint(false);
-
-  // update the grab rectangle display
-  m_selRect.update();
 }
 
 

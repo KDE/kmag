@@ -31,6 +31,22 @@
 // Min function
 #define min(a,b) ((a) < (b) ? (a) : (b))
 
+class KMagSelWin : public QWidget
+{
+    Q_OBJECT
+
+public:
+    
+    KMagSelWin ( QWidget * parent = 0, const char * name = 0, WFlags f = 0 );
+
+    virtual ~KMagSelWin();
+
+protected:
+    
+    virtual void windowActivationChange ( bool oldActive );
+    virtual void closeEvent ( QCloseEvent * e );
+};
+
 /**
  * This class stores the selected rectangular area for grabbing. It also displays the
  * rectangular area on demand.
@@ -76,12 +92,9 @@ signals:
 protected:
 
     void init(QWidget *);
-    void paint(const QRect &);
 
-    GC gc;
-    QWidget *parent;
-    bool isVisible;
-    QRect old;
+    QWidget *selWindowParent;
+    KMagSelWin *selectionwindow;
     bool m_alwaysVisible;
 
 };

@@ -16,9 +16,14 @@
 
 #include "kmagselrect.h"
 
+#include "qpixmap.h"
+#include "qbitmap.h"
+
 //--------------------------------------------------------------------------
 //   Construction
 //--------------------------------------------------------------------------
+
+static uchar line_bits[] = {0x2d, 0x96, 0x4b, 0xa5, 0xd2, 0x69, 0xb4, 0x5a};
 
 KMagSelRect::KMagSelRect(QWidget *parent) :
   QRect()
@@ -47,36 +52,21 @@ QRect(left, top, width, height)
   init(parent);
 }
 
-void KMagSelRect::init(QWidget *_parent)
+void KMagSelRect::init(QWidget *parent)
 {
-  parent = _parent ? _parent : QApplication::desktop();
+  // Make sure parent is the window itself, not a widget within the window
+  if (parent != 0)
+    while (parent->parentWidget (true) != 0)
+      parent=parent->parentWidget (true);
 
-  isVisible = false;
-
-  // partially stolen from KWM - thanx :-)
-
-  Display *dpy = parent->x11Display();
-
-  XGCValues gv;
-
-  gv.function = GXxor;
-  gv.line_width = 0;
-  gv.foreground =
-  WhitePixel(dpy, DefaultScreen(dpy)) ^
-  BlackPixel(dpy, DefaultScreen(dpy));
-
-  gv.subwindow_mode = IncludeInferiors;
-
-  gc = XCreateGC(dpy, parent->winId(),
-                 GCForeground | GCFunction | GCLineWidth | GCSubwindowMode,
-                 &gv);
+  selectionwindow = 0;
+  selWindowParent = parent;
 
   m_alwaysVisible = false;
 }
 
 KMagSelRect::~KMagSelRect()
 {
-  XFreeGC(parent->x11Display(), gc);
 }
 
 //--------------------------------------------------------------------------
@@ -85,7 +75,7 @@ KMagSelRect::~KMagSelRect()
 
 bool KMagSelRect::visible()
 {
-  return (isVisible);
+  return (selectionwindow != 0);
 }
 
 void KMagSelRect::alwaysVisible(bool visible)
@@ -100,10 +90,12 @@ void KMagSelRect::alwaysVisible(bool visible)
 
 void KMagSelRect::show()
 {
-  if ( !isVisible ) {
-    isVisible = true;
-    paint(*this);
-    old = *this;
+  if (selectionwindow == 0) {
+    selectionwindow = new KMagSelWin (selWindowParent, "selectionwindow", WStyle_Customize | WStyle_NoBorder | WStyle_Tool | WType_TopLevel | WDestructiveClose);
+    QBitmap line (8, 8, line_bits, true);
+    selectionwindow->setPaletteBackgroundPixmap (line);
+    update();
+    selectionwindow->show();
   }
 }
 
@@ -111,32 +103,50 @@ void KMagSelRect::hide()
 {
   if(m_alwaysVisible)
     return;
-  if ( isVisible ) {
-    isVisible = false;
-    paint(*this);
+  if (selectionwindow != 0) {
+    selectionwindow->hide();
+    delete selectionwindow;
+    selectionwindow = 0;
   }
 }
 
 void KMagSelRect::update()
 {
-  if ( isVisible ) {
-    paint(old);
-    paint(*this);
-    old = *this;
+  if (selectionwindow != 0) {
+    QRect normRect = this->normalize();
+    QRect geometry (min(normRect.left(), normRect.right()) - 2,
+                    min(normRect.top(), normRect.bottom()) - 2,
+                    abs(normRect.width()) + 4,
+                    abs(normRect.height()) + 4);
+    selectionwindow->setGeometry (geometry);
+
+    normRect.moveTopLeft (QPoint (2,2));
+    geometry.moveTopLeft (QPoint (0,0));
+    selectionwindow->setMask (QRegion (geometry) - QRegion (normRect));
   }
   emit updated();
 }
 
-void KMagSelRect::paint(const QRect &rect)
+//--------------------------------------------------------------------------
+//   KMagSelWin
+//--------------------------------------------------------------------------
+
+KMagSelWin::KMagSelWin ( QWidget * parent, const char * name, WFlags f ) :
+    QWidget (parent, name, f)
 {
-  QRect normRect = rect.normalize();
+}
 
-  //QCursor::setPos(rect.center());
+KMagSelWin::~KMagSelWin()
+{
+}
 
-  XDrawRectangle(parent->x11Display(),
-                 parent->winId(), gc,
-                 min(normRect.left(), normRect.right()) - 1,
-                 min(normRect.top(), normRect.bottom()) - 1,
-                 abs(normRect.width()) + 1,
-                 abs(normRect.height()) + 1);
+void KMagSelWin::windowActivationChange ( bool )
+{
+  if (isActiveWindow())
+    parentWidget ()->setActiveWindow();
+}
+
+void KMagSelWin::closeEvent ( QCloseEvent * e )
+{
+  e->ignore();
 }
