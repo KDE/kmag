@@ -485,7 +485,7 @@ void KmagApp::saveZoomPixmap()
 
   KURL url = KFileDialog::getSaveURL(QString::null,
               KImageIO::pattern(KImageIO::Writing),
-             0,i18n("Save Zoomed Region"));
+             0,i18n("Save Snapshot As"));
 
   if(!url.filename().isEmpty()) {
     if(!url.isLocalFile()) {
