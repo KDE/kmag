@@ -145,7 +145,7 @@ void KMagZoomView::followMouse(bool follow)
  *
  * @param p
  */
-void KMagZoomView::paintEvent(QPaintEvent *e)
+void KMagZoomView::paintEvent(QPaintEvent *)
 {
 	if(m_grabbedZoomedPixmap.isNull())
 		return;
@@ -667,8 +667,9 @@ void KMagZoomView::focusOutEvent(QFocusEvent *e)
  */
 void KMagZoomView::fitToWindow()
 {
-	unsigned int newWidth = this->width()/this->m_zoom;
-	unsigned int newHeight = this->height()/this->m_zoom;
+    // this is a temporary solution, cast, mabye newWidth and newHeight should be float
+	unsigned int newWidth = static_cast<unsigned int>(this->width()/this->m_zoom);
+	unsigned int newHeight = static_cast<unsigned int>(this->height()/this->m_zoom);
 
 	QPoint currCenter = m_selRect.center();
 

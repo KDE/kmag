@@ -28,11 +28,12 @@
 
 KmagApp *kmagapp;
 
-static const char *description =
-	I18N_NOOP("Kmag");
+// Not needed, not used.
+//static const char *description =
+//	I18N_NOOP("Kmag");
 // INSERT A DESCRIPTION FOR YOUR APPLICATION HERE
-	
-	
+
+
 static KCmdLineOptions options[] =
 {
   { "+[File]", I18N_NOOP("File to open"), 0 },
