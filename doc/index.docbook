@@ -5,44 +5,15 @@
   <!ENTITY package "kdeaccessibility">
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE"><!-- change language only here -->
-  
-  
-  <!-- Do not define any other entities; instead, use the entities
-       from kde-genent.entities and $LANG/user.entities. -->
 ]>
-<!-- kdoctemplate v0.8 October 1 1999 
-     Minor update to "Credits and Licenses" section on August 24, 2000
-     Removed "Revision history" section on 22 January 2001   -->
-
-<!--
-This template was designed by: David Rugge davidrugge@mindspring.com
-with lots of help from: Eric Bischoff ebisch@cybercable.tm.fr
-and Frederik Fouvry fouvry@sfs.nphil.uni-tuebingen.de
-of the KDE DocBook team.
-
-You may freely use this template for writing any sort of KDE documentation.
-If you have any changes or improvements, please let us know.
-
-In the future, we may want to change from SGML-based DocBook to XML-based
-DocBook. To make this change easier, please be careful :
-- in XML, the case of the <tags> and attributes is relevant ;
-- also, quote all attributes.
-
-Please don't forget to remove all these comments in your final documentation,
-thanks ;-).
--->
-
-<!-- ................................................................ -->
 
 <!-- The language must NOT be changed here. -->
 
 <book lang="&language;">
 
-<!-- This header contains all of the meta-information for the document such
-as Authors, publish date, the abstract, and Keywords -->
 
 <bookinfo>
-<title>The K Magnifier Handbook</title>
+<title>The &kmag; Handbook</title>
 
 <authorgroup>
 <author>
@@ -61,19 +32,12 @@ as Authors, publish date, the abstract, and Keywords -->
 <year>2002</year>
 <holder>Sarang Lakare</holder>
 </copyright>
-<!-- Translators: put here the copyright notice of the translation -->
-<!-- Put here the FDL notice.  Read the explanation in fdl-notice.docbook 
-     and in the FDL itself on how to use it. -->
+
 <legalnotice>&FDLNotice;</legalnotice>
 
-<!-- Date and version information of the documentation
-Don't forget to include this last date and this last revision number, we
-need them for translation coordination !
-Please respect the format of the date (DD/MM/YYYY) and of the version
-(V.MM.LL), it could be used by automation scripts.
-Do NOT change these in the translation. -->
 
-<date>20/04/2002</date>
+
+<date>2002-04-02</date>
 <releaseinfo>0.20.00</releaseinfo>
 
 <!-- Abstract about this handbook -->
@@ -90,10 +54,6 @@ low vision. This document will try to be a complete reference manual for using
 
 </abstract>
 
-<!-- This is a set of Keywords for indexing by search engines.
-Please at least include KDE, the KDE package it is in, the name
- of your application, and a few relevant keywords. -->
-
 <keywordset>
 <keyword>KDE</keyword>
 <keyword>kmag</keyword>
@@ -102,32 +62,18 @@ Please at least include KDE, the KDE package it is in, the name
 
 </bookinfo>
 
-<!-- The contents of the documentation begin here.  Label
-each chapter so with the id attribute. This is necessary for two reasons: it
-allows you to easily reference the chapter from other chapters of your
-document, and if there is no ID, the name of the generated HTML files will vary
-from time to time making it hard to manage for maintainers and for the CVS
-system. Any chapter labelled (OPTIONAL) may be left out at the author's
-discretion. Other chapters should not be left out in order to maintain a
-consistent documentation style across all KDE apps. -->
-
 <chapter id="introduction">
 <title>Introduction</title>
 
-<!-- The introduction chapter contains a brief introduction for the
-application that explains what it does and where to report
-problems. Basically a long version of the abstract.  Don't include a
-revision history. (see installation appendix comment) -->
-
 <para>
-&kmag; is a screen magnifier for the K Desktop Environment (KDE). It can be used
+&kmag; is a screen magnifier for the K Desktop Environment (&kde;). It can be used
 to magnify a part of the screen. This application can be useful to various people:
 People with low vision can use this application to magnify a part of the screen which they
 are unable to view clearly,
 artists can use this application to zoom into the graphics they produce and verify it
 at the pixel level,
 image-processing researchers can use this application to zoom into images and study them closely.
-Other than these, &kmag; can be used for various other purposes. For e.g., it is possible to use the
+Other than these, &kmag; can be used for various other purposes &eg; is possible to use the
 application for grabbing a portion of the screen and saving it to the disk (with an option of
 zooming the screen captured).
 </para>
@@ -138,16 +84,7 @@ for use on low processing power machines.
 </chapter>
 
 <chapter id="using-kmag">
-<title>Using K Magnifier</title>
-
-<!-- This chapter should tell the user how to use your app. You should use as
-many sections (Chapter, Sect1, Sect3, etc...) as is necessary to fully document
-your application. -->
-
-<para>
-
-<!-- Note that all graphics should be in .png format. Use no gifs because of
-patent issues. -->
+<title>Using &kmag;</title>
 
 <screenshot>
 <screeninfo>Here's a screenshot of &kmag; (version 0.7)</screeninfo>
@@ -160,85 +97,84 @@ patent issues. -->
 	  </textobject>
 	</mediaobject>
 </screenshot>
-</para>
 
 <para>
 After running &kmag; you will get a window similar to the one show above. The main window of
 &kmag; shows the magnified (or zoomed) contents.
-We refer to this window as the "zoom window". The zoomed image shown inside the zoom window is
+We refer to this window as the <quote>zoom window</quote>. The zoomed image shown inside the zoom window is
 captured from a part of the screen. The part of the screen which is magnified is referred to
-as the "selection window".
+as the <quote>selection window</quote>.
 </para>
 <para>
 You can use &kmag; to magnify the same part of the screen all the time, or you can let &kmag;
 magnify the region around the mouse cursor (think of it as a moving lens). The default mode
 of operation is the former. To see the marking of the part of the screen that is being
-magnified, you can select "show selected area". It is always better to turn "show seleted area"
-off once you know the placement of the selection window.
+magnified, you can select <guilabel>Selection window</guilabel>. It is
+always better to turn <guilabel>Selection window</guilabel> off once
+you know the placement of the selection window.
+
 </para>
 <para>
-To magnify the contents around the mouse cursor, select "follow mouse". Now
+To magnify the contents around the mouse cursor, select <guilabel>Follow mouse</guilabel>. Now
 as you move the mouse, you will see that the screen around the mouse cursor
 is magnified and shown in the magnifier window.
 </para>
 <para>
 If you would prefer not to see the mouse cursor in the zoomed image, de-select
-"mouse cursor". Please note that &kmag; cannot yet find out the current cursor shape.
-Thus, it shows the default KDE/Qt cursor.
+<guilabel>Mouse cursor</guilabel>. Please note that &kmag; cannot yet find out the current cursor shape.
+Thus, it shows the default &kde;/&Qt; cursor.
 </para>
 
 <sect1 id="changing-selection-window">
 <title>Changing the part of the screen to be magnified</title>
 <para>
-When not in "follow mouse" mode, the selection window can be changed as needed. The selection
+When not in <guilabel>Follow mouse</guilabel> mode, the selection window can be changed as needed. The selection
 window can be moved or resized.
 This can be done using the mouse in the following way:
 </para>
-<para>
-<emphasis>Left Mouse Button : </emphasis> By keeping this mouse button pressed and moving the
-mouse, you can grab and
-drag the contents of the zoom window.
+
+<variablelist>
+<varlistentry>
+<term><mousebutton>Left</mousebutton> mouse button</term>
+<listitem>
+<para>By keeping this mouse button pressed and moving the
+mouse, you can grab and drag the contents of the zoom window.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><keycombo>&Shift;<mousebutton>Left</mousebutton></keycombo> or
+<mousebutton>Middle</mousebutton> mouse button.</term>
+<listitem>
+<para>By using this combination, you can change the position of the
+selection window on the screen. As soon as you use the above
+combination, you will see the current position of the selection
+window. You can now move the mouse to drag the selection window
+around. When you are satisfied with its position, just leave all the
+buttons that you had pressed.
 </para>
-<para>
-<emphasis>Shift Key + Left Mouse Button or Middle Mouse Button : </emphasis> By using this
-combination, you can change
-the position of the selection window on the screen. As soon as you use the above combination, you will
-see the current position of the selection window. You can now move the mouse to drag the
-selection window around. When you are satisfied with its position, just leave all the buttons that you
-had pressed.
-</para>
-<para>
-<emphasis>Control Key + Left Mouse Button : </emphasis> By using this combination, you can
-resize the selection window. Keep
-in mind that the top-left corner of the selection window is kept constant and the bottom-right corner
-is movable.
-</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><keycombo>&Ctrl;<mousebutton>Left</mousebutton></keycombo> mouse
+button</term>
+<listitem>
+<para>By using this combination, you can resize the selection
+window. Keep in mind that the top-left corner of the selection window
+is kept constant and the bottom-right corner is movable.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
 </sect1>
 
 <sect1 id="kmag-features">
 <title>More &kmag; features</title>
 
-<para>&kmag; comes with lots of features. Its possible to "print" the zoomed
-image directly to a printer, "save" the image to a file, "copy" the zoomed
+<para>&kmag; comes with lots of features. Its possible to print the zoomed
+image directly to a printer, save the image to a file, copy the zoomed
 image to the clipboard (which can be later used to paste in other applications),
-show different mouse cursors etc.
+show different mouse cursors and more.
 </para>
-
-<!--
-<para>
-The Squiggle Tool <guiicon><inlinemediaobject>
-	  <imageobject>
-	    <imagedata fileref="squiggle.png" format="PNG"/>
-	  </imageobject>
-	  <imageobject>
-	    <imagedata fileref="squiggle.eps" format="EPS"/>
-	  </imageobject>
-	  <textobject>
-	    <phrase>Squiggle</phrase>
-	  </textobject>
-</inlinemediaobject></guiicon> is used to draw squiggly lines all over
-the &kmag; main window. It's not a bug, it's a feature!
-</para> -->
 
 </sect1>
 </chapter>
@@ -246,56 +182,55 @@ the &kmag; main window. It's not a bug, it's a feature!
 <chapter id="commands">
 <title>Command Reference</title>
 
-<!-- (OPTIONAL, BUT RECOMMENDED) This chapter should list all of the
-application windows and their menubar and toolbar commands for easy reference.
-Also include any keys that have a special function but have no equivalent in the
-menus or toolbars. This may not be necessary for small apps or apps with no tool
-or menu bars. -->
+<para>&kmag; automatically uses all your default shortcuts for saving
+file, opening new window, printing, starting/stopping refresh (reload
+button in konqueror), zoom-in, zoom-out &etc;</para>
 
-<para>&kmag; automatically uses all your default shortcuts for saving file, opening new window, printing,
-starting/stoping refresh (reload button in konqueror), zoom-in, zoom-out etc.
-By default, the following shortcuts are used:
-</para>
+<table>
+<title>Default Keyboard Shortcuts</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry><keycombo>&Ctrl;<keycap>S</keycap></keycombo></entry>
+<entry><para>This will save the contents of the zoom window to a
+file.</para>
+</entry>
+</row>
+<row>
+<entry><keycap>F5</keycap></entry>
+<entry><para>This will start the refresh of the zoom window if it is
+stopped, or stops the refresh of the zoom window if the refresh is
+currently on.</para>
+</entry>
+</row>
+<row>
+<entry><keycombo>&Ctrl;<keycap>P</keycap></keycombo></entry>
+<entry><para>This will open the print dialog for printing the contents
+of the zoom window.</para></entry>
+</row>
+<row>
+<entry><keycombo>&Ctrl;<keycap>C</keycap></keycombo></entry>
+<entry><para>This will copy the zoom window contents to the
+clipboard.</para>
+</entry>
+</row>
+<row>
+<entry><keycombo>&Ctrl;<keycap>-</keycap></keycombo></entry>
+<entry><para>Zoom out</para></entry>
+</row>
+<row>
+<entry><keycombo>&Ctrl;&Shift;<keycap>+</keycap></keycombo></entry>
+<entry><para>Zoom in</para></entry>
+</row>
+</tbody>
+</tgroup>
 
-<para>
-<keycombo><keycap>Ctrl</keycap><keycap>S</keycap></keycombo>
-This will save the contents of the zoom window to a file.
-</para>
-
-<para>
-<keycombo><keycap>F5</keycap></keycombo>
-This will start the refresh of the zoom window if it is stopped, or stops the refresh of the
-zoom window if the refresh is currently on.
-</para>
-
-<para>
-<keycombo><keycap>Ctrl</keycap><keycap>P</keycap></keycombo>
-This will open the print dialogue for printing to the contents of the zoom window.
-</para>
-
-<para>
-<keycombo><keycap>Ctrl</keycap><keycap>C</keycap></keycombo>
-This will copy the zoom window contents to the clipboard.
-</para>
-
-<para>
-<keycombo><keycap>Ctrl</keycap><keycap>-</keycap></keycombo>
-Zoom out.
-</para>
-
-<para>
-<keycombo><keycap>Ctrl</keycap><keycap>Shift</keycap><keycap>+</keycap></keycombo>
-Zoom in.
-</para>
+</table>
 
 </chapter>
 
 <chapter id="developers">
 <title>Developer's Guide to &kmag;</title>
-
-<!-- (OPTIONAL) A Programming/Scripting reference chapter should be
-used for apps that use plugins or that provide their own scripting hooks
-and/or development libraries. -->
 
 <para>
 You are welcome to contribute to &kmag; in any way you want. Please
@@ -303,24 +238,11 @@ join the kmag-devel mailing list at kmag-devel@lists.sf.net. For more
 info please visit <ulink url="http://kmag.sf.net">http://kmag.sf.net</ulink>.
 </para>
 
-<!-- Use refentries to describe APIs.  Refentries are fairly complicated and you
-should consult the docbook reference for further details. The example below was
-taken from that reference and shortened a bit for readability. -->
-
 </chapter>
 
+<!-- 
 <chapter id="faq">
 <title>Questions and Answers</title>
-
-<!-- (OPTIONAL but recommended) This chapter should include all of the silly
-(and not-so-silly) newbie questions that fill up your mailbox. This chapter
-should be reserved for BRIEF questions and answers! If one question uses more
-than a page or so then it should probably be part of the
-"Using this Application" chapter instead. You should use links to
-cross-reference questions to the parts of your documentation that answer them.
-This is also a great place to provide pointers to other FAQ's if your users
-must do some complicated configuration on other programs in order for your
-application work. -->
 
 &reporting.bugs;
 &updating.documentation;
@@ -330,22 +252,8 @@ This section is currently empty as I have not received any questions from any us
 will add some FAQ if I hear from any of the users.
 </para>
 
-<!--
-<qandaset id="faqlist">
-<qandaentry>
-<question>
-<para>How to use &kmag;?</para>
-</question>
-<answer>
-<para>Refer to this document! <link linkend="commands">Commands
-Section</link> for the answer.</para>
-</answer>
-</qandaentry>
-</qandaset>
--->
-
 </chapter>
-
+-->
 <chapter id="credits">
 
 <!-- Include credits for the programmers, documentation writers, and
@@ -361,16 +269,7 @@ distribution. -->
 <para>
 Program copyright 2002 Sarang Lakare <email>sarang@users.sf.net</email>
 </para>
-<!--
-<para>
-Contributors:
-<itemizedlist>
-<listitem><para>Konqui the KDE Dragon <email>konqui@kde.org</email></para>
-</listitem>
-<listitem><para>Tux the Linux Penguin <email>tux@linux.org</email></para>
-</listitem>
-</itemizedlist>
-</para> -->
+
 
 <para>
 Documentation copyright 2002 Sarang Lakare <email>sarang@users.sf.net</email>
@@ -379,14 +278,6 @@ Documentation copyright 2002 Sarang Lakare <email>sarang@users.sf.net</email>
 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
 
 &underFDL;               <!-- FDL: do not remove. Commercial development should -->
-<!-- replace this with their copyright and either remove it or re-set this.-->
-
-<!-- Determine which license your application is licensed under, 
-     and delete all the remaining licenses below:
-
-     (NOTE:  All documentation are licensed under the FDL, 
-     regardless of what license the application uses) -->
-
 &underGPL;        	 <!-- GPL License -->
 
 </chapter>
@@ -398,17 +289,6 @@ Documentation copyright 2002 Sarang Lakare <email>sarang@users.sf.net</email>
 <title>How to obtain &kmag;</title>
 
 <para>
-&kmag; comes with most of the modern linux distributions. Please refer to your distribution CDs
-to see if &kmag; is available. Here I will mention the distributions which carry &kmag; for sure:
-</para>
-
-<para>
-Linux Mandrake (starting with version 8.1) : To install, (1) Open the software manager and search for
-<emphasis>kmag</emphasis>. Select the RPM that the software manager found and click on install or (2) As
-root, type <emphasis>urpmi kmag</emphasis> and &kmag; will be installed.
-</para>
-
-<para>
 You can always access the latest version of &kmag; in both source and binary (executable) form at
 the &kmag; website:
 <ulink url="http://kmag.sf.net">http://kmag.sf.net</ulink>.
@@ -418,48 +298,19 @@ the &kmag; website:
 <sect1 id="requirements">
 <title>Requirements</title>
 
-<!--
-List any special requirements for your application here. This should include:
-.Libraries or other software that is not included in kdesupport,
-kdelibs, or kdebase.
-.Hardware requirements like amount of RAM, disk space, graphics card
-capabilities, screen resolution, special expansion cards, etc.
-.Operating systems the app will run on. If your app is designed only for a
-specific OS, (you wrote a graphical LILO configurator for example) put this
-information here.
--->
-
 <para>
-&kmag; requires you to have KDE installed on your system. More specifically, &kmag;
-requires the kdebase and the kdelibs package from KDE. Uptill version 0.7,
-&kmag; was being developed on KDE ver 2.x. Since then, it is developed using
-KDE 3.x. Version 0.8 of &kmag; compiles on both KDE2 and KDE3. Efforts will be made
-to keep &kmag; compilable on KDE2, but there is no sure word. You are welcome to
+&kmag; requires you to have &kde; installed on your system. More specifically, &kmag;
+requires the kdebase and the kdelibs package from &kde;. Until version 0.7,
+&kmag; was being developed on &kde; ver 2.x. Since then, it is developed using
+&kde; 3.x. Version 0.8 of &kmag; compiles on both &kde; 2 and &kde;3. Efforts will be made
+to keep &kmag; compilable on &kde; 2, but there is no guarantee. You are welcome to
 maintain the backport. Other than these, there
-are no other requirements for &kmag;. You can even use &kmag; with other desktop
-environments like GNOME, windowmaker etc. as long as you have kdelbase and kdelibs installed.
-</para>
+are no other requirements for &kmag;.</para>
 
-<!-- For a list of updates, you may refer to the application web site
-or the ChangeLog file, or ... -->
-</sect1>
+<para>You can use &kmag; with other desktop environments such as
+GNOME, windowmaker &etc;. as long as you have kdelbase and kdelibs
+installed.</para>
 
-<sect1 id="compilation">
-<title>Compilation and Installation</title>
-
-<para>
-In order to compile and install &kmag; on your system, download the source package,
-uncompress it and then run the following after going into the directory:
-<screen width="40">
-<prompt>%</prompt> <userinput>./configure</userinput>
-<prompt>%</prompt> <userinput>make</userinput>
-<prompt>%</prompt> <userinput>make install</userinput>
-</screen>
-</para>
-
-<para>Since &kmag; uses autoconf and automake you should have not trouble
-compiling it. Should you run into problems please report them to the
-kmag-devel mailing list (kmag-devel@lists.sf.net).</para>
 
 </sect1>
 
@@ -476,16 +327,3 @@ sgml-indent-step:0
 sgml-indent-data:nil
 End:
 -->
-
-
-
-
-
-
-
-
-
-
-
-
-
