@@ -40,7 +40,7 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
 {
   setFrameStyle(QFrame::WinPanel | QFrame::Sunken);
   setLineWidth(0);
-  setBackgroundColor(QColor("white"));
+  setBackgroundColor(QColor("grey"));
 	setFocusPolicy(QWidget::StrongFocus);
 	
 	// init the zoom matrix

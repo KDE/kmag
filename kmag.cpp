@@ -95,7 +95,7 @@ KmagApp::~KmagApp()
 
 void KmagApp::initActions()
 {
-  fileNewWindow = new KAction(i18n("New &Window"), 0, 0, this, SLOT(slotFileNewWindow()), actionCollection(),"file_new_window");
+  fileNewWindow = new KAction(i18n("New &Window"), "window_new", 0, this, SLOT(slotFileNewWindow()), actionCollection(),"file_new_window");
   fileNewWindow->setToolTip(i18n("Opens a new KMagnifier window"));
 
 	refreshSwitch = new KAction(i18n("Stop"), "stop", Key_F5, this, SLOT(slotToggleRefresh()), actionCollection(), "start_stop_refresh");
@@ -140,7 +140,7 @@ void KmagApp::initActions()
   action->plug(helpAction->popupMenu());	
 
 	// plug things into the toolbar
-	fileNewWindwo->plug(toolBar());
+	fileNewWindow->plug(toolBar());
   refreshSwitch->plug(toolBar());
   m_pZoomIn->plug(toolBar());
 	m_pZoomBox->plug(toolBar());
@@ -380,16 +380,22 @@ void KmagApp::slotFilePrint()
 		toggled = true;
   }
 
-  printer.setFullPage(true);
+	const QPixmap &pixmap(m_zoomView->getPixmap());
+
+	// use some AI to get the best orientation
+	if(pixmap.width() > pixmap.height()) {
+		printer.setOrientation(KPrinter::Landscape);
+	} else {
+		printer.setOrientation(KPrinter::Portrait);	
+	}
+
   if (printer.setup(this)) {
     QPainter paint;
 		
 		if(!paint.begin(&printer))
 	    return;
-
     // draw the pixmap
-	  paint.drawPixmap(0, 0, m_zoomView->getPixmap());
-
+	  paint.drawPixmap(0, 0, pixmap);
 		// end the painting
 		paint.end();
   }
@@ -402,7 +408,7 @@ void KmagApp::slotFilePrint()
 
 void KmagApp::slotEditCopy()
 {
-
+// TODO : Copy contents (zoomed image) to clipboard
 }
 
 void KmagApp::slotViewToolBar()
