@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui>
-<kpartgui name="kmag" version="0.9">
+<kpartgui name="kmag" version="1.0">
  <ToolBar noMerge="1" name="mainToolBar">
   <Action name="new_window"/>
   <Action name="start_stop_refresh"/>
@@ -11,8 +11,8 @@
   <Action name="print"/>
   <Action name="copy"/>
   <Action name="fps_selector"/>
-  <Action name="help_menu"/>
   <Action name="conf_menu"/>
+  <Action name="help_menu"/>
  </ToolBar>
 
 </kpartgui>
