@@ -1,26 +1,27 @@
 $Id$
 
-These are features proposed by various people:
+These are features proposed:
 
-Things to be done in near future:
-- cc: zooming control on toolbar
+% cc: zooming control on toolbar
 - cc: zoom rectangle moving from spinboxes
 - cc: on/off zoom rectangle
-- cc: on/off rectangle update
+* cc: on/off rectangle update
 - cc: block mirrror-to-mirror efect when zoom rectangle intersect KMag window
 - cc: block "garbage" effect when rectangle it's outside screen
 - cc: configuration dialog
-
-
-Things to do b4 we reach ver 1.0
-
 - sl: Add printing support
-- sl: Add "Pause" button to pause to the current view
+* sl: Add "Pause" button to pause to the current view
 - sl: Allow setting of refresh rate
-- sl: Permanant display of selected area
-- sl: Add option to keep the region-selection window all the time.
+- sl: Add option to show the region-selection window all the time.
 - sl: Add grabbing and saving of the currently selected area or zoomed area.
+-     Different profiles : for vision-impared & regular users.
+-     Saving of settings across different instances
 
 People: 
   sl: Sarang Lakare  <sarang@users.sourceforge.net>
   cc: Claudiu Costin <claudiuc@work.ro>
+
+Key:
+  - : todo
+  * : done
+  % : in progress
