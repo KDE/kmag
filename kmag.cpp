@@ -122,7 +122,7 @@ void KmagApp::initActions()
 {
   fileNewWindow = new KAction(i18n("New &Window"), "window_new", KStdAccel::key(KStdAccel::New), this,
 															SLOT(slotFileNewWindow()), actionCollection(),"new_window");
-  fileNewWindow->setToolTip(i18n("Opens a new KMagnifier window"));
+  fileNewWindow->setToolTip(i18n("Open a new KMagnifier window"));
 
 	refreshSwitch = new KAction(i18n("Stop"), "stop", KStdAccel::key(KStdAccel::Reload), this,
 															SLOT(slotToggleRefresh()), actionCollection(), "start_stop_refresh");
@@ -131,7 +131,7 @@ void KmagApp::initActions()
   updating of the display. Stopping the update will zero the processing power\
   required (CPU usage)"));
 
-  m_pSnapshot = new KAction(i18n("&SnapShot"), "ksnapshot", KStdAccel::key(KStdAccel::Save), this,
+  m_pSnapshot = new KAction(i18n("&Snapshot"), "ksnapshot", KStdAccel::key(KStdAccel::Save), this,
 														SLOT(saveZoomPixmap()), actionCollection(),"snapshot");
 	m_pSnapshot->setWhatsThis(i18n("Click to save the image being displayed to a file."));
 	m_pSnapshot->setToolTip(i18n("Save image to a file"));
@@ -166,16 +166,16 @@ void KmagApp::initActions()
 	KHelpMenu *newHelpMenu = new KHelpMenu(this, KGlobal::instance()->aboutData());
 
 	helpAction->setDelayed(false);
-	KAction *action = KStdAction::helpContents(newHelpMenu, SLOT(appHelpActivated()), actionCollection());
+	KAction *action = KStdAction::helpContents(newHelpMenu, SLOT(appHelpActivated()), 0);
   action->plug((QWidget*)helpAction->popupMenu());
 
-	action = KStdAction::reportBug(newHelpMenu, SLOT(reportBug()), actionCollection());
+	action = KStdAction::reportBug(newHelpMenu, SLOT(reportBug()), 0);
   action->plug((QWidget*)helpAction->popupMenu());
 
-	action = KStdAction::aboutApp(newHelpMenu, SLOT(aboutApplication()), actionCollection());
+	action = KStdAction::aboutApp(newHelpMenu, SLOT(aboutApplication()), 0);
   action->plug((QWidget*)helpAction->popupMenu());
 
-	action = KStdAction::aboutKDE(newHelpMenu, SLOT(aboutKDE()), actionCollection());
+	action = KStdAction::aboutKDE(newHelpMenu, SLOT(aboutKDE()), 0);
   action->plug((QWidget*)helpAction->popupMenu());	
 
 	// Settings tool bar popup
@@ -223,7 +223,7 @@ void KmagApp::initView()
 
   m_followMouseButton = new QCheckBox( m_settingsGroup, "m_followMouseButton" );
   m_followMouseButton->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)1, m_followMouseButton->sizePolicy().hasHeightForWidth() ) );
-  m_followMouseButton->setText( i18n( "Follow Mouse" ) );
+  m_followMouseButton->setText( i18n( "Follow mouse" ) );
 	QToolTip::add(m_followMouseButton, i18n("Magnify around the mouse cursor"));
 	QWhatsThis::add(m_followMouseButton, i18n("If selected, the area around the mouse cursor is magnified") );
   settingsGroupLayout->addWidget( m_followMouseButton );
@@ -231,14 +231,14 @@ void KmagApp::initView()
   
 	m_showCursorButton = new QCheckBox( m_settingsGroup, "m_showCursorButton" );
   m_showCursorButton->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)1, m_followMouseButton->sizePolicy().hasHeightForWidth() ) );
-  m_showCursorButton->setText( i18n( "Mouse Cursor" ) );
+  m_showCursorButton->setText( i18n( "Mouse cursor" ) );
 	QToolTip::add(m_showCursorButton, i18n("Show mouse cursor"));
   settingsGroupLayout->addWidget( m_showCursorButton );
 	connect(m_showCursorButton, SIGNAL(toggled(bool)), this, SLOT(showMouseCursor(bool)));
 
   m_showSelRectButton = new QCheckBox( m_settingsGroup, "m_showSelRectButton" );
   m_showSelRectButton->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)1, m_showSelRectButton->sizePolicy().hasHeightForWidth() ) );
-  m_showSelRectButton->setText( i18n( "Selection Window" ) );
+  m_showSelRectButton->setText( i18n( "Selection window" ) );
 	QToolTip::add(m_showSelRectButton, i18n("Show the selection window on the screen"));
   settingsGroupLayout->addWidget( m_showSelRectButton );
   connect(m_showSelRectButton, SIGNAL(toggled(bool)), m_zoomView, SLOT(showSelRect(bool)));
@@ -469,19 +469,19 @@ void KmagApp::saveZoomPixmap()
 
   KURL url = KFileDialog::getSaveURL(QString::null,
 							KImageIO::pattern(KImageIO::Writing),
-             0,i18n("Save zoomed region"));
+             0,i18n("Save Zoomed Region"));
 
 	if(!url.filename().isEmpty()) {
 		if(!url.isLocalFile()) {
 			// create a temp file.. save image to it.. copy over the n/w and then delete the temp file.
 			KTempFile tempFile;
 			if(!m_zoomView->getPixmap().save(tempFile.name(), KImageIO::type(url.fileName()).latin1())) {
-        KMessageBox::error(0, i18n("Unable to save temporary file (before uploading to the network file you specified)"),
-													i18n("Error writing file"));
+        KMessageBox::error(0, i18n("Unable to save temporary file (before uploading to the network file you specified)."),
+													i18n("Error Writing File"));
 			} else {
   			if(!KIO::NetAccess::upload(tempFile.name(), url)) {
   				KMessageBox::error(0, i18n("Unable to upload file over the network."),
-  													i18n("Error writing file"));
+  													i18n("Error Writing File"));
   			} else {
 					KMessageBox::information(0, i18n("Current zoomed image saved to\n")+url.prettyURL(),
 															i18n("Information"), "save_confirm");
@@ -493,7 +493,7 @@ void KmagApp::saveZoomPixmap()
 		} else {
   		if(!m_zoomView->getPixmap().save(url.path(), KImageIO::type(url.fileName()).latin1())) {
       	KMessageBox::error(0, i18n("Unable to save file. Please check if you have permission to write to the directory."),
-  													i18n("Error writing file"));
+  													i18n("Error Writing File"));
   		} else {
   			KMessageBox::information(0, i18n("Current zoomed image saved to\n")+url.prettyURL(),
   															i18n("Information"), "save_confirm");
