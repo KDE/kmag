@@ -65,7 +65,7 @@ class KMagZoomView : public QFrame
 		bool getFollowMouse() const { return m_followMouse; };
 
 		/// Get the status of "show rect. always"
-		bool getShowSelRect() const { return m_showSelRect; };
+		bool getShowSelRect() const { return (m_selRect.getAlwaysVisible()); };
 
 		/// Get the coordinates of the selection rectangle
 		QRect getSelRectPos() const { return static_cast<QRect>(m_selRect); };
@@ -174,9 +174,6 @@ class KMagZoomView : public QFrame
 
 		/// To follow mouse motion or not when no key is pressed
 		bool m_followMouse;
-
-		/// Always show the selection rectangle
-		bool m_showSelRect;
 
     /// State of refreshing - on or off
     bool m_refreshSwitch;

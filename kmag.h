@@ -61,17 +61,13 @@ class KmagApp : public KMainWindow
   Q_OBJECT
 
   public:
-    /** construtor of KmagApp, calls all init functions to create the application.
+    /**
+     * Construtor of KmagApp, calls all init functions to create the application.
      */
     KmagApp(QWidget* parent=0, const char* name=0);
+
+		/// Default destructor
     ~KmagApp();
-    /** opens a file specified by commandline option
-     */
-//    void openDocumentFile(const KURL& url=0);
-    /** returns a pointer to the current document connected to the KTMainWindow instance and is used by
-     * the View class to access the document object's methods
-     */	
-//    KmagDoc *getDocument() const; 	
 
 
 		
@@ -102,6 +98,9 @@ class KmagApp : public KMainWindow
      * @see KTMainWindow#closeEvent
      */
     virtual bool queryExit();
+
+    /// Catch mouse press events
+    void mousePressEvent (QMouseEvent *e);
 
   public slots:
     /** open a new application window by creating a new instance of KmagApp */

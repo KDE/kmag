@@ -58,6 +58,11 @@ public:
 
 		/// Makes the rectangle always visible
 		void alwaysVisible(bool visible=true);
+
+		/// Returns true if always visible is set
+		bool getAlwaysVisible() const {
+			return (m_alwaysVisible);
+		};
     
 public slots:	
 
@@ -81,26 +86,5 @@ protected:
 		bool m_alwaysVisible;
 
 };
-
-/*
-class KMagSelRectHider
-{
-    
-public:
-    
-    KMagSelRectHider(KMagSelRect &_selRect);
-    ~KMagSelRectHider();
-    
-protected:
-    
-    KMagSelRect &selRect;
-    bool hidden;
-};
-*/
-
-//--------------------------------------------------------------------------
-//   end of file
-//--------------------------------------------------------------------------
-
 
 #endif // KMAGSELRECT_H

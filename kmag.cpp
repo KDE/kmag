@@ -279,6 +279,7 @@ void KmagApp::readOptions()
 
 	bool showSelRect = config->readBoolEntry("ShowSelRect", false);
 	m_zoomView->showSelRect(showSelRect);
+	m_showSelRectButton->setChecked(showSelRect);
 
 	unsigned int showMouse = config->readUnsignedNumEntry("ShowMouse", 2);
 	m_zoomView->showMouse(showMouse);
@@ -299,6 +300,24 @@ bool KmagApp::queryExit()
   saveOptions();
   return true;
 }
+
+/**
+ * Called when mouse is clicked inside the window
+ *
+ * @param e
+ */
+void KmagApp::mousePressEvent(QMouseEvent *e)
+{
+	cout << "Got a press event!" << endl;
+
+  switch(e->button()) {
+  case QMouseEvent::RightButton :
+		// show popup
+		cout << "Show Popup now!" << endl;
+		break;
+	}
+}
+
 
 /////////////////////////////////////////////////////////////////////
 // SLOT IMPLEMENTATION
