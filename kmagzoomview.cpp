@@ -838,12 +838,16 @@ void KMagZoomView::setZoom(float zoom)
   // use this zoom
   m_zoom = zoom;
 
+  // update selection window size when zooming in if necessary
+  if (m_selRect.width()*zoom>width() || m_selRect.height()*zoom>height())
+    fitToWindow();
+
   // recompute the zoom matrix
   m_zoomMatrix.reset();
-  m_zoomMatrix.scale(m_zoom, m_zoom);  
-   
+  m_zoomMatrix.scale(m_zoom, m_zoom);
+
   m_grabbedZoomedPixmap = m_grabbedPixmap.xForm(m_zoomMatrix);
-  
+
   repaint();
 }
 
