@@ -29,6 +29,7 @@
 #include <qlayout.h>
 #include <qclipboard.h>
 #include <qdragobject.h>
+#include <qwhatsthis.h>
 
 // include files for KDE
 #if KDE_VERSION > 300
@@ -207,18 +208,22 @@ void KmagApp::initView()
   m_followMouseButton = new QCheckBox( m_settingsGroup, "m_followMouseButton" );
   m_followMouseButton->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)1, m_followMouseButton->sizePolicy().hasHeightForWidth() ) );
   m_followMouseButton->setText( i18n( "Follow Mouse" ) );
+	QToolTip::add(m_followMouseButton, i18n("Magnify around the mouse cursor"));
+	QWhatsThis::add(m_followMouseButton, i18n("If selected, the area around the mouse cursor is magnified") );
   settingsGroupLayout->addWidget( m_followMouseButton );
 	connect(m_followMouseButton, SIGNAL(toggled(bool)), m_zoomView, SLOT(followMouse(bool)));
   
 	m_showCursorButton = new QCheckBox( m_settingsGroup, "m_showCursorButton" );
   m_showCursorButton->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)1, m_followMouseButton->sizePolicy().hasHeightForWidth() ) );
-  m_showCursorButton->setText( i18n( "Show Cursor" ) );
+  m_showCursorButton->setText( i18n( "Mouse Cursor" ) );
+	QToolTip::add(m_showCursorButton, i18n("Show mouse cursor"));
   settingsGroupLayout->addWidget( m_showCursorButton );
 	connect(m_showCursorButton, SIGNAL(toggled(bool)), this, SLOT(showMouseCursor(bool)));
 
   m_showSelRectButton = new QCheckBox( m_settingsGroup, "m_showSelRectButton" );
   m_showSelRectButton->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)1, m_showSelRectButton->sizePolicy().hasHeightForWidth() ) );
-  m_showSelRectButton->setText( i18n( "Show Selected Area" ) );
+  m_showSelRectButton->setText( i18n( "Selection Window" ) );
+	QToolTip::add(m_showSelRectButton, i18n("Show the selection window on the screen"));
   settingsGroupLayout->addWidget( m_showSelRectButton );
   connect(m_showSelRectButton, SIGNAL(toggled(bool)), m_zoomView, SLOT(showSelRect(bool)));
 
