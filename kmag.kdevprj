@@ -1,32 +1,32 @@
 [AUTHORS]
 dist=true
-install=false
-install_location=
+install=true
+install_location=/usr/share/doc/kmag
 type=DATA
 [COPYING]
 dist=true
-install=false
-install_location=
+install=true
+install_location=/usr/share/doc/kmag
 type=DATA
 [ChangeLog]
 dist=true
-install=false
-install_location=
+install=true
+install_location=/usr/share/doc/kmag
 type=DATA
 [Config for BinMakefileAm]
 addcxxflags=
 bin_program=kmag
-cxxflags=-O0 -g3 -Wall
-ldadd=-lkfile -lkdeui -lkdecore $(LIB_QT)
+cxxflags= -O0 -g3 -Wall
+ldadd= -lkfile -lkdeui -lkdecore $(LIB_QT)
 ldflags=
 [General]
 AMChanged=false
 author=Sarang Lakare
-configure_args=--with-qt-dir=/usr/lib/qt2 --prefix=
+configure_args=--with-qt-dir=/usr/lib/qt2 --prefix=/usr
 email=sarang@users.sourceforge.net
 kdevprj_version=1.3
 lfv_open_groups=User Interface
-make_options=-j1
+make_options= -j1
 makefiles=Makefile.am,kmag/Makefile.am,doc/Makefile.am,doc/en/Makefile.am,po/Makefile.am
 modifyMakefiles=true
 project_name=Kmag
@@ -34,13 +34,13 @@ project_type=normal_kde2
 sgml_file=/home/lsarang/reseach/coding/kmag_try/doc/en/index.docbook
 short_info=
 sub_dir=kmag/
-version=0.3
+version=0.4
 version_control=None
 workspace=1
 [INSTALL]
 dist=true
 install=false
-install_location=
+install_location=/usr/share/doc/kmag
 type=DATA
 [KPP]
 kpp_appgrp=Multimedia
@@ -49,7 +49,7 @@ kpp_icon=0
 kpp_license=5
 kpp_summary=Magnifies a part of the screen!
 kpp_url=http://kmag.sourceforge.net
-kpp_version=0.3
+kpp_version=0.4
 [LFV Groups]
 GNU=AUTHORS,COPYING,ChangeLog,INSTALL,README,TODO,NEWS
 Headers=*.h,*.hh,*.hxx,*.hpp,*.H
@@ -65,7 +65,7 @@ type=normal
 [README]
 dist=true
 install=false
-install_location=
+install_location=/usr/share/doc/kmag
 type=DATA
 [TODO]
 dist=true
@@ -73,10 +73,10 @@ install=false
 install_location=
 type=DATA
 [Workspace_1]
-browser_file=file:/home/lsarang/research/coding/kmag_try//doc/en/HTML/index.html
-cpp_file=/home/lsarang/research/coding/kmag_try/kmag/main.cpp
-header_file=/home/lsarang/research/coding/kmag_try/kmag/kmag.h
-openfiles=Untitled.h,Untitled.cpp,/home/lsarang/research/coding/kmag_try/kmag/kmag.h,/home/lsarang/research/coding/kmag_try/kmag/main.cpp
+browser_file=file:/home/lsarang/oss/kmag/kmag//doc/en/HTML/index.html
+cpp_file=/home/lsarang/oss/kmag/kmag/kmag/main.cpp
+header_file=/home/lsarang/oss/kmag/kmag/doc/en/index.docbook
+openfiles=Untitled.h,Untitled.cpp,/home/lsarang/oss/kmag/kmag/kmag/kmag.h,/home/lsarang/oss/kmag/kmag/kmag/main.cpp,/home/lsarang/oss/kmag/kmag/AUTHORS,/home/lsarang/oss/kmag/kmag/doc/en/HTML/commands.html,/home/lsarang/oss/kmag/kmag/doc/en/HTML/using-kapp.html,/home/lsarang/oss/kmag/kmag/doc/en/index.docbook
 show_outputview=true
 show_treeview=true
 [doc/Makefile.am]
@@ -89,7 +89,7 @@ type=normal
 [doc/en/index.docbook]
 dist=true
 install=false
-install_location=$$(kde_icondir)/locolor/16x16/apps/kmag.png
+install_location=$$$$(kde_icondir)/locolor/16x16/apps/kmag.png
 type=DATA
 [kmag.kdevprj]
 dist=true
@@ -118,7 +118,7 @@ type=SOURCE
 [kmag/kmag.desktop]
 dist=true
 install=true
-install_location=$$(kde_appsdir)/Applications/kmag.desktop
+install_location=$$$$(kde_appsdir)/Applications/kmag.desktop
 type=DATA
 [kmag/kmag.h]
 dist=true
@@ -163,12 +163,12 @@ type=HEADER
 [kmag/lo16-app-kmag.png]
 dist=true
 install=true
-install_location=$$(kde_icondir)/locolor/16x16/apps/kmag.png
+install_location=$$$$(kde_icondir)/locolor/16x16/apps/kmag.png
 type=DATA
 [kmag/lo32-app-kmag.png]
 dist=true
 install=true
-install_location=$$(kde_icondir)/locolor/32x32/apps/kmag.png
+install_location=$$$$(kde_icondir)/locolor/32x32/apps/kmag.png
 type=DATA
 [kmag/main.cpp]
 dist=true

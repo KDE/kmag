@@ -37,7 +37,7 @@ static KCmdLineOptions options[] =
 int main(int argc, char *argv[])
 {
 	// about the application
-  KAboutData *aboutData = new KAboutData("kmag", I18N_NOOP("K Magnifier"), "0.3",
+  KAboutData *aboutData = new KAboutData("kmag", I18N_NOOP("K Magnifier"), "0.4",
                                          I18N_NOOP("Screen Magnifier for KDE2"),
                                          KAboutData::License_GPL,
                                          "(C) 2001, Sarang Lakare","",
@@ -47,10 +47,10 @@ int main(int argc, char *argv[])
   aboutData->addAuthor("Sarang Lakare",
                        "KDE2 port + ReWrite + Current Maintainer","sarang@users.sourceforge.net",
                        "http://www.cs.sunysb.edu/~lsarang");
-
+	aboutData->addAuthor("Claudiu Costin", "Performance, usability", "claudiuc@work.ro",
+                       "http://www.ro.kde.org");
   aboutData->addAuthor("Santanu Chaudhari",
                        "Current Maintainer","sachaudh@ic..sunysb.edu", NULL);
-
   aboutData->addAuthor("Michael Forster",
                        "Original Idea & Author (KDE1)", "forster@fmi.uni-passau.de");
 
