@@ -3,13 +3,13 @@ bin_PROGRAMS = kmag
 ## INCLUDES were found outside kdevelop specific part
 
 kmag_SOURCES = kmagzoomview.cpp kmagselrect.cpp kmag.cpp main.cpp 
-kmag_LDADD   = -lkdeprint $(LIB_KDEUI) $(LIB_KDECORE) $(LIB_QT) $(LIBSOCKET)
+kmag_LDADD   = $(LIB_KDEPRINT)
 
 
 EXTRA_DIST = main.cpp version.h kmag.cpp kmag.h kmagui.rc kmag.desktop lo32-app-kmag.png lo16-app-kmag.png kmagselrect.cpp kmagselrect.h hi16-app-kmag.png kmagzoomview.cpp kmagzoomview.h 
 
 uninstall-local:
-	-rm -f $(kde_appsdir)/Applications/kmag.desktop
+	-rm -f $(DESTDIR)$(kde_appsdir)/Applications/kmag.desktop
 
 KDE_ICON = kmag 
 
