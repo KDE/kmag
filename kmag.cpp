@@ -3,7 +3,7 @@
                           kmag.cpp  -  description
                              -------------------
     begin                : Mon Feb 12 23:45:41 EST 2001
-    copyright            : (C) 2001 by Sarang Lakare
+    copyright            : (C) 2001-2003 by Sarang Lakare
     email                : sarang@users.sourceforge.net
  ***************************************************************************/
 
@@ -354,6 +354,8 @@ void KmagApp::mousePressEvent(QMouseEvent *e)
 		// show popup
 		kdDebug() << "Show Popup now!" << endl;
 		break;
+  default :
+    break;
 	}
 }
 
