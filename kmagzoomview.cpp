@@ -114,7 +114,7 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
   m_mouseViewTimer.start(25);
 
   QWhatsThis::add(this, i18n("This is the main window which shows the contents of the\
- selected region. The contents will be magnified if zoom level is set."));
+ selected region. The contents will be magnified according to the zoom level that is set."));
 
   // different ways to show the cursor.
   m_showMouseTypes << "Hidden" << "Box" << "Arrow" << "Actual";
