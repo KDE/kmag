@@ -54,7 +54,9 @@ int main(int argc, char *argv[])
                        "http://www.cs.sunysb.edu/~lsarang/linux");
   aboutData->addAuthor("Michael Forster",
                        I18N_NOOP("Original Idea & Author (KDE1)"), "forster@fmi.uni-passau.de");
-  aboutData->addCredit("Claudiu Costin", I18N_NOOP("Tips, competition ;)"), "claudiuc@work.ro",
+
+  aboutData->addCredit("Olaf Jan Schmidt", I18N_NOOP("Various patches"), "ojschmidt@kde.org");
+  aboutData->addCredit("Claudiu Costin", I18N_NOOP("Some tips"), "claudiuc@work.ro",
                        "http://www.ro.kde.org");
 
   KCmdLineArgs::init( argc, argv, aboutData );
