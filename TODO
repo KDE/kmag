@@ -11,11 +11,14 @@ Version 1.0:
 @ Grab window moving with the mouse
 @ Code cleanup
 @ New grab-and-move mode for moving zoom area
-- Allow setting of refresh rate
-- Add grabbing and saving of the currently selected area or zoomed area.
-- Saving of settings across different instances
-- Icons for maximizing use of the zoomed image display area
+@ Add grabbing and saving of the currently selected area or zoomed area.
+@ Saving of settings across different instances
 @ Add printing support
+@ Always show selected region
+- Allow setting of refresh rate
+- Maximizing use of the zoomed image display area
+- Copying zoomed image to clipboard on "copy"
+- Right mouse menu
 - Translations
 - New Icon
 
@@ -27,10 +30,8 @@ Bug Fixing for 1.0:
 
 Version 2.0:
 - zoom rectangle moving from spinboxes
-- on/off zoom rectangle
 - block mirrror-to-mirror efect when zoom rectangle intersect KMag window
 - configuration dialog
-- Add option to show the region-selection window all the time.
 - Different profiles : for vision-impared & regular users.
 
 Key:

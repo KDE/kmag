@@ -1,10 +1,13 @@
 //$Id$
 
-ver 0.5+
+ver 0.6
 -Printing support
+-Saving image to disk
+-Saving/Restoring settings to/from config file
 -New grab-and-move mode for moving zoom region
--More cleaner/bare minimal GUI
 -Magnification with mouse movement
+-Always show selected region
+-More cleaner/bare minimal GUI
 -Tons of code cleanup
 
 ver 0.5
