@@ -1,5 +1,13 @@
 //$Id$
 
+Simple Install
+==============
+
+Login as root and type ./install in the directory to install.
+-or-
+If you do not have root access on the machine, run ./install-user in 
+the directory.
+
 Basic Installation
 ==================
 

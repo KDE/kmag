@@ -125,9 +125,15 @@ install_location=
 type=DATA
 
 [kmag/Makefile.am]
-files=kmag/main.cpp,kmag/kmag.cpp,kmag/kmag.h,kmag/kmagdoc.cpp,kmag/kmagdoc.h,kmag/kmagview.cpp,kmag/kmagview.h,kmag/kmagui.rc,kmag/kmag.desktop,kmag/lo32-app-kmag.png,kmag/lo16-app-kmag.png,kmag/kmagselrect.cpp,kmag/kmagselrect.h
+files=kmag/main.cpp,kmag/kmag.cpp,kmag/kmag.h,kmag/kmagdoc.cpp,kmag/kmagdoc.h,kmag/kmagview.cpp,kmag/kmagview.h,kmag/kmagui.rc,kmag/kmag.desktop,kmag/lo32-app-kmag.png,kmag/lo16-app-kmag.png,kmag/kmagselrect.cpp,kmag/kmagselrect.h,kmag/hi16-app-kmag.png
 sub_dirs=
 type=prog_main
+
+[kmag/hi16-app-kmag.png]
+dist=true
+install=true
+install_location=$$(kde_icondir)/hicolor/16x16/apps/kmag.png
+type=DATA
 
 [kmag/kmag.cpp]
 dist=true

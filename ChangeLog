@@ -5,6 +5,7 @@ ver 0.5
 -Added a convenient drop down menu to select the zoom factor
 -A new refresh button to start/stop window refresh when needed
 -Added "tooltips" and "What's this" at lots of places
+-New install and install-user scripts for easy installation
 -Tons of code cleanup
 
 ver 0.4

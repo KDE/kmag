@@ -4,7 +4,7 @@ kmag_SOURCES = kmagselrect.cpp kmagview.cpp kmagdoc.cpp kmag.cpp main.cpp
 kmag_LDADD   =  $(LIB_KFILE) $(LIB_KDEUI) $(LIB_KDECORE) $(LIB_QT) $(LIBSOCKET)
 
 
-EXTRA_DIST = main.cpp kmag.cpp kmag.h kmagdoc.cpp kmagdoc.h kmagview.cpp kmagview.h kmagui.rc kmag.desktop lo32-app-kmag.png lo16-app-kmag.png kmagselrect.cpp kmagselrect.h 
+EXTRA_DIST = main.cpp kmag.cpp kmag.h kmagdoc.cpp kmagdoc.h kmagview.cpp kmagview.h kmagui.rc kmag.desktop lo32-app-kmag.png lo16-app-kmag.png kmagselrect.cpp kmagselrect.h hi16-app-kmag.png 
 
 install-data-local:
 	$(mkinstalldirs) $(kde_appsdir)/Applications/Accessibility/
@@ -13,11 +13,14 @@ install-data-local:
 	$(INSTALL_DATA) $(srcdir)/lo32-app-kmag.png $(kde_icondir)/locolor/32x32/apps/kmag.png
 	$(mkinstalldirs) $(kde_icondir)/locolor/16x16/apps/
 	$(INSTALL_DATA) $(srcdir)/lo16-app-kmag.png $(kde_icondir)/locolor/16x16/apps/kmag.png
+	$(mkinstalldirs) $(kde_icondir)/hicolor/16x16/apps/
+	$(INSTALL_DATA) $(srcdir)/hi16-app-kmag.png $(kde_icondir)/hicolor/16x16/apps/kmag.png
 
 uninstall-local:
 	-rm -f $(kde_appsdir)/Applications/Accessibility/kmag.desktop
 	-rm -f $(kde_icondir)/locolor/32x32/apps/kmag.png
 	-rm -f $(kde_icondir)/locolor/16x16/apps/kmag.png
+	-rm -f $(kde_icondir)/hicolor/16x16/apps/kmag.png
 
 ####### kdevelop will overwrite this part!!! (end)############
 # this 10 paths are KDE specific. Use them:
