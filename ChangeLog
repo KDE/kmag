@@ -3,9 +3,10 @@
 current CVS
 -Mouse cursor is now visible
 -Complete reference manual
+-ported to KDE3 (still works under KDE2)
 -Using bitBlt to reduce flicker even more
 -Proper centering of zoomed image
--Some qt3 additions
+-Some qt3 specific additions
 -Mouse cursor in printing
 -Smooth mouse movements inside zoom vew (very low CPU consumption)
 -Zero CPU usage when magnifier window is hidden/minimized
