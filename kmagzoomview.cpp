@@ -21,7 +21,6 @@
 #include <qwidget.h>
 
 // application specific includes
-//#include "kmagdoc.h"
 #include "kmag.h"
 #include "kmagselrect.moc"
 #include "kmagzoomview.h"
@@ -53,11 +52,13 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
 	m_shiftKeyPressed = false;
 	m_refreshSwitch = true;
 	
-	// start the grabTimer
+	// set the refresh rate
 	setRefreshRate(10);
 
 	// connect it to grabFrame()
   connect(&m_grabTimer, SIGNAL(timeout()), SLOT(grabFrame()));
+	// start the grabTimer
+	m_grabTimer.start(static_cast<int>(1000.0/m_fps));
 
   QWhatsThis::add(this, i18n("This is the main window which shows the contents of the\
  selected region. The contents will be magnified if zoom level is set."));
@@ -536,9 +537,7 @@ void KMagZoomView::setRefreshRate(float fps)
 	m_fps = fps;	
 	
 	if(m_grabTimer.isActive())
-  	m_grabTimer.changeInterval(1000.0/m_fps);
-	else
-		m_grabTimer.start(1000.0/m_fps);
+  	m_grabTimer.changeInterval(static_cast<int>(1000.0/m_fps));
 }
 
 void KMagZoomView::showSelRect(bool show)
