@@ -3,8 +3,8 @@
                           kmagview.h  -  description
                              -------------------
     begin                : Mon Feb 12 23:45:41 EST 2001
-    copyright            : (C) 2001,2002 by Sarang Lakare
-    email                : sarang@users.sf.net
+    copyright            : (C) 2001-2003 by Sarang Lakare
+    email                : sarang#users.sf.net
  ***************************************************************************/
 
 /***************************************************************************
@@ -38,7 +38,7 @@
 /**
  * The KMagZoomView class provides the view widget for the KmagApp instance.  
  *   
- * @author Sarang Lakare <sarang@users.sourceforge.net>
+ * @author Sarang Lakare <sarang#users.sourceforge.net>
  */
 class KMagZoomView : public QFrame
 {
@@ -107,6 +107,12 @@ class KMagZoomView : public QFrame
     void fitToWindow();
 
   protected:
+    /// Called when the widget is hidden
+    void hideEvent( QHideEvent * e);
+
+    /// Called when the widget is shown
+    void showEvent( QShowEvent * e);
+    
     /// Called when the widget is to be repainted
     void paintEvent(QPaintEvent *p);
 
@@ -196,6 +202,9 @@ class KMagZoomView : public QFrame
 
     /// State of refreshing - on or off
     bool m_refreshSwitch;
+
+    /// Stores the state of the refresh switch on hide event
+    bool m_refreshSwitchStateOnHide;
 
     /// Show mouse cursor type - 0 : do not show, non zero: show
     unsigned int m_showMouse;

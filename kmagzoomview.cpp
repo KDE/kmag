@@ -3,8 +3,8 @@
                           kmagview.cpp  -  description
                              -------------------
     begin                : Mon Feb 12 23:45:41 EST 2001
-    copyright            : (C) 2001 by Sarang Lakare
-    email                : sarang@users.sourceforge.net
+    copyright            : (C) 2001-2003 by Sarang Lakare
+    email                : sarang#users.sourceforge.net
  ***************************************************************************/
 
 /***************************************************************************
@@ -97,6 +97,7 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
   m_ctrlKeyPressed = false;
   m_shiftKeyPressed = false;
   m_refreshSwitch = true;
+  m_refreshSwitchStateOnHide = m_refreshSwitch;
   
   // set the refresh rate
   setRefreshRate(10);
@@ -141,11 +142,40 @@ void KMagZoomView::followMouse(bool follow)
 }
 
 /**
+ * Called when the widget is hidden. Stop refresh when this happens.
+ */
+void KMagZoomView::hideEvent( QHideEvent * e)
+{
+  // Save the state of the refresh switch.. the state will be restored
+  // when showEvent is called
+  m_refreshSwitchStateOnHide = m_refreshSwitch;
+  
+  // Check if refresh is ON
+  if(m_refreshSwitch) {
+    toggleRefresh();
+  } 
+}
+
+
+/**
+ * Called when the widget is shown. Start refresh when this happens.
+ */
+void KMagZoomView::showEvent( QShowEvent * e)
+{
+  // Check if refresh switch was ON when hide was called and if currently it is OFF
+  if(m_refreshSwitchStateOnHide && !m_refreshSwitch) {
+    // start the refresh in that case
+    toggleRefresh();
+  }
+}
+
+
+/**
  * Called when the widget is to be repainted
  *
  * @param p
  */
-void KMagZoomView::paintEvent(QPaintEvent *)
+void KMagZoomView::paintEvent(QPaintEvent * p)
 {
   if(m_grabbedZoomedPixmap.isNull())
     return;
@@ -722,11 +752,6 @@ void KMagZoomView::fitToWindow()
  */
 void KMagZoomView::grabFrame()
 {
-  // check if kmag window is visible.. if not, don't use any CPU!
-  if(topLevelWidget()->isMinimized() || !isVisible()) {
-    return;
-  }
-
   // check if follow-mouse is enabled
   if(m_followMouse) {
     // in this case grab w.r.t the current mouse position
