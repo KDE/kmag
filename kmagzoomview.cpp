@@ -179,7 +179,7 @@ void KMagZoomView::paintEvent(QPaintEvent* )
   if(m_grabbedZoomedPixmap.isNull())
     return;
   // paint on this widget
-  paintViewImage(this);
+  paintViewImage(this, m_refreshSwitch);
 }
 
 /**
