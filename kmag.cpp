@@ -103,6 +103,7 @@ KmagApp::KmagApp(QWidget* , const char* name)
  */
 KmagApp::~KmagApp()
 {
+
 }
 
 void KmagApp::initActions()
@@ -180,7 +181,6 @@ void KmagApp::initView()
 
   m_zoomView = new KMagZoomView( mainView, "ZoomView" );
   m_zoomView->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)7, m_zoomView->sizePolicy().hasHeightForWidth() ) );
-  m_zoomView->setMouseTracking(true);
   m_zoomView->setFrameShape( QFrame::StyledPanel );
   m_zoomView->setFrameShadow( QFrame::Raised );
 
@@ -493,7 +493,7 @@ void KmagApp::slotFilePrint()
 		toggled = true;
   }
 
-	const QPixmap &pixmap(m_zoomView->getPixmap());
+	const QPixmap pixmap(m_zoomView->getPixmap());
 
 #if KDE_VERSION >= 220
 	// use some AI to get the best orientation

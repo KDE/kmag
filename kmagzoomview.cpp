@@ -76,10 +76,14 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
 	: QFrame(parent, name),
     m_selRect(0, 0, 128, 128),
 		m_grabTimer(parent),
+		m_mouseViewTimer(parent),
+		m_latestCursorPos(0,0),
 		m_followMouse(false),
 		m_showMouse(1),
 		m_zoom(1.0)
 {
+	KApplication::setGlobalMouseTracking(TRUE);
+	setMouseTracking(TRUE);
   setFrameStyle(QFrame::WinPanel | QFrame::Sunken);
   setLineWidth(0);
   setBackgroundColor(QColor("grey"));
@@ -101,6 +105,11 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
 	// start the grabTimer
 	m_grabTimer.start(static_cast<int>(1000.0/m_fps));
 
+	// connect it to updateMouseView()
+  connect(&m_mouseViewTimer, SIGNAL(timeout()), SLOT(updateMouseView()));
+	// start the grabTimer @ 25 frames per second!
+	m_mouseViewTimer.start(25);
+
   QWhatsThis::add(this, i18n("This is the main window which shows the contents of the\
  selected region. The contents will be magnified if zoom level is set."));
 
@@ -110,6 +119,7 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
 
 KMagZoomView::~KMagZoomView()
 {
+	KApplication::setGlobalMouseTracking(FALSE);
 }
 
 /**
@@ -119,11 +129,9 @@ void KMagZoomView::followMouse(bool follow)
 {
 	if(follow) {
   	m_followMouse = true;
-		setMouseTracking(true);
 		m_mouseMode = Normal;
 	} else {
   	m_followMouse = false;
-		setMouseTracking(false);
 		m_mouseMode = Normal;
 	}
 }
@@ -135,6 +143,19 @@ void KMagZoomView::followMouse(bool follow)
  */
 void KMagZoomView::paintEvent(QPaintEvent *e)
 {
+	// paint on this widget
+	paintViewImage(this);
+}
+
+/**
+ * This function will actually draw on the paintdevice the
+ * final output. This is seperated from paintEvent for printing purposes.
+ */
+void KMagZoomView::paintViewImage(QPaintDevice *dev, bool updateMousePos)
+{
+	if(!dev)
+		return;
+
 	// get a rectangle centered inside the frame
   QRect pRect(pixmapRect());
 
@@ -152,89 +173,9 @@ void KMagZoomView::paintEvent(QPaintEvent *e)
 
 		// Pixmap which will have the zoomed pixmap + mouse
 		zoomView = new QPixmap(m_grabbedZoomedPixmap);
-		// painter for the zoom view
-		QPainter pz(zoomView);
 
-
-  	// get position of mouse wrt selRect
-  	int x_pos = QCursor::pos().x() - m_selRect.x();
-  	int y_pos = QCursor::pos().y() - m_selRect.y();
-
-  	if(x_pos >= 0 && x_pos < m_selRect.width() && x_pos < wRect.width() &&
-  		 y_pos >= 0 && y_pos < m_selRect.height() && y_pos < wRect.height()) {
-    	// mouse position is indeed inside the selRect
-  		// get coordinates of the pixel w.r.t. the zoomed pixmap
-  		x_pos=(int)((float)x_pos*m_zoom);
-  		y_pos=(int)((float)y_pos*m_zoom);
-		
-			// How to show the mouse :
-
-			switch(m_showMouse) {
-      case 1:
-  			// 1. Square around the pixel
-    		pz.setPen(Qt::white);
-    		pz.setRasterOp(Qt::XorROP);
-    		pz.drawRect(x_pos-1, y_pos-1, (int)m_zoom+2, (int)m_zoom+2);
-        break;
-
-			case 2:
-			{
-  			// 2. Arrow cursor
-				pz.setPen(Qt::black);
-				pz.setBackgroundColor(Qt::white);
-
-      	QBitmap sCursor( 16, 16, left_ptr_bits, TRUE );
-      	QBitmap mask( 16, 16, left_ptrmsk_bits, TRUE );
-      	sCursor.setMask(mask);
-			  sCursor = sCursor.xForm(m_zoomMatrix);
-      				
-				// since hot spot is at 3,1
-        pz.drawPixmap(x_pos-(int)(3.0*m_zoom), y_pos-(int)m_zoom, sCursor);
-      }
-    	break;
-
-			case 3:
-			{		
-  			// 3. Actual cursor
-				// Get the current cursor type
-				QWidget *dummy	= KApplication::widgetAt(QCursor::pos(), FALSE);
-				if(!dummy)
-					break;
-				cerr << ">" << dummy->name() << ":" << dummy->cursor().shape() << "-" << endl;
-				switch(this->cursor().shape())	{
-        	case ArrowCursor :
-     			{
-      			// 2. Arrow cursor
-    				pz.setPen(Qt::black);
-    				pz.setBackgroundColor(Qt::white);
-
-          	QBitmap sCursor( 16, 16, left_ptr_bits, TRUE );
-          	QBitmap mask( 16, 16, left_ptrmsk_bits, TRUE );
-          	sCursor.setMask(mask);
-    			  sCursor = sCursor.xForm(m_zoomMatrix);
-          				
-    				// since hot spot is at 3,1
-            pz.drawPixmap(x_pos-(int)(3.0*m_zoom), y_pos-(int)m_zoom, sCursor);
-          }
-					break;
-					default:
-          	QBitmap sCursor( 32, 32, phand_bits, TRUE );
-          	QBitmap mask( 32, 32, phandm_bits, TRUE );
-          	sCursor.setMask(mask);
-          				
-            pz.drawPixmap(x_pos, y_pos, sCursor);
-					break;
-				} // switch(cursor)
-
-
-      }
-			break;
-
-			default:
-				// do not show anything
-				break;
-			} // switch(m_showMouse)
-  	}
+		// paint the mouse cursor
+		paintMouseCursor(zoomView, updateMousePos);
 	} else { // do not show mouse
   	zoomView = &m_grabbedZoomedPixmap;
 	}
@@ -258,7 +199,7 @@ void KMagZoomView::paintEvent(QPaintEvent *e)
 		bitBlt(&paintArea, pRect.x(), pRect.y(), zoomView);
 
 		// bitBlt the paintArea pixmap on the widget	
-		bitBlt(this, QPoint(0,0), &paintArea);
+		bitBlt(dev, QPoint(0,0), &paintArea);
 	} else {
 
 		int width = m_grabbedZoomedPixmap.size().width();
@@ -300,13 +241,13 @@ void KMagZoomView::paintEvent(QPaintEvent *e)
 			bitBlt(&paintArea, QPoint(pRect.x(), pRect.y()), zoomView, srcRect);
 
 			// bitBlt the paintArea pixmap on the widget	
-			bitBlt(this, QPoint(0,0), &paintArea);
+			bitBlt(dev, QPoint(0,0), &paintArea);
 		} else { // the zoom image is larger than the display		
       // The rect corr. to the part of zoom view whish should be shown - the central part
 			QRect srcRect(xdiff, ydiff, wRect.width(), wRect.height());
 
 			// bitBlt this part on to the widget.
-			bitBlt(this, QPoint(0,0), zoomView, srcRect);
+			bitBlt(dev, QPoint(0,0), zoomView, srcRect);
 		} //if(xdiff < 0 || ydiff < 0)
 
 	} //if-else(xdiff < 0 && ydiff <0) 	
@@ -315,6 +256,107 @@ void KMagZoomView::paintEvent(QPaintEvent *e)
 	if(zoomView != &m_grabbedZoomedPixmap)	
 		delete zoomView;
 }
+
+/**
+ * Draws the mouse cursor according to the current selection of the type of
+ * mouse cursor to draw.
+ */
+void KMagZoomView::paintMouseCursor(QPaintDevice *dev, bool updateMousePos)
+{
+	if(!dev)
+		return;
+
+  // painter for the zoom view
+  QPainter pz(dev);
+
+	int x_pos, y_pos;
+
+  // get position of mouse wrt selRect
+  if(updateMousePos) { // get a new position only if asked
+  	m_latestCursorPos = QCursor::pos();
+  	m_latestCursorPos -= QPoint(m_selRect.x(), m_selRect.y());
+	}
+
+	x_pos = m_latestCursorPos.x();
+	y_pos = m_latestCursorPos.y();
+
+  if(x_pos >= 0 && x_pos < m_selRect.width() &&
+  	 y_pos >= 0 && y_pos < m_selRect.height() || updateMousePos) {
+  	// mouse position is indeed inside the selRect
+  	// get coordinates of the pixel w.r.t. the zoomed pixmap
+  	x_pos=(int)((float)x_pos*m_zoom);
+  	y_pos=(int)((float)y_pos*m_zoom);
+  		
+  	// How to show the mouse :
+
+  	switch(m_showMouse) {
+    case 1:
+  		// 1. Square around the pixel
+  		pz.setPen(Qt::white);
+  		pz.setRasterOp(Qt::XorROP);
+  		pz.drawRect(x_pos-1, y_pos-1, (int)m_zoom+2, (int)m_zoom+2);
+      break;
+
+  	case 2:
+  	{
+  		// 2. Arrow cursor
+  		pz.setPen(Qt::black);
+  		pz.setBackgroundColor(Qt::white);
+
+    	QBitmap sCursor( 16, 16, left_ptr_bits, TRUE );
+    	QBitmap mask( 16, 16, left_ptrmsk_bits, TRUE );
+    	sCursor.setMask(mask);
+  	  sCursor = sCursor.xForm(m_zoomMatrix);
+        				
+  		// since hot spot is at 3,1
+      pz.drawPixmap(x_pos-(int)(3.0*m_zoom), y_pos-(int)m_zoom, sCursor);
+    }
+  	break;
+
+  	case 3:
+  	{		
+  		// 3. Actual cursor
+  		// Get the current cursor type
+  		QWidget *dummy	= KApplication::widgetAt(QCursor::pos(), FALSE);
+  		if(!dummy)
+  			break;
+  		cerr << ">" << dummy->name() << ":" << dummy->cursor().shape() << "-" << endl;
+  		switch(this->cursor().shape())	{
+      	case ArrowCursor :
+   			{
+    			// 2. Arrow cursor
+  				pz.setPen(Qt::black);
+  				pz.setBackgroundColor(Qt::white);
+
+        	QBitmap sCursor( 16, 16, left_ptr_bits, TRUE );
+        	QBitmap mask( 16, 16, left_ptrmsk_bits, TRUE );
+        	sCursor.setMask(mask);
+  			  sCursor = sCursor.xForm(m_zoomMatrix);
+            				
+  				// since hot spot is at 3,1
+          pz.drawPixmap(x_pos-(int)(3.0*m_zoom), y_pos-(int)m_zoom, sCursor);
+        }
+  			break;
+  			default:
+        	QBitmap sCursor( 32, 32, phand_bits, TRUE );
+        	QBitmap mask( 32, 32, phandm_bits, TRUE );
+        	sCursor.setMask(mask);
+            				
+          pz.drawPixmap(x_pos, y_pos, sCursor);
+  			break;
+  		} // switch(cursor)
+
+
+    }
+  	break;
+
+  	default:
+  		// do not show anything
+  		break;
+  	} // switch(m_showMouse)
+  }
+}
+
 
 QRect KMagZoomView::pixmapRect()
 {
@@ -665,10 +707,23 @@ void KMagZoomView::grabFrame()
   m_grabbedZoomedPixmap = m_grabbedPixmap.xForm(m_zoomMatrix);
 
   // call repaint to display the newly grabbed image
-  repaint(pixmapRect(), false);
+  repaint(false);
 
   // update the grab rectangle display
   m_selRect.update();
+}
+
+
+/**
+ * Updates the mouse cursor in the zoom view
+ */
+void KMagZoomView::updateMouseView()
+{
+	QPoint pos(QCursor::pos());
+	if(m_selRect.left() <= pos.x() <= m_selRect.right() &&
+		 m_selRect.top() <= pos.y() <= m_selRect.bottom() &&
+		 m_refreshSwitch)
+		repaint(false);
 }
 
 /**
@@ -679,9 +734,11 @@ void KMagZoomView::toggleRefresh()
   if(m_refreshSwitch) {
     m_refreshSwitch = false;
     m_grabTimer.stop();
+		m_mouseViewTimer.stop();
   } else {
     m_refreshSwitch = true;
     m_grabTimer.start(1000/m_fps);
+		m_mouseViewTimer.start(40);
   }
 }
 
@@ -753,4 +810,25 @@ unsigned int KMagZoomView::getShowMouseType() const
 QStringList KMagZoomView::getShowMouseStringList() const
 {
 	return (m_showMouseTypes);
+}
+
+
+/**
+ * Returns the image which is being displayed. Its again drawn by adding
+ * the mouse cursor if needed.
+ */
+QPixmap KMagZoomView::getPixmap()
+{
+	// show the pixel under mouse cursor
+	if(m_showMouse) {
+		// Pixmap which will have the zoomed pixmap + mouse
+		QPixmap zoomView(m_grabbedZoomedPixmap);
+
+		// paint the mouse cursor w/o updating to a newer position
+		paintMouseCursor(&zoomView, false);
+		
+		return(zoomView);
+	} else { // no mouse cursor
+   	return(m_grabbedZoomedPixmap);
+	}
 }

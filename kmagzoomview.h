@@ -53,10 +53,8 @@ class KMagZoomView : public QFrame
     /// Toggles the refreshing of the window
     void toggleRefresh();
 
-		/// Return the current pixmap
-		const QPixmap & getPixmap() const {
-    	return(m_grabbedZoomedPixmap);
-		};
+		/// Returns the currently displayed zoomed view
+		QPixmap getPixmap();
 
     /// Returns the state of the refresh switch
     bool getRefreshStatus() const { return m_refreshSwitch; };
@@ -84,6 +82,9 @@ class KMagZoomView : public QFrame
     /// Grabs a frame from the given portion of the display
     void grabFrame();
 
+		/// Update the mouse cursor in the zoom view
+		void updateMouseView();
+
 		/// Set grab-window-follows-mouse mode
 		void followMouse(bool follow = true);
 
@@ -102,6 +103,12 @@ class KMagZoomView : public QFrame
 	protected:
   	/// Called when the widget is to be repainted
   	void paintEvent(QPaintEvent *p);
+
+		/// This does the actual job of painting.
+		void paintViewImage(QPaintDevice *dev, bool updateMousePos=true);
+
+		/// This function draws the mouse cursor
+		void paintMouseCursor(QPaintDevice *dev, bool updateMousePos=true);
 
     /// Called when mouse click is detected
     void mousePressEvent (QMouseEvent *e);
@@ -137,6 +144,9 @@ class KMagZoomView : public QFrame
     /// Grabs a window when the timer goes off
     QTimer m_grabTimer;
 
+    /// Updates the mouse view
+    QTimer m_mouseViewTimer;
+
     /// Zoom matrix
     QWMatrix m_zoomMatrix;
 
@@ -164,8 +174,8 @@ class KMagZoomView : public QFrame
 		/// stores the state of the Shift key
 		bool m_shiftKeyPressed;		
 
-		/// Use this to get global cursor position
-		QCursor m_cursor;
+		/// Store the more recent updated cursor position
+		QPoint m_latestCursorPos;
 
 		/// Various ways of showing mouse cursor
 		QStringList m_showMouseTypes;
