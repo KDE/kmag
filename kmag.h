@@ -138,6 +138,15 @@ class KmagApp : public KMainWindow
 		/// Shows/hides the mouse cursor
 		void showMouseCursor(bool show);
 
+		/// Opens shortcut key configuration dialogue
+		void slotConfKeys();
+
+		/// Called when toolbar config is updated
+		void slotNewToolbarConfig();
+
+		/// Called when "configure toolbar" is clicked
+		void slotEditToolbars();
+
 	signals:
 		/// This signal is raised whenever the index into the zoom array is changed
 		void updateZoomIndex(int);
@@ -156,7 +165,7 @@ class KmagApp : public KMainWindow
     KConfig *config;
 
     // KAction pointers to enable/disable actions
-    KAction *fileNewWindow, *m_pSnapshot, *m_pCopy;
+    KAction *fileNewWindow, *m_pSnapshot, *m_pCopy, *m_fitToWindow, *m_keyConf;
 		KAction *m_pPrint;
 		KAction *m_pZoomIn;
 		KAction *m_pZoomOut;

@@ -38,6 +38,7 @@
 #include <kapp.h>
 #endif // KDE 3.x
 
+#include <kkeydialog.h>
 #include <kiconloader.h>
 #include <kmessagebox.h>
 #include <kfiledialog.h>
@@ -51,6 +52,8 @@
 #include <kio/job.h>
 #include <kio/netaccess.h>
 #include <ktempfile.h>
+#include <kpopupmenu.h>
+#include <kedittoolbar.h>
 
 #if KDE_VERSION < 220
 #include <qprinter.h>
@@ -115,7 +118,8 @@ KmagApp::~KmagApp()
 
 void KmagApp::initActions()
 {
-  fileNewWindow = new KAction(i18n("New &Window"), "window_new", KStdAccel::key(KStdAccel::New), this, SLOT(slotFileNewWindow()), actionCollection(),"file_new_window");
+  fileNewWindow = new KAction(i18n("New &Window"), "window_new", KStdAccel::key(KStdAccel::New), this,
+															SLOT(slotFileNewWindow()), actionCollection(),"new_window");
   fileNewWindow->setToolTip(i18n("Opens a new KMagnifier window"));
 
 	refreshSwitch = new KAction(i18n("Stop"), "stop", KStdAccel::key(KStdAccel::Reload), this,
@@ -137,6 +141,11 @@ void KmagApp::initActions()
   m_pCopy->setWhatsThis(i18n("Click on this button to copy the current zommed image to the clipboard."));
 	m_pCopy->setToolTip(i18n("Copy zoomed image to clipboard"));
 
+  m_fitToWindow = new KAction(i18n("&Fit Window"), "window_fullscreen", CTRL+Key_F, m_zoomView,
+															SLOT(fitToWindow()), actionCollection(),"fit_to_window");
+  m_fitToWindow->setWhatsThis(i18n("Click on this button to fit the zoom view to the zoom window."));
+	m_fitToWindow->setToolTip(i18n("Maximize the use of the window"));
+
   m_pZoomIn = KStdAction::zoomIn(this, SLOT(zoomIn()), actionCollection(), "zoom_in");
   m_pZoomIn->setWhatsThis(i18n("Click on this button to <b>zoom-in</b> on the selected region."));
 
@@ -148,8 +157,9 @@ void KmagApp::initActions()
   m_pZoomOut = KStdAction::zoomOut(this, SLOT(zoomOut()), actionCollection(), "zoom_out");
   m_pZoomOut->setWhatsThis(i18n("Click on this button to <b>zoom-out</b> on the selected region."));
 
+	// Help toolbar popup
 	KToolBarPopupAction *helpAction = new KToolBarPopupAction(i18n("&Help"), "help",
-																					0, actionCollection(), "help");
+																					Key_F1, actionCollection(), "help_menu");
 
 	KHelpMenu *newHelpMenu = new KHelpMenu(this, KGlobal::instance()->aboutData());
 
@@ -166,22 +176,26 @@ void KmagApp::initActions()
 	action = KStdAction::aboutKDE(newHelpMenu, SLOT(aboutKDE()), actionCollection());
   action->plug((QWidget*)helpAction->popupMenu());	
 
+	// Settings tool bar popup
+	KToolBarPopupAction *confAction = new KToolBarPopupAction(i18n("&Settings"), "configure",
+																					0, actionCollection(), "conf_menu");
+	confAction->setDelayed(false);
+	m_keyConf = KStdAction::keyBindings( this, SLOT( slotConfKeys() ), actionCollection(), "key_conf");
+	m_keyConf->plug(confAction->popupMenu());
+	
+	KAction *tbConf = KStdAction::configureToolbars( this, SLOT( slotEditToolbars() ),
+																							actionCollection(), "toolbar_conf");
+	tbConf->plug(confAction->popupMenu());
+
   m_pFPSBox = new KSelectAction(i18n("&Refresh"),0,actionCollection(),"fps_selector");
   m_pFPSBox->setItems(fpsArrayString);
 	m_pFPSBox->setWhatsThis(i18n("Select the refresh rate. The higher the rate, the more computing power (CPU) will be needed."));
 	m_pFPSBox->setToolTip(i18n("Refresh rate"));
 
-	// plug things into the toolbar
-	fileNewWindow->plug(toolBar());
-  refreshSwitch->plug(toolBar());
-  m_pZoomIn->plug(toolBar());
-	m_pZoomBox->plug(toolBar());
-  m_pZoomOut->plug(toolBar());
-	m_pPrint->plug(toolBar());
-	m_pCopy->plug(toolBar());
-	m_pSnapshot->plug(toolBar());
-	m_pFPSBox->plug(toolBar());
-	helpAction->plug(toolBar());
+	createGUI("/home/lsarang/oss/KMagnifier/src/kmag/kmagui.rc");
+
+	// we don't want a menu bar for this applications
+	menuBar()->hide();
 }
 
 void KmagApp::initView()
@@ -576,4 +590,25 @@ void KmagApp::slotViewToolBar()
   {
     toolBar("mainToolBar")->show();
   }		
+}
+
+void KmagApp::slotConfKeys()
+{
+	KKeyDialog::configureKeys( actionCollection(), xmlFile() );
+}
+
+void KmagApp::slotEditToolbars()
+{
+	saveMainWindowSettings( KGlobal::config(), "MainWindow" );
+	KEditToolbar dlg( actionCollection() );
+	connect( &dlg, SIGNAL( newToolbarConfig() ), this, SLOT( slotNewToolbarConfig() ) );
+	if ( dlg.exec() )
+		createGUI();
+}
+
+
+void KmagApp::slotNewToolbarConfig()
+{
+	applyMainWindowSettings( KGlobal::config(), "MainWindow" );
+	createGUI();
 }
