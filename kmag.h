@@ -100,8 +100,8 @@ class KmagApp : public KMainWindow
      */
     virtual bool queryExit();
 
-    /// Catch mouse press events
-    void mousePressEvent (QMouseEvent *e);
+    /// Catch context menu events
+    void contextMenuEvent ( QContextMenuEvent * e );
 
   public slots:
     /** open a new application window by creating a new instance of KmagApp */
@@ -109,14 +109,18 @@ class KmagApp : public KMainWindow
 
     /** print the actual file */
     void slotFilePrint();
+    
+    void slotFileQuit();
 
     /** put the marked text/object into the clipboard
      */
     void copyToClipBoard();
 
-    /** paste the clipboard into the document
-     */
-    void slotViewToolBar();
+    void slotAlwaysFit();
+
+    void slotShowMenu();
+    void slotShowMainToolBar();
+    void slotShowViewToolBar();
 
     /// Toggle the refreshing of the window
     void slotToggleRefresh();
@@ -166,15 +170,13 @@ class KmagApp : public KMainWindow
     KConfig *config;
 
     // KAction pointers to enable/disable actions
-    KAction *fileNewWindow, *m_pSnapshot, *m_pCopy, *m_fitToWindow, *m_keyConf;
+    KAction *fileNewWindow, *m_pSnapshot, *m_pCopy, *m_fitToWindow, *m_keyConf, *m_toolConf;
     KAction *m_pPrint;
     KAction *m_pZoomIn;
     KAction *m_pZoomOut;
-    KAction* filePrint;
-    KAction* fileQuit;
-    KAction* editCopy;
+    KAction *m_pQuit;
     KAction *refreshSwitch;
-    KToggleAction* viewToolBar;
+    KToggleAction *m_alwaysFit, *m_pShowMenu, *m_pShowMainToolBar, *m_pShowViewToolBar;
     KSelectAction *m_pZoomBox, *m_pFPSBox;
 
     /// zoom slider

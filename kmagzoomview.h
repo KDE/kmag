@@ -102,6 +102,9 @@ class KMagZoomView : public QFrame
     /// Shows/Hides mouse cursor in the zoomed view
     bool showMouse(unsigned int type);
 
+    /// Set the status of "fit to window" option
+    void setFitToWindow (bool fit=true);
+
     /// Fits the zoom view to the zoom view window
     void fitToWindow();
 
@@ -111,6 +114,9 @@ class KMagZoomView : public QFrame
 
     /// Called when the widget is shown
     void showEvent( QShowEvent * e);
+
+    /// Called when the widget has been resized
+    void resizeEvent(QResizeEvent *e);
     
     /// Called when the widget is to be repainted
     void paintEvent(QPaintEvent *p);

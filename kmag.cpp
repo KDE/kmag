@@ -28,6 +28,7 @@
 #include <qdragobject.h>
 #include <qwhatsthis.h>
 #include <qtooltip.h>
+#include <qpopupmenu.h>
 
 #include <kdeversion.h>
 
@@ -130,17 +131,32 @@ void KmagApp::initActions()
   updating of the display. Stopping the update will zero the processing power\
   required (CPU usage)"));
 
-  m_pSnapshot = new KAction(i18n("&Snapshot"), "ksnapshot", KStdAccel::key(KStdAccel::Save), this,
+  m_pSnapshot = new KAction(i18n("&Save Snapshot As..."), "ksnapshot", KStdAccel::key(KStdAccel::Save), this,
                             SLOT(saveZoomPixmap()), actionCollection(),"snapshot");
-  m_pSnapshot->setWhatsThis(i18n("Click to save the zoomed view to an image file."));
+  m_pSnapshot->setWhatsThis(i18n("Saves the zoomed view to an image file."));
   m_pSnapshot->setToolTip(i18n("Save image to a file"));
 
   m_pPrint = KStdAction::print(this, SLOT(slotFilePrint()), actionCollection(), "print");
   m_pPrint->setWhatsThis(i18n("Click on this button to print the current zoomed view."));
 
+  m_pQuit = KStdAction::quit(this, SLOT(slotFileQuit()), actionCollection(), "quit");
+  m_pQuit->setStatusText(i18n("Quits the application"));
+  m_pQuit->setWhatsThis (i18n("Quits the application"));
+
   m_pCopy = KStdAction::copy(this, SLOT(copyToClipBoard()), actionCollection(), "copy");
   m_pCopy->setWhatsThis(i18n("Click on this button to copy the current zoomed view to the clipboard which you can paste in other applications."));
   m_pCopy->setToolTip(i18n("Copy zoomed image to clipboard"));
+
+  m_pShowMenu = new KToggleAction(i18n("Show &Menu"), "showmenu", CTRL+Key_M, this,
+                            SLOT(slotShowMenu()), actionCollection(),"show_menu");
+  m_pShowMainToolBar = new KToggleAction(i18n("Show Main &Toolbar"), 0, 0, this,
+                            SLOT(slotShowMainToolBar()), actionCollection(),"show_mainToolBar");
+  m_pShowViewToolBar = new KToggleAction(i18n("Show &View Toolbar"), 0, 0, this,
+                            SLOT(slotShowViewToolBar()), actionCollection(),"show_viewToolBar");
+
+
+  m_alwaysFit = new KToggleAction(i18n("&Always Fit Window"), "", CTRL+SHIFT+Key_F, this,
+                            SLOT(slotAlwaysFit()), actionCollection(),"always_fit");
 
   m_fitToWindow = new KAction(i18n("&Fit Window"), "window_fullscreen", CTRL+Key_F, m_zoomView,
                               SLOT(fitToWindow()), actionCollection(),"fit_to_window");
@@ -158,35 +174,11 @@ void KmagApp::initActions()
   m_pZoomOut = KStdAction::zoomOut(this, SLOT(zoomOut()), actionCollection(), "zoom_out");
   m_pZoomOut->setWhatsThis(i18n("Click on this button to <b>zoom-out</b> on the selected region."));
 
-  // Help toolbar popup
-  KToolBarPopupAction *helpAction = new KToolBarPopupAction(i18n("&Help"), "help",
-                                          Key_F1, actionCollection(), "help_menu");
-
-  KHelpMenu *newHelpMenu = new KHelpMenu(this, KGlobal::instance()->aboutData());
-
-  helpAction->setDelayed(false);
-  KAction *action = KStdAction::helpContents(newHelpMenu, SLOT(appHelpActivated()), 0);
-  action->plug((QWidget*)helpAction->popupMenu());
-
-  action = KStdAction::reportBug(newHelpMenu, SLOT(reportBug()), 0);
-  action->plug((QWidget*)helpAction->popupMenu());
-
-  action = KStdAction::aboutApp(newHelpMenu, SLOT(aboutApplication()), 0);
-  action->plug((QWidget*)helpAction->popupMenu());
-
-  action = KStdAction::aboutKDE(newHelpMenu, SLOT(aboutKDE()), 0);
-  action->plug((QWidget*)helpAction->popupMenu());
-
-  // Settings tool bar popup
-  KToolBarPopupAction *confAction = new KToolBarPopupAction(i18n("&Settings"), "configure",
-                                          0, actionCollection(), "conf_menu");
-  confAction->setDelayed(false);
+  // KHelpMenu *newHelpMenu = new KHelpMenu(this, KGlobal::instance()->aboutData());
+  
   m_keyConf = KStdAction::keyBindings( this, SLOT( slotConfKeys() ), actionCollection(), "key_conf");
-  m_keyConf->plug(confAction->popupMenu());
-
-  KAction *tbConf = KStdAction::configureToolbars( this, SLOT( slotEditToolbars() ),
+  m_toolConf = KStdAction::configureToolbars( this, SLOT( slotEditToolbars() ),
                                               actionCollection(), "toolbar_conf");
-  tbConf->plug(confAction->popupMenu());
 
   m_pFPSBox = new KSelectAction(i18n("&Refresh"),0,actionCollection(),"fps_selector");
   m_pFPSBox->setItems(fpsArrayString);
@@ -194,9 +186,6 @@ void KmagApp::initActions()
   m_pFPSBox->setToolTip(i18n("Refresh rate"));
 
   createGUI();
-
-  // we don't want a menu bar for this applications
-  menuBar()->hide();
 }
 
 void KmagApp::initView()
@@ -277,7 +266,14 @@ void KmagApp::saveOptions()
   config->writeEntry("ShowSelRect", m_zoomView->getShowSelRect());
   config->writeEntry("ShowMouse", m_zoomView->getShowMouseType());
 
+  config->writeEntry("AlwaysFit", m_alwaysFit->isChecked());
+  
+  config->writeEntry("ShowMenu", m_pShowMenu->isChecked());
+  config->writeEntry("ShowMainToolBar", m_pShowMainToolBar->isChecked());
+  config->writeEntry("ShowViewToolBar", m_pShowViewToolBar->isChecked());
+
   toolBar("mainToolBar")->saveSettings(config,"Main ToolBar");
+  toolBar("viewToolBar")->saveSettings(config,"View ToolBar");
 }
 
 
@@ -321,11 +317,28 @@ void KmagApp::readOptions()
     m_showCursorButton->setChecked(true);
   else
     m_showCursorButton->setChecked(false);
-
+  
   if(config->hasGroup("Main Toolbar"))
     toolBar("mainToolBar")->applySettings(config,"Main ToolBar");
   else
     toolBar("mainToolBar")->setBarPos(KToolBar::Bottom);
+  
+  if(config->hasGroup("View Toolbar"))
+    toolBar("viewToolBar")->applySettings(config,"View ToolBar");
+  else
+    toolBar("viewToolBar")->setBarPos(KToolBar::Bottom);
+
+  m_alwaysFit->setChecked(config->readBoolEntry("AlwaysFit", true));
+  slotAlwaysFit();
+
+  m_pShowMenu->setChecked(config->readBoolEntry("ShowMenu", true));
+  slotShowMenu();
+  
+  m_pShowMainToolBar->setChecked(config->readBoolEntry("ShowMainToolBar", true));
+  slotShowMainToolBar();
+  
+  m_pShowViewToolBar->setChecked(config->readBoolEntry("ShowViewToolBar", true));
+  slotShowViewToolBar();
 }
 
 bool KmagApp::queryClose()
@@ -344,18 +357,14 @@ bool KmagApp::queryExit()
  *
  * @param e
  */
-void KmagApp::mousePressEvent(QMouseEvent *e)
+void KmagApp::contextMenuEvent ( QContextMenuEvent * e )
 {
-  kdDebug() << "Got a press event!" << endl;
-
-  switch(e->button()) {
-  case QMouseEvent::RightButton :
-    // show popup
-    kdDebug() << "Show Popup now!" << endl;
-    break;
-  default :
-    break;
-  }
+ // show popup
+ KXMLGUIFactory *factory = this->factory();
+ QPopupMenu *popup = (QPopupMenu *)factory->container("mainPopUp",this);
+ if (popup != 0)
+   popup->popup(e->globalPos(), 0);
+ e->accept();
 }
 
 
@@ -575,23 +584,78 @@ void KmagApp::slotFilePrint()
 #endif // QT_NO_PRINTER
 }
 
+void KmagApp::slotFileQuit()
+{
+  saveOptions();
+  // close the first window, the list makes the next one the first again.
+  // This ensures that queryClose() is called on each window to ask for closing
+  KMainWindow* w;
+  if (memberList)
+  {
+    for(w=memberList->first(); w!=0; w=memberList->first())
+    {
+      // only close the window if the closeEvent is accepted. If the user presses Cancel on the saveModified() dialog,
+      // the window and the application stay open.
+      if(!w->close())
+         break;
+      memberList->removeRef(w);
+    }
+  }	
+}
+
 void KmagApp::copyToClipBoard()
 {
   QClipboard *cb=KApplication::clipboard();
   cb->setPixmap(m_zoomView->getPixmap());
 }
 
-void KmagApp::slotViewToolBar()
+void KmagApp::slotAlwaysFit()
+{
+  m_zoomView->setFitToWindow (m_alwaysFit->isChecked());
+  m_fitToWindow->setEnabled (!m_alwaysFit->isChecked());
+}
+
+void KmagApp::slotShowMenu()
 {
   ///////////////////////////////////////////////////////////////////
-  // turn Toolbar on or off
-  if(!viewToolBar->isChecked())
+  // turn Menu on or off
+  if(!m_pShowMenu->isChecked())
+  {
+    menuBar()->hide();
+  }
+  else
+  {
+    menuBar()->show();
+  }
+
+  
+}
+
+void KmagApp::slotShowMainToolBar()
+{
+  ///////////////////////////////////////////////////////////////////
+  // turn mainToolbar on or off
+  if(!m_pShowMainToolBar->isChecked())
   {
     toolBar("mainToolBar")->hide();
   }
   else
   {
     toolBar("mainToolBar")->show();
+  }
+}
+
+void KmagApp::slotShowViewToolBar()
+{
+  ///////////////////////////////////////////////////////////////////
+  // turn viewToolbar on or off
+  if(!m_pShowViewToolBar->isChecked())
+  {
+    toolBar("viewToolBar")->hide();
+  }
+  else
+  {
+    toolBar("viewToolBar")->show();
   }
 }
 

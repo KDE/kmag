@@ -2,17 +2,81 @@
 <kpartgui name="kmag" version="10">
  <ToolBar noMerge="1" name="mainToolBar">
   <Action name="new_window"/>
-  <Action name="start_stop_refresh"/>
-  <Action name="zoom_in"/>
-  <Action name="zoom"/>
-  <Action name="zoom_out"/>
-  <Action name="fit_to_window"/>
+  <Separator />
   <Action name="snapshot"/>
   <Action name="print"/>
   <Action name="copy"/>
-  <Action name="fps_selector"/>
-  <Action name="conf_menu"/>
-  <Action name="help_menu"/>
  </ToolBar>
-
+ 
+ <ToolBar noMerge="1" name="viewToolBar">
+  <Action name="start_stop_refresh"/>
+  <Separator />
+  <Action name="zoom_in"/>
+  <Action name="zoom"/>
+  <Action name="zoom_out"/>
+  <Separator />
+  <Action name="fps_selector"/>
+ </ToolBar>
+ 
+ <MenuBar>
+  <Menu name="file"><text>&amp;File</text>
+   <Action name="new_window"/>
+   <Action name="snapshot"/>
+   <Action name="print"/>
+   <Separator />
+   <Action name="quit"/>
+  </Menu>
+  <Menu name="edit"><text>&amp;Edit</text>
+   <Action name="copy"/>
+  </Menu>
+  <Menu name="view"><text>&amp;View</text>
+   <Action name="start_stop_refresh"/>
+   <Separator />
+   <Action name="zoom"/>
+   <Action name="zoom_out"/>
+   <Action name="zoom_in"/>
+   <Separator />
+   <Action name="fps_selector"/>
+   <Separator />
+   <Action name="always_fit"/>
+   <Action name="fit_to_window"/>
+  </Menu>
+  <Menu name="settings"><text>&amp;Settings</text>
+   <Action name="show_menu"/>
+   <Action name="show_mainToolBar"/>
+   <Action name="show_viewToolBar"/>
+   <Separator />
+   <Action name="key_conf"/>
+   <Action name="toolbar_conf"/>
+  </Menu>
+ </MenuBar>
+ 
+ <Menu name="mainPopUp">
+  <Action name="new_window"/>
+  <Action name="snapshot"/>
+  <Action name="print"/>
+  <Separator />
+  <Action name="copy"/>
+  <Separator />
+  <Menu name="view"><text>&amp;View</text>
+   <Action name="start_stop_refresh"/>
+   <Separator />
+   <Action name="zoom"/>
+   <Action name="zoom_out"/>
+   <Action name="zoom_in"/>
+   <Separator />
+   <Action name="fps_selector"/>
+   <Separator />
+   <Action name="always_fit"/>
+   <Action name="fit_to_window"/>
+  </Menu>
+  <Menu name="settings"><text>&amp;Settings</text>
+   <Action name="show_menu"/>
+   <Action name="show_mainToolBar"/>
+   <Action name="show_viewToolBar"/>
+   <Separator />
+   <Action name="key_conf"/>
+   <Action name="toolbar_conf"/>
+  </Menu>
+ </Menu>
 </kpartgui>

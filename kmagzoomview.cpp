@@ -168,6 +168,14 @@ void KMagZoomView::showEvent( QShowEvent* )
   }
 }
 
+/**
+ * Called when the widget is resized. Check if fitToWindow is active when this happens.
+ */
+void KMagZoomView::resizeEvent(QResizeEvent* )
+{
+  if(m_fitToWindow)
+    fitToWindow(); 
+}
 
 /**
  * Called when the widget is to be repainted
@@ -434,20 +442,12 @@ QRect KMagZoomView::pixmapRect()
  */
 void KMagZoomView::mousePressEvent(QMouseEvent *e)
 {
-  // don't do anything if follow mouse is enabled
-  if(m_followMouse) {
-#if QT_VERSION >= 300
-    // ignore this button press.. so it goes to the parent
-    e->ignore();
-#endif
-    return;
-  }
-
   switch(e->button()) {
   case QMouseEvent::LeftButton :
     if(m_ctrlKeyPressed) {
       // check if currently in resize mode
-      if(m_mouseMode != ResizeSelection) {
+      // don't do anything if fitToWindow is enabled
+      if ((m_mouseMode != ResizeSelection) && !m_fitToWindow) {
         // set the mode to ResizeSelection
         m_mouseMode = ResizeSelection;
 
@@ -464,9 +464,16 @@ void KMagZoomView::mousePressEvent(QMouseEvent *e)
         // show the selection rectangle
         m_selRect.show();
       }
+      else {
+        #if QT_VERSION >= 300
+        // ignore this button press.. so it goes to the parent
+        e->ignore();
+        #endif
+      }
     } else if(m_shiftKeyPressed) {
       // check if currently in move mode
-      if(m_mouseMode != MoveSelection) {
+      // don't do anything if follow mouse is enabled
+      if ((m_mouseMode != MoveSelection) && !m_followMouse) {
         m_mouseMode = MoveSelection;
 
         // set mouse cursor to cross hair
@@ -482,9 +489,16 @@ void KMagZoomView::mousePressEvent(QMouseEvent *e)
         // show the selected rectangle
         m_selRect.show();
       }
+      else {
+        #if QT_VERSION >= 300
+        // ignore this button press.. so it goes to the parent
+        e->ignore();
+        #endif
+      }
     } else {
       // check if currently in move mode
-      if(m_mouseMode != GrabSelection) {
+      // don't do anything if follow mouse is enabled
+      if ((m_mouseMode != GrabSelection) && !m_followMouse) {
         m_mouseMode = GrabSelection;
 
         // set mouse cursor to hand
@@ -499,12 +513,19 @@ void KMagZoomView::mousePressEvent(QMouseEvent *e)
         // show the selected rectangle
         m_selRect.show();
       }
+      else {
+        #if QT_VERSION >= 300
+        // ignore this button press.. so it goes to the parent
+        e->ignore();
+        #endif
+      }
     }
     break;
 
   case QMouseEvent::MidButton :
-        // check if currently in move mode
-    if(m_mouseMode != MoveSelection) {
+    // check if currently in move mode
+    // don't do anything if follow mouse is enabled
+    if ((m_mouseMode != MoveSelection) && !m_followMouse) {
       m_mouseMode = MoveSelection;
 
       // set mouse cursor to cross hair
@@ -519,6 +540,12 @@ void KMagZoomView::mousePressEvent(QMouseEvent *e)
 
       // show the selected rectangle
       m_selRect.show();
+    }
+    else {
+      #if QT_VERSION >= 300
+      // ignore this button press.. so it goes to the parent
+      e->ignore();
+      #endif
     }
     break;
   // do nothing
@@ -539,10 +566,6 @@ void KMagZoomView::mousePressEvent(QMouseEvent *e)
  */
 void KMagZoomView::mouseReleaseEvent(QMouseEvent *e)
 {
-  // don't do anything if follow mouse is enabled
-  if(m_followMouse)
-    return;
-
   switch(e->button()) {
   case QMouseEvent::LeftButton :
   case QMouseEvent::MidButton :
@@ -600,17 +623,12 @@ void KMagZoomView::mouseReleaseEvent(QMouseEvent *e)
  */
 void KMagZoomView::mouseMoveEvent(QMouseEvent *e)
 {
-  // don't do anything if follow mouse is enabled
-  if(m_followMouse) {
-    grabFrame();
-  } else if(m_mouseMode == ResizeSelection) {
+  if(m_mouseMode == ResizeSelection) {
     // In resize selection mode
     // set the current mouse position as the bottom, right corner
     m_selRect.setRight(e->globalX());
     m_selRect.setBottom(e->globalY());
     m_selRect.update();
-    // since the selection window has been resized, set fitToWindow to false
-    m_fitToWindow = false;
     grabFrame();
   } else if(m_mouseMode == MoveSelection) {
      QPoint newCenter;
@@ -742,9 +760,17 @@ void KMagZoomView::fitToWindow()
   m_selRect.moveCenter(currCenter);
   // update the grab rectangle display
   m_selRect.update();
-  m_fitToWindow = true;
+//  m_fitToWindow = true;
   repaint(false);
 }
+
+void KMagZoomView::setFitToWindow(bool fit)
+{
+  m_fitToWindow = fit;
+  if (fit)
+    fitToWindow();
+}
+
 
 /**
  * Grabs frame from X
@@ -756,7 +782,7 @@ void KMagZoomView::grabFrame()
      return;
 
   // check if follow-mouse is enabled
-  if(m_followMouse) {
+  if(m_followMouse && (m_mouseMode != ResizeSelection)) {
     // in this case grab w.r.t the current mouse position
      QPoint newCenter;
 
@@ -842,7 +868,7 @@ void KMagZoomView::setZoom(float zoom)
   m_zoom = zoom;
 
   // update selection window size when zooming in if necessary
-  if (m_selRect.width()*zoom>width() || m_selRect.height()*zoom>height())
+  if (m_fitToWindow)
     fitToWindow();
 
   // recompute the zoom matrix
