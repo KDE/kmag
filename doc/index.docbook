@@ -440,9 +440,11 @@ information here.
 
 <para>
 &kmag; requires you to have KDE installed on your system. More specifically, &kmag;
-requires the kdebase and the kdelibs package from KDE. As of version 0.7,
-&kmag; is being developed on KDE ver 2.2.2, but it should compile on any KDE with
-version 2.x. A KDE3 version of &kmag; will be released soon. Other than these, there
+requires the kdebase and the kdelibs package from KDE. Uptill version 0.7,
+&kmag; was being developed on KDE ver 2.x. Since then, it is developed using
+KDE 3.x. Version 0.8 of &kmag; compiles on both KDE2 and KDE3. Efforts will be made
+to keep &kmag; compilable on KDE2, but there is no sure word. You are welcome to
+maintain the backport. Other than these, there
 are no other requirements for &kmag;. You can even use &kmag; with other desktop
 environments like GNOME, windowmaker etc. as long as you have kdelbase and kdelibs installed.
 </para>
