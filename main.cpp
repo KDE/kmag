@@ -5,7 +5,7 @@
                              -------------------
     begin                : Mon Feb 12 23:45:41 EST 2001
     copyright            : (C) 2001 by Sarang Lakare
-    email                : sarang@users.sourceforge.net
+    email                : sarang@users.sf.net
  ***************************************************************************/
 
 /***************************************************************************
@@ -40,15 +40,15 @@ int main(int argc, char *argv[])
 {
 	// about the application
   KAboutData *aboutData = new KAboutData("kmag", I18N_NOOP("K Magnifier"), "0.4+",
-                                         I18N_NOOP("Screen Magnifier for KDE2"),
+                                         I18N_NOOP("Screen Magnifier for the K Desktop Environment (KDE)"),
                                          KAboutData::License_GPL,
                                          "(C) 2001, Sarang Lakare","",
                                          "http://kmag.sourceforge.net");
 
   // about the authors
   aboutData->addAuthor("Sarang Lakare",
-                       "KDE2 port + ReWrite + Current Maintainer","sarang@users.sourceforge.net",
-                       "http://www.cs.sunysb.edu/~lsarang");
+                       "KDE2 port + ReWrite + Current Maintainer","sarang@users.sf.net",
+                       "http://www.cs.sunysb.edu/~lsarang/linux");
 	aboutData->addAuthor("Claudiu Costin", "Performance, usability", "claudiuc@work.ro",
                        "http://www.ro.kde.org");
   aboutData->addAuthor("Santanu Chaudhari",

@@ -25,7 +25,10 @@
 #include <config.h>
 #endif
 
+#include <vector>
+
 // include files for Qt
+#include <qstringlist.h>
 
 // include files for KDE 
 #include <kapp.h>
@@ -71,6 +74,8 @@ class KmagApp : public KMainWindow
      */	
     KmagDoc *getDocument() const; 	
 
+
+		
   protected:
     /** save general Options like all bar positions and status as well as the geometry and the recent file list to the configuration
      * file
@@ -97,6 +102,10 @@ class KmagApp : public KMainWindow
      * @see KTMainWindow#queryClose
      * @see KTMainWindow#closeEvent
      */
+
+		/// Initialize all connections
+		void initConnections();
+
     virtual bool queryClose();
     /** queryExit is called by KTMainWindow when the last window of the application is going to be closed during the closeEvent().
      * Against the default implementation that just returns true, this calls saveOptions() to save the settings of the last window's	
@@ -141,12 +150,21 @@ class KmagApp : public KMainWindow
     /// Toggle the refreshing of the window
     void slotToggleRefresh();
 
-    void slotZoomIn();
+		/// Zooms in
+    void zoomIn();
 
-    void slotZoomOut();
+		/// Zooms out
+    void zoomOut();
 
-    /// Sets the zoom to "zoom"
-    void slotSetZoom(float zoom=0.0);
+    /// Sets the zoom index to index
+    void setZoomIndex(int index=4);
+
+	signals:
+		/// This signal is raised whenever the index into the zoom array is changed
+		void updateZoomIndex(int);
+		
+		/// This signal is raised whenever the zoom value changes
+		void updateZoomValue(float);
 
   private:
     /** the configuration object of the application */
@@ -164,17 +182,25 @@ class KmagApp : public KMainWindow
 
     // KAction pointers to enable/disable actions
     KAction* fileNewWindow;
-		KAction *zoomIn;
-		KAction *zoomOut;
+		KAction *m_pZoomIn;
+		KAction *m_pZoomOut;
     KAction* filePrint;
     KAction* fileQuit;
     KAction* editCopy;
     KAction *refreshSwitch;
     KToggleAction* viewToolBar;
     KToggleAction* viewStatusBar;
+		KSelectAction *m_pZoomBox;
 
 		/// zoom slider
 		KIntNumInput *m_zoomSlider;
+
+		/// Current index into the zoomArray
+		unsigned int m_zoomIndex;
+
+		QStringList zoomArrayString;
+		vector<float> zoomArray;
 };
- 
+
+
 #endif // KMAG_H

@@ -17,6 +17,8 @@
  ***************************************************************************/
 
 
+#include <iostream>
+
 // include files for QT
 #include <qdir.h>
 #include <qprinter.h>
@@ -39,9 +41,29 @@
 
 #define ID_STATUS_MSG 1
 
-KmagApp::KmagApp(QWidget* , const char* name):KMainWindow(0, name, WStyle_MinMax | WType_TopLevel | WDestructiveClose | WStyle_ContextHelp | WStyle_StaysOnTop)
+
+
+KmagApp::KmagApp(QWidget* , const char* name)
+	: KMainWindow(0, name, WStyle_MinMax | WType_TopLevel | WDestructiveClose | WStyle_ContextHelp | WStyle_StaysOnTop),
+		m_zoomIndex(4)
 {
   config=kapp->config();
+
+	zoomArrayString << "20% [5:1]"  << "50% [2:1]"  << "75% [1.33:1]"  << "100% [1:1]"
+    << "125% [1:1.25]"  << "150% [1:1.5]"  << "200% [1:2]"  << "300% [1:3]"
+    << "400% [1:4]"  << "500% [1:5]" << "600% [1:6]" << "700% [1:7]"
+    << "800% [1:8]" << "1200% [1:12]" << "1600% [1:16]" << "2000% [1:20]";
+
+	// Is there a better way to initialize a vector array?
+	zoomArray.push_back(0.2); zoomArray.push_back(0.5); zoomArray.push_back(0.75); zoomArray.push_back(1.0);
+	zoomArray.push_back(1.25); zoomArray.push_back(1.5); zoomArray.push_back(2.0); zoomArray.push_back(3.0);
+	zoomArray.push_back(4.0); zoomArray.push_back(5.0); zoomArray.push_back(6.0); zoomArray.push_back(7.0);
+	zoomArray.push_back(8.0); zoomArray.push_back(12.0); zoomArray.push_back(16.0); zoomArray.push_back(20.0);
+
+	if(zoomArrayString.count() != zoomArray.size()) {
+		cerr << "Check the zoom array in the constructor." << endl;
+		exit(1);
+	}
 
   ///////////////////////////////////////////////////////////////////
   // call inits to invoke all other construction parts
@@ -49,8 +71,7 @@ KmagApp::KmagApp(QWidget* , const char* name):KMainWindow(0, name, WStyle_MinMax
   initDocument();
   initView();
   initActions();
-
-
+	initConnections();
 	
   readOptions();
 
@@ -59,6 +80,10 @@ KmagApp::KmagApp(QWidget* , const char* name):KMainWindow(0, name, WStyle_MinMax
 
   filePrint->setEnabled(false);
   editCopy->setEnabled(false);
+
+	// set initial zoom to 2x
+	setZoomIndex(6);
+	emit updateZoomIndex(m_zoomIndex);
 }
 
 KmagApp::~KmagApp()
@@ -72,8 +97,8 @@ void KmagApp::initActions()
   filePrint = KStdAction::print(this, SLOT(slotFilePrint()), actionCollection());
   fileQuit = KStdAction::quit(this, SLOT(slotFileQuit()), actionCollection());
   editCopy = KStdAction::copy(this, SLOT(slotEditCopy()), actionCollection());
-  zoomIn = KStdAction::zoomIn(this, SLOT(slotZoomIn()), actionCollection());
-  zoomOut = KStdAction::zoomOut(this, SLOT(slotZoomOut()), actionCollection());
+  m_pZoomIn = KStdAction::zoomIn(this, SLOT(zoomIn()), actionCollection(), "zoom_in");
+  m_pZoomOut = KStdAction::zoomOut(this, SLOT(zoomOut()), actionCollection(), "zoom_out");
   refreshSwitch = KStdAction::zoom(this, SLOT(slotToggleRefresh()), actionCollection());
   viewToolBar = KStdAction::showToolbar(this, SLOT(slotViewToolBar()), actionCollection());
   viewStatusBar = KStdAction::showStatusbar(this, SLOT(slotViewStatusBar()), actionCollection());
@@ -92,14 +117,22 @@ void KmagApp::initActions()
   updating of the display. Stopping the update will zero the processing power\
   required (CPU usage)."));
 
-  zoomIn->setWhatsThis(i18n("Click on this button to <b>zoom-in</b> on the selected region."));
-  zoomOut->setWhatsThis(i18n("Click on this button to <b>zoom-out</b> on the selected region."));
+  m_pZoomIn->setWhatsThis(i18n("Click on this button to <b>zoom-in</b> on the selected region."));
+  m_pZoomOut->setWhatsThis(i18n("Click on this button to <b>zoom-out</b> on the selected region."));
+
+  m_pZoomBox = new KSelectAction(i18n("Zoom"),0,actionCollection(),"zoom");
+  m_pZoomBox->setItems(zoomArrayString);
+	m_pZoomBox->setComboWidth(50);
+
 
   // use the absolute path to your kmagui.rc file for testing purpose in createGUI();
   createGUI();
-  // add zoomIn and zoomOut to the toolbar
-  zoomIn->plug(toolBar());
-  zoomOut->plug(toolBar());
+
+  // add zoomIn, zoomBox and zoomOut to the toolbar
+  m_pZoomIn->plug(toolBar());
+	m_pZoomBox->plug(toolBar());
+  m_pZoomOut->plug(toolBar());
+
   // create toolbar with the slider
   //m_zoomSlider = new KIntNumInput(2, toolBar(0), 10, "Zoom");
   //m_zoomSlider->setFixedWidth(256);
@@ -134,6 +167,16 @@ void KmagApp::initView()
   setCentralWidget(view);	
   //setCaption(doc->URL().fileName(),false);
 
+}
+
+void KmagApp::initConnections()
+{
+	// change in zoom value -> update the view
+	connect(this, SIGNAL(updateZoomValue(float)), view, SLOT(setZoom(float)));
+	// change in zoom index -> update the selector
+	connect(this, SIGNAL(updateZoomIndex(int)), m_pZoomBox, SLOT(setCurrentItem(int)));
+	// selector selects a zoom index -> set the zoom index
+	connect(m_pZoomBox, SIGNAL(activated(int)), this, SLOT(setZoomIndex(int)));
 }
 
 void KmagApp::openDocumentFile(const KURL& url)
@@ -256,57 +299,63 @@ bool KmagApp::queryExit()
 // SLOT IMPLEMENTATION
 /////////////////////////////////////////////////////////////////////
 
-void KmagApp::slotSetZoom(float zoom)
+/**
+ * Zoom in.
+ */
+void KmagApp::zoomIn()
 {
-  view->slotSetZoom(zoom);
+	// set the new index .. checking will done inside setZoom
+	setZoomIndex(m_zoomIndex+1);
+	// signal change in zoom index
+	emit updateZoomIndex((int)m_zoomIndex);
+}
 
-  // check if zoomIn icon should be enabled or disabled
-  if(!view->zoomInOk()) {
-    // meaning that no more zooming-in is possible
-    // -> disable zoom-in icon
-    zoomIn->setEnabled(false);
-  } else
-    zoomIn->setEnabled(true);
+/**
+ * Zoom out.
+ */
+void KmagApp::zoomOut()
+{
+	// set the new index .. checking will done inside setZoom
+	setZoomIndex(m_zoomIndex-1);
+	// signal change in zoom index
+	emit updateZoomIndex((int)m_zoomIndex);
+}
 
-  // check if zoomIn icon should be enabled or disabled
-  if(!view->zoomOutOk()) {
+
+/**
+ * Sets the zoom index to index
+ */
+void KmagApp::setZoomIndex(int index)
+{
+	if(index < 0 || index >= (int)zoomArray.size()) {
+		// the index is invalid
+		cerr << "Invalid index!" << endl;
+		return;
+  } else if((int)m_zoomIndex == index) {
+		// do nothing!
+		return;
+	} else {
+		m_zoomIndex = index;
+	}
+
+  if(m_zoomIndex == 0) {
     // meaning that no more zooming-out is possible
-    // -> disable zoom-in icon
-    zoomOut->setEnabled(false);
-  } else
-    zoomOut->setEnabled(true);
-}
+    // -> disable zoom-out icon
+    m_pZoomOut->setEnabled(false);
+  } else { // enable the icon
+		m_pZoomOut->setEnabled(true);
+	}
 
-
-void KmagApp::slotZoomIn()
-{
-  view->slotZoomIn();
-
-  if(!view->zoomInOk()) {
+  if(m_zoomIndex == zoomArray.size()-1) {
     // meaning that no more zooming-in is possible
     // -> disable zoom-in icon
-    zoomIn->setEnabled(false);
-  }
-
-  // check if zoomOut icon was disabled.. enable it
-  if(!zoomOut->isEnabled())
-    zoomOut->setEnabled(true);
-
-}
-
-void KmagApp::slotZoomOut()
-{
-  view->slotZoomOut();
-
-  if(!view->zoomOutOk()) {
-    // meaning that no more zooming-in is possible
-    // -> disable zoom-in icon
-    zoomOut->setEnabled(false);
-  }
-
-  // check if zoomIn icon was disabled.. enable it
-  if(!zoomIn->isEnabled())
-    zoomIn->setEnabled(true);
+    m_pZoomIn->setEnabled(false);
+  } else { // enable the icon
+		m_pZoomIn->setEnabled(true);
+	}
+	
+	// signal change in zoom value
+	emit updateZoomValue(zoomArray[m_zoomIndex]);
 }
 
 
@@ -420,4 +469,5 @@ void KmagApp::slotStatusMsg(const QString &text)
   statusBar()->clear();
   statusBar()->changeItem(text, ID_STATUS_MSG);
 }
+
 
