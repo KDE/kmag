@@ -35,7 +35,7 @@ KmagApp *kmagapp;
 static KCmdLineOptions options[] =
 {
   { "+[File]", I18N_NOOP("File to open"), 0 },
-  { 0, 0, 0 }
+  KCmdLineLastOption
   // INSERT YOUR COMMANDLINE OPTIONS HERE
 };
 
@@ -63,20 +63,20 @@ int main(int argc, char *argv[])
   KCmdLineArgs::addCmdLineOptions( options ); // Add our own options.
 
   KApplication app;
- 
+
   if (app.isRestored())
   {
     RESTORE(KmagApp);
   }
-  else 
+  else
   {
     kmagapp = new KmagApp();
     kmagapp->show();
 
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-    
+
     args->clear();
   }
 
   return app.exec();
-}  
+}
