@@ -16,6 +16,9 @@ KDE_ICON = kmag
 kmagdir = $(kde_appsdir)/Applications
 kmag_DATA = kmag.desktop
 
+kmagiconsdir = $(kde_datadir)/kmag/icons
+kmagicons_ICON = followmouse hidemouse window
+
 # set the include path for X, qt and KDE
 INCLUDES= $(all_includes)
 

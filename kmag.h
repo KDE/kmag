@@ -37,8 +37,6 @@
 
 // forward declaration of the Kmag classes
 class KMagZoomView;
-class QButtonGroup;
-class  QCheckBox;
 class KActions;
 class KToggleAction;
 class KSelectAction;
@@ -121,9 +119,14 @@ class KmagApp : public KMainWindow
     void slotShowMenu();
     void slotShowMainToolBar();
     void slotShowViewToolBar();
+    void slotShowMagnificationToolBar();
 
     /// Toggle the refreshing of the window
     void slotToggleRefresh();
+
+    void slotToggleFollowMouse();
+    void slotToggleHideCursor();
+    void slotToggleShowSelRect();
 
     /// Zooms in
     void zoomIn();
@@ -176,7 +179,7 @@ class KmagApp : public KMainWindow
     KAction *m_pZoomOut;
     KAction *m_pQuit;
     KAction *refreshSwitch;
-    KToggleAction *m_alwaysFit, *m_pShowMenu, *m_pShowMainToolBar, *m_pShowViewToolBar;
+    KToggleAction *m_alwaysFit, *m_pShowMenu, *m_pShowMainToolBar, *m_pShowViewToolBar, *m_pShowMagnificationToolBar;
     KSelectAction *m_pZoomBox, *m_pFPSBox;
 
     /// zoom slider
@@ -195,8 +198,7 @@ class KmagApp : public KMainWindow
     std::vector<float> fpsArray;
 
   KMagZoomView* m_zoomView;
-  QButtonGroup *m_settingsGroup;
-  QCheckBox *m_followMouseButton, *m_showCursorButton, *m_showSelRectButton;
+  KToggleAction *m_followMouse, *m_hideCursor, *m_showSelRect;
 
   /// Stores the non-zero cursor type to be used
   unsigned int m_mouseCursorType;

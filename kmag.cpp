@@ -20,9 +20,6 @@
 #include <qdir.h>
 #include <qprinter.h>
 #include <qpainter.h>
-#include <qvbox.h>
-#include <qcheckbox.h>
-#include <qbuttongroup.h>
 #include <qlayout.h>
 #include <qclipboard.h>
 #include <qdragobject.h>
@@ -153,6 +150,8 @@ void KmagApp::initActions()
                             SLOT(slotShowMainToolBar()), actionCollection(),"show_mainToolBar");
   m_pShowViewToolBar = new KToggleAction(i18n("Show &View Toolbar"), 0, 0, this,
                             SLOT(slotShowViewToolBar()), actionCollection(),"show_viewToolBar");
+  m_pShowMagnificationToolBar = new KToggleAction(i18n("Show M&agnification Toolbar"), 0, 0, this,
+                            SLOT(slotShowMagnificationToolBar()), actionCollection(),"show_magnificationToolBar");
 
 
   m_alwaysFit = new KToggleAction(i18n("&Always Fit Window"), "", CTRL+SHIFT+Key_F, this,
@@ -162,6 +161,19 @@ void KmagApp::initActions()
                               SLOT(fitToWindow()), actionCollection(),"fit_to_window");
   m_fitToWindow->setWhatsThis(i18n("Click on this button to fit the zoom view to the zoom window."));
   m_fitToWindow->setToolTip(i18n("Maximize the use of the window"));
+
+  m_followMouse = new KToggleAction(i18n("Follow mouse"), "followmouse", 0, this,
+                            SLOT(slotToggleFollowMouse()), actionCollection(), "followmouse");
+  m_followMouse->setToolTip(i18n("Magnify around the mouse cursor"));
+  m_followMouse->setWhatsThis(i18n("If selected, the area around the mouse cursor is magnified"));
+
+  m_hideCursor = new KToggleAction(i18n("Hide mouse cursor"), "hidemouse", 0, this,
+                            SLOT(slotToggleHideCursor()), actionCollection(), "hidecursor");
+  m_hideCursor->setToolTip(i18n("Hide the mouse cursor"));
+
+  m_showSelRect = new KToggleAction(i18n("Selection window"), "window", 0, this,
+                            SLOT(slotToggleShowSelRect()), actionCollection(), "selectionwindow");
+  m_showSelRect->setToolTip(i18n("Show the selection window on the screen"));
 
   m_pZoomIn = KStdAction::zoomIn(this, SLOT(zoomIn()), actionCollection(), "zoom_in");
   m_pZoomIn->setWhatsThis(i18n("Click on this button to <b>zoom-in</b> on the selected region."));
@@ -190,48 +202,12 @@ void KmagApp::initActions()
 
 void KmagApp::initView()
 {
-  QVBox *mainView = new QVBox(this);
-
-  m_zoomView = new KMagZoomView( mainView, "ZoomView" );
+  m_zoomView = new KMagZoomView( this, "ZoomView" );
   m_zoomView->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)7, m_zoomView->sizePolicy().hasHeightForWidth() ) );
   m_zoomView->setFrameShape( QFrame::StyledPanel );
   m_zoomView->setFrameShadow( QFrame::Raised );
 
-  m_settingsGroup = new QButtonGroup( mainView, "m_settingsGroup" );
-  m_settingsGroup->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)5, (QSizePolicy::SizeType)0, m_settingsGroup->sizePolicy().hasHeightForWidth() ) );
-  m_settingsGroup->setFrameShape( QButtonGroup::NoFrame );
-  m_settingsGroup->setTitle("");
-  m_settingsGroup->setColumnLayout(0, Qt::Vertical );
-  m_settingsGroup->layout()->setSpacing( 0 );
-  m_settingsGroup->layout()->setMargin( 0 );
-  QHBoxLayout *settingsGroupLayout = new QHBoxLayout( m_settingsGroup->layout() );
-  settingsGroupLayout->setAlignment( Qt::AlignTop );
-  settingsGroupLayout->setSpacing( 6 );
-  settingsGroupLayout->setMargin( 0 );
-
-  m_followMouseButton = new QCheckBox( m_settingsGroup, "m_followMouseButton" );
-  m_followMouseButton->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)1, m_followMouseButton->sizePolicy().hasHeightForWidth() ) );
-  m_followMouseButton->setText( i18n( "Follow mouse" ) );
-  QToolTip::add(m_followMouseButton, i18n("Magnify around the mouse cursor"));
-  QWhatsThis::add(m_followMouseButton, i18n("If selected, the area around the mouse cursor is magnified") );
-  settingsGroupLayout->addWidget( m_followMouseButton );
-  connect(m_followMouseButton, SIGNAL(toggled(bool)), m_zoomView, SLOT(followMouse(bool)));
-
-  m_showCursorButton = new QCheckBox( m_settingsGroup, "m_showCursorButton" );
-  m_showCursorButton->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)1, m_followMouseButton->sizePolicy().hasHeightForWidth() ) );
-  m_showCursorButton->setText( i18n( "Mouse cursor" ) );
-  QToolTip::add(m_showCursorButton, i18n("Show mouse cursor"));
-  settingsGroupLayout->addWidget( m_showCursorButton );
-  connect(m_showCursorButton, SIGNAL(toggled(bool)), this, SLOT(showMouseCursor(bool)));
-
-  m_showSelRectButton = new QCheckBox( m_settingsGroup, "m_showSelRectButton" );
-  m_showSelRectButton->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)1, m_showSelRectButton->sizePolicy().hasHeightForWidth() ) );
-  m_showSelRectButton->setText( i18n( "Selection window" ) );
-  QToolTip::add(m_showSelRectButton, i18n("Show the selection window on the screen"));
-  settingsGroupLayout->addWidget( m_showSelRectButton );
-  connect(m_showSelRectButton, SIGNAL(toggled(bool)), m_zoomView, SLOT(showSelRect(bool)));
-
-  setCentralWidget(mainView);
+  setCentralWidget(m_zoomView);
 }
 
 /**
@@ -271,9 +247,11 @@ void KmagApp::saveOptions()
   config->writeEntry("ShowMenu", m_pShowMenu->isChecked());
   config->writeEntry("ShowMainToolBar", m_pShowMainToolBar->isChecked());
   config->writeEntry("ShowViewToolBar", m_pShowViewToolBar->isChecked());
+  config->writeEntry("ShowMagnificationToolBar", m_pShowMagnificationToolBar->isChecked());
 
   toolBar("mainToolBar")->saveSettings(config,"Main ToolBar");
   toolBar("viewToolBar")->saveSettings(config,"View ToolBar");
+  toolBar("magnificationToolBar")->saveSettings(config,"Magnification ToolBar");
 }
 
 
@@ -284,7 +262,7 @@ void KmagApp::readOptions()
 {
   config->setGroup("General Options");
 
-  QSize defSize(425,390);
+  QSize defSize(460,390);
   QSize size=config->readSizeEntry("Geometry", &defSize);
   if(!size.isEmpty())
   {
@@ -302,22 +280,30 @@ void KmagApp::readOptions()
 
   bool followMouse = config->readBoolEntry("FollowMouse", true);
   m_zoomView->followMouse(followMouse);
-  m_followMouseButton->setChecked(followMouse);
+  m_followMouse->setChecked(followMouse);
 
   QRect defaultRect(0,0,211,164);
   m_zoomView->setSelRectPos(config->readRectEntry("SelRect", &defaultRect));
 
   bool showSelRect = config->readBoolEntry("ShowSelRect", false);
   m_zoomView->showSelRect(showSelRect);
-  m_showSelRectButton->setChecked(showSelRect);
+  m_showSelRect->setChecked(showSelRect);
 
   m_mouseCursorType = config->readUnsignedNumEntry("ShowMouse", m_defaultMouseCursorType);
   m_zoomView->showMouse(m_mouseCursorType);
   if(m_mouseCursorType)
-    m_showCursorButton->setChecked(true);
+    m_hideCursor->setChecked(false);
   else
-    m_showCursorButton->setChecked(false);
+    m_hideCursor->setChecked(true);
   
+  if(config->hasGroup("Magnification ToolBar"))
+    toolBar("magnificationToolBar")->applySettings(config,"Magnification ToolBar");
+  else {
+    toolBar("magnificationToolBar")->setBarPos(KToolBar::Bottom);
+    toolBar("magnificationToolBar")->setIconText (KToolBar::IconTextRight);
+    toolBar("magnificationToolBar")->setIconSize (16);
+  }
+
   if(config->hasGroup("Main ToolBar"))
     toolBar("mainToolBar")->applySettings(config,"Main ToolBar");
   else
@@ -339,6 +325,9 @@ void KmagApp::readOptions()
   
   m_pShowViewToolBar->setChecked(config->readBoolEntry("ShowViewToolBar", true));
   slotShowViewToolBar();
+  
+  m_pShowMagnificationToolBar->setChecked(config->readBoolEntry("ShowMagnificationToolBar", true));
+  slotShowMagnificationToolBar();
 }
 
 bool KmagApp::queryClose()
@@ -530,6 +519,21 @@ void KmagApp::slotToggleRefresh()
   }
 }
 
+void KmagApp::slotToggleFollowMouse()
+{
+  m_zoomView->followMouse(m_followMouse->isChecked());
+}
+
+void KmagApp::slotToggleHideCursor()
+{
+  showMouseCursor(!m_hideCursor->isChecked());
+}
+
+void KmagApp::slotToggleShowSelRect()
+{
+  m_zoomView->showSelRect(m_showSelRect->isChecked());
+}
+
 
 void KmagApp::slotFileNewWindow()
 {
@@ -656,6 +660,20 @@ void KmagApp::slotShowViewToolBar()
   else
   {
     toolBar("viewToolBar")->show();
+  }
+}
+
+void KmagApp::slotShowMagnificationToolBar()
+{
+  ///////////////////////////////////////////////////////////////////
+  // turn viewToolbar on or off
+  if(!m_pShowMagnificationToolBar->isChecked())
+  {
+    toolBar("magnificationToolBar")->hide();
+  }
+  else
+  {
+    toolBar("magnificationToolBar")->show();
   }
 }
 
