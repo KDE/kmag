@@ -193,7 +193,7 @@ void KmagApp::initActions()
 	m_pFPSBox->setWhatsThis(i18n("Select the refresh rate. The higher the rate, the more computing power (CPU) will be needed."));
 	m_pFPSBox->setToolTip(i18n("Refresh rate"));
 
-	createGUI("/home/lsarang/oss/KMagnifier/src/kmag/kmagui.rc");
+	createGUI();
 
 	// we don't want a menu bar for this applications
 	menuBar()->hide();
