@@ -82,7 +82,7 @@ KmagApp::KmagApp(QWidget* , const char* name)
   editCopy->setEnabled(false);
 
 	// set initial zoom to 2x
-	setZoomIndex(6);
+	setZoomIndex(7);
 	emit updateZoomIndex(m_zoomIndex);
 }
 

@@ -24,14 +24,14 @@ ldadd=\s$(LIB_KFILE) $(LIB_KDEUI) $(LIB_KDECORE) $(LIB_QT)
 ldflags=
 
 [General]
-AMChanged=true
+AMChanged=false
 author=Sarang Lakare
 configure_args=--with-qt-dir=/usr/lib/qt2 --prefix=/usr
 email=sarang@users.sourceforge.net
 kdevprj_version=1.3
 lfv_open_groups=User Interface
 make_options=\s-j1
-makefiles=Makefile.am,kmag/Makefile.am,doc/Makefile.am,doc/en/Makefile.am,po/Makefile.am
+makefiles=Makefile.am,kmag/Makefile.am,doc/Makefile.am,doc/en/Makefile.am,po/Makefile.am,doc/en/HTML/Makefile.am
 modifyMakefiles=true
 project_name=Kmag
 project_type=normal_kde2
@@ -97,13 +97,13 @@ type=normal
 
 [doc/en/Makefile.am]
 files=doc/en/index.docbook
-sub_dirs=
+sub_dirs=HTML
 type=normal
 
 [doc/en/index.docbook]
 dist=true
-install=false
-install_location=$$$$(kde_icondir)/locolor/16x16/apps/kmag.png
+install=true
+install_location=$$(kde_htmldir)/en/index.docbook
 type=DATA
 
 [kmag.kdevprj]
@@ -138,7 +138,7 @@ type=SOURCE
 [kmag/kmag.desktop]
 dist=true
 install=true
-install_location=$$$$(kde_appsdir)/Applications/kmag.desktop
+install_location=$$(kde_appsdir)/Applications/Accessibility/kmag.desktop
 type=DATA
 
 [kmag/kmag.h]
@@ -192,13 +192,13 @@ type=HEADER
 [kmag/lo16-app-kmag.png]
 dist=true
 install=true
-install_location=$$$$(kde_icondir)/locolor/16x16/apps/kmag.png
+install_location=$$(kde_icondir)/locolor/16x16/apps/kmag.png
 type=DATA
 
 [kmag/lo32-app-kmag.png]
 dist=true
 install=true
-install_location=$$$$(kde_icondir)/locolor/32x32/apps/kmag.png
+install_location=$$(kde_icondir)/locolor/32x32/apps/kmag.png
 type=DATA
 
 [kmag/main.cpp]

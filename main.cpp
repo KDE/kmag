@@ -39,7 +39,7 @@ static KCmdLineOptions options[] =
 int main(int argc, char *argv[])
 {
 	// about the application
-  KAboutData *aboutData = new KAboutData("kmag", I18N_NOOP("K Magnifier"), "0.4+",
+  KAboutData *aboutData = new KAboutData("kmag", I18N_NOOP("K Magnifier"), VERSION,
                                          I18N_NOOP("Screen Magnifier for the K Desktop Environment (KDE)"),
                                          KAboutData::License_GPL,
                                          "(C) 2001, Sarang Lakare","",
