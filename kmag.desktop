@@ -6,7 +6,5 @@ Icon=kmag.png
 MiniIcon=kmag.png
 DocPath=kmag/index.html
 Comment=
-Comment[de]=
 Terminal=0
 Name=K Magnifier
-Name[de]=K Magnifier
