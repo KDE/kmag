@@ -8,8 +8,10 @@ Version 1.0:
 @ Documentation
 @ KDE3 port
 @ Mouse cursor show/hide
+@ Toolbar configuration
+@ Shortcut configuration
+@ Maximizing use of the zoomed image display area
 - Mouse cursor type configuration
-- Maximizing use of the zoomed image display area
 - Right mouse menu
 - Configuration dialog
 - Translations
