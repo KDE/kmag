@@ -74,6 +74,9 @@ class KMagZoomView : public QFrame
 		/// Returns the different ways of showing mouse cursor
 		QStringList getShowMouseStringList() const;
 
+		/// Returns the status of "fit to window" option
+		bool getFitToWindow() const { return (m_fitToWindow); };
+
 	public slots:
 	
 	  /// Sets zoom to the given value
@@ -99,6 +102,9 @@ class KMagZoomView : public QFrame
 
 		/// Shows/Hides mouse cursor in the zoomed view
 		bool showMouse(unsigned int type);
+
+		/// Fits the zoom view to the zoom view window
+		void fitToWindow();
 
 	protected:
   	/// Called when the widget is to be repainted
@@ -196,6 +202,9 @@ class KMagZoomView : public QFrame
 
     /// Stores the amount to zoom the pixmap
     float m_zoom;
+
+		/// Fit the zoom view to the zoom window
+		bool m_fitToWindow;
 };
 
 #endif // KMagZoomView_h_

@@ -80,7 +80,8 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
 		m_latestCursorPos(0,0),
 		m_followMouse(false),
 		m_showMouse(1),
-		m_zoom(1.0)
+		m_zoom(1.0),
+		m_fitToWindow(true)
 {
 	KApplication::setGlobalMouseTracking(TRUE);
 	setMouseTracking(TRUE);
@@ -115,6 +116,9 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
 
 	// different ways to show the cursor.
 	m_showMouseTypes << "Hidden" << "Box" << "Arrow" << "Actual";
+
+	if(m_fitToWindow)
+		fitToWindow();
 }
 
 KMagZoomView::~KMagZoomView()
@@ -408,7 +412,7 @@ void KMagZoomView::mousePressEvent(QMouseEvent *e)
         m_oldMousePos.setX(e->globalX());
         m_oldMousePos.setY(e->globalY());
 
-        // set the cursor position to the center of the selected region
+        // set the cursor position to the bottom-right of the selected region
         QCursor::setPos(m_selRect.bottomRight());
 
         // show the selection rectangle
@@ -560,6 +564,9 @@ void KMagZoomView::mouseMoveEvent(QMouseEvent *e)
     m_selRect.setRight(e->globalX());
     m_selRect.setBottom(e->globalY());
     m_selRect.update();
+		// since the selection window has been resized, set fitToWindow to false
+		m_fitToWindow = false;
+		repaint(false);
 	} else if(m_mouseMode == MoveSelection) {
  		QPoint newCenter;
 
@@ -582,15 +589,12 @@ void KMagZoomView::mouseMoveEvent(QMouseEvent *e)
 		} else if(newCenter.y() >=  QApplication::desktop()->height()-m_selRect.height()/2) {
 			// set Y to the maximum possible Y
 			newCenter.setY(QApplication::desktop()->height()-m_selRect.height()/2-1);
-		}
-
-								
+		}								
 		// move to the new center	
 		m_selRect.moveCenter(newCenter);
-
     // update the grab rectangle display
     m_selRect.update();
-
+		repaint(false);
 	} else if(m_mouseMode == GrabSelection) {
  		QPoint newPos;
 
@@ -620,9 +624,9 @@ void KMagZoomView::mouseMoveEvent(QMouseEvent *e)
 						
 		// move to the new center	
 		m_selRect.moveCenter(newCenter);
-
     // update the grab rectangle display
     m_selRect.update();
+		repaint(false);
 	}
 }
 
@@ -656,8 +660,45 @@ void KMagZoomView::focusOutEvent(QFocusEvent *e)
 	}
 }
 
-
 // SLOTS
+
+/**
+ * This will fit the zoom view to the view window, thus using the maximum
+ * possible space in the window.
+ */
+void KMagZoomView::fitToWindow()
+{
+	unsigned int newWidth = this->width()/this->m_zoom;
+	unsigned int newHeight = this->height()/this->m_zoom;
+
+	QPoint currCenter = m_selRect.center();
+
+	m_selRect.setWidth(newWidth);
+	m_selRect.setHeight(newHeight);
+
+ 	// make sure the selection window does not go outside of the display
+ 	if(currCenter.x() < m_selRect.width()/2) {
+ 		// set X to the minimum possible X
+ 		currCenter.setX(m_selRect.width()/2);
+ 	} else if(currCenter.x() >=  QApplication::desktop()->width()-m_selRect.width()/2) {
+ 		// set X to the maximum possible X
+ 		currCenter.setX(QApplication::desktop()->width()-m_selRect.width()/2-1);
+ 	}
+
+   if(currCenter.y() < m_selRect.height()/2) {
+ 		// set Y to the minimum possible Y
+ 		currCenter.setY(m_selRect.height()/2);
+ 	} else if(currCenter.y() >=  QApplication::desktop()->height()-m_selRect.height()/2) {
+ 		// set Y to the maximum possible Y
+ 		currCenter.setY(QApplication::desktop()->height()-m_selRect.height()/2-1);
+ 	}
+
+	m_selRect.moveCenter(currCenter);
+  // update the grab rectangle display
+  m_selRect.update();
+	m_fitToWindow = true;
+	repaint(false);
+}
 
 /**
  * Grabs frame from X
@@ -689,9 +730,7 @@ void KMagZoomView::grabFrame()
 	  if(newCenter.y() < m_selRect.height()/2) {
 			// set Y to the minimum possible Y
 			newCenter.setY(m_selRect.height()/2);
-		} else if(newCenter.y() >=  QApplication::desktop()->height()-m_selRect.height
-
-()/2) {
+		} else if(newCenter.y() >=  QApplication::desktop()->height()-m_selRect.height()/2) {
 			// set Y to the maximum possible Y
 			newCenter.setY(QApplication::desktop()->height()-m_selRect.height()/2-1);
 		}							
