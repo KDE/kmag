@@ -180,6 +180,11 @@ To magnify the contents around the mouse cursor, select "follow mouse". Now
 as you move the mouse, you will see that the screen around the mouse cursor
 is magnified and shown in the magnifier window.
 </para>
+<para>
+If you would prefer not to see the mouse cursor in the zoomed image, de-select
+"mouse cursor". Please note that &kmag; cannot yet find out the current cursor shape.
+Thus, it shows the default KDE/Qt cursor.
+</para>
 
 <sect1 id="changing-selection-window">
 <title>Changing the part of the screen to be magnified</title>
