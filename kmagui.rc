@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui>
-<kpartgui name="kmag" version="1.0">
+<kpartgui name="kmag" version="10">
  <ToolBar noMerge="1" name="mainToolBar">
   <Action name="new_window"/>
   <Action name="start_stop_refresh"/>
