@@ -61,6 +61,8 @@ void KMagSelRect::init(QWidget *_parent)
   gc = XCreateGC(dpy, parent->winId(),
                  GCForeground | GCFunction | GCLineWidth | GCSubwindowMode,
                  &gv);
+
+	m_alwaysVisible = false;
 }
 
 KMagSelRect::~KMagSelRect()
@@ -77,6 +79,12 @@ bool KMagSelRect::visible()
   return (isVisible);
 }
 
+void KMagSelRect::alwaysVisible(bool visible)
+{
+	m_alwaysVisible = visible;
+}
+
+
 //--------------------------------------------------------------------------
 //   Slots
 //--------------------------------------------------------------------------
@@ -92,6 +100,8 @@ void KMagSelRect::show()
 
 void KMagSelRect::hide()
 {
+	if(m_alwaysVisible)
+		return;
   if ( isVisible ) {
     isVisible = false;
     paint(*this);
@@ -121,33 +131,3 @@ void KMagSelRect::paint(const QRect &rect)
                  abs(normRect.width()) + 1,
                  abs(normRect.height()) + 1);
 }
-
-/*
-
-//--------------------------------------------------------------------------
-//   Hider
-//--------------------------------------------------------------------------
-
-KMagSelRectHider::KMagSelRectHider(KMagSelRect &_selRect) :
-selRect(_selRect)
-{
-  if ( selRect.visible() ) {
-    selRect.hide();
-    hidden = true;
-  } else {
-    hidden = false;
-  }
-}
-
-KMagSelRectHider::~KMagSelRectHider()
-{
-  if ( hidden ) {
-    selRect.show();
-  }
-}
-*/
-
-//--------------------------------------------------------------------------
-//   end of file
-//--------------------------------------------------------------------------
-

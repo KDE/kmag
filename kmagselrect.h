@@ -45,6 +45,9 @@ public:
     virtual ~KMagSelRect();
 
     bool visible();
+
+		/// Makes the rectangle always visible
+		void alwaysVisible(bool visible=true);
     
 public slots:	
 
@@ -65,6 +68,7 @@ protected:
     QWidget *parent;
     bool isVisible;
     QRect old;
+		bool m_alwaysVisible;
 
 };
 

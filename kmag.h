@@ -168,7 +168,7 @@ class KmagApp : public KMainWindow
 
 	KMagZoomView* m_zoomView;
   QButtonGroup *m_settingsGroup;
-	QCheckBox *m_followMouseButton;
+	QCheckBox *m_followMouseButton, *m_showSelRectButton;
 };
 
 

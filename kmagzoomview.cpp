@@ -69,7 +69,7 @@ KMagZoomView::~KMagZoomView()
 /**
  * This function will set/reset mouse following of grab window.
  */
-void KMagZoomView::setFollowMouse(bool follow)
+void KMagZoomView::followMouse(bool follow)
 {
 	if(follow) {
   	m_followMouse = true;
@@ -455,14 +455,9 @@ void KMagZoomView::grabFrame()
 		} else if(newCenter.y() >=  QApplication::desktop()->height()-m_selRect.width()/2) {
 			// set Y to the maximum possible Y
 			newCenter.setY(QApplication::desktop()->height()-m_selRect.width()/2-1);
-		}
-
-								
+		}							
 		// move to the new center	
 		m_selRect.moveCenter(newCenter);
-
-    // update the grab rectangle display
-    m_selRect.update();
 
 	}
 
@@ -480,7 +475,9 @@ void KMagZoomView::grabFrame()
 
   // call repaint to display the newly grabbed image
   repaint(pixmapRect(), false);
-  //repaint(false);
+
+  // update the grab rectangle display
+  m_selRect.update();
 }
 
 /** Toggles the state of refreshing.
@@ -514,3 +511,12 @@ void KMagZoomView::setZoom(float zoom)
   repaint();
 }
 
+void KMagZoomView::showSelRect(bool show)
+{
+	m_selRect.alwaysVisible(show);
+	if(show) {
+		m_selRect.show();
+	} else if(m_mouseMode == Normal) {
+  	m_selRect.hide();
+	}
+}

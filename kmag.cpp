@@ -177,7 +177,14 @@ void KmagApp::initView()
   m_followMouseButton->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)1, m_followMouseButton->sizePolicy().hasHeightForWidth() ) );
   m_followMouseButton->setText( i18n( "Follow Mouse" ) );
   settingsGroupLayout->addWidget( m_followMouseButton );
-	connect(m_followMouseButton, SIGNAL(toggled(bool)), m_zoomView, SLOT(setFollowMouse(bool)));
+	connect(m_followMouseButton, SIGNAL(toggled(bool)), m_zoomView, SLOT(followMouse(bool)));
+
+  m_showSelRectButton = new QCheckBox( m_settingsGroup, "m_showSelRectButton" );
+  m_showSelRectButton->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)1, m_showSelRectButton->sizePolicy().hasHeightForWidth() ) );
+  m_showSelRectButton->setText( i18n( "Show Selected Area" ) );
+  settingsGroupLayout->addWidget( m_showSelRectButton );
+  connect(m_showSelRectButton, SIGNAL(toggled(bool)), m_zoomView, SLOT(showSelRect(bool)));
+
 
   setCentralWidget(mainView);	
 }
@@ -219,7 +226,7 @@ void KmagApp::readOptions()
 	emit updateZoomIndex(m_zoomIndex);
 
 	bool followMouse = config->readBoolEntry("FollowMouse", false);
-	m_zoomView->setFollowMouse(followMouse);
+	m_zoomView->followMouse(followMouse);
 	m_followMouseButton->setChecked(followMouse);
 
   toolBar("mainToolBar")->applySettings(config,"Main ToolBar");

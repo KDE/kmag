@@ -59,9 +59,12 @@ class KMagZoomView : public QFrame
 		};
 
     /// Returns the state of the refresh switch
-    bool getRefreshStatus() { return m_refreshSwitch; };
+    bool getRefreshStatus() const { return m_refreshSwitch; };
 
-		bool getFollowMouse() { return m_followMouse; };
+		/// Returns teh status of followMouse
+		bool getFollowMouse() const { return m_followMouse; };
+
+		bool getShowSelRect() const { return m_showSelRect; };
 
     /// Toggles the refreshing of the window
     void toggleRefresh();
@@ -75,7 +78,10 @@ class KMagZoomView : public QFrame
     void grabFrame();
 
 		/// Set grab-window-follows-mouse mode
-		void setFollowMouse(bool follow = true);
+		void followMouse(bool follow = true);
+
+		/// Shows/Hides the selection marker
+		void showSelRect(bool show=true);
 
 	protected:
   	/// Called when the widget is to be repainted
@@ -153,6 +159,9 @@ class KMagZoomView : public QFrame
 
 		/// To follow mouse motion or not when no key is pressed
 		bool m_followMouse;
+
+		/// Always show the selection rectangle
+		bool m_showSelRect;
 
 		/// Use this to get global cursor position
 		QCursor m_cursor;
