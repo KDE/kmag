@@ -124,18 +124,18 @@ KmagApp::~KmagApp()
 
 void KmagApp::initActions()
 {
-  fileNewWindow = new KAction(i18n("New &Window"), "window_new", KStdAccel::key(KStdAccel::New), this,
+  fileNewWindow = new KAction(i18n("New &Window"), "window_new", KStdAccel::openNew(), this,
                               SLOT(slotFileNewWindow()), actionCollection(),"new_window");
   fileNewWindow->setToolTip(i18n("Open a new KMagnifier window"));
 
-  refreshSwitch = new KAction(i18n("&Stop"), "stop", KStdAccel::key(KStdAccel::Reload), this,
+  refreshSwitch = new KAction(i18n("&Stop"), "stop", KStdAccel::reload(), this,
                               SLOT(slotToggleRefresh()), actionCollection(), "start_stop_refresh");
   refreshSwitch->setToolTip(i18n("Click to stop window refresh"));
   refreshSwitch->setWhatsThis(i18n("Clicking on this icon will <b>start</b> / <b>stop</b>\
   updating of the display. Stopping the update will zero the processing power\
   required (CPU usage)"));
 
-  m_pSnapshot = new KAction(i18n("&Save Snapshot As..."), "ksnapshot", KStdAccel::key(KStdAccel::Save), this,
+  m_pSnapshot = new KAction(i18n("&Save Snapshot As..."), "ksnapshot", KStdAccel::save(), this,
                             SLOT(saveZoomPixmap()), actionCollection(),"snapshot");
   m_pSnapshot->setWhatsThis(i18n("Saves the zoomed view to an image file."));
   m_pSnapshot->setToolTip(i18n("Save image to a file"));
@@ -530,7 +530,7 @@ void KmagApp::saveZoomPixmap()
         KMessageBox::error(0, i18n("Unable to save temporary file (before uploading to the network file you specified)."),
                           i18n("Error Writing File"));
       } else {
-        if(!KIO::NetAccess::upload(tempFile.name(), url)) {
+        if(!KIO::NetAccess::upload(tempFile.name(), url, this)) {
           KMessageBox::error(0, i18n("Unable to upload file over the network."),
                             i18n("Error Writing File"));
         } else {
@@ -750,7 +750,7 @@ void KmagApp::slotShowSettingsToolBar()
 
 void KmagApp::slotConfKeys()
 {
-  KKeyDialog::configureKeys( actionCollection(), xmlFile() );
+  KKeyDialog::configure( actionCollection() );
 }
 
 void KmagApp::slotEditToolbars()
