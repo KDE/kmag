@@ -148,12 +148,16 @@ void KmagApp::initActions()
 
   m_pShowMenu = new KToggleAction(i18n("Show &Menu"), "showmenu", CTRL+Key_M, this,
                             SLOT(slotShowMenu()), actionCollection(),"show_menu");
+  m_pShowMenu->setCheckedState(i18n("Hide &Menu"));
   m_pShowMainToolBar = new KToggleAction(i18n("Show Main &Toolbar"), 0, 0, this,
                             SLOT(slotShowMainToolBar()), actionCollection(),"show_mainToolBar");
+  m_pShowMainToolBar->setCheckedState(i18n("Hide Main &Toolbar"));
   m_pShowViewToolBar = new KToggleAction(i18n("Show &View Toolbar"), 0, 0, this,
                             SLOT(slotShowViewToolBar()), actionCollection(),"show_viewToolBar");
+  m_pShowViewToolBar->setCheckedState(i18n("Hide &View Toolbar"));
   m_pShowSettingsToolBar = new KToggleAction(i18n("Show &Settings Toolbar"), 0, 0, this,
                             SLOT(slotShowSettingsToolBar()), actionCollection(),"show_settingsToolBar");
+  m_pShowSettingsToolBar->setCheckedState(i18n("Hide &Settings Toolbar"));
 
 
   m_alwaysFit = new KToggleAction(i18n("&Always Fit Window"), "", CTRL+SHIFT+Key_F, this,
@@ -171,6 +175,7 @@ void KmagApp::initActions()
 
   m_hideCursor = new KToggleAction(i18n("Hide Mouse &Cursor"), "hidemouse", 0, this,
                             SLOT(slotToggleHideCursor()), actionCollection(), "hidecursor");
+  m_hideCursor->setCheckedState(i18n("Show Mouse &Cursor"));
   m_hideCursor->setToolTip(i18n("Hide the mouse cursor"));
 
   m_showSelRect = new KToggleAction(i18n("Selection &Window"), "window", 0, this,
@@ -245,7 +250,7 @@ void KmagApp::saveOptions()
   config->writeEntry("ShowMouse", m_zoomView->getShowMouseType());
 
   config->writeEntry("AlwaysFit", m_alwaysFit->isChecked());
-  
+
   config->writeEntry("ShowMenu", m_pShowMenu->isChecked());
   config->writeEntry("ShowMainToolBar", m_pShowMainToolBar->isChecked());
   config->writeEntry("ShowViewToolBar", m_pShowViewToolBar->isChecked());
@@ -297,7 +302,7 @@ void KmagApp::readOptions()
     m_hideCursor->setChecked(false);
   else
     m_hideCursor->setChecked(true);
-  
+
   if(config->hasGroup("Settings ToolBar"))
     toolBar("settingsToolBar")->applySettings(config,"Settings ToolBar");
   else {
@@ -322,7 +327,7 @@ void KmagApp::readOptions()
 
   m_pShowViewToolBar->setChecked(config->readBoolEntry("ShowViewToolBar", true));
   slotShowViewToolBar();
-  
+
   m_pShowSettingsToolBar->setChecked(config->readBoolEntry("ShowSettingsToolBar", true));
   slotShowSettingsToolBar();
 }
@@ -601,7 +606,7 @@ void KmagApp::slotFileQuit()
          break;
       memberList->removeRef(w);
     }
-  }	
+  }
 }
 
 void KmagApp::copyToClipBoard()
@@ -629,7 +634,7 @@ void KmagApp::slotShowMenu()
     menuBar()->show();
   }
 
-  
+
 }
 
 void KmagApp::slotShowMainToolBar()
