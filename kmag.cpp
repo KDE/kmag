@@ -82,7 +82,7 @@ KmagApp::KmagApp(QWidget* , const char* name)
   zoomArray.push_back(4.0); zoomArray.push_back(5.0); zoomArray.push_back(6.0); zoomArray.push_back(7.0);
   zoomArray.push_back(8.0); zoomArray.push_back(12.0); zoomArray.push_back(16.0); zoomArray.push_back(20.0);
 
-  fpsArrayString << i18n("Very Low") << i18n("Low") << i18n("Medium") << i18n("High") << i18n("Very High");
+  fpsArrayString << i18n("&Very Low") << i18n("&Low") << i18n("&Medium") << i18n("&High") << i18n("V&ery High");
 
   fpsArray.push_back(2); // very low
   fpsArray.push_back(6); // low
@@ -121,7 +121,7 @@ void KmagApp::initActions()
                               SLOT(slotFileNewWindow()), actionCollection(),"new_window");
   fileNewWindow->setToolTip(i18n("Open a new KMagnifier window"));
 
-  refreshSwitch = new KAction(i18n("Stop"), "stop", KStdAccel::key(KStdAccel::Reload), this,
+  refreshSwitch = new KAction(i18n("&Stop"), "stop", KStdAccel::key(KStdAccel::Reload), this,
                               SLOT(slotToggleRefresh()), actionCollection(), "start_stop_refresh");
   refreshSwitch->setToolTip(i18n("Click to stop window refresh"));
   refreshSwitch->setWhatsThis(i18n("Clicking on this icon will <b>start</b> / <b>stop</b>\
@@ -150,8 +150,8 @@ void KmagApp::initActions()
                             SLOT(slotShowMainToolBar()), actionCollection(),"show_mainToolBar");
   m_pShowViewToolBar = new KToggleAction(i18n("Show &View Toolbar"), 0, 0, this,
                             SLOT(slotShowViewToolBar()), actionCollection(),"show_viewToolBar");
-  m_pShowMagnificationToolBar = new KToggleAction(i18n("Show M&agnification Toolbar"), 0, 0, this,
-                            SLOT(slotShowMagnificationToolBar()), actionCollection(),"show_magnificationToolBar");
+  m_pShowSettingsToolBar = new KToggleAction(i18n("Show &Settings Toolbar"), 0, 0, this,
+                            SLOT(slotShowSettingsToolBar()), actionCollection(),"show_settingsToolBar");
 
 
   m_alwaysFit = new KToggleAction(i18n("&Always Fit Window"), "", CTRL+SHIFT+Key_F, this,
@@ -162,16 +162,16 @@ void KmagApp::initActions()
   m_fitToWindow->setWhatsThis(i18n("Click on this button to fit the zoom view to the zoom window."));
   m_fitToWindow->setToolTip(i18n("Maximize the use of the window"));
 
-  m_followMouse = new KToggleAction(i18n("Follow mouse"), "followmouse", 0, this,
+  m_followMouse = new KToggleAction(i18n("&Follow Mouse"), "followmouse", 0, this,
                             SLOT(slotToggleFollowMouse()), actionCollection(), "followmouse");
   m_followMouse->setToolTip(i18n("Magnify around the mouse cursor"));
   m_followMouse->setWhatsThis(i18n("If selected, the area around the mouse cursor is magnified"));
 
-  m_hideCursor = new KToggleAction(i18n("Hide mouse cursor"), "hidemouse", 0, this,
+  m_hideCursor = new KToggleAction(i18n("Hide Mouse &Cursor"), "hidemouse", 0, this,
                             SLOT(slotToggleHideCursor()), actionCollection(), "hidecursor");
   m_hideCursor->setToolTip(i18n("Hide the mouse cursor"));
 
-  m_showSelRect = new KToggleAction(i18n("Selection window"), "window", 0, this,
+  m_showSelRect = new KToggleAction(i18n("Selection &Window"), "window", 0, this,
                             SLOT(slotToggleShowSelRect()), actionCollection(), "selectionwindow");
   m_showSelRect->setToolTip(i18n("Show the selection window on the screen"));
 
@@ -187,7 +187,7 @@ void KmagApp::initActions()
   m_pZoomOut->setWhatsThis(i18n("Click on this button to <b>zoom-out</b> on the selected region."));
 
   // KHelpMenu *newHelpMenu = new KHelpMenu(this, KGlobal::instance()->aboutData());
-  
+
   m_keyConf = KStdAction::keyBindings( this, SLOT( slotConfKeys() ), actionCollection(), "key_conf");
   m_toolConf = KStdAction::configureToolbars( this, SLOT( slotEditToolbars() ),
                                               actionCollection(), "toolbar_conf");
@@ -247,11 +247,11 @@ void KmagApp::saveOptions()
   config->writeEntry("ShowMenu", m_pShowMenu->isChecked());
   config->writeEntry("ShowMainToolBar", m_pShowMainToolBar->isChecked());
   config->writeEntry("ShowViewToolBar", m_pShowViewToolBar->isChecked());
-  config->writeEntry("ShowMagnificationToolBar", m_pShowMagnificationToolBar->isChecked());
+  config->writeEntry("ShowSettingsToolBar", m_pShowSettingsToolBar->isChecked());
 
   toolBar("mainToolBar")->saveSettings(config,"Main ToolBar");
   toolBar("viewToolBar")->saveSettings(config,"View ToolBar");
-  toolBar("magnificationToolBar")->saveSettings(config,"Magnification ToolBar");
+  toolBar("settingsToolBar")->saveSettings(config,"Settings ToolBar");
 }
 
 
@@ -296,38 +296,33 @@ void KmagApp::readOptions()
   else
     m_hideCursor->setChecked(true);
   
-  if(config->hasGroup("Magnification ToolBar"))
-    toolBar("magnificationToolBar")->applySettings(config,"Magnification ToolBar");
+  if(config->hasGroup("Settings ToolBar"))
+    toolBar("settingsToolBar")->applySettings(config,"Settings ToolBar");
   else {
-    toolBar("magnificationToolBar")->setBarPos(KToolBar::Bottom);
-    toolBar("magnificationToolBar")->setIconText (KToolBar::IconTextRight);
-    toolBar("magnificationToolBar")->setIconSize (16);
+    toolBar("settingsToolBar")->setIconText (KToolBar::IconTextRight);
+    toolBar("settingsToolBar")->setIconSize (16);
   }
 
   if(config->hasGroup("Main ToolBar"))
     toolBar("mainToolBar")->applySettings(config,"Main ToolBar");
-  else
-    toolBar("mainToolBar")->setBarPos(KToolBar::Bottom);
-  
+
   if(config->hasGroup("View ToolBar"))
     toolBar("viewToolBar")->applySettings(config,"View ToolBar");
-  else
-    toolBar("viewToolBar")->setBarPos(KToolBar::Bottom);
 
   m_alwaysFit->setChecked(config->readBoolEntry("AlwaysFit", true));
   slotAlwaysFit();
 
   m_pShowMenu->setChecked(config->readBoolEntry("ShowMenu", true));
   slotShowMenu();
-  
-  m_pShowMainToolBar->setChecked(config->readBoolEntry("ShowMainToolBar", true));
+
+  m_pShowMainToolBar->setChecked(config->readBoolEntry("ShowMainToolBar", false));
   slotShowMainToolBar();
-  
+
   m_pShowViewToolBar->setChecked(config->readBoolEntry("ShowViewToolBar", true));
   slotShowViewToolBar();
   
-  m_pShowMagnificationToolBar->setChecked(config->readBoolEntry("ShowMagnificationToolBar", true));
-  slotShowMagnificationToolBar();
+  m_pShowSettingsToolBar->setChecked(config->readBoolEntry("ShowSettingsToolBar", true));
+  slotShowSettingsToolBar();
 }
 
 bool KmagApp::queryClose()
@@ -663,17 +658,17 @@ void KmagApp::slotShowViewToolBar()
   }
 }
 
-void KmagApp::slotShowMagnificationToolBar()
+void KmagApp::slotShowSettingsToolBar()
 {
   ///////////////////////////////////////////////////////////////////
   // turn viewToolbar on or off
-  if(!m_pShowMagnificationToolBar->isChecked())
+  if(!m_pShowSettingsToolBar->isChecked())
   {
-    toolBar("magnificationToolBar")->hide();
+    toolBar("settingsToolBar")->hide();
   }
   else
   {
-    toolBar("magnificationToolBar")->show();
+    toolBar("settingsToolBar")->show();
   }
 }
 

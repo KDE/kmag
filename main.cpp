@@ -42,18 +42,18 @@ static KCmdLineOptions options[] =
 int main(int argc, char *argv[])
 {
   // about the application
-  KAboutData *aboutData = new KAboutData("kmag", I18N_NOOP("K Magnifier"), KMAG_VERSION,
-                                         I18N_NOOP("Screen Magnifier for the K Desktop Environment (KDE)"),
+  KAboutData *aboutData = new KAboutData("kmag", I18N_NOOP("KMagnifier"), KMAG_VERSION,
+                                         I18N_NOOP("Screen magnifier for the K Desktop Environment (KDE)"),
                                          KAboutData::License_GPL,
                                          "(C) 2001-2003, Sarang Lakare","",
                                          "http://kmag.sourceforge.net");
 
   // about the authors
   aboutData->addAuthor("Sarang Lakare",
-                       I18N_NOOP("ReWrite + Current Maintainer"),"sarang@users.sf.net",
+                       I18N_NOOP("Rewrite and current maintainer"),"sarang@users.sf.net",
                        "http://www.cs.sunysb.edu/~lsarang/linux");
   aboutData->addAuthor("Michael Forster",
-                       I18N_NOOP("Original Idea & Author (KDE1)"), "forster@fmi.uni-passau.de");
+                       I18N_NOOP("Original idea and author (KDE1)"), "forster@fmi.uni-passau.de");
 
   aboutData->addCredit("Olaf Jan Schmidt", I18N_NOOP("Various patches"), "ojschmidt@kde.org");
   aboutData->addCredit("Claudiu Costin", I18N_NOOP("Some tips"), "claudiuc@work.ro",

@@ -18,7 +18,7 @@
   <Action name="fps_selector"/>
  </ToolBar>
  
- <ToolBar noMerge="1" name="magnificationToolBar">
+ <ToolBar noMerge="1" name="settingsToolBar">
   <Action name="followmouse"/>
   <Action name="hidecursor"/>
   <Action name="selectionwindow"/>
@@ -51,7 +51,11 @@
    <Action name="show_menu"/>
    <Action name="show_mainToolBar"/>
    <Action name="show_viewToolBar"/>
-   <Action name="show_magnificationToolBar"/>
+   <Action name="show_settingsToolBar"/>
+   <Separator />
+   <Action name="followmouse"/>
+   <Action name="hidecursor"/>
+   <Action name="selectionwindow"/>
    <Separator />
    <Action name="key_conf"/>
    <Action name="toolbar_conf"/>
@@ -60,11 +64,21 @@
  
  <Menu name="mainPopUp">
   <Action name="new_window"/>
-  <Action name="snapshot"/>
-  <Action name="print"/>
   <Separator />
   <Action name="copy"/>
   <Separator />
+  <Action name="followmouse"/>
+  <Action name="hidecursor"/>
+  <Action name="selectionwindow"/>
+  <Menu name="settings"><text>Other &amp;Settings</text>
+   <Action name="show_menu"/>
+   <Action name="show_mainToolBar"/>
+   <Action name="show_viewToolBar"/>
+   <Action name="show_settingsToolBar"/>
+   <Separator />
+   <Action name="key_conf"/>
+   <Action name="toolbar_conf"/>
+  </Menu>
   <Menu name="view"><text>&amp;View</text>
    <Action name="start_stop_refresh"/>
    <Separator />
@@ -77,14 +91,8 @@
    <Action name="always_fit"/>
    <Action name="fit_to_window"/>
   </Menu>
-  <Menu name="settings"><text>&amp;Settings</text>
-   <Action name="show_menu"/>
-   <Action name="show_mainToolBar"/>
-   <Action name="show_viewToolBar"/>
-   <Action name="show_magnificationToolBar"/>
-   <Separator />
-   <Action name="key_conf"/>
-   <Action name="toolbar_conf"/>
-  </Menu>
+  <Separator />
+  <Action name="snapshot"/>
+  <Action name="print"/>
  </Menu>
 </kpartgui>

@@ -119,7 +119,7 @@ class KmagApp : public KMainWindow
     void slotShowMenu();
     void slotShowMainToolBar();
     void slotShowViewToolBar();
-    void slotShowMagnificationToolBar();
+    void slotShowSettingsToolBar();
 
     /// Toggle the refreshing of the window
     void slotToggleRefresh();
@@ -179,7 +179,7 @@ class KmagApp : public KMainWindow
     KAction *m_pZoomOut;
     KAction *m_pQuit;
     KAction *refreshSwitch;
-    KToggleAction *m_alwaysFit, *m_pShowMenu, *m_pShowMainToolBar, *m_pShowViewToolBar, *m_pShowMagnificationToolBar;
+    KToggleAction *m_alwaysFit, *m_pShowMenu, *m_pShowMainToolBar, *m_pShowViewToolBar, *m_pShowSettingsToolBar;
     KSelectAction *m_pZoomBox, *m_pFPSBox;
 
     /// zoom slider
