@@ -31,7 +31,12 @@
 #include <qdragobject.h>
 
 // include files for KDE
+#if KDE_VERSION > 300
+#include <kapplication.h>
+#else
 #include <kapp.h>
+#endif // KDE 3.x
+
 #include <kiconloader.h>
 #include <kmessagebox.h>
 #include <kfiledialog.h>
@@ -148,16 +153,16 @@ void KmagApp::initActions()
 
 	helpAction->setDelayed(false);
 	KAction *action = KStdAction::helpContents(newHelpMenu, SLOT(appHelpActivated()), actionCollection());
-  action->plug(helpAction->popupMenu());
+  action->plug((QWidget*)helpAction->popupMenu());
 
 	action = KStdAction::reportBug(newHelpMenu, SLOT(reportBug()), actionCollection());
-  action->plug(helpAction->popupMenu());
+  action->plug((QWidget*)helpAction->popupMenu());
 
 	action = KStdAction::aboutApp(newHelpMenu, SLOT(aboutApplication()), actionCollection());
-  action->plug(helpAction->popupMenu());
+  action->plug((QWidget*)helpAction->popupMenu());
 
 	action = KStdAction::aboutKDE(newHelpMenu, SLOT(aboutKDE()), actionCollection());
-  action->plug(helpAction->popupMenu());	
+  action->plug((QWidget*)helpAction->popupMenu());	
 
   m_pFPSBox = new KSelectAction(i18n("&Refresh"),0,actionCollection(),"fps_selector");
   m_pFPSBox->setItems(fpsArrayString);
