@@ -115,7 +115,7 @@ KmagApp::KmagApp(QWidget* , const char* name)
  */
 KmagApp::~KmagApp()
 {
-
+    m_zoomView->showSelRect(false);
 }
 
 void KmagApp::initActions()
