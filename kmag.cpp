@@ -95,7 +95,7 @@ KmagApp::KmagApp(QWidget* , const char* name)
   fpsArray.push_back(15); // high
   fpsArray.push_back(25); // very high
 
-  rotationArrayString << i18n("&No rotation (0°)") << i18n("&Left (90°)") << i18n("&Upside down (180°)") << i18n("&Right (270°)");
+  rotationArrayString << i18n("&No Rotation (0°)") << i18n("&Left (90°)") << i18n("&Upside Down (180°)") << i18n("&Right (270°)");
 
   rotationArray.push_back(0); // no rotation
   rotationArray.push_back(90); // left
