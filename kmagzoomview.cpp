@@ -51,6 +51,7 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
 	// update freq
 	m_fps = 10;
 	m_ctrlKeyPressed = false;
+	m_shiftKeyPressed = false;
 	m_refreshSwitch = true;
 	
 	// start the grabTimer and connect it to grabFrame()
@@ -192,7 +193,26 @@ void KMagZoomView::mousePressEvent(QMouseEvent *e)
 
   switch(e->button()) {
   case QMouseEvent::LeftButton :
-		if(!m_ctrlKeyPressed) {
+		if(m_ctrlKeyPressed) {
+			// check if currently in resize mode
+      if(m_mouseMode != ResizeSelection) {
+        // set the mode to ResizeSelection
+        m_mouseMode = ResizeSelection;
+
+        // set mouse cursor to "resize all direction"
+        setCursor(sizeAllCursor);
+
+        // backup the old position
+        m_oldMousePos.setX(e->globalX());
+        m_oldMousePos.setY(e->globalY());
+
+        // set the cursor position to the center of the selected region
+        QCursor::setPos(m_selRect.bottomRight());
+
+        // show the selection rectangle
+        m_selRect.show();
+      }
+		} else if(m_shiftKeyPressed) {
       // check if currently in move mode
       if(m_mouseMode != MoveSelection) {
         m_mouseMode = MoveSelection;
@@ -209,25 +229,22 @@ void KMagZoomView::mousePressEvent(QMouseEvent *e)
 
         // show the selected rectangle
         m_selRect.show();
-
       }
 		} else {
-      // check if currently in resize mode
-      if(m_mouseMode != ResizeSelection) {
-        // set the mode to ResizeSelection
-        m_mouseMode = ResizeSelection;
+      // check if currently in move mode
+      if(m_mouseMode != GrabSelection) {
+        m_mouseMode = GrabSelection;
 
-        // set mouse cursor to "resize all direction"
-        setCursor(sizeAllCursor);
+        // set mouse cursor to hand
+        setCursor(pointingHandCursor);
 
-        // backup the old position
+        // store the old position
         m_oldMousePos.setX(e->globalX());
         m_oldMousePos.setY(e->globalY());
 
-        // set the cursor position to the center of the selected region
-        QCursor::setPos(m_selRect.bottomRight());
+				m_oldCenter = m_selRect.center();
 
-        // show the selection rectangle
+        // show the selected rectangle
         m_selRect.show();
       }
 		}
@@ -260,34 +277,39 @@ void KMagZoomView::mouseReleaseEvent(QMouseEvent *e)
 
   switch(e->button()) {
   case QMouseEvent::LeftButton :
-		if(!m_ctrlKeyPressed) {
-      // check if currently in move mode
-      if(m_mouseMode == MoveSelection) {
-        // hide the selection window
-        m_selRect.hide();
-        // set the mouse mode to normal
-        m_mouseMode = Normal;
+    // check if currently in move mode
+    if(m_mouseMode == MoveSelection) {
+      // hide the selection window
+      m_selRect.hide();
+      // set the mouse mode to normal
+      m_mouseMode = Normal;
 
-        // restore the cursor shape
-        setCursor(arrowCursor);
+      // restore the cursor shape
+      setCursor(arrowCursor);
 
-        // restore the cursor position
-        QCursor::setPos(m_oldMousePos);
-      }
-		} else {
-      if(m_mouseMode == ResizeSelection) {
-        // hide the selection window
-        m_selRect.hide();
-        // set the mouse mode to normal
-        m_mouseMode = Normal;
+      // restore the cursor position
+      QCursor::setPos(m_oldMousePos);
+    } else if(m_mouseMode == ResizeSelection) {
+      // hide the selection window
+      m_selRect.hide();
+      // set the mouse mode to normal
+      m_mouseMode = Normal;
 
-        // restore the cursor shape
-        setCursor(arrowCursor);
+      // restore the cursor shape
+      setCursor(arrowCursor);
 
-        // restore the cursor position
-        QCursor::setPos(m_oldMousePos);
-      }
-		}
+      // restore the cursor position
+      QCursor::setPos(m_oldMousePos);
+    } else if(m_mouseMode == GrabSelection) {
+      // hide the selection window
+      m_selRect.hide();
+
+      // set the mouse mode to normal
+      m_mouseMode = Normal;
+
+      // restore the cursor shape
+      setCursor(arrowCursor);
+    }		
     break;
 
   case QMouseEvent::MidButton :
@@ -353,66 +375,47 @@ void KMagZoomView::mouseMoveEvent(QMouseEvent *e)
     // update the grab rectangle display
     m_selRect.update();
 
-	}
+	} else if(m_mouseMode == GrabSelection) {
+ 		QPoint newPos;
 
-/*
-  switch(e->state()) {
-  // mouse moved with LEFT button pressed -> Moves the grab window
-  case QMouseEvent::LeftButton :
-		cout << "." << flush;
-		if(!m_ctrlKeyPressed) {
- 			QPoint newCenter;
-      // check if currently in move mode
-      if(m_mouseMode == MoveSelection) {
-				// set new center to be the current mouse position
-				newCenter = e->globalPos();
+		// get new position
+		newPos = e->globalPos();
 
-				// make sure the mouse position is not taking the grab window outside
-				// the display
-				if(newCenter.x() < m_selRect.width()/2) {
-					// set X to the minimum possible X
-					newCenter.setX(m_selRect.width()/2);
-				} else if(newCenter.x() >=  QApplication::desktop()->width()-m_selRect.width()/2) {
-					// set X to the maximum possible X
-					newCenter.setX(QApplication::desktop()->width()-m_selRect.width()/2-1);
-				}
+		QPoint delta = (newPos - m_oldMousePos)/m_zoom;
+		QPoint newCenter = m_oldCenter-delta;
 
-			  if(newCenter.y() < m_selRect.height()/2) {
-					// set Y to the minimum possible Y
-					newCenter.setY(m_selRect.height()/2);
-				} else if(newCenter.y() >=  QApplication::desktop()->height()-m_selRect.width()/2) {
-					// set Y to the maximum possible Y
-					newCenter.setY(QApplication::desktop()->height()-m_selRect.width()/2-1);
-				}
-
-								
-				// move to the new center	
-				m_selRect.moveCenter(newCenter);
-
-        // update the grab rectangle display
-        m_selRect.update();
-      }
+		// make sure the mouse position is not taking the grab window outside
+		// the display
+		if(newCenter.x() < m_selRect.width()/2) {
+			// set X to the minimum possible X
+			newCenter.setX(m_selRect.width()/2);
+		} else if(newCenter.x() >=  QApplication::desktop()->width()-m_selRect.width()/2) {
+			// set X to the maximum possible X
+			newCenter.setX(QApplication::desktop()->width()-m_selRect.width()/2-1);
 		}
-    // now the user will have to drag to resize the window
-    break;
 
-  case QMouseEvent::MidButton :
-		break;
-  case QMouseEvent::RightButton :
-    break;
+	  if(newCenter.y() < m_selRect.height()/2) {
+			// set Y to the minimum possible Y
+			newCenter.setY(m_selRect.height()/2);
+		} else if(newCenter.y() >=  QApplication::desktop()->height()-m_selRect.width()/2) {
+			// set Y to the maximum possible Y
+			newCenter.setY(QApplication::desktop()->height()-m_selRect.width()/2-1);
+		}
+						
+		// move to the new center	
+		m_selRect.moveCenter(newCenter);
 
-  // do nothing
-  default:
-    ;
-  }
- */
+    // update the grab rectangle display
+    m_selRect.update();
+	}
 }
 
 void KMagZoomView::keyPressEvent(QKeyEvent *e)
 {
 	if(e->key() == QKeyEvent::Key_Control) {
 		m_ctrlKeyPressed = true;
-		e->ignore();
+	} else if(e->key() == QKeyEvent::Key_Shift){
+		m_shiftKeyPressed = true;		
 	} else {
     e->ignore();
 	}
@@ -422,7 +425,8 @@ void KMagZoomView::keyReleaseEvent(QKeyEvent *e)
 {
 	if(e->key() == QKeyEvent::Key_Control) {
 		m_ctrlKeyPressed = false;
-		e->ignore();
+	} else if(e->key() == QKeyEvent::Key_Shift){
+		m_shiftKeyPressed = false;		
 	} else {
     e->ignore();
 	}
@@ -432,6 +436,7 @@ void KMagZoomView::focusOutEvent(QFocusEvent *e)
 {
   if(e->lostFocus() == TRUE) {
 		m_ctrlKeyPressed = false;
+		m_shiftKeyPressed = false;
 	}
 }
 

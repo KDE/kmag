@@ -130,6 +130,9 @@ class KMagZoomView : public QFrame
     /// Saves the mouse position when a button is clicked and b4 the cursor is moved to new position
     QPoint m_oldMousePos;
 
+    /// Saves the center of the grab window
+    QPoint m_oldCenter;
+
     /// State of refreshing - on or off
     bool m_refreshSwitch;
 
@@ -138,10 +141,8 @@ class KMagZoomView : public QFrame
       Normal,
       StartSelect,
       ResizeSelection,
-      MoveSelection
-      //MoveSelection1=30, ResizeSelection1=40,
-      //MoveSelection2=50, ResizeSelection2=60,
-      //MoveSelection3=70, ResizeSelection3=80
+      MoveSelection,
+			GrabSelection
     };
 
     /// The current mode which the mouse is
@@ -149,6 +150,9 @@ class KMagZoomView : public QFrame
 
 		/// stores the state of the Ctrl key
 		bool m_ctrlKeyPressed;		
+
+		/// stores the state of the Shift key
+		bool m_shiftKeyPressed;		
 
 		/// To follow mouse motion or not when no key is pressed
 		bool m_followMouse;
