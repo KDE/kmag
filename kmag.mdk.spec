@@ -1,6 +1,6 @@
 %define name kmag
-%define version 0.6
-%define release 1mdk
+%define version 0.7
+%define release 1
 
 Name: 		%{name}
 Version: 	%{version}
@@ -10,6 +10,7 @@ Group: 		Graphical desktop/KDE
 License: 	GPL
 Source: 	%{name}-%{version}.tar.gz
 URL:		http://kmag.sourceforge.net
+Packager:	Sarang Lakare <sarang@users.sf.net>
 Buildroot: 	%_tmppath/%{name}-%{version}-buildroot
 BuildRequires:  gcc-cpp db3 readline pam popt libtermcap2 zlib1 XFree86-devel XFree86-libs Mesa-common
 BuildRequires:  automake arts autoconf diffutils kdelibs file kdesupport-devel
