@@ -37,7 +37,7 @@
 
 
 
-<date>2002-04-02</date>
+<date>2003-09-16</date>
 <releaseinfo>0.20.00</releaseinfo>
 
 <!-- Abstract about this handbook -->
@@ -87,13 +87,13 @@ for use on low processing power machines.
 <title>Using &kmag;</title>
 
 <screenshot>
-<screeninfo>Here's a screenshot of &kmag; (version 0.7)</screeninfo>
+<screeninfo>Here's a screenshot of &kmag;</screeninfo>
 	<mediaobject>
 	  <imageobject>
-	    <imagedata fileref="images/screenshot.png" format="PNG"/>
+	    <imagedata fileref="screenshot.png" format="PNG"/>
 	  </imageobject>
 	  <textobject>
-	    <phrase>Screenshot of &kmag; version 0.7</phrase>
+	    <phrase>Screenshot of &kmag;</phrase>
 	  </textobject>
 	</mediaobject>
 </screenshot>
