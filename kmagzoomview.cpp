@@ -751,6 +751,10 @@ void KMagZoomView::fitToWindow()
  */
 void KMagZoomView::grabFrame()
 {
+  // check refresh status
+  if (!m_refreshSwitch)
+     return;
+
   // check if follow-mouse is enabled
   if(m_followMouse) {
     // in this case grab w.r.t the current mouse position
