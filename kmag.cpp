@@ -4,7 +4,7 @@
                              -------------------
     begin                : Mon Feb 12 23:45:41 EST 2001
     copyright            : (C) 2001-2003 by Sarang Lakare
-    email                : sarang@users.sourceforge.net
+    email                : sarang#users.sourceforge.net
  ***************************************************************************/
 
 /***************************************************************************

@@ -4,8 +4,8 @@
                           main.cpp  -  description
                              -------------------
     begin                : Mon Feb 12 23:45:41 EST 2001
-    copyright            : (C) 2001 by Sarang Lakare
-    email                : sarang@users.sf.net
+    copyright            : (C) 2001-2003 by Sarang Lakare
+    email                : sarang#users.sf.net
  ***************************************************************************/
 
 /***************************************************************************
@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
   KAboutData *aboutData = new KAboutData("kmag", I18N_NOOP("K Magnifier"), KMAG_VERSION,
                                          I18N_NOOP("Screen Magnifier for the K Desktop Environment (KDE)"),
                                          KAboutData::License_GPL,
-                                         "(C) 2001, Sarang Lakare","",
+                                         "(C) 2001-2003, Sarang Lakare","",
                                          "http://kmag.sourceforge.net");
 
   // about the authors
