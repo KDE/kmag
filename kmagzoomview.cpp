@@ -143,6 +143,8 @@ void KMagZoomView::followMouse(bool follow)
  */
 void KMagZoomView::paintEvent(QPaintEvent *e)
 {
+	if(m_grabbedZoomedPixmap.isNull())
+		return;
 	// paint on this widget
 	paintViewImage(this);
 }
@@ -662,6 +664,10 @@ void KMagZoomView::focusOutEvent(QFocusEvent *e)
  */
 void KMagZoomView::grabFrame()
 {
+	// check if kmag window is visible.. if not, don't use any CPU!
+	if(!isVisible())
+		return;
+
 	// check if follow-mouse is enabled
 	if(m_followMouse) {
 		// in this case grab w.r.t the current mouse position
@@ -820,7 +826,7 @@ QStringList KMagZoomView::getShowMouseStringList() const
 QPixmap KMagZoomView::getPixmap()
 {
 	// show the pixel under mouse cursor
-	if(m_showMouse) {
+	if(m_showMouse && !m_grabbedZoomedPixmap.isNull()) {
 		// Pixmap which will have the zoomed pixmap + mouse
 		QPixmap zoomView(m_grabbedZoomedPixmap);
 
