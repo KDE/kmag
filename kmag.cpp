@@ -329,9 +329,11 @@ void KmagApp::saveZoomPixmap()
              0,i18n("Save zoomed region"));
 
 	if(!url.filename().isEmpty()) {
-		m_zoomView->getPixmap().save(url.fileName(), KImageIO::type(url.fileName()).latin1());
+		if(!m_zoomView->getPixmap().save(url.fileName(), KImageIO::type(url.fileName()).latin1())) {
+    	KMessageBox::error(0, i18n("Unable to save file. Please check if you have permission to write to the directory."),
+													i18n("Error writing file"));
+		}
 	}
-
 	if(toggled) {
 		slotToggleRefresh();
 	}
