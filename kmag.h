@@ -134,6 +134,9 @@ class KmagApp : public KMainWindow
 
     /// Sets the fps index to index
     void setFPSIndex(int index);
+		
+		/// Shows/hides the mouse cursor
+		void showMouseCursor(bool show);
 
 	signals:
 		/// This signal is raised whenever the index into the zoom array is changed
@@ -181,7 +184,12 @@ class KmagApp : public KMainWindow
 
 	KMagZoomView* m_zoomView;
   QButtonGroup *m_settingsGroup;
-	QCheckBox *m_followMouseButton, *m_showSelRectButton;
+	QCheckBox *m_followMouseButton, *m_showCursorButton, *m_showSelRectButton;
+  
+  /// Stores the non-zero cursor type to be used
+  unsigned int m_mouseCursorType;
+  
+  unsigned int m_defaultMouseCursorType;
 };
 
 

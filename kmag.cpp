@@ -65,7 +65,8 @@
 #define ID_STATUS_MSG 1
 
 KmagApp::KmagApp(QWidget* , const char* name)
-	: KMainWindow(0, name, WStyle_MinMax | WType_TopLevel | WDestructiveClose | WStyle_ContextHelp | WStyle_StaysOnTop)
+	: KMainWindow(0, name, WStyle_MinMax | WType_TopLevel | WDestructiveClose | WStyle_ContextHelp | WStyle_StaysOnTop),
+    m_defaultMouseCursorType(2)
 {
   config=kapp->config();
 
@@ -208,6 +209,12 @@ void KmagApp::initView()
   m_followMouseButton->setText( i18n( "Follow Mouse" ) );
   settingsGroupLayout->addWidget( m_followMouseButton );
 	connect(m_followMouseButton, SIGNAL(toggled(bool)), m_zoomView, SLOT(followMouse(bool)));
+  
+	m_showCursorButton = new QCheckBox( m_settingsGroup, "m_showCursorButton" );
+  m_showCursorButton->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)1, m_followMouseButton->sizePolicy().hasHeightForWidth() ) );
+  m_showCursorButton->setText( i18n( "Show Cursor" ) );
+  settingsGroupLayout->addWidget( m_showCursorButton );
+	connect(m_showCursorButton, SIGNAL(toggled(bool)), this, SLOT(showMouseCursor(bool)));
 
   m_showSelRectButton = new QCheckBox( m_settingsGroup, "m_showSelRectButton" );
   m_showSelRectButton->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)1, m_showSelRectButton->sizePolicy().hasHeightForWidth() ) );
@@ -215,7 +222,7 @@ void KmagApp::initView()
   settingsGroupLayout->addWidget( m_showSelRectButton );
   connect(m_showSelRectButton, SIGNAL(toggled(bool)), m_zoomView, SLOT(showSelRect(bool)));
 
-  setCentralWidget(mainView);	
+  setCentralWidget(mainView);
 }
 
 /**
@@ -260,7 +267,7 @@ void KmagApp::saveOptions()
 void KmagApp::readOptions()
 {
   config->setGroup("General Options");
-	
+
 	QSize defSize(425,390);
   QSize size=config->readSizeEntry("Geometry", &defSize);
   if(!size.isEmpty())
@@ -282,14 +289,18 @@ void KmagApp::readOptions()
 	m_followMouseButton->setChecked(followMouse);
 
 	QRect defaultRect(0,0,211,164);
-	m_zoomView->setSelRectPos(config->readRectEntry("SelRect", &defaultRect));	
+	m_zoomView->setSelRectPos(config->readRectEntry("SelRect", &defaultRect));
 
 	bool showSelRect = config->readBoolEntry("ShowSelRect", false);
 	m_zoomView->showSelRect(showSelRect);
 	m_showSelRectButton->setChecked(showSelRect);
 
-	unsigned int showMouse = config->readUnsignedNumEntry("ShowMouse", 2);
-	m_zoomView->showMouse(showMouse);
+	m_mouseCursorType = config->readUnsignedNumEntry("ShowMouse", m_defaultMouseCursorType);
+	m_zoomView->showMouse(m_mouseCursorType);
+  if(m_mouseCursorType)
+    m_showCursorButton->setChecked(true);
+  else
+    m_showCursorButton->setChecked(false);
 
 	if(config->hasGroup("Main Toolbar"))
 	  toolBar("mainToolBar")->applySettings(config,"Main ToolBar");
@@ -329,6 +340,20 @@ void KmagApp::mousePressEvent(QMouseEvent *e)
 /////////////////////////////////////////////////////////////////////
 // SLOT IMPLEMENTATION
 /////////////////////////////////////////////////////////////////////
+
+/**
+ * Shows/hides the mouse cursor
+ */
+void KmagApp::showMouseCursor(bool show)
+{
+	if(show) {
+    if(m_mouseCursorType == 0)
+      m_mouseCursorType = m_defaultMouseCursorType;
+		m_zoomView->showMouse(m_mouseCursorType);
+	} else {
+		m_zoomView->showMouse(0);
+	}
+}
 
 /**
  * Zoom in.
