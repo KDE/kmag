@@ -1,3 +1,4 @@
 KDE_LANG = en
 KDE_DOCS = kmag
+SUBDIRS = $(AUTODIRS)
 
