@@ -30,6 +30,7 @@
 #include <qclipboard.h>
 #include <qdragobject.h>
 #include <qwhatsthis.h>
+#include <qtooltip.h>
 
 // include files for KDE
 #if KDE_VERSION > 300
@@ -182,7 +183,7 @@ void KmagApp::initActions()
 	confAction->setDelayed(false);
 	m_keyConf = KStdAction::keyBindings( this, SLOT( slotConfKeys() ), actionCollection(), "key_conf");
 	m_keyConf->plug(confAction->popupMenu());
-	
+
 	KAction *tbConf = KStdAction::configureToolbars( this, SLOT( slotEditToolbars() ),
 																							actionCollection(), "toolbar_conf");
 	tbConf->plug(confAction->popupMenu());
