@@ -256,6 +256,28 @@ bool KmagApp::queryExit()
 // SLOT IMPLEMENTATION
 /////////////////////////////////////////////////////////////////////
 
+void KmagApp::slotSetZoom(float zoom)
+{
+  view->slotSetZoom(zoom);
+
+  // check if zoomIn icon should be enabled or disabled
+  if(!view->zoomInOk()) {
+    // meaning that no more zooming-in is possible
+    // -> disable zoom-in icon
+    zoomIn->setEnabled(false);
+  } else
+    zoomIn->setEnabled(true);
+
+  // check if zoomIn icon should be enabled or disabled
+  if(!view->zoomOutOk()) {
+    // meaning that no more zooming-out is possible
+    // -> disable zoom-in icon
+    zoomOut->setEnabled(false);
+  } else
+    zoomOut->setEnabled(true);
+}
+
+
 void KmagApp::slotZoomIn()
 {
   view->slotZoomIn();

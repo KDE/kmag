@@ -145,6 +145,9 @@ class KmagApp : public KMainWindow
 
     void slotZoomOut();
 
+    /// Sets the zoom to "zoom"
+    void slotSetZoom(float zoom=0.0);
+
   private:
     /** the configuration object of the application */
     KConfig *config;
