@@ -21,7 +21,7 @@
 #include <stdlib.h>
 
 // Qt includes
-#include <qapp.h>
+#include <qapplication.h>
 #include <qrect.h>
 #include <qwidget.h>
 #include <qcursor.h>
@@ -35,14 +35,14 @@
 /**
  * This class stores the selected rectangular area for grabbing. It also displays the
  * rectangular area on demand.
- * 
+ *
  * @author Original : Michael Forster
  * @author Current : Sarang Lakare
  */
 class KMagSelRect : public QObject, public QRect
 {
     Q_OBJECT
-    
+
 public:
     KMagSelRect(QWidget *parent=0);
     KMagSelRect(const QPoint &topleft, const QPoint &bottomright,
@@ -63,8 +63,8 @@ public:
 		bool getAlwaysVisible() const {
 			return (m_alwaysVisible);
 		};
-    
-public slots:	
+
+public slots:
 
     void show();
     void hide();
@@ -73,12 +73,12 @@ public slots:
 signals:
 
     void updated();
-    
+
 protected:
 
     void init(QWidget *);
     void paint(const QRect &);
-    
+
     GC gc;
     QWidget *parent;
     bool isVisible;

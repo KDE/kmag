@@ -19,7 +19,7 @@
 
 #ifndef KMAG_H
 #define KMAG_H
- 
+
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -29,18 +29,20 @@
 // include files for Qt
 #include <qstringlist.h>
 
-// include files for KDE 
-#include <kapp.h>
+// include files for KDE
+#include <kapplication.h>
 #include <kmainwindow.h>
 #include <kdockwidget.h>
 #include <kaccel.h>
-#include <kaction.h>
 #include <knuminput.h>
 
 // forward declaration of the Kmag classes
 class KMagZoomView;
 class QButtonGroup;
 class	QCheckBox;
+class KActions;
+class KToggleAction;
+class KSelectAction;
 
 /**
   * The base class for Kmag application windows. It sets up the main
@@ -70,11 +72,11 @@ class KmagApp : public KMainWindow
     ~KmagApp();
 
 
-		
+
   protected:
     /** save general Options like all bar positions and status as well as the geometry and the recent file list to the configuration
      * file
-     */ 	
+     */
     void saveOptions();
     /** read general Options again and initialize all variables like the recent file list
      */
@@ -92,7 +94,7 @@ class KmagApp : public KMainWindow
     virtual bool queryClose();
 
     /** queryExit is called by KTMainWindow when the last window of the application is going to be closed during the closeEvent().
-     * Against the default implementation that just returns true, this calls saveOptions() to save the settings of the last window's	
+     * Against the default implementation that just returns true, this calls saveOptions() to save the settings of the last window's
      * properties.
      * @see KTMainWindow#queryExit
      * @see KTMainWindow#closeEvent
@@ -134,7 +136,7 @@ class KmagApp : public KMainWindow
 
     /// Sets the fps index to index
     void setFPSIndex(int index);
-		
+
 		/// Shows/hides the mouse cursor
 		void showMouseCursor(bool show);
 
@@ -150,13 +152,13 @@ class KmagApp : public KMainWindow
 	signals:
 		/// This signal is raised whenever the index into the zoom array is changed
 		void updateZoomIndex(int);
-		
+
 		/// This signal is raised whenever the zoom value changes
 		void updateZoomValue(float);
 
 		/// This signal is raised whenever the index into the fps array is changed
 		void updateFPSIndex(int);
-		
+
 		/// This signal is raised whenever the fps value changes
 		void updateFPSValue(float);
 
@@ -194,10 +196,10 @@ class KmagApp : public KMainWindow
 	KMagZoomView* m_zoomView;
   QButtonGroup *m_settingsGroup;
 	QCheckBox *m_followMouseButton, *m_showCursorButton, *m_showSelRectButton;
-  
+
   /// Stores the non-zero cursor type to be used
   unsigned int m_mouseCursorType;
-  
+
   unsigned int m_defaultMouseCursorType;
 };
 

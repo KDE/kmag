@@ -38,6 +38,7 @@
 #else
 #include <kapp.h>
 #endif // KDE 3.x
+#include <kaction.h>
 
 #include <kkeydialog.h>
 #include <kiconloader.h>
@@ -48,7 +49,6 @@
 #include <kconfig.h>
 #include <kdebug.h>
 #include <kstdaction.h>
-#include <kiconloader.h>
 #include <khelpmenu.h>
 #include <kimageio.h>
 #include <kio/job.h>
@@ -102,7 +102,7 @@ KmagApp::KmagApp(QWidget* , const char* name)
   initView();
   initActions();
 	initConnections();
-	
+
   // read options from config file
   readOptions();
 
@@ -176,7 +176,7 @@ void KmagApp::initActions()
   action->plug((QWidget*)helpAction->popupMenu());
 
 	action = KStdAction::aboutKDE(newHelpMenu, SLOT(aboutKDE()), 0);
-  action->plug((QWidget*)helpAction->popupMenu());	
+  action->plug((QWidget*)helpAction->popupMenu());
 
 	// Settings tool bar popup
 	KToolBarPopupAction *confAction = new KToolBarPopupAction(i18n("&Settings"), "configure",
@@ -202,7 +202,7 @@ void KmagApp::initActions()
 
 void KmagApp::initView()
 {
-	QVBox *mainView = new QVBox(this);	
+	QVBox *mainView = new QVBox(this);
 
   m_zoomView = new KMagZoomView( mainView, "ZoomView" );
   m_zoomView->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)7, m_zoomView->sizePolicy().hasHeightForWidth() ) );
@@ -228,7 +228,7 @@ void KmagApp::initView()
 	QWhatsThis::add(m_followMouseButton, i18n("If selected, the area around the mouse cursor is magnified") );
   settingsGroupLayout->addWidget( m_followMouseButton );
 	connect(m_followMouseButton, SIGNAL(toggled(bool)), m_zoomView, SLOT(followMouse(bool)));
-  
+
 	m_showCursorButton = new QCheckBox( m_settingsGroup, "m_showCursorButton" );
   m_showCursorButton->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)1, m_followMouseButton->sizePolicy().hasHeightForWidth() ) );
   m_showCursorButton->setText( i18n( "Mouse cursor" ) );
@@ -268,7 +268,7 @@ void KmagApp::initConnections()
  * Save options to config file.
  */
 void KmagApp::saveOptions()
-{	
+{
   config->setGroup("General Options");
   config->writeEntry("Geometry", size());
 	config->writeEntry("ZoomIndex", m_zoomIndex);
@@ -430,7 +430,7 @@ void KmagApp::setZoomIndex(int index)
   } else { // enable the icon
 		m_pZoomIn->setEnabled(true);
 	}
-	
+
 	// signal change in zoom value
 	emit updateZoomValue(zoomArray[m_zoomIndex]);
 }
@@ -450,7 +450,7 @@ void KmagApp::setFPSIndex(int index)
 	} else {
 		m_fpsIndex = index;
 	}
-	
+
 	// signal change in zoom value
 	emit updateFPSValue(fpsArray[m_fpsIndex]);
 }
@@ -491,7 +491,7 @@ void KmagApp::saveZoomPixmap()
 			}
 			// remove the temporary file
 			tempFile.unlink();
-			
+
 		} else {
   		if(!m_zoomView->getPixmap().save(url.path(), KImageIO::type(url.fileName()).latin1())) {
       	KMessageBox::error(0, i18n("Unable to save file. Please check if you have permission to write to the directory."),
@@ -524,7 +524,7 @@ void KmagApp::slotToggleRefresh()
 
 
 void KmagApp::slotFileNewWindow()
-{	
+{
   KmagApp *new_window= new KmagApp();
   new_window->show();
 }
@@ -555,13 +555,13 @@ void KmagApp::slotFilePrint()
 	if(pixmap.width() > pixmap.height()) {
 		printer.setOrientation(KPrinter::Landscape);
 	} else {
-		printer.setOrientation(KPrinter::Portrait);	
+		printer.setOrientation(KPrinter::Portrait);
 	}
 #endif
 
   if (printer.setup(this)) {
     QPainter paint;
-		
+
 		if(!paint.begin(&printer))
 	    return;
     // draw the pixmap
@@ -593,7 +593,7 @@ void KmagApp::slotViewToolBar()
   else
   {
     toolBar("mainToolBar")->show();
-  }		
+  }
 }
 
 void KmagApp::slotConfKeys()
