@@ -113,8 +113,11 @@ class KMagZoomView : public QFrame
     /// This does the actual job of painting.
     void paintViewImage(QPaintDevice *dev, bool updateMousePos=true);
 
+    /// This function calculates the mouse position relative to the image
+    QPoint calcMousePos(bool updateMousePos=true);
+
     /// This function draws the mouse cursor
-    void paintMouseCursor(QPaintDevice *dev, bool updateMousePos=true);
+    void paintMouseCursor(QPaintDevice *dev, QPoint mousePos);
 
     /// Called when mouse click is detected
     void mousePressEvent (QMouseEvent *e);
