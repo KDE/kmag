@@ -1,5 +1,8 @@
 ####### kdevelop will overwrite this part!!! (begin)##########
 bin_PROGRAMS = kmag
+
+## INCLUDES were found outside kdevelop specific part
+
 kmag_SOURCES = kmagzoomview.cpp kmagselrect.cpp kmag.cpp main.cpp 
 kmag_LDADD   = -lkdeprint $(LIB_KDEUI) $(LIB_KDECORE) $(LIB_QT) $(LIBSOCKET)
 
