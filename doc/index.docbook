@@ -44,7 +44,7 @@ Please respect the format of the date (DD/MM/YYYY) and of the version
 (Major.minor.lesser), it could be used by automation scripts -->
 
 <date>Mon Feb 12 23:45:41 EST 2001</date>
-<releaseinfo>0.3</releaseinfo>
+<releaseinfo>0.4</releaseinfo>
 
 <!-- Brief revision history.
 Unlike the preceeding information, this is not mandatory.
@@ -63,7 +63,7 @@ release numbers for both the application the documentation.
 </revremark>
 </revision>
 <revision>
-<revnumber>0.3
+<revnumber>0.4
 </revnumber>
 <date>Mon Feb 12 23:45:41 EST 2001</date>
 <authorinitials></authorinitials>
@@ -76,7 +76,7 @@ release numbers for both the application the documentation.
 
 <abstract>
 <para>
-This Handbook describes <application>Kmag</application> Version 0.3
+This Handbook describes <application>Kmag</application> Version 0.4
 <application>Kmag</application>
 </para>
 </abstract>
@@ -101,7 +101,7 @@ report problems, and a brief revision history of the app. Basically a long
 version of the abstract. -->
 
 <para>
-The complete user manual to <application>Kmag</application>, version 0.3
+The complete user manual to <application>Kmag</application>, version 0.4
 </para>
 
 <!-- Note that the revhistory tags apply to the documentation version and not to
@@ -112,6 +112,9 @@ the app version. That is why we use an ItemizedList here. -->
 <para>
 <itemizedlist>
 <listitem><para>
+ver 0.4
+-No more flickering!
+
 ver 0.3
 -Fixed a slow-refresh bug.. making KMag 100% usable!
 -Made resizing grab window much more easier (esp. for laptops!)
@@ -359,6 +362,8 @@ Program copyright 2001 Sarang A. Lakare <email>sarang@users.sourceforge.net</ema
 <para>
 Contributors:
 <itemizedlist>
+<listitem><para>Claudiu Costin<email>claudiuc@work.ro</email></para>
+</listitem>
 <listitem><para>Santanu Chaudhari <email>sachaudh@ic.sunysb.edu</email></para>
 </listitem>
 <listitem><para>Michael Forster <email>forster@fmi.uni-passau.de</email></para>
