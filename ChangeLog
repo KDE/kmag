@@ -1,5 +1,12 @@
 //$Id$
 
+ver 0.5
+-No more garbage when the grab window is taken outside the screen
+-Added a convenient drop down menu to select the zoom factor
+-A new refresh button to start/stop window refresh when needed
+-Added "tooltips" and "What's this" at lots of places
+-Tons of code cleanup
+
 ver 0.4
 -No more flickering!
 

@@ -1,21 +1,34 @@
 $Id$
 
-These are features proposed:
+Planned features:
 
-% cc: zooming control on toolbar
+Version 1.0:
+* cc/sl: zooming control on toolbar
+* sl: on/off rectangle update
+* sl: block "garbage" effect when rectangle is outside screen
+* sl: Add "Pause" button to pause to the current view
+- sl: Grab window moving with the mouse
+- sl: Allow setting of refresh rate
+- sl: Add grabbing and saving of the currently selected area or zoomed area.
+- sl: Saving of settings across different instances
+- sl: Add printing support
+- sl: Code cleanup
+-   : Translations
+-   : New Icon
+
+Bug Fixing for 1.0:
+- sl: When the zoom area is resized, the zoom display shows garbage outside
+      the zoomed region
+- sl: Sometimes the zoom area window remains on the screen
+
+
+Version 2.0:
 - cc: zoom rectangle moving from spinboxes
 - cc: on/off zoom rectangle
-* cc: on/off rectangle update
 - cc: block mirrror-to-mirror efect when zoom rectangle intersect KMag window
-- cc: block "garbage" effect when rectangle it's outside screen
 - cc: configuration dialog
-- sl: Add printing support
-* sl: Add "Pause" button to pause to the current view
-- sl: Allow setting of refresh rate
 - sl: Add option to show the region-selection window all the time.
-- sl: Add grabbing and saving of the currently selected area or zoomed area.
 -     Different profiles : for vision-impared & regular users.
--     Saving of settings across different instances
 
 People: 
   sl: Sarang Lakare  <sarang@users.sourceforge.net>
