@@ -6,7 +6,8 @@ Version 1.0:
 @ show cursor
 @ Put the toolbar at the bottom by default
 @ Documentation
-- KDE3 support
+@ KDE3 port
+- Mouse cursor show/hide and type configuration
 - Maximizing use of the zoomed image display area
 - Right mouse menu
 - Configuration dialog
