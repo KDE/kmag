@@ -3,20 +3,20 @@ $Id$
 Planned features:
 
 Version 1.0:
-@ show cursor
-@ Put the toolbar at the bottom by default
-@ Documentation
-@ KDE3 port
-@ Mouse cursor show/hide
-@ Toolbar configuration
-@ Shortcut configuration
-@ Maximizing use of the zoomed image display area
 - Mouse cursor type configuration
 - Right mouse menu
 - Configuration dialog
 - Translations
 - New Icon
 
+* show cursor
+* Put the toolbar at the bottom by default
+* Documentation
+* KDE3 port
+* Mouse cursor show/hide
+* Toolbar configuration
+* Shortcut configuration
+* Maximizing use of the zoomed image display area
 * zooming control on toolbar
 * on/off rectangle update
 * block "garbage" effect when rectangle is outside screen
