@@ -6,6 +6,7 @@ Version 1.0:
 @ show cursor
 @ Put the toolbar at the bottom by default
 @ Documentation
+- KDE3 support
 - Maximizing use of the zoomed image display area
 - Right mouse menu
 - Configuration dialog
