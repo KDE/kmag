@@ -1,5 +1,11 @@
 //$Id$
 
+ver 0.7
+-Printing and compiling for KDE 2.x
+-Saving files to remote locations
+-BUG_FIX:Saved image used to get saved to home directory
+-BUG_FIX:Zoom selection window could go below the bottom edge of the screen
+
 ver 0.6
 -Printing support
 -Saving zoomed image to disk
