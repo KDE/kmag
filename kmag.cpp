@@ -206,8 +206,8 @@ void KmagApp::initActions()
 
   m_pRotationBox = new KSelectAction(i18n("&Rotation"),0,actionCollection(),"rotation");
   m_pRotationBox->setItems(rotationArrayString);
-  m_pRotationBox->setWhatsThis(i18n("Select the rotation factor."));
-  m_pRotationBox->setToolTip(i18n("Rotation factor"));
+  m_pRotationBox->setWhatsThis(i18n("Select the rotation degree."));
+  m_pRotationBox->setToolTip(i18n("Rotation degree"));
 
   // KHelpMenu *newHelpMenu = new KHelpMenu(this, KGlobal::instance()->aboutData());
 
