@@ -87,13 +87,13 @@ for use on low processing power machines.
 <title>Using &kmag;</title>
 
 <screenshot>
-<screeninfo>Here's a screenshot of &kmag;</screeninfo>
+<screeninfo>Here's a screen shot of &kmag;</screeninfo>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="screenshot.png" format="PNG"/>
 	  </imageobject>
 	  <textobject>
-	    <phrase>Screenshot of &kmag;</phrase>
+	    <phrase>Screen shot of &kmag;</phrase>
 	  </textobject>
 	</mediaobject>
 </screenshot>
@@ -184,7 +184,7 @@ show different mouse cursors and more.
 
 <para>&kmag; automatically uses all your default shortcuts for saving
 file, opening new window, printing, starting/stopping refresh (reload
-button in konqueror), zoom-in, zoom-out &etc;</para>
+button in &konqueror;), zoom-in, zoom-out &etc;</para>
 
 <table>
 <title>Default Keyboard Shortcuts</title>
@@ -290,7 +290,7 @@ Documentation copyright 2002 Sarang Lakare <email>sarang@users.sf.net</email>
 
 <para>
 You can always access the latest version of &kmag; in both source and binary (executable) form at
-the &kmag; website:
+the &kmag; web site:
 <ulink url="http://kmag.sf.net">http://kmag.sf.net</ulink>.
 </para>
 </sect1>
@@ -301,14 +301,14 @@ the &kmag; website:
 <para>
 &kmag; requires you to have &kde; installed on your system. More specifically, &kmag;
 requires the kdebase and the kdelibs package from &kde;. Until version 0.7,
-&kmag; was being developed on &kde; ver 2.x. Since then, it is developed using
+&kmag; was being developed on &kde; version 2.x. Since then, it is developed using
 &kde; 3.x. Version 0.8 of &kmag; compiles on both &kde; 2 and &kde;3. Efforts will be made
 to keep &kmag; compilable on &kde; 2, but there is no guarantee. You are welcome to
 maintain the backport. Other than these, there
 are no other requirements for &kmag;.</para>
 
 <para>You can use &kmag; with other desktop environments such as
-GNOME, windowmaker &etc;. as long as you have kdelbase and kdelibs
+GNOME, windowmaker &etc;. as long as you have kdebase and kdelibs
 installed.</para>
 
 
