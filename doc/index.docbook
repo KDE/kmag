@@ -99,21 +99,6 @@ Please at least include KDE, the KDE package it is in, the name
 <keyword>K Magnifier</keyword>
 </keywordset>
 
-<revhistory>
-  <revision>
-    <revnumber>0.2</revnumber>
-    <date>2002-20-04</date>
-    <authorinitials>SL</authorinitials>
-    <revremark>Rewrote documentation. Documentation reflects &kmag; ver 0.8</revremark>
-  </revision>
-  <revision>
-    <revnumber>0.1</revnumber>
-    <date>2001-10-01</date>
-    <authorinitials>SL</authorinitials>
-    <revremark>Initial incomplete version.</revremark>
-  </revision>
-</revhistory>
-
 </bookinfo>
 
 <!-- The contents of the documentation begin here.  Label
