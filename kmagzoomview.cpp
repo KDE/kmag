@@ -801,6 +801,8 @@ void KMagZoomView::setZoom(float zoom)
  	
   m_grabbedZoomedPixmap = m_grabbedPixmap.xForm(m_zoomMatrix);
 
+  fitToWindow();
+  
   repaint();
 }
 
