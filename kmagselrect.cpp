@@ -72,7 +72,7 @@ void KMagSelRect::init(QWidget *_parent)
                  GCForeground | GCFunction | GCLineWidth | GCSubwindowMode,
                  &gv);
 
-	m_alwaysVisible = false;
+  m_alwaysVisible = false;
 }
 
 KMagSelRect::~KMagSelRect()
@@ -91,7 +91,7 @@ bool KMagSelRect::visible()
 
 void KMagSelRect::alwaysVisible(bool visible)
 {
-	m_alwaysVisible = visible;
+  m_alwaysVisible = visible;
 }
 
 
@@ -110,8 +110,8 @@ void KMagSelRect::show()
 
 void KMagSelRect::hide()
 {
-	if(m_alwaysVisible)
-		return;
+  if(m_alwaysVisible)
+    return;
   if ( isVisible ) {
     isVisible = false;
     paint(*this);

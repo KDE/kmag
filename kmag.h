@@ -39,7 +39,7 @@
 // forward declaration of the Kmag classes
 class KMagZoomView;
 class QButtonGroup;
-class	QCheckBox;
+class  QCheckBox;
 class KActions;
 class KToggleAction;
 class KSelectAction;
@@ -68,7 +68,7 @@ class KmagApp : public KMainWindow
      */
     KmagApp(QWidget* parent=0, const char* name=0);
 
-		/// Default destructor
+    /// Default destructor
     ~KmagApp();
 
 
@@ -88,8 +88,8 @@ class KmagApp : public KMainWindow
      */
     void initView();
 
-		/// Initialize all connections
-		void initConnections();
+    /// Initialize all connections
+    void initConnections();
 
     virtual bool queryClose();
 
@@ -122,13 +122,13 @@ class KmagApp : public KMainWindow
     /// Toggle the refreshing of the window
     void slotToggleRefresh();
 
-		/// Zooms in
+    /// Zooms in
     void zoomIn();
 
-		/// Zooms out
+    /// Zooms out
     void zoomOut();
 
-		/// Save the zoomed image
+    /// Save the zoomed image
     void saveZoomPixmap();
 
     /// Sets the zoom index to index
@@ -137,30 +137,30 @@ class KmagApp : public KMainWindow
     /// Sets the fps index to index
     void setFPSIndex(int index);
 
-		/// Shows/hides the mouse cursor
-		void showMouseCursor(bool show);
+    /// Shows/hides the mouse cursor
+    void showMouseCursor(bool show);
 
-		/// Opens shortcut key configuration dialogue
-		void slotConfKeys();
+    /// Opens shortcut key configuration dialogue
+    void slotConfKeys();
 
-		/// Called when toolbar config is updated
-		void slotNewToolbarConfig();
+    /// Called when toolbar config is updated
+    void slotNewToolbarConfig();
 
-		/// Called when "configure toolbar" is clicked
-		void slotEditToolbars();
+    /// Called when "configure toolbar" is clicked
+    void slotEditToolbars();
 
-	signals:
-		/// This signal is raised whenever the index into the zoom array is changed
-		void updateZoomIndex(int);
+  signals:
+    /// This signal is raised whenever the index into the zoom array is changed
+    void updateZoomIndex(int);
 
-		/// This signal is raised whenever the zoom value changes
-		void updateZoomValue(float);
+    /// This signal is raised whenever the zoom value changes
+    void updateZoomValue(float);
 
-		/// This signal is raised whenever the index into the fps array is changed
-		void updateFPSIndex(int);
+    /// This signal is raised whenever the index into the fps array is changed
+    void updateFPSIndex(int);
 
-		/// This signal is raised whenever the fps value changes
-		void updateFPSValue(float);
+    /// This signal is raised whenever the fps value changes
+    void updateFPSValue(float);
 
   private:
     /// the configuration object of the application
@@ -168,34 +168,34 @@ class KmagApp : public KMainWindow
 
     // KAction pointers to enable/disable actions
     KAction *fileNewWindow, *m_pSnapshot, *m_pCopy, *m_fitToWindow, *m_keyConf;
-		KAction *m_pPrint;
-		KAction *m_pZoomIn;
-		KAction *m_pZoomOut;
+    KAction *m_pPrint;
+    KAction *m_pZoomIn;
+    KAction *m_pZoomOut;
     KAction* filePrint;
     KAction* fileQuit;
     KAction* editCopy;
     KAction *refreshSwitch;
     KToggleAction* viewToolBar;
-		KSelectAction *m_pZoomBox, *m_pFPSBox;
+    KSelectAction *m_pZoomBox, *m_pFPSBox;
 
-		/// zoom slider
-		KIntNumInput *m_zoomSlider;
+    /// zoom slider
+    KIntNumInput *m_zoomSlider;
 
-		/// Current index into the zoomArray
-		unsigned int m_zoomIndex;
+    /// Current index into the zoomArray
+    unsigned int m_zoomIndex;
 
-		/// Current index into the fpsArray
-		unsigned int m_fpsIndex;
+    /// Current index into the fpsArray
+    unsigned int m_fpsIndex;
 
-		QStringList zoomArrayString;
-		std::vector<float> zoomArray;
+    QStringList zoomArrayString;
+    std::vector<float> zoomArray;
 
-		QStringList fpsArrayString;
-		std::vector<float> fpsArray;
+    QStringList fpsArrayString;
+    std::vector<float> fpsArray;
 
-	KMagZoomView* m_zoomView;
+  KMagZoomView* m_zoomView;
   QButtonGroup *m_settingsGroup;
-	QCheckBox *m_followMouseButton, *m_showCursorButton, *m_showSelRectButton;
+  QCheckBox *m_followMouseButton, *m_showCursorButton, *m_showSelRectButton;
 
   /// Stores the non-zero cursor type to be used
   unsigned int m_mouseCursorType;

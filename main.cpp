@@ -30,7 +30,7 @@ KmagApp *kmagapp;
 
 // Not needed, not used.
 //static const char *description =
-//	I18N_NOOP("Kmag");
+//  I18N_NOOP("Kmag");
 // INSERT A DESCRIPTION FOR YOUR APPLICATION HERE
 
 
@@ -43,7 +43,7 @@ static KCmdLineOptions options[] =
 
 int main(int argc, char *argv[])
 {
-	// about the application
+  // about the application
   KAboutData *aboutData = new KAboutData("kmag", I18N_NOOP("K Magnifier"), KMAG_VERSION,
                                          I18N_NOOP("Screen Magnifier for the K Desktop Environment (KDE)"),
                                          KAboutData::License_GPL,
@@ -56,11 +56,11 @@ int main(int argc, char *argv[])
                        "http://www.cs.sunysb.edu/~lsarang/linux");
   aboutData->addAuthor("Michael Forster",
                        I18N_NOOP("Original Idea & Author (KDE1)"), "forster@fmi.uni-passau.de");
-	aboutData->addCredit("Claudiu Costin", I18N_NOOP("Tips, competition ;)"), "claudiuc@work.ro",
+  aboutData->addCredit("Claudiu Costin", I18N_NOOP("Tips, competition ;)"), "claudiuc@work.ro",
                        "http://www.ro.kde.org");
 
-	KCmdLineArgs::init( argc, argv, aboutData );
-	KCmdLineArgs::addCmdLineOptions( options ); // Add our own options.
+  KCmdLineArgs::init( argc, argv, aboutData );
+  KCmdLineArgs::addCmdLineOptions( options ); // Add our own options.
 
   KApplication app;
  
@@ -74,8 +74,8 @@ int main(int argc, char *argv[])
     kmagapp->show();
 
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-		
-		args->clear();
+    
+    args->clear();
   }
 
   return app.exec();

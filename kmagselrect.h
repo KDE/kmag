@@ -46,23 +46,23 @@ class KMagSelRect : public QObject, public QRect
 public:
     KMagSelRect(QWidget *parent=0);
     KMagSelRect(const QPoint &topleft, const QPoint &bottomright,
-	    QWidget *parent=0);
+      QWidget *parent=0);
     KMagSelRect(const QPoint &topleft, const QSize &size,
-	    QWidget *parent=0);
+      QWidget *parent=0);
     KMagSelRect(int left, int top, int width, int height,
-	    QWidget *parent=0);
+      QWidget *parent=0);
 
     virtual ~KMagSelRect();
 
     bool visible();
 
-		/// Makes the rectangle always visible
-		void alwaysVisible(bool visible=true);
+    /// Makes the rectangle always visible
+    void alwaysVisible(bool visible=true);
 
-		/// Returns true if always visible is set
-		bool getAlwaysVisible() const {
-			return (m_alwaysVisible);
-		};
+    /// Returns true if always visible is set
+    bool getAlwaysVisible() const {
+      return (m_alwaysVisible);
+    };
 
 public slots:
 
@@ -83,7 +83,7 @@ protected:
     QWidget *parent;
     bool isVisible;
     QRect old;
-		bool m_alwaysVisible;
+    bool m_alwaysVisible;
 
 };
 
