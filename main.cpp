@@ -24,6 +24,8 @@
 
 #include "kmag.h"
 
+#include "version.h"
+
 KmagApp *kmagapp;
 
 static const char *description =
@@ -41,7 +43,7 @@ static KCmdLineOptions options[] =
 int main(int argc, char *argv[])
 {
 	// about the application
-  KAboutData *aboutData = new KAboutData("kmag", I18N_NOOP("K Magnifier"), VERSION,
+  KAboutData *aboutData = new KAboutData("kmag", I18N_NOOP("K Magnifier"), KMAG_VERSION,
                                          I18N_NOOP("Screen Magnifier for the K Desktop Environment (KDE)"),
                                          KAboutData::License_GPL,
                                          "(C) 2001, Sarang Lakare","",
@@ -49,10 +51,10 @@ int main(int argc, char *argv[])
 
   // about the authors
   aboutData->addAuthor("Sarang Lakare",
-                       "ReWrite + Current Maintainer","sarang@users.sf.net",
+                       I18N_NOOP("ReWrite + Current Maintainer"),"sarang@users.sf.net",
                        "http://www.cs.sunysb.edu/~lsarang/linux");
   aboutData->addAuthor("Michael Forster",
-                       "Original Idea & Author (KDE1)", "forster@fmi.uni-passau.de");
+                       I18N_NOOP("Original Idea & Author (KDE1)"), "forster@fmi.uni-passau.de");
 	aboutData->addCredit("Claudiu Costin", "Tips, competition ;)", "claudiuc@work.ro",
                        "http://www.ro.kde.org");
 
