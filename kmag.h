@@ -137,6 +137,8 @@ class KmagApp : public KMainWindow
      * @param text the text that is displayed in the statusbar
      */
     void slotStatusMsg(const QString &text);
+    /// Toggle the refreshing of the window
+    void slotToggleRefresh();
 
   private:
     /** the configuration object of the application */
@@ -159,6 +161,7 @@ class KmagApp : public KMainWindow
     KAction* filePrint;
     KAction* fileQuit;
     KAction* editCopy;
+    KAction *refreshSwitch;
     KToggleAction* viewToolBar;
     KToggleAction* viewStatusBar;
 

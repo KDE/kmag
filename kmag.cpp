@@ -73,6 +73,8 @@ void KmagApp::initActions()
   editCopy = KStdAction::copy(this, SLOT(slotEditCopy()), actionCollection());
   zoomIn = KStdAction::zoomIn(view, SLOT(slotZoomIn()), actionCollection());
 	zoomOut = KStdAction::zoomOut(view, SLOT(slotZoomOut()), actionCollection());
+	KStdAction::whatsThis();
+	refreshSwitch = KStdAction::zoom(this, SLOT(slotToggleRefresh()), actionCollection());
   viewToolBar = KStdAction::showToolbar(this, SLOT(slotViewToolBar()), actionCollection());
   viewStatusBar = KStdAction::showStatusbar(this, SLOT(slotViewStatusBar()), actionCollection());
 
@@ -82,6 +84,11 @@ void KmagApp::initActions()
   editCopy->setStatusText(i18n("Copies the selected section to the clipboard"));
   viewToolBar->setStatusText(i18n("Enables/disables the toolbar"));
   viewStatusBar->setStatusText(i18n("Enables/disables the statusbar"));
+
+  refreshSwitch->setIcon("stop.png");
+  refreshSwitch->setToolTip(i18n("Click to stop window refresh"));
+  refreshSwitch->setWhatsThis(i18n("Clicking on this icon will start/stop updating of the\
+  display. Stopping the update will zero the processing power required(CPU usage)."));
 
   // use the absolute path to your kmagui.rc file for testing purpose in createGUI();
   createGUI();
@@ -243,6 +250,21 @@ bool KmagApp::queryExit()
 /////////////////////////////////////////////////////////////////////
 // SLOT IMPLEMENTATION
 /////////////////////////////////////////////////////////////////////
+
+void KmagApp::slotToggleRefresh()
+{
+  view->toggleRefresh();
+  if(view->getRefreshStatus()) {
+    refreshSwitch->setIcon("stop.png");
+    refreshSwitch->setToolTip(i18n("Click to stop window refresh"));
+    slotStatusMsg(i18n("Ready."));
+  } else {
+    refreshSwitch->setIcon("reload.png");
+    refreshSwitch->setToolTip(i18n("Click to start window refresh"));
+    slotStatusMsg(i18n("Window refresh stopped."));
+  }
+}
+
 
 void KmagApp::slotFileNewWindow()
 {
