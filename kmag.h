@@ -157,6 +157,9 @@ class KmagApp : public KMainWindow
 		/// Zooms out
     void zoomOut();
 
+		/// Save the zoomed image
+    void saveZoomPixmap();
+
     /// Sets the zoom index to index
     void setZoomIndex(int index=4);
 
@@ -176,7 +179,7 @@ class KmagApp : public KMainWindow
 //    KmagDoc *doc;
 
     // KAction pointers to enable/disable actions
-    KAction* fileNewWindow;
+    KAction *fileNewWindow, *m_pSnapshot;
 		KAction *m_pPrint;
 		KAction *m_pZoomIn;
 		KAction *m_pZoomOut;

@@ -39,6 +39,7 @@
 #include <kstdaction.h>
 #include <kiconloader.h>
 #include <khelpmenu.h>
+#include <kimageio.h>
 #if KDE_VERSION < 220
 #include <qprinter.h>
 #else
@@ -89,6 +90,9 @@ KmagApp::KmagApp(QWidget* , const char* name)
 
 	// set mouse following to be off by default
 	m_zoomView->setFollowMouse(false);
+
+	// Register all KIO image formats - to be used when saving image.
+  KImageIO::registerFormats();
 }
 
 /**
@@ -109,6 +113,10 @@ void KmagApp::initActions()
   refreshSwitch->setWhatsThis(i18n("Clicking on this icon will <b>start</b> / <b>stop</b>\
   updating of the display. Stopping the update will zero the processing power\
   required (CPU usage)."));
+
+  m_pSnapshot = new KAction(i18n("&SnapShot"), "ksnapshot", Key_F2, this, SLOT(saveZoomPixmap()), actionCollection(),"snapshot");
+	m_pSnapshot->setWhatsThis(i18n("Click to save the image being displayed to a file."));
+	m_pSnapshot->setToolTip(i18n("Save image to a file."));
 
   m_pPrint = KStdAction::print(this, SLOT(slotFilePrint()), actionCollection(), "print");
   m_pPrint->setWhatsThis(i18n("Click on this button to print the current zommed image."));
@@ -147,6 +155,7 @@ void KmagApp::initActions()
 	m_pZoomBox->plug(toolBar());
   m_pZoomOut->plug(toolBar());
 	m_pPrint->plug(toolBar());
+	m_pSnapshot->plug(toolBar());
 	helpAction->plug(toolBar());
 }
 
@@ -349,6 +358,33 @@ void KmagApp::setZoomIndex(int index)
 	
 	// signal change in zoom value
 	emit updateZoomValue(zoomArray[m_zoomIndex]);
+}
+
+
+/**
+ * Save the zoomed image
+ */
+void KmagApp::saveZoomPixmap()
+{
+	bool toggled(false);
+
+	// stop refresh temporarily
+  if (m_zoomView->getRefreshStatus()) {
+    slotToggleRefresh();
+		toggled = true;
+  }
+
+  KURL url = KFileDialog::getSaveURL(QString::null,
+							KImageIO::pattern(KImageIO::Writing),
+             0,i18n("Save zoomed region"));
+
+	if(!url.filename().isEmpty()) {
+		m_zoomView->getPixmap().save(url.fileName(), KImageIO::type(url.fileName()).latin1());
+	}
+
+	if(toggled) {
+		slotToggleRefresh();
+	}
 }
 
 
