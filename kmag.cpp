@@ -17,8 +17,6 @@
  ***************************************************************************/
 
 
-#include <iostream>
-
 // include files for QT
 #include <qdir.h>
 #include <qprinter.h>
@@ -48,6 +46,7 @@
 #include <kmenubar.h>
 #include <klocale.h>
 #include <kconfig.h>
+#include <kdebug.h>
 #include <kstdaction.h>
 #include <kiconloader.h>
 #include <khelpmenu.h>
@@ -95,7 +94,7 @@ KmagApp::KmagApp(QWidget* , const char* name)
 	fpsArray.push_back(25); // very high
 
 	if(zoomArrayString.count() != zoomArray.size() || fpsArrayString.count() != fpsArray.size()) {
-		std::cerr << "Check the zoom or fps array in the constructor." << std::endl;
+		kdWarning() << "Check the zoom or fps array in the constructor." << endl;
 		exit(1);
 	}
 
@@ -348,12 +347,12 @@ bool KmagApp::queryExit()
  */
 void KmagApp::mousePressEvent(QMouseEvent *e)
 {
-	std::cout << "Got a press event!" << std::endl;
+  kdDebug() << "Got a press event!" << endl;
 
   switch(e->button()) {
   case QMouseEvent::RightButton :
 		// show popup
-		std::cout << "Show Popup now!" << std::endl;
+		kdDebug() << "Show Popup now!" << endl;
 		break;
 	}
 }
@@ -405,7 +404,7 @@ void KmagApp::setZoomIndex(int index)
 {
 	if(index < 0 || index >= (int)zoomArray.size()) {
 		// the index is invalid
-		std::cerr << "Invalid index!" << std::endl;
+		kdWarning() << "Invalid index!" << endl;
 		return;
   } else if((int)m_zoomIndex == index) {
 		// do nothing!
@@ -441,7 +440,7 @@ void KmagApp::setFPSIndex(int index)
 {
 	if(index < 0 || index >= (int)fpsArray.size()) {
 		// the index is invalid
-		std::cerr << "Invalid index!" << std::endl;
+		kdWarning() << "Invalid index!" << endl;
 		return;
   } else if((int)m_fpsIndex == index) {
 		// do nothing!
@@ -484,7 +483,7 @@ void KmagApp::saveZoomPixmap()
   				KMessageBox::error(0, i18n("Unable to upload file over the network."),
   													i18n("Error writing file"));
   			} else {
-					KMessageBox::information(0, i18n("Current zoomed image saved to\n"+url.prettyURL()),
+					KMessageBox::information(0, i18n("Current zoomed image saved to\n")+url.prettyURL(),
 															i18n("Information"), "save_confirm");
 				}
 			}
@@ -496,7 +495,7 @@ void KmagApp::saveZoomPixmap()
       	KMessageBox::error(0, i18n("Unable to save file. Please check if you have permission to write to the directory."),
   													i18n("Error writing file"));
   		} else {
-  			KMessageBox::information(0, i18n("Current zoomed image saved to\n"+url.prettyURL()),
+  			KMessageBox::information(0, i18n("Current zoomed image saved to\n")+url.prettyURL(),
   															i18n("Information"), "save_confirm");
   		}
 		}

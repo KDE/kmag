@@ -16,24 +16,24 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <qglobal.h>
-#include <qwhatsthis.h>
-#include <qwidget.h>
-#include <klocale.h>
 
 // application specific includes
 #include "kmag.h"
 #include "kmagselrect.moc"
 #include "kmagzoomview.h"
 
-#include <kcursor.h>
-
 // include files for Qt
-#include <qpainter.h>
 #include <qbitmap.h>
 #include <qcursor.h>
+#include <qglobal.h>
+#include <qpainter.h>
+#include <qwhatsthis.h>
+#include <qwidget.h>
 
-#include <iostream>
+// include files for KDE
+#include <kcursor.h>
+#include <kdebug.h>
+#include <klocale.h>
 
 // include bitmaps for cursors
 static uchar left_ptr_bits[] = {
@@ -326,7 +326,7 @@ void KMagZoomView::paintMouseCursor(QPaintDevice *dev, bool updateMousePos)
   		QWidget *dummy	= KApplication::widgetAt(QCursor::pos(), FALSE);
   		if(!dummy)
   			break;
-  		std::cerr << ">" << dummy->name() << ":" << dummy->cursor().shape() << "-" << endl;
+  		kdDebug() << ">" << dummy->name() << ":" << dummy->cursor().shape() << "-" << endl;
   		switch(this->cursor().shape())	{
       	case ArrowCursor :
    			{
@@ -876,3 +876,5 @@ QPixmap KMagZoomView::getPixmap()
    	return(m_grabbedZoomedPixmap);
 	}
 }
+
+#include "kmagzoomview.moc"
