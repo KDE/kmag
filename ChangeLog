@@ -1,6 +1,8 @@
 //$Id$
 
 ver 0.5+
+-Printing support
+-New grab-and-move mode for moving zoom region
 -More cleaner/bare minimal GUI
 -Magnification with mouse movement
 -Tons of code cleanup

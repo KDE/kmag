@@ -10,10 +10,12 @@ Version 1.0:
 @ More cleaner/bare minimal GUI 
 @ Grab window moving with the mouse
 @ Code cleanup
+@ New grab-and-move mode for moving zoom area
 - Allow setting of refresh rate
 - Add grabbing and saving of the currently selected area or zoomed area.
 - Saving of settings across different instances
-- Add printing support
+- Icons for maximizing use of the zoomed image display area
+@ Add printing support
 - Translations
 - New Icon
 
