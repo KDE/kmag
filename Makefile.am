@@ -29,6 +29,8 @@ INCLUDES= $(all_includes)
 
 METASOURCES = AUTO
 
+KDE_OPTIONS = nofinal
+
 # the library search path. 
 kmag_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 
