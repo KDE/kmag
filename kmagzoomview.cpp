@@ -154,11 +154,11 @@ void KMagZoomView::hideEvent( QHideEvent* )
   // Save the state of the refresh switch.. the state will be restored
   // when showEvent is called
   m_refreshSwitchStateOnHide = m_refreshSwitch;
-  
+
   // Check if refresh is ON
   if(m_refreshSwitch) {
     toggleRefresh();
-  } 
+  }
 }
 
 
@@ -181,7 +181,7 @@ void KMagZoomView::resizeEvent( QResizeEvent * e )
 {
   QScrollView::resizeEvent (e);
   if(m_fitToWindow)
-    fitToWindow(); 
+    fitToWindow();
 }
 
 /**
@@ -269,7 +269,14 @@ void KMagZoomView::paintMouseCursor(QPaintDevice *dev, QPoint mousePos)
       sCursor = sCursor.xForm(m_zoomMatrix);
 
       // since hot spot is at 3,1
-      pz.drawPixmap(mousePos.x()-(int)(3.0*m_zoom), mousePos.y()-(int)m_zoom, sCursor);
+      if (m_rotation == 0)
+        pz.drawPixmap(mousePos.x()-(int)(3.0*m_zoom), mousePos.y()-(int)m_zoom, sCursor);
+      else if (m_rotation == 90)
+        pz.drawPixmap(mousePos.x()-(int)(16.0*m_zoom), mousePos.y()-(int)(3.0*m_zoom), sCursor);
+      else if (m_rotation == 180)
+        pz.drawPixmap(mousePos.x()-(int)(13.0*m_zoom), mousePos.y()-(int)(16.0*m_zoom), sCursor);
+      else if (m_rotation == 270)
+        pz.drawPixmap(mousePos.x()-(int)m_zoom, mousePos.y()-(int)(13.0*m_zoom), sCursor);
     }
     break;
 
@@ -327,9 +334,18 @@ QPoint KMagZoomView::calcMousePos(bool updateMousePos)
   }
 
   // get coordinates of the pixel w.r.t. the zoomed pixmap
-  QPoint mousePos ((int)((float)m_latestCursorPos.x()*m_zoom),
+  if (m_rotation == 90)
+    return QPoint ((int)((float)(m_selRect.height()-m_latestCursorPos.y())*m_zoom),
+                   (int)((float)m_latestCursorPos.x()*m_zoom));
+  else if (m_rotation == 180)
+    return QPoint ((int)((float)(m_selRect.width()-m_latestCursorPos.x())*m_zoom),
+                   (int)((float)(m_selRect.height()-m_latestCursorPos.y())*m_zoom));
+  else if (m_rotation == 270)
+    return QPoint ((int)((float)m_latestCursorPos.y()*m_zoom),
+                   (int)((float)(m_selRect.width()-m_latestCursorPos.x())*m_zoom));
+  else
+    return QPoint ((int)((float)m_latestCursorPos.x()*m_zoom),
                    (int)((float)m_latestCursorPos.y()*m_zoom));
-  return mousePos;
 }
 
 
@@ -737,9 +753,17 @@ void KMagZoomView::focusOutEvent(QFocusEvent *e)
  */
 void KMagZoomView::fitToWindow()
 {
-    // this is a temporary solution, cast, mabye newWidth and newHeight should be float
-  unsigned int newWidth = static_cast<unsigned int>(visibleWidth()/m_zoom);
-  unsigned int newHeight = static_cast<unsigned int>(visibleHeight()/m_zoom);
+  unsigned int newWidth, newHeight;
+  
+  // this is a temporary solution, cast, maybe newWidth and newHeight should be float
+  if ((m_rotation == 90) || (m_rotation == 270))
+  {
+    newWidth = static_cast<unsigned int>(visibleHeight()/m_zoom);
+    newHeight = static_cast<unsigned int>(visibleWidth()/m_zoom);
+  } else {
+    newWidth = static_cast<unsigned int>(visibleWidth()/m_zoom);
+    newHeight = static_cast<unsigned int>(visibleHeight()/m_zoom);
+  }
 
   QPoint currCenter = m_selRect.center();
 
