@@ -1,0 +1,12 @@
+# KDE Config File  
+[Desktop Entry]
+Type=Application
+Exec=kmag -caption "%c" %i %m  
+Icon=kmag.png
+MiniIcon=kmag.png
+DocPath=kmag/index.html
+Comment=
+Comment[de]=
+Terminal=0
+Name=Kmag
+Name[de]=Kmag

@@ -1,0 +1,14 @@
+ver 0.3
+-Fixed a slow-refresh bug.. making KMag 100% usable!
+-Made resizing grab window much more easier (esp. for laptops!)
+-GUI improvements.. got rid of sliders.. introduced zoom icons
+-Centered display of magnified contents
+-Now using Kdevelop 1.4b2..
+-Added documentation
+
+ver 0.2
+-First public release for the KDE2 port and rewrite
+-Feature enhancements : Easy  moving and resizing of grab-window
+
+ver 0.1
+-First public release for KDE1
