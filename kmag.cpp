@@ -205,6 +205,7 @@ void KmagApp::saveOptions()
   config->writeEntry("Geometry", size());
 	config->writeEntry("ZoomIndex", m_zoomIndex);
 	config->writeEntry("FollowMouse", m_zoomView->getFollowMouse());
+	config->writeEntry("SelRect", m_zoomView->getSelRectPos());
 
   toolBar("mainToolBar")->saveSettings(config,"Main ToolBar");
 }
@@ -228,6 +229,9 @@ void KmagApp::readOptions()
 	bool followMouse = config->readBoolEntry("FollowMouse", false);
 	m_zoomView->followMouse(followMouse);
 	m_followMouseButton->setChecked(followMouse);
+
+	QRect defaultRect(0, 0, 128, 128);
+	m_zoomView->setSelRectPos(config->readRectEntry("SelRect", &defaultRect));	
 
   toolBar("mainToolBar")->applySettings(config,"Main ToolBar");
 }

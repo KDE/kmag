@@ -64,7 +64,11 @@ class KMagZoomView : public QFrame
 		/// Returns teh status of followMouse
 		bool getFollowMouse() const { return m_followMouse; };
 
+		/// Get the status of "show rect. always"
 		bool getShowSelRect() const { return m_showSelRect; };
+
+		/// Get the coordinates of the selection rectangle
+		QRect getSelRectPos() const { return static_cast<QRect>(m_selRect); };
 
     /// Toggles the refreshing of the window
     void toggleRefresh();
@@ -82,6 +86,9 @@ class KMagZoomView : public QFrame
 
 		/// Shows/Hides the selection marker
 		void showSelRect(bool show=true);
+
+		/// Set the position of the selection region to the given pos
+		void setSelRectPos(const QRect & rect);
 
 	protected:
   	/// Called when the widget is to be repainted

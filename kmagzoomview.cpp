@@ -27,7 +27,6 @@
 #include "kmagzoomview.h"
 
 // include files for Qt
-//#include <qprinter.h>
 #include <qpainter.h>
 
 #include <iostream>
@@ -425,12 +424,11 @@ void KMagZoomView::focusOutEvent(QFocusEvent *e)
 
 // SLOTS
 
-/** Grabs frame from X
- *
+/**
+ * Grabs frame from X
  */
 void KMagZoomView::grabFrame()
 {
-
 	// check if follow-mouse is enabled
 	if(m_followMouse) {
 		// in this case grab w.r.t the current mouse position
@@ -480,9 +478,9 @@ void KMagZoomView::grabFrame()
   m_selRect.update();
 }
 
-/** Toggles the state of refreshing.
-  *
-  */
+/**
+ * Toggles the state of refreshing.
+ */
 void KMagZoomView::toggleRefresh()
 {
   if(m_refreshSwitch) {
@@ -519,4 +517,14 @@ void KMagZoomView::showSelRect(bool show)
 	} else if(m_mouseMode == Normal) {
   	m_selRect.hide();
 	}
+}
+
+/**
+ * Sets the selection rectangle to the given position.
+ */
+void KMagZoomView::setSelRectPos(const QRect & rect)
+{
+	m_selRect.setRect(rect.x(), rect.y(), rect.width(), rect.height());
+	m_selRect.update();
+	grabFrame();
 }
