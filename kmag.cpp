@@ -318,12 +318,12 @@ void KmagApp::readOptions()
   else
     m_showCursorButton->setChecked(false);
   
-  if(config->hasGroup("Main Toolbar"))
+  if(config->hasGroup("Main ToolBar"))
     toolBar("mainToolBar")->applySettings(config,"Main ToolBar");
   else
     toolBar("mainToolBar")->setBarPos(KToolBar::Bottom);
   
-  if(config->hasGroup("View Toolbar"))
+  if(config->hasGroup("View ToolBar"))
     toolBar("viewToolBar")->applySettings(config,"View ToolBar");
   else
     toolBar("viewToolBar")->setBarPos(KToolBar::Bottom);
