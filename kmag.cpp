@@ -133,14 +133,14 @@ void KmagApp::initActions()
 
   m_pSnapshot = new KAction(i18n("&Snapshot"), "ksnapshot", KStdAccel::key(KStdAccel::Save), this,
 														SLOT(saveZoomPixmap()), actionCollection(),"snapshot");
-	m_pSnapshot->setWhatsThis(i18n("Click to save the image being displayed to a file."));
+	m_pSnapshot->setWhatsThis(i18n("Click to save the zoomed view to an image file."));
 	m_pSnapshot->setToolTip(i18n("Save image to a file"));
 
   m_pPrint = KStdAction::print(this, SLOT(slotFilePrint()), actionCollection(), "print");
-  m_pPrint->setWhatsThis(i18n("Click on this button to print the current zommed image."));
+  m_pPrint->setWhatsThis(i18n("Click on this button to print the current zoomed view."));
 
   m_pCopy = KStdAction::copy(this, SLOT(copyToClipBoard()), actionCollection(), "copy");
-  m_pCopy->setWhatsThis(i18n("Click on this button to copy the current zommed image to the clipboard."));
+  m_pCopy->setWhatsThis(i18n("Click on this button to copy the current zoomed view to the clipboard which you can paste in other applications."));
 	m_pCopy->setToolTip(i18n("Copy zoomed image to clipboard"));
 
   m_fitToWindow = new KAction(i18n("&Fit Window"), "window_fullscreen", CTRL+Key_F, m_zoomView,
