@@ -186,10 +186,10 @@ class KmagApp : public KMainWindow
 		unsigned int m_fpsIndex;
 
 		QStringList zoomArrayString;
-		vector<float> zoomArray;
+		std::vector<float> zoomArray;
 
 		QStringList fpsArrayString;
-		vector<float> fpsArray;
+		std::vector<float> fpsArray;
 
 	KMagZoomView* m_zoomView;
   QButtonGroup *m_settingsGroup;

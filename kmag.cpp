@@ -32,6 +32,8 @@
 #include <qwhatsthis.h>
 #include <qtooltip.h>
 
+#include <kdeversion.h>
+
 // include files for KDE
 #if KDE_VERSION > 300
 #include <kapplication.h>
@@ -93,7 +95,7 @@ KmagApp::KmagApp(QWidget* , const char* name)
 	fpsArray.push_back(25); // very high
 
 	if(zoomArrayString.count() != zoomArray.size() || fpsArrayString.count() != fpsArray.size()) {
-		cerr << "Check the zoom or fps array in the constructor." << endl;
+		std::cerr << "Check the zoom or fps array in the constructor." << std::endl;
 		exit(1);
 	}
 
@@ -346,12 +348,12 @@ bool KmagApp::queryExit()
  */
 void KmagApp::mousePressEvent(QMouseEvent *e)
 {
-	cout << "Got a press event!" << endl;
+	std::cout << "Got a press event!" << std::endl;
 
   switch(e->button()) {
   case QMouseEvent::RightButton :
 		// show popup
-		cout << "Show Popup now!" << endl;
+		std::cout << "Show Popup now!" << std::endl;
 		break;
 	}
 }
@@ -403,7 +405,7 @@ void KmagApp::setZoomIndex(int index)
 {
 	if(index < 0 || index >= (int)zoomArray.size()) {
 		// the index is invalid
-		cerr << "Invalid index!" << endl;
+		std::cerr << "Invalid index!" << std::endl;
 		return;
   } else if((int)m_zoomIndex == index) {
 		// do nothing!
@@ -439,7 +441,7 @@ void KmagApp::setFPSIndex(int index)
 {
 	if(index < 0 || index >= (int)fpsArray.size()) {
 		// the index is invalid
-		cerr << "Invalid index!" << endl;
+		std::cerr << "Invalid index!" << std::endl;
 		return;
   } else if((int)m_fpsIndex == index) {
 		// do nothing!
