@@ -108,18 +108,20 @@ KmagApp::~KmagApp()
 
 void KmagApp::initActions()
 {
-  fileNewWindow = new KAction(i18n("New &Window"), "window_new", 0, this, SLOT(slotFileNewWindow()), actionCollection(),"file_new_window");
+  fileNewWindow = new KAction(i18n("New &Window"), "window_new", KStdAccel::key(KStdAccel::New), this, SLOT(slotFileNewWindow()), actionCollection(),"file_new_window");
   fileNewWindow->setToolTip(i18n("Opens a new KMagnifier window"));
 
-	refreshSwitch = new KAction(i18n("Stop"), "stop", Key_F5, this, SLOT(slotToggleRefresh()), actionCollection(), "start_stop_refresh");
-  refreshSwitch->setToolTip(i18n("Click to stop window refresh [F5]"));
+	refreshSwitch = new KAction(i18n("Stop"), "stop", KStdAccel::key(KStdAccel::Reload), this,
+															SLOT(slotToggleRefresh()), actionCollection(), "start_stop_refresh");
+  refreshSwitch->setToolTip(i18n("Click to stop window refresh"));
   refreshSwitch->setWhatsThis(i18n("Clicking on this icon will <b>start</b> / <b>stop</b>\
   updating of the display. Stopping the update will zero the processing power\
-  required (CPU usage). You can use the F5 key on your keyboard to perform the same operation."));
+  required (CPU usage)"));
 
-  m_pSnapshot = new KAction(i18n("&SnapShot"), "ksnapshot", Key_F2, this, SLOT(saveZoomPixmap()), actionCollection(),"snapshot");
-	m_pSnapshot->setWhatsThis(i18n("Click to save the image being displayed to a file. This can also by done using the F2 key on your keyboard."));
-	m_pSnapshot->setToolTip(i18n("Save image to a file [F2]"));
+  m_pSnapshot = new KAction(i18n("&SnapShot"), "ksnapshot", KStdAccel::key(KStdAccel::Save), this,
+														SLOT(saveZoomPixmap()), actionCollection(),"snapshot");
+	m_pSnapshot->setWhatsThis(i18n("Click to save the image being displayed to a file."));
+	m_pSnapshot->setToolTip(i18n("Save image to a file"));
 
   m_pPrint = KStdAction::print(this, SLOT(slotFilePrint()), actionCollection(), "print");
   m_pPrint->setWhatsThis(i18n("Click on this button to print the current zommed image."));
@@ -459,11 +461,11 @@ void KmagApp::slotToggleRefresh()
   if(m_zoomView->getRefreshStatus()) {
     refreshSwitch->setIcon("stop.png");
     refreshSwitch->setText(i18n("Stop"));
-    refreshSwitch->setToolTip(i18n("Click to stop window update [F5]"));
+    refreshSwitch->setToolTip(i18n("Click to stop window update"));
   } else {
     refreshSwitch->setIcon("reload.png");
     refreshSwitch->setText(i18n("Start"));
-    refreshSwitch->setToolTip(i18n("Click to start window update [F5]"));
+    refreshSwitch->setToolTip(i18n("Click to start window update"));
   }
 }
 
