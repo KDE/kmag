@@ -555,10 +555,9 @@ void KMagZoomView::mouseReleaseEvent(QMouseEvent *e)
 void KMagZoomView::mouseMoveEvent(QMouseEvent *e)
 {
 	// don't do anything if follow mouse is enabled
-	if(m_followMouse)
-		return;
-
-	if(m_mouseMode == ResizeSelection) {
+	if(m_followMouse) {
+		grabFrame();
+	} else if(m_mouseMode == ResizeSelection) {
   	// In resize selection mode
     // set the current mouse position as the bottom, right corner
     m_selRect.setRight(e->globalX());
