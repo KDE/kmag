@@ -24,6 +24,8 @@
 
 #include "kmag.h"
 
+KmagApp *kmagapp;
+
 static const char *description =
 	I18N_NOOP("Kmag");
 // INSERT A DESCRIPTION FOR YOUR APPLICATION HERE
@@ -67,18 +69,18 @@ int main(int argc, char *argv[])
   }
   else 
   {
-    KmagApp *kmag = new KmagApp();
-    kmag->show();
+    kmagapp = new KmagApp();
+    kmagapp->show();
 
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 		
 		if (args->count())
 		{
-        kmag->openDocumentFile(args->arg(0));
+//        kmag->openDocumentFile(args->arg(0));
 		}
 		else
 		{
-		  kmag->openDocumentFile();
+//		  kmag->openDocumentFile();
 		}
 		args->clear();
   }

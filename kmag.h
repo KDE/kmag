@@ -33,13 +33,15 @@
 // include files for KDE 
 #include <kapp.h>
 #include <kmainwindow.h>
+#include <kdockwidget.h>
 #include <kaccel.h>
 #include <kaction.h>
 #include <knuminput.h>
 
 // forward declaration of the Kmag classes
-class KmagDoc;
-class KmagView;
+class KMagZoomView;
+class QButtonGroup;
+class	QCheckBox;
 
 /**
   * The base class for Kmag application windows. It sets up the main
@@ -59,8 +61,6 @@ class KmagApp : public KMainWindow
 {
   Q_OBJECT
 
-  friend class KmagView;
-
   public:
     /** construtor of KmagApp, calls all init functions to create the application.
      */
@@ -68,11 +68,11 @@ class KmagApp : public KMainWindow
     ~KmagApp();
     /** opens a file specified by commandline option
      */
-    void openDocumentFile(const KURL& url=0);
+//    void openDocumentFile(const KURL& url=0);
     /** returns a pointer to the current document connected to the KTMainWindow instance and is used by
      * the View class to access the document object's methods
      */	
-    KmagDoc *getDocument() const; 	
+//    KmagDoc *getDocument() const; 	
 
 
 		
@@ -86,16 +86,16 @@ class KmagApp : public KMainWindow
     void readOptions();
     /** initializes the KActions of the application */
     void initActions();
-    /** sets up the statusbar for the main window by initialzing a statuslabel.
-     */
-    void initStatusBar();
+
     /** initializes the document object of the main window that is connected to the view in initView().
      * @see initView();
      */
-    void initDocument();
+//    void initDocument();
+
     /** creates the centerwidget of the KTMainWindow instance and sets it as the view
      */
     void initView();
+
     /** queryClose is called by KTMainWindow on each closeEvent of a window. Against the
      * default implementation (only returns true), this calles saveModified() on the document object to ask if the document shall
      * be saved if Modified; on cancel the closeEvent is rejected.
@@ -107,6 +107,7 @@ class KmagApp : public KMainWindow
 		void initConnections();
 
     virtual bool queryClose();
+
     /** queryExit is called by KTMainWindow when the last window of the application is going to be closed during the closeEvent().
      * Against the default implementation that just returns true, this calls saveOptions() to save the settings of the last window's	
      * properties.
@@ -114,11 +115,13 @@ class KmagApp : public KMainWindow
      * @see KTMainWindow#closeEvent
      */
     virtual bool queryExit();
+
     /** saves the window properties for each open window during session end to the session config file, including saving the currently
      * opened file by a temporary filename provided by KApplication.
      * @see KTMainWindow#saveProperties
      */
     virtual void saveProperties(KConfig *_cfg);
+
     /** reads the session config file and restores the application's state including the last opened files and documents by reading the
      * temporary files saved by saveProperties()
      * @see KTMainWindow#readProperties
@@ -128,25 +131,23 @@ class KmagApp : public KMainWindow
   public slots:
     /** open a new application window by creating a new instance of KmagApp */
     void slotFileNewWindow();
+
     /** print the actual file */
     void slotFilePrint();
+
     /** closes all open windows by calling close() on each memberList item until the list is empty, then quits the application.
      * If queryClose() returns false because the user canceled the saveModified() dialog, the closing breaks.
      */
     void slotFileQuit();
+
     /** put the marked text/object into the clipboard
      */
     void slotEditCopy();
+
     /** paste the clipboard into the document
      */
     void slotViewToolBar();
-    /** toggles the statusbar
-     */
-    void slotViewStatusBar();
-    /** changes the statusbar contents for the standard label permanently, used to indicate current actions.
-     * @param text the text that is displayed in the statusbar
-     */
-    void slotStatusMsg(const QString &text);
+
     /// Toggle the refreshing of the window
     void slotToggleRefresh();
 
@@ -169,16 +170,10 @@ class KmagApp : public KMainWindow
   private:
     /** the configuration object of the application */
     KConfig *config;
-    /** view is the main widget which represents your working area. The View
-     * class should handle all events of the view widget.  It is kept empty so
-     * you can create your view according to your application's needs by
-     * changing the view class.
-     */
-    KmagView *view;
     /** doc represents your actual document and is created only once. It keeps
      * information such as filename and does the serialization of your files.
      */
-    KmagDoc *doc;
+//    KmagDoc *doc;
 
     // KAction pointers to enable/disable actions
     KAction* fileNewWindow;
@@ -189,7 +184,6 @@ class KmagApp : public KMainWindow
     KAction* editCopy;
     KAction *refreshSwitch;
     KToggleAction* viewToolBar;
-    KToggleAction* viewStatusBar;
 		KSelectAction *m_pZoomBox;
 
 		/// zoom slider
@@ -200,6 +194,10 @@ class KmagApp : public KMainWindow
 
 		QStringList zoomArrayString;
 		vector<float> zoomArray;
+
+	KMagZoomView* m_zoomView;
+  QButtonGroup *m_settingsGroup;
+	QCheckBox *m_followMouseButton;
 };
 
 

@@ -23,6 +23,10 @@
 #include <qdir.h>
 #include <qprinter.h>
 #include <qpainter.h>
+#include <qvbox.h>
+#include <qcheckbox.h>
+#include <qbuttongroup.h>
+#include <qlayout.h>
 
 // include files for KDE
 #include <kiconloader.h>
@@ -32,16 +36,15 @@
 #include <klocale.h>
 #include <kconfig.h>
 #include <kstdaction.h>
+#include <kiconloader.h>
+#include <khelpmenu.h>
 
 // application specific includes
 #include "kmag.moc"
+#include "kmagzoomview.h"
 #include "kmagselrect.h"
-#include "kmagview.h"
-#include "kmagdoc.h"
 
 #define ID_STATUS_MSG 1
-
-
 
 KmagApp::KmagApp(QWidget* , const char* name)
 	: KMainWindow(0, name, WStyle_MinMax | WType_TopLevel | WDestructiveClose | WStyle_ContextHelp | WStyle_StaysOnTop),
@@ -65,51 +68,35 @@ KmagApp::KmagApp(QWidget* , const char* name)
 		exit(1);
 	}
 
-  ///////////////////////////////////////////////////////////////////
   // call inits to invoke all other construction parts
-  initStatusBar();
-  initDocument();
   initView();
   initActions();
 	initConnections();
 	
   readOptions();
 
-  ///////////////////////////////////////////////////////////////////
-  // disable actions at startup
-
-  filePrint->setEnabled(false);
-  editCopy->setEnabled(false);
+	// Intialize all values:
 
 	// set initial zoom to 2x
 	setZoomIndex(7);
 	emit updateZoomIndex(m_zoomIndex);
+
+	// set mouse following to be off by default
+	m_zoomView->setFollowMouse(false);
 }
 
+/**
+ * Default destructor.
+ */
 KmagApp::~KmagApp()
 {
-
 }
 
 void KmagApp::initActions()
 {
   fileNewWindow = new KAction(i18n("New &Window"), 0, 0, this, SLOT(slotFileNewWindow()), actionCollection(),"file_new_window");
-  filePrint = KStdAction::print(this, SLOT(slotFilePrint()), actionCollection());
-  fileQuit = KStdAction::quit(this, SLOT(slotFileQuit()), actionCollection());
-  editCopy = KStdAction::copy(this, SLOT(slotEditCopy()), actionCollection());
-  m_pZoomIn = KStdAction::zoomIn(this, SLOT(zoomIn()), actionCollection(), "zoom_in");
-  m_pZoomOut = KStdAction::zoomOut(this, SLOT(zoomOut()), actionCollection(), "zoom_out");
+
   refreshSwitch = KStdAction::zoom(this, SLOT(slotToggleRefresh()), actionCollection());
-  viewToolBar = KStdAction::showToolbar(this, SLOT(slotViewToolBar()), actionCollection());
-  viewStatusBar = KStdAction::showStatusbar(this, SLOT(slotViewStatusBar()), actionCollection());
-
-  fileNewWindow->setStatusText(i18n("Opens a new application window"));
-  filePrint ->setStatusText(i18n("Print the contents [in future!]"));
-  fileQuit->setStatusText(i18n("Quits the application"));
-  editCopy->setStatusText(i18n("Copies the magnified contents to the clipboard [in future!]"));
-  viewToolBar->setStatusText(i18n("Enables/disables the toolbar"));
-  viewStatusBar->setStatusText(i18n("Enables/disables the statusbar"));
-
   refreshSwitch->setIcon("stop.png");
   refreshSwitch->setText(i18n("Stop Update"));
   refreshSwitch->setToolTip(i18n("Click to stop window refresh"));
@@ -117,91 +104,92 @@ void KmagApp::initActions()
   updating of the display. Stopping the update will zero the processing power\
   required (CPU usage)."));
 
+  m_pZoomIn = KStdAction::zoomIn(this, SLOT(zoomIn()), actionCollection(), "zoom_in");
   m_pZoomIn->setWhatsThis(i18n("Click on this button to <b>zoom-in</b> on the selected region."));
-  m_pZoomOut->setWhatsThis(i18n("Click on this button to <b>zoom-out</b> on the selected region."));
 
-  m_pZoomBox = new KSelectAction(i18n("Zoom"),0,actionCollection(),"zoom");
+  m_pZoomBox = new KSelectAction(i18n("&Zoom"),0,actionCollection(),"zoom");
   m_pZoomBox->setItems(zoomArrayString);
 	m_pZoomBox->setComboWidth(50);
 
+  m_pZoomOut = KStdAction::zoomOut(this, SLOT(zoomOut()), actionCollection(), "zoom_out");
+  m_pZoomOut->setWhatsThis(i18n("Click on this button to <b>zoom-out</b> on the selected region."));
 
-  // use the absolute path to your kmagui.rc file for testing purpose in createGUI();
-  createGUI();
+	KToolBarPopupAction *helpAction = new KToolBarPopupAction(i18n("&Help"), "help",
+																					0, actionCollection(), "help");
 
-  // add zoomIn, zoomBox and zoomOut to the toolbar
+	KHelpMenu *newHelpMenu = new KHelpMenu(this, KGlobal::instance()->aboutData());
+
+	helpAction->setDelayed(false);
+	KAction *action = KStdAction::helpContents(newHelpMenu, SLOT(appHelpActivated()), actionCollection());
+  action->plug(helpAction->popupMenu());
+
+	action = KStdAction::reportBug(newHelpMenu, SLOT(reportBug()), actionCollection());
+  action->plug(helpAction->popupMenu());
+
+	action = KStdAction::aboutApp(newHelpMenu, SLOT(aboutApplication()), actionCollection());
+  action->plug(helpAction->popupMenu());
+
+	action = KStdAction::aboutKDE(newHelpMenu, SLOT(aboutKDE()), actionCollection());
+  action->plug(helpAction->popupMenu());	
+
+	// plug things into the toolbar
+  refreshSwitch->plug(toolBar());
   m_pZoomIn->plug(toolBar());
 	m_pZoomBox->plug(toolBar());
   m_pZoomOut->plug(toolBar());
-
-  // create toolbar with the slider
-  //m_zoomSlider = new KIntNumInput(2, toolBar(0), 10, "Zoom");
-  //m_zoomSlider->setFixedWidth(256);
-  //m_zoomSlider->setRange(1, 16, 1, true);
-  //m_zoomSlider->setLabel(QString("Zoom"), AlignLeft | AlignVCenter);
-  //toolBar("mainToolBar")->insertWidget(0, m_zoomSlider->sizeHint().width(), m_zoomSlider);
+	helpAction->plug(toolBar());
 }
 
-
-void KmagApp::initStatusBar()
-{
-  ///////////////////////////////////////////////////////////////////
-  // STATUSBAR
-  // TODO: add your own items you need for displaying current application status.
-  statusBar()->insertItem(i18n("Ready."), ID_STATUS_MSG);
-}
-
-void KmagApp::initDocument()
-{
-  doc = new KmagDoc(this);
-  doc->newDocument();
-}
 
 void KmagApp::initView()
-{ 
-  ////////////////////////////////////////////////////////////////////
-  // create the main widget here that is managed by KTMainWindow's view-region and
-  // connect the widget to your document to display document contents.
+{
+	QVBox *mainView = new QVBox(this);	
 
-  view = new KmagView(this);
-  doc->addView(view);
-  setCentralWidget(view);	
-  //setCaption(doc->URL().fileName(),false);
+  m_zoomView = new KMagZoomView( mainView, "ZoomView" );
+  m_zoomView->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)7, m_zoomView->sizePolicy().hasHeightForWidth() ) );
+  m_zoomView->setMouseTracking(true);
+  m_zoomView->setFrameShape( QFrame::StyledPanel );
+  m_zoomView->setFrameShadow( QFrame::Raised );
+
+  m_settingsGroup = new QButtonGroup( mainView, "m_settingsGroup" );
+  m_settingsGroup->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)5, (QSizePolicy::SizeType)0, m_settingsGroup->sizePolicy().hasHeightForWidth() ) );
+  m_settingsGroup->setFrameShape( QButtonGroup::NoFrame );
+  m_settingsGroup->setTitle("");
+  m_settingsGroup->setColumnLayout(0, Qt::Vertical );
+  m_settingsGroup->layout()->setSpacing( 0 );
+  m_settingsGroup->layout()->setMargin( 0 );
+  QHBoxLayout *settingsGroupLayout = new QHBoxLayout( m_settingsGroup->layout() );
+  settingsGroupLayout->setAlignment( Qt::AlignTop );
+  settingsGroupLayout->setSpacing( 6 );
+  settingsGroupLayout->setMargin( 0 );
+
+  m_followMouseButton = new QCheckBox( m_settingsGroup, "m_followMouseButton" );
+  m_followMouseButton->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)1, m_followMouseButton->sizePolicy().hasHeightForWidth() ) );
+  m_followMouseButton->setText( i18n( "Follow Mouse" ) );
+  settingsGroupLayout->addWidget( m_followMouseButton );
+	connect(m_followMouseButton, SIGNAL(toggled(bool)), m_zoomView, SLOT(setFollowMouse(bool)));
+
+  setCentralWidget(mainView);	
+	
 
 }
 
 void KmagApp::initConnections()
 {
 	// change in zoom value -> update the view
-	connect(this, SIGNAL(updateZoomValue(float)), view, SLOT(setZoom(float)));
+	connect(this, SIGNAL(updateZoomValue(float)), m_zoomView, SLOT(setZoom(float)));
 	// change in zoom index -> update the selector
 	connect(this, SIGNAL(updateZoomIndex(int)), m_pZoomBox, SLOT(setCurrentItem(int)));
 	// selector selects a zoom index -> set the zoom index
 	connect(m_pZoomBox, SIGNAL(activated(int)), this, SLOT(setZoomIndex(int)));
 }
 
-void KmagApp::openDocumentFile(const KURL& url)
-{
-  slotStatusMsg(i18n("Opening file..."));
-
-  doc->openDocument( url);
-//  fileOpenRecent->addURL( url );
-  slotStatusMsg(i18n("Ready."));
-}
-
-
-KmagDoc *KmagApp::getDocument() const
-{
-  return doc;
-}
-
 void KmagApp::saveOptions()
 {	
   config->setGroup("General Options");
   config->writeEntry("Geometry", size());
-  config->writeEntry("Show Toolbar", viewToolBar->isChecked());
-  config->writeEntry("Show Statusbar",viewStatusBar->isChecked());
+//  config->writeEntry("Show Toolbar", viewToolBar->isChecked());
   config->writeEntry("ToolBarPos", (int) toolBar("mainToolBar")->barPos());
-  //fileOpenRecent->saveEntries(config,"Recent Files");
 }
 
 
@@ -211,23 +199,15 @@ void KmagApp::readOptions()
   config->setGroup("General Options");
 
   // bar status settings
-  bool bViewToolbar = config->readBoolEntry("Show Toolbar", true);
-  viewToolBar->setChecked(bViewToolbar);
-  slotViewToolBar();
-
-  bool bViewStatusbar = config->readBoolEntry("Show Statusbar", true);
-  viewStatusBar->setChecked(bViewStatusbar);
-  slotViewStatusBar();
-
+//  bool bViewToolbar = config->readBoolEntry("Show Toolbar", true);
+//  viewToolBar->setChecked(bViewToolbar);
+ // slotViewToolBar();
 
   // bar position settings
   KToolBar::BarPosition toolBarPos;
   toolBarPos=(KToolBar::BarPosition) config->readNumEntry("ToolBarPos", KToolBar::Top);
   toolBar("mainToolBar")->setBarPos(toolBarPos);
 	
-  // initialize the recent file list
-  //fileOpenRecent->loadEntries(config,"Recent Files");
-
   QSize size=config->readSizeEntry("Geometry");
   if(!size.isEmpty())
   {
@@ -237,6 +217,7 @@ void KmagApp::readOptions()
 
 void KmagApp::saveProperties(KConfig *_cfg)
 {
+/*
   if(doc->URL().fileName()!=i18n("Untitled") && !doc->isModified())
   {
     // saving to tempfile not necessary
@@ -252,11 +233,13 @@ void KmagApp::saveProperties(KConfig *_cfg)
     KURL _url(tempurl);
     doc->saveDocument(_url);
   }
+*/
 }
 
 
 void KmagApp::readProperties(KConfig* _cfg)
 {
+/*
   QString filename = _cfg->readEntry("filename", "");
   KURL url(filename);
   bool modified = _cfg->readBoolEntry("modified", false);
@@ -281,12 +264,12 @@ void KmagApp::readProperties(KConfig* _cfg)
       doc->openDocument(url);
       setCaption(url.fileName(),false);
     }
-  }
+  }*/
 }		
 
 bool KmagApp::queryClose()
 {
-  return doc->saveModified();
+  return (true);
 }
 
 bool KmagApp::queryExit()
@@ -361,48 +344,39 @@ void KmagApp::setZoomIndex(int index)
 
 void KmagApp::slotToggleRefresh()
 {
-  view->toggleRefresh();
-  if(view->getRefreshStatus()) {
+  m_zoomView->toggleRefresh();
+  if(m_zoomView->getRefreshStatus()) {
     refreshSwitch->setIcon("stop.png");
     refreshSwitch->setText(i18n("Stop Update"));
     refreshSwitch->setToolTip(i18n("Click to stop window update"));
-    slotStatusMsg(i18n("Ready."));
   } else {
     refreshSwitch->setIcon("reload.png");
     refreshSwitch->setText(i18n("Start Update"));
     refreshSwitch->setToolTip(i18n("Click to start window update"));
-    slotStatusMsg(i18n("Window update stopped."));
   }
 }
 
 
 void KmagApp::slotFileNewWindow()
-{
-  slotStatusMsg(i18n("Opening a new application window..."));
-	
+{	
   KmagApp *new_window= new KmagApp();
   new_window->show();
-
-  slotStatusMsg(i18n("Ready."));
 }
 
 
 void KmagApp::slotFilePrint()
 {
-  slotStatusMsg(i18n("Printing..."));
-
+/*
   QPrinter printer;
   if (printer.setup(this))
   {
     view->print(&printer);
   }
-
-  slotStatusMsg(i18n("Ready."));
+*/
 }
 
 void KmagApp::slotFileQuit()
 {
-  slotStatusMsg(i18n("Exiting..."));
   saveOptions();
   // close the first window, the list makes the next one the first again.
   // This ensures that queryClose() is called on each window to ask for closing
@@ -417,19 +391,15 @@ void KmagApp::slotFileQuit()
 	break;
     }
   }	
-  slotStatusMsg(i18n("Ready."));
 }
 
 void KmagApp::slotEditCopy()
 {
-  slotStatusMsg(i18n("Copying selection to clipboard..."));
 
-  slotStatusMsg(i18n("Ready."));
 }
 
 void KmagApp::slotViewToolBar()
 {
-  slotStatusMsg(i18n("Toggling toolbar..."));
   ///////////////////////////////////////////////////////////////////
   // turn Toolbar on or off
   if(!viewToolBar->isChecked())
@@ -440,34 +410,6 @@ void KmagApp::slotViewToolBar()
   {
     toolBar("mainToolBar")->show();
   }		
-
-  slotStatusMsg(i18n("Ready."));
-}
-
-void KmagApp::slotViewStatusBar()
-{
-  slotStatusMsg(i18n("Toggle the statusbar..."));
-  ///////////////////////////////////////////////////////////////////
-  //turn Statusbar on or off
-  if(!viewStatusBar->isChecked())
-  {
-    statusBar()->hide();
-  }
-  else
-  {
-    statusBar()->show();
-  }
-
-  slotStatusMsg(i18n("Ready."));
-}
-
-
-void KmagApp::slotStatusMsg(const QString &text)
-{
-  ///////////////////////////////////////////////////////////////////
-  // change status message permanently
-  statusBar()->clear();
-  statusBar()->changeItem(text, ID_STATUS_MSG);
 }
 
 
