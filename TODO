@@ -3,6 +3,15 @@ $Id$
 Planned features:
 
 Version 1.0:
+@ show cursor
+@ Put the toolbar at the bottom by default
+@ Documentation
+- Maximizing use of the zoomed image display area
+- Right mouse menu
+- Configuration dialog
+- Translations
+- New Icon
+
 * zooming control on toolbar
 * on/off rectangle update
 * block "garbage" effect when rectangle is outside screen
@@ -19,27 +28,21 @@ Version 1.0:
 * Copying zoomed image to clipboard on "copy"
 * Saving zoomed image to a remote file (via KIO slaves)
 * Compilable under KDE 2.x
-- Maximizing use of the zoomed image display area
-- Put the toolbar at the bottom by default
-- Advanced view to control everything using spin-boxes
-- Right mouse menu
-- Documentation
-- Translations
-- New Icon
 
 Bug Fixing for 1.0:
+@ When the zoom area is resized, the zoom display shows garbage outside
+  the zoomed region
+- Sometimes the selection window remains on the screen
+	=> Use overlay to draw the selection window.
+
 * Zoom selection going out of screen at the bottom edge
 * Saved zoomed image always gets saved in home directory
-- When the zoom area is resized, the zoom display shows garbage outside
-  the zoomed region
-- Sometimes the zoom area window remains on the screen
 
 
 Version 2.0:
-- show cursor
-- zoom rectangle moving from spinboxes
-- block mirrror-to-mirror efect when zoom rectangle intersect KMag window
-- configuration dialog
+- Show the exact cursor as on screen
+- Advanced view to control everything using spin-boxes
+- Block mirrror-to-mirror efect when zoom rectangle intersect KMag window
 - Different profiles : for vision-impared & regular users.
 
 Key:
