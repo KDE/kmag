@@ -87,21 +87,9 @@ class KmagApp : public KMainWindow
     /** initializes the KActions of the application */
     void initActions();
 
-    /** initializes the document object of the main window that is connected to the view in initView().
-     * @see initView();
-     */
-//    void initDocument();
-
     /** creates the centerwidget of the KTMainWindow instance and sets it as the view
      */
     void initView();
-
-    /** queryClose is called by KTMainWindow on each closeEvent of a window. Against the
-     * default implementation (only returns true), this calles saveModified() on the document object to ask if the document shall
-     * be saved if Modified; on cancel the closeEvent is rejected.
-     * @see KTMainWindow#queryClose
-     * @see KTMainWindow#closeEvent
-     */
 
 		/// Initialize all connections
 		void initConnections();
@@ -116,29 +104,12 @@ class KmagApp : public KMainWindow
      */
     virtual bool queryExit();
 
-    /** saves the window properties for each open window during session end to the session config file, including saving the currently
-     * opened file by a temporary filename provided by KApplication.
-     * @see KTMainWindow#saveProperties
-     */
-    virtual void saveProperties(KConfig *_cfg);
-
-    /** reads the session config file and restores the application's state including the last opened files and documents by reading the
-     * temporary files saved by saveProperties()
-     * @see KTMainWindow#readProperties
-     */
-    virtual void readProperties(KConfig *_cfg);
-
   public slots:
     /** open a new application window by creating a new instance of KmagApp */
     void slotFileNewWindow();
 
     /** print the actual file */
     void slotFilePrint();
-
-    /** closes all open windows by calling close() on each memberList item until the list is empty, then quits the application.
-     * If queryClose() returns false because the user canceled the saveModified() dialog, the closing breaks.
-     */
-    void slotFileQuit();
 
     /** put the marked text/object into the clipboard
      */
@@ -171,12 +142,8 @@ class KmagApp : public KMainWindow
 		void updateZoomValue(float);
 
   private:
-    /** the configuration object of the application */
+    /// the configuration object of the application
     KConfig *config;
-    /** doc represents your actual document and is created only once. It keeps
-     * information such as filename and does the serialization of your files.
-     */
-//    KmagDoc *doc;
 
     // KAction pointers to enable/disable actions
     KAction *fileNewWindow, *m_pSnapshot;

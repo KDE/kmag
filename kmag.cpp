@@ -54,15 +54,14 @@
 #define ID_STATUS_MSG 1
 
 KmagApp::KmagApp(QWidget* , const char* name)
-	: KMainWindow(0, name, WStyle_MinMax | WType_TopLevel | WDestructiveClose | WStyle_ContextHelp | WStyle_StaysOnTop),
-		m_zoomIndex(4)
+	: KMainWindow(0, name, WStyle_MinMax | WType_TopLevel | WDestructiveClose | WStyle_ContextHelp | WStyle_StaysOnTop)
 {
   config=kapp->config();
 
-	zoomArrayString << "20% [5:1]"  << "50% [2:1]"  << "75% [1.33:1]"  << "100% [1:1]"
-    << "125% [1:1.25]"  << "150% [1:1.5]"  << "200% [1:2]"  << "300% [1:3]"
-    << "400% [1:4]"  << "500% [1:5]" << "600% [1:6]" << "700% [1:7]"
-    << "800% [1:8]" << "1200% [1:12]" << "1600% [1:16]" << "2000% [1:20]";
+	zoomArrayString << "[5:1] 20%"  << "[2:1] 50%"  << "[1.33:1] 75%"  << "[1:1] 100%"
+    << "[1:1.25] 125%"  << "[1:1.5] 150%"  << "[1:2] 200%"  << "[1:3] 300%"
+    << "[1:4] 400%"  << "[1:5] 500%" << "[1:6] 600%" << "[1:7] 700%"
+    << "[1:8] 800%" << "[1:12] 1200%" << "[1:16] 1600%" << "[1:20] 2000%";
 
 	// Is there a better way to initialize a vector array?
 	zoomArray.push_back(0.2); zoomArray.push_back(0.5); zoomArray.push_back(0.75); zoomArray.push_back(1.0);
@@ -80,16 +79,8 @@ KmagApp::KmagApp(QWidget* , const char* name)
   initActions();
 	initConnections();
 	
+  // read options from config file
   readOptions();
-
-	// Intialize all values:
-
-	// set initial zoom to 2x
-	setZoomIndex(7);
-	emit updateZoomIndex(m_zoomIndex);
-
-	// set mouse following to be off by default
-	m_zoomView->setFollowMouse(false);
 
 	// Register all KIO image formats - to be used when saving image.
   KImageIO::registerFormats();
@@ -189,8 +180,6 @@ void KmagApp::initView()
 	connect(m_followMouseButton, SIGNAL(toggled(bool)), m_zoomView, SLOT(setFollowMouse(bool)));
 
   setCentralWidget(mainView);	
-	
-
 }
 
 void KmagApp::initConnections()
@@ -207,84 +196,34 @@ void KmagApp::saveOptions()
 {	
   config->setGroup("General Options");
   config->writeEntry("Geometry", size());
-//  config->writeEntry("Show Toolbar", viewToolBar->isChecked());
-  config->writeEntry("ToolBarPos", (int) toolBar("mainToolBar")->barPos());
+	config->writeEntry("ZoomIndex", m_zoomIndex);
+	config->writeEntry("FollowMouse", m_zoomView->getFollowMouse());
+
+  toolBar("mainToolBar")->saveSettings(config,"Main ToolBar");
 }
 
 
 void KmagApp::readOptions()
 {
-	
   config->setGroup("General Options");
-
-  // bar status settings
-//  bool bViewToolbar = config->readBoolEntry("Show Toolbar", true);
-//  viewToolBar->setChecked(bViewToolbar);
- // slotViewToolBar();
-
-  // bar position settings
-  KToolBar::BarPosition toolBarPos;
-  toolBarPos=(KToolBar::BarPosition) config->readNumEntry("ToolBarPos", KToolBar::Top);
-  toolBar("mainToolBar")->setBarPos(toolBarPos);
 	
   QSize size=config->readSizeEntry("Geometry");
   if(!size.isEmpty())
   {
     resize(size);
   }
+
+	// set zoom - defaults to 2x
+	unsigned int zoomIndex = config->readUnsignedNumEntry("ZoomIndex", 7);
+	setZoomIndex(zoomIndex);
+	emit updateZoomIndex(m_zoomIndex);
+
+	bool followMouse = config->readBoolEntry("FollowMouse", false);
+	m_zoomView->setFollowMouse(followMouse);
+	m_followMouseButton->setChecked(followMouse);
+
+  toolBar("mainToolBar")->applySettings(config,"Main ToolBar");
 }
-
-void KmagApp::saveProperties(KConfig *_cfg)
-{
-/*
-  if(doc->URL().fileName()!=i18n("Untitled") && !doc->isModified())
-  {
-    // saving to tempfile not necessary
-
-  }
-  else
-  {
-    KURL url=doc->URL();	
-    _cfg->writeEntry("filename", url.url());
-    _cfg->writeEntry("modified", doc->isModified());
-    QString tempname = kapp->tempSaveName(url.url());
-    QString tempurl= KURL::encode_string(tempname);
-    KURL _url(tempurl);
-    doc->saveDocument(_url);
-  }
-*/
-}
-
-
-void KmagApp::readProperties(KConfig* _cfg)
-{
-/*
-  QString filename = _cfg->readEntry("filename", "");
-  KURL url(filename);
-  bool modified = _cfg->readBoolEntry("modified", false);
-  if(modified)
-  {
-    bool canRecover;
-    QString tempname = kapp->checkRecoverFile(filename, canRecover);
-    KURL _url(tempname);
-  	
-    if(canRecover)
-    {
-      doc->openDocument(_url);
-      doc->setModified();
-      setCaption(_url.fileName(),true);
-      QFile::remove(tempname);
-    }
-  }
-  else
-  {
-    if(!filename.isEmpty())
-    {
-      doc->openDocument(url);
-      setCaption(url.fileName(),false);
-    }
-  }*/
-}		
 
 bool KmagApp::queryClose()
 {
@@ -446,24 +385,6 @@ void KmagApp::slotFilePrint()
 		slotToggleRefresh();
 	}
 #endif // QT_NO_PRINTER
-}
-
-void KmagApp::slotFileQuit()
-{
-  saveOptions();
-  // close the first window, the list makes the next one the first again.
-  // This ensures that queryClose() is called on each window to ask for closing
-  KMainWindow* w;
-  if(memberList)
-  {
-    for(w=memberList->first(); w!=0; w=memberList->first())
-    {
-      // only close the window if the closeEvent is accepted. If the user presses Cancel on the saveModified() dialog,
-      // the window and the application stay open.
-      if(!w->close())
-	break;
-    }
-  }	
 }
 
 void KmagApp::slotEditCopy()

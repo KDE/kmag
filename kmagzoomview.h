@@ -59,7 +59,9 @@ class KMagZoomView : public QFrame
 		};
 
     /// Returns the state of the refresh switch
-    bool getRefreshStatus() { return m_refreshSwitch; }
+    bool getRefreshStatus() { return m_refreshSwitch; };
+
+		bool getFollowMouse() { return m_followMouse; };
 
     /// Toggles the refreshing of the window
     void toggleRefresh();

@@ -49,14 +49,12 @@ int main(int argc, char *argv[])
 
   // about the authors
   aboutData->addAuthor("Sarang Lakare",
-                       "KDE2 port + ReWrite + Current Maintainer","sarang@users.sf.net",
+                       "ReWrite + Current Maintainer","sarang@users.sf.net",
                        "http://www.cs.sunysb.edu/~lsarang/linux");
-	aboutData->addAuthor("Claudiu Costin", "Performance, usability", "claudiuc@work.ro",
-                       "http://www.ro.kde.org");
-  aboutData->addAuthor("Santanu Chaudhari",
-                       "Current Maintainer","sachaudh@ic.sunysb.edu", NULL);
   aboutData->addAuthor("Michael Forster",
                        "Original Idea & Author (KDE1)", "forster@fmi.uni-passau.de");
+	aboutData->addCredit("Claudiu Costin", "Tips, competition ;)", "claudiuc@work.ro",
+                       "http://www.ro.kde.org");
 
 	KCmdLineArgs::init( argc, argv, aboutData );
 	KCmdLineArgs::addCmdLineOptions( options ); // Add our own options.
@@ -74,14 +72,6 @@ int main(int argc, char *argv[])
 
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 		
-		if (args->count())
-		{
-//        kmag->openDocumentFile(args->arg(0));
-		}
-		else
-		{
-//		  kmag->openDocumentFile();
-		}
 		args->clear();
   }
 
