@@ -8,3 +8,7 @@ DocPath=kmag/index.html
 Comment=
 Terminal=0
 Name=K Magnifier
+Name[de]=KMagnifier
+Name[hu]=KMag
+Name[pt]=Lupa
+Name[pt_BR]=Lupa
