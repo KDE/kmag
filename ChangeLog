@@ -1,5 +1,10 @@
 //$Id$
 
+ver 0.5+
+-More cleaner/bare minimal GUI
+-Grab window can now follow mouse
+-More code cleanup
+
 ver 0.5
 -No more garbage when the grab window is taken outside the screen
 -Added a convenient drop down menu to select the zoom factor

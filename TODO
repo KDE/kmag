@@ -3,38 +3,36 @@ $Id$
 Planned features:
 
 Version 1.0:
-* cc/sl: zooming control on toolbar
-* sl: on/off rectangle update
-* sl: block "garbage" effect when rectangle is outside screen
-* sl: Add "Pause" button to pause to the current view
-- sl: Grab window moving with the mouse
-- sl: Allow setting of refresh rate
-- sl: Add grabbing and saving of the currently selected area or zoomed area.
-- sl: Saving of settings across different instances
-- sl: Add printing support
-- sl: Code cleanup
--   : Translations
--   : New Icon
+* zooming control on toolbar
+* on/off rectangle update
+* block "garbage" effect when rectangle is outside screen
+* Add "Pause" button to pause to the current view
+@ More cleaner/bare minimal GUI 
+@ Grab window moving with the mouse
+@ Code cleanup
+- Allow setting of refresh rate
+- Add grabbing and saving of the currently selected area or zoomed area.
+- Saving of settings across different instances
+- Add printing support
+- Translations
+- New Icon
 
 Bug Fixing for 1.0:
-- sl: When the zoom area is resized, the zoom display shows garbage outside
-      the zoomed region
-- sl: Sometimes the zoom area window remains on the screen
+- When the zoom area is resized, the zoom display shows garbage outside
+  the zoomed region
+- Sometimes the zoom area window remains on the screen
 
 
 Version 2.0:
-- cc: zoom rectangle moving from spinboxes
-- cc: on/off zoom rectangle
-- cc: block mirrror-to-mirror efect when zoom rectangle intersect KMag window
-- cc: configuration dialog
-- sl: Add option to show the region-selection window all the time.
--     Different profiles : for vision-impared & regular users.
-
-People: 
-  sl: Sarang Lakare  <sarang@users.sourceforge.net>
-  cc: Claudiu Costin <claudiuc@work.ro>
+- zoom rectangle moving from spinboxes
+- on/off zoom rectangle
+- block mirrror-to-mirror efect when zoom rectangle intersect KMag window
+- configuration dialog
+- Add option to show the region-selection window all the time.
+- Different profiles : for vision-impared & regular users.
 
 Key:
   - : todo
   * : done
+  @ : done, but not released yet
   % : in progress
