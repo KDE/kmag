@@ -229,6 +229,9 @@ void KmagApp::initConnections()
 	connect(m_pFPSBox, SIGNAL(activated(int)), this, SLOT(setFPSIndex(int)));
 }
 
+/**
+ * Save options to config file.
+ */
 void KmagApp::saveOptions()
 {	
   config->setGroup("General Options");
@@ -237,23 +240,29 @@ void KmagApp::saveOptions()
 	config->writeEntry("FPSIndex", m_fpsIndex);
 	config->writeEntry("FollowMouse", m_zoomView->getFollowMouse());
 	config->writeEntry("SelRect", m_zoomView->getSelRectPos());
+	config->writeEntry("ShowSelRect", m_zoomView->getShowSelRect());
+	config->writeEntry("ShowMouse", m_zoomView->getShowMouseType());
 
   toolBar("mainToolBar")->saveSettings(config,"Main ToolBar");
 }
 
 
+/**
+ * Read settings from config file.
+ */
 void KmagApp::readOptions()
 {
   config->setGroup("General Options");
 	
-  QSize size=config->readSizeEntry("Geometry");
+	QSize defSize(425,390);
+  QSize size=config->readSizeEntry("Geometry", &defSize);
   if(!size.isEmpty())
   {
     resize(size);
   }
 
 	// set zoom - defaults to 2x
-	unsigned int zoomIndex = config->readUnsignedNumEntry("ZoomIndex", 5);
+	unsigned int zoomIndex = config->readUnsignedNumEntry("ZoomIndex", 4);
 	setZoomIndex(zoomIndex);
 	emit updateZoomIndex(m_zoomIndex);
 
@@ -261,14 +270,23 @@ void KmagApp::readOptions()
 	setFPSIndex(fpsIndex);
 	emit updateFPSIndex(m_fpsIndex);
 
-	bool followMouse = config->readBoolEntry("FollowMouse", false);
+	bool followMouse = config->readBoolEntry("FollowMouse", true);
 	m_zoomView->followMouse(followMouse);
 	m_followMouseButton->setChecked(followMouse);
 
-	QRect defaultRect(0, 0, 128, 128);
+	QRect defaultRect(0,0,211,164);
 	m_zoomView->setSelRectPos(config->readRectEntry("SelRect", &defaultRect));	
 
-  toolBar("mainToolBar")->applySettings(config,"Main ToolBar");
+	bool showSelRect = config->readBoolEntry("ShowSelRect", false);
+	m_zoomView->showSelRect(showSelRect);
+
+	unsigned int showMouse = config->readUnsignedNumEntry("ShowMouse", 2);
+	m_zoomView->showMouse(showMouse);
+
+	if(config->hasGroup("Main Toolbar"))
+	  toolBar("mainToolBar")->applySettings(config,"Main ToolBar");
+  else
+		toolBar("mainToolBar")->setBarPos(KToolBar::Bottom);
 }
 
 bool KmagApp::queryClose()

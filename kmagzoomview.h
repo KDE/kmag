@@ -3,8 +3,8 @@
                           kmagview.h  -  description
                              -------------------
     begin                : Mon Feb 12 23:45:41 EST 2001
-    copyright            : (C) 2001 by Sarang Lakare
-    email                : sarang@users.sourceforge.net
+    copyright            : (C) 2001,2002 by Sarang Lakare
+    email                : sarang@users.sf.net
  ***************************************************************************/
 
 /***************************************************************************
@@ -50,6 +50,9 @@ class KMagZoomView : public QFrame
     /// Destructor for the main view
     ~KMagZoomView();
 
+    /// Toggles the refreshing of the window
+    void toggleRefresh();
+
 		/// Return the current pixmap
 		const QPixmap & getPixmap() const {
     	return(m_grabbedZoomedPixmap);
@@ -67,8 +70,11 @@ class KMagZoomView : public QFrame
 		/// Get the coordinates of the selection rectangle
 		QRect getSelRectPos() const { return static_cast<QRect>(m_selRect); };
 
-    /// Toggles the refreshing of the window
-    void toggleRefresh();
+		/// Returns the current state of show mouse
+    unsigned int getShowMouseType() const;
+
+		/// Returns the different ways of showing mouse cursor
+		QStringList getShowMouseStringList() const;
 
 	public slots:
 	
@@ -89,6 +95,9 @@ class KMagZoomView : public QFrame
 
 		/// Set the refresh rate in fps (frames per second)
 		void setRefreshRate(float fps);
+
+		/// Shows/Hides mouse cursor in the zoomed view
+		bool showMouse(unsigned int type);
 
 	protected:
   	/// Called when the widget is to be repainted
@@ -122,9 +131,6 @@ class KMagZoomView : public QFrame
     /// Stores the pixmap which is zoomed from the grabbed one - this will be actaully drawn
     QPixmap m_grabbedZoomedPixmap;
 
-    /// Frames per second for refresh
-    unsigned int m_fps;
-
     /// The selected rectangle which is to be grabbed
     KMagSelRect m_selRect;
 
@@ -134,17 +140,11 @@ class KMagZoomView : public QFrame
     /// Zoom matrix
     QWMatrix m_zoomMatrix;
 
-    /// Stores the amount to zoom the pixmap
-    float m_zoom;
-
     /// Saves the mouse position when a button is clicked and b4 the cursor is moved to new position
     QPoint m_oldMousePos;
 
     /// Saves the center of the grab window
     QPoint m_oldCenter;
-
-    /// State of refreshing - on or off
-    bool m_refreshSwitch;
 
     /// Possible modes for the mouse to be in
     enum KMagMouseMode {
@@ -164,14 +164,31 @@ class KMagZoomView : public QFrame
 		/// stores the state of the Shift key
 		bool m_shiftKeyPressed;		
 
+		/// Use this to get global cursor position
+		QCursor m_cursor;
+
+		/// Various ways of showing mouse cursor
+		QStringList m_showMouseTypes;
+
+		// configuration options:
+
 		/// To follow mouse motion or not when no key is pressed
 		bool m_followMouse;
 
 		/// Always show the selection rectangle
 		bool m_showSelRect;
 
-		/// Use this to get global cursor position
-		QCursor m_cursor;
+    /// State of refreshing - on or off
+    bool m_refreshSwitch;
+
+		/// Show mouse cursor type - 0 : do not show, non zero: show
+		unsigned int m_showMouse;
+
+    /// Frames per second for refresh
+    unsigned int m_fps;
+
+    /// Stores the amount to zoom the pixmap
+    float m_zoom;
 };
 
 #endif // KMagZoomView_h_

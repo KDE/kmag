@@ -29,15 +29,55 @@
 
 // include files for Qt
 #include <qpainter.h>
+#include <qbitmap.h>
+#include <qcursor.h>
 
 #include <iostream>
+
+// include bitmaps for cursors
+static uchar left_ptr_bits[] = {
+   0x00, 0x00, 0x08, 0x00, 0x18, 0x00, 0x38, 0x00, 0x78, 0x00, 0xf8, 0x00,
+   0xf8, 0x01, 0xf8, 0x03, 0xf8, 0x07, 0xf8, 0x00, 0xd8, 0x00, 0x88, 0x01,
+   0x80, 0x01, 0x00, 0x03, 0x00, 0x03, 0x00, 0x00};
+
+static uchar left_ptrmsk_bits[] = {
+   0x0c, 0x00, 0x1c, 0x00, 0x3c, 0x00, 0x7c, 0x00, 0xfc, 0x00, 0xfc, 0x01,
+   0xfc, 0x03, 0xfc, 0x07, 0xfc, 0x0f, 0xfc, 0x0f, 0xfc, 0x01, 0xdc, 0x03,
+   0xcc, 0x03, 0x80, 0x07, 0x80, 0x07, 0x00, 0x03};
+
+static uchar phand_bits[] = {
+	0x00, 0x00, 0x00, 0x00,	0xfe, 0x01, 0x00, 0x00,	0x01, 0x02, 0x00, 0x00,
+	0x7e, 0x04, 0x00, 0x00,	0x08, 0x08, 0x00, 0x00,	0x70, 0x08, 0x00, 0x00,
+	0x08, 0x08, 0x00, 0x00,	0x70, 0x14, 0x00, 0x00,	0x08, 0x22, 0x00, 0x00,
+	0x30, 0x41, 0x00, 0x00,	0xc0, 0x20, 0x00, 0x00,	0x40, 0x12, 0x00, 0x00,
+	0x80, 0x08, 0x00, 0x00,	0x00, 0x05, 0x00, 0x00,	0x00, 0x02, 0x00, 0x00,
+	0x00, 0x00, 0x00, 0x00,	0x00, 0x00, 0x00, 0x00,	0x00, 0x00, 0x00, 0x00,
+	0x00, 0x00, 0x00, 0x00,	0x00, 0x00, 0x00, 0x00,	0x00, 0x00, 0x00, 0x00,
+	0x00, 0x00, 0x00, 0x00,	0x00, 0x00, 0x00, 0x00,	0x00, 0x00, 0x00, 0x00,
+	0x00, 0x00, 0x00, 0x00,	0x00, 0x00, 0x00, 0x00,	0x00, 0x00, 0x00, 0x00,
+	0x00, 0x00, 0x00, 0x00,	0x00, 0x00, 0x00, 0x00,	0x00, 0x00, 0x00, 0x00,
+	0x00, 0x00, 0x00, 0x00,	0x00, 0x00, 0x00, 0x00 };
+    static uchar phandm_bits[] = {
+	0xfe, 0x01, 0x00, 0x00,	0xff, 0x03, 0x00, 0x00,	0xff, 0x07, 0x00, 0x00,
+	0xff, 0x0f, 0x00, 0x00,	0xfe, 0x1f, 0x00, 0x00,	0xf8, 0x1f, 0x00, 0x00,
+	0xfc, 0x1f, 0x00, 0x00,	0xf8, 0x3f, 0x00, 0x00,	0xfc, 0x7f, 0x00, 0x00,
+	0xf8, 0xff, 0x00, 0x00,	0xf0, 0x7f, 0x00, 0x00,	0xe0, 0x3f, 0x00, 0x00,
+	0xc0, 0x1f, 0x00, 0x00,	0x80, 0x0f, 0x00, 0x00,	0x00, 0x07, 0x00, 0x00,
+	0x00, 0x02, 0x00, 0x00,	0x00, 0x00, 0x00, 0x00,	0x00, 0x00, 0x00, 0x00,
+	0x00, 0x00, 0x00, 0x00,	0x00, 0x00, 0x00, 0x00,	0x00, 0x00, 0x00, 0x00,
+	0x00, 0x00, 0x00, 0x00,	0x00, 0x00, 0x00, 0x00,	0x00, 0x00, 0x00, 0x00,
+	0x00, 0x00, 0x00, 0x00,	0x00, 0x00, 0x00, 0x00,	0x00, 0x00, 0x00, 0x00,
+	0x00, 0x00, 0x00, 0x00,	0x00, 0x00, 0x00, 0x00,	0x00, 0x00, 0x00, 0x00,
+	0x00, 0x00, 0x00, 0x00,	0x00, 0x00, 0x00, 0x00 };
+
 
 KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
 	: QFrame(parent, name),
     m_selRect(0, 0, 128, 128),
 		m_grabTimer(parent),
-		m_zoom(1.0),
-		m_followMouse(false)
+		m_followMouse(false),
+		m_showMouse(1),
+		m_zoom(1.0)
 {
   setFrameStyle(QFrame::WinPanel | QFrame::Sunken);
   setLineWidth(0);
@@ -62,6 +102,9 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
 
   QWhatsThis::add(this, i18n("This is the main window which shows the contents of the\
  selected region. The contents will be magnified if zoom level is set."));
+
+	// different ways to show the cursor.
+	m_showMouseTypes << "Hidden" << "Box" << "Arrow" << "Actual";
 }
 
 KMagZoomView::~KMagZoomView()
@@ -94,63 +137,118 @@ void KMagZoomView::paintEvent(QPaintEvent *e)
 	// get a rectangle centered inside the frame
   QRect pRect(pixmapRect());
 
-  QRect uRect(e->rect());
+	// get rectangular area that needs to be repainted
+  //QRect uRect(e->rect());
 
-	// get the rectangle in the frame
+	// get the rectangle inside the frame
   QRect wRect(contentsRect());
 
-  QPainter p(this);
+	// a paint area that is to be painted on
+	QPixmap paintArea(contentsRect().size());
+  QPainter p(&paintArea);
+
+	p.setBackgroundColor(Qt::black);
+	p.setBackgroundMode(Qt::OpaqueMode);
+	// draw only in the rectangle inside the frame
   p.setClipRect(wRect);
-
-  QRect r;
-
-  // top
-
-  r = wRect;
-  r.setBottom(pRect.top()-1);
-  r = r.intersect(uRect);
-  if ( !r.isEmpty() )
-    p.eraseRect(r);
-
-  // bottom
-
-  r = wRect;
-  r.setTop(pRect.bottom()+1);
-  r = r.intersect(uRect);
-  if ( !r.isEmpty() )
-    p.eraseRect(r);
-
-  // left
-
-  r = wRect;
-  r.setTop(pRect.top());
-  r.setBottom(pRect.bottom());
-  r.setRight(pRect.left()-1);
-  r = r.intersect(uRect);
-  if ( !r.isEmpty() )
-    p.eraseRect(r);
-
-  // right
-
-  r = wRect;
-  r.setTop(pRect.top());
-  r.setBottom(pRect.bottom());
-  r.setLeft(pRect.right()+1);
-  r = r.intersect(uRect);
-  if ( !r.isEmpty() )
-    p.eraseRect(r);
+  p.eraseRect(paintArea.rect());
 
 	// draw the pixmap
   p.drawPixmap(pRect.x(), pRect.y(), m_grabbedZoomedPixmap);
-	
-//	bitBlt(this, 0, 0, &m_grabbedZoomedPixmap);
 
+	// show the pixel under mouse cursor
+	if(m_showMouse) {
+  	// get position of mouse wrt selRect
+  	int x_pos = QCursor::pos().x() - m_selRect.x();
+  	int y_pos = QCursor::pos().y() - m_selRect.y();
+
+  	if(x_pos >= 0 && x_pos < m_selRect.width() && x_pos < wRect.width() &&
+  		 y_pos >= 0 && y_pos < m_selRect.height() && y_pos < wRect.height()) {
+    	// mouse position is indeed inside the selRect
+  		// get coordinates of the pixel w.r.t. the zoomed pixmap
+  		x_pos=(int)((float)x_pos*m_zoom);
+  		y_pos=(int)((float)y_pos*m_zoom);
+			// get coordinates of the pixel w.r.t. (0,0) of the draw window
+			x_pos+=pRect.x();
+			y_pos+=pRect.y();
+		
+			// How to show the mouse :
+
+			switch(m_showMouse) {
+      case 1:
+  			// 1. Square around the pixel
+    		p.setPen(Qt::white);
+    		p.setRasterOp(Qt::XorROP);
+    		p.drawRect(x_pos-1, y_pos-1, (int)m_zoom+2, (int)m_zoom+2);
+        break;
+
+			case 2:
+			{
+  			// 2. Arrow cursor
+				p.setPen(Qt::black);
+				p.setBackgroundColor(Qt::white);
+
+      	QBitmap sCursor( 16, 16, left_ptr_bits, TRUE );
+      	QBitmap mask( 16, 16, left_ptrmsk_bits, TRUE );
+      	sCursor.setMask(mask);
+			  sCursor = sCursor.xForm(m_zoomMatrix);
+      				
+				// since hot spot is at 3,1
+        p.drawPixmap(x_pos-3*m_zoom, y_pos-1*m_zoom, sCursor);
+      }
+    	break;
+
+			case 3:
+			{		
+  			// 3. Actual cursor
+				// Get the current cursor type
+				QWidget *dummy	= KApplication::widgetAt(QCursor::pos(), FALSE);
+				if(!dummy)
+					break;
+				cerr << ">" << dummy->name() << ":" << dummy->cursor().shape() << "-" << endl;
+				switch(this->cursor().shape())	{
+        	case ArrowCursor :
+     			{
+      			// 2. Arrow cursor
+    				p.setPen(Qt::black);
+    				p.setBackgroundColor(Qt::white);
+
+          	QBitmap sCursor( 16, 16, left_ptr_bits, TRUE );
+          	QBitmap mask( 16, 16, left_ptrmsk_bits, TRUE );
+          	sCursor.setMask(mask);
+    			  sCursor = sCursor.xForm(m_zoomMatrix);
+          				
+    				// since hot spot is at 3,1
+            p.drawPixmap(x_pos-3*m_zoom, y_pos-1*m_zoom, sCursor);
+          }
+					break;
+					default:
+          	QBitmap sCursor( 32, 32, phand_bits, TRUE );
+          	QBitmap mask( 32, 32, phandm_bits, TRUE );
+          	sCursor.setMask(mask);
+          				
+            p.drawPixmap(x_pos, y_pos, sCursor);
+					break;
+				} // switch(cursor)
+
+
+      }
+			break;
+
+			default:
+				// do not show anything
+				break;
+			} // switch(m_showMouse)
+  	}
+	} // show mouse
+
+	bitBlt(this, QPoint(0,0), &paintArea);
 }
 
 QRect KMagZoomView::pixmapRect()
 {
-  int free_x = width()  - m_grabbedZoomedPixmap.width();
-  int free_y = height()  - m_grabbedZoomedPixmap.height();
+  int free_x = width() - m_grabbedZoomedPixmap.width();
+  int free_y = height() - m_grabbedZoomedPixmap.height();
 
   QPoint startPoint((free_x > 0) ? (free_x / 2) : 0,
                     (free_y > 0) ? (free_y / 2) : 0);
@@ -453,7 +551,7 @@ void KMagZoomView::grabFrame()
 		 QPoint newCenter;
 
 		// set new center to be the current mouse position
-		newCenter = m_cursor.pos();
+		newCenter = QCursor::pos();
 
 		// make sure the mouse position is not taking the grab window outside
 		// the display
@@ -560,4 +658,24 @@ void KMagZoomView::setSelRectPos(const QRect & rect)
 	m_selRect.setRect(rect.x(), rect.y(), rect.width(), rect.height());
 	m_selRect.update();
 	grabFrame();
+}
+
+bool KMagZoomView::showMouse(unsigned int type)
+{
+	if(type > m_showMouseTypes.count()-1)
+		return (false);
+	else
+		m_showMouse = type;
+
+	return(true);
+}
+
+unsigned int KMagZoomView::getShowMouseType() const
+{
+	return (m_showMouse);
+}
+
+QStringList KMagZoomView::getShowMouseStringList() const
+{
+	return (m_showMouseTypes);
 }
