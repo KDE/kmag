@@ -566,7 +566,7 @@ void KMagZoomView::mouseMoveEvent(QMouseEvent *e)
     m_selRect.update();
 		// since the selection window has been resized, set fitToWindow to false
 		m_fitToWindow = false;
-		repaint(false);
+		grabFrame();
 	} else if(m_mouseMode == MoveSelection) {
  		QPoint newCenter;
 
@@ -589,12 +589,12 @@ void KMagZoomView::mouseMoveEvent(QMouseEvent *e)
 		} else if(newCenter.y() >=  QApplication::desktop()->height()-m_selRect.height()/2) {
 			// set Y to the maximum possible Y
 			newCenter.setY(QApplication::desktop()->height()-m_selRect.height()/2-1);
-		}								
-		// move to the new center	
+		}
+		// move to the new center
 		m_selRect.moveCenter(newCenter);
     // update the grab rectangle display
     m_selRect.update();
-		repaint(false);
+		grabFrame();
 	} else if(m_mouseMode == GrabSelection) {
  		QPoint newPos;
 
@@ -626,7 +626,7 @@ void KMagZoomView::mouseMoveEvent(QMouseEvent *e)
 		m_selRect.moveCenter(newCenter);
     // update the grab rectangle display
     m_selRect.update();
-		repaint(false);
+		grabFrame();
 	}
 }
 
@@ -734,7 +734,7 @@ void KMagZoomView::grabFrame()
 			// set Y to the maximum possible Y
 			newCenter.setY(QApplication::desktop()->height()-m_selRect.height()/2-1);
 		}							
-		// move to the new center	
+		// move to the new center
 		m_selRect.moveCenter(newCenter);
 
 	}
