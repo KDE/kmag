@@ -2,11 +2,13 @@
 
 ver 0.6
 -Printing support
--Saving image to disk
+-Saving zoomed image to disk
 -Saving/Restoring settings to/from config file
 -New grab-and-move mode for moving zoom region
 -Magnification with mouse movement
--Always show selected region
+-Option to always show selected region
+-Ability to change refresh rate
+-Copy zoomed image to clipboard
 -More cleaner/bare minimal GUI
 -Tons of code cleanup
 

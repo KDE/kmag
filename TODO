@@ -15,9 +15,9 @@ Version 1.0:
 @ Saving of settings across different instances
 @ Add printing support
 @ Always show selected region
-- Allow setting of refresh rate
+@ Allow setting of refresh rate
+@ Copying zoomed image to clipboard on "copy"
 - Maximizing use of the zoomed image display area
-- Copying zoomed image to clipboard on "copy"
 - Right mouse menu
 - Translations
 - New Icon
@@ -29,6 +29,7 @@ Bug Fixing for 1.0:
 
 
 Version 2.0:
+- show cursor
 - zoom rectangle moving from spinboxes
 - block mirrror-to-mirror efect when zoom rectangle intersect KMag window
 - configuration dialog
