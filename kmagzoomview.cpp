@@ -192,7 +192,7 @@ void KMagZoomView::paintEvent(QPaintEvent* )
 
 /**
  * This function will actually draw on the paintdevice the
- * final output. This is seperated from paintEvent for printing purposes.
+ * final output. This is separated from paintEvent for printing purposes.
  */
 void KMagZoomView::paintViewImage(QPaintDevice *dev, bool updateMousePos)
 {
