@@ -50,18 +50,13 @@ class KMagZoomView : public QFrame
     /// Constructor for the main view
     KMagZoomView(QWidget *parent = 0, const char *name=0);
 
-    /** Destructor for the main view */
+    /// Destructor for the main view
     ~KMagZoomView();
 
-    /** returns a pointer to the document connected to the view instance. Mind that this method requires a KmagApp instance as a parent
-     * widget to get to the window document pointer by calling the KmagApp::getDocument() method.
-     *
-     * @see KmagApp#getDocument
-     */
-//    KmagDoc *getDocument() const;
-
-    /** contains the implementation for printing functionality */
-    void print(QPrinter *pPrinter);
+		/// Return the current pixmap
+		const QPixmap & getPixmap() const {
+    	return(m_grabbedZoomedPixmap);
+		};
 
     /// Returns the state of the refresh switch
     bool getRefreshStatus() { return m_refreshSwitch; }

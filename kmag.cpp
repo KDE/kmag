@@ -29,6 +29,7 @@
 #include <qlayout.h>
 
 // include files for KDE
+#include <kapp.h>
 #include <kiconloader.h>
 #include <kmessagebox.h>
 #include <kfiledialog.h>
@@ -38,6 +39,11 @@
 #include <kstdaction.h>
 #include <kiconloader.h>
 #include <khelpmenu.h>
+#if KDE_VERSION < 220
+#include <qprinter.h>
+#else
+#include <kprinter.h>
+#endif
 
 // application specific includes
 #include "kmag.moc"
@@ -104,6 +110,9 @@ void KmagApp::initActions()
   updating of the display. Stopping the update will zero the processing power\
   required (CPU usage)."));
 
+  m_pPrint = KStdAction::print(this, SLOT(slotFilePrint()), actionCollection(), "print");
+  m_pPrint->setWhatsThis(i18n("Click on this button to print the current zommed image."));
+
   m_pZoomIn = KStdAction::zoomIn(this, SLOT(zoomIn()), actionCollection(), "zoom_in");
   m_pZoomIn->setWhatsThis(i18n("Click on this button to <b>zoom-in</b> on the selected region."));
 
@@ -137,6 +146,7 @@ void KmagApp::initActions()
   m_pZoomIn->plug(toolBar());
 	m_pZoomBox->plug(toolBar());
   m_pZoomOut->plug(toolBar());
+	m_pPrint->plug(toolBar());
 	helpAction->plug(toolBar());
 }
 
@@ -366,13 +376,40 @@ void KmagApp::slotFileNewWindow()
 
 void KmagApp::slotFilePrint()
 {
-/*
+#ifndef QT_NO_PRINTER
+
+	bool toggled(false);
+
+#if KDE_VERSION < 220
   QPrinter printer;
-  if (printer.setup(this))
-  {
-    view->print(&printer);
+#else
+  KPrinter printer;
+#endif
+
+	// stop refresh temporarily
+  if (m_zoomView->getRefreshStatus()) {
+    slotToggleRefresh();
+		toggled = true;
   }
-*/
+
+  printer.setFullPage(true);
+  if (printer.setup(this)) {
+    QPainter paint;
+		
+		if(!paint.begin(&printer))
+	    return;
+
+    // draw the pixmap
+	  paint.drawPixmap(0, 0, m_zoomView->getPixmap());
+
+		// end the painting
+		paint.end();
+  }
+
+	if(toggled) {
+		slotToggleRefresh();
+	}
+#endif // QT_NO_PRINTER
 }
 
 void KmagApp::slotFileQuit()

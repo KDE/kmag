@@ -81,25 +81,6 @@ void KMagZoomView::setFollowMouse(bool follow)
 		m_mouseMode = Normal;
 	}
 }
-/*
-KmagDoc *KMagZoomView::getDocument() const
-{
-  KmagApp *theApp=(KmagApp *) parentWidget();
-
-  return theApp->getDocument();
-}  */
-
-void KMagZoomView::print(QPrinter *pPrinter)
-{
-/*
-  QPainter printpainter;
-  printpainter.begin(pPrinter);
-
-  // TODO: add your printing code here
-
-  printpainter.end();
-*/
-}
 
 /**
  * Called when the widget is to be repainted
@@ -108,12 +89,12 @@ void KMagZoomView::print(QPrinter *pPrinter)
  */
 void KMagZoomView::paintEvent(QPaintEvent *e)
 {
-//  SelRectHider hider(selRect);
-//  QFrame::paintEvent(e);
-
+	// get a rectangle centered inside the frame
   QRect pRect(pixmapRect());
 
   QRect uRect(e->rect());
+
+	// get the rectangle in the frame
   QRect wRect(contentsRect());
 
   QPainter p(this);
@@ -177,6 +158,7 @@ QRect KMagZoomView::pixmapRect()
 
   return (r);
 }
+
 
 // MOUSE ACTIONS
 

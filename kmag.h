@@ -177,6 +177,7 @@ class KmagApp : public KMainWindow
 
     // KAction pointers to enable/disable actions
     KAction* fileNewWindow;
+		KAction *m_pPrint;
 		KAction *m_pZoomIn;
 		KAction *m_pZoomOut;
     KAction* filePrint;
