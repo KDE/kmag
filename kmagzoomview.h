@@ -4,7 +4,7 @@
     begin                : Mon Feb 12 23:45:41 EST 2001
     copyright            : (C) 2001-2003 by Sarang Lakare
     email                : sarang#users.sf.net
-    copyright            : (C) 2003 by Olaf Schmidt
+    copyright            : (C) 2003-2004 by Olaf Schmidt
     email                : ojschmidt@kde.org
  ***************************************************************************/
 
@@ -29,7 +29,8 @@
 #include <qpainter.h>
 #include <qpixmap.h>
 #include <qtimer.h>
-#include <qframe.h>
+#include <qscrollview.h>
+#include <qstringlist.h>
 #include <qrect.h>
 #include <qcursor.h>
 
@@ -41,7 +42,7 @@
  *   
  * @author Sarang Lakare <sarang#users.sourceforge.net>
  */
-class KMagZoomView : public QFrame
+class KMagZoomView : public QScrollView
 {
   Q_OBJECT
   public:
@@ -79,9 +80,12 @@ class KMagZoomView : public QFrame
     bool getFitToWindow() const { return (m_fitToWindow); };
 
   public slots:
-  
+
     /// Sets zoom to the given value
     void setZoom(float zoom = 0.0);
+
+    /// Sets the rotation to the given value
+    void setRotation(int rotation = 0);
     
     /// Grabs a frame from the given portion of the display
     void grabFrame();
@@ -121,10 +125,7 @@ class KMagZoomView : public QFrame
     void resizeEvent(QResizeEvent *e);
     
     /// Called when the widget is to be repainted
-    void paintEvent(QPaintEvent *p);
-
-    /// This does the actual job of painting.
-    void paintViewImage(QPaintDevice *dev, bool updateMousePos=true);
+    void drawContents ( QPainter * p, int clipx, int clipy, int clipw, int cliph );
 
     /// This function calculates the mouse position relative to the image
     QPoint calcMousePos(bool updateMousePos=true);
@@ -221,6 +222,9 @@ class KMagZoomView : public QFrame
 
     /// Stores the amount to zoom the pixmap
     float m_zoom;
+
+    /// Stores the degrees to rotate the pixmap
+    int m_rotation;
 
     /// Fit the zoom view to the zoom window
     bool m_fitToWindow;

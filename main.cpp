@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
   aboutData->addAuthor("Michael Forster",
                        I18N_NOOP("Original idea and author (KDE1)"), "forster@fmi.uni-passau.de");
 
-  aboutData->addCredit("Olaf Schmidt", I18N_NOOP("Various patches"), "ojschmidt@kde.org");
+  aboutData->addCredit("Olaf Schmidt", I18N_NOOP("Rework of the user interface, improved selection window, speed optimisation, rotation, bug fixes"), "ojschmidt@kde.org");
   aboutData->addCredit("Claudiu Costin", I18N_NOOP("Some tips"), "claudiuc@work.ro",
                        "http://www.ro.kde.org");
 

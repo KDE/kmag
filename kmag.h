@@ -4,7 +4,7 @@
     begin                : Mon Feb 12 23:45:41 EST 2001
     copyright            : (C) 2001 by Sarang Lakare
     email                : sarang@users.sourceforge.net
-    copyright            : (C) 2003 by Olaf Schmidt
+    copyright            : (C) 2003-2004 by Olaf Schmidt
     email                : ojschmidt@kde.org
  ***************************************************************************/
 
@@ -26,6 +26,8 @@
 #include <config.h>
 #endif
 
+#include "kmagzoomview.h"
+
 #include <vector>
 // include files for Qt
 #include <qstringlist.h>
@@ -34,14 +36,9 @@
 #include <kapplication.h>
 #include <kmainwindow.h>
 #include <kdockwidget.h>
+#include <kaction.h>
 #include <kaccel.h>
 #include <knuminput.h>
-
-// forward declaration of the Kmag classes
-class KMagZoomView;
-class KActions;
-class KToggleAction;
-class KSelectAction;
 
 /**
   * The base class for Kmag application windows. It sets up the main
@@ -116,19 +113,12 @@ class KmagApp : public KMainWindow
      */
     void copyToClipBoard();
 
-    void slotAlwaysFit();
-
-    void slotShowMenu();
-    void slotShowMainToolBar();
-    void slotShowViewToolBar();
-    void slotShowSettingsToolBar();
-
     /// Toggle the refreshing of the window
     void slotToggleRefresh();
 
-    void slotToggleFollowMouse();
-    void slotToggleHideCursor();
-    void slotToggleShowSelRect();
+    void slotModeFollowMouse();
+    void slotModeWholeScreen();
+    void slotModeSelWin();
 
     /// Zooms in
     void zoomIn();
@@ -142,11 +132,21 @@ class KmagApp : public KMainWindow
     /// Sets the zoom index to index
     void setZoomIndex(int index);
 
+    /// Sets the rotation index to index
+    void setRotationIndex(int index);
+
     /// Sets the fps index to index
     void setFPSIndex(int index);
 
     /// Shows/hides the mouse cursor
     void showMouseCursor(bool show);
+
+    void slotShowMenu();
+    void slotShowMainToolBar();
+    void slotShowViewToolBar();
+    void slotShowSettingsToolBar();
+
+    void slotToggleHideCursor();
 
     /// Opens shortcut key configuration dialogue
     void slotConfKeys();
@@ -164,6 +164,12 @@ class KmagApp : public KMainWindow
     /// This signal is raised whenever the zoom value changes
     void updateZoomValue(float);
 
+    /// This signal is raised whenever the index into the rotation array is changed
+    void updateRotationIndex(int);
+
+    /// This signal is raised whenever the rotation value changes
+    void updateRotationValue(int);
+
     /// This signal is raised whenever the index into the fps array is changed
     void updateFPSIndex(int);
 
@@ -175,14 +181,14 @@ class KmagApp : public KMainWindow
     KConfig *config;
 
     // KAction pointers to enable/disable actions
-    KAction *fileNewWindow, *m_pSnapshot, *m_pCopy, *m_fitToWindow, *m_keyConf, *m_toolConf;
+    KAction *fileNewWindow, *m_pSnapshot, *m_pCopy, *m_keyConf, *m_toolConf;
     KAction *m_pPrint;
     KAction *m_pZoomIn;
     KAction *m_pZoomOut;
     KAction *m_pQuit;
     KAction *refreshSwitch;
-    KToggleAction *m_alwaysFit, *m_pShowMenu, *m_pShowMainToolBar, *m_pShowViewToolBar, *m_pShowSettingsToolBar;
-    KSelectAction *m_pZoomBox, *m_pFPSBox;
+    KToggleAction *m_pShowMenu, *m_pShowMainToolBar, *m_pShowViewToolBar, *m_pShowSettingsToolBar;
+    KSelectAction *m_pZoomBox, *m_pRotationBox, *m_pFPSBox;
 
     /// zoom slider
     KIntNumInput *m_zoomSlider;
@@ -190,17 +196,24 @@ class KmagApp : public KMainWindow
     /// Current index into the zoomArray
     unsigned int m_zoomIndex;
 
+    /// Current index into the rotationArray
+    unsigned int m_rotationIndex;
+
     /// Current index into the fpsArray
     unsigned int m_fpsIndex;
 
     QStringList zoomArrayString;
     std::vector<float> zoomArray;
 
+    QStringList rotationArrayString;
+    std::vector<int> rotationArray;
+
     QStringList fpsArrayString;
     std::vector<float> fpsArray;
 
   KMagZoomView* m_zoomView;
-  KToggleAction *m_followMouse, *m_hideCursor, *m_showSelRect;
+  KToggleAction *m_hideCursor;
+  KRadioAction *m_modeFollowMouse, *m_modeWholeScreen, *m_modeSelWin;
 
   /// Stores the non-zero cursor type to be used
   unsigned int m_mouseCursorType;

@@ -4,7 +4,7 @@
     begin                : Mon Feb 12 23:45:41 EST 2001
     copyright            : (C) 2001-2003 by Sarang Lakare
     email                : sarang#users.sf.net
-    copyright            : (C) 2003 by Olaf Schmidt
+    copyright            : (C) 2003-2004 by Olaf Schmidt
     email                : ojschmidt@kde.org
  ***************************************************************************/
 
@@ -23,31 +23,72 @@
 #include <stdlib.h>
 
 // Qt includes
-#include <qapplication.h>
 #include <qrect.h>
 #include <qwidget.h>
-#include <qcursor.h>
-
-// X11 includes
-#include <X11/Xlib.h>
+#include <qlabel.h>
 
 // Min function
 #define min(a,b) ((a) < (b) ? (a) : (b))
+
+class KMagSelWinCorner : public QLabel
+{
+    Q_OBJECT
+
+public:
+
+    KMagSelWinCorner ( QWidget * parent = 0, const char * name = 0, WFlags f = 0 );
+
+    virtual ~KMagSelWinCorner();
+
+signals:
+
+    void startResizing ();
+    void resized ( QPoint offset );
+
+protected:
+
+    QPoint oldPos;
+
+    virtual void mousePressEvent ( QMouseEvent * e );
+    virtual void mouseReleaseEvent ( QMouseEvent * e );
+    virtual void mouseMoveEvent ( QMouseEvent * e );
+};
 
 class KMagSelWin : public QWidget
 {
     Q_OBJECT
 
 public:
-    
+
     KMagSelWin ( QWidget * parent = 0, const char * name = 0, WFlags f = 0 );
 
     virtual ~KMagSelWin();
 
+    void setSelRect ( QRect selRect );
+    QRect getSelRect ();
+
+public slots:
+
+    void startResizing ();
+    void titleMoved ( QPoint offset );
+    void topLeftResized ( QPoint offset );
+    void topRightResized ( QPoint offset );
+    void bottomLeftResized ( QPoint offset );
+    void bottomRightResized ( QPoint offset );
+
+signals:
+
+    void resized();
+
 protected:
-    
-    virtual void windowActivationChange ( bool oldActive );
-    virtual void closeEvent ( QCloseEvent * e );
+
+    QRect oldSelRect;
+
+    KMagSelWinCorner *titleBar;
+    KMagSelWinCorner *topLeftCorner;
+    KMagSelWinCorner *topRightCorner;
+    KMagSelWinCorner *bottomLeftCorner;
+    KMagSelWinCorner *bottomRightCorner;
 };
 
 /**
@@ -63,12 +104,12 @@ class KMagSelRect : public QObject, public QRect
 
 public:
     KMagSelRect(QWidget *parent=0);
-    KMagSelRect(const QPoint &topleft, const QPoint &bottomright,
+    KMagSelRect(const QPoint &topLeft, const QPoint &bottomRight,
       QWidget *parent=0);
-    KMagSelRect(const QPoint &topleft, const QSize &size,
+    KMagSelRect(const QPoint &topLeft, const QSize &size,
       QWidget *parent=0);
     KMagSelRect(int left, int top, int width, int height,
-      QWidget *parent=0);
+      QWidget *selWindowParent=0);
 
     virtual ~KMagSelRect();
 
@@ -88,9 +129,7 @@ public slots:
     void hide();
     void update();
 
-signals:
-
-    void updated();
+    void selWinResized();
 
 protected:
 
@@ -101,5 +140,8 @@ protected:
     bool m_alwaysVisible;
 
 };
+
+void setTitleColors (QColor title, QColor text, QColor titleBtn);
+void setFrameSize (int size);
 
 #endif // KMAGSELRECT_H

@@ -4,7 +4,7 @@
     begin                : Mon Feb 12 23:45:41 EST 2001
     copyright            : (C) 2001-2003 by Sarang Lakare
     email                : sarang#users.sourceforge.net
-    copyright            : (C) 2003 by Olaf Schmidt
+    copyright            : (C) 2003-2004 by Olaf Schmidt
     email                : ojschmidt@kde.org
  ***************************************************************************/
 
@@ -16,7 +16,6 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-
 
 // include files for QT
 #include <qdir.h>
@@ -37,7 +36,6 @@
 #else
 #include <kapp.h>
 #endif // KDE 3.x
-#include <kaction.h>
 
 #include <kkeydialog.h>
 #include <kiconloader.h>
@@ -97,10 +95,12 @@ KmagApp::KmagApp(QWidget* , const char* name)
   fpsArray.push_back(15); // high
   fpsArray.push_back(25); // very high
 
-  if(zoomArrayString.count() != zoomArray.size() || fpsArrayString.count() != fpsArray.size()) {
-    kdWarning() << "Check the zoom or fps array in the constructor." << endl;
-    exit(1);
-  }
+  rotationArrayString << i18n("&No rotation (0°)") << i18n("&Left (90°)") << i18n("&Upside down (180°)") << i18n("&Right (270°)");
+
+  rotationArray.push_back(0); // no rotation
+  rotationArray.push_back(90); // left
+  rotationArray.push_back(180); // upside down
+  rotationArray.push_back(270); // right
 
   // call inits to invoke all other construction parts
   initView();
@@ -172,30 +172,26 @@ void KmagApp::initActions()
   m_pShowSettingsToolBar->setCheckedState(i18n("Hide &Settings Toolbar"));
   #endif
 
+  m_modeFollowMouse = new KRadioAction(i18n("&Follow Mouse Mode"), "followmouse", Key_F1, this,
+                            SLOT(slotModeFollowMouse()), actionCollection(), "mode_followmouse");
+  m_modeFollowMouse->setToolTip(i18n("Magnify around the mouse cursor"));
+  m_modeFollowMouse->setWhatsThis(i18n("If selected, the area around the mouse cursor is magnified"));
 
-  m_alwaysFit = new KToggleAction(i18n("&Always Fit Window"), "", CTRL+SHIFT+Key_F, this,
-                            SLOT(slotAlwaysFit()), actionCollection(),"always_fit");
+  m_modeSelWin = new KRadioAction(i18n("Se&lection Window Mode"), "window", Key_F2, this,
+                            SLOT(slotModeSelWin()), actionCollection(), "mode_selectionwindow");
+  m_modeSelWin->setToolTip(i18n("Show a window for selecting the magnified area"));
 
-  m_fitToWindow = new KAction(i18n("&Fit Window"), "window_fullscreen", CTRL+Key_F, m_zoomView,
-                              SLOT(fitToWindow()), actionCollection(),"fit_to_window");
-  m_fitToWindow->setWhatsThis(i18n("Click on this button to fit the zoom view to the zoom window."));
-  m_fitToWindow->setToolTip(i18n("Maximize the use of the window"));
+  m_modeWholeScreen = new KRadioAction(i18n("&Whole Screen Mode"), "window_fullscreen", Key_F3, this,
+                              SLOT(slotModeWholeScreen()), actionCollection(),"mode_wholescreen");
+  m_modeWholeScreen->setToolTip(i18n("Magnify the whole screen"));
+  m_modeWholeScreen->setWhatsThis(i18n("Click on this button to fit the zoom view to the zoom window."));
 
-  m_followMouse = new KToggleAction(i18n("&Follow Mouse"), "followmouse", 0, this,
-                            SLOT(slotToggleFollowMouse()), actionCollection(), "followmouse");
-  m_followMouse->setToolTip(i18n("Magnify around the mouse cursor"));
-  m_followMouse->setWhatsThis(i18n("If selected, the area around the mouse cursor is magnified"));
-
-  m_hideCursor = new KToggleAction(i18n("Hide Mouse &Cursor"), "hidemouse", 0, this,
+  m_hideCursor = new KToggleAction(i18n("Hide Mouse &Cursor"), "hidemouse", Key_F4, this,
                             SLOT(slotToggleHideCursor()), actionCollection(), "hidecursor");
   #ifdef setCheckedState
   m_hideCursor->setCheckedState(i18n("Show Mouse &Cursor"));
   #endif
   m_hideCursor->setToolTip(i18n("Hide the mouse cursor"));
-
-  m_showSelRect = new KToggleAction(i18n("Selection &Window"), "window", 0, this,
-                            SLOT(slotToggleShowSelRect()), actionCollection(), "selectionwindow");
-  m_showSelRect->setToolTip(i18n("Show the selection window on the screen"));
 
   m_pZoomIn = KStdAction::zoomIn(this, SLOT(zoomIn()), actionCollection(), "zoom_in");
   m_pZoomIn->setWhatsThis(i18n("Click on this button to <b>zoom-in</b> on the selected region."));
@@ -207,6 +203,11 @@ void KmagApp::initActions()
 
   m_pZoomOut = KStdAction::zoomOut(this, SLOT(zoomOut()), actionCollection(), "zoom_out");
   m_pZoomOut->setWhatsThis(i18n("Click on this button to <b>zoom-out</b> on the selected region."));
+
+  m_pRotationBox = new KSelectAction(i18n("&Rotation"),0,actionCollection(),"rotation");
+  m_pRotationBox->setItems(rotationArrayString);
+  m_pRotationBox->setWhatsThis(i18n("Select the rotation factor."));
+  m_pRotationBox->setToolTip(i18n("Rotation factor"));
 
   // KHelpMenu *newHelpMenu = new KHelpMenu(this, KGlobal::instance()->aboutData());
 
@@ -239,14 +240,17 @@ void KmagApp::initConnections()
 {
   // change in zoom value -> update the view
   connect(this, SIGNAL(updateZoomValue(float)), m_zoomView, SLOT(setZoom(float)));
+  connect(this, SIGNAL(updateRotationValue(int)), m_zoomView, SLOT(setRotation(int)));
   connect(this, SIGNAL(updateFPSValue(float)), m_zoomView, SLOT(setRefreshRate(float)));
 
   // change in zoom index -> update the selector
   connect(this, SIGNAL(updateZoomIndex(int)), m_pZoomBox, SLOT(setCurrentItem(int)));
+  connect(this, SIGNAL(updateRotationIndex(int)), m_pRotationBox, SLOT(setCurrentItem(int)));
   connect(this, SIGNAL(updateFPSIndex(int)), m_pFPSBox, SLOT(setCurrentItem(int)));
 
   // selector selects a zoom index -> set the zoom index
   connect(m_pZoomBox, SIGNAL(activated(int)), this, SLOT(setZoomIndex(int)));
+  connect(m_pRotationBox, SIGNAL(activated(int)), this, SLOT(setRotationIndex(int)));
   connect(m_pFPSBox, SIGNAL(activated(int)), this, SLOT(setFPSIndex(int)));
 }
 
@@ -258,13 +262,17 @@ void KmagApp::saveOptions()
   config->setGroup("General Options");
   config->writeEntry("Geometry", size());
   config->writeEntry("ZoomIndex", m_zoomIndex);
+  config->writeEntry("RotationIndex", m_rotationIndex);
   config->writeEntry("FPSIndex", m_fpsIndex);
-  config->writeEntry("FollowMouse", m_zoomView->getFollowMouse());
   config->writeEntry("SelRect", m_zoomView->getSelRectPos());
-  config->writeEntry("ShowSelRect", m_zoomView->getShowSelRect());
   config->writeEntry("ShowMouse", m_zoomView->getShowMouseType());
 
-  config->writeEntry("AlwaysFit", m_alwaysFit->isChecked());
+  if (m_modeFollowMouse->isChecked())
+     config->writeEntry("Mode", "followmouse");
+  else if (m_modeWholeScreen->isChecked())
+     config->writeEntry("Mode", "wholescreen");
+  else if (m_modeSelWin->isChecked())
+     config->writeEntry("Mode", "selectionwindow");
 
   config->writeEntry("ShowMenu", m_pShowMenu->isChecked());
   config->writeEntry("ShowMainToolBar", m_pShowMainToolBar->isChecked());
@@ -282,6 +290,16 @@ void KmagApp::saveOptions()
  */
 void KmagApp::readOptions()
 {
+  QColor blue (0,0,128);
+  QColor yellow (255,255,0);
+  QColor white (255,255,255);
+
+  config->setGroup ("WM");
+  setTitleColors (
+      config->readColorEntry("inactiveBackground", &blue),
+      config->readColorEntry("inactiveForeground", &white),
+      config->readColorEntry("inactiveTitleBtnBg", &yellow));
+
   config->setGroup("General Options");
 
   QSize defSize(460,390);
@@ -296,20 +314,24 @@ void KmagApp::readOptions()
   setZoomIndex(zoomIndex);
   emit updateZoomIndex(m_zoomIndex);
 
+  unsigned int rotationIndex = config->readUnsignedNumEntry("RotationIndex", 0);
+  setRotationIndex(rotationIndex);
+  emit updateRotationIndex(m_rotationIndex);
+
   unsigned int fpsIndex = config->readUnsignedNumEntry("FPSIndex", 2);
   setFPSIndex(fpsIndex);
   emit updateFPSIndex(m_fpsIndex);
 
-  bool followMouse = config->readBoolEntry("FollowMouse", true);
-  m_zoomView->followMouse(followMouse);
-  m_followMouse->setChecked(followMouse);
+  QString mode = config->readEntry("Mode", "followmouse");
+  if (mode == "wholescreen")
+    slotModeWholeScreen();
+  else if (mode == "selectionwindow")
+    slotModeSelWin();
+  else
+    slotModeFollowMouse();
 
   QRect defaultRect(0,0,211,164);
   m_zoomView->setSelRectPos(config->readRectEntry("SelRect", &defaultRect));
-
-  bool showSelRect = config->readBoolEntry("ShowSelRect", false);
-  m_zoomView->showSelRect(showSelRect);
-  m_showSelRect->setChecked(showSelRect);
 
   m_mouseCursorType = config->readUnsignedNumEntry("ShowMouse", m_defaultMouseCursorType);
   m_zoomView->showMouse(m_mouseCursorType);
@@ -320,19 +342,12 @@ void KmagApp::readOptions()
 
   if(config->hasGroup("Settings ToolBar"))
     toolBar("settingsToolBar")->applySettings(config,"Settings ToolBar");
-  else {
-    toolBar("settingsToolBar")->setIconText (KToolBar::IconTextRight);
-    toolBar("settingsToolBar")->setIconSize (16);
-  }
 
   if(config->hasGroup("Main ToolBar"))
     toolBar("mainToolBar")->applySettings(config,"Main ToolBar");
 
   if(config->hasGroup("View ToolBar"))
     toolBar("viewToolBar")->applySettings(config,"View ToolBar");
-
-  m_alwaysFit->setChecked(config->readBoolEntry("AlwaysFit", true));
-  slotAlwaysFit();
 
   m_pShowMenu->setChecked(config->readBoolEntry("ShowMenu", true));
   slotShowMenu();
@@ -450,6 +465,26 @@ void KmagApp::setZoomIndex(int index)
 }
 
 /**
+ * Sets the rotation index to index
+ */
+void KmagApp::setRotationIndex(int index)
+{
+  if(index < 0 || index >= (int)rotationArray.size()) {
+    // the index is invalid
+    kdWarning() << "Invalid index!" << endl;
+    return;
+  } else if((int)m_rotationIndex == index) {
+    // do nothing!
+    return;
+  } else {
+    m_rotationIndex = index;
+  }
+
+  // signal change in zoom value
+  emit updateRotationValue(rotationArray[m_rotationIndex]);
+}
+
+/**
  * Sets the fps index to index
  */
 void KmagApp::setFPSIndex(int index)
@@ -465,7 +500,7 @@ void KmagApp::setFPSIndex(int index)
     m_fpsIndex = index;
   }
 
-  // signal change in zoom value
+  // signal change in fps value
   emit updateFPSValue(fpsArray[m_fpsIndex]);
 }
 
@@ -536,19 +571,44 @@ void KmagApp::slotToggleRefresh()
   }
 }
 
-void KmagApp::slotToggleFollowMouse()
+
+void KmagApp::slotModeWholeScreen()
 {
-  m_zoomView->followMouse(m_followMouse->isChecked());
+  m_zoomView->setSelRectPos(QRect (0, 0, QApplication::desktop()->width(), QApplication::desktop()->height()));
+  m_zoomView->followMouse(false);
+  m_zoomView->showSelRect(false);
+  m_zoomView->setFitToWindow (false);
+  m_modeFollowMouse->setChecked(false);
+  m_modeWholeScreen->setChecked(true);
+  m_modeSelWin->setChecked(false);
 }
+
+
+void KmagApp::slotModeSelWin()
+{
+  m_zoomView->followMouse(false);
+  m_zoomView->showSelRect(true);
+  m_zoomView->setFitToWindow (false);
+  m_modeFollowMouse->setChecked(false);
+  m_modeWholeScreen->setChecked(false);
+  m_modeSelWin->setChecked(true);
+}
+
+
+void KmagApp::slotModeFollowMouse()
+{
+  m_zoomView->followMouse(true);
+  m_zoomView->showSelRect(false);
+  m_zoomView->setFitToWindow (true);
+  m_modeFollowMouse->setChecked(true);
+  m_modeWholeScreen->setChecked(false);
+  m_modeSelWin->setChecked(false);
+}
+
 
 void KmagApp::slotToggleHideCursor()
 {
   showMouseCursor(!m_hideCursor->isChecked());
-}
-
-void KmagApp::slotToggleShowSelRect()
-{
-  m_zoomView->showSelRect(m_showSelRect->isChecked());
 }
 
 
@@ -628,12 +688,6 @@ void KmagApp::copyToClipBoard()
 {
   QClipboard *cb=KApplication::clipboard();
   cb->setPixmap(m_zoomView->getPixmap());
-}
-
-void KmagApp::slotAlwaysFit()
-{
-  m_zoomView->setFitToWindow (m_alwaysFit->isChecked());
-  m_fitToWindow->setEnabled (!m_alwaysFit->isChecked());
 }
 
 void KmagApp::slotShowMenu()

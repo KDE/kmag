@@ -4,7 +4,7 @@
     begin                : Mon Feb 12 23:45:41 EST 2001
     copyright            : (C) 2001-2003 by Sarang Lakare
     email                : sarang#users.sourceforge.net
-    copyright            : (C) 2003 by Olaf Schmidt
+    copyright            : (C) 2003-2004 by Olaf Schmidt
     email                : ojschmidt@kde.org
  ***************************************************************************/
 
@@ -19,9 +19,8 @@
 
 
 // application specific includes
-#include "kmag.h"
-#include "kmagselrect.moc"
 #include "kmagzoomview.h"
+#include "kmagzoomview.moc"
 
 // include files for Qt
 #include <qbitmap.h>
@@ -32,6 +31,7 @@
 #include <qwidget.h>
 
 // include files for KDE
+#include <kapplication.h>
 #include <kcursor.h>
 #include <kdebug.h>
 #include <klocale.h>
@@ -74,7 +74,7 @@ static uchar phand_bits[] = {
 
 
 KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
-  : QFrame(parent, name),
+  : QScrollView(parent, name),
     m_selRect(0, 0, 128, 128, this),
     m_grabTimer(parent),
     m_mouseViewTimer(parent),
@@ -82,18 +82,18 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
     m_followMouse(false),
     m_showMouse(1),
     m_zoom(1.0),
+    m_rotation(0),
     m_fitToWindow(true)
 {
   KApplication::setGlobalMouseTracking(TRUE);
-  setMouseTracking(TRUE);
-  setFrameStyle(QFrame::WinPanel | QFrame::Sunken);
-  setLineWidth(0);
-  setBackgroundMode (NoBackground);
-  setFocusPolicy(QWidget::StrongFocus);
+  viewport()->setMouseTracking(TRUE);
+  viewport()->setBackgroundMode (NoBackground);
+  viewport()->setFocusPolicy(QWidget::StrongFocus);
   
   // init the zoom matrix
-  m_zoomMatrix.reset();  
-  m_zoomMatrix.scale(m_zoom, m_zoom);  
+  m_zoomMatrix.reset();
+  m_zoomMatrix.scale(m_zoom, m_zoom);
+  m_zoomMatrix.rotate(m_rotation);
 
   m_ctrlKeyPressed = false;
   m_shiftKeyPressed = false;
@@ -136,9 +136,13 @@ void KMagZoomView::followMouse(bool follow)
   if(follow) {
     m_followMouse = true;
     m_mouseMode = Normal;
+    setVScrollBarMode (QScrollView::AlwaysOff);
+    setHScrollBarMode (QScrollView::AlwaysOff);
   } else {
     m_followMouse = false;
     m_mouseMode = Normal;
+    setVScrollBarMode (QScrollView::AlwaysOn);
+    setHScrollBarMode (QScrollView::AlwaysOn);
   }
 }
 
@@ -173,8 +177,9 @@ void KMagZoomView::showEvent( QShowEvent* )
 /**
  * Called when the widget is resized. Check if fitToWindow is active when this happens.
  */
-void KMagZoomView::resizeEvent(QResizeEvent* )
+void KMagZoomView::resizeEvent( QResizeEvent * e )
 {
+  QScrollView::resizeEvent (e);
   if(m_fitToWindow)
     fitToWindow(); 
 }
@@ -184,45 +189,28 @@ void KMagZoomView::resizeEvent(QResizeEvent* )
  *
  * @param p
  */
-void KMagZoomView::paintEvent(QPaintEvent* )
+void KMagZoomView::drawContents ( QPainter * p, int clipx, int clipy, int clipw, int cliph )
 {
   if(m_grabbedZoomedPixmap.isNull())
     return;
-  // paint on this widget
-  paintViewImage(this, m_refreshSwitch);
-}
-
-/**
- * This function will actually draw on the paintdevice the
- * final output. This is separated from paintEvent for printing purposes.
- */
-void KMagZoomView::paintViewImage(QPaintDevice *dev, bool updateMousePos)
-{
-  if(!dev)
-    return;
-
-  // get a rectangle centered inside the frame
-  QRect pRect(pixmapRect());
-
-  // get the rectangle inside the frame
-  QRect wRect(contentsRect());
 
   // Paint empty areas black
-  QPainter pa (dev);
-  if (pRect.x() > 0) {
-    pa.fillRect (0,0,pRect.x(),wRect.height(), Qt::black);
-    pa.fillRect (pRect.x()+pRect.width(),0,wRect.width()-pRect.width()-pRect.x(),wRect.height(), Qt::black);
-  }
-  if (pRect.y() > 0) {
-    pa.fillRect (0,0,wRect.width(),pRect.y(), Qt::black);
-    pa.fillRect (0,pRect.y()+pRect.height(),wRect.width(),wRect.height()-pRect.height()-pRect.y(), Qt::black);
-  }
+  if (contentsX()+contentsWidth() < visibleWidth())
+    p->fillRect (
+        QRect (contentsX()+contentsWidth(), clipy, visibleWidth()-contentsX()-contentsWidth(), cliph)
+        & QRect (clipx, clipy, clipw, cliph),
+        Qt::black);
+  if (contentsY()+contentsHeight() < visibleHeight())
+    p->fillRect (
+        QRect (clipx, contentsY()+contentsHeight(), clipw, visibleHeight()-contentsY()-contentsHeight())
+        & QRect (clipx, clipy, clipw, cliph),
+        Qt::black);
 
   // A pixmap which will be eventually displayed
   QPixmap *zoomView;
 
   // Get mouse position relative to the image
-  QPoint mousePos = calcMousePos (updateMousePos);
+  QPoint mousePos = calcMousePos (m_refreshSwitch);
 
   // show the pixel under mouse cursor
   if(m_showMouse) {
@@ -236,46 +224,8 @@ void KMagZoomView::paintViewImage(QPaintDevice *dev, bool updateMousePos)
     zoomView = &m_grabbedZoomedPixmap;
   }
 
-  int width = m_grabbedZoomedPixmap.width();
-  int height = m_grabbedZoomedPixmap.height();
-  int xdiff = width - wRect.width();
-  int ydiff = height - wRect.height();
-
-  // set the (x,y) of start of the part of zoom image to display
-  // and the w,h of the part to display
-  if(xdiff >= 0) {
-    // center the shown part of image to the mouse position
-    xdiff = mousePos.x() - (int)(wRect.width()/2.0);
-    // Is the mouse at the border of the part?
-    if (xdiff < 0)
-      xdiff = 0;
-    else if (xdiff + wRect.width() > width)
-      xdiff = width - wRect.width();
-
-    width = wRect.width();
-  }
-  else
-    xdiff = 0;
-
-  if(ydiff >= 0) {
-    // center the shown part of image to the mouse position
-    ydiff = mousePos.y() - (int)(wRect.height()/2.0);
-    // Is the mouse at the border of the part?
-    if (ydiff < 0)
-      ydiff = 0;
-    else if (ydiff + wRect.height() > height)
-      ydiff = height - wRect.height();
-
-    height = wRect.height();
-  }
-  else
-    ydiff = 0;
-
-  // The rect corr. to the part of zoom view whish should be shown
-  QRect srcRect(xdiff, ydiff, width, height);
-
   // bitBlt this part on to the widget.
-  bitBlt(dev, QPoint(pRect.x(), pRect.y()), zoomView, srcRect);
+  bitBlt(viewport(), QPoint (clipx-contentsX(), clipy-contentsY()), zoomView, QRect(clipx, clipy, clipw, cliph));
 
   if(zoomView != &m_grabbedZoomedPixmap)
     delete zoomView;
@@ -380,21 +330,6 @@ QPoint KMagZoomView::calcMousePos(bool updateMousePos)
   QPoint mousePos ((int)((float)m_latestCursorPos.x()*m_zoom),
                    (int)((float)m_latestCursorPos.y()*m_zoom));
   return mousePos;
-}
-
-
-QRect KMagZoomView::pixmapRect()
-{
-  int free_x = width() - m_grabbedZoomedPixmap.width();
-  int free_y = height() - m_grabbedZoomedPixmap.height();
-
-  QPoint startPoint((free_x > 0) ? (free_x / 2) : 0,
-                    (free_y > 0) ? (free_y / 2) : 0);
-
-  QRect r(m_grabbedZoomedPixmap.rect());
-  r.moveTopLeft(startPoint);
-
-  return (r);
 }
 
 
@@ -660,24 +595,130 @@ void KMagZoomView::mouseMoveEvent(QMouseEvent *e)
 
 void KMagZoomView::keyPressEvent(QKeyEvent *e)
 {
-  if(e->key() == QKeyEvent::Key_Control) {
+  int offset = 16;
+  if (e->state() & QKeyEvent::ShiftButton)
+    offset = 1;
+
+  if (e->key() == QKeyEvent::Key_Control)
     m_ctrlKeyPressed = true;
-  } else if(e->key() == QKeyEvent::Key_Shift){
+  else if (e->key() == QKeyEvent::Key_Shift)
     m_shiftKeyPressed = true;    
-  } else {
-    e->ignore();
+  else if (e->key() == QKeyEvent::Key_Left)
+  {
+    if (e->state() & QKeyEvent::ControlButton)
+    {
+      if (offset >= m_selRect.width())
+        m_selRect.setWidth (1);
+      else
+        m_selRect.setWidth (m_selRect.width()-offset);
   }
+    else if (contentsX() > 0)
+    {
+      offset = (int)(offset*m_zoom);
+      if (contentsX() > offset)
+        setContentsPos (contentsX()-offset, contentsY());
+      else
+        setContentsPos (0, contentsY());
+    }
+    else if (m_followMouse == false)
+    {
+      if (offset > m_selRect.x())
+        m_selRect.setX (0);
+      else
+        m_selRect.moveBy (-offset,0);
+    }
+    m_selRect.update();
+  }
+  else if (e->key() == QKeyEvent::Key_Right)
+  {
+    if (e->state() & QKeyEvent::ControlButton)
+    {
+      if (m_selRect.right()+offset >= QApplication::desktop()->width())
+        m_selRect.setRight (QApplication::desktop()->width()-1);
+      else
+        m_selRect.setRight (m_selRect.right()+offset);
+    }
+    else if (contentsX() < contentsWidth()-visibleWidth())
+    {
+      offset = (int)(offset*m_zoom);
+      if (contentsX()+offset < contentsWidth()-visibleWidth())
+        setContentsPos (contentsX()+offset, contentsY());
+      else
+        setContentsPos (contentsWidth()-visibleWidth(), contentsY());
+    }
+    else if (m_followMouse == false)
+    {
+      if (m_selRect.right()+offset >= QApplication::desktop()->width())
+        m_selRect.moveTopRight (QPoint (QApplication::desktop()->width()-1, m_selRect.top()));
+      else
+        m_selRect.moveBy (offset,0);
+    }
+    m_selRect.update();
+  }
+  else if (e->key() == QKeyEvent::Key_Up)
+  {
+    if (e->state() & QKeyEvent::ControlButton)
+    {
+      if (offset >= m_selRect.height())
+        m_selRect.setHeight (1);
+      else
+        m_selRect.setHeight (m_selRect.height()-offset);
+    }
+    else if (contentsY() > 0)
+    {
+      offset = (int)(offset*m_zoom);
+      if (contentsY() > offset)
+        setContentsPos (contentsX(), contentsY()-offset);
+      else
+        setContentsPos (contentsX(), 0);
+    }
+    else if (m_followMouse == false)
+    {
+      if (offset > m_selRect.y())
+        m_selRect.setY (0);
+      else
+        m_selRect.moveBy (0, -offset);
+    }
+    m_selRect.update();
+  }
+  else if (e->key() == QKeyEvent::Key_Down)
+  {
+    if (e->state() & QKeyEvent::ControlButton)
+    {
+      if (m_selRect.bottom()+offset >= QApplication::desktop()->height())
+        m_selRect.setBottom (QApplication::desktop()->height()-1);
+      else
+        m_selRect.setBottom (m_selRect.bottom()+offset);
+    }
+    else if (contentsY() < contentsHeight()-visibleHeight())
+    {
+      offset = (int)(offset*m_zoom);
+      if (contentsY()+offset < contentsHeight()-visibleHeight())
+        setContentsPos (contentsX(), contentsY()+offset);
+      else
+        setContentsPos (contentsX(), contentsHeight()-visibleHeight());
+    }
+    else if (m_followMouse == false)
+    {
+      if (m_selRect.bottom()+offset >= QApplication::desktop()->height())
+        m_selRect.moveBottomLeft (QPoint (m_selRect.left(), QApplication::desktop()->height()-1));
+      else
+        m_selRect.moveBy (0, offset);
+    }
+    m_selRect.update();
+  }
+  else
+    e->ignore();
 }
 
 void KMagZoomView::keyReleaseEvent(QKeyEvent *e)
 {
-  if(e->key() == QKeyEvent::Key_Control) {
+  if (e->key() == QKeyEvent::Key_Control)
     m_ctrlKeyPressed = false;
-  } else if(e->key() == QKeyEvent::Key_Shift){
-    m_shiftKeyPressed = false;    
-  } else {
+  else if (e->key() == QKeyEvent::Key_Shift)
+    m_shiftKeyPressed = false;
+  else
     e->ignore();
-  }
 }
 
 void KMagZoomView::focusOutEvent(QFocusEvent *e)
@@ -697,8 +738,8 @@ void KMagZoomView::focusOutEvent(QFocusEvent *e)
 void KMagZoomView::fitToWindow()
 {
     // this is a temporary solution, cast, mabye newWidth and newHeight should be float
-  unsigned int newWidth = static_cast<unsigned int>(this->width()/this->m_zoom);
-  unsigned int newHeight = static_cast<unsigned int>(this->height()/this->m_zoom);
+  unsigned int newWidth = static_cast<unsigned int>(visibleWidth()/m_zoom);
+  unsigned int newHeight = static_cast<unsigned int>(visibleHeight()/m_zoom);
 
   QPoint currCenter = m_selRect.center();
 
@@ -726,7 +767,7 @@ void KMagZoomView::fitToWindow()
   // update the grab rectangle display
   m_selRect.update();
 //  m_fitToWindow = true;
-  repaint(false);
+  viewport()->repaint(false);
 }
 
 void KMagZoomView::setFitToWindow(bool fit)
@@ -791,7 +832,8 @@ void KMagZoomView::grabFrame()
   m_grabbedZoomedPixmap = m_grabbedPixmap.xForm(m_zoomMatrix);
 
   // call repaint to display the newly grabbed image
-  repaint(false);
+  resizeContents (m_grabbedZoomedPixmap.width(), m_grabbedZoomedPixmap.height());
+  viewport()->repaint(false);
 }
 
 
@@ -804,7 +846,7 @@ void KMagZoomView::updateMouseView()
   if(m_selRect.left() <= pos.x() <= m_selRect.right() &&
      m_selRect.top() <= pos.y() <= m_selRect.bottom() &&
      m_refreshSwitch)
-    repaint(false);
+    viewport()->repaint(false);
 }
 
 /**
@@ -838,10 +880,33 @@ void KMagZoomView::setZoom(float zoom)
   // recompute the zoom matrix
   m_zoomMatrix.reset();
   m_zoomMatrix.scale(m_zoom, m_zoom);
+  m_zoomMatrix.rotate(m_rotation);
 
   m_grabbedZoomedPixmap = m_grabbedPixmap.xForm(m_zoomMatrix);
 
-  repaint();
+  viewport()->repaint();
+}
+
+/**
+ * This function sets the rotation value to be used.
+ */
+void KMagZoomView::setRotation(int rotation)
+{
+  // use this rotation
+  m_rotation = rotation;
+
+  // update selection window size if necessary
+  if (m_fitToWindow)
+    fitToWindow();
+
+  // recompute the zoom matrix
+  m_zoomMatrix.reset();
+  m_zoomMatrix.scale(m_zoom, m_zoom);
+  m_zoomMatrix.rotate(m_rotation);
+
+  m_grabbedZoomedPixmap = m_grabbedPixmap.xForm(m_zoomMatrix);
+
+  viewport()->repaint();
 }
 
 /**
@@ -917,5 +982,3 @@ QPixmap KMagZoomView::getPixmap()
      return(m_grabbedZoomedPixmap);
   }
 }
-
-#include "kmagzoomview.moc"
