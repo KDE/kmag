@@ -2,8 +2,8 @@
 
 ver 0.5+
 -More cleaner/bare minimal GUI
--Grab window can now follow mouse
--More code cleanup
+-Magnification with mouse movement
+-Tons of code cleanup
 
 ver 0.5
 -No more garbage when the grab window is taken outside the screen
