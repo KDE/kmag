@@ -362,9 +362,9 @@ void KMagZoomView::mouseMoveEvent(QMouseEvent *e)
 	  if(newCenter.y() < m_selRect.height()/2) {
 			// set Y to the minimum possible Y
 			newCenter.setY(m_selRect.height()/2);
-		} else if(newCenter.y() >=  QApplication::desktop()->height()-m_selRect.width()/2) {
+		} else if(newCenter.y() >=  QApplication::desktop()->height()-m_selRect.height()/2) {
 			// set Y to the maximum possible Y
-			newCenter.setY(QApplication::desktop()->height()-m_selRect.width()/2-1);
+			newCenter.setY(QApplication::desktop()->height()-m_selRect.height()/2-1);
 		}
 
 								
@@ -396,9 +396,9 @@ void KMagZoomView::mouseMoveEvent(QMouseEvent *e)
 	  if(newCenter.y() < m_selRect.height()/2) {
 			// set Y to the minimum possible Y
 			newCenter.setY(m_selRect.height()/2);
-		} else if(newCenter.y() >=  QApplication::desktop()->height()-m_selRect.width()/2) {
+		} else if(newCenter.y() >=  QApplication::desktop()->height()-m_selRect.height()/2) {
 			// set Y to the maximum possible Y
-			newCenter.setY(QApplication::desktop()->height()-m_selRect.width()/2-1);
+			newCenter.setY(QApplication::desktop()->height()-m_selRect.height()/2-1);
 		}
 						
 		// move to the new center	
@@ -468,9 +468,11 @@ void KMagZoomView::grabFrame()
 	  if(newCenter.y() < m_selRect.height()/2) {
 			// set Y to the minimum possible Y
 			newCenter.setY(m_selRect.height()/2);
-		} else if(newCenter.y() >=  QApplication::desktop()->height()-m_selRect.width()/2) {
+		} else if(newCenter.y() >=  QApplication::desktop()->height()-m_selRect.height
+
+()/2) {
 			// set Y to the maximum possible Y
-			newCenter.setY(QApplication::desktop()->height()-m_selRect.width()/2-1);
+			newCenter.setY(QApplication::desktop()->height()-m_selRect.height()/2-1);
 		}							
 		// move to the new center	
 		m_selRect.moveCenter(newCenter);

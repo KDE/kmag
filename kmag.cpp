@@ -42,6 +42,10 @@
 #include <kiconloader.h>
 #include <khelpmenu.h>
 #include <kimageio.h>
+#include <kio/job.h>
+#include <kio/netaccess.h>
+#include <ktempfile.h>
+
 #if KDE_VERSION < 220
 #include <qprinter.h>
 #else
@@ -378,9 +382,32 @@ void KmagApp::saveZoomPixmap()
              0,i18n("Save zoomed region"));
 
 	if(!url.filename().isEmpty()) {
-		if(!m_zoomView->getPixmap().save(url.fileName(), KImageIO::type(url.fileName()).latin1())) {
-    	KMessageBox::error(0, i18n("Unable to save file. Please check if you have permission to write to the directory."),
+		if(!url.isLocalFile()) {
+			// create a temp file.. save image to it.. copy over the n/w and then delete the temp file.
+			KTempFile tempFile;
+			if(!m_zoomView->getPixmap().save(tempFile.name(), KImageIO::type(url.fileName()).latin1())) {
+        KMessageBox::error(0, i18n("Unable to save temporary file (before uploading to the network file you specified)"),
 													i18n("Error writing file"));
+			} else {
+  			if(!KIO::NetAccess::upload(tempFile.name(), url)) {
+  				KMessageBox::error(0, i18n("Unable to upload file over the network."),
+  													i18n("Error writing file"));
+  			} else {
+					KMessageBox::information(0, i18n("Current zoomed image saved to\n"+url.prettyURL()),
+															i18n("Information"), "save_confirm");
+				}
+			}
+			// remove the temporary file
+			tempFile.unlink();
+			
+		} else {
+  		if(!m_zoomView->getPixmap().save(url.path(), KImageIO::type(url.fileName()).latin1())) {
+      	KMessageBox::error(0, i18n("Unable to save file. Please check if you have permission to write to the directory."),
+  													i18n("Error writing file"));
+  		} else {
+  			KMessageBox::information(0, i18n("Current zoomed image saved to\n"+url.prettyURL()),
+  															i18n("Information"), "save_confirm");
+  		}
 		}
 	}
 	if(toggled) {
@@ -431,12 +458,14 @@ void KmagApp::slotFilePrint()
 
 	const QPixmap &pixmap(m_zoomView->getPixmap());
 
+#if KDE_VERSION >= 220
 	// use some AI to get the best orientation
 	if(pixmap.width() > pixmap.height()) {
 		printer.setOrientation(KPrinter::Landscape);
 	} else {
 		printer.setOrientation(KPrinter::Portrait);	
 	}
+#endif
 
   if (printer.setup(this)) {
     QPainter paint;
