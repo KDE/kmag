@@ -27,6 +27,8 @@
 #include <qcheckbox.h>
 #include <qbuttongroup.h>
 #include <qlayout.h>
+#include <qclipboard.h>
+#include <qdragobject.h>
 
 // include files for KDE
 #include <kapp.h>
@@ -58,19 +60,25 @@ KmagApp::KmagApp(QWidget* , const char* name)
 {
   config=kapp->config();
 
-	zoomArrayString << "[5:1] 20%"  << "[2:1] 50%"  << "[1.33:1] 75%"  << "[1:1] 100%"
-    << "[1:1.25] 125%"  << "[1:1.5] 150%"  << "[1:2] 200%"  << "[1:3] 300%"
-    << "[1:4] 400%"  << "[1:5] 500%" << "[1:6] 600%" << "[1:7] 700%"
-    << "[1:8] 800%" << "[1:12] 1200%" << "[1:16] 1600%" << "[1:20] 2000%";
+	zoomArrayString << "5:1" << "2:1" << "1:1" << "1:1.5" << "1:2" << "1:3" << "1:4" << "1:5"
+		<< "1:6" << "1:7" << "1:8" << "1:12" << "1:16" << "1:20";
 
 	// Is there a better way to initialize a vector array?
-	zoomArray.push_back(0.2); zoomArray.push_back(0.5); zoomArray.push_back(0.75); zoomArray.push_back(1.0);
-	zoomArray.push_back(1.25); zoomArray.push_back(1.5); zoomArray.push_back(2.0); zoomArray.push_back(3.0);
+	zoomArray.push_back(0.2); zoomArray.push_back(0.5); zoomArray.push_back(1.0);
+	zoomArray.push_back(1.5); zoomArray.push_back(2.0); zoomArray.push_back(3.0);
 	zoomArray.push_back(4.0); zoomArray.push_back(5.0); zoomArray.push_back(6.0); zoomArray.push_back(7.0);
 	zoomArray.push_back(8.0); zoomArray.push_back(12.0); zoomArray.push_back(16.0); zoomArray.push_back(20.0);
 
-	if(zoomArrayString.count() != zoomArray.size()) {
-		cerr << "Check the zoom array in the constructor." << endl;
+	fpsArrayString << "Very Low" << "Low" << "Medium" << "High" << "Very High";
+
+	fpsArray.push_back(2); // very low
+	fpsArray.push_back(6); // low
+	fpsArray.push_back(10); // medium
+	fpsArray.push_back(15); // high
+	fpsArray.push_back(25); // very high
+
+	if(zoomArrayString.count() != zoomArray.size() || fpsArrayString.count() != fpsArray.size()) {
+		cerr << "Check the zoom or fps array in the constructor." << endl;
 		exit(1);
 	}
 
@@ -111,12 +119,17 @@ void KmagApp::initActions()
   m_pPrint = KStdAction::print(this, SLOT(slotFilePrint()), actionCollection(), "print");
   m_pPrint->setWhatsThis(i18n("Click on this button to print the current zommed image."));
 
+  m_pCopy = KStdAction::copy(this, SLOT(copyToClipBoard()), actionCollection(), "copy");
+  m_pCopy->setWhatsThis(i18n("Click on this button to copy the current zommed image to the clipboard."));
+	m_pCopy->setToolTip(i18n("Copy zoomed image to clipboard"));
+
   m_pZoomIn = KStdAction::zoomIn(this, SLOT(zoomIn()), actionCollection(), "zoom_in");
   m_pZoomIn->setWhatsThis(i18n("Click on this button to <b>zoom-in</b> on the selected region."));
 
   m_pZoomBox = new KSelectAction(i18n("&Zoom"),0,actionCollection(),"zoom");
   m_pZoomBox->setItems(zoomArrayString);
-	m_pZoomBox->setComboWidth(50);
+	m_pZoomBox->setWhatsThis(i18n("Select the zoom factor."));
+	m_pZoomBox->setToolTip(i18n("Zoom factor"));
 
   m_pZoomOut = KStdAction::zoomOut(this, SLOT(zoomOut()), actionCollection(), "zoom_out");
   m_pZoomOut->setWhatsThis(i18n("Click on this button to <b>zoom-out</b> on the selected region."));
@@ -139,6 +152,11 @@ void KmagApp::initActions()
 	action = KStdAction::aboutKDE(newHelpMenu, SLOT(aboutKDE()), actionCollection());
   action->plug(helpAction->popupMenu());	
 
+  m_pFPSBox = new KSelectAction(i18n("&Refresh"),0,actionCollection(),"fps_selector");
+  m_pFPSBox->setItems(fpsArrayString);
+	m_pFPSBox->setWhatsThis(i18n("Select the refresh rate. The higher the rate, the more computing power (CPU) will be needed."));
+	m_pFPSBox->setToolTip(i18n("Refresh rate"));
+
 	// plug things into the toolbar
 	fileNewWindow->plug(toolBar());
   refreshSwitch->plug(toolBar());
@@ -146,10 +164,11 @@ void KmagApp::initActions()
 	m_pZoomBox->plug(toolBar());
   m_pZoomOut->plug(toolBar());
 	m_pPrint->plug(toolBar());
+	m_pCopy->plug(toolBar());
 	m_pSnapshot->plug(toolBar());
+	m_pFPSBox->plug(toolBar());
 	helpAction->plug(toolBar());
 }
-
 
 void KmagApp::initView()
 {
@@ -185,18 +204,25 @@ void KmagApp::initView()
   settingsGroupLayout->addWidget( m_showSelRectButton );
   connect(m_showSelRectButton, SIGNAL(toggled(bool)), m_zoomView, SLOT(showSelRect(bool)));
 
-
   setCentralWidget(mainView);	
 }
 
+/**
+ * Initialize all connections.
+ */
 void KmagApp::initConnections()
 {
 	// change in zoom value -> update the view
 	connect(this, SIGNAL(updateZoomValue(float)), m_zoomView, SLOT(setZoom(float)));
+	connect(this, SIGNAL(updateFPSValue(float)), m_zoomView, SLOT(setRefreshRate(float)));
+
 	// change in zoom index -> update the selector
 	connect(this, SIGNAL(updateZoomIndex(int)), m_pZoomBox, SLOT(setCurrentItem(int)));
+	connect(this, SIGNAL(updateFPSIndex(int)), m_pFPSBox, SLOT(setCurrentItem(int)));
+
 	// selector selects a zoom index -> set the zoom index
 	connect(m_pZoomBox, SIGNAL(activated(int)), this, SLOT(setZoomIndex(int)));
+	connect(m_pFPSBox, SIGNAL(activated(int)), this, SLOT(setFPSIndex(int)));
 }
 
 void KmagApp::saveOptions()
@@ -204,6 +230,7 @@ void KmagApp::saveOptions()
   config->setGroup("General Options");
   config->writeEntry("Geometry", size());
 	config->writeEntry("ZoomIndex", m_zoomIndex);
+	config->writeEntry("FPSIndex", m_fpsIndex);
 	config->writeEntry("FollowMouse", m_zoomView->getFollowMouse());
 	config->writeEntry("SelRect", m_zoomView->getSelRectPos());
 
@@ -222,9 +249,13 @@ void KmagApp::readOptions()
   }
 
 	// set zoom - defaults to 2x
-	unsigned int zoomIndex = config->readUnsignedNumEntry("ZoomIndex", 7);
+	unsigned int zoomIndex = config->readUnsignedNumEntry("ZoomIndex", 5);
 	setZoomIndex(zoomIndex);
 	emit updateZoomIndex(m_zoomIndex);
+
+	unsigned int fpsIndex = config->readUnsignedNumEntry("FPSIndex", 2);
+	setFPSIndex(fpsIndex);
+	emit updateFPSIndex(m_fpsIndex);
 
 	bool followMouse = config->readBoolEntry("FollowMouse", false);
 	m_zoomView->followMouse(followMouse);
@@ -272,8 +303,6 @@ void KmagApp::zoomOut()
 	// signal change in zoom index
 	emit updateZoomIndex((int)m_zoomIndex);
 }
-
-
 /**
  * Sets the zoom index to index
  */
@@ -308,6 +337,26 @@ void KmagApp::setZoomIndex(int index)
 	
 	// signal change in zoom value
 	emit updateZoomValue(zoomArray[m_zoomIndex]);
+}
+
+/**
+ * Sets the fps index to index
+ */
+void KmagApp::setFPSIndex(int index)
+{
+	if(index < 0 || index >= (int)fpsArray.size()) {
+		// the index is invalid
+		cerr << "Invalid index!" << endl;
+		return;
+  } else if((int)m_fpsIndex == index) {
+		// do nothing!
+		return;
+	} else {
+		m_fpsIndex = index;
+	}
+	
+	// signal change in zoom value
+	emit updateFPSValue(fpsArray[m_fpsIndex]);
 }
 
 
@@ -406,9 +455,10 @@ void KmagApp::slotFilePrint()
 #endif // QT_NO_PRINTER
 }
 
-void KmagApp::slotEditCopy()
+void KmagApp::copyToClipBoard()
 {
-// TODO : Copy contents (zoomed image) to clipboard
+	QClipboard *cb=KApplication::clipboard();
+	cb->setPixmap(m_zoomView->getPixmap());
 }
 
 void KmagApp::slotViewToolBar()
@@ -424,5 +474,3 @@ void KmagApp::slotViewToolBar()
     toolBar("mainToolBar")->show();
   }		
 }
-
-

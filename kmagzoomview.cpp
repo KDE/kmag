@@ -26,6 +26,8 @@
 #include "kmagselrect.moc"
 #include "kmagzoomview.h"
 
+#include <kcursor.h>
+
 // include files for Qt
 #include <qpainter.h>
 
@@ -47,14 +49,14 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
   m_zoomMatrix.reset();	
   m_zoomMatrix.scale(m_zoom, m_zoom);	
 
-	// update freq
-	m_fps = 10;
 	m_ctrlKeyPressed = false;
 	m_shiftKeyPressed = false;
 	m_refreshSwitch = true;
 	
-	// start the grabTimer and connect it to grabFrame()
-  m_grabTimer.start(1000/m_fps);
+	// start the grabTimer
+	setRefreshRate(10);
+
+	// connect it to grabFrame()
   connect(&m_grabTimer, SIGNAL(timeout()), SLOT(grabFrame()));
 
   QWhatsThis::add(this, i18n("This is the main window which shows the contents of the\
@@ -217,7 +219,7 @@ void KMagZoomView::mousePressEvent(QMouseEvent *e)
         m_mouseMode = GrabSelection;
 
         // set mouse cursor to hand
-        setCursor(pointingHandCursor);
+        setCursor(KCursor::handCursor());
 
         // store the old position
         m_oldMousePos.setX(e->globalX());
@@ -232,6 +234,23 @@ void KMagZoomView::mousePressEvent(QMouseEvent *e)
     break;
 
   case QMouseEvent::MidButton :
+	      // check if currently in move mode
+    if(m_mouseMode != MoveSelection) {
+      m_mouseMode = MoveSelection;
+
+      // set mouse cursor to cross hair
+      setCursor(crossCursor);
+
+      // backup the old position
+      m_oldMousePos.setX(e->globalX());
+      m_oldMousePos.setY(e->globalY());
+
+      // set the cursor position to the center of the selected region
+      QCursor::setPos(m_selRect.center());
+
+      // show the selected rectangle
+      m_selRect.show();
+		}
 		break;
   case QMouseEvent::RightButton :
     break;
@@ -258,6 +277,7 @@ void KMagZoomView::mouseReleaseEvent(QMouseEvent *e)
 
   switch(e->button()) {
   case QMouseEvent::LeftButton :
+  case QMouseEvent::MidButton :
     // check if currently in move mode
     if(m_mouseMode == MoveSelection) {
       // hide the selection window
@@ -293,8 +313,6 @@ void KMagZoomView::mouseReleaseEvent(QMouseEvent *e)
     }		
     break;
 
-  case QMouseEvent::MidButton :
-		break;
   case QMouseEvent::RightButton :
     break;
   case QMouseEvent::NoButton :
@@ -305,7 +323,6 @@ void KMagZoomView::mouseReleaseEvent(QMouseEvent *e)
     ;
   }
 }
-
 
 
 /**
@@ -507,6 +524,21 @@ void KMagZoomView::setZoom(float zoom)
   m_grabbedZoomedPixmap = m_grabbedPixmap.xForm(m_zoomMatrix);
 
   repaint();
+}
+
+/**
+ * Set a new refresh rate.
+ */
+void KMagZoomView::setRefreshRate(float fps)
+{
+	if(fps < 0.1)
+		return;
+	m_fps = fps;	
+	
+	if(m_grabTimer.isActive())
+  	m_grabTimer.changeInterval(1000.0/m_fps);
+	else
+		m_grabTimer.start(1000.0/m_fps);
 }
 
 void KMagZoomView::showSelRect(bool show)

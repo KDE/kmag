@@ -26,7 +26,6 @@
 #endif
 
 #include <vector>
-
 // include files for Qt
 #include <qstringlist.h>
 
@@ -113,7 +112,7 @@ class KmagApp : public KMainWindow
 
     /** put the marked text/object into the clipboard
      */
-    void slotEditCopy();
+    void copyToClipBoard();
 
     /** paste the clipboard into the document
      */
@@ -132,7 +131,10 @@ class KmagApp : public KMainWindow
     void saveZoomPixmap();
 
     /// Sets the zoom index to index
-    void setZoomIndex(int index=4);
+    void setZoomIndex(int index);
+
+    /// Sets the fps index to index
+    void setFPSIndex(int index);
 
 	signals:
 		/// This signal is raised whenever the index into the zoom array is changed
@@ -141,12 +143,18 @@ class KmagApp : public KMainWindow
 		/// This signal is raised whenever the zoom value changes
 		void updateZoomValue(float);
 
+		/// This signal is raised whenever the index into the fps array is changed
+		void updateFPSIndex(int);
+		
+		/// This signal is raised whenever the fps value changes
+		void updateFPSValue(float);
+
   private:
     /// the configuration object of the application
     KConfig *config;
 
     // KAction pointers to enable/disable actions
-    KAction *fileNewWindow, *m_pSnapshot;
+    KAction *fileNewWindow, *m_pSnapshot, *m_pCopy;
 		KAction *m_pPrint;
 		KAction *m_pZoomIn;
 		KAction *m_pZoomOut;
@@ -155,7 +163,7 @@ class KmagApp : public KMainWindow
     KAction* editCopy;
     KAction *refreshSwitch;
     KToggleAction* viewToolBar;
-		KSelectAction *m_pZoomBox;
+		KSelectAction *m_pZoomBox, *m_pFPSBox;
 
 		/// zoom slider
 		KIntNumInput *m_zoomSlider;
@@ -163,8 +171,14 @@ class KmagApp : public KMainWindow
 		/// Current index into the zoomArray
 		unsigned int m_zoomIndex;
 
+		/// Current index into the fpsArray
+		unsigned int m_fpsIndex;
+
 		QStringList zoomArrayString;
 		vector<float> zoomArray;
+
+		QStringList fpsArrayString;
+		vector<float> fpsArray;
 
 	KMagZoomView* m_zoomView;
   QButtonGroup *m_settingsGroup;
