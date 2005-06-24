@@ -8,6 +8,7 @@ Comment=
 Comment[ro]=Un utilitar de mărit zone ale ecranului
 Terminal=false
 Name=KMag
+Name[el]=K μεγεθυντικός φακός
 Name[es]=K Mag
 Name[sv]=Kmag
 GenericName=Screen Magnifier
