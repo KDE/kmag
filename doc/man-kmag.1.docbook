@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
+<!ENTITY % English "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title>KDE User's Manual</title>
+<author>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<date>June 12, 2005</date>
+<productname>K Desktop Environment</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle><command>kmag</command></refentrytitle>
+<manvolnum>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname><command>kmag</command></refname>
+<refpurpose>Screen magnifier</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis>
+<command>kmag</command>
+<arg choice="opt">KDE Generic Options</arg>
+<arg choice="opt">Qt Generic Options</arg>
+</cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title>Description</title>
+<para><command>kmag</command>, also known as &kmagnifier; is a screen
+magnifier. You can use &kmagnifier; to magnify a part of the screen just as
+you would use a lens to magnify a newspaper fine-print or a photograph. This
+application is useful for a variety of people: from researchers to artists
+to web-designers to people with low vision.</para>
+</refsect1>
+
+<refsect1>
+<title>See Also</title>
+
+<para>More detailed user documentation is available from <ulink
+url="help:/kmag">help:/kmag</ulink>
+(either enter this <acronym>URL</acronym> into &konqueror;, or run
+<userinput><command>khelpcenter</command>
+<parameter>help:/kmag</parameter></userinput>).</para>
+
+<para>There is also further information available at the <ulink url="http://accessibility.kde.org/">&kde; accessibility project home page.</ulink></para>
+</refsect1>
+
+<refsect1>
+<title>Authors</title>
+<para>&kmagnifier; was written by
+<personname><firstname>Sarang</firstname><surname>Lakare</surname></personname>
+<email>sarang@users.sf.net</email> and
+<personname><firstname>Michael</firstname><surname>Forster</surname></personname>
+<email>forster@fmi.uni-passau.de</email></para>
+</refsect1>
+
+</refentry>
