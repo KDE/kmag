@@ -31,6 +31,8 @@
 #include <vector>
 // include files for Qt
 #include <qstringlist.h>
+//Added by qt3to4:
+#include <QContextMenuEvent>
 
 // include files for KDE
 #include <kapplication.h>

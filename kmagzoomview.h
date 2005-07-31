@@ -29,10 +29,17 @@
 #include <qpainter.h>
 #include <qpixmap.h>
 #include <qtimer.h>
-#include <qscrollview.h>
+#include <q3scrollview.h>
 #include <qstringlist.h>
 #include <qrect.h>
 #include <qcursor.h>
+//Added by qt3to4:
+#include <QFocusEvent>
+#include <QHideEvent>
+#include <QKeyEvent>
+#include <QShowEvent>
+#include <QResizeEvent>
+#include <QMouseEvent>
 
 //class KMagSelRect;
 #include "kmagselrect.h"
@@ -42,7 +49,7 @@
  *   
  * @author Sarang Lakare <sarang#users.sourceforge.net>
  */
-class KMagZoomView : public QScrollView
+class KMagZoomView : public Q3ScrollView
 {
   Q_OBJECT
   public:
@@ -171,7 +178,7 @@ class KMagZoomView : public QScrollView
     QTimer m_mouseViewTimer;
 
     /// Zoom matrix
-    QWMatrix m_zoomMatrix;
+    QMatrix m_zoomMatrix;
 
     /// Saves the mouse position when a button is clicked and b4 the cursor is moved to new position
     QPoint m_oldMousePos;

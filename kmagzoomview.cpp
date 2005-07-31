@@ -27,9 +27,17 @@
 #include <qcursor.h>
 #include <qglobal.h>
 #include <qpainter.h>
-#include <qwhatsthis.h>
+#include <q3whatsthis.h>
 #include <qwidget.h>
-
+//Added by qt3to4:
+#include <QPixmap>
+#include <QFocusEvent>
+#include <QHideEvent>
+#include <QKeyEvent>
+#include <QShowEvent>
+#include <QResizeEvent>
+#include <QMouseEvent>
+#include <QDesktopWidget>
 // include files for KDE
 #include <kapplication.h>
 #include <kcursor.h>
@@ -74,7 +82,7 @@ static uchar phand_bits[] = {
 
 
 KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
-  : QScrollView(parent, name),
+  : Q3ScrollView(parent, name),
     m_selRect(0, 0, 128, 128, this),
     m_grabTimer(parent),
     m_mouseViewTimer(parent),
@@ -87,8 +95,8 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
 {
   KApplication::setGlobalMouseTracking(TRUE);
   viewport()->setMouseTracking(TRUE);
-  viewport()->setBackgroundMode (NoBackground);
-  viewport()->setFocusPolicy(QWidget::StrongFocus);
+  viewport()->setBackgroundMode (Qt::NoBackground);
+  viewport()->setFocusPolicy(Qt::StrongFocus);
   
   // init the zoom matrix
   m_zoomMatrix.reset();
@@ -113,7 +121,7 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
   // start the grabTimer @ 25 frames per second!
   m_mouseViewTimer.start(25);
 
-  QWhatsThis::add(this, i18n("This is the main window which shows the contents of the\
+  Q3WhatsThis::add(this, i18n("This is the main window which shows the contents of the\
  selected region. The contents will be magnified according to the zoom level that is set."));
 
   // different ways to show the cursor.
@@ -136,13 +144,13 @@ void KMagZoomView::followMouse(bool follow)
   if(follow) {
     m_followMouse = true;
     m_mouseMode = Normal;
-    setVScrollBarMode (QScrollView::AlwaysOff);
-    setHScrollBarMode (QScrollView::AlwaysOff);
+    setVScrollBarMode (Q3ScrollView::AlwaysOff);
+    setHScrollBarMode (Q3ScrollView::AlwaysOff);
   } else {
     m_followMouse = false;
     m_mouseMode = Normal;
-    setVScrollBarMode (QScrollView::AlwaysOn);
-    setHScrollBarMode (QScrollView::AlwaysOn);
+    setVScrollBarMode (Q3ScrollView::AlwaysOn);
+    setHScrollBarMode (Q3ScrollView::AlwaysOn);
   }
 }
 
@@ -179,7 +187,7 @@ void KMagZoomView::showEvent( QShowEvent* )
  */
 void KMagZoomView::resizeEvent( QResizeEvent * e )
 {
-  QScrollView::resizeEvent (e);
+  Q3ScrollView::resizeEvent (e);
   if(m_fitToWindow)
     fitToWindow();
 }
@@ -194,7 +202,7 @@ void KMagZoomView::drawContents ( QPainter * p, int clipx, int clipy, int clipw,
   if(m_grabbedZoomedPixmap.isNull())
     return;
 
-  // Paint empty areas black
+  // Paint empty areas Qt::black
   if (contentsX()+contentsWidth() < visibleWidth())
     p->fillRect (
         QRect (contentsX()+contentsWidth(), clipy, visibleWidth()-contentsX()-contentsWidth(), cliph)
@@ -253,7 +261,8 @@ void KMagZoomView::paintMouseCursor(QPaintDevice *dev, QPoint mousePos)
     case 1:
       // 1. Square around the pixel
       pz.setPen(Qt::white);
-      pz.setRasterOp(Qt::XorROP);
+#warning "Port Qt4 pz.setRasterOp(Qt::XorROP);";	  
+      //pz.setRasterOp(Qt::XorROP);
       pz.drawRect(mousePos.x()-1, mousePos.y()-1, (int)m_zoom+2, (int)m_zoom+2);
       break;
 
@@ -289,7 +298,7 @@ void KMagZoomView::paintMouseCursor(QPaintDevice *dev, QPoint mousePos)
         break;
       kdDebug() << ">" << dummy->name() << ":" << dummy->cursor().shape() << "-" << endl;
       switch(this->cursor().shape())  {
-        case ArrowCursor :
+			  case Qt::ArrowCursor :
          {
           // 2. Arrow cursor
           pz.setPen(Qt::black);
@@ -359,7 +368,7 @@ QPoint KMagZoomView::calcMousePos(bool updateMousePos)
 void KMagZoomView::mousePressEvent(QMouseEvent *e)
 {
   switch(e->button()) {
-  case QMouseEvent::LeftButton :
+  case Qt::LeftButton :
     if(m_ctrlKeyPressed) {
       // check if currently in resize mode
       // don't do anything if fitToWindow is enabled
@@ -368,7 +377,7 @@ void KMagZoomView::mousePressEvent(QMouseEvent *e)
         m_mouseMode = ResizeSelection;
 
         // set mouse cursor to "resize all direction"
-        setCursor(sizeAllCursor);
+        setCursor(Qt::sizeAllCursor);
 
         // backup the old position
         m_oldMousePos.setX(e->globalX());
@@ -393,7 +402,7 @@ void KMagZoomView::mousePressEvent(QMouseEvent *e)
         m_mouseMode = MoveSelection;
 
         // set mouse cursor to cross hair
-        setCursor(crossCursor);
+        setCursor(Qt::crossCursor);
 
         // backup the old position
         m_oldMousePos.setX(e->globalX());
@@ -438,14 +447,14 @@ void KMagZoomView::mousePressEvent(QMouseEvent *e)
     }
     break;
 
-  case QMouseEvent::MidButton :
+  case Qt::MidButton :
     // check if currently in move mode
     // don't do anything if follow mouse is enabled
     if ((m_mouseMode != MoveSelection) && !m_followMouse) {
       m_mouseMode = MoveSelection;
 
       // set mouse cursor to cross hair
-      setCursor(crossCursor);
+      setCursor(Qt::crossCursor);
 
       // backup the old position
       m_oldMousePos.setX(e->globalX());
@@ -483,8 +492,8 @@ void KMagZoomView::mousePressEvent(QMouseEvent *e)
 void KMagZoomView::mouseReleaseEvent(QMouseEvent *e)
 {
   switch(e->button()) {
-  case QMouseEvent::LeftButton :
-  case QMouseEvent::MidButton :
+  case Qt::LeftButton :
+  case Qt::MidButton :
     // check if currently in move mode
     if(m_mouseMode == MoveSelection) {
       // hide the selection window
@@ -493,7 +502,7 @@ void KMagZoomView::mouseReleaseEvent(QMouseEvent *e)
       m_mouseMode = Normal;
 
       // restore the cursor shape
-      setCursor(arrowCursor);
+      setCursor(Qt::arrowCursor);
 
       // restore the cursor position
       QCursor::setPos(m_oldMousePos);
@@ -504,7 +513,7 @@ void KMagZoomView::mouseReleaseEvent(QMouseEvent *e)
       m_mouseMode = Normal;
 
       // restore the cursor shape
-      setCursor(arrowCursor);
+      setCursor(Qt::arrowCursor);
 
       // restore the cursor position
       QCursor::setPos(m_oldMousePos);
@@ -516,13 +525,13 @@ void KMagZoomView::mouseReleaseEvent(QMouseEvent *e)
       m_mouseMode = Normal;
 
       // restore the cursor shape
-      setCursor(arrowCursor);
+      setCursor(Qt::arrowCursor);
     }    
     break;
 
-  case QMouseEvent::RightButton :
+  case Qt::RightButton :
     break;
-  case QMouseEvent::NoButton :
+  case Qt::NoButton :
     break;
 
   // do nothing
@@ -612,16 +621,16 @@ void KMagZoomView::mouseMoveEvent(QMouseEvent *e)
 void KMagZoomView::keyPressEvent(QKeyEvent *e)
 {
   int offset = 16;
-  if (e->state() & QKeyEvent::ShiftButton)
+  if (e->state() & Qt::ShiftButton)
     offset = 1;
 
-  if (e->key() == QKeyEvent::Key_Control)
+  if (e->key() == Qt::Key_Control)
     m_ctrlKeyPressed = true;
-  else if (e->key() == QKeyEvent::Key_Shift)
+  else if (e->key() == Qt::Key_Shift)
     m_shiftKeyPressed = true;    
-  else if (e->key() == QKeyEvent::Key_Left)
+  else if (e->key() == Qt::Key_Left)
   {
-    if (e->state() & QKeyEvent::ControlButton)
+    if (e->state() & Qt::ControlButton)
     {
       if (offset >= m_selRect.width())
         m_selRect.setWidth (1);
@@ -645,9 +654,9 @@ void KMagZoomView::keyPressEvent(QKeyEvent *e)
     }
     m_selRect.update();
   }
-  else if (e->key() == QKeyEvent::Key_Right)
+  else if (e->key() == Qt::Key_Right)
   {
-    if (e->state() & QKeyEvent::ControlButton)
+    if (e->state() & Qt::ControlButton)
     {
       if (m_selRect.right()+offset >= QApplication::desktop()->width())
         m_selRect.setRight (QApplication::desktop()->width()-1);
@@ -671,9 +680,9 @@ void KMagZoomView::keyPressEvent(QKeyEvent *e)
     }
     m_selRect.update();
   }
-  else if (e->key() == QKeyEvent::Key_Up)
+  else if (e->key() == Qt::Key_Up)
   {
-    if (e->state() & QKeyEvent::ControlButton)
+    if (e->state() & Qt::ControlButton)
     {
       if (offset >= m_selRect.height())
         m_selRect.setHeight (1);
@@ -697,9 +706,9 @@ void KMagZoomView::keyPressEvent(QKeyEvent *e)
     }
     m_selRect.update();
   }
-  else if (e->key() == QKeyEvent::Key_Down)
+  else if (e->key() == Qt::Key_Down)
   {
-    if (e->state() & QKeyEvent::ControlButton)
+    if (e->state() & Qt::ControlButton)
     {
       if (m_selRect.bottom()+offset >= QApplication::desktop()->height())
         m_selRect.setBottom (QApplication::desktop()->height()-1);
@@ -729,9 +738,9 @@ void KMagZoomView::keyPressEvent(QKeyEvent *e)
 
 void KMagZoomView::keyReleaseEvent(QKeyEvent *e)
 {
-  if (e->key() == QKeyEvent::Key_Control)
+  if (e->key() == Qt::Key_Control)
     m_ctrlKeyPressed = false;
-  else if (e->key() == QKeyEvent::Key_Shift)
+  else if (e->key() == Qt::Key_Shift)
     m_shiftKeyPressed = false;
   else
     e->ignore();

@@ -24,7 +24,11 @@
 #include <qcursor.h>
 #include <qpixmap.h>
 #include <qbitmap.h>
-
+//Added by qt3to4:
+#include <QMouseEvent>
+#include <QLabel>
+#include <Q3Frame>
+#include <QDesktopWidget>
 #include <kapplication.h>
 #include <klocale.h>
 
@@ -191,8 +195,8 @@ void KMagSelRect::selWinResized()
 //   KMagSelWin
 //--------------------------------------------------------------------------
 
-KMagSelWin::KMagSelWin ( QWidget * parent, const char * name, WFlags ) :
-    QWidget (parent, name, WStyle_Customize | WStyle_NoBorder | WStyle_StaysOnTop | WType_TopLevel | WX11BypassWM)
+KMagSelWin::KMagSelWin ( QWidget * parent, const char * name, Qt::WFlags ) :
+    QWidget (parent, name, Qt::WStyle_Customize | Qt::WStyle_NoBorder | Qt::WStyle_StaysOnTop | Qt::WType_TopLevel | Qt::WX11BypassWM)
 {
   QBitmap line (8, 8, line_bits, true);
   setPaletteBackgroundPixmap (line);
@@ -332,11 +336,11 @@ void KMagSelWin::bottomRightResized ( QPoint offset )
 //   KMagSelWinCorner
 //--------------------------------------------------------------------------
 
-KMagSelWinCorner::KMagSelWinCorner ( QWidget * parent, const char * name, WFlags f ) :
+KMagSelWinCorner::KMagSelWinCorner ( QWidget * parent, const char * name, Qt::WFlags f ) :
     QLabel (parent, name, f)
 {
-  setBackgroundMode (QWidget::FixedColor);
-  setFrameStyle (QFrame::WinPanel | QFrame::Raised);
+  setBackgroundMode (Qt::FixedColor);
+  setFrameStyle (Q3Frame::WinPanel | Q3Frame::Raised);
   setLineWidth (1);
 }
 
@@ -352,7 +356,7 @@ void KMagSelWinCorner::mousePressEvent ( QMouseEvent * e )
 
 void KMagSelWinCorner::mouseReleaseEvent ( QMouseEvent * e )
 {
-  setFrameShadow (QFrame::Raised);
+  setFrameShadow (Q3Frame::Raised);
   emit resized (e->globalPos () - oldPos);
 }
 

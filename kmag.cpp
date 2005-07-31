@@ -23,11 +23,15 @@
 #include <qpainter.h>
 #include <qlayout.h>
 #include <qclipboard.h>
-#include <qdragobject.h>
-#include <qwhatsthis.h>
+#include <q3dragobject.h>
+#include <q3whatsthis.h>
 #include <qtooltip.h>
-#include <qpopupmenu.h>
-
+#include <q3popupmenu.h>
+//Added by qt3to4:
+#include <QContextMenuEvent>
+#include <QPixmap>
+#include <Q3Frame>
+#include <QDesktopWidget>
 #include <kdeversion.h>
 
 // include files for KDE
@@ -73,7 +77,7 @@
 #endif
 
 KmagApp::KmagApp(QWidget* , const char* name)
-  : KMainWindow(0, name, WStyle_MinMax | WType_TopLevel | WDestructiveClose | WStyle_ContextHelp | WStyle_StaysOnTop),
+  : KMainWindow(0, name, Qt::WStyle_MinMax | Qt::WType_TopLevel | Qt::WDestructiveClose | Qt::WStyle_ContextHelp | Qt::WStyle_StaysOnTop),
     m_defaultMouseCursorType(2)
 {
   config=kapp->config();
@@ -151,7 +155,7 @@ void KmagApp::initActions()
   m_pCopy->setWhatsThis(i18n("Click on this button to copy the current zoomed view to the clipboard which you can paste in other applications."));
   m_pCopy->setToolTip(i18n("Copy zoomed image to clipboard"));
 
-  m_pShowMenu = new KToggleAction(i18n("Show &Menu"), "showmenu", CTRL+Key_M, this,
+  m_pShowMenu = new KToggleAction(i18n("Show &Menu"), "showmenu", Qt::CTRL+Qt::Key_M, this,
                             SLOT(slotShowMenu()), actionCollection(),"show_menu");
   #ifdef havesetCheckedState
   m_pShowMenu->setCheckedState(i18n("Hide &Menu"));
@@ -172,21 +176,21 @@ void KmagApp::initActions()
   m_pShowSettingsToolBar->setCheckedState(i18n("Hide &Settings Toolbar"));
   #endif
 
-  m_modeFollowMouse = new KRadioAction(i18n("&Follow Mouse Mode"), "followmouse", Key_F1, this,
+  m_modeFollowMouse = new KRadioAction(i18n("&Follow Mouse Mode"), "followmouse", Qt::Key_F1, this,
                             SLOT(slotModeFollowMouse()), actionCollection(), "mode_followmouse");
   m_modeFollowMouse->setToolTip(i18n("Magnify around the mouse cursor"));
   m_modeFollowMouse->setWhatsThis(i18n("If selected, the area around the mouse cursor is magnified"));
 
-  m_modeSelWin = new KRadioAction(i18n("Se&lection Window Mode"), "window", Key_F2, this,
+  m_modeSelWin = new KRadioAction(i18n("Se&lection Window Mode"), "window", Qt::Key_F2, this,
                             SLOT(slotModeSelWin()), actionCollection(), "mode_selectionwindow");
   m_modeSelWin->setToolTip(i18n("Show a window for selecting the magnified area"));
 
-  m_modeWholeScreen = new KRadioAction(i18n("&Whole Screen Mode"), "window_fullscreen", Key_F3, this,
+  m_modeWholeScreen = new KRadioAction(i18n("&Whole Screen Mode"), "window_fullscreen", Qt::Key_F3, this,
                               SLOT(slotModeWholeScreen()), actionCollection(),"mode_wholescreen");
   m_modeWholeScreen->setToolTip(i18n("Magnify the whole screen"));
   m_modeWholeScreen->setWhatsThis(i18n("Click on this button to fit the zoom view to the zoom window."));
 
-  m_hideCursor = new KToggleAction(i18n("Hide Mouse &Cursor"), "hidemouse", Key_F4, this,
+  m_hideCursor = new KToggleAction(i18n("Hide Mouse &Cursor"), "hidemouse", Qt::Key_F4, this,
                             SLOT(slotToggleHideCursor()), actionCollection(), "hidecursor");
   #ifdef havesetCheckedState
   m_hideCursor->setCheckedState(i18n("Show Mouse &Cursor"));
@@ -227,8 +231,8 @@ void KmagApp::initView()
 {
   m_zoomView = new KMagZoomView( this, "ZoomView" );
   m_zoomView->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)7, m_zoomView->sizePolicy().hasHeightForWidth() ) );
-  m_zoomView->setFrameShape( QFrame::StyledPanel );
-  m_zoomView->setFrameShadow( QFrame::Raised );
+  m_zoomView->setFrameShape( Q3Frame::StyledPanel );
+  m_zoomView->setFrameShadow( Q3Frame::Raised );
 
   setCentralWidget(m_zoomView);
 }
@@ -382,7 +386,7 @@ void KmagApp::contextMenuEvent ( QContextMenuEvent * e )
 {
  // show popup
  KXMLGUIFactory *factory = this->factory();
- QPopupMenu *popup = (QPopupMenu *)factory->container("mainPopUp",this);
+ Q3PopupMenu *popup = (Q3PopupMenu *)factory->container("mainPopUp",this);
  if (popup != 0)
    popup->popup(e->globalPos(), 0);
  e->accept();
