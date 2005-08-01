@@ -27,7 +27,7 @@
 #include <qcursor.h>
 #include <qglobal.h>
 #include <qpainter.h>
-#include <q3whatsthis.h>
+
 #include <qwidget.h>
 //Added by qt3to4:
 #include <QPixmap>
@@ -121,7 +121,7 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
   // start the grabTimer @ 25 frames per second!
   m_mouseViewTimer.start(25);
 
-  Q3WhatsThis::add(this, i18n("This is the main window which shows the contents of the\
+  this->setWhatsThis( i18n("This is the main window which shows the contents of the\
  selected region. The contents will be magnified according to the zoom level that is set."));
 
   // different ways to show the cursor.
