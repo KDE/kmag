@@ -816,6 +816,14 @@ void KMagZoomView::grabFrame()
   m_grabbedPixmap = QPixmap::grabWindow(QApplication::desktop()->winId(), selRect.x(), selRect.y(),
                                         selRect.width(), selRect.height());
 
+  // If the KMag window itself is in the screenshot, then it need to be pointed grey to avoid recursion
+  QRect intersection = selRect & QRect (mapToGlobal(contentsRect().topLeft()), QSize (contentsRect().size()));
+  if (intersection.width() > 0 && intersection.height() > 0) {
+    intersection.moveBy (-selRect.x(), -selRect.y());
+    QPainter painter (&m_grabbedPixmap, true);
+    painter.fillRect (intersection, QBrush (QColor (128, 128, 128)));
+  }
+
   // call repaint to display the newly grabbed image
   QRect newSize = m_zoomMatrix.mapRect (m_grabbedPixmap.rect());
   resizeContents (newSize.width(), newSize.height());
