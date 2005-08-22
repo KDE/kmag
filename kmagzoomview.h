@@ -158,9 +158,6 @@ class KMagZoomView : public QScrollView
     /// Stores the pixmap grabbed from the screen - to be zoomed
     QPixmap m_grabbedPixmap;
 
-    /// Stores the pixmap which is zoomed from the grabbed one - this will be actaully drawn
-    QPixmap m_grabbedZoomedPixmap;
-
     /// The selected rectangle which is to be grabbed
     KMagSelRect m_selRect;
 
@@ -172,6 +169,9 @@ class KMagZoomView : public QScrollView
 
     /// Zoom matrix
     QWMatrix m_zoomMatrix;
+
+    /// Inverted zoom matrix
+    QWMatrix m_invertedMatrix;
 
     /// Saves the mouse position when a button is clicked and b4 the cursor is moved to new position
     QPoint m_oldMousePos;
