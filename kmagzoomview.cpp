@@ -196,19 +196,6 @@ void KMagZoomView::drawContents ( QPainter * p, int clipx, int clipy, int clipw,
 {
   if(m_grabbedPixmap.isNull())
     return;
-/*
-  // Paint empty areas black
-  if (contentsX()+contentsWidth() < visibleWidth())
-    p->fillRect (
-        QRect (contentsX()+contentsWidth(), clipy, visibleWidth()-contentsX()-contentsWidth(), cliph)
-        & QRect (clipx, clipy, clipw, cliph),
-        Qt::black);
-  if (contentsY()+contentsHeight() < visibleHeight())
-    p->fillRect (
-        QRect (clipx, contentsY()+contentsHeight(), clipw, visibleHeight()-contentsY()-contentsHeight())
-        & QRect (clipx, clipy, clipw, cliph),
-        Qt::black);
-*/
 
   // A pixmap which will be eventually displayed
   QRect areaToPaint = m_invertedMatrix.mapRect (QRect(clipx, clipy, clipw, cliph));
