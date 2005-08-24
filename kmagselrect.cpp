@@ -359,7 +359,6 @@ void KMagSelWin::bottomRightResized ( QPoint offset )
 KMagSelWinCorner::KMagSelWinCorner ( QWidget * parent, const char * name, WFlags f ) :
     QLabel (parent, name, f)
 {
-  setBackgroundMode (QWidget::FixedColor);
   setFrameStyle (QFrame::WinPanel | QFrame::Raised);
   setLineWidth (1);
 }
