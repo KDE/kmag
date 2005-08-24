@@ -36,6 +36,9 @@
 #include <kdebug.h>
 #include <klocale.h>
 
+#include <X11/Xlib.h>
+#include <X11/Xatom.h>
+
 // include bitmaps for cursors
 static uchar left_ptr_bits[] = {
    0x00, 0x00, 0x08, 0x00, 0x18, 0x00, 0x38, 0x00, 0x78, 0x00, 0xf8, 0x00,
@@ -71,6 +74,47 @@ static uchar phand_bits[] = {
   0x00, 0x00, 0x00, 0x00,  0x00, 0x00, 0x00, 0x00,  0x00, 0x00, 0x00, 0x00,
   0x00, 0x00, 0x00, 0x00,  0x00, 0x00, 0x00, 0x00,  0x00, 0x00, 0x00, 0x00,
   0x00, 0x00, 0x00, 0x00,  0x00, 0x00, 0x00, 0x00 };
+
+
+
+static bool obscuredRegion (QRegion &region, Window winId, Window start = 0, int level = -1) {
+  Window root, parent, *children; uint nchildren;
+  if (0 == start)
+    start = qt_xrootwin();
+
+  bool winIdFound = false;
+  if (0 != XQueryTree (qt_xdisplay(), start, &root, &parent, &children, &nchildren)) {
+    for (uint i=0; i < nchildren; ++i) {
+      if (winIdFound) {
+        XWindowAttributes atts;
+        XGetWindowAttributes (qt_xdisplay(), children [i], &atts);
+        if (atts.map_state == IsViewable) {
+          region -= QRegion (atts.x, atts.y, atts.width, atts.height, QRegion::Rectangle);
+        }
+      }
+      else if (winId == children [i])
+        winIdFound = true;
+
+      // According to tests, my own window ID is either on toplevel or two levels below.
+      // To avoid unneccessary recursion, we limit the search to two recursion levels,
+      // then to five recursion levels, and make a full recursive search only if that
+      // was unsuccessful.
+      else if (level > 1)
+        winIdFound = obscuredRegion (region, winId, children [i], level-1);
+      else if (level == -1)
+        if (! (winIdFound = obscuredRegion (region, winId, children [i], 2)))
+          if (! (winIdFound = obscuredRegion (region, winId, children [i], 5)))
+            winIdFound = obscuredRegion (region, winId, children [i], -1);
+    }
+
+    if (children != NULL)
+      XFree (children);
+  }
+
+  return winIdFound;
+}
+
+
 
 
 KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
@@ -192,7 +236,7 @@ void KMagZoomView::resizeEvent( QResizeEvent * e )
  *
  * @param p
  */
-void KMagZoomView::drawContents ( QPainter * p, int clipx, int clipy, int clipw, int cliph )
+void KMagZoomView::drawContents ( QPainter*, int clipx, int clipy, int clipw, int cliph )
 {
   if(m_grabbedPixmap.isNull())
     return;
@@ -816,13 +860,19 @@ void KMagZoomView::grabFrame()
   m_grabbedPixmap = QPixmap::grabWindow(QApplication::desktop()->winId(), selRect.x(), selRect.y(),
                                         selRect.width(), selRect.height());
 
-  // If the KMag window itself is in the screenshot, then it need to be pointed grey to avoid recursion
-  QRect intersection = selRect & QRect (mapToGlobal(contentsRect().topLeft()), QSize (contentsRect().size()));
-  if (intersection.width() > 0 && intersection.height() > 0) {
-    intersection.moveBy (-selRect.x(), -selRect.y());
-    QPainter painter (&m_grabbedPixmap, true);
-    painter.fillRect (intersection, QBrush (QColor (128, 128, 128)));
-  }
+  // If the KMag window itself is in the screenshot, then it need to be filled with gray to avoid recursion
+  QPoint globalPos = viewport()->mapToGlobal (viewport()->rect().topLeft());
+  QRegion intersection (globalPos.x(), globalPos.y(), viewport()->width(), viewport()->height(), QRegion::Rectangle);
+  intersection &= QRegion (selRect, QRegion::Rectangle);
+
+  // We don't want to overpaint other windows that happen to be on top
+  obscuredRegion (intersection, topLevelWidget()->winId());
+  intersection.translate (-selRect.x(), -selRect.y());
+
+  QPainter painter (&m_grabbedPixmap, true);
+  QMemArray<QRect> rects (intersection.rects());
+  for (uint i = 0; i < rects.size(); i++)
+    painter.fillRect (rects[i], QBrush (QColor (128, 128, 128)));
 
   // call repaint to display the newly grabbed image
   QRect newSize = m_zoomMatrix.mapRect (m_grabbedPixmap.rect());
