@@ -4,7 +4,7 @@
     begin                : Mon Feb 12 23:45:41 EST 2001
     copyright            : (C) 2001-2003 by Sarang Lakare
     email                : sarang#users.sf.net
-    copyright            : (C) 2003-2004 by Olaf Schmidt
+    copyright            : (C) 2003-2005 by Olaf Schmidt
     email                : ojschmidt@kde.org
  ***************************************************************************/
 
@@ -40,6 +40,7 @@
 /**
  * The KMagZoomView class provides the view widget for the KmagApp instance.  
  *   
+ * @author Olaf Schmikt <ojschmidt@kde.org>
  * @author Sarang Lakare <sarang#users.sourceforge.net>
  */
 class KMagZoomView : public QScrollView
@@ -86,6 +87,9 @@ class KMagZoomView : public QScrollView
 
     /// Sets the rotation to the given value
     void setRotation(int rotation = 0);
+
+    /// Sets whether the magnified image is shown inverted
+    void setInvertation(bool invert);
     
     /// Grabs a frame from the given portion of the display
     void grabFrame();
@@ -226,8 +230,14 @@ class KMagZoomView : public QScrollView
     /// Stores the degrees to rotate the pixmap
     int m_rotation;
 
+    /// Whether the magnified image is to be shown inverted
+    int m_invert;
+
     /// Fit the zoom view to the zoom window
     bool m_fitToWindow;
+
+    /// Update the magnification matrix
+    void updateMatrix();
 };
 
 #endif // KMagZoomView_h_

@@ -204,6 +204,9 @@ void KmagApp::initActions()
   m_pZoomOut = KStdAction::zoomOut(this, SLOT(zoomOut()), actionCollection(), "zoom_out");
   m_pZoomOut->setWhatsThis(i18n("Click on this button to <b>zoom-out</b> on the selected region."));
 
+  m_pInvert = new KToggleAction(i18n("&Invert Colors"), 0, 0, this,
+                            SLOT(slotToggleInvert()), actionCollection(), "invert");
+
   m_pRotationBox = new KSelectAction(i18n("&Rotation"),0,actionCollection(),"rotation");
   m_pRotationBox->setItems(rotationArrayString);
   m_pRotationBox->setWhatsThis(i18n("Select the rotation degree."));
@@ -215,7 +218,7 @@ void KmagApp::initActions()
   m_toolConf = KStdAction::configureToolbars( this, SLOT( slotEditToolbars() ),
                                               actionCollection(), "toolbar_conf");
 
-  m_pFPSBox = new KSelectAction(i18n("&Refresh"),0,actionCollection(),"fps_selector");
+  m_pFPSBox = new KSelectAction(i18n("Re&fresh"),0,actionCollection(),"fps_selector");
   m_pFPSBox->setItems(fpsArrayString);
   m_pFPSBox->setWhatsThis(i18n("Select the refresh rate. The higher the rate, the more computing power (CPU) will be needed."));
   m_pFPSBox->setToolTip(i18n("Refresh rate"));
@@ -462,6 +465,14 @@ void KmagApp::setZoomIndex(int index)
 
   // signal change in zoom value
   emit updateZoomValue(zoomArray[m_zoomIndex]);
+}
+
+/**
+ * Shows/hides the mouse cursor
+ */
+void KmagApp::slotToggleInvert ()
+{
+  m_zoomView->setInvertation (m_pInvert->isChecked());
 }
 
 /**

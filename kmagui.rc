@@ -44,6 +44,7 @@
    <Action name="zoom_out"/>
    <Action name="zoom_in"/>
    <Separator />
+   <Action name="invert"/>
    <Action name="rotation"/>
    <Action name="fps_selector"/>
   </Menu>
@@ -76,6 +77,7 @@
    <Action name="zoom_out"/>
    <Action name="zoom_in"/>
    <Separator />
+   <Action name="invert"/>
    <Action name="rotation"/>
    <Action name="fps_selector"/>
   </Menu>
@@ -97,5 +99,6 @@
   <Separator />
   <Action name="snapshot"/>
   <Action name="print"/>
+  <Action name="quit"/>
  </Menu>
 </kpartgui>

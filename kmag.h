@@ -132,6 +132,9 @@ class KmagApp : public KMainWindow
     /// Sets the zoom index to index
     void setZoomIndex(int index);
 
+    /// Sets the invertation mode
+    void slotToggleInvert();
+
     /// Sets the rotation index to index
     void setRotationIndex(int index);
 
@@ -187,7 +190,7 @@ class KmagApp : public KMainWindow
     KAction *m_pZoomOut;
     KAction *m_pQuit;
     KAction *refreshSwitch;
-    KToggleAction *m_pShowMenu, *m_pShowMainToolBar, *m_pShowViewToolBar, *m_pShowSettingsToolBar;
+    KToggleAction *m_pInvert, *m_pShowMenu, *m_pShowMainToolBar, *m_pShowViewToolBar, *m_pShowSettingsToolBar;
     KSelectAction *m_pZoomBox, *m_pRotationBox, *m_pFPSBox;
 
     /// zoom slider

@@ -4,7 +4,7 @@
     begin                : Mon Feb 12 23:45:41 EST 2001
     copyright            : (C) 2001-2003 by Sarang Lakare
     email                : sarang#users.sourceforge.net
-    copyright            : (C) 2003-2004 by Olaf Schmidt
+    copyright            : (C) 2003-2005 by Olaf Schmidt
     email                : ojschmidt@kde.org
  ***************************************************************************/
 
@@ -24,6 +24,8 @@
 
 // include files for Qt
 #include <qbitmap.h>
+#include <qpixmap.h>
+#include <qimage.h>
 #include <qcursor.h>
 #include <qglobal.h>
 #include <qpainter.h>
@@ -127,6 +129,7 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
     m_showMouse(1),
     m_zoom(1.0),
     m_rotation(0),
+    m_invert(false),
     m_fitToWindow(true)
 {
   KApplication::setGlobalMouseTracking(TRUE);
@@ -134,14 +137,6 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
   viewport()->setBackgroundMode (NoBackground);
   viewport()->setFocusPolicy(QWidget::StrongFocus);
   
-  // init the zoom matrix
-  m_zoomMatrix.reset();
-  m_zoomMatrix.scale(m_zoom, m_zoom);
-  m_zoomMatrix.rotate(m_rotation);
-
-  bool inverted;
-  m_invertedMatrix = m_zoomMatrix.invert (&inverted);
-
   m_ctrlKeyPressed = false;
   m_shiftKeyPressed = false;
   m_refreshSwitch = true;
@@ -166,8 +161,7 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
   // different ways to show the cursor.
   m_showMouseTypes << "Hidden" << "Box" << "Arrow" << "Actual";
 
-  if(m_fitToWindow)
-    fitToWindow();
+  updateMatrix();
 }
 
 KMagZoomView::~KMagZoomView()
@@ -236,7 +230,7 @@ void KMagZoomView::resizeEvent( QResizeEvent * e )
  *
  * @param p
  */
-void KMagZoomView::drawContents ( QPainter*, int clipx, int clipy, int clipw, int cliph )
+void KMagZoomView::drawContents ( QPainter * p, int clipx, int clipy, int clipw, int cliph )
 {
   if(m_grabbedPixmap.isNull())
     return;
@@ -244,7 +238,7 @@ void KMagZoomView::drawContents ( QPainter*, int clipx, int clipy, int clipw, in
   // A pixmap which will be eventually displayed
   QRect areaToPaint = m_invertedMatrix.mapRect (QRect(clipx, clipy, clipw, cliph));
   QPixmap clippedPixmap (areaToPaint.size());
-  clippedPixmap.fill (Qt::black);
+  clippedPixmap.fill (QColor (128, 128, 128));
   bitBlt(&clippedPixmap, QPoint (0,0), &m_grabbedPixmap, areaToPaint & QRect (QPoint (0,0), m_selRect.size()));
 
   // show the pixel under mouse cursor
@@ -256,8 +250,15 @@ void KMagZoomView::drawContents ( QPainter*, int clipx, int clipy, int clipw, in
   QPixmap zoomedPixmap;
   zoomedPixmap = clippedPixmap.xForm (m_zoomMatrix);
 
-  // bitBlt this part on to the widget.
-  bitBlt(viewport(), QPoint (clipx-contentsX(), clipy-contentsY()), &zoomedPixmap, zoomedPixmap.rect());
+  if (m_invert) {
+    QImage zoomedImage;
+    zoomedImage = zoomedPixmap.convertToImage();
+    zoomedImage.invertPixels (false);
+    p->drawImage (QPoint (clipx-contentsX(), clipy-contentsY()), zoomedImage, zoomedImage.rect(),
+                  Qt::ThresholdDither | Qt::ThresholdAlphaDither | Qt::AvoidDither);
+  } else {
+    p->drawPixmap (QPoint (clipx-contentsX(), clipy-contentsY()), zoomedPixmap, zoomedPixmap.rect());
+  }
 }
 
 /**
@@ -914,21 +915,8 @@ void KMagZoomView::toggleRefresh()
  */
 void KMagZoomView::setZoom(float zoom)
 {
-  // use this zoom
   m_zoom = zoom;
-
-  // update selection window size when zooming in if necessary
-  if (m_fitToWindow)
-    fitToWindow();
-
-  // recompute the zoom matrix
-  m_zoomMatrix.reset();
-  m_zoomMatrix.scale(m_zoom, m_zoom);
-  m_zoomMatrix.rotate(m_rotation);
-
-  bool inverted;
-  m_invertedMatrix = m_zoomMatrix.invert (&inverted);
-
+  updateMatrix();
   viewport()->repaint();
 }
 
@@ -937,21 +925,17 @@ void KMagZoomView::setZoom(float zoom)
  */
 void KMagZoomView::setRotation(int rotation)
 {
-  // use this rotation
   m_rotation = rotation;
+  updateMatrix();
+  viewport()->repaint();
+}
 
-  // update selection window size if necessary
-  if (m_fitToWindow)
-    fitToWindow();
-
-  // recompute the zoom matrix
-  m_zoomMatrix.reset();
-  m_zoomMatrix.scale(m_zoom, m_zoom);
-  m_zoomMatrix.rotate(m_rotation);
-
-  bool inverted;
-  m_invertedMatrix = m_zoomMatrix.invert (&inverted);
-
+/**
+ * This function sets whether the magnified image is shown inverted
+ */
+void KMagZoomView::setInvertation(bool invert)
+{
+  m_invert = invert;
   viewport()->repaint();
 }
 
@@ -1027,4 +1011,23 @@ QPixmap KMagZoomView::getPixmap()
   } else { // no mouse cursor
      return(m_grabbedPixmap);
   }
+}
+
+/**
+ * Update the magnification matrix
+ */
+void KMagZoomView::updateMatrix()
+{
+  // update selection window size if necessary
+  if (m_fitToWindow)
+    fitToWindow();
+
+  // recompute the zoom matrix
+  m_zoomMatrix.reset();
+  m_zoomMatrix.scale(m_zoom, m_zoom);
+  m_zoomMatrix.rotate(m_rotation);
+
+  bool inverted;
+  m_invertedMatrix = m_zoomMatrix.invert (&inverted);
+
 }
