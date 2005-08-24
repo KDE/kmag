@@ -79,7 +79,7 @@ static uchar phand_bits[] = {
 
 
 
-static bool obscuredRegion (QRegion &region, Window winId, Window start = 0, int level = -1) {
+static bool obscuredRegion (QRegion &region, Window winId, Window ignoreId, Window start = 0, int level = -1) {
   Window root, parent, *children; uint nchildren;
   if (0 == start)
     start = qt_xrootwin();
@@ -88,10 +88,11 @@ static bool obscuredRegion (QRegion &region, Window winId, Window start = 0, int
   if (0 != XQueryTree (qt_xdisplay(), start, &root, &parent, &children, &nchildren)) {
     for (uint i=0; i < nchildren; ++i) {
       if (winIdFound) {
-        XWindowAttributes atts;
-        XGetWindowAttributes (qt_xdisplay(), children [i], &atts);
-        if (atts.map_state == IsViewable) {
-          region -= QRegion (atts.x, atts.y, atts.width, atts.height, QRegion::Rectangle);
+        if (ignoreId != children [i]) {
+          XWindowAttributes atts;
+          XGetWindowAttributes (qt_xdisplay(), children [i], &atts);
+          if (atts.map_state == IsViewable)
+            region -= QRegion (atts.x, atts.y, atts.width, atts.height, QRegion::Rectangle);
         }
       }
       else if (winId == children [i])
@@ -102,11 +103,11 @@ static bool obscuredRegion (QRegion &region, Window winId, Window start = 0, int
       // then to five recursion levels, and make a full recursive search only if that
       // was unsuccessful.
       else if (level > 1)
-        winIdFound = obscuredRegion (region, winId, children [i], level-1);
+        winIdFound = obscuredRegion (region, winId, ignoreId, children [i], level-1);
       else if (level == -1)
-        if (! (winIdFound = obscuredRegion (region, winId, children [i], 2)))
-          if (! (winIdFound = obscuredRegion (region, winId, children [i], 5)))
-            winIdFound = obscuredRegion (region, winId, children [i], -1);
+        if (! (winIdFound = obscuredRegion (region, winId, ignoreId, children [i], 0)))
+          if (! (winIdFound = obscuredRegion (region, winId, ignoreId, children [i], 1)))
+            winIdFound = obscuredRegion (region, winId, ignoreId, children [i], -1);
     }
 
     if (children != NULL)
@@ -239,7 +240,8 @@ void KMagZoomView::drawContents ( QPainter * p, int clipx, int clipy, int clipw,
   QRect areaToPaint = m_invertedMatrix.mapRect (QRect(clipx, clipy, clipw, cliph));
   QPixmap clippedPixmap (areaToPaint.size());
   clippedPixmap.fill (QColor (128, 128, 128));
-  bitBlt(&clippedPixmap, QPoint (0,0), &m_grabbedPixmap, areaToPaint & QRect (QPoint (0,0), m_selRect.size()));
+  areaToPaint &= QRect (QPoint (0,0), m_selRect.size());
+  bitBlt(&clippedPixmap, QPoint (0,0), &m_grabbedPixmap, areaToPaint);
 
   // show the pixel under mouse cursor
   if(m_showMouse) {
@@ -257,7 +259,7 @@ void KMagZoomView::drawContents ( QPainter * p, int clipx, int clipy, int clipw,
     p->drawImage (QPoint (clipx-contentsX(), clipy-contentsY()), zoomedImage, zoomedImage.rect(),
                   Qt::ThresholdDither | Qt::ThresholdAlphaDither | Qt::AvoidDither);
   } else {
-    p->drawPixmap (QPoint (clipx-contentsX(), clipy-contentsY()), zoomedPixmap, zoomedPixmap.rect());
+    p->drawPixmap (QPoint (clipx, clipy), zoomedPixmap, zoomedPixmap.rect());
   }
 }
 
@@ -554,66 +556,25 @@ void KMagZoomView::mouseMoveEvent(QMouseEvent *e)
     m_selRect.setRight(e->globalX());
     m_selRect.setBottom(e->globalY());
     m_selRect.update();
+
     grabFrame();
   } else if(m_mouseMode == MoveSelection) {
-     QPoint newCenter;
+    QPoint newCenter;
 
     // set new center to be the current mouse position
-    newCenter = e->globalPos();
-
-    // make sure the mouse position is not taking the grab window outside
-    // the display
-    if(newCenter.x() < m_selRect.width()/2) {
-      // set X to the minimum possible X
-      newCenter.setX(m_selRect.width()/2);
-    } else if(newCenter.x() >=  QApplication::desktop()->width()-m_selRect.width()/2) {
-      // set X to the maximum possible X
-      newCenter.setX(QApplication::desktop()->width()-m_selRect.width()/2-1);
-    }
-
-    if(newCenter.y() < m_selRect.height()/2) {
-      // set Y to the minimum possible Y
-      newCenter.setY(m_selRect.height()/2);
-    } else if(newCenter.y() >=  QApplication::desktop()->height()-m_selRect.height()/2) {
-      // set Y to the maximum possible Y
-      newCenter.setY(QApplication::desktop()->height()-m_selRect.height()/2-1);
-    }
-    // move to the new center
-    m_selRect.moveCenter(newCenter);
-    // update the grab rectangle display
+    m_selRect.moveCenter(e->globalPos());
     m_selRect.update();
+
     grabFrame();
   } else if(m_mouseMode == GrabSelection) {
-     QPoint newPos;
+    QPoint newPos;
 
     // get new position
     newPos = e->globalPos();
-
     QPoint delta = (newPos - m_oldMousePos)/m_zoom;
-    QPoint newCenter = m_oldCenter-delta;
-
-    // make sure the mouse position is not taking the grab window outside
-    // the display
-    if(newCenter.x() < m_selRect.width()/2) {
-      // set X to the minimum possible X
-      newCenter.setX(m_selRect.width()/2);
-    } else if(newCenter.x() >=  QApplication::desktop()->width()-m_selRect.width()/2) {
-      // set X to the maximum possible X
-      newCenter.setX(QApplication::desktop()->width()-m_selRect.width()/2-1);
-    }
-
-    if(newCenter.y() < m_selRect.height()/2) {
-      // set Y to the minimum possible Y
-      newCenter.setY(m_selRect.height()/2);
-    } else if(newCenter.y() >=  QApplication::desktop()->height()-m_selRect.height()/2) {
-      // set Y to the maximum possible Y
-      newCenter.setY(QApplication::desktop()->height()-m_selRect.height()/2-1);
-    }
-            
-    // move to the new center  
-    m_selRect.moveCenter(newCenter);
-    // update the grab rectangle display
+    m_selRect.moveCenter(m_oldCenter-delta);
     m_selRect.update();
+
     grabFrame();
   }
 }
@@ -657,12 +618,7 @@ void KMagZoomView::keyPressEvent(QKeyEvent *e)
   else if (e->key() == QKeyEvent::Key_Right)
   {
     if (e->state() & QKeyEvent::ControlButton)
-    {
-      if (m_selRect.right()+offset >= QApplication::desktop()->width())
-        m_selRect.setRight (QApplication::desktop()->width()-1);
-      else
-        m_selRect.setRight (m_selRect.right()+offset);
-    }
+      m_selRect.setRight (m_selRect.right()+offset);
     else if (contentsX() < contentsWidth()-visibleWidth())
     {
       offset = (int)(offset*m_zoom);
@@ -672,12 +628,8 @@ void KMagZoomView::keyPressEvent(QKeyEvent *e)
         setContentsPos (contentsWidth()-visibleWidth(), contentsY());
     }
     else if (m_followMouse == false)
-    {
-      if (m_selRect.right()+offset >= QApplication::desktop()->width())
-        m_selRect.moveTopRight (QPoint (QApplication::desktop()->width()-1, m_selRect.top()));
-      else
-        m_selRect.moveBy (offset,0);
-    }
+      m_selRect.moveBy (offset,0);
+
     m_selRect.update();
   }
   else if (e->key() == QKeyEvent::Key_Up)
@@ -709,12 +661,7 @@ void KMagZoomView::keyPressEvent(QKeyEvent *e)
   else if (e->key() == QKeyEvent::Key_Down)
   {
     if (e->state() & QKeyEvent::ControlButton)
-    {
-      if (m_selRect.bottom()+offset >= QApplication::desktop()->height())
-        m_selRect.setBottom (QApplication::desktop()->height()-1);
-      else
-        m_selRect.setBottom (m_selRect.bottom()+offset);
-    }
+      m_selRect.setBottom (m_selRect.bottom()+offset);
     else if (contentsY() < contentsHeight()-visibleHeight())
     {
       offset = (int)(offset*m_zoom);
@@ -724,12 +671,7 @@ void KMagZoomView::keyPressEvent(QKeyEvent *e)
         setContentsPos (contentsX(), contentsHeight()-visibleHeight());
     }
     else if (m_followMouse == false)
-    {
-      if (m_selRect.bottom()+offset >= QApplication::desktop()->height())
-        m_selRect.moveBottomLeft (QPoint (m_selRect.left(), QApplication::desktop()->height()-1));
-      else
-        m_selRect.moveBy (0, offset);
-    }
+      m_selRect.moveBy (0, offset);
     m_selRect.update();
   }
   else
@@ -762,44 +704,12 @@ void KMagZoomView::focusOutEvent(QFocusEvent *e)
  */
 void KMagZoomView::fitToWindow()
 {
-  unsigned int newWidth, newHeight;
-  
-  // this is a temporary solution, cast, maybe newWidth and newHeight should be float
-  if ((m_rotation == 90) || (m_rotation == 270))
-  {
-    newWidth = static_cast<unsigned int>(visibleHeight()/m_zoom);
-    newHeight = static_cast<unsigned int>(visibleWidth()/m_zoom);
-  } else {
-    newWidth = static_cast<unsigned int>(visibleWidth()/m_zoom);
-    newHeight = static_cast<unsigned int>(visibleHeight()/m_zoom);
-  }
-
   QPoint currCenter = m_selRect.center();
-
-  m_selRect.setWidth(newWidth);
-  m_selRect.setHeight(newHeight);
-
-   // make sure the selection window does not go outside of the display
-   if(currCenter.x() < m_selRect.width()/2) {
-     // set X to the minimum possible X
-     currCenter.setX(m_selRect.width()/2);
-   } else if(currCenter.x() >=  QApplication::desktop()->width()-m_selRect.width()/2) {
-     // set X to the maximum possible X
-     currCenter.setX(QApplication::desktop()->width()-m_selRect.width()/2-1);
-   }
-
-   if(currCenter.y() < m_selRect.height()/2) {
-     // set Y to the minimum possible Y
-     currCenter.setY(m_selRect.height()/2);
-   } else if(currCenter.y() >=  QApplication::desktop()->height()-m_selRect.height()/2) {
-     // set Y to the maximum possible Y
-     currCenter.setY(QApplication::desktop()->height()-m_selRect.height()/2-1);
-   }
-
+  QRect newRect = m_invertedMatrix.mapRect (QRect(0, 0, visibleWidth(), visibleHeight()));
+  m_selRect.setSize (newRect.size());
   m_selRect.moveCenter(currCenter);
-  // update the grab rectangle display
   m_selRect.update();
-//  m_fitToWindow = true;
+
   viewport()->repaint(false);
 }
 
@@ -826,29 +736,7 @@ void KMagZoomView::grabFrame()
      QPoint newCenter;
 
     // set new center to be the current mouse position
-    newCenter = QCursor::pos();
-
-    // make sure the mouse position is not taking the grab window outside
-    // the display
-    if(newCenter.x() < m_selRect.width()/2) {
-      // set X to the minimum possible X
-      newCenter.setX(m_selRect.width()/2);
-    } else if(newCenter.x() >=  QApplication::desktop()->width()-m_selRect.width()/2) {
-      // set X to the maximum possible X
-      newCenter.setX(QApplication::desktop()->width()-m_selRect.width()/2-1);
-    }
-
-    if(newCenter.y() < m_selRect.height()/2) {
-      // set Y to the minimum possible Y
-      newCenter.setY(m_selRect.height()/2);
-    } else if(newCenter.y() >=  QApplication::desktop()->height()-m_selRect.height()/2) {
-      // set Y to the maximum possible Y
-      newCenter.setY(QApplication::desktop()->height()-m_selRect.height()/2-1);
-    }
-    // move to the new center
-    m_selRect.moveCenter(newCenter);
-
-    // update the grab rectangle display
+    m_selRect.moveCenter(QCursor::pos());
     m_selRect.update();
   }
 
@@ -867,7 +755,7 @@ void KMagZoomView::grabFrame()
   intersection &= QRegion (selRect, QRegion::Rectangle);
 
   // We don't want to overpaint other windows that happen to be on top
-  obscuredRegion (intersection, topLevelWidget()->winId());
+  obscuredRegion (intersection, topLevelWidget()->winId(), m_selRect.winId());
   intersection.translate (-selRect.x(), -selRect.y());
 
   QPainter painter (&m_grabbedPixmap, true);

@@ -113,6 +113,8 @@ public:
 
     virtual ~KMagSelRect();
 
+    WId winId();
+
     bool visible();
 
     /// Makes the rectangle always visible
