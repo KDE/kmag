@@ -119,6 +119,10 @@ class KmagApp : public KMainWindow
     void slotModeFollowMouse();
     void slotModeWholeScreen();
     void slotModeSelWin();
+    void slotModeEdgeTop();
+    void slotModeEdgeLeft();
+    void slotModeEdgeRight();
+    void slotModeEdgeBottom();
 
     /// Zooms in
     void zoomIn();
@@ -180,6 +184,12 @@ class KmagApp : public KMainWindow
     void updateFPSValue(float);
 
   private:
+
+    void setEdgeMode (KToggleAction *mode);
+    void unsetEdgeMode (KToggleAction *mode);
+
+    int edgesize;
+
     /// the configuration object of the application
     KConfig *config;
 
@@ -217,6 +227,7 @@ class KmagApp : public KMainWindow
   KMagZoomView* m_zoomView;
   KToggleAction *m_hideCursor;
   KRadioAction *m_modeFollowMouse, *m_modeWholeScreen, *m_modeSelWin;
+  KRadioAction *m_modeEdgeTop, *m_modeEdgeLeft, *m_modeEdgeRight, *m_modeEdgeBottom;
 
   /// Stores the non-zero cursor type to be used
   unsigned int m_mouseCursorType;

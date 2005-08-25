@@ -57,6 +57,10 @@
    <Action name="mode_followmouse"/>
    <Action name="mode_selectionwindow"/>
    <Action name="mode_wholescreen"/>
+   <Action name="mode_edgetop"/>
+   <Action name="mode_edgeleft"/>
+   <Action name="mode_edgeright"/>
+   <Action name="mode_edgebottom"/>
    <Separator />
    <Action name="hidecursor"/>
    <Separator />
@@ -90,6 +94,10 @@
    <Action name="mode_followmouse"/>
    <Action name="mode_selectionwindow"/>
    <Action name="mode_wholescreen"/>
+   <Action name="mode_edgetop"/>
+   <Action name="mode_edgeleft"/>
+   <Action name="mode_edgeright"/>
+   <Action name="mode_edgebottom"/>
    <Separator />
    <Action name="hidecursor"/>
    <Separator />

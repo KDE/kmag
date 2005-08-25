@@ -53,6 +53,7 @@
 #include <ktempfile.h>
 #include <kpopupmenu.h>
 #include <kedittoolbar.h>
+#include <kwin.h>
 
 #if KDE_VERSION < 220
 #include <qprinter.h>
@@ -73,7 +74,7 @@
 #endif
 
 KmagApp::KmagApp(QWidget* , const char* name)
-  : KMainWindow(0, name, WStyle_MinMax | WType_TopLevel | WDestructiveClose | WStyle_ContextHelp | WStyle_StaysOnTop),
+  : KMainWindow(0, name, WStyle_MinMax | WType_TopLevel | WDestructiveClose | WStyle_ContextHelp),
     m_defaultMouseCursorType(2)
 {
   config=kapp->config();
@@ -172,19 +173,40 @@ void KmagApp::initActions()
   m_pShowSettingsToolBar->setCheckedState(i18n("Hide &Settings Toolbar"));
   #endif
 
-  m_modeFollowMouse = new KRadioAction(i18n("&Follow Mouse Mode"), "followmouse", Key_F1, this,
+  m_modeFollowMouse = new KRadioAction(i18n("Magnify mouse &area into window"), "followmouse", Key_F1, this,
                             SLOT(slotModeFollowMouse()), actionCollection(), "mode_followmouse");
-  m_modeFollowMouse->setToolTip(i18n("Magnify around the mouse cursor"));
-  m_modeFollowMouse->setWhatsThis(i18n("If selected, the area around the mouse cursor is magnified"));
+  m_modeFollowMouse->setToolTip(i18n("Magnify mouse area into window"));
+  m_modeFollowMouse->setWhatsThis(i18n("In this mode the area around the mouse cursor is shown in a normal window."));
 
-  m_modeSelWin = new KRadioAction(i18n("Se&lection Window Mode"), "window", Key_F2, this,
+  m_modeSelWin = new KRadioAction(i18n("Magnify s&elected area into window"), "window", Key_F2, this,
                             SLOT(slotModeSelWin()), actionCollection(), "mode_selectionwindow");
-  m_modeSelWin->setToolTip(i18n("Show a window for selecting the magnified area"));
+  m_modeSelWin->setToolTip(i18n("Magnify selected area into window"));
+  m_modeSelWin->setWhatsThis(i18n("In this mode a selection window is opened. The selected area is shown in a normal window."));
 
-  m_modeWholeScreen = new KRadioAction(i18n("&Whole Screen Mode"), "window_fullscreen", Key_F3, this,
+  m_modeWholeScreen = new KRadioAction(i18n("Magnify &whole screen into window"), "window_fullscreen", Key_F3, this,
                               SLOT(slotModeWholeScreen()), actionCollection(),"mode_wholescreen");
-  m_modeWholeScreen->setToolTip(i18n("Magnify the whole screen"));
-  m_modeWholeScreen->setWhatsThis(i18n("Click on this button to fit the zoom view to the zoom window."));
+  m_modeWholeScreen->setToolTip(i18n("Magnify whole screen into window"));
+  m_modeWholeScreen->setWhatsThis(i18n("In this mode the whole screen is shown in a normal window."));
+
+  m_modeEdgeTop = new KRadioAction(i18n("Magnify mouse area to &top screen edge"), 0, 0, this,
+                              SLOT(slotModeEdgeTop()), actionCollection(),"mode_edgetop");
+  m_modeEdgeTop->setToolTip(i18n("Magnify mouse area to top screen edge"));
+  m_modeEdgeTop->setWhatsThis(i18n("In this mode the area around the mouse is magnified to the top screen edge."));
+
+  m_modeEdgeLeft = new KRadioAction(i18n("Magnify mouse area to &left screen edge"), 0, 0, this,
+                              SLOT(slotModeEdgeLeft()), actionCollection(),"mode_edgeleft");
+  m_modeEdgeLeft->setToolTip(i18n("Magnify mouse area to left screen edge"));
+  m_modeEdgeLeft->setWhatsThis(i18n("In this mode the area around the mouse is magnified to the left screen edge."));
+
+  m_modeEdgeRight = new KRadioAction(i18n("Magnify mouse area to &right screen edge"), 0, 0, this,
+                              SLOT(slotModeEdgeRight()), actionCollection(),"mode_edgeright");
+  m_modeEdgeRight->setToolTip(i18n("Magnify mouse area to right screen edge"));
+  m_modeEdgeRight->setWhatsThis(i18n("In this mode the area around the mouse is magnified to the right screen edge."));
+
+  m_modeEdgeBottom = new KRadioAction(i18n("Magnify mouse area to &bottom screen edge"), 0, 0, this,
+                              SLOT(slotModeEdgeBottom()), actionCollection(),"mode_edgebottom");
+  m_modeEdgeBottom->setToolTip(i18n("Magnify mouse area to bottom screen edge"));
+  m_modeEdgeBottom->setWhatsThis(i18n("In this mode the area around the mouse is magnified to the bottom screen edge."));
 
   m_hideCursor = new KToggleAction(i18n("Hide Mouse &Cursor"), "hidemouse", Key_F4, this,
                             SLOT(slotToggleHideCursor()), actionCollection(), "hidecursor");
@@ -204,7 +226,7 @@ void KmagApp::initActions()
   m_pZoomOut = KStdAction::zoomOut(this, SLOT(zoomOut()), actionCollection(), "zoom_out");
   m_pZoomOut->setWhatsThis(i18n("Click on this button to <b>zoom-out</b> on the selected region."));
 
-  m_pInvert = new KToggleAction(i18n("&Invert Colors"), 0, 0, this,
+  m_pInvert = new KToggleAction(i18n("&Invert Colors"), 0, Key_F6, this,
                             SLOT(slotToggleInvert()), actionCollection(), "invert");
 
   m_pRotationBox = new KSelectAction(i18n("&Rotation"),0,actionCollection(),"rotation");
@@ -265,6 +287,7 @@ void KmagApp::saveOptions()
   config->setGroup("General Options");
   config->writeEntry("Geometry", size());
   config->writeEntry("ZoomIndex", m_zoomIndex);
+  config->writeEntry("Invertation", m_pInvert->isChecked());
   config->writeEntry("RotationIndex", m_rotationIndex);
   config->writeEntry("FPSIndex", m_fpsIndex);
   config->writeEntry("SelRect", m_zoomView->getSelRectPos());
@@ -276,6 +299,16 @@ void KmagApp::saveOptions()
      config->writeEntry("Mode", "wholescreen");
   else if (m_modeSelWin->isChecked())
      config->writeEntry("Mode", "selectionwindow");
+  else if (m_modeEdgeTop->isChecked())
+     config->writeEntry("Mode", "edgetop");
+  else if (m_modeEdgeLeft->isChecked())
+     config->writeEntry("Mode", "edgeleft");
+  else if (m_modeEdgeRight->isChecked())
+     config->writeEntry("Mode", "edgeright");
+  else if (m_modeEdgeBottom->isChecked())
+     config->writeEntry("Mode", "edgebottom");
+
+  config->writeEntry ("EdgeSize", edgesize);
 
   config->writeEntry("ShowMenu", m_pShowMenu->isChecked());
   config->writeEntry("ShowMainToolBar", m_pShowMainToolBar->isChecked());
@@ -317,6 +350,9 @@ void KmagApp::readOptions()
   setZoomIndex(zoomIndex);
   emit updateZoomIndex(m_zoomIndex);
 
+  m_pInvert->setChecked (config->readBoolEntry("Invertation", false));
+  slotToggleInvert();
+
   unsigned int rotationIndex = config->readUnsignedNumEntry("RotationIndex", 0);
   setRotationIndex(rotationIndex);
   emit updateRotationIndex(m_rotationIndex);
@@ -325,11 +361,20 @@ void KmagApp::readOptions()
   setFPSIndex(fpsIndex);
   emit updateFPSIndex(m_fpsIndex);
 
+  edgesize = config->readNumEntry("EdgeSize", 0);
   QString mode = config->readEntry("Mode", "followmouse");
   if (mode == "wholescreen")
     slotModeWholeScreen();
   else if (mode == "selectionwindow")
     slotModeSelWin();
+  else if (mode == "edgetop")
+    slotModeEdgeTop();
+  else if (mode == "edgeleft")
+    slotModeEdgeLeft();
+  else if (mode == "edgeright")
+    slotModeEdgeRight();
+  else if (mode == "edgebottom")
+    slotModeEdgeBottom();
   else
     slotModeFollowMouse();
 
@@ -585,35 +630,153 @@ void KmagApp::slotToggleRefresh()
 
 void KmagApp::slotModeWholeScreen()
 {
-  m_zoomView->setSelRectPos(QRect (0, 0, QApplication::desktop()->width(), QApplication::desktop()->height()));
+  unsetEdgeMode(m_modeWholeScreen);
+
+  m_zoomView->setSelRectPos(QApplication::desktop()->screenGeometry());
+  m_zoomView->setFitToWindow (false);
   m_zoomView->followMouse(false);
   m_zoomView->showSelRect(false);
-  m_zoomView->setFitToWindow (false);
-  m_modeFollowMouse->setChecked(false);
-  m_modeWholeScreen->setChecked(true);
-  m_modeSelWin->setChecked(false);
 }
 
 
 void KmagApp::slotModeSelWin()
 {
+  unsetEdgeMode(m_modeSelWin);
+
+  m_zoomView->fitToWindow();
+  m_zoomView->setFitToWindow (false);
   m_zoomView->followMouse(false);
   m_zoomView->showSelRect(true);
-  m_zoomView->setFitToWindow (false);
-  m_modeFollowMouse->setChecked(false);
-  m_modeWholeScreen->setChecked(false);
-  m_modeSelWin->setChecked(true);
 }
 
 
 void KmagApp::slotModeFollowMouse()
 {
+  unsetEdgeMode(m_modeFollowMouse);
+
+  m_zoomView->setFitToWindow (true);
   m_zoomView->followMouse(true);
   m_zoomView->showSelRect(false);
-  m_zoomView->setFitToWindow (true);
-  m_modeFollowMouse->setChecked(true);
+}
+
+
+void KmagApp::slotModeEdgeTop()
+{
+  setEdgeMode(m_modeEdgeTop);
+
+  if (edgesize < 200 || edgesize > QApplication::desktop()->screenGeometry().height()/2)
+    edgesize = QApplication::desktop()->height()/4;
+
+  setGeometry (0, 0, QApplication::desktop()->screenGeometry().width(), edgesize);
+  KWin::setExtendedStrut (winId(), 0, 0, 0, 0, 0, 0, edgesize, 0, QApplication::desktop()->screenGeometry().width(), 0, 0, 0);
+}
+
+
+void KmagApp::slotModeEdgeLeft()
+{
+  setEdgeMode(m_modeEdgeLeft);
+
+  if (edgesize < 200 || edgesize > QApplication::desktop()->screenGeometry().width()/2)
+    edgesize = QApplication::desktop()->screenGeometry().width()/4;
+
+  setGeometry (0, 0, edgesize, QApplication::desktop()->screenGeometry().height());
+  KWin::setExtendedStrut (winId(), edgesize, 0, QApplication::desktop()->screenGeometry().height(), 0, 0, 0, 0, 0, 0, 0, 0, 0);
+}
+
+
+void KmagApp::slotModeEdgeRight()
+{
+  setEdgeMode(m_modeEdgeRight);
+
+  if (edgesize < 200 || edgesize > QApplication::desktop()->screenGeometry().width()/2)
+    edgesize = QApplication::desktop()->screenGeometry().width()/4;
+
+  setGeometry (QApplication::desktop()->screenGeometry().width()-edgesize, 0,
+               edgesize, QApplication::desktop()->screenGeometry().height());
+  KWin::setExtendedStrut (winId(), 0, 0, 0, edgesize, 0, QApplication::desktop()->screenGeometry().height(), 0, 0, 0, 0, 0, 0);
+}
+
+
+void KmagApp::slotModeEdgeBottom()
+{
+  setEdgeMode(m_modeEdgeBottom);
+
+  if (edgesize < 200 || edgesize > QApplication::desktop()->screenGeometry().height()/2)
+    edgesize = QApplication::desktop()->height()/4;
+
+  setGeometry (0, QApplication::desktop()->screenGeometry().height()-edgesize,
+               QApplication::desktop()->screenGeometry().width(), edgesize);
+  KWin::setExtendedStrut (winId(), 0, 0, 0, 0, 0, 0, 0, 0, 0, edgesize, 0, QApplication::desktop()->screenGeometry().width());
+}
+
+
+void KmagApp::setEdgeMode (KToggleAction *mode)
+{
+  if (edgesize == 0)
+    // ask for edgesize
+    edgesize = 300;
+
+  m_modeFollowMouse->setChecked(false);
   m_modeWholeScreen->setChecked(false);
   m_modeSelWin->setChecked(false);
+  m_modeEdgeTop->setChecked(false);
+  m_modeEdgeLeft->setChecked(false);
+  m_modeEdgeRight->setChecked(false);
+  m_modeEdgeBottom->setChecked(false);
+  mode->setChecked (true);
+
+  m_zoomView->setFitToWindow (true);
+  m_zoomView->followMouse(true);
+  m_zoomView->showSelRect(false);
+
+  KWin::setType(winId(), NET::Override);
+  KWin::setState(winId(), NET::Sticky | NET::KeepBelow | NET::SkipTaskbar | NET::SkipPager);
+  KWin::setOnAllDesktops(winId(), true);
+
+  m_pShowMenu->setEnabled (false);
+  m_pShowMainToolBar->setEnabled (false);
+  m_pShowViewToolBar->setEnabled (false);
+  m_pShowSettingsToolBar->setEnabled (false);
+
+  slotShowMenu();
+  slotShowMainToolBar();
+  slotShowViewToolBar();
+  slotShowSettingsToolBar();
+}
+
+
+void KmagApp::unsetEdgeMode (KToggleAction *mode)
+{
+  edgesize = 0;
+
+  m_modeFollowMouse->setChecked(false);
+  m_modeWholeScreen->setChecked(false);
+  m_modeSelWin->setChecked(false);
+  m_modeEdgeTop->setChecked(false);
+  m_modeEdgeLeft->setChecked(false);
+  m_modeEdgeRight->setChecked(false);
+  m_modeEdgeBottom->setChecked(false);
+  mode->setChecked (true);
+
+  KWin::setType(winId(), NET::Normal);
+  KWin::clearState(winId(), NET::Sticky | NET::KeepBelow | NET::SkipTaskbar | NET::SkipPager);
+  KWin::setOnAllDesktops(winId(), false);
+
+  KWin::setExtendedStrut (winId(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+  setGeometry (QApplication::desktop()->screenGeometry().width()/3,
+               QApplication::desktop()->screenGeometry().height()/3,
+               QApplication::desktop()->screenGeometry().width()/3,
+               QApplication::desktop()->screenGeometry().height()/3);
+
+  m_pShowMenu->setEnabled (true);
+  m_pShowMainToolBar->setEnabled (true);
+  m_pShowViewToolBar->setEnabled (true);
+  m_pShowSettingsToolBar->setEnabled (true);
+
+  slotShowMenu();
+  slotShowMainToolBar();
+  slotShowViewToolBar();
+  slotShowSettingsToolBar();
 }
 
 
@@ -705,7 +868,7 @@ void KmagApp::slotShowMenu()
 {
   ///////////////////////////////////////////////////////////////////
   // turn Menu on or off
-  if(!m_pShowMenu->isChecked())
+  if(!m_pShowMenu->isChecked() || edgesize > 0)
   {
     menuBar()->hide();
   }
@@ -721,7 +884,7 @@ void KmagApp::slotShowMainToolBar()
 {
   ///////////////////////////////////////////////////////////////////
   // turn mainToolbar on or off
-  if(!m_pShowMainToolBar->isChecked())
+  if(!m_pShowMainToolBar->isChecked() || edgesize > 0)
   {
     toolBar("mainToolBar")->hide();
   }
@@ -735,7 +898,7 @@ void KmagApp::slotShowViewToolBar()
 {
   ///////////////////////////////////////////////////////////////////
   // turn viewToolbar on or off
-  if(!m_pShowViewToolBar->isChecked())
+  if(!m_pShowViewToolBar->isChecked() || edgesize > 0)
   {
     toolBar("viewToolBar")->hide();
   }
@@ -749,7 +912,7 @@ void KmagApp::slotShowSettingsToolBar()
 {
   ///////////////////////////////////////////////////////////////////
   // turn viewToolbar on or off
-  if(!m_pShowSettingsToolBar->isChecked())
+  if(!m_pShowSettingsToolBar->isChecked() || edgesize > 0)
   {
     toolBar("settingsToolBar")->hide();
   }
