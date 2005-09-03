@@ -174,37 +174,37 @@ void KmagApp::initActions()
   m_pShowSettingsToolBar->setCheckedState(i18n("Hide &Settings Toolbar"));
   #endif
 
-  m_modeFollowMouse = new KRadioAction(i18n("Magnify mouse &area into window"), "followmouse", Key_F1, this,
+  m_modeFollowMouse = new KRadioAction(i18n("Magnify Mouse &Area into Window"), "followmouse", Key_F1, this,
                             SLOT(slotModeFollowMouse()), actionCollection(), "mode_followmouse");
   m_modeFollowMouse->setToolTip(i18n("Magnify mouse area into window"));
   m_modeFollowMouse->setWhatsThis(i18n("In this mode the area around the mouse cursor is shown in a normal window."));
 
-  m_modeSelWin = new KRadioAction(i18n("Magnify s&elected area into window"), "window", Key_F2, this,
+  m_modeSelWin = new KRadioAction(i18n("Magnify S&elected Area into Window"), "window", Key_F2, this,
                             SLOT(slotModeSelWin()), actionCollection(), "mode_selectionwindow");
   m_modeSelWin->setToolTip(i18n("Magnify selected area into window"));
   m_modeSelWin->setWhatsThis(i18n("In this mode a selection window is opened. The selected area is shown in a normal window."));
 
-  m_modeWholeScreen = new KRadioAction(i18n("Magnify &whole screen into window"), "window_fullscreen", Key_F3, this,
+  m_modeWholeScreen = new KRadioAction(i18n("Magnify &Whole Screen into Window"), "window_fullscreen", Key_F3, this,
                               SLOT(slotModeWholeScreen()), actionCollection(),"mode_wholescreen");
   m_modeWholeScreen->setToolTip(i18n("Magnify whole screen into window"));
   m_modeWholeScreen->setWhatsThis(i18n("In this mode the whole screen is shown in a normal window."));
 
-  m_modeEdgeTop = new KRadioAction(i18n("Magnify mouse area to &top screen edge"), 0, 0, this,
+  m_modeEdgeTop = new KRadioAction(i18n("Magnify Mouse Area to &Top Screen Edge"), 0, 0, this,
                               SLOT(slotModeEdgeTop()), actionCollection(),"mode_edgetop");
   m_modeEdgeTop->setToolTip(i18n("Magnify mouse area to top screen edge"));
   m_modeEdgeTop->setWhatsThis(i18n("In this mode the area around the mouse is magnified to the top screen edge."));
 
-  m_modeEdgeLeft = new KRadioAction(i18n("Magnify mouse area to &left screen edge"), 0, 0, this,
+  m_modeEdgeLeft = new KRadioAction(i18n("Magnify Mouse Area to &Left Screen Edge"), 0, 0, this,
                               SLOT(slotModeEdgeLeft()), actionCollection(),"mode_edgeleft");
   m_modeEdgeLeft->setToolTip(i18n("Magnify mouse area to left screen edge"));
   m_modeEdgeLeft->setWhatsThis(i18n("In this mode the area around the mouse is magnified to the left screen edge."));
 
-  m_modeEdgeRight = new KRadioAction(i18n("Magnify mouse area to &right screen edge"), 0, 0, this,
+  m_modeEdgeRight = new KRadioAction(i18n("Magnify Mouse Area to &Right Screen Edge"), 0, 0, this,
                               SLOT(slotModeEdgeRight()), actionCollection(),"mode_edgeright");
   m_modeEdgeRight->setToolTip(i18n("Magnify mouse area to right screen edge"));
   m_modeEdgeRight->setWhatsThis(i18n("In this mode the area around the mouse is magnified to the right screen edge."));
 
-  m_modeEdgeBottom = new KRadioAction(i18n("Magnify mouse area to &bottom screen edge"), 0, 0, this,
+  m_modeEdgeBottom = new KRadioAction(i18n("Magnify Mouse Area to &Bottom Screen Edge"), 0, 0, this,
                               SLOT(slotModeEdgeBottom()), actionCollection(),"mode_edgebottom");
   m_modeEdgeBottom->setToolTip(i18n("Magnify mouse area to bottom screen edge"));
   m_modeEdgeBottom->setWhatsThis(i18n("In this mode the area around the mouse is magnified to the bottom screen edge."));
@@ -665,7 +665,7 @@ void KmagApp::slotModeEdgeTop()
 {
   // ask for edgesize
   int newedgesize; bool ok;
-  newedgesize = KInputDialog::getInteger (i18n ("Magnifify to screen edge - Select size"),
+  newedgesize = KInputDialog::getInteger (i18n ("Magnifify to Screen Edge - Select Size"),
                                           i18n ("Size:"), edgesize > 0 ? edgesize : 300, 200,
                                           QApplication::desktop()->screenGeometry().height()/2,
                                           25, 10, &ok, 0, "getedgesize");
@@ -681,7 +681,7 @@ void KmagApp::slotModeEdgeLeft()
 {
   // ask for edgesize
   int newedgesize; bool ok;
-  newedgesize = KInputDialog::getInteger (i18n ("Magnifify to left screen edge - Select size"),
+  newedgesize = KInputDialog::getInteger (i18n ("Magnifify to Left Screen Edge - Select Size"),
                                           i18n ("Size:"), edgesize > 0 ? edgesize : 300, 200,
                                           QApplication::desktop()->screenGeometry().width()/2,
                                           25, 10, &ok, 0, "getedgesize");
@@ -697,7 +697,7 @@ void KmagApp::slotModeEdgeRight()
 {
   // ask for edgesize
   int newedgesize; bool ok;
-  newedgesize = KInputDialog::getInteger (i18n ("Magnifify to right screen edge - Select size"),
+  newedgesize = KInputDialog::getInteger (i18n ("Magnifify to Right Screen Edge - Select Size"),
                                           i18n ("Size:"), edgesize > 0 ? edgesize : 300, 200,
                                           QApplication::desktop()->screenGeometry().width()/2,
                                           25, 10, &ok, 0, "getedgesize");
@@ -713,7 +713,7 @@ void KmagApp::slotModeEdgeBottom()
 {
   // ask for edgesize
   int newedgesize; bool ok;
-  newedgesize = KInputDialog::getInteger (i18n ("Magnifify to bottom screen edge - Select size"),
+  newedgesize = KInputDialog::getInteger (i18n ("Magnifify to Bottom Screen Edge - Select Size"),
                                           i18n ("Size:"), edgesize > 0 ? edgesize : 300, 200,
                                           QApplication::desktop()->screenGeometry().height()/2,
                                           25, 10, &ok, 0, "getedgesize");
