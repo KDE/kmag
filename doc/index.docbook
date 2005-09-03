@@ -23,6 +23,13 @@
 <address><email>sarang@users.sf.net</email></address>
 </affiliation>
 </author>
+<author>
+<firstname>Olaf</firstname>
+<surname>Schmidt</surname>
+<affiliation>
+<address><email>ojschmidt@kde.org</email></address>
+</affiliation>
+</author>
 </authorgroup>
 
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
@@ -35,6 +42,7 @@
 
 <copyright>
 <year>2004</year>
+<year>2005</year>
 <holder>Olaf Schmidt</holder>
 </copyright>
 
@@ -111,9 +119,10 @@ captured from a part of the screen. The part of the screen which is magnified is
 as the <quote>selection window</quote>.
 </para>
 <para>
-By default, &kmag; magnifies the region around the mouse cursor (think of it as a moving lens).
-Alternatively, you can ask &kmag; to magnify an chosen area of the screen
-(<guilabel>Selection Window Mode</guilabel>) or the whole screen (<guilabel>Whole Screen Mode</guilabel>).
+By default, &kmag; magnifies the region around the mouse cursor into the zoom window (think of it as a moving lens).
+Alternatively, you can ask &kmag; to magnify an chosen area of the screen into the zoom window
+(<guilabel>Selection Window Mode</guilabel>), or the area around the mouse cursur to one of the screen edges
+(e.g. <guilabel>Left Screen Edge Mode</guilabel>).
 </para>
 <para>
 If you would prefer not to see the mouse cursor in the zoomed image, select
@@ -203,11 +212,6 @@ file.</para>
 </entry>
 </row>
 <row>
-<entry><keycap>F3</keycap></entry>
-<entry><para>Switch to "Whole Screen Mode".</para>
-</entry>
-</row>
-<row>
 <entry><keycap>F4</keycap></entry>
 <entry><para>Show or hide the mouse cursor in the magnified image.</para>
 </entry>
@@ -272,19 +276,19 @@ distribution. -->
 &kmag;
 </para>
 <para>
-Program copyright 2001-2003 Sarang Lakare <email>sarang@users.sf.net</email>
+Program copyright 2001-2003 Sarang Lakare <email>sarang@users.sf.net</email> and 2003-2005 Olaf Schmidt <email>ojschmidt@kde.org</email>.
 </para>
 <para>
 Contributors:
 <itemizedlist>
 <listitem><para>Michael Forster <email>forster@fmi.uni-passau.de</email> (original author)</para></listitem>
-<listitem><para>Olaf Schmidt <email>ojschmidt@kde.org</email></para></listitem>
 </itemizedlist>
 </para>
 
 
 <para>
-Documentation copyright 2002 Sarang Lakare <email>sarang@users.sf.net</email>
+Documentation copyright 2002 Sarang Lakare <email>sarang@users.sf.net</email> and
+2004-2005 Olaf Schmidt <email>ojschmidt@kde.org</email>
 </para>
 
 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->

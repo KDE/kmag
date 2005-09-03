@@ -53,6 +53,8 @@ url="help:/kmag">help:/kmag</ulink>
 <refsect1>
 <title>Authors</title>
 <para>&kmagnifier; was written by
+<personname><firstname>Olaf</firstname><surname>Schmidt</surname></personname>
+<email>ojschmidt@kde.org</email> and
 <personname><firstname>Sarang</firstname><surname>Lakare</surname></personname>
 <email>sarang@users.sf.net</email> and
 <personname><firstname>Michael</firstname><surname>Forster</surname></personname>
