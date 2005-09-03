@@ -71,7 +71,6 @@ int main(int argc, char *argv[])
   else
   {
     kmagapp = new KmagApp();
-    kmagapp->show();
 
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 

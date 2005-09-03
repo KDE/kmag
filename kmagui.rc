@@ -21,7 +21,6 @@
  <ToolBar noMerge="1" name="settingsToolBar">
   <Action name="mode_followmouse"/>
   <Action name="mode_selectionwindow"/>
-  <Action name="mode_wholescreen"/>
   <Separator />
   <Action name="hidecursor"/>
  </ToolBar>
@@ -56,7 +55,6 @@
    <Separator />
    <Action name="mode_followmouse"/>
    <Action name="mode_selectionwindow"/>
-   <Action name="mode_wholescreen"/>
    <Action name="mode_edgetop"/>
    <Action name="mode_edgeleft"/>
    <Action name="mode_edgeright"/>
@@ -93,7 +91,6 @@
    <Separator />
    <Action name="mode_followmouse"/>
    <Action name="mode_selectionwindow"/>
-   <Action name="mode_wholescreen"/>
    <Action name="mode_edgetop"/>
    <Action name="mode_edgeleft"/>
    <Action name="mode_edgeright"/>

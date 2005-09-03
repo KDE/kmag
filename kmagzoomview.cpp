@@ -688,6 +688,12 @@ void KMagZoomView::keyReleaseEvent(QKeyEvent *e)
     e->ignore();
 }
 
+void KMagZoomView::contextMenuEvent (QContextMenuEvent *e)
+{
+ emit contextMenu(e->globalPos());
+ e->accept();
+}
+
 void KMagZoomView::focusOutEvent(QFocusEvent *e)
 {
   if(e->lostFocus() == TRUE) {

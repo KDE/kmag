@@ -97,9 +97,6 @@ class KmagApp : public KMainWindow
      */
     virtual bool queryExit();
 
-    /// Catch context menu events
-    void contextMenuEvent ( QContextMenuEvent * e );
-
   public slots:
     /** open a new application window by creating a new instance of KmagApp */
     void slotFileNewWindow();
@@ -117,7 +114,6 @@ class KmagApp : public KMainWindow
     void slotToggleRefresh();
 
     void slotModeFollowMouse();
-    void slotModeWholeScreen();
     void slotModeSelWin();
     void slotModeEdgeTop();
     void slotModeEdgeLeft();
@@ -163,6 +159,8 @@ class KmagApp : public KMainWindow
 
     /// Called when "configure toolbar" is clicked
     void slotEditToolbars();
+
+    void contextMenu(QPoint pos);
 
   signals:
     /// This signal is raised whenever the index into the zoom array is changed
@@ -226,7 +224,7 @@ class KmagApp : public KMainWindow
 
   KMagZoomView* m_zoomView;
   KToggleAction *m_hideCursor;
-  KRadioAction *m_modeFollowMouse, *m_modeWholeScreen, *m_modeSelWin;
+  KRadioAction *m_modeFollowMouse, *m_modeSelWin;
   KRadioAction *m_modeEdgeTop, *m_modeEdgeLeft, *m_modeEdgeRight, *m_modeEdgeBottom;
 
   /// Stores the non-zero cursor type to be used

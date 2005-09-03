@@ -118,6 +118,9 @@ class KMagZoomView : public QScrollView
     /// Fits the zoom view to the zoom view window
     void fitToWindow();
 
+  signals:
+    void contextMenu(QPoint pos);
+
   protected:
     /// Called when the widget is hidden
     void hideEvent( QHideEvent * e);
@@ -151,6 +154,9 @@ class KMagZoomView : public QScrollView
 
     /// Mouse button release event handler
     void keyReleaseEvent(QKeyEvent *e);
+
+    /// Catch context menu events
+    void contextMenuEvent (QContextMenuEvent *e);
 
     /// Mouse button release event handler
     void focusOutEvent(QFocusEvent *e);
