@@ -390,10 +390,8 @@ void KMagZoomView::mousePressEvent(QMouseEvent *e)
         m_selRect.show();
       }
       else {
-        #if QT_VERSION >= 300
         // ignore this button press.. so it goes to the parent
         e->ignore();
-        #endif
       }
     } else if(m_shiftKeyPressed) {
       // check if currently in move mode
@@ -415,10 +413,8 @@ void KMagZoomView::mousePressEvent(QMouseEvent *e)
         m_selRect.show();
       }
       else {
-        #if QT_VERSION >= 300
         // ignore this button press.. so it goes to the parent
         e->ignore();
-        #endif
       }
     } else {
       // check if currently in move mode
@@ -439,10 +435,8 @@ void KMagZoomView::mousePressEvent(QMouseEvent *e)
         m_selRect.show();
       }
       else {
-        #if QT_VERSION >= 300
         // ignore this button press.. so it goes to the parent
         e->ignore();
-        #endif
       }
     }
     break;
@@ -467,18 +461,14 @@ void KMagZoomView::mousePressEvent(QMouseEvent *e)
       m_selRect.show();
     }
     else {
-      #if QT_VERSION >= 300
       // ignore this button press.. so it goes to the parent
       e->ignore();
-      #endif
     }
     break;
   // do nothing
   default:
-#if QT_VERSION >= 300
     // ignore this button press.. so it goes to the parent
     e->ignore();
-#endif
     break;
   }
 }
