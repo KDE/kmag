@@ -70,11 +70,7 @@
 #include "kmagselrect.h"
 
 
-#ifdef KDE_IS_VERSION
-#if KDE_IS_VERSION(3,2,90)
    #define havesetCheckedState
-#endif
-#endif
 
 KmagApp::KmagApp(QWidget* , const char* name)
   : KMainWindow(0, name, Qt::WStyle_MinMax | Qt::WType_TopLevel | Qt::WDestructiveClose | Qt::WStyle_ContextHelp | Qt::WStyle_StaysOnTop),
