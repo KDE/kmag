@@ -522,7 +522,7 @@ void KmagApp::saveZoomPixmap()
               KImageIO::pattern(KImageIO::Writing),
              0,i18n("Save Snapshot As"));
 
-  if(!url.filename().isEmpty()) {
+  if(!url.fileName().isEmpty()) {
     if(!url.isLocalFile()) {
       // create a temp file.. save image to it.. copy over the n/w and then delete the temp file.
       KTempFile tempFile;
