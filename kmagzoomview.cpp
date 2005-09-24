@@ -942,7 +942,7 @@ void KMagZoomView::setRefreshRate(float fps)
   m_fps = static_cast<unsigned int>(fps);  
   
   if(m_grabTimer.isActive())
-    m_grabTimer.changeInterval(static_cast<int>(1000.0/m_fps));
+    m_grabTimer.start(static_cast<int>(1000.0/m_fps));
 }
 
 void KMagZoomView::showSelRect(bool show)
