@@ -611,7 +611,7 @@ void KMagZoomView::mouseMoveEvent(QMouseEvent *e)
 void KMagZoomView::keyPressEvent(QKeyEvent *e)
 {
   int offset = 16;
-  if (e->state() & Qt::ShiftButton)
+  if (e->state() & Qt::ShiftModifier)
     offset = 1;
 
   if (e->key() == Qt::Key_Control)
@@ -620,7 +620,7 @@ void KMagZoomView::keyPressEvent(QKeyEvent *e)
     m_shiftKeyPressed = true;    
   else if (e->key() == Qt::Key_Left)
   {
-    if (e->state() & Qt::ControlButton)
+    if (e->state() & Qt::ControlModifier)
     {
       if (offset >= m_selRect.width())
         m_selRect.setWidth (1);
@@ -646,7 +646,7 @@ void KMagZoomView::keyPressEvent(QKeyEvent *e)
   }
   else if (e->key() == Qt::Key_Right)
   {
-    if (e->state() & Qt::ControlButton)
+    if (e->state() & Qt::ControlModifier)
     {
       if (m_selRect.right()+offset >= QApplication::desktop()->width())
         m_selRect.setRight (QApplication::desktop()->width()-1);
@@ -672,7 +672,7 @@ void KMagZoomView::keyPressEvent(QKeyEvent *e)
   }
   else if (e->key() == Qt::Key_Up)
   {
-    if (e->state() & Qt::ControlButton)
+    if (e->state() & Qt::ControlModifier)
     {
       if (offset >= m_selRect.height())
         m_selRect.setHeight (1);
@@ -698,7 +698,7 @@ void KMagZoomView::keyPressEvent(QKeyEvent *e)
   }
   else if (e->key() == Qt::Key_Down)
   {
-    if (e->state() & Qt::ControlButton)
+    if (e->state() & Qt::ControlModifier)
     {
       if (m_selRect.bottom()+offset >= QApplication::desktop()->height())
         m_selRect.setBottom (QApplication::desktop()->height()-1);
