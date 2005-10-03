@@ -37,7 +37,7 @@
 // include files for KDE
 #include <kapplication.h>
 #include <kmainwindow.h>
-#include <kdockwidget.h>
+#include <k3dockwidget.h>
 #include <kaction.h>
 #include <kaccel.h>
 #include <knuminput.h>

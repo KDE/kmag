@@ -27,6 +27,7 @@
 #include <q3whatsthis.h>
 #include <qtooltip.h>
 #include <q3popupmenu.h>
+#include <kxmlguiclient.h>
 //Added by qt3to4:
 #include <QContextMenuEvent>
 #include <QPixmap>
@@ -38,7 +39,7 @@
 #if KDE_VERSION > 300
 #include <kapplication.h>
 #else
-#include <kapp.h>
+#include <kapplication.h>
 #endif // KDE 3.x
 
 #include <kkeydialog.h>
@@ -55,7 +56,7 @@
 #include <kio/job.h>
 #include <kio/netaccess.h>
 #include <ktempfile.h>
-#include <kpopupmenu.h>
+#include <kmenu.h>
 #include <kedittoolbar.h>
 
 #if KDE_VERSION < 220
