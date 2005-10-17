@@ -34,6 +34,7 @@
 #include <Q3Frame>
 #include <QDesktopWidget>
 #include <kdeversion.h>
+#include <kxmlguifactory.h>
 
 // include files for KDE
 #if KDE_VERSION > 300
@@ -145,7 +146,7 @@ void KmagApp::initActions()
   m_pPrint->setWhatsThis(i18n("Click on this button to print the current zoomed view."));
 
   m_pQuit = KStdAction::quit(this, SLOT(slotFileQuit()), actionCollection(), "quit");
-  m_pQuit->setStatusText(i18n("Quits the application"));
+  m_pQuit->setToolTip(i18n("Quits the application"));
   m_pQuit->setWhatsThis (i18n("Quits the application"));
 
   m_pCopy = KStdAction::copy(this, SLOT(copyToClipBoard()), actionCollection(), "copy");
