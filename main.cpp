@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
 
   KApplication app;
 
-  if (app.isRestored())
+  if (app.isSessionRestored())
   {
     RESTORE(KmagApp);
   }
