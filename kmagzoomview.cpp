@@ -377,7 +377,7 @@ void KMagZoomView::mousePressEvent(QMouseEvent *e)
         m_mouseMode = ResizeSelection;
 
         // set mouse cursor to "resize all direction"
-        setCursor(Qt::sizeAllCursor);
+        setCursor(Qt::SizeAllCursor);
 
         // backup the old position
         m_oldMousePos.setX(e->globalX());
@@ -400,7 +400,7 @@ void KMagZoomView::mousePressEvent(QMouseEvent *e)
         m_mouseMode = MoveSelection;
 
         // set mouse cursor to cross hair
-        setCursor(Qt::crossCursor);
+        setCursor(Qt::CrossCursor);
 
         // backup the old position
         m_oldMousePos.setX(e->globalX());
@@ -448,7 +448,7 @@ void KMagZoomView::mousePressEvent(QMouseEvent *e)
       m_mouseMode = MoveSelection;
 
       // set mouse cursor to cross hair
-      setCursor(Qt::crossCursor);
+      setCursor(Qt::CrossCursor);
 
       // backup the old position
       m_oldMousePos.setX(e->globalX());
@@ -492,7 +492,7 @@ void KMagZoomView::mouseReleaseEvent(QMouseEvent *e)
       m_mouseMode = Normal;
 
       // restore the cursor shape
-      setCursor(Qt::arrowCursor);
+      setCursor(Qt::ArrowCursor);
 
       // restore the cursor position
       QCursor::setPos(m_oldMousePos);
@@ -503,7 +503,7 @@ void KMagZoomView::mouseReleaseEvent(QMouseEvent *e)
       m_mouseMode = Normal;
 
       // restore the cursor shape
-      setCursor(Qt::arrowCursor);
+      setCursor(Qt::ArrowCursor);
 
       // restore the cursor position
       QCursor::setPos(m_oldMousePos);
@@ -515,7 +515,7 @@ void KMagZoomView::mouseReleaseEvent(QMouseEvent *e)
       m_mouseMode = Normal;
 
       // restore the cursor shape
-      setCursor(Qt::arrowCursor);
+      setCursor(Qt::ArrowCursor);
     }    
     break;
 
