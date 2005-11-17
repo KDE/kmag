@@ -674,15 +674,17 @@ void KmagApp::slotFileQuit()
   // close the first window, the list makes the next one the first again.
   // This ensures that queryClose() is called on each window to ask for closing
   KMainWindow* w;
-  if (memberList())
+  if (!memberList().isEmpty())
   {
-    for(w=memberList()->first(); w!=0; w=memberList()->first())
+	for (int i = 0; i < memberList().size(); ++i)
     {
+	  w = memberList().at(i);
       // only close the window if the closeEvent is accepted. If the user presses Cancel on the saveModified() dialog,
       // the window and the application stay open.
       if(!w->close())
          break;
-      memberList()->removeRef(w);
+#warning "kde4: now memberList() is constant => we can't remove some element!"	
+	//memberList()->removeRef(w);
     }
   }
 }
