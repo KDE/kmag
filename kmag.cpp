@@ -31,7 +31,6 @@
 //Added by qt3to4:
 #include <QContextMenuEvent>
 #include <QPixmap>
-#include <Q3Frame>
 #include <QDesktopWidget>
 #include <kdeversion.h>
 #include <kxmlguifactory.h>
@@ -230,8 +229,8 @@ void KmagApp::initView()
 {
   m_zoomView = new KMagZoomView( this, "ZoomView" );
   m_zoomView->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)7, m_zoomView->sizePolicy().hasHeightForWidth() ) );
-  m_zoomView->setFrameShape( Q3Frame::StyledPanel );
-  m_zoomView->setFrameShadow( Q3Frame::Raised );
+  m_zoomView->setFrameShape( QFrame::StyledPanel );
+  m_zoomView->setFrameShadow( QFrame::Raised );
 
   setCentralWidget(m_zoomView);
 }

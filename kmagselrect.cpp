@@ -27,7 +27,6 @@
 //Added by qt3to4:
 #include <QMouseEvent>
 #include <QLabel>
-#include <Q3Frame>
 #include <QDesktopWidget>
 #include <kapplication.h>
 #include <klocale.h>
@@ -340,7 +339,7 @@ KMagSelWinCorner::KMagSelWinCorner ( QWidget * parent, const char * name, Qt::WF
     QLabel (parent, name, f)
 {
   setBackgroundMode (Qt::FixedColor);
-  setFrameStyle (Q3Frame::WinPanel | Q3Frame::Raised);
+  setFrameStyle (QFrame::WinPanel | QFrame::Raised);
   setLineWidth (1);
 }
 
@@ -356,7 +355,7 @@ void KMagSelWinCorner::mousePressEvent ( QMouseEvent * e )
 
 void KMagSelWinCorner::mouseReleaseEvent ( QMouseEvent * e )
 {
-  setFrameShadow (Q3Frame::Raised);
+  setFrameShadow (QFrame::Raised);
   emit resized (e->globalPos () - oldPos);
 }
 
