@@ -23,9 +23,16 @@
 <address><email>sarang@users.sf.net</email></address>
 </affiliation>
 </author>
+<author>
+<firstname>Olaf</firstname>
+<surname>Schmidt</surname>
+<affiliation>
+<address><email>ojschmidt@kde.org</email></address>
+</affiliation>
+</author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<!-- TRANS:ROLES_OF_TRANSLATORS -->
 
 <copyright>
 <year>2000</year>
@@ -35,6 +42,7 @@
 
 <copyright>
 <year>2004</year>
+<year>2005</year>
 <holder>Olaf Schmidt</holder>
 </copyright>
 
@@ -42,8 +50,8 @@
 
 
 
-<date>2003-09-16</date>
-<releaseinfo>0.20.00</releaseinfo>
+<date>2005-12-10</date>
+<releaseinfo>1.0</releaseinfo>
 
 <!-- Abstract about this handbook -->
 
@@ -111,9 +119,10 @@ captured from a part of the screen. The part of the screen which is magnified is
 as the <quote>selection window</quote>.
 </para>
 <para>
-By default, &kmag; magnifies the region around the mouse cursor (think of it as a moving lens).
-Alternatively, you can ask &kmag; to magnify an chosen area of the screen
-(<guilabel>Selection Window Mode</guilabel>) or the whole screen (<guilabel>Whole Screen Mode</guilabel>).
+By default, &kmag; magnifies the region around the mouse cursor into the zoom window (think of it as a moving lens).
+Alternatively, you can ask &kmag; to magnify an chosen area of the screen into the zoom window
+(<guilabel>Selection Window Mode</guilabel>), or the area around the mouse cursur to one of the screen edges
+(e.g. <guilabel>Left Screen Edge Mode</guilabel>).
 </para>
 <para>
 If you would prefer not to see the mouse cursor in the zoomed image, select
@@ -175,6 +184,306 @@ rotate the magnification image and more.
 </sect1>
 </chapter>
 
+
+<chapter id="menus"> 
+<title>Menu Reference</title> 
+ 
+<sect1 id="the-file-menu"> 
+<title>The <guimenu>File</guimenu> Menu</title> 
+ 
+<variablelist> 
+ 
+<varlistentry> 
+<term><menuchoice> 
+<shortcut> 
+<keycombo action="simul">&Ctrl; 
+<keycap>N</keycap></keycombo> 
+</shortcut> 
+<guimenu>File</guimenu> 
+<guimenuitem>New Window</guimenuitem> 
+</menuchoice></term> 
+<listitem><para>Opens a new &kmag; window.</para></listitem> 
+</varlistentry> 
+ 
+<varlistentry> 
+<term><menuchoice> 
+<shortcut> 
+<keycombo action="simul">&Ctrl; 
+<keycap>S</keycap></keycombo> 
+</shortcut> 
+<guimenu>File</guimenu> 
+<guimenuitem>Save Snapshot As...</guimenuitem> 
+</menuchoice></term> 
+<listitem><para>Saves the zoomed view to an image file.</para></listitem> 
+</varlistentry> 
+ 
+<varlistentry> 
+<term><menuchoice> 
+<shortcut> 
+<keycombo action="simul">&Ctrl; 
+<keycap>P</keycap></keycombo> 
+</shortcut> 
+<guimenu>File</guimenu> 
+<guimenuitem>Print...</guimenuitem> 
+</menuchoice></term> 
+<listitem><para>Prints the current zoomed view.</para></listitem> 
+</varlistentry> 
+ 
+<varlistentry> 
+<term><menuchoice> 
+<shortcut> 
+<keycombo action="simul">&Ctrl; 
+<keycap>Q</keycap></keycombo> 
+</shortcut> 
+<guimenu>File</guimenu> 
+<guimenuitem>Quit</guimenuitem> 
+</menuchoice></term> 
+<listitem><para>Quits the application</para></listitem> 
+</varlistentry> 
+</variablelist> 
+</sect1> 
+ 
+<sect1 id="the-edit-menu"> 
+<title>The <guimenu>Edit</guimenu> Menu</title> 
+ 
+<variablelist> 
+ 
+<varlistentry> 
+<term><menuchoice> 
+<shortcut> 
+<keycombo action="simul">&Ctrl; 
+<keycap>C</keycap></keycombo> 
+</shortcut> 
+<guimenu>Edit</guimenu> 
+<guimenuitem>Copy</guimenuitem> 
+</menuchoice></term> 
+<listitem><para>Copy the current zoomed view to the clipboard which 
+you can paste in other applications.</para></listitem> 
+</varlistentry> 
+</variablelist> 
+</sect1> 
+ 
+<sect1 id="the-view-menu"> 
+<title>The <guimenu>View</guimenu> Menu</title> 
+ 
+<variablelist> 
+ 
+<varlistentry> 
+<term><menuchoice> 
+<shortcut> 
+<keycombo action="simul"> 
+<keycap>F5</keycap></keycombo> 
+</shortcut> 
+<guimenu>View</guimenu> 
+<guimenuitem>Start/Stop</guimenuitem> 
+</menuchoice></term> 
+<listitem><para>Start/Stop updating of the display. 
+Stopping the update will zero the processing power required (CPU 
+usage)</para></listitem> 
+</varlistentry> 
+ 
+<varlistentry> 
+<term><menuchoice> 
+<guimenu>View</guimenu> 
+<guimenuitem>Zoom</guimenuitem> 
+</menuchoice></term> 
+<listitem><para>Select the zoom factor.</para></listitem> 
+</varlistentry> 
+ 
+<varlistentry> 
+<term><menuchoice> 
+<shortcut> 
+<keycombo action="simul">&Ctrl; 
+<keycap>-</keycap></keycombo> 
+</shortcut> 
+<guimenu>View</guimenu> 
+<guimenuitem>Zoom Out</guimenuitem> 
+</menuchoice></term> 
+<listitem><para>Click on this button to zoom-out on the selected region.</para></listitem> 
+</varlistentry> 
+ 
+<varlistentry> 
+<term><menuchoice> 
+<shortcut> 
+<keycombo action="simul">&Ctrl; 
+<keycap>+</keycap></keycombo> 
+</shortcut> 
+<guimenu>View</guimenu> 
+<guimenuitem>Zoom In</guimenuitem> 
+</menuchoice></term> 
+<listitem><para>Click on this button to zoom-in on the selected region.</para></listitem> 
+</varlistentry> 
+ 
+<varlistentry> 
+<term><menuchoice> 
+<shortcut> 
+<keycombo action="simul"> 
+<keycap>F6</keycap></keycombo> 
+</shortcut> 
+<guimenu>View</guimenu> 
+<guimenuitem>Invert Colors</guimenuitem> 
+</menuchoice></term> 
+<listitem><para><action>Inverts</action> colors on the view, &ie; black things will be shown white.</para></listitem> 
+</varlistentry> 
+ 
+<varlistentry> 
+<term><menuchoice> 
+<guimenu>View</guimenu> 
+<guimenuitem>Rotation</guimenuitem> 
+</menuchoice></term> 
+<listitem><para>Select the rotation degree. -> No Rotation (0°), Left (90°), 
+Upside Down (180°), Right (270°)</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>View</guimenu>
+<guimenuitem>Refresh</guimenuitem>
+</menuchoice></term>
+<listitem><para>Select the refresh rate (Very Low, Low, Medium, High, Very High).
+The higher the rate, the more computing power (CPU)
+will be needed.</para></listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+
+<sect1 id="the-settings-menu">
+<title>The <guimenu>Settings</guimenu> Menu</title>
+
+<variablelist>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Ctrl;
+<keycap>M</keycap></keycombo>
+</shortcut>
+<guimenu>Settings</guimenu> 
+<guimenuitem>Show/Hide Menu</guimenuitem>
+</menuchoice></term>
+<listitem><para>Toggles the menubar on/off.</para></listitem>
+</varlistentry>
+ 
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Show/Hide Main Toolbar</guimenuitem>
+</menuchoice></term>
+<listitem><para>Toggles the main toolbar on/off.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Show/Hide View Toolbar</guimenuitem>
+</menuchoice></term>
+<listitem><para>Toggles the view toolbar on/off.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Show/Hide Settings Toolbar</guimenuitem>
+</menuchoice></term>
+<listitem><para>Toggles the settings toolbar on/off.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul">
+<keycap>F1</keycap></keycombo>
+</shortcut>
+<guimenu>Settings</guimenu>
+<guimenuitem>Follow Mouse Mode</guimenuitem>
+</menuchoice></term>
+<listitem><para>In this mode the area around the mouse cursor is shown in a normal window.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul">
+<keycap>F2</keycap></keycombo>
+</shortcut>
+<guimenu>Settings</guimenu>
+<guimenuitem>Selection Window Mode</guimenuitem>
+</menuchoice></term>
+<listitem><para>In this mode a selection window is opened. The selected area is shown in a normal window.</para></listitem>
+</varlistentry>
+
+<varlistentry> 
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Top Screen Edge Mode</guimenuitem>
+</menuchoice></term>
+<listitem><para>In this mode the area around the mouse is magnified to the top screen edge.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Left Screen Edge Mode</guimenuitem>
+</menuchoice></term>
+<listitem><para>In this mode the area around the mouse is magnified to the left screen edge.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Right Screen Edge Mode</guimenuitem>
+</menuchoice></term>
+<listitem><para>In this mode the area around the mouse is magnified to the right screen edge.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Bottom Screen Edge Mode</guimenuitem>
+</menuchoice></term>
+<listitem><para>In this mode the area around the mouse is magnified to the bottom screen edge.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul">
+<keycap>F4</keycap></keycombo>
+</shortcut>
+<guimenu>Settings</guimenu>
+<guimenuitem>Show/Hide Mouse Cursor</guimenuitem>
+</menuchoice></term>
+<listitem><para>Show or hide the mouse cursor in the magnified image.</para></listitem>
+</varlistentry>
+
+<varlistentry> 
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Configure Shortcuts...</guimenuitem>
+</menuchoice></term>
+<listitem><para>Opens a window that lets you configure the keyboard
+shortcuts for many menu commands.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Configure Toolbars...</guimenuitem>
+</menuchoice></term>
+<listitem><para>Opens a window that lets you choose which icons are visible
+in the toolbar.</para></listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+
+<sect1 id="the-help-menu">
+<title>The <guimenuitem>Help</guimenuitem> Menu</title>
+
+&help.menu.documentation;
+
+</sect1>
+</chapter>
+
 <chapter id="commands">
 <title>Command Reference</title>
 
@@ -203,11 +512,6 @@ file.</para>
 </entry>
 </row>
 <row>
-<entry><keycap>F3</keycap></entry>
-<entry><para>Switch to "Whole Screen Mode".</para>
-</entry>
-</row>
-<row>
 <entry><keycap>F4</keycap></entry>
 <entry><para>Show or hide the mouse cursor in the magnified image.</para>
 </entry>
@@ -218,6 +522,15 @@ file.</para>
 stopped, or stops the refresh of the zoom window if the refresh is
 currently on.</para>
 </entry>
+</row>
+<row>
+<entry><keycap>F6</keycap></entry>
+<entry><para>Invert Colors</para>
+</entry>
+</row>
+<row>
+<entry><keycombo>&Ctrl;<keycap>N</keycap></keycombo></entry>
+<entry><para>This will open a new &kmag; window.</para></entry>
 </row>
 <row>
 <entry><keycombo>&Ctrl;<keycap>P</keycap></keycombo></entry>
@@ -231,12 +544,21 @@ clipboard.</para>
 </entry>
 </row>
 <row>
+<entry><keycombo>&Ctrl;<keycap>M</keycap></keycombo></entry> 
+<entry><para>Show/Hide the menubar.</para> 
+</entry>
+</row>
+<row>
 <entry><keycombo>&Ctrl;<keycap>-</keycap></keycombo></entry>
 <entry><para>Zoom out</para></entry>
 </row>
 <row>
-<entry><keycombo>&Ctrl;&Shift;<keycap>+</keycap></keycombo></entry>
+<entry><keycombo>&Ctrl;<keycap>+</keycap></keycombo></entry>
 <entry><para>Zoom in</para></entry>
+</row>
+<row>
+<entry><keycombo>&Ctrl;<keycap>Q</keycap></keycombo></entry> 
+<entry><para>Quits the application.</para></entry> 
 </row>
 </tbody>
 </tgroup>
@@ -272,23 +594,22 @@ distribution. -->
 &kmag;
 </para>
 <para>
-Program copyright 2001-2003 Sarang Lakare <email>sarang@users.sf.net</email>
+Program copyright 2001-2003 Sarang Lakare <email>sarang@users.sf.net</email> and 2003-2005 Olaf Schmidt <email>ojschmidt@kde.org</email>.
 </para>
 <para>
 Contributors:
 <itemizedlist>
 <listitem><para>Michael Forster <email>forster@fmi.uni-passau.de</email> (original author)</para></listitem>
-<listitem><para>Olaf Schmidt <email>ojschmidt@kde.org</email></para></listitem>
 </itemizedlist>
 </para>
 
 
 <para>
-Documentation copyright 2002 Sarang Lakare <email>sarang@users.sf.net</email>
+Documentation copyright 2002 Sarang Lakare <email>sarang@users.sf.net</email> and
+2004-2005 Olaf Schmidt <email>ojschmidt@kde.org</email>
 </para>
 
 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
-
 &underFDL;               <!-- FDL: do not remove. Commercial development should -->
 &underGPL;        	 <!-- GPL License -->
 
