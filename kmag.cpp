@@ -634,7 +634,7 @@ void KmagApp::slotModeEdgeTop()
 {
   // ask for edgesize
   int newedgesize; bool ok;
-  newedgesize = KInputDialog::getInteger (i18n ("Magnifify to Screen Edge - Select Size"),
+  newedgesize = KInputDialog::getInteger (i18n ("Magnify to Screen Edge - Select Size"),
                                           i18n ("Size:"), edgesize > 0 ? edgesize : 300, 200,
                                           QApplication::desktop()->screenGeometry().height()/2,
                                           25, 10, &ok, 0, "getedgesize");
@@ -650,7 +650,7 @@ void KmagApp::slotModeEdgeLeft()
 {
   // ask for edgesize
   int newedgesize; bool ok;
-  newedgesize = KInputDialog::getInteger (i18n ("Magnifify to Left Screen Edge - Select Size"),
+  newedgesize = KInputDialog::getInteger (i18n ("Magnify to Left Screen Edge - Select Size"),
                                           i18n ("Size:"), edgesize > 0 ? edgesize : 300, 200,
                                           QApplication::desktop()->screenGeometry().width()/2,
                                           25, 10, &ok, 0, "getedgesize");
@@ -666,7 +666,7 @@ void KmagApp::slotModeEdgeRight()
 {
   // ask for edgesize
   int newedgesize; bool ok;
-  newedgesize = KInputDialog::getInteger (i18n ("Magnifify to Right Screen Edge - Select Size"),
+  newedgesize = KInputDialog::getInteger (i18n ("Magnify to Right Screen Edge - Select Size"),
                                           i18n ("Size:"), edgesize > 0 ? edgesize : 300, 200,
                                           QApplication::desktop()->screenGeometry().width()/2,
                                           25, 10, &ok, 0, "getedgesize");
@@ -682,7 +682,7 @@ void KmagApp::slotModeEdgeBottom()
 {
   // ask for edgesize
   int newedgesize; bool ok;
-  newedgesize = KInputDialog::getInteger (i18n ("Magnifify to Bottom Screen Edge - Select Size"),
+  newedgesize = KInputDialog::getInteger (i18n ("Magnify to Bottom Screen Edge - Select Size"),
                                           i18n ("Size:"), edgesize > 0 ? edgesize : 300, 200,
                                           QApplication::desktop()->screenGeometry().height()/2,
                                           25, 10, &ok, 0, "getedgesize");
