@@ -384,7 +384,7 @@ void KmagApp::contextMenuEvent ( QContextMenuEvent * e )
 {
  // show popup
  KXMLGUIFactory *factory = this->factory();
- Q3PopupMenu *popup = (Q3PopupMenu *)factory->container("mainPopUp",this);
+ QMenu *popup = (QMenu *)factory->container("mainPopUp",this);
  if (popup != 0)
    popup->popup(e->globalPos(), 0);
  e->accept();
