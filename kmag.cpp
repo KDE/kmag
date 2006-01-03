@@ -520,7 +520,7 @@ void KmagApp::saveZoomPixmap()
     toggled = true;
   }
 
-  KURL url = KFileDialog::getSaveURL(QString::null,
+  KURL url = KFileDialog::getSaveURL(QString(),
               KImageIO::pattern(KImageIO::Writing),
              0,i18n("Save Snapshot As"));
 
