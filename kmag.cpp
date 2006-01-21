@@ -298,29 +298,29 @@ void KmagApp::readOptions()
 
   config->setGroup ("WM");
   setTitleColors (
-      config->readColorEntry("inactiveBackground", &blue),
-      config->readColorEntry("inactiveForeground", &white),
-      config->readColorEntry("inactiveTitleBtnBg", &yellow));
+      config->readEntry("inactiveBackground", blue),
+      config->readEntry("inactiveForeground", white),
+      config->readEntry("inactiveTitleBtnBg", yellow));
 
   config->setGroup("General Options");
 
   QSize defSize(460,390);
-  QSize size=config->readSizeEntry("Geometry", &defSize);
+  QSize size=config->readEntry("Geometry", defSize);
   if(!size.isEmpty())
   {
     resize(size);
   }
 
   // set zoom - defaults to 2x
-  unsigned int zoomIndex = config->readUnsignedNumEntry("ZoomIndex", 4);
+  unsigned int zoomIndex = config->readEntry("ZoomIndex", 4);
   setZoomIndex(zoomIndex);
   emit updateZoomIndex(m_zoomIndex);
 
-  unsigned int rotationIndex = config->readUnsignedNumEntry("RotationIndex", 0);
+  unsigned int rotationIndex = config->readEntry("RotationIndex", 0);
   setRotationIndex(rotationIndex);
   emit updateRotationIndex(m_rotationIndex);
 
-  unsigned int fpsIndex = config->readUnsignedNumEntry("FPSIndex", 2);
+  unsigned int fpsIndex = config->readEntry("FPSIndex", 2);
   setFPSIndex(fpsIndex);
   emit updateFPSIndex(m_fpsIndex);
 
@@ -333,9 +333,9 @@ void KmagApp::readOptions()
     slotModeFollowMouse();
 
   QRect defaultRect(0,0,211,164);
-  m_zoomView->setSelRectPos(config->readRectEntry("SelRect", &defaultRect));
+  m_zoomView->setSelRectPos(config->readEntry("SelRect", defaultRect));
 
-  m_mouseCursorType = config->readUnsignedNumEntry("ShowMouse", m_defaultMouseCursorType);
+  m_mouseCursorType = config->readEntry("ShowMouse", m_defaultMouseCursorType);
   m_zoomView->showMouse(m_mouseCursorType);
   if(m_mouseCursorType)
     m_hideCursor->setChecked(false);
