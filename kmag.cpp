@@ -435,7 +435,7 @@ void KmagApp::setZoomIndex(int index)
 {
   if(index < 0 || index >= (int)zoomArray.size()) {
     // the index is invalid
-    kdWarning() << "Invalid index!" << endl;
+    kWarning() << "Invalid index!" << endl;
     return;
   } else if((int)m_zoomIndex == index) {
     // do nothing!
@@ -471,7 +471,7 @@ void KmagApp::setRotationIndex(int index)
 {
   if(index < 0 || index >= (int)rotationArray.size()) {
     // the index is invalid
-    kdWarning() << "Invalid index!" << endl;
+    kWarning() << "Invalid index!" << endl;
     return;
   } else if((int)m_rotationIndex == index) {
     // do nothing!
@@ -491,7 +491,7 @@ void KmagApp::setFPSIndex(int index)
 {
   if(index < 0 || index >= (int)fpsArray.size()) {
     // the index is invalid
-    kdWarning() << "Invalid index!" << endl;
+    kWarning() << "Invalid index!" << endl;
     return;
   } else if((int)m_fpsIndex == index) {
     // do nothing!
