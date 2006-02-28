@@ -37,11 +37,7 @@
 #include <kxmlguifactory.h>
 
 // include files for KDE
-#if KDE_VERSION > 300
 #include <kapplication.h>
-#else
-#include <kapplication.h>
-#endif // KDE 3.x
 
 #include <kkeydialog.h>
 #include <kiconloader.h>
