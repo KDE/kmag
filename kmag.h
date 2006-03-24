@@ -215,7 +215,7 @@ class KmagApp : public KMainWindow
 
   KMagZoomView* m_zoomView;
   KToggleAction *m_hideCursor;
-  KRadioAction *m_modeFollowMouse, *m_modeWholeScreen, *m_modeSelWin;
+  KToggleAction *m_modeFollowMouse, *m_modeWholeScreen, *m_modeSelWin;
 
   /// Stores the non-zero cursor type to be used
   unsigned int m_mouseCursorType;

@@ -169,16 +169,16 @@ void KmagApp::initActions()
   m_pShowSettingsToolBar->setCheckedState(i18n("Hide &Settings Toolbar"));
   #endif
 
-  m_modeFollowMouse = new KRadioAction(i18n("&Follow Mouse Mode"), "followmouse", Qt::Key_F1, this,
+  m_modeFollowMouse = new KToggleAction(i18n("&Follow Mouse Mode"), "followmouse", Qt::Key_F1, this,
                             SLOT(slotModeFollowMouse()), actionCollection(), "mode_followmouse");
   m_modeFollowMouse->setToolTip(i18n("Magnify around the mouse cursor"));
   m_modeFollowMouse->setWhatsThis(i18n("If selected, the area around the mouse cursor is magnified"));
 
-  m_modeSelWin = new KRadioAction(i18n("Se&lection Window Mode"), "window", Qt::Key_F2, this,
+  m_modeSelWin = new KToggleAction(i18n("Se&lection Window Mode"), "window", Qt::Key_F2, this,
                             SLOT(slotModeSelWin()), actionCollection(), "mode_selectionwindow");
   m_modeSelWin->setToolTip(i18n("Show a window for selecting the magnified area"));
 
-  m_modeWholeScreen = new KRadioAction(i18n("&Whole Screen Mode"), "window_fullscreen", Qt::Key_F3, this,
+  m_modeWholeScreen = new KToggleAction(i18n("&Whole Screen Mode"), "window_fullscreen", Qt::Key_F3, this,
                               SLOT(slotModeWholeScreen()), actionCollection(),"mode_wholescreen");
   m_modeWholeScreen->setToolTip(i18n("Magnify the whole screen"));
   m_modeWholeScreen->setWhatsThis(i18n("Click on this button to fit the zoom view to the zoom window."));
@@ -193,7 +193,7 @@ void KmagApp::initActions()
   m_pZoomIn = KStdAction::zoomIn(this, SLOT(zoomIn()), actionCollection(), "zoom_in");
   m_pZoomIn->setWhatsThis(i18n("Click on this button to <b>zoom-in</b> on the selected region."));
 
-  m_pZoomBox = new KSelectAction(i18n("&Zoom"),0,actionCollection(),"zoom");
+  m_pZoomBox = new KSelectAction(i18n("&Zoom"),actionCollection(),"zoom");
   m_pZoomBox->setItems(zoomArrayString);
   m_pZoomBox->setWhatsThis(i18n("Select the zoom factor."));
   m_pZoomBox->setToolTip(i18n("Zoom factor"));
@@ -201,7 +201,7 @@ void KmagApp::initActions()
   m_pZoomOut = KStdAction::zoomOut(this, SLOT(zoomOut()), actionCollection(), "zoom_out");
   m_pZoomOut->setWhatsThis(i18n("Click on this button to <b>zoom-out</b> on the selected region."));
 
-  m_pRotationBox = new KSelectAction(i18n("&Rotation"),0,actionCollection(),"rotation");
+  m_pRotationBox = new KSelectAction(i18n("&Rotation"),actionCollection(),"rotation");
   m_pRotationBox->setItems(rotationArrayString);
   m_pRotationBox->setWhatsThis(i18n("Select the rotation degree."));
   m_pRotationBox->setToolTip(i18n("Rotation degree"));
@@ -212,7 +212,7 @@ void KmagApp::initActions()
   m_toolConf = KStdAction::configureToolbars( this, SLOT( slotEditToolbars() ),
                                               actionCollection(), "toolbar_conf");
 
-  m_pFPSBox = new KSelectAction(i18n("&Refresh"),0,actionCollection(),"fps_selector");
+  m_pFPSBox = new KSelectAction(i18n("&Refresh"),actionCollection(),"fps_selector");
   m_pFPSBox->setItems(fpsArrayString);
   m_pFPSBox->setWhatsThis(i18n("Select the refresh rate. The higher the rate, the more computing power (CPU) will be needed."));
   m_pFPSBox->setToolTip(i18n("Refresh rate"));
@@ -560,11 +560,11 @@ void KmagApp::slotToggleRefresh()
 {
   m_zoomView->toggleRefresh();
   if(m_zoomView->getRefreshStatus()) {
-    refreshSwitch->setIcon("stop.png");
+    refreshSwitch->setIcon(KIcon("stop.png"));
     refreshSwitch->setText(i18n("Stop"));
     refreshSwitch->setToolTip(i18n("Click to stop window update"));
   } else {
-    refreshSwitch->setIcon("reload.png");
+    refreshSwitch->setIcon(KIcon("reload.png"));
     refreshSwitch->setText(i18n("Start"));
     refreshSwitch->setToolTip(i18n("Click to start window update"));
   }
