@@ -39,7 +39,6 @@
 #include <kmainwindow.h>
 #include <k3dockwidget.h>
 #include <kaction.h>
-#include <kaccel.h>
 #include <knuminput.h>
 
 /**
