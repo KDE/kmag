@@ -30,6 +30,8 @@
 #include <kxmlguiclient.h>
 #include <ktoolbar.h>
 #include <kstdaccel.h>
+#include <ktoggleaction.h>
+#include <kselectaction.h>
 //Added by qt3to4:
 #include <QContextMenuEvent>
 #include <QPixmap>

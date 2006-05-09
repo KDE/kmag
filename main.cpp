@@ -19,7 +19,8 @@
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
 #include <klocale.h>
-
+#include <ktoggleaction.h>
+#include <kselectaction.h>
 #include "kmag.h"
 
 #include "version.h"
