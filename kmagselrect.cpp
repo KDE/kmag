@@ -20,10 +20,10 @@
 #include "kmagselrect.h"
 #include "kmagselrect.moc"
 
-#include <qapplication.h>
-#include <qcursor.h>
-#include <qpixmap.h>
-#include <qbitmap.h>
+#include <QApplication>
+#include <QCursor>
+#include <QPixmap>
+#include <QBitmap>
 //Added by qt3to4:
 #include <QMouseEvent>
 #include <QLabel>

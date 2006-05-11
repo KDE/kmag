@@ -23,10 +23,10 @@
 #include "kmagzoomview.moc"
 
 // include files for Qt
-#include <qbitmap.h>
-#include <qcursor.h>
+#include <QBitmap>
+#include <QCursor>
 #include <qglobal.h>
-#include <qpainter.h>
+#include <QPainter>
 
 #include <qwidget.h>
 //Added by qt3to4:

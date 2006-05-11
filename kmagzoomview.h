@@ -26,13 +26,13 @@
 
 // include files for Qt
 #include <qwidget.h>
-#include <qpainter.h>
-#include <qpixmap.h>
-#include <qtimer.h>
+#include <QPainter>
+#include <QPixmap>
+#include <QTimer>
 #include <q3scrollview.h>
-#include <qstringlist.h>
-#include <qrect.h>
-#include <qcursor.h>
+#include <QStringList>
+#include <QRect>
+#include <QCursor>
 //Added by qt3to4:
 #include <QFocusEvent>
 #include <QHideEvent>

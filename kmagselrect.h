@@ -23,9 +23,9 @@
 #include <stdlib.h>
 
 // Qt includes
-#include <qrect.h>
+#include <QRect>
 #include <qwidget.h>
-#include <qlabel.h>
+#include <QLabel>
 //Added by qt3to4:
 #include <QMouseEvent>
 

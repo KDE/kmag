@@ -18,14 +18,14 @@
  ***************************************************************************/
 
 // include files for QT
-#include <qdir.h>
-#include <qprinter.h>
-#include <qpainter.h>
-#include <qlayout.h>
-#include <qclipboard.h>
+#include <QDir>
+#include <QPrinter>
+#include <QPainter>
+#include <QLayout>
+#include <QClipboard>
 #include <q3dragobject.h>
 #include <q3whatsthis.h>
-#include <qtooltip.h>
+#include <QToolTip>
 #include <q3popupmenu.h>
 #include <kxmlguiclient.h>
 #include <ktoolbar.h>
@@ -60,7 +60,7 @@
 #include <kedittoolbar.h>
 
 #if KDE_VERSION < 220
-#include <qprinter.h>
+#include <QPrinter>
 #else
 #include <kprinter.h>
 #include <kglobal.h>
