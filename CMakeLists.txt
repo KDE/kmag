@@ -1,4 +1,3 @@
-kde4_header()
 project(kmag)
 
 
@@ -28,7 +27,6 @@ install_files( ${DATA_INSTALL_DIR}/kmag FILES kmagui.rc )
 
 kde4_install_icons( ${ICON_INSTALL_DIR}  hicolor )
 
-kde4_footer()
 
 
 
