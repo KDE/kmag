@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1.2-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
   <!ENTITY kmag "<application>KMagnifier</application>">
   <!ENTITY kappname "&kmag;">
   <!ENTITY package "kdeaccessibility">
@@ -50,7 +50,7 @@
 
 
 
-<date>2005-12-10</date>
+<date>2006-05-20</date>
 <releaseinfo>1.0</releaseinfo>
 
 <!-- Abstract about this handbook -->
@@ -140,8 +140,7 @@ or by clicking into the zoom window:
 
 <variablelist>
 <varlistentry>
-<term><keycap>Arrow keys</keycap> or
-<mousebutton>Left</mousebutton> mouse button</term>
+<term><keycap>Arrow keys</keycap> or &LMB;</term>
 <listitem>
 <para>By keeping the left mouse button pressed and moving the
 mouse, you can grab and drag the contents of the zoom window.
@@ -150,18 +149,16 @@ You can also use the arrow keys.</para>
 </varlistentry>
 <varlistentry>
 <term><keycombo>&Shift;<keycap>Arrow Keys</keycap></keycombo> or
-<keycombo>&Shift;<mousebutton>Left</mousebutton></keycombo> or
-<mousebutton>Middle</mousebutton> mouse button.</term>
+&Shift;&LMB; or &MMB;.</term>
 <listitem>
-<para>By additionally pressing shift or using the middle mouse button,
+<para>By additionally pressing &Shift; or using the &MMB;,
 you can move the selection window.
 </para>
 </listitem>
 </varlistentry>
 <varlistentry>
 <term><keycombo>&Ctrl;<keycap>Arrow Keys</keycap></keycombo> or
-<keycombo>&Ctrl;<mousebutton>Left</mousebutton></keycombo> mouse
-button</term>
+&Ctrl;&LMB;</term>
 <listitem>
 <para>By using this combination, you can resize the selection
 window. Keep in mind that the top-left corner of the selection window
@@ -331,8 +328,9 @@ usage)</para></listitem>
 <guimenu>View</guimenu> 
 <guimenuitem>Rotation</guimenuitem> 
 </menuchoice></term> 
-<listitem><para>Select the rotation degree. -> No Rotation (0°), Left (90°), 
-Upside Down (180°), Right (270°)</para></listitem>
+<listitem><para>Select the rotation degree (<guimenuitem>No Rotation (0°)</guimenuitem>, 
+<guimenuitem>Left (90°)</guimenuitem>, <guimenuitem>Upside Down (180°)</guimenuitem>, 
+<guimenuitem>Right (270°)</guimenuitem>.</para></listitem>
 </varlistentry>
 
 <varlistentry>
@@ -340,7 +338,9 @@ Upside Down (180°), Right (270°)</para></listitem>
 <guimenu>View</guimenu>
 <guimenuitem>Refresh</guimenuitem>
 </menuchoice></term>
-<listitem><para>Select the refresh rate (Very Low, Low, Medium, High, Very High).
+<listitem><para>Select the refresh rate (<guimenuitem>Very Low</guimenuitem>, 
+<guimenuitem>Low</guimenuitem>, <guimenuitem>Medium</guimenuitem>, 
+<guimenuitem>High</guimenuitem>, <guimenuitem>Very High</guimenuitem>).
 The higher the rate, the more computing power (CPU)
 will be needed.</para></listitem>
 </varlistentry>
