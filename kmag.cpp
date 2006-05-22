@@ -535,7 +535,7 @@ void KmagApp::saveZoomPixmap()
           KMessageBox::error(0, i18n("Unable to upload file over the network."),
                             i18n("Error Writing File"));
         } else {
-          KMessageBox::information(0, i18n("Current zoomed image saved to\n%1", url.prettyURL()),
+          KMessageBox::information(0, i18n("Current zoomed image saved to\n%1", url.prettyUrl()),
                               i18n("Information"), "save_confirm");
         }
       }
@@ -548,7 +548,7 @@ void KmagApp::saveZoomPixmap()
         KMessageBox::error(0, i18n("Unable to save file. Please check if you have permission to write to the directory."),
                             i18n("Error Writing File"));
       } else {
-        KMessageBox::information(0, i18n("Current zoomed image saved to\n%1", url.prettyURL()),
+        KMessageBox::information(0, i18n("Current zoomed image saved to\n%1", url.prettyUrl()),
                                 i18n("Information"), "save_confirm");
       }
     }
