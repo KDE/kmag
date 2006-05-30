@@ -22,7 +22,7 @@ install_targets(/bin kmag )
 ########### install files ###############
 
 install_files( ${DATA_INSTALL_DIR}/kmag/icons FILES  )
-install_files( ${APPLNK_INSTALL_DIR}/Applications FILES kmag.desktop )
+install_files( ${XDG_APPS_DIR} FILES kmag.desktop )
 install_files( ${DATA_INSTALL_DIR}/kmag FILES kmagui.rc )
 
 kde4_install_icons( ${ICON_INSTALL_DIR}  hicolor )
