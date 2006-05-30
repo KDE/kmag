@@ -50,7 +50,7 @@
 
 
 
-<date>2006-05-20</date>
+<date>2006-05-25</date>
 <releaseinfo>1.0</releaseinfo>
 
 <!-- Abstract about this handbook -->
@@ -328,9 +328,9 @@ usage)</para></listitem>
 <guimenu>View</guimenu> 
 <guimenuitem>Rotation</guimenuitem> 
 </menuchoice></term> 
-<listitem><para>Select the rotation degree (<guimenuitem>No Rotation (0°)</guimenuitem>, 
-<guimenuitem>Left (90°)</guimenuitem>, <guimenuitem>Upside Down (180°)</guimenuitem>, 
-<guimenuitem>Right (270°)</guimenuitem>.</para></listitem>
+<listitem><para>Select the rotation degree (<guimenuitem>No Rotation (0 Degrees)</guimenuitem>, 
+<guimenuitem>Left (90 Degrees)</guimenuitem>, <guimenuitem>Upside Down (180 Degrees)</guimenuitem>, 
+<guimenuitem>Right (270 Degrees)</guimenuitem>.</para></listitem>
 </varlistentry>
 
 <varlistentry>
