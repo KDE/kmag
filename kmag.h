@@ -21,10 +21,7 @@
 #ifndef KMAG_H
 #define KMAG_H
 
-
-#ifdef HAVE_CONFIG_H
 #include <config.h>
-#endif
 
 #include "kmagzoomview.h"
 
