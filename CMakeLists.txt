@@ -16,7 +16,7 @@ kde4_add_executable(kmag ${kmag_SRCS})
 
 target_link_libraries(kmag  ${KDE4_KDECORE_LIBS} kdeprint )
 
-install_targets(/bin kmag )
+install(TARGETS kmag  DESTINATION ${BIN_INSTALL_DIR} )
 
 
 ########### install files ###############
