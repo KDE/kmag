@@ -124,19 +124,22 @@ KmagApp::~KmagApp()
 
 void KmagApp::initActions()
 {
-  fileNewWindow = new KAction(i18n("New &Window"), "window_new", KStdAccel::openNew(), this,
-                              SLOT(slotFileNewWindow()), actionCollection(),"new_window");
+  fileNewWindow = new KAction(KIcon("window_new"), i18n("New &Window"), actionCollection(), "new_window");
+  connect(fileNewWindow, SIGNAL(triggered(bool) ), SLOT(slotFileNewWindow()));
+  fileNewWindow->setShortcut(KStdAccel::openNew());
   fileNewWindow->setToolTip(i18n("Open a new KMagnifier window"));
 
-  refreshSwitch = new KAction(i18n("&Stop"), "stop", KStdAccel::reload(), this,
-                              SLOT(slotToggleRefresh()), actionCollection(), "start_stop_refresh");
+  refreshSwitch = new KAction(KIcon("stop"), i18n("&Stop"), actionCollection(), "start_stop_refresh");
+  connect(refreshSwitch, SIGNAL(triggered(bool) ), SLOT(slotToggleRefresh()));
+  refreshSwitch->setShortcut(KStdAccel::reload());
   refreshSwitch->setToolTip(i18n("Click to stop window refresh"));
   refreshSwitch->setWhatsThis(i18n("Clicking on this icon will <b>start</b> / <b>stop</b>\
   updating of the display. Stopping the update will zero the processing power\
   required (CPU usage)"));
 
-  m_pSnapshot = new KAction(i18n("&Save Snapshot As..."), "ksnapshot", KStdAccel::save(), this,
-                            SLOT(saveZoomPixmap()), actionCollection(),"snapshot");
+  m_pSnapshot = new KAction(KIcon("ksnapshot"), i18n("&Save Snapshot As..."), actionCollection(), "snapshot");
+  connect(m_pSnapshot, SIGNAL(triggered(bool) ), SLOT(saveZoomPixmap()));
+  m_pSnapshot->setShortcut(KStdAccel::save());
   m_pSnapshot->setWhatsThis(i18n("Saves the zoomed view to an image file."));
   m_pSnapshot->setToolTip(i18n("Save image to a file"));
 
