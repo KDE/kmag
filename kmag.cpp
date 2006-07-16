@@ -154,43 +154,48 @@ void KmagApp::initActions()
   m_pCopy->setWhatsThis(i18n("Click on this button to copy the current zoomed view to the clipboard which you can paste in other applications."));
   m_pCopy->setToolTip(i18n("Copy zoomed image to clipboard"));
 
-  m_pShowMenu = new KToggleAction(i18n("Show &Menu"), "showmenu", Qt::CTRL+Qt::Key_M, this,
-                            SLOT(slotShowMenu()), actionCollection(),"show_menu");
+  m_pShowMenu = new KToggleAction(KIcon("showmenu"), i18n("Show &Menu"), actionCollection(), "show_menu");
+  connect(m_pShowMenu, SIGNAL(triggered(bool)), SLOT(slotShowMenu()));
+  m_pShowMenu->setShortcut(Qt::CTRL+Qt::Key_M);
   #ifdef havesetCheckedState
   m_pShowMenu->setCheckedState(i18n("Hide &Menu"));
   #endif
-  m_pShowMainToolBar = new KToggleAction(i18n("Show Main &Toolbar"), 0, 0, this,
-                            SLOT(slotShowMainToolBar()), actionCollection(),"show_mainToolBar");
+  m_pShowMainToolBar = new KToggleAction(i18n("Show Main &Toolbar"), actionCollection(), "show_mainToolBar");
+  connect(m_pShowMainToolBar, SIGNAL(triggered(bool)), SLOT(slotShowMainToolBar()));
   #ifdef havesetCheckedState
   m_pShowMainToolBar->setCheckedState(i18n("Hide Main &Toolbar"));
   #endif
-  m_pShowViewToolBar = new KToggleAction(i18n("Show &View Toolbar"), 0, 0, this,
-                            SLOT(slotShowViewToolBar()), actionCollection(),"show_viewToolBar");
+  m_pShowViewToolBar = new KToggleAction(i18n("Show &View Toolbar"), actionCollection(), "show_viewToolBar");
+  connect(m_pShowViewToolBar, SIGNAL(triggered(bool)), SLOT(slotShowViewToolBar()));
   #ifdef havesetCheckedState
   m_pShowViewToolBar->setCheckedState(i18n("Hide &View Toolbar"));
   #endif
-  m_pShowSettingsToolBar = new KToggleAction(i18n("Show &Settings Toolbar"), 0, 0, this,
-                            SLOT(slotShowSettingsToolBar()), actionCollection(),"show_settingsToolBar");
+  m_pShowSettingsToolBar = new KToggleAction(i18n("Show &Settings Toolbar"), actionCollection(), "show_settingsToolBar");
+  connect(m_pShowSettingsToolBar, SIGNAL(triggered(bool)), SLOT(slotShowSettingsToolBar()));
   #ifdef havesetCheckedState
   m_pShowSettingsToolBar->setCheckedState(i18n("Hide &Settings Toolbar"));
   #endif
 
-  m_modeFollowMouse = new KToggleAction(i18n("&Follow Mouse Mode"), "followmouse", Qt::Key_F1, this,
-                            SLOT(slotModeFollowMouse()), actionCollection(), "mode_followmouse");
+  m_modeFollowMouse = new KToggleAction(KIcon("followmouse"), i18n("&Follow Mouse Mode"), actionCollection(), "mode_followmouse");
+  connect(m_modeFollowMouse, SIGNAL(triggered(bool)), SLOT(slotModeFollowMouse()));
+  m_modeFollowMouse->setShortcut(Qt::Key_F1);
   m_modeFollowMouse->setToolTip(i18n("Magnify around the mouse cursor"));
   m_modeFollowMouse->setWhatsThis(i18n("If selected, the area around the mouse cursor is magnified"));
 
-  m_modeSelWin = new KToggleAction(i18n("Se&lection Window Mode"), "window", Qt::Key_F2, this,
-                            SLOT(slotModeSelWin()), actionCollection(), "mode_selectionwindow");
+  m_modeSelWin = new KToggleAction(KIcon("window"), i18n("Se&lection Window Mode"), actionCollection(), "mode_selectionwindow");
+  connect(m_modeSelWin, SIGNAL(triggered(bool)), SLOT(slotModeSelWin()));
+  m_modeSelWin->setShortcut(Qt::Key_F2);
   m_modeSelWin->setToolTip(i18n("Show a window for selecting the magnified area"));
 
-  m_modeWholeScreen = new KToggleAction(i18n("&Whole Screen Mode"), "window_fullscreen", Qt::Key_F3, this,
-                              SLOT(slotModeWholeScreen()), actionCollection(),"mode_wholescreen");
+  m_modeWholeScreen = new KToggleAction(KIcon("window_fullscreen"), i18n("&Whole Screen Mode"), actionCollection(), "mode_wholescreen");
+  connect(m_modeWholeScreen, SIGNAL(triggered(bool)), SLOT(slotModeWholeScreen()));
+  m_modeWholeScreen->setShortcut(Qt::Key_F3);
   m_modeWholeScreen->setToolTip(i18n("Magnify the whole screen"));
   m_modeWholeScreen->setWhatsThis(i18n("Click on this button to fit the zoom view to the zoom window."));
 
-  m_hideCursor = new KToggleAction(i18n("Hide Mouse &Cursor"), "hidemouse", Qt::Key_F4, this,
-                            SLOT(slotToggleHideCursor()), actionCollection(), "hidecursor");
+  m_hideCursor = new KToggleAction(KIcon("hidemouse"), i18n("Hide Mouse &Cursor"), actionCollection(), "hidecursor");
+  connect(m_hideCursor, SIGNAL(triggered(bool)), SLOT(slotToggleHideCursor()));
+  m_hideCursor->setShortcut(Qt::Key_F4);
   #ifdef havesetCheckedState
   m_hideCursor->setCheckedState(i18n("Show Mouse &Cursor"));
   #endif
