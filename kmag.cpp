@@ -59,12 +59,8 @@
 #include <kmenu.h>
 #include <kedittoolbar.h>
 
-#if KDE_VERSION < 220
-#include <QPrinter>
-#else
 #include <kprinter.h>
 #include <kglobal.h>
-#endif
 
 // application specific includes
 #include "kmag.moc"
@@ -72,7 +68,7 @@
 #include "kmagselrect.h"
 
 
-   #define havesetCheckedState
+#define havesetCheckedState
 
 KmagApp::KmagApp(QWidget* , const char* name)
   : KMainWindow(0, name, Qt::WStyle_MinMax | Qt::WType_TopLevel | Qt::WDestructiveClose | Qt::WStyle_ContextHelp | Qt::WStyle_StaysOnTop),
@@ -534,7 +530,7 @@ void KmagApp::saveZoomPixmap()
     if(!url.isLocalFile()) {
       // create a temp file.. save image to it.. copy over the n/w and then delete the temp file.
       KTempFile tempFile;
-#warning "kde4: port KImageIO::type \n";	  
+#warning "kde4: port KImageIO::type \n";
       if(!m_zoomView->getPixmap().save(tempFile.name(),"png"/*, KImageIO::type(url.fileName()).latin1()*/)) {
         KMessageBox::error(0, i18n("Unable to save temporary file (before uploading to the network file you specified)."),
                           i18n("Error Writing File"));
@@ -551,7 +547,7 @@ void KmagApp::saveZoomPixmap()
       tempFile.unlink();
 
     } else {
-#warning "kde4 : port KImageIO::type(...) \n";			
+#warning "kde4 : port KImageIO::type(...) \n";
       if(!m_zoomView->getPixmap().save(url.path(), "png"/*KImageIO::type(url.fileName()).latin1()*/)) {
         KMessageBox::error(0, i18n("Unable to save file. Please check if you have permission to write to the directory."),
                             i18n("Error Writing File"));
@@ -635,11 +631,7 @@ void KmagApp::slotFilePrint()
 
   bool toggled(false);
 
-#if KDE_VERSION < 220
-  QPrinter printer;
-#else
   KPrinter printer;
-#endif
 
   // stop refresh temporarily
   if (m_zoomView->getRefreshStatus()) {
@@ -649,14 +641,12 @@ void KmagApp::slotFilePrint()
 
   const QPixmap pixmap(m_zoomView->getPixmap());
 
-#if KDE_VERSION >= 220
   // use some AI to get the best orientation
   if(pixmap.width() > pixmap.height()) {
     printer.setOrientation(KPrinter::Landscape);
   } else {
     printer.setOrientation(KPrinter::Portrait);
   }
-#endif
 
   if (printer.setup(this)) {
     QPainter paint;
@@ -690,7 +680,7 @@ void KmagApp::slotFileQuit()
       // the window and the application stay open.
       if(!w->close())
          break;
-#warning "kde4: now memberList() is constant => we can't remove some element!"	
+#warning "kde4: now memberList() is constant => we can't remove some element!"
 	//memberList()->removeRef(w);
     }
   }
