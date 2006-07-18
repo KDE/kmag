@@ -275,7 +275,7 @@ void KMagZoomView::paintMouseCursor(QPaintDevice *dev, QPoint mousePos)
       QBitmap sCursor( 16, 16, left_ptr_bits, TRUE );
       QBitmap mask( 16, 16, left_ptrmsk_bits, TRUE );
       sCursor.setMask(mask);
-      sCursor = sCursor.xForm(m_zoomMatrix);
+      sCursor = sCursor.transformed(m_zoomMatrix);
 
       // since hot spot is at 3,1
       if (m_rotation == 0)
@@ -307,7 +307,7 @@ void KMagZoomView::paintMouseCursor(QPaintDevice *dev, QPoint mousePos)
           QBitmap sCursor( 16, 16, left_ptr_bits, TRUE );
           QBitmap mask( 16, 16, left_ptrmsk_bits, TRUE );
           sCursor.setMask(mask);
-          sCursor = sCursor.xForm(m_zoomMatrix);
+          sCursor = sCursor.transformed(m_zoomMatrix);
 
           // since hot spot is at 3,1
           pz.drawPixmap(mousePos.x()-(int)(3.0*m_zoom), mousePos.y()-(int)m_zoom, sCursor);
@@ -640,7 +640,7 @@ void KMagZoomView::keyPressEvent(QKeyEvent *e)
       if (offset > m_selRect.x())
         m_selRect.setX (0);
       else
-        m_selRect.moveBy (-offset,0);
+        m_selRect.translate (-offset,0);
     }
     m_selRect.update();
   }
@@ -666,7 +666,7 @@ void KMagZoomView::keyPressEvent(QKeyEvent *e)
       if (m_selRect.right()+offset >= QApplication::desktop()->width())
         m_selRect.moveTopRight (QPoint (QApplication::desktop()->width()-1, m_selRect.top()));
       else
-        m_selRect.moveBy (offset,0);
+        m_selRect.translate (offset,0);
     }
     m_selRect.update();
   }
@@ -692,7 +692,7 @@ void KMagZoomView::keyPressEvent(QKeyEvent *e)
       if (offset > m_selRect.y())
         m_selRect.setY (0);
       else
-        m_selRect.moveBy (0, -offset);
+        m_selRect.translate (0, -offset);
     }
     m_selRect.update();
   }
@@ -718,7 +718,7 @@ void KMagZoomView::keyPressEvent(QKeyEvent *e)
       if (m_selRect.bottom()+offset >= QApplication::desktop()->height())
         m_selRect.moveBottomLeft (QPoint (m_selRect.left(), QApplication::desktop()->height()-1));
       else
-        m_selRect.moveBy (0, offset);
+        m_selRect.translate (0, offset);
     }
     m_selRect.update();
   }
@@ -845,14 +845,14 @@ void KMagZoomView::grabFrame()
   //QRect r = pixmapRect();
 
   // define a normalized rectangle
-  QRect selRect = m_selRect.normalize();
+  QRect selRect = m_selRect.normalized();
 
   // grab screenshot from the screen and put it in the pixmap
   m_grabbedPixmap = QPixmap::grabWindow(QApplication::desktop()->winId(), selRect.x(), selRect.y(),
                                         selRect.width(), selRect.height());
 
   // zoom the image
-  m_grabbedZoomedPixmap = m_grabbedPixmap.xForm(m_zoomMatrix);
+  m_grabbedZoomedPixmap = m_grabbedPixmap.transformed(m_zoomMatrix);
 
   // call repaint to display the newly grabbed image
   resizeContents (m_grabbedZoomedPixmap.width(), m_grabbedZoomedPixmap.height());
@@ -905,7 +905,7 @@ void KMagZoomView::setZoom(float zoom)
   m_zoomMatrix.scale(m_zoom, m_zoom);
   m_zoomMatrix.rotate(m_rotation);
 
-  m_grabbedZoomedPixmap = m_grabbedPixmap.xForm(m_zoomMatrix);
+  m_grabbedZoomedPixmap = m_grabbedPixmap.transformed(m_zoomMatrix);
 
   viewport()->repaint();
 }
@@ -927,7 +927,7 @@ void KMagZoomView::setRotation(int rotation)
   m_zoomMatrix.scale(m_zoom, m_zoom);
   m_zoomMatrix.rotate(m_rotation);
 
-  m_grabbedZoomedPixmap = m_grabbedPixmap.xForm(m_zoomMatrix);
+  m_grabbedZoomedPixmap = m_grabbedPixmap.transformed(m_zoomMatrix);
 
   viewport()->repaint();
 }
