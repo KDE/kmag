@@ -272,8 +272,8 @@ void KMagZoomView::paintMouseCursor(QPaintDevice *dev, QPoint mousePos)
       pz.setPen(Qt::black);
       pz.setBackgroundColor(Qt::white);
 
-      QBitmap sCursor( 16, 16, left_ptr_bits, TRUE );
-      QBitmap mask( 16, 16, left_ptrmsk_bits, TRUE );
+      QBitmap sCursor = QBitmap::fromData( QSize(16,  16),  left_ptr_bits);
+      QBitmap mask = QBitmap::fromData( QSize(16,  16),  left_ptrmsk_bits);
       sCursor.setMask(mask);
       sCursor = sCursor.transformed(m_zoomMatrix);
 
@@ -304,8 +304,8 @@ void KMagZoomView::paintMouseCursor(QPaintDevice *dev, QPoint mousePos)
           pz.setPen(Qt::black);
           pz.setBackgroundColor(Qt::white);
 
-          QBitmap sCursor( 16, 16, left_ptr_bits, TRUE );
-          QBitmap mask( 16, 16, left_ptrmsk_bits, TRUE );
+          QBitmap sCursor = QBitmap::fromData( QSize(16,  16),  left_ptr_bits);
+          QBitmap mask = QBitmap::fromData( QSize(16,  16),  left_ptrmsk_bits);
           sCursor.setMask(mask);
           sCursor = sCursor.transformed(m_zoomMatrix);
 
@@ -314,8 +314,8 @@ void KMagZoomView::paintMouseCursor(QPaintDevice *dev, QPoint mousePos)
         }
         break;
         default:
-          QBitmap sCursor( 32, 32, phand_bits, TRUE );
-          QBitmap mask( 32, 32, phandm_bits, TRUE );
+          QBitmap sCursor = QBitmap::fromData( QSize(32,  32),  phand_bits);
+          QBitmap mask = QBitmap::fromData( QSize(32,  32),  phandm_bits);
           sCursor.setMask(mask);
 
           pz.drawPixmap(mousePos.x(), mousePos.y(), sCursor);

@@ -197,7 +197,7 @@ void KMagSelRect::selWinResized()
 KMagSelWin::KMagSelWin ( QWidget * parent, const char * name, Qt::WFlags ) :
     QWidget (parent, name, Qt::WStyle_Customize | Qt::WStyle_NoBorder | Qt::WStyle_StaysOnTop | Qt::WType_TopLevel | Qt::WX11BypassWM)
 {
-  QBitmap line (8, 8, line_bits, true);
+  QBitmap line = QBitmap::fromData( QSize(8,  8),  line_bits);
   setPaletteBackgroundPixmap (line);
   setBackgroundOrigin (QWidget::WindowOrigin);
 
