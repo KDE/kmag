@@ -21,12 +21,11 @@ install(TARGETS kmag  DESTINATION ${BIN_INSTALL_DIR} )
 
 ########### install files ###############
 
-install( FILES   DESTINATION  ${DATA_INSTALL_DIR}/kmag/icons )
 install( FILES kmag.desktop  DESTINATION  ${XDG_APPS_DIR} )
 install( FILES kmagui.rc  DESTINATION  ${DATA_INSTALL_DIR}/kmag )
 
-kde4_install_icons( ${ICON_INSTALL_DIR}  hicolor )
-kde4_install_icons( ${ICON_INSTALL_DIR}  locolor )
+kde4_install_icons( ${ICON_INSTALL_DIR}/kmag/icons  hicolor )
+kde4_install_icons( ${ICON_INSTALL_DIR}/kmag/icons  locolor )
 
 
 
