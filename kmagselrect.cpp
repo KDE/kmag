@@ -301,7 +301,7 @@ void KMagSelWin::startResizing ()
 void KMagSelWin::titleMoved ( QPoint offset )
 {
   QRect selRect = oldSelRect;
-  selRect.moveBy (offset.x(), offset.y());
+  selRect.translate (offset.x(), offset.y());
   setSelRect (selRect);
   emit resized ();
 }
