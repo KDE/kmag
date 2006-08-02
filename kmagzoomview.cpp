@@ -293,7 +293,7 @@ void KMagZoomView::paintMouseCursor(QPaintDevice *dev, QPoint mousePos)
     {    
       // 3. Actual cursor
       // Get the current cursor type
-      QWidget *dummy  = KApplication::widgetAt(QCursor::pos(), FALSE);
+      QWidget *dummy  = KApplication::topLevelAt(QCursor::pos());
       if(!dummy)
         break;
       kDebug() << ">" << dummy->name() << ":" << dummy->cursor().shape() << "-" << endl;
