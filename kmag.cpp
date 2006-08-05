@@ -38,7 +38,7 @@
 #include <QDesktopWidget>
 #include <kdeversion.h>
 #include <kxmlguifactory.h>
-
+#include <kicon.h>
 // include files for KDE
 #include <kapplication.h>
 
