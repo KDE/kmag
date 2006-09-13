@@ -38,7 +38,7 @@ class KMagSelWinCorner : public QLabel
 
 public:
 
-    KMagSelWinCorner ( QWidget * parent = 0, const char * name = 0, Qt::WFlags f = 0 );
+    KMagSelWinCorner ( QWidget * parent = 0, Qt::WFlags f = 0 );
 
     virtual ~KMagSelWinCorner();
 
@@ -62,7 +62,7 @@ class KMagSelWin : public QWidget
 
 public:
 
-    KMagSelWin ( QWidget * parent = 0, const char * name = 0, Qt::WFlags f = 0 );
+    KMagSelWin ( QWidget * parent = 0, Qt::WFlags f = 0 );
 
     virtual ~KMagSelWin();
 
