@@ -154,22 +154,22 @@ void KmagApp::initActions()
   connect(m_pShowMenu, SIGNAL(triggered(bool)), SLOT(slotShowMenu()));
   m_pShowMenu->setShortcut(Qt::CTRL+Qt::Key_M);
   #ifdef havesetCheckedState
-  m_pShowMenu->setCheckedState(i18n("Hide &Menu"));
+  m_pShowMenu->setCheckedState(KGuiItem(i18n("Hide &Menu")));
   #endif
   m_pShowMainToolBar = new KToggleAction(i18n("Show Main &Toolbar"), actionCollection(), "show_mainToolBar");
   connect(m_pShowMainToolBar, SIGNAL(triggered(bool)), SLOT(slotShowMainToolBar()));
   #ifdef havesetCheckedState
-  m_pShowMainToolBar->setCheckedState(i18n("Hide Main &Toolbar"));
+  m_pShowMainToolBar->setCheckedState(KGuiItem(i18n("Hide Main &Toolbar")));
   #endif
   m_pShowViewToolBar = new KToggleAction(i18n("Show &View Toolbar"), actionCollection(), "show_viewToolBar");
   connect(m_pShowViewToolBar, SIGNAL(triggered(bool)), SLOT(slotShowViewToolBar()));
   #ifdef havesetCheckedState
-  m_pShowViewToolBar->setCheckedState(i18n("Hide &View Toolbar"));
+  m_pShowViewToolBar->setCheckedState(KGuiItem(i18n("Hide &View Toolbar")));
   #endif
   m_pShowSettingsToolBar = new KToggleAction(i18n("Show &Settings Toolbar"), actionCollection(), "show_settingsToolBar");
   connect(m_pShowSettingsToolBar, SIGNAL(triggered(bool)), SLOT(slotShowSettingsToolBar()));
   #ifdef havesetCheckedState
-  m_pShowSettingsToolBar->setCheckedState(i18n("Hide &Settings Toolbar"));
+  m_pShowSettingsToolBar->setCheckedState(KGuiItem(i18n("Hide &Settings Toolbar")));
   #endif
 
   m_modeFollowMouse = new KToggleAction(KIcon("followmouse"), i18n("&Follow Mouse Mode"), actionCollection(), "mode_followmouse");
@@ -193,7 +193,7 @@ void KmagApp::initActions()
   connect(m_hideCursor, SIGNAL(triggered(bool)), SLOT(slotToggleHideCursor()));
   m_hideCursor->setShortcut(Qt::Key_F4);
   #ifdef havesetCheckedState
-  m_hideCursor->setCheckedState(i18n("Show Mouse &Cursor"));
+  m_hideCursor->setCheckedState(KGuiItem(i18n("Show Mouse &Cursor")));
   #endif
   m_hideCursor->setToolTip(i18n("Hide the mouse cursor"));
 
