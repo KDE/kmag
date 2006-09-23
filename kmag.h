@@ -146,7 +146,7 @@ class KmagApp : public KMainWindow
 
     void slotToggleHideCursor();
 
-    /// Opens shortcut key configuration dialogue
+    /// Opens shortcut key configuration dialog
     void slotConfKeys();
 
     /// Called when toolbar config is updated
