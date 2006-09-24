@@ -55,7 +55,7 @@
 #include <kimageio.h>
 #include <kio/job.h>
 #include <kio/netaccess.h>
-#include <ktempfile.h>
+#include <ktemporaryfile.h>
 #include <kmenu.h>
 #include <kedittoolbar.h>
 
@@ -529,13 +529,13 @@ void KmagApp::saveZoomPixmap()
   if(!url.fileName().isEmpty()) {
     if(!url.isLocalFile()) {
       // create a temp file.. save image to it.. copy over the n/w and then delete the temp file.
-      KTempFile tempFile;
+      KTemporaryFile tempFile;
 #warning "kde4: port KImageIO::type \n";
-      if(!m_zoomView->getPixmap().save(tempFile.name(),"png"/*, KImageIO::type(url.fileName()).latin1()*/)) {
+      if(!tempFile.open() || !m_zoomView->getPixmap().save(tempFile.fileName(),"png"/*, KImageIO::type(url.fileName()).latin1()*/)) {
         KMessageBox::error(0, i18n("Unable to save temporary file (before uploading to the network file you specified)."),
                           i18n("Error Writing File"));
       } else {
-        if(!KIO::NetAccess::upload(tempFile.name(), url, this)) {
+        if(!KIO::NetAccess::upload(tempFile.fileName(), url, this)) {
           KMessageBox::error(0, i18n("Unable to upload file over the network."),
                             i18n("Error Writing File"));
         } else {
@@ -543,8 +543,6 @@ void KmagApp::saveZoomPixmap()
                               i18n("Information"), "save_confirm");
         }
       }
-      // remove the temporary file
-      tempFile.unlink();
 
     } else {
 #warning "kde4 : port KImageIO::type(...) \n";
