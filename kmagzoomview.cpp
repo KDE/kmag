@@ -97,7 +97,7 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
   viewport()->setMouseTracking(TRUE);
   viewport()->setBackgroundMode (Qt::NoBackground);
   viewport()->setFocusPolicy(Qt::StrongFocus);
-  
+
   // init the zoom matrix
   m_zoomMatrix.reset();
   m_zoomMatrix.scale(m_zoom, m_zoom);
@@ -107,7 +107,7 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
   m_shiftKeyPressed = false;
   m_refreshSwitch = true;
   m_refreshSwitchStateOnHide = m_refreshSwitch;
-  
+
   // set the refresh rate
   setRefreshRate(10);
 
@@ -193,7 +193,7 @@ void KMagZoomView::resizeEvent( QResizeEvent * e )
 }
 
 /**
- * Called when the widget is to be repainted
+ * Called when the widget is to be repainted.
  *
  * @param p
  */
@@ -261,7 +261,7 @@ void KMagZoomView::paintMouseCursor(QPaintDevice *dev, QPoint mousePos)
     case 1:
       // 1. Square around the pixel
       pz.setPen(Qt::white);
-#warning "Port Qt4 pz.setRasterOp(Qt::XorROP);";	  
+#warning "Port Qt4 pz.setRasterOp(Qt::XorROP);";
       //pz.setRasterOp(Qt::XorROP);
       pz.drawRect(mousePos.x()-1, mousePos.y()-1, (int)m_zoom+2, (int)m_zoom+2);
       break;
@@ -361,7 +361,7 @@ QPoint KMagZoomView::calcMousePos(bool updateMousePos)
 // MOUSE ACTIONS
 
 /**
- * Called when mouse is clicked inside the window
+ * Called when mouse is clicked inside the window.
  *
  * @param e
  */
@@ -599,7 +599,7 @@ void KMagZoomView::mouseMoveEvent(QMouseEvent *e)
       // set Y to the maximum possible Y
       newCenter.setY(QApplication::desktop()->height()-m_selRect.height()/2-1);
     }
-            
+
     // move to the new center  
     m_selRect.moveCenter(newCenter);
     // update the grab rectangle display
@@ -738,7 +738,7 @@ void KMagZoomView::keyReleaseEvent(QKeyEvent *e)
 
 void KMagZoomView::focusOutEvent(QFocusEvent *e)
 {
-  if(e->lostFocus() == TRUE) {
+  if(e->lostFocus() == true) {
     m_ctrlKeyPressed = false;
     m_shiftKeyPressed = false;
   }
@@ -861,7 +861,7 @@ void KMagZoomView::grabFrame()
 
 
 /**
- * Updates the mouse cursor in the zoom view
+ * Updates the mouse cursor in the zoom view.
  */
 void KMagZoomView::updateMouseView()
 {
@@ -939,8 +939,8 @@ void KMagZoomView::setRefreshRate(float fps)
 {
   if(fps < 0.1)
     return;
-  m_fps = static_cast<unsigned int>(fps);  
-  
+  m_fps = static_cast<unsigned int>(fps);
+
   if(m_grabTimer.isActive())
     m_grabTimer.start(static_cast<int>(1000.0/m_fps));
 }
@@ -987,7 +987,7 @@ QStringList KMagZoomView::getShowMouseStringList() const
 
 
 /**
- * Returns the image which is being displayed. Its again drawn by adding
+ * Returns the image which is being displayed. It's again drawn by adding
  * the mouse cursor if needed.
  */
 QPixmap KMagZoomView::getPixmap()
@@ -999,7 +999,7 @@ QPixmap KMagZoomView::getPixmap()
 
     // paint the mouse cursor w/o updating to a newer position
     paintMouseCursor(&zoomView, calcMousePos(false));
-    
+
     return(zoomView);
   } else { // no mouse cursor
      return(m_grabbedZoomedPixmap);
