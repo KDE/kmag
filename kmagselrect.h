@@ -29,9 +29,6 @@
 //Added by qt3to4:
 #include <QMouseEvent>
 
-// Min function
-#define min(a,b) ((a) < (b) ? (a) : (b))
-
 class KMagSelWinCorner : public QLabel
 {
     Q_OBJECT
