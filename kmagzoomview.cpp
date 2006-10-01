@@ -93,8 +93,8 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
     m_rotation(0),
     m_fitToWindow(true)
 {
-  KApplication::setGlobalMouseTracking(TRUE);
-  viewport()->setMouseTracking(TRUE);
+  KApplication::setGlobalMouseTracking(true);
+  viewport()->setMouseTracking(true);
   viewport()->setBackgroundMode (Qt::NoBackground);
   viewport()->setFocusPolicy(Qt::StrongFocus);
 
@@ -133,7 +133,7 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
 
 KMagZoomView::~KMagZoomView()
 {
-  KApplication::setGlobalMouseTracking(FALSE);
+  KApplication::setGlobalMouseTracking(true);
 }
 
 /**
