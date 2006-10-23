@@ -10,7 +10,7 @@ set(kmag_SRCS
    kmag.cpp 
    main.cpp )
 
-kde4_automoc(kmag ${kmag_SRCS})
+kde4_automoc(${kmag_SRCS})
 
 kde4_add_executable(kmag ${kmag_SRCS})
 
