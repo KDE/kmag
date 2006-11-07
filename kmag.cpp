@@ -530,7 +530,9 @@ void KmagApp::saveZoomPixmap()
     if(!url.isLocalFile()) {
       // create a temp file.. save image to it.. copy over the n/w and then delete the temp file.
       KTemporaryFile tempFile;
+#ifdef __GNUC__
 #warning "kde4: port KImageIO::type \n";
+#endif      
       if(!tempFile.open() || !m_zoomView->getPixmap().save(tempFile.fileName(),"png"/*, KImageIO::type(url.fileName()).latin1()*/)) {
         KMessageBox::error(0, i18n("Unable to save temporary file (before uploading to the network file you specified)."),
                           i18n("Error Writing File"));
@@ -545,7 +547,9 @@ void KmagApp::saveZoomPixmap()
       }
 
     } else {
+#ifdef __GNUC__
 #warning "kde4 : port KImageIO::type(...) \n";
+#endif	    
       if(!m_zoomView->getPixmap().save(url.path(), "png"/*KImageIO::type(url.fileName()).latin1()*/)) {
         KMessageBox::error(0, i18n("Unable to save file. Please check if you have permission to write to the directory."),
                             i18n("Error Writing File"));
@@ -678,7 +682,9 @@ void KmagApp::slotFileQuit()
       // the window and the application stay open.
       if(!w->close())
          break;
+#ifdef __GNUC__
 #warning "kde4: now memberList() is constant => we can't remove some element!"
+#endif      
 	//memberList()->removeRef(w);
     }
   }

@@ -261,7 +261,9 @@ void KMagZoomView::paintMouseCursor(QPaintDevice *dev, QPoint mousePos)
     case 1:
       // 1. Square around the pixel
       pz.setPen(Qt::white);
+#ifdef __GNUC__
 #warning "Port Qt4 pz.setRasterOp(Qt::XorROP);";
+#endif      
       //pz.setRasterOp(Qt::XorROP);
       pz.drawRect(mousePos.x()-1, mousePos.y()-1, (int)m_zoom+2, (int)m_zoom+2);
       break;
