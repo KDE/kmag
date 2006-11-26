@@ -477,7 +477,7 @@ in the toolbar.</para></listitem>
 </sect1>
 
 <sect1 id="the-help-menu">
-<title>The <guimenuitem>Help</guimenuitem> Menu</title>
+<title>The <guimenu>Help</guimenu> Menu</title>
 
 &help.menu.documentation;
 
