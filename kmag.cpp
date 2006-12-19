@@ -50,7 +50,7 @@
 #include <klocale.h>
 #include <kconfig.h>
 #include <kdebug.h>
-#include <kstdaction.h>
+#include <kstandardaction.h>
 #include <khelpmenu.h>
 #include <kimageio.h>
 #include <kio/job.h>
@@ -139,14 +139,14 @@ void KmagApp::initActions()
   m_pSnapshot->setWhatsThis(i18n("Saves the zoomed view to an image file."));
   m_pSnapshot->setToolTip(i18n("Save image to a file"));
 
-  m_pPrint = KStdAction::print(this, SLOT(slotFilePrint()), actionCollection(), "print");
+  m_pPrint = KStandardAction::print(this, SLOT(slotFilePrint()), actionCollection(), "print");
   m_pPrint->setWhatsThis(i18n("Click on this button to print the current zoomed view."));
 
-  m_pQuit = KStdAction::quit(this, SLOT(slotFileQuit()), actionCollection(), "quit");
+  m_pQuit = KStandardAction::quit(this, SLOT(slotFileQuit()), actionCollection(), "quit");
   m_pQuit->setToolTip(i18n("Quits the application"));
   m_pQuit->setWhatsThis (i18n("Quits the application"));
 
-  m_pCopy = KStdAction::copy(this, SLOT(copyToClipBoard()), actionCollection(), "copy");
+  m_pCopy = KStandardAction::copy(this, SLOT(copyToClipBoard()), actionCollection(), "copy");
   m_pCopy->setWhatsThis(i18n("Click on this button to copy the current zoomed view to the clipboard which you can paste in other applications."));
   m_pCopy->setToolTip(i18n("Copy zoomed image to clipboard"));
 
@@ -197,7 +197,7 @@ void KmagApp::initActions()
   #endif
   m_hideCursor->setToolTip(i18n("Hide the mouse cursor"));
 
-  m_pZoomIn = KStdAction::zoomIn(this, SLOT(zoomIn()), actionCollection(), "zoom_in");
+  m_pZoomIn = KStandardAction::zoomIn(this, SLOT(zoomIn()), actionCollection(), "zoom_in");
   m_pZoomIn->setWhatsThis(i18n("Click on this button to <b>zoom-in</b> on the selected region."));
 
   m_pZoomBox = new KSelectAction(i18n("&Zoom"),actionCollection(),"zoom");
@@ -205,7 +205,7 @@ void KmagApp::initActions()
   m_pZoomBox->setWhatsThis(i18n("Select the zoom factor."));
   m_pZoomBox->setToolTip(i18n("Zoom factor"));
 
-  m_pZoomOut = KStdAction::zoomOut(this, SLOT(zoomOut()), actionCollection(), "zoom_out");
+  m_pZoomOut = KStandardAction::zoomOut(this, SLOT(zoomOut()), actionCollection(), "zoom_out");
   m_pZoomOut->setWhatsThis(i18n("Click on this button to <b>zoom-out</b> on the selected region."));
 
   m_pRotationBox = new KSelectAction(i18n("&Rotation"),actionCollection(),"rotation");
@@ -215,8 +215,8 @@ void KmagApp::initActions()
 
   // KHelpMenu *newHelpMenu = new KHelpMenu(this, KGlobal::instance()->aboutData());
 
-  m_keyConf = KStdAction::keyBindings( this, SLOT( slotConfKeys() ), actionCollection(), "key_conf");
-  m_toolConf = KStdAction::configureToolbars( this, SLOT( slotEditToolbars() ),
+  m_keyConf = KStandardAction::keyBindings( this, SLOT( slotConfKeys() ), actionCollection(), "key_conf");
+  m_toolConf = KStandardAction::configureToolbars( this, SLOT( slotEditToolbars() ),
                                               actionCollection(), "toolbar_conf");
 
   m_pFPSBox = new KSelectAction(i18n("&Refresh"),actionCollection(),"fps_selector");
