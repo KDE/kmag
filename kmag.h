@@ -179,12 +179,12 @@ class KmagApp : public KMainWindow
     KConfig *config;
 
     // KAction pointers to enable/disable actions
-    KAction *fileNewWindow, *m_pSnapshot, *m_pCopy, *m_keyConf, *m_toolConf;
-    KAction *m_pPrint;
-    KAction *m_pZoomIn;
-    KAction *m_pZoomOut;
-    KAction *m_pQuit;
-    KAction *refreshSwitch;
+    QAction *fileNewWindow, *m_pSnapshot, *m_pCopy, *m_keyConf, *m_toolConf;
+    QAction *m_pPrint;
+    QAction *m_pZoomIn;
+    QAction *m_pZoomOut;
+    QAction *m_pQuit;
+    QAction *refreshSwitch;
     KToggleAction *m_pShowMenu, *m_pShowMainToolBar, *m_pShowViewToolBar, *m_pShowSettingsToolBar;
     KSelectAction *m_pZoomBox, *m_pRotationBox, *m_pFPSBox;
 

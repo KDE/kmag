@@ -30,6 +30,7 @@
 #include <kxmlguiclient.h>
 #include <ktoolbar.h>
 #include <ktoggleaction.h>
+#include <kactioncollection.h>
 #include <kselectaction.h>
 //Added by qt3to4:
 #include <QContextMenuEvent>
@@ -119,76 +120,90 @@ KmagApp::~KmagApp()
 
 void KmagApp::initActions()
 {
-  fileNewWindow = new KAction(KIcon("window_new"), i18n("New &Window"), actionCollection(), "new_window");
+  fileNewWindow = actionCollection()->addAction("new_window");
+  fileNewWindow->setIcon(KIcon("window_new"));
+  fileNewWindow->setText(i18n("New &Window"));
   connect(fileNewWindow, SIGNAL(triggered(bool) ), SLOT(slotFileNewWindow()));
-  fileNewWindow->setDefaultShortcut(KStandardShortcut::openNew());
+  fileNewWindow->setShortcuts(KStandardShortcut::openNew());
   fileNewWindow->setToolTip(i18n("Open a new KMagnifier window"));
 
-  refreshSwitch = new KAction(KIcon("stop"), i18n("&Stop"), actionCollection(), "start_stop_refresh");
+  refreshSwitch = actionCollection()->addAction("start_stop_refresh");
+  refreshSwitch->setIcon(KIcon("stop"));
+  refreshSwitch->setText(i18n("&Stop"));
   connect(refreshSwitch, SIGNAL(triggered(bool) ), SLOT(slotToggleRefresh()));
-  refreshSwitch->setDefaultShortcut(KStandardShortcut::reload());
+  refreshSwitch->setShortcuts(KStandardShortcut::reload());
   refreshSwitch->setToolTip(i18n("Click to stop window refresh"));
   refreshSwitch->setWhatsThis(i18n("Clicking on this icon will <b>start</b> / <b>stop</b>\
   updating of the display. Stopping the update will zero the processing power\
   required (CPU usage)"));
 
-  m_pSnapshot = new KAction(KIcon("ksnapshot"), i18n("&Save Snapshot As..."), actionCollection(), "snapshot");
+  m_pSnapshot = actionCollection()->addAction("snapshot");
+  m_pSnapshot->setIcon(KIcon("ksnapshot"));
+  m_pSnapshot->setText(i18n("&Save Snapshot As..."));
   connect(m_pSnapshot, SIGNAL(triggered(bool) ), SLOT(saveZoomPixmap()));
-  m_pSnapshot->setDefaultShortcut(KStandardShortcut::save());
+  m_pSnapshot->setShortcuts(KStandardShortcut::save());
   m_pSnapshot->setWhatsThis(i18n("Saves the zoomed view to an image file."));
   m_pSnapshot->setToolTip(i18n("Save image to a file"));
 
-  m_pPrint = KStandardAction::print(this, SLOT(slotFilePrint()), actionCollection(), "print");
+  m_pPrint = actionCollection()->addAction(KStandardAction::Print, this, SLOT(slotFilePrint()));
   m_pPrint->setWhatsThis(i18n("Click on this button to print the current zoomed view."));
 
-  m_pQuit = KStandardAction::quit(this, SLOT(slotFileQuit()), actionCollection(), "quit");
+  m_pQuit = actionCollection()->addAction(KStandardAction::Quit, this, SLOT(slotFileQuit()));
   m_pQuit->setToolTip(i18n("Quits the application"));
   m_pQuit->setWhatsThis (i18n("Quits the application"));
 
-  m_pCopy = KStandardAction::copy(this, SLOT(copyToClipBoard()), actionCollection(), "copy");
+  m_pCopy = actionCollection()->addAction(KStandardAction::Copy, this, SLOT(copyToClipBoard()));
   m_pCopy->setWhatsThis(i18n("Click on this button to copy the current zoomed view to the clipboard which you can paste in other applications."));
   m_pCopy->setToolTip(i18n("Copy zoomed image to clipboard"));
 
-  m_pShowMenu = new KToggleAction(KIcon("showmenu"), i18n("Show &Menu"), actionCollection(), "show_menu");
+  m_pShowMenu = new KToggleAction(KIcon("showmenu"), i18n("Show &Menu"), this);
+  actionCollection()->addAction("show_menu", m_pShowMenu);
   connect(m_pShowMenu, SIGNAL(triggered(bool)), SLOT(slotShowMenu()));
   m_pShowMenu->setShortcut(Qt::CTRL+Qt::Key_M);
   #ifdef havesetCheckedState
   m_pShowMenu->setCheckedState(KGuiItem(i18n("Hide &Menu")));
   #endif
-  m_pShowMainToolBar = new KToggleAction(i18n("Show Main &Toolbar"), actionCollection(), "show_mainToolBar");
+  m_pShowMainToolBar = new KToggleAction(i18n("Show Main &Toolbar"), this);
+  actionCollection()->addAction("show_mainToolBar", m_pShowMainToolBar);
   connect(m_pShowMainToolBar, SIGNAL(triggered(bool)), SLOT(slotShowMainToolBar()));
   #ifdef havesetCheckedState
   m_pShowMainToolBar->setCheckedState(KGuiItem(i18n("Hide Main &Toolbar")));
   #endif
-  m_pShowViewToolBar = new KToggleAction(i18n("Show &View Toolbar"), actionCollection(), "show_viewToolBar");
+  m_pShowViewToolBar = new KToggleAction(i18n("Show &View Toolbar"), this);
+  actionCollection()->addAction("show_viewToolBar", m_pShowViewToolBar);
   connect(m_pShowViewToolBar, SIGNAL(triggered(bool)), SLOT(slotShowViewToolBar()));
   #ifdef havesetCheckedState
   m_pShowViewToolBar->setCheckedState(KGuiItem(i18n("Hide &View Toolbar")));
   #endif
-  m_pShowSettingsToolBar = new KToggleAction(i18n("Show &Settings Toolbar"), actionCollection(), "show_settingsToolBar");
+  m_pShowSettingsToolBar = new KToggleAction(i18n("Show &Settings Toolbar"), this);
+  actionCollection()->addAction("show_settingsToolBar", m_pShowSettingsToolBar);
   connect(m_pShowSettingsToolBar, SIGNAL(triggered(bool)), SLOT(slotShowSettingsToolBar()));
   #ifdef havesetCheckedState
   m_pShowSettingsToolBar->setCheckedState(KGuiItem(i18n("Hide &Settings Toolbar")));
   #endif
 
-  m_modeFollowMouse = new KToggleAction(KIcon("followmouse"), i18n("&Follow Mouse Mode"), actionCollection(), "mode_followmouse");
+  m_modeFollowMouse = new KToggleAction(KIcon("followmouse"), i18n("&Follow Mouse Mode"), this);
+  actionCollection()->addAction("mode_followmouse", m_modeFollowMouse);
   connect(m_modeFollowMouse, SIGNAL(triggered(bool)), SLOT(slotModeFollowMouse()));
   m_modeFollowMouse->setShortcut(Qt::Key_F1);
   m_modeFollowMouse->setToolTip(i18n("Magnify around the mouse cursor"));
   m_modeFollowMouse->setWhatsThis(i18n("If selected, the area around the mouse cursor is magnified"));
 
-  m_modeSelWin = new KToggleAction(KIcon("window"), i18n("Se&lection Window Mode"), actionCollection(), "mode_selectionwindow");
+  m_modeSelWin = new KToggleAction(KIcon("window"), i18n("Se&lection Window Mode"), this);
+  actionCollection()->addAction("mode_selectionwindow", m_modeSelWin);
   connect(m_modeSelWin, SIGNAL(triggered(bool)), SLOT(slotModeSelWin()));
   m_modeSelWin->setShortcut(Qt::Key_F2);
   m_modeSelWin->setToolTip(i18n("Show a window for selecting the magnified area"));
 
-  m_modeWholeScreen = new KToggleAction(KIcon("window_fullscreen"), i18n("&Whole Screen Mode"), actionCollection(), "mode_wholescreen");
+  m_modeWholeScreen = new KToggleAction(KIcon("window_fullscreen"), i18n("&Whole Screen Mode"), this);
+  actionCollection()->addAction("mode_wholescreen", m_modeWholeScreen);
   connect(m_modeWholeScreen, SIGNAL(triggered(bool)), SLOT(slotModeWholeScreen()));
   m_modeWholeScreen->setShortcut(Qt::Key_F3);
   m_modeWholeScreen->setToolTip(i18n("Magnify the whole screen"));
   m_modeWholeScreen->setWhatsThis(i18n("Click on this button to fit the zoom view to the zoom window."));
 
-  m_hideCursor = new KToggleAction(KIcon("hidemouse"), i18n("Hide Mouse &Cursor"), actionCollection(), "hidecursor");
+  m_hideCursor = new KToggleAction(KIcon("hidemouse"), i18n("Hide Mouse &Cursor"), this);
+  actionCollection()->addAction("hidecursor", m_hideCursor);
   connect(m_hideCursor, SIGNAL(triggered(bool)), SLOT(slotToggleHideCursor()));
   m_hideCursor->setShortcut(Qt::Key_F4);
   #ifdef havesetCheckedState
@@ -196,29 +211,31 @@ void KmagApp::initActions()
   #endif
   m_hideCursor->setToolTip(i18n("Hide the mouse cursor"));
 
-  m_pZoomIn = KStandardAction::zoomIn(this, SLOT(zoomIn()), actionCollection(), "zoom_in");
+  m_pZoomIn = actionCollection()->addAction(KStandardAction::ZoomIn, this, SLOT(zoomIn()));
   m_pZoomIn->setWhatsThis(i18n("Click on this button to <b>zoom-in</b> on the selected region."));
 
-  m_pZoomBox = new KSelectAction(i18n("&Zoom"),actionCollection(),"zoom");
+  m_pZoomBox = new KSelectAction(i18n("&Zoom"), this);
+  actionCollection()->addAction("zoom", m_pZoomBox);
   m_pZoomBox->setItems(zoomArrayString);
   m_pZoomBox->setWhatsThis(i18n("Select the zoom factor."));
   m_pZoomBox->setToolTip(i18n("Zoom factor"));
 
-  m_pZoomOut = KStandardAction::zoomOut(this, SLOT(zoomOut()), actionCollection(), "zoom_out");
+  m_pZoomOut = actionCollection()->addAction(KStandardAction::ZoomOut, this, SLOT(zoomOut()));
   m_pZoomOut->setWhatsThis(i18n("Click on this button to <b>zoom-out</b> on the selected region."));
 
-  m_pRotationBox = new KSelectAction(i18n("&Rotation"),actionCollection(),"rotation");
+  m_pRotationBox = new KSelectAction(i18n("&Rotation"),this);
+  actionCollection()->addAction("rotation", m_pRotationBox);
   m_pRotationBox->setItems(rotationArrayString);
   m_pRotationBox->setWhatsThis(i18n("Select the rotation degree."));
   m_pRotationBox->setToolTip(i18n("Rotation degree"));
 
   // KHelpMenu *newHelpMenu = new KHelpMenu(this, KGlobal::instance()->aboutData());
 
-  m_keyConf = KStandardAction::keyBindings( this, SLOT( slotConfKeys() ), actionCollection(), "key_conf");
-  m_toolConf = KStandardAction::configureToolbars( this, SLOT( slotEditToolbars() ),
-                                              actionCollection(), "toolbar_conf");
+  m_keyConf = actionCollection()->addAction(KStandardAction::KeyBindings, this, SLOT(slotConfKeys()));
+  m_toolConf = actionCollection()->addAction(KStandardAction::ConfigureToolbars, this, SLOT(slotEditToolbars()));
 
-  m_pFPSBox = new KSelectAction(i18n("&Refresh"),actionCollection(),"fps_selector");
+  m_pFPSBox = new KSelectAction(i18n("&Refresh"),this);
+  actionCollection()->addAction("fps_selector", m_pFPSBox);
   m_pFPSBox->setItems(fpsArrayString);
   m_pFPSBox->setWhatsThis(i18n("Select the refresh rate. The higher the rate, the more computing power (CPU) will be needed."));
   m_pFPSBox->setToolTip(i18n("Refresh rate"));
