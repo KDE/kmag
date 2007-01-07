@@ -121,12 +121,12 @@ void KmagApp::initActions()
 {
   fileNewWindow = new KAction(KIcon("window_new"), i18n("New &Window"), actionCollection(), "new_window");
   connect(fileNewWindow, SIGNAL(triggered(bool) ), SLOT(slotFileNewWindow()));
-  fileNewWindow->setDefaultShortcut(KStandardShortcut::openNew());
+  fileNewWindow->setShortcut(KStandardShortcut::openNew(), KAction::DefaultShortcut);
   fileNewWindow->setToolTip(i18n("Open a new KMagnifier window"));
 
   refreshSwitch = new KAction(KIcon("stop"), i18n("&Stop"), actionCollection(), "start_stop_refresh");
   connect(refreshSwitch, SIGNAL(triggered(bool) ), SLOT(slotToggleRefresh()));
-  refreshSwitch->setDefaultShortcut(KStandardShortcut::reload());
+  refreshSwitch->setShortcut(KStandardShortcut::reload(), KAction::DefaultShortcut);
   refreshSwitch->setToolTip(i18n("Click to stop window refresh"));
   refreshSwitch->setWhatsThis(i18n("Clicking on this icon will <b>start</b> / <b>stop</b>\
   updating of the display. Stopping the update will zero the processing power\
@@ -134,7 +134,7 @@ void KmagApp::initActions()
 
   m_pSnapshot = new KAction(KIcon("ksnapshot"), i18n("&Save Snapshot As..."), actionCollection(), "snapshot");
   connect(m_pSnapshot, SIGNAL(triggered(bool) ), SLOT(saveZoomPixmap()));
-  m_pSnapshot->setDefaultShortcut(KStandardShortcut::save());
+  m_pSnapshot->setShortcut(KStandardShortcut::save(), KAction::DefaultShortcut);
   m_pSnapshot->setWhatsThis(i18n("Saves the zoomed view to an image file."));
   m_pSnapshot->setToolTip(i18n("Save image to a file"));
 
