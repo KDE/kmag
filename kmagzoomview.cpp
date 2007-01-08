@@ -868,8 +868,8 @@ void KMagZoomView::grabFrame()
 void KMagZoomView::updateMouseView()
 {
   QPoint pos(QCursor::pos());
-  if(m_selRect.left() <= pos.x() <= m_selRect.right() &&
-     m_selRect.top() <= pos.y() <= m_selRect.bottom() &&
+  if(m_selRect.left() <= pos.x() && pos.x() <= m_selRect.right() &&
+     m_selRect.top() <= pos.y() && pos.y() <= m_selRect.bottom() &&
      m_refreshSwitch)
     viewport()->repaint(false);
 }
