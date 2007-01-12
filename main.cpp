@@ -21,6 +21,7 @@
 #include <klocale.h>
 #include <ktoggleaction.h>
 #include <kselectaction.h>
+#include <kapplication.h>
 #include "kmag.h"
 
 #include "version.h"

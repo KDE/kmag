@@ -28,7 +28,6 @@
 #include <QMouseEvent>
 #include <QLabel>
 #include <QDesktopWidget>
-#include <kapplication.h>
 #include <klocale.h>
 
 static uchar line_bits[] = {0x2d, 0x96, 0x4b, 0xa5, 0xd2, 0x69, 0xb4, 0x5a};
