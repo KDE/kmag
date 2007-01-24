@@ -27,9 +27,6 @@
 #include <qwidget.h>
 #include <qlabel.h>
 
-// Min function
-#define min(a,b) ((a) < (b) ? (a) : (b))
-
 class KMagSelWinCorner : public QLabel
 {
     Q_OBJECT
