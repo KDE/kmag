@@ -229,7 +229,7 @@ void KmagApp::initActions()
   m_pRotationBox->setWhatsThis(i18n("Select the rotation degree."));
   m_pRotationBox->setToolTip(i18n("Rotation degree"));
 
-  // KHelpMenu *newHelpMenu = new KHelpMenu(this, KGlobal::instance()->aboutData());
+  // KHelpMenu *newHelpMenu = new KHelpMenu(this, KGlobal::mainComponent().aboutData());
 
   m_keyConf = actionCollection()->addAction(KStandardAction::KeyBindings, this, SLOT(slotConfKeys()));
   m_toolConf = actionCollection()->addAction(KStandardAction::ConfigureToolbars, this, SLOT(slotEditToolbars()));
@@ -299,9 +299,9 @@ void KmagApp::saveOptions()
   config->writeEntry("ShowViewToolBar", m_pShowViewToolBar->isChecked());
   config->writeEntry("ShowSettingsToolBar", m_pShowSettingsToolBar->isChecked());
 
-  toolBar("mainToolBar")->saveSettings(config,"Main ToolBar");
-  toolBar("viewToolBar")->saveSettings(config,"View ToolBar");
-  toolBar("settingsToolBar")->saveSettings(config,"Settings ToolBar");
+  toolBar("mainToolBar")->saveSettings(config.data(),"Main ToolBar");
+  toolBar("viewToolBar")->saveSettings(config.data(),"View ToolBar");
+  toolBar("settingsToolBar")->saveSettings(config.data(),"Settings ToolBar");
 }
 
 
@@ -361,13 +361,13 @@ void KmagApp::readOptions()
     m_hideCursor->setChecked(true);
 
   if(config->hasGroup("Settings ToolBar"))
-    toolBar("settingsToolBar")->applySettings(config,"Settings ToolBar");
+    toolBar("settingsToolBar")->applySettings(config.data(),"Settings ToolBar");
 
   if(config->hasGroup("Main ToolBar"))
-    toolBar("mainToolBar")->applySettings(config,"Main ToolBar");
+    toolBar("mainToolBar")->applySettings(config.data(),"Main ToolBar");
 
   if(config->hasGroup("View ToolBar"))
-    toolBar("viewToolBar")->applySettings(config,"View ToolBar");
+    toolBar("viewToolBar")->applySettings(config.data(),"View ToolBar");
 
   m_pShowMenu->setChecked(config->readEntry("ShowMenu", QVariant(true)).toBool());
   slotShowMenu();
@@ -777,7 +777,7 @@ void KmagApp::slotConfKeys()
 
 void KmagApp::slotEditToolbars()
 {
-  saveMainWindowSettings( KGlobal::config(), "MainWindow" );
+  saveMainWindowSettings( KGlobal::config().data(), "MainWindow" );
   KEditToolbar dlg( actionCollection() );
   connect( &dlg, SIGNAL( newToolbarConfig() ), this, SLOT( slotNewToolbarConfig() ) );
   if ( dlg.exec() )
@@ -787,6 +787,6 @@ void KmagApp::slotEditToolbars()
 
 void KmagApp::slotNewToolbarConfig()
 {
-  applyMainWindowSettings( KGlobal::config(), "MainWindow" );
+  applyMainWindowSettings( KGlobal::config().data(), "MainWindow" );
   createGUI();
 }

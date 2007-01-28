@@ -36,6 +36,7 @@
 #include <k3dockwidget.h>
 #include <kaction.h>
 #include <knuminput.h>
+#include <kconfig.h>
 
 /**
   * The base class for Kmag application windows. It sets up the main
@@ -175,7 +176,7 @@ class KmagApp : public KMainWindow
 
   private:
     /// the configuration object of the application
-    KConfig *config;
+    KSharedConfigPtr config;
 
     // KAction pointers to enable/disable actions
     QAction *fileNewWindow, *m_pSnapshot, *m_pCopy, *m_keyConf, *m_toolConf;
