@@ -20,8 +20,6 @@
 #ifndef KMagZoomView_h_
 #define KMagZoomView_h_
 
-#include <config.h>
-
 // include files for Qt
 #include <qwidget.h>
 #include <QPainter>

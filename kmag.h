@@ -21,8 +21,6 @@
 #ifndef KMAG_H
 #define KMAG_H
 
-#include <config.h>
-
 #include "kmagzoomview.h"
 
 #include <vector>
