@@ -369,16 +369,16 @@ void KmagApp::readOptions()
   if(config->hasGroup("View ToolBar"))
     toolBar("viewToolBar")->applySettings(config.data(),"View ToolBar");
 
-  m_pShowMenu->setChecked(config->readEntry("ShowMenu", QVariant(true)).toBool());
+  m_pShowMenu->setChecked(config->readEntry("ShowMenu", true));
   slotShowMenu();
 
-  m_pShowMainToolBar->setChecked(config->readEntry("ShowMainToolBar", QVariant(false)).toBool());
+  m_pShowMainToolBar->setChecked(config->readEntry("ShowMainToolBar", false));
   slotShowMainToolBar();
 
-  m_pShowViewToolBar->setChecked(config->readEntry("ShowViewToolBar", QVariant(true)).toBool());
+  m_pShowViewToolBar->setChecked(config->readEntry("ShowViewToolBar", true));
   slotShowViewToolBar();
 
-  m_pShowSettingsToolBar->setChecked(config->readEntry("ShowSettingsToolBar", QVariant(true)).toBool());
+  m_pShowSettingsToolBar->setChecked(config->readEntry("ShowSettingsToolBar", true));
   slotShowSettingsToolBar();
 }
 
