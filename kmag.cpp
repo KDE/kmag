@@ -253,6 +253,23 @@ void KmagApp::initView()
   setCentralWidget(m_zoomView);
 }
 
+
+void KmagApp::slotChangeZoomBoxIndex(int index)
+{
+   m_pZoomBox->setCurrentItem(index);
+}
+
+void KmagApp::slotChangeRotationBoxIndex(int index)
+{
+  m_pRotationBox->setCurrentItem(index);
+}
+
+void KmagApp::slotChangeFPSIndex(int index)
+{
+  m_pFPSBox->setCurrentItem(index);
+}
+
+
 /**
  * Initialize all connections.
  */
@@ -264,9 +281,9 @@ void KmagApp::initConnections()
   connect(this, SIGNAL(updateFPSValue(float)), m_zoomView, SLOT(setRefreshRate(float)));
 
   // change in zoom index -> update the selector
-  connect(this, SIGNAL(updateZoomIndex(int)), m_pZoomBox, SLOT(setCurrentItem(int)));
-  connect(this, SIGNAL(updateRotationIndex(int)), m_pRotationBox, SLOT(setCurrentItem(int)));
-  connect(this, SIGNAL(updateFPSIndex(int)), m_pFPSBox, SLOT(setCurrentItem(int)));
+  connect(this, SIGNAL(updateZoomIndex(int)), this, SLOT(slotChangeZoomBoxIndex(int)));
+  connect(this, SIGNAL(updateRotationIndex(int)), this, SLOT(slotChangeRotationBoxIndex(int)));
+  connect(this, SIGNAL(updateFPSIndex(int)), this, SLOT(slotChangeFPSIndex(int)));
 
   // selector selects a zoom index -> set the zoom index
   connect(m_pZoomBox, SIGNAL(activated(int)), this, SLOT(setZoomIndex(int)));

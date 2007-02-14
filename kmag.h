@@ -153,6 +153,11 @@ class KmagApp : public KMainWindow
     /// Called when "configure toolbar" is clicked
     void slotEditToolbars();
 
+    void slotChangeZoomBoxIndex(int index);
+    void slotChangeRotationBoxIndex(int index);
+    void slotChangeFPSIndex(int index);
+
+
   signals:
     /// This signal is raised whenever the index into the zoom array is changed
     void updateZoomIndex(int);
