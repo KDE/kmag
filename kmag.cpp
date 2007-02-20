@@ -296,29 +296,32 @@ void KmagApp::initConnections()
  */
 void KmagApp::saveOptions()
 {
-  config->setGroup("General Options");
-  config->writeEntry("Geometry", size());
-  config->writeEntry("ZoomIndex", m_zoomIndex);
-  config->writeEntry("RotationIndex", m_rotationIndex);
-  config->writeEntry("FPSIndex", m_fpsIndex);
-  config->writeEntry("SelRect", m_zoomView->getSelRectPos());
-  config->writeEntry("ShowMouse", m_zoomView->getShowMouseType());
+  KConfigGroup cg( config, "General Options");
+  cg.writeEntry("Geometry", size());
+  cg.writeEntry("ZoomIndex", m_zoomIndex);
+  cg.writeEntry("RotationIndex", m_rotationIndex);
+  cg.writeEntry("FPSIndex", m_fpsIndex);
+  cg.writeEntry("SelRect", m_zoomView->getSelRectPos());
+  cg.writeEntry("ShowMouse", m_zoomView->getShowMouseType());
 
   if (m_modeFollowMouse->isChecked())
-     config->writeEntry("Mode", "followmouse");
+     cg.writeEntry("Mode", "followmouse");
   else if (m_modeWholeScreen->isChecked())
-     config->writeEntry("Mode", "wholescreen");
+     cg.writeEntry("Mode", "wholescreen");
   else if (m_modeSelWin->isChecked())
-     config->writeEntry("Mode", "selectionwindow");
+     cg.writeEntry("Mode", "selectionwindow");
 
-  config->writeEntry("ShowMenu", m_pShowMenu->isChecked());
-  config->writeEntry("ShowMainToolBar", m_pShowMainToolBar->isChecked());
-  config->writeEntry("ShowViewToolBar", m_pShowViewToolBar->isChecked());
-  config->writeEntry("ShowSettingsToolBar", m_pShowSettingsToolBar->isChecked());
+  cg.writeEntry("ShowMenu", m_pShowMenu->isChecked());
+  cg.writeEntry("ShowMainToolBar", m_pShowMainToolBar->isChecked());
+  cg.writeEntry("ShowViewToolBar", m_pShowViewToolBar->isChecked());
+  cg.writeEntry("ShowSettingsToolBar", m_pShowSettingsToolBar->isChecked());
 
-  toolBar("mainToolBar")->saveSettings(config.data(),"Main ToolBar");
-  toolBar("viewToolBar")->saveSettings(config.data(),"View ToolBar");
-  toolBar("settingsToolBar")->saveSettings(config.data(),"Settings ToolBar");
+  cg.changeGroup( "Main ToolBar" );
+  toolBar("mainToolBar")->saveSettings( cg );
+  cg.changeGroup( "View ToolBar" );
+  toolBar("viewToolBar")->saveSettings( cg );
+  cg.changeGroup( "Settings ToolBar" );
+  toolBar("settingsToolBar")->saveSettings( cg );
 }
 
 
@@ -331,35 +334,35 @@ void KmagApp::readOptions()
   QColor yellow (255,255,0);
   QColor white (255,255,255);
 
-  config->setGroup ("WM");
+  KConfigGroup cg( config, "WM");
   setTitleColors (
-      config->readEntry("inactiveBackground", blue),
-      config->readEntry("inactiveForeground", white),
-      config->readEntry("inactiveTitleBtnBg", yellow));
+      cg.readEntry("inactiveBackground", blue),
+      cg.readEntry("inactiveForeground", white),
+      cg.readEntry("inactiveTitleBtnBg", yellow));
 
-  config->setGroup("General Options");
+  cg.changeGroup("General Options");
 
   QSize defSize(460,390);
-  QSize size=config->readEntry("Geometry", defSize);
+  QSize size=cg.readEntry("Geometry", defSize);
   if(!size.isEmpty())
   {
     resize(size);
   }
 
   // set zoom - defaults to 2x
-  unsigned int zoomIndex = config->readEntry("ZoomIndex", 4);
+  unsigned int zoomIndex = cg.readEntry("ZoomIndex", 4);
   setZoomIndex(zoomIndex);
   emit updateZoomIndex(m_zoomIndex);
 
-  unsigned int rotationIndex = config->readEntry("RotationIndex", 0);
+  unsigned int rotationIndex = cg.readEntry("RotationIndex", 0);
   setRotationIndex(rotationIndex);
   emit updateRotationIndex(m_rotationIndex);
 
-  unsigned int fpsIndex = config->readEntry("FPSIndex", 2);
+  unsigned int fpsIndex = cg.readEntry("FPSIndex", 2);
   setFPSIndex(fpsIndex);
   emit updateFPSIndex(m_fpsIndex);
 
-  QString mode = config->readEntry("Mode", "followmouse");
+  QString mode = cg.readEntry("Mode", "followmouse");
   if (mode == "wholescreen")
     slotModeWholeScreen();
   else if (mode == "selectionwindow")
@@ -368,34 +371,38 @@ void KmagApp::readOptions()
     slotModeFollowMouse();
 
   QRect defaultRect(0,0,211,164);
-  m_zoomView->setSelRectPos(config->readEntry("SelRect", defaultRect));
+  m_zoomView->setSelRectPos(cg.readEntry("SelRect", defaultRect));
 
-  m_mouseCursorType = config->readEntry("ShowMouse", m_defaultMouseCursorType);
+  m_mouseCursorType = cg.readEntry("ShowMouse", m_defaultMouseCursorType);
   m_zoomView->showMouse(m_mouseCursorType);
   if(m_mouseCursorType)
     m_hideCursor->setChecked(false);
   else
     m_hideCursor->setChecked(true);
 
-  if(config->hasGroup("Settings ToolBar"))
-    toolBar("settingsToolBar")->applySettings(config.data(),"Settings ToolBar");
+  cg.changeGroup("Settings ToolBar");
+  if( cg.exists() )
+      toolBar("settingsToolBar")->applySettings(cg );
 
-  if(config->hasGroup("Main ToolBar"))
-    toolBar("mainToolBar")->applySettings(config.data(),"Main ToolBar");
+  cg.changeGroup("Main ToolBar");
+  if( cg.exists() )
+      toolBar("mainToolBar")->applySettings( cg );
 
-  if(config->hasGroup("View ToolBar"))
-    toolBar("viewToolBar")->applySettings(config.data(),"View ToolBar");
+  cg.changeGroup("View ToolBar" );
+  if( cg.exists() )
+      toolBar("viewToolBar")->applySettings( cg );
 
-  m_pShowMenu->setChecked(config->readEntry("ShowMenu", true));
+  cg.changeGroup("General Options");
+  m_pShowMenu->setChecked( cg.readEntry("ShowMenu", true));
   slotShowMenu();
 
-  m_pShowMainToolBar->setChecked(config->readEntry("ShowMainToolBar", false));
+  m_pShowMainToolBar->setChecked(cg.readEntry("ShowMainToolBar", false));
   slotShowMainToolBar();
 
-  m_pShowViewToolBar->setChecked(config->readEntry("ShowViewToolBar", true));
+  m_pShowViewToolBar->setChecked(cg.readEntry("ShowViewToolBar", true));
   slotShowViewToolBar();
 
-  m_pShowSettingsToolBar->setChecked(config->readEntry("ShowSettingsToolBar", true));
+  m_pShowSettingsToolBar->setChecked(cg.readEntry("ShowSettingsToolBar", true));
   slotShowSettingsToolBar();
 }
 
@@ -565,7 +572,7 @@ void KmagApp::saveZoomPixmap()
       KTemporaryFile tempFile;
 #ifdef __GNUC__
 #warning "kde4: port KImageIO::type \n";
-#endif      
+#endif
       if(!tempFile.open() || !m_zoomView->getPixmap().save(tempFile.fileName(),"png"/*, KImageIO::type(url.fileName()).latin1()*/)) {
         KMessageBox::error(0, i18n("Unable to save temporary file (before uploading to the network file you specified)."),
                           i18n("Error Writing File"));
@@ -582,7 +589,7 @@ void KmagApp::saveZoomPixmap()
     } else {
 #ifdef __GNUC__
 #warning "kde4 : port KImageIO::type(...) \n";
-#endif	    
+#endif
       if(!m_zoomView->getPixmap().save(url.path(), "png"/*KImageIO::type(url.fileName()).latin1()*/)) {
         KMessageBox::error(0, i18n("Unable to save file. Please check if you have permission to write to the directory."),
                             i18n("Error Writing File"));
@@ -717,7 +724,7 @@ void KmagApp::slotFileQuit()
          break;
 #ifdef __GNUC__
 #warning "kde4: now memberList() is constant => we can't remove some element!"
-#endif      
+#endif
 	//memberList()->removeRef(w);
     }
   }
@@ -794,7 +801,8 @@ void KmagApp::slotConfKeys()
 
 void KmagApp::slotEditToolbars()
 {
-  saveMainWindowSettings( KGlobal::config().data(), "MainWindow" );
+  KConfigGroup cg( KGlobal::config(), "MainWindow" );
+  saveMainWindowSettings( cg );
   KEditToolbar dlg( actionCollection() );
   connect( &dlg, SIGNAL( newToolbarConfig() ), this, SLOT( slotNewToolbarConfig() ) );
   if ( dlg.exec() )
@@ -804,6 +812,6 @@ void KmagApp::slotEditToolbars()
 
 void KmagApp::slotNewToolbarConfig()
 {
-  applyMainWindowSettings( KGlobal::config().data(), "MainWindow" );
+  applyMainWindowSettings( KGlobal::config()->group( "MainWindow" ) );
   createGUI();
 }
