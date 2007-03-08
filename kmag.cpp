@@ -121,14 +121,14 @@ KmagApp::~KmagApp()
 void KmagApp::initActions()
 {
   fileNewWindow = actionCollection()->addAction("new_window");
-  fileNewWindow->setIcon(KIcon("window_new"));
+  fileNewWindow->setIcon(KIcon("window-new"));
   fileNewWindow->setText(i18n("New &Window"));
   connect(fileNewWindow, SIGNAL(triggered(bool) ), SLOT(slotFileNewWindow()));
   fileNewWindow->setShortcuts(KStandardShortcut::openNew());
   fileNewWindow->setToolTip(i18n("Open a new KMagnifier window"));
 
   refreshSwitch = actionCollection()->addAction("start_stop_refresh");
-  refreshSwitch->setIcon(KIcon("stop"));
+  refreshSwitch->setIcon(KIcon("process-stop"));
   refreshSwitch->setText(i18n("&Stop"));
   connect(refreshSwitch, SIGNAL(triggered(bool) ), SLOT(slotToggleRefresh()));
   refreshSwitch->setShortcuts(KStandardShortcut::reload());
@@ -156,7 +156,7 @@ void KmagApp::initActions()
   m_pCopy->setWhatsThis(i18n("Click on this button to copy the current zoomed view to the clipboard which you can paste in other applications."));
   m_pCopy->setToolTip(i18n("Copy zoomed image to clipboard"));
 
-  m_pShowMenu = new KToggleAction(KIcon("showmenu"), i18n("Show &Menu"), this);
+  m_pShowMenu = new KToggleAction(KIcon("show-menu"), i18n("Show &Menu"), this);
   actionCollection()->addAction("show_menu", m_pShowMenu);
   connect(m_pShowMenu, SIGNAL(triggered(bool)), SLOT(slotShowMenu()));
   m_pShowMenu->setShortcut(Qt::CTRL+Qt::Key_M);
@@ -195,7 +195,7 @@ void KmagApp::initActions()
   m_modeSelWin->setShortcut(Qt::Key_F2);
   m_modeSelWin->setToolTip(i18n("Show a window for selecting the magnified area"));
 
-  m_modeWholeScreen = new KToggleAction(KIcon("window_fullscreen"), i18n("&Whole Screen Mode"), this);
+  m_modeWholeScreen = new KToggleAction(KIcon("view-fullscreen"), i18n("&Whole Screen Mode"), this);
   actionCollection()->addAction("mode_wholescreen", m_modeWholeScreen);
   connect(m_modeWholeScreen, SIGNAL(triggered(bool)), SLOT(slotModeWholeScreen()));
   m_modeWholeScreen->setShortcut(Qt::Key_F3);
