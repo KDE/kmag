@@ -42,7 +42,7 @@
 // include files for KDE
 #include <kapplication.h>
 #include <kstandardshortcut.h>
-#include <kkeydialog.h>
+#include <kshortcutsdialog.h>
 #include <kiconloader.h>
 #include <kmessagebox.h>
 #include <kfiledialog.h>
@@ -796,7 +796,7 @@ void KmagApp::slotShowSettingsToolBar()
 
 void KmagApp::slotConfKeys()
 {
-  KKeyDialog::configure( actionCollection() );
+  KShortcutsDialog::configure( actionCollection() );
 }
 
 void KmagApp::slotEditToolbars()
