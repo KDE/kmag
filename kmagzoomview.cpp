@@ -425,7 +425,7 @@ void KMagZoomView::mousePressEvent(QMouseEvent *e)
         m_mouseMode = GrabSelection;
 
         // set mouse cursor to hand
-        setCursor(KCursor::handCursor());
+        setCursor(Qt::PointingHandCursor);
 
         // store the old position
         m_oldMousePos.setX(e->globalX());
