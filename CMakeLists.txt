@@ -1,7 +1,7 @@
 project(kmag)
 
 
-
+add_definitions (-DQT3_SUPPORT)
 ########### next target ###############
 
 set(kmag_SRCS 
