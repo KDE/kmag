@@ -24,7 +24,6 @@
 #include <QLayout>
 #include <QClipboard>
 #include <q3dragobject.h>
-#include <q3whatsthis.h>
 #include <QToolTip>
 #include <q3popupmenu.h>
 #include <kxmlguiclient.h>
