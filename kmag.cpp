@@ -70,9 +70,10 @@
 #define havesetCheckedState
 
 KmagApp::KmagApp(QWidget* , const char* name)
-  : KMainWindow(0, name, Qt::WStyle_MinMax | Qt::WType_TopLevel | Qt::WDestructiveClose | Qt::WStyle_ContextHelp | Qt::WStyle_StaysOnTop),
+  : KXmlGuiWindow(0, Qt::WStyle_MinMax | Qt::WType_TopLevel | Qt::WDestructiveClose | Qt::WStyle_ContextHelp | Qt::WStyle_StaysOnTop),
     m_defaultMouseCursorType(2)
 {
+  setObjectName(name);
   config=KGlobal::config();
 
   zoomArrayString << "5:1" << "2:1" << "1:1" << "1:1.5" << "1:2" << "1:3" << "1:4" << "1:5"
