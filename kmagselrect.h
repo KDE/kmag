@@ -120,7 +120,7 @@ public:
     /// Returns true if always visible is set
     bool getAlwaysVisible() const {
       return (m_alwaysVisible);
-    };
+    }
 
 public slots:
 

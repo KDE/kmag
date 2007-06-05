@@ -62,16 +62,16 @@ class KMagZoomView : public Q3ScrollView
     QPixmap getPixmap();
 
     /// Returns the state of the refresh switch
-    bool getRefreshStatus() const { return m_refreshSwitch; };
+    bool getRefreshStatus() const { return m_refreshSwitch; }
 
     /// Returns teh status of followMouse
-    bool getFollowMouse() const { return m_followMouse; };
+    bool getFollowMouse() const { return m_followMouse; }
 
     /// Get the status of "show rect. always"
-    bool getShowSelRect() const { return (m_selRect.getAlwaysVisible()); };
+    bool getShowSelRect() const { return (m_selRect.getAlwaysVisible()); }
 
     /// Get the coordinates of the selection rectangle
-    QRect getSelRectPos() const { return static_cast<QRect>(m_selRect); };
+    QRect getSelRectPos() const { return static_cast<QRect>(m_selRect); }
 
     /// Returns the current state of show mouse
     unsigned int getShowMouseType() const;
@@ -80,7 +80,7 @@ class KMagZoomView : public Q3ScrollView
     QStringList getShowMouseStringList() const;
 
     /// Returns the status of "fit to window" option
-    bool getFitToWindow() const { return (m_fitToWindow); };
+    bool getFitToWindow() const { return (m_fitToWindow); }
 
   public slots:
 
