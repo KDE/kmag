@@ -26,7 +26,6 @@
 #include <QPixmap>
 #include <QTimer>
 #include <q3scrollview.h>
-#include <QStringList>
 #include <QRect>
 #include <QCursor>
 //Added by qt3to4:

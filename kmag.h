@@ -25,7 +25,6 @@
 
 #include <vector>
 // include files for Qt
-#include <QStringList>
 //Added by qt3to4:
 #include <QContextMenuEvent>
 
