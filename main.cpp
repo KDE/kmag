@@ -34,34 +34,30 @@ KmagApp *kmagapp;
 // INSERT A DESCRIPTION FOR YOUR APPLICATION HERE
 
 
-static KCmdLineOptions options[] =
-{
-  { "+[File]", I18N_NOOP("File to open"), 0 },
-  KCmdLineLastOption
-  // INSERT YOUR COMMANDLINE OPTIONS HERE
-};
-
 int main(int argc, char *argv[])
 {
   // about the application
-  KAboutData *aboutData = new KAboutData("kmag", I18N_NOOP("KMagnifier"), KMAG_VERSION,
-                                         I18N_NOOP("Screen magnifier for the K Desktop Environment (KDE)"),
+  KAboutData *aboutData = new KAboutData("kmag", 0, ki18n("KMagnifier"), KMAG_VERSION,
+                                         ki18n("Screen magnifier for the K Desktop Environment (KDE)"),
                                          KAboutData::License_GPL,
-                                         "(C) 2001-2003, Sarang Lakare","",
+                                         ki18n("(C) 2001-2003, Sarang Lakare"),KLocalizedString(),
                                          "http://kmag.sourceforge.net");
 
   // about the authors
-  aboutData->addAuthor("Sarang Lakare",
-                       I18N_NOOP("Rewrite and current maintainer"),"sarang@users.sf.net",
+  aboutData->addAuthor(ki18n("Sarang Lakare"),
+                       ki18n("Rewrite and current maintainer"),"sarang@users.sf.net",
                        "http://www.cs.sunysb.edu/~lsarang/linux");
-  aboutData->addAuthor("Michael Forster",
-                       I18N_NOOP("Original idea and author (KDE1)"), "forster@fmi.uni-passau.de");
+  aboutData->addAuthor(ki18n("Michael Forster"),
+                       ki18n("Original idea and author (KDE1)"), "forster@fmi.uni-passau.de");
 
-  aboutData->addCredit("Olaf Schmidt", I18N_NOOP("Rework of the user interface, improved selection window, speed optimization, rotation, bug fixes"), "ojschmidt@kde.org");
-  aboutData->addCredit("Claudiu Costin", I18N_NOOP("Some tips"), "claudiuc@work.ro",
+  aboutData->addCredit(ki18n("Olaf Schmidt"), ki18n("Rework of the user interface, improved selection window, speed optimization, rotation, bug fixes"), "ojschmidt@kde.org");
+  aboutData->addCredit(ki18n("Claudiu Costin"), ki18n("Some tips"), "claudiuc@work.ro",
                        "http://www.ro.kde.org");
 
   KCmdLineArgs::init( argc, argv, aboutData );
+
+  KCmdLineOptions options;
+  options.add("+[File]", ki18n("File to open"));
   KCmdLineArgs::addCmdLineOptions( options ); // Add our own options.
 
   KApplication app;
