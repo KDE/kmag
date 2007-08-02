@@ -298,7 +298,7 @@ void KMagZoomView::paintMouseCursor(QPaintDevice *dev, QPoint mousePos)
       QWidget *dummy  = KApplication::topLevelAt(QCursor::pos());
       if(!dummy)
         break;
-      kDebug() << ">" << dummy->name() << ":" << dummy->cursor().shape() << "-" << endl;
+      kDebug() << ">" << dummy->name() << ":" << dummy->cursor().shape() << "-";
       switch(this->cursor().shape())  {
 			  case Qt::ArrowCursor :
          {
