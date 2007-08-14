@@ -49,7 +49,7 @@ class KMagZoomView : public Q3ScrollView
   Q_OBJECT
   public:
     /// Constructor for the main view
-    KMagZoomView(QWidget *parent = 0, const char *name=0);
+    explicit KMagZoomView(QWidget *parent = 0, const char *name=0);
 
     /// Destructor for the main view
     ~KMagZoomView();
