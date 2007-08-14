@@ -39,7 +39,7 @@ static QColor textColor = QColor (255,255,255);
 static int frameSize = 10;
 static int titleSize = 24;
 
-void setTitleColors (QColor title, QColor text, QColor titleBtn)
+void setTitleColors (const QColor &title, const QColor &text, const QColor &titleBtn)
 {
   titleColor = title;
   titleBtnColor = titleBtn;
@@ -247,7 +247,7 @@ KMagSelWin::~KMagSelWin()
   delete bottomRightCorner;
 }
 
-void KMagSelWin::setSelRect (QRect selRect)
+void KMagSelWin::setSelRect (const QRect &selRect)
 {
   selRect = selRect.normalize();
 
@@ -303,7 +303,7 @@ void KMagSelWin::startResizing ()
   oldSelRect = getSelRect();
 }
 
-void KMagSelWin::titleMoved ( QPoint offset )
+void KMagSelWin::titleMoved (const QPoint &offset)
 {
   QRect selRect = oldSelRect;
   selRect.translate (offset.x(), offset.y());
@@ -311,25 +311,25 @@ void KMagSelWin::titleMoved ( QPoint offset )
   emit resized ();
 }
 
-void KMagSelWin::topLeftResized ( QPoint offset )
+void KMagSelWin::topLeftResized (const QPoint &offset)
 {
   setSelRect (QRect(oldSelRect.topLeft() + offset, oldSelRect.bottomRight ()));
   emit resized();
 }
 
-void KMagSelWin::topRightResized ( QPoint offset )
+void KMagSelWin::topRightResized (const QPoint &offset)
 {
   setSelRect (QRect(oldSelRect.topRight() + offset, oldSelRect.bottomLeft ()));
   emit resized();
 }
 
-void KMagSelWin::bottomLeftResized ( QPoint offset )
+void KMagSelWin::bottomLeftResized (const QPoint &offset)
 {
   setSelRect (QRect(oldSelRect.bottomLeft() + offset, oldSelRect.topRight ()));
   emit resized();
 }
 
-void KMagSelWin::bottomRightResized ( QPoint offset )
+void KMagSelWin::bottomRightResized (const QPoint &offset)
 {
   setSelRect (QRect(oldSelRect.bottomRight() + offset, oldSelRect.topLeft()));
   emit resized();

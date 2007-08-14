@@ -243,7 +243,7 @@ void KMagZoomView::drawContents ( QPainter * p, int clipx, int clipy, int clipw,
  * Draws the mouse cursor according to the current selection of the type of
  * mouse cursor to draw.
  */
-void KMagZoomView::paintMouseCursor(QPaintDevice *dev, QPoint mousePos)
+void KMagZoomView::paintMouseCursor(QPaintDevice *dev, const QPoint &mousePos)
 {
   if(!dev)
     return;
