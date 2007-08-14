@@ -85,7 +85,7 @@ KmagApp::KmagApp(QWidget* , const char* name)
   zoomArray.push_back(4.0); zoomArray.push_back(5.0); zoomArray.push_back(6.0); zoomArray.push_back(7.0);
   zoomArray.push_back(8.0); zoomArray.push_back(12.0); zoomArray.push_back(16.0); zoomArray.push_back(20.0);
 
-  fpsArrayString << i18n("&Very Low") << i18n("&Low") << i18n("&Medium") << i18n("&High") << i18n("V&ery High");
+  fpsArrayString << i18nc("Zoom at very low", "&Very Low") << i18nc("Zoom at low", "&Low") << i18nc("Zoom at medium", "&Medium") << i18nc("Zoom at high", "&High") << i18nc("Zoom at very high", "V&ery High");
 
   fpsArray.push_back(2); // very low
   fpsArray.push_back(6); // low
