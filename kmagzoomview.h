@@ -133,7 +133,7 @@ class KMagZoomView : public Q3ScrollView
     QPoint calcMousePos(bool updateMousePos=true);
 
     /// This function draws the mouse cursor
-    void paintMouseCursor(QPaintDevice *dev, QPoint mousePos);
+    void paintMouseCursor(QPaintDevice *dev, const QPoint & mousePos);
 
     /// Called when mouse click is detected
     void mousePressEvent (QMouseEvent *e);

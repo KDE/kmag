@@ -63,17 +63,17 @@ public:
 
     virtual ~KMagSelWin();
 
-    void setSelRect ( QRect selRect );
+    void setSelRect ( const QRect & selRect );
     QRect getSelRect ();
 
 public slots:
 
     void startResizing ();
-    void titleMoved ( QPoint offset );
-    void topLeftResized ( QPoint offset );
-    void topRightResized ( QPoint offset );
-    void bottomLeftResized ( QPoint offset );
-    void bottomRightResized ( QPoint offset );
+    void titleMoved ( const QPoint & offset );
+    void topLeftResized ( const QPoint & offset );
+    void topRightResized ( const QPoint & offset );
+    void bottomLeftResized ( const QPoint & offset );
+    void bottomRightResized ( const QPoint & offset );
 
 signals:
 
@@ -140,7 +140,7 @@ protected:
 
 };
 
-void setTitleColors (QColor title, QColor text, QColor titleBtn);
+void setTitleColors (const QColor & title, const QColor & text, const QColor & titleBtn);
 void setFrameSize (int size);
 
 #endif // KMAGSELRECT_H

@@ -247,9 +247,9 @@ KMagSelWin::~KMagSelWin()
   delete bottomRightCorner;
 }
 
-void KMagSelWin::setSelRect (const QRect &selRect)
+void KMagSelWin::setSelRect (const QRect &_selRect)
 {
-  selRect = selRect.normalize();
+  QRect selRect = _selRect.normalized();
 
   if (selRect.left() < 0)
     selRect.setLeft (0);
