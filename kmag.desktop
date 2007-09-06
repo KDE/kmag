@@ -3,7 +3,7 @@
 Type=Application
 Exec=kmag -caption "%c" %i
 Icon=kmag
-DocPath=kmag/index.html
+X-DocPath=kmag/index.html
 Comment=
 Terminal=false
 Name=KMag
