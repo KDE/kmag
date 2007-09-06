@@ -20,14 +20,14 @@
 #include "kmagselrect.h"
 #include "kmagselrect.moc"
 
-#include <QApplication>
-#include <QCursor>
-#include <QPixmap>
-#include <QBitmap>
-//Added by qt3to4:
-#include <QMouseEvent>
-#include <QLabel>
-#include <QDesktopWidget>
+#include <QtGui/QApplication>
+#include <QtGui/QCursor>
+#include <QtGui/QPixmap>
+#include <QtGui/QBitmap>
+#include <QtGui/QMouseEvent>
+#include <QtGui/QLabel>
+#include <QtGui/QDesktopWidget>
+
 #include <klocale.h>
 
 static uchar line_bits[] = {0x2d, 0x96, 0x4b, 0xa5, 0xd2, 0x69, 0xb4, 0x5a};

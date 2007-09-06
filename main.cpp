@@ -15,7 +15,6 @@
  *                                                                         *
  ***************************************************************************/
 
-
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
 #include <klocale.h>

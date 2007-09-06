@@ -18,27 +18,26 @@
  ***************************************************************************/
 
 // include files for QT
-#include <QDir>
-#include <QPrinter>
-#include <QPainter>
-#include <QLayout>
-#include <QClipboard>
-#include <q3dragobject.h>
+#include <QtCore/QDir>
+#include <QtGui/QPrinter>
+#include <QtGui/QPainter>
+#include <QtGui/QLayout>
+#include <QtGui/QClipboard>
+#include <Qt3Support/Q3DragObject>
+#include <Qt3Support/Q3PopupMenu>
+#include <QtGui/QContextMenuEvent>
+#include <QtGui/QPixmap>
+#include <QtGui/QDesktopWidget>
 
-#include <q3popupmenu.h>
+// include files for KDE
 #include <kxmlguiclient.h>
 #include <ktoolbar.h>
 #include <ktoggleaction.h>
 #include <kactioncollection.h>
 #include <kselectaction.h>
-//Added by qt3to4:
-#include <QContextMenuEvent>
-#include <QPixmap>
-#include <QDesktopWidget>
 #include <kdeversion.h>
 #include <kxmlguifactory.h>
 #include <kicon.h>
-// include files for KDE
 #include <kapplication.h>
 #include <kstandardshortcut.h>
 #include <kshortcutsdialog.h>
@@ -57,7 +56,6 @@
 #include <ktemporaryfile.h>
 #include <kmenu.h>
 #include <kedittoolbar.h>
-
 #include <kprinter.h>
 #include <kglobal.h>
 

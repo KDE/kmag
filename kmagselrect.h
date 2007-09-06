@@ -23,11 +23,10 @@
 #include <stdlib.h>
 
 // Qt includes
-#include <QRect>
-#include <qwidget.h>
-#include <QLabel>
-//Added by qt3to4:
-#include <QMouseEvent>
+#include <QtCore/QRect>
+#include <QtGui/QWidget>
+#include <QtGui/QLabel>
+#include <QtGui/QMouseEvent>
 
 class KMagSelWinCorner : public QLabel
 {

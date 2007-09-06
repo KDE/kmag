@@ -16,25 +16,23 @@
  *                                                                         *
  ***************************************************************************/
 
-
 #ifndef KMagZoomView_h_
 #define KMagZoomView_h_
 
 // include files for Qt
-#include <qwidget.h>
-#include <QPainter>
-#include <QPixmap>
-#include <QTimer>
-#include <q3scrollview.h>
-#include <QRect>
-#include <QCursor>
-//Added by qt3to4:
-#include <QFocusEvent>
-#include <QHideEvent>
-#include <QKeyEvent>
-#include <QShowEvent>
-#include <QResizeEvent>
-#include <QMouseEvent>
+#include <QtGui/QWidget>
+#include <QtGui/QPainter>
+#include <QtGui/QPixmap>
+#include <QtCore/QTimer>
+#include <Qt3Support/Q3ScrollView>
+#include <QtCore/QRect>
+#include <QtGui/QCursor>
+#include <QtGui/QFocusEvent>
+#include <QtGui/QHideEvent>
+#include <QtGui/QKeyEvent>
+#include <QtGui/QShowEvent>
+#include <QtGui/QResizeEvent>
+#include <QtGui/QMouseEvent>
 
 //class KMagSelRect;
 #include "kmagselrect.h"

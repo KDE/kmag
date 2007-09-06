@@ -23,21 +23,20 @@
 #include "kmagzoomview.moc"
 
 // include files for Qt
-#include <QBitmap>
-#include <QCursor>
-#include <qglobal.h>
-#include <QPainter>
+#include <QtGui/QBitmap>
+#include <QtGui/QCursor>
+#include <QtCore/qglobal.h>
+#include <QtGui/QPainter>
+#include <QtGui/QWidget>
+#include <QtGui/QPixmap>
+#include <QtGui/QFocusEvent>
+#include <QtGui/QHideEvent>
+#include <QtGui/QKeyEvent>
+#include <QtGui/QShowEvent>
+#include <QtGui/QResizeEvent>
+#include <QtGui/QMouseEvent>
+#include <QtGui/QDesktopWidget>
 
-#include <qwidget.h>
-//Added by qt3to4:
-#include <QPixmap>
-#include <QFocusEvent>
-#include <QHideEvent>
-#include <QKeyEvent>
-#include <QShowEvent>
-#include <QResizeEvent>
-#include <QMouseEvent>
-#include <QDesktopWidget>
 // include files for KDE
 #include <kapplication.h>
 #include <kcursor.h>

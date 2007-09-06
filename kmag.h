@@ -24,9 +24,9 @@
 #include "kmagzoomview.h"
 
 #include <vector>
+
 // include files for Qt
-//Added by qt3to4:
-#include <QContextMenuEvent>
+#include <QtGui/QContextMenuEvent>
 
 // include files for KDE
 #include <kxmlguiwindow.h>
