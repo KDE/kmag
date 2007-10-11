@@ -24,10 +24,10 @@
 #include <QtGui/QLayout>
 #include <QtGui/QClipboard>
 #include <Qt3Support/Q3DragObject>
-#include <Qt3Support/Q3PopupMenu>
 #include <QtGui/QContextMenuEvent>
 #include <QtGui/QPixmap>
 #include <QtGui/QDesktopWidget>
+#include <QMenu>
 
 // include files for KDE
 #include <kxmlguiclient.h>
