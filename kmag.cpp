@@ -20,14 +20,15 @@
 // include files for QT
 #include <QtCore/QDir>
 #include <QtGui/QPrinter>
+#include <QtGui/QPrintDialog>
 #include <QtGui/QPainter>
 #include <QtGui/QLayout>
 #include <QtGui/QClipboard>
 #include <Qt3Support/Q3DragObject>
+#include <Qt3Support/Q3PopupMenu>
 #include <QtGui/QContextMenuEvent>
 #include <QtGui/QPixmap>
 #include <QtGui/QDesktopWidget>
-#include <QMenu>
 
 // include files for KDE
 #include <kxmlguiclient.h>
@@ -56,7 +57,6 @@
 #include <ktemporaryfile.h>
 #include <kmenu.h>
 #include <kedittoolbar.h>
-#include <kprinter.h>
 #include <kglobal.h>
 
 // application specific includes
@@ -671,7 +671,7 @@ void KmagApp::slotFilePrint()
 
   bool toggled(false);
 
-  KPrinter printer;
+  QPrinter printer;
 
   // stop refresh temporarily
   if (m_zoomView->getRefreshStatus()) {
@@ -683,12 +683,14 @@ void KmagApp::slotFilePrint()
 
   // use some AI to get the best orientation
   if(pixmap.width() > pixmap.height()) {
-    printer.setOrientation(KPrinter::Landscape);
+    printer.setOrientation(QPrinter::Landscape);
   } else {
-    printer.setOrientation(KPrinter::Portrait);
+    printer.setOrientation(QPrinter::Portrait);
   }
 
-  if (printer.setup(this)) {
+  QPrintDialog printDialog(&printer, this);
+
+  if (printDialog.exec()) {
     QPainter paint;
 
     if(!paint.begin(&printer))
