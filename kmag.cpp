@@ -636,7 +636,7 @@ void KmagApp::slotModeEdgeTop()
   int newedgesize; bool ok;
   newedgesize = KInputDialog::getInteger (i18n ("Magnify to Screen Edge - Select Size"),
                                           i18n ("Size:"), edgesize > 0 ? edgesize : 300, 200,
-                                          QApplication::desktop()->screenGeometry().height()/2,
+                                          QApplication::desktop()->screenGeometry( this ).height()/2,
                                           25, 10, &ok, 0, "getedgesize");
 
   if (ok) {
@@ -652,7 +652,7 @@ void KmagApp::slotModeEdgeLeft()
   int newedgesize; bool ok;
   newedgesize = KInputDialog::getInteger (i18n ("Magnify to Left Screen Edge - Select Size"),
                                           i18n ("Size:"), edgesize > 0 ? edgesize : 300, 200,
-                                          QApplication::desktop()->screenGeometry().width()/2,
+                                          QApplication::desktop()->screenGeometry( this ).width()/2,
                                           25, 10, &ok, 0, "getedgesize");
 
   if (ok) {
@@ -668,7 +668,7 @@ void KmagApp::slotModeEdgeRight()
   int newedgesize; bool ok;
   newedgesize = KInputDialog::getInteger (i18n ("Magnify to Right Screen Edge - Select Size"),
                                           i18n ("Size:"), edgesize > 0 ? edgesize : 300, 200,
-                                          QApplication::desktop()->screenGeometry().width()/2,
+                                          QApplication::desktop()->screenGeometry( this ).width()/2,
                                           25, 10, &ok, 0, "getedgesize");
 
   if (ok) {
@@ -684,7 +684,7 @@ void KmagApp::slotModeEdgeBottom()
   int newedgesize; bool ok;
   newedgesize = KInputDialog::getInteger (i18n ("Magnify to Bottom Screen Edge - Select Size"),
                                           i18n ("Size:"), edgesize > 0 ? edgesize : 300, 200,
-                                          QApplication::desktop()->screenGeometry().height()/2,
+                                          QApplication::desktop()->screenGeometry( this ).height()/2,
                                           25, 10, &ok, 0, "getedgesize");
 
   if (ok) {
@@ -697,11 +697,11 @@ void KmagApp::slotModeEdgeBottom()
 void KmagApp::setEdgeMode (KToggleAction *mode)
 {
   if (m_modeEdgeLeft || mode == m_modeEdgeRight) {
-    if (edgesize < 200 || edgesize > QApplication::desktop()->screenGeometry().width()/2)
-      edgesize = QApplication::desktop()->screenGeometry().width()/4;
+    if (edgesize < 200 || edgesize > QApplication::desktop()->screenGeometry( this ).width()/2)
+      edgesize = QApplication::desktop()->screenGeometry( this ).width()/4;
   } else {
-    if (edgesize < 200 || edgesize > QApplication::desktop()->screenGeometry().height()/2)
-      edgesize = QApplication::desktop()->height()/4;
+    if (edgesize < 200 || edgesize > QApplication::desktop()->screenGeometry( this ).height()/2)
+      edgesize = QApplication::desktop()->screenGeometry( this ).height()/4;
   }
 
   m_modeFollowMouse->setChecked(false);
@@ -716,7 +716,7 @@ void KmagApp::setEdgeMode (KToggleAction *mode)
   m_zoomView->followMouse(true);
   m_zoomView->showSelRect(false);
 
-  m_zoomView->reparent (0, QPoint(), true);
+  m_zoomView->reparent (0, QPoint(), false);
   KWin::setType(m_zoomView->winId(), NET::Dock);
   KWin::setState(m_zoomView->winId(), NET::Sticky | NET::KeepBelow | NET::SkipTaskbar | NET::SkipPager);
   KWin::setOnAllDesktops(m_zoomView->winId(), true);
@@ -729,27 +729,33 @@ void KmagApp::setEdgeMode (KToggleAction *mode)
   hide();
 
   if (mode == m_modeEdgeTop) {
-    m_zoomView->setGeometry (0, 0, QApplication::desktop()->screenGeometry().width(), edgesize);
+    QRect r = QApplication::desktop()->screenGeometry( this );
+    r.setBottom( r.top() + edgesize );
+    m_zoomView->setGeometry ( r );
     KWin::setExtendedStrut (m_zoomView->winId(), 0, 0, 0, 0, 0, 0,
-                            edgesize, 0, QApplication::desktop()->screenGeometry().width(),
-                            0, 0, 0);
+                            edgesize, r.left(), r.right(), 0, 0, 0);
   } else if (mode == m_modeEdgeLeft) {
-    m_zoomView->setGeometry (0, 0, edgesize, QApplication::desktop()->screenGeometry().height());
+    QRect r = QApplication::desktop()->screenGeometry( this );
+    r.setRight( r.left() + edgesize );
+    m_zoomView->setGeometry ( r );
     KWin::setExtendedStrut (m_zoomView->winId(),
-                            edgesize, 0, QApplication::desktop()->screenGeometry().height(),
+                            edgesize, r.top(), r.bottom(),
                             0, 0, 0, 0, 0, 0, 0, 0, 0);
   } else if (mode == m_modeEdgeRight) {
-    m_zoomView->setGeometry (QApplication::desktop()->screenGeometry().width()-edgesize, 0,
-                 edgesize, QApplication::desktop()->screenGeometry().height());
+    QRect r = QApplication::desktop()->screenGeometry( this );
+    r.setLeft( r.right() - edgesize );
+    m_zoomView->setGeometry ( r );
     KWin::setExtendedStrut (m_zoomView->winId(), 0, 0, 0,
-                            edgesize, 0, QApplication::desktop()->screenGeometry().height(),
+                            edgesize, r.top(), r.bottom(),
                             0, 0, 0, 0, 0, 0);
   } else {
-    m_zoomView->setGeometry (0, QApplication::desktop()->screenGeometry().height()-edgesize,
-                 QApplication::desktop()->screenGeometry().width(), edgesize);
+    QRect r = QApplication::desktop()->screenGeometry( this );
+    r.setTop( r.bottom() - edgesize );
+    m_zoomView->setGeometry ( r );
     KWin::setExtendedStrut (m_zoomView->winId(), 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                            edgesize, 0, QApplication::desktop()->screenGeometry().width());
+                            edgesize, r.left(), r.right());
   }
+  m_zoomView->show();
 }
 
 

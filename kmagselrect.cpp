@@ -184,19 +184,19 @@ void KMagSelRect::hide()
 void KMagSelRect::update()
 {
   // make sure the selection window does not go outside of the display
-  if (height() > QApplication::desktop()->screenGeometry().height())
-    setHeight (QApplication::desktop()->screenGeometry().height());
-  if (width() > QApplication::desktop()->screenGeometry().width())
-    setWidth (QApplication::desktop()->screenGeometry().width());
+  if (height() > QApplication::desktop()->geometry().height())
+    setHeight (QApplication::desktop()->geometry().height());
+  if (width() > QApplication::desktop()->geometry().width())
+    setWidth (QApplication::desktop()->geometry().width());
 
   if (top() < 0)
     moveTop (0);
   if (left() < 0)
     moveLeft (0);
-  if (bottom() > QApplication::desktop()->screenGeometry().bottom())
-    moveBottom (QApplication::desktop()->screenGeometry().bottom());
-  if (right() > QApplication::desktop()->screenGeometry().right())
-    moveRight (QApplication::desktop()->screenGeometry().right());
+  if (bottom() > QApplication::desktop()->geometry().bottom())
+    moveBottom (QApplication::desktop()->geometry().bottom());
+  if (right() > QApplication::desktop()->geometry().right())
+    moveRight (QApplication::desktop()->geometry().right());
 
   if (selectionwindow != 0)
     selectionwindow->setSelRect (QRect (topLeft(), bottomRight()));
