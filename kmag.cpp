@@ -284,9 +284,9 @@ void KmagApp::initConnections()
   connect(this, SIGNAL(updateFPSIndex(int)), this, SLOT(slotChangeFPSIndex(int)));
 
   // selector selects a zoom index -> set the zoom index
-  connect(m_pZoomBox, SIGNAL(activated(int)), this, SLOT(setZoomIndex(int)));
-  connect(m_pRotationBox, SIGNAL(activated(int)), this, SLOT(setRotationIndex(int)));
-  connect(m_pFPSBox, SIGNAL(activated(int)), this, SLOT(setFPSIndex(int)));
+  connect(m_pZoomBox, SIGNAL(triggered(int)), this, SLOT(setZoomIndex(int)));
+  connect(m_pRotationBox, SIGNAL(triggered(int)), this, SLOT(setRotationIndex(int)));
+  connect(m_pFPSBox, SIGNAL(triggered(int)), this, SLOT(setFPSIndex(int)));
 }
 
 /**
