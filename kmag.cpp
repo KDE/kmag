@@ -313,13 +313,13 @@ void KmagApp::saveOptions()
   cg.writeEntry("ShowMainToolBar", m_pShowMainToolBar->isChecked());
   cg.writeEntry("ShowViewToolBar", m_pShowViewToolBar->isChecked());
   cg.writeEntry("ShowSettingsToolBar", m_pShowSettingsToolBar->isChecked());
-
-  cg.changeGroup( "Main ToolBar" );
-  toolBar("mainToolBar")->saveSettings( cg );
-  cg.changeGroup( "View ToolBar" );
-  toolBar("viewToolBar")->saveSettings( cg );
-  cg.changeGroup( "Settings ToolBar" );
-  toolBar("settingsToolBar")->saveSettings( cg );
+  
+  KConfigGroup mainToolBarGroup(config,"Main ToolBar");
+  toolBar("mainToolBar")->saveSettings( mainToolBarGroup );
+  KConfigGroup viewToolBarGroup(config,"View ToolBar" );
+  toolBar("viewToolBar")->saveSettings( viewToolBarGroup );
+  KConfigGroup settingsToolbarGroup(config,"Settings ToolBar" );
+  toolBar("settingsToolBar")->saveSettings( settingsToolbarGroup );
 }
 
 
@@ -332,13 +332,13 @@ void KmagApp::readOptions()
   QColor yellow (255,255,0);
   QColor white (255,255,255);
 
-  KConfigGroup cg( config, "WM");
+  KConfigGroup cgWM( config, "WM");
   setTitleColors (
-      cg.readEntry("inactiveBackground", blue),
-      cg.readEntry("inactiveForeground", white),
-      cg.readEntry("inactiveTitleBtnBg", yellow));
+      cgWM.readEntry("inactiveBackground", blue),
+      cgWM.readEntry("inactiveForeground", white),
+      cgWM.readEntry("inactiveTitleBtnBg", yellow));
 
-  cg.changeGroup("General Options");
+  KConfigGroup cg(config,"General Options");
 
   QSize defSize(460,390);
   QSize size=cg.readEntry("Geometry", defSize);
@@ -378,29 +378,29 @@ void KmagApp::readOptions()
   else
     m_hideCursor->setChecked(true);
 
-  cg.changeGroup("Settings ToolBar");
-  if( cg.exists() )
-      toolBar("settingsToolBar")->applySettings(cg );
+  KConfigGroup settingsToolbarGroup(config,"Settings ToolBar");
+  if( settingsToolbarGroup.exists() )
+      toolBar("settingsToolBar")->applySettings(settingsToolbarGroup );
 
-  cg.changeGroup("Main ToolBar");
-  if( cg.exists() )
-      toolBar("mainToolBar")->applySettings( cg );
+  KConfigGroup mainToolbarGroup(config,"Main ToolBar");
+  if( mainToolbarGroup.exists() )
+      toolBar("mainToolBar")->applySettings( mainToolbarGroup );
 
-  cg.changeGroup("View ToolBar" );
-  if( cg.exists() )
-      toolBar("viewToolBar")->applySettings( cg );
+  KConfigGroup viewToolbarGroup(config,"View ToolBar" );
+  if( viewToolbarGroup.exists() )
+      toolBar("viewToolBar")->applySettings( viewToolbarGroup );
 
-  cg.changeGroup("General Options");
-  m_pShowMenu->setChecked( cg.readEntry("ShowMenu", true));
+  KConfigGroup generalOptionGroup(config,"General Options");
+  m_pShowMenu->setChecked( generalOptionGroup.readEntry("ShowMenu", true));
   slotShowMenu();
 
-  m_pShowMainToolBar->setChecked(cg.readEntry("ShowMainToolBar", false));
+  m_pShowMainToolBar->setChecked(generalOptionGroup.readEntry("ShowMainToolBar", false));
   slotShowMainToolBar();
 
-  m_pShowViewToolBar->setChecked(cg.readEntry("ShowViewToolBar", true));
+  m_pShowViewToolBar->setChecked(generalOptionGroup.readEntry("ShowViewToolBar", true));
   slotShowViewToolBar();
 
-  m_pShowSettingsToolBar->setChecked(cg.readEntry("ShowSettingsToolBar", true));
+  m_pShowSettingsToolBar->setChecked(generalOptionGroup.readEntry("ShowSettingsToolBar", true));
   slotShowSettingsToolBar();
 }
 
