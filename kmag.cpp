@@ -24,7 +24,6 @@
 #include <QtGui/QPainter>
 #include <QtGui/QLayout>
 #include <QtGui/QClipboard>
-#include <Qt3Support/Q3DragObject>
 #include <QtGui/QContextMenuEvent>
 #include <QtGui/QPixmap>
 #include <QtGui/QDesktopWidget>
