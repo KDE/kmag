@@ -46,6 +46,8 @@
    <Separator />
    <Action name="rotation"/>
    <Action name="fps_selector"/>
+   <Separator />
+   <Action name="color_mode"/>
   </Menu>
   <Menu name="settings"><text>&amp;Settings</text>
    <Action name="show_menu"/>

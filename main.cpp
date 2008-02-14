@@ -39,17 +39,18 @@ int main(int argc, char *argv[])
   KAboutData *aboutData = new KAboutData("kmag", 0, ki18n("KMagnifier"), KMAG_VERSION,
                                          ki18n("Screen magnifier for the K Desktop Environment (KDE)"),
                                          KAboutData::License_GPL,
-                                         ki18n("(C) 2001-2003, Sarang Lakare"),KLocalizedString(),
-                                         "http://kmag.sourceforge.net");
+                                         ki18n("Copyright 2001-2003 Sarang Lakare\nCopyright 2003-2004 Olaf Schmidt\nCopyright 2008 Matthew Woehlke"), KLocalizedString(),
+                                         "http://accessibility.kde.org/");
 
   // about the authors
   aboutData->addAuthor(ki18n("Sarang Lakare"),
-                       ki18n("Rewrite and current maintainer"),"sarang@users.sf.net",
+                       ki18n("Rewrite"),"sarang@users.sf.net",
                        "http://www.cs.sunysb.edu/~lsarang/linux");
   aboutData->addAuthor(ki18n("Michael Forster"),
                        ki18n("Original idea and author (KDE1)"), "forster@fmi.uni-passau.de");
 
-  aboutData->addCredit(ki18n("Olaf Schmidt"), ki18n("Rework of the user interface, improved selection window, speed optimization, rotation, bug fixes"), "ojschmidt@kde.org");
+  aboutData->addAuthor(ki18n("Olaf Schmidt"), ki18n("Rework of the user interface, improved selection window, speed optimization, rotation, bug fixes"), "ojschmidt@kde.org");
+  aboutData->addCredit(ki18n("Matthew Woehlke"), ki18n("Color-blindness simulation"), "mw_triad@users.sourceforge.net");
   aboutData->addCredit(ki18n("Claudiu Costin"), ki18n("Some tips"), "claudiuc@work.ro",
                        "http://www.ro.kde.org");
 

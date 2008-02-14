@@ -6,6 +6,8 @@
     email                : sarang#users.sourceforge.net
     copyright            : (C) 2003-2004 by Olaf Schmidt
     email                : ojschmidt@kde.org
+    copyright            : (C) 2008 by Matthew Woehlke
+    email                : mw_triad@users.sourceforge.net
  ***************************************************************************/
 
 /***************************************************************************
@@ -88,6 +90,14 @@ KmagApp::KmagApp(QWidget* , const char* name)
   fpsArray.push_back(10); // medium
   fpsArray.push_back(15); // high
   fpsArray.push_back(25); // very high
+
+  colorArrayString << i18n("&Normal") << i18n("&Protanopia") << i18n("&Deuteranopia") << i18n("&Tritanopia") << i18n("&Achromatopsia");
+
+  colorArray.push_back(0);
+  colorArray.push_back(1);
+  colorArray.push_back(2);
+  colorArray.push_back(3);
+  colorArray.push_back(4);
 
   rotationArrayString << i18n("&No Rotation (0 Degrees)") << i18n("&Left (90 Degrees)") << i18n("&Upside Down (180 Degrees)") << i18n("&Right (270 Degrees)");
 
@@ -236,6 +246,12 @@ void KmagApp::initActions()
   m_pFPSBox->setWhatsThis(i18n("Select the refresh rate. The higher the rate, the more computing power (CPU) will be needed."));
   m_pFPSBox->setToolTip(i18n("Refresh rate"));
 
+  m_pColorBox = new KSelectAction(i18n("&Color"),this);
+  actionCollection()->addAction("color_mode", m_pColorBox);
+  m_pColorBox->setItems(colorArrayString);
+  m_pColorBox->setWhatsThis(i18n("Select a mode to simulate various types of color-blindness."));
+  m_pColorBox->setToolTip(i18n("Color-blindness Simulation Mode"));
+
   createGUI();
 }
 
@@ -265,6 +281,10 @@ void KmagApp::slotChangeFPSIndex(int index)
   m_pFPSBox->setCurrentItem(index);
 }
 
+void KmagApp::slotChangeColorIndex(int index)
+{
+  m_pColorBox->setCurrentItem(index);
+}
 
 /**
  * Initialize all connections.
@@ -275,16 +295,19 @@ void KmagApp::initConnections()
   connect(this, SIGNAL(updateZoomValue(float)), m_zoomView, SLOT(setZoom(float)));
   connect(this, SIGNAL(updateRotationValue(int)), m_zoomView, SLOT(setRotation(int)));
   connect(this, SIGNAL(updateFPSValue(float)), m_zoomView, SLOT(setRefreshRate(float)));
+  connect(this, SIGNAL(updateColorValue(int)), m_zoomView, SLOT(setColorMode(int)));
 
   // change in zoom index -> update the selector
   connect(this, SIGNAL(updateZoomIndex(int)), this, SLOT(slotChangeZoomBoxIndex(int)));
   connect(this, SIGNAL(updateRotationIndex(int)), this, SLOT(slotChangeRotationBoxIndex(int)));
   connect(this, SIGNAL(updateFPSIndex(int)), this, SLOT(slotChangeFPSIndex(int)));
+  connect(this, SIGNAL(updateColorIndex(int)), this, SLOT(slotChangeColorIndex(int)));
 
   // selector selects a zoom index -> set the zoom index
   connect(m_pZoomBox, SIGNAL(triggered(int)), this, SLOT(setZoomIndex(int)));
   connect(m_pRotationBox, SIGNAL(triggered(int)), this, SLOT(setRotationIndex(int)));
   connect(m_pFPSBox, SIGNAL(triggered(int)), this, SLOT(setFPSIndex(int)));
+  connect(m_pColorBox, SIGNAL(triggered(int)), this, SLOT(setColorIndex(int)));
 }
 
 /**
@@ -297,6 +320,7 @@ void KmagApp::saveOptions()
   cg.writeEntry("ZoomIndex", m_zoomIndex);
   cg.writeEntry("RotationIndex", m_rotationIndex);
   cg.writeEntry("FPSIndex", m_fpsIndex);
+  cg.writeEntry("ColorIndex", m_colorIndex);
   cg.writeEntry("SelRect", m_zoomView->getSelRectPos());
   cg.writeEntry("ShowMouse", m_zoomView->getShowMouseType());
 
@@ -311,7 +335,7 @@ void KmagApp::saveOptions()
   cg.writeEntry("ShowMainToolBar", m_pShowMainToolBar->isChecked());
   cg.writeEntry("ShowViewToolBar", m_pShowViewToolBar->isChecked());
   cg.writeEntry("ShowSettingsToolBar", m_pShowSettingsToolBar->isChecked());
-  
+
   KConfigGroup mainToolBarGroup(config,"Main ToolBar");
   toolBar("mainToolBar")->saveSettings( mainToolBarGroup );
   KConfigGroup viewToolBarGroup(config,"View ToolBar" );
@@ -357,6 +381,10 @@ void KmagApp::readOptions()
   unsigned int fpsIndex = cg.readEntry("FPSIndex", 2);
   setFPSIndex(fpsIndex);
   emit updateFPSIndex(m_fpsIndex);
+
+  unsigned int colorIndex = cg.readEntry("ColorIndex", 0);
+  setColorIndex(colorIndex);
+  emit updateColorIndex(colorIndex);
 
   QString mode = cg.readEntry("Mode", "followmouse");
   if (mode == "wholescreen")
@@ -544,6 +572,25 @@ void KmagApp::setFPSIndex(int index)
   emit updateFPSValue(fpsArray[m_fpsIndex]);
 }
 
+/**
+ * Sets the color index to index
+ */
+void KmagApp::setColorIndex(int index)
+{
+  if(index < 0 || index >= (int)colorArray.size()) {
+    // the index is invalid
+    kWarning() << "Invalid index!" ;
+    return;
+  } else if((int)m_colorIndex == index) {
+    // do nothing!
+    return;
+  } else {
+    m_colorIndex = index;
+  }
+
+  // signal change in fps value
+  emit updateColorValue(colorArray[m_colorIndex]);
+}
 
 /**
  * Save the zoomed image

@@ -8,6 +8,7 @@ set(kmag_SRCS
    kmagzoomview.cpp 
    kmagselrect.cpp 
    kmag.cpp 
+   colorsim.cpp
    main.cpp )
 
 kde4_add_executable(kmag ${kmag_SRCS})

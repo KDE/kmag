@@ -6,6 +6,8 @@
     email                : sarang@users.sourceforge.net
     copyright            : (C) 2003-2004 by Olaf Schmidt
     email                : ojschmidt@kde.org
+    copyright            : (C) 2008 by Matthew Woehlke
+    email                : mw_triad@users.sourceforge.net
  ***************************************************************************/
 
 /***************************************************************************
@@ -101,7 +103,7 @@ class KmagApp : public KXmlGuiWindow
 
     /** print the actual file */
     void slotFilePrint();
-    
+
     void slotFileQuit();
 
     /** put the marked text/object into the clipboard
@@ -133,6 +135,9 @@ class KmagApp : public KXmlGuiWindow
     /// Sets the fps index to index
     void setFPSIndex(int index);
 
+    /// Sets the color index to index
+    void setColorIndex(int index);
+
     /// Shows/hides the mouse cursor
     void showMouseCursor(bool show);
 
@@ -155,6 +160,7 @@ class KmagApp : public KXmlGuiWindow
     void slotChangeZoomBoxIndex(int index);
     void slotChangeRotationBoxIndex(int index);
     void slotChangeFPSIndex(int index);
+    void slotChangeColorIndex(int index);
 
 
   signals:
@@ -176,6 +182,12 @@ class KmagApp : public KXmlGuiWindow
     /// This signal is raised whenever the fps value changes
     void updateFPSValue(float);
 
+    /// This signal is raised whenever the index into the color array is changed
+    void updateColorIndex(int);
+
+    /// This signal is raised whenever the color value changes
+    void updateColorValue(int);
+
   private:
     /// the configuration object of the application
     KSharedConfigPtr config;
@@ -188,7 +200,7 @@ class KmagApp : public KXmlGuiWindow
     QAction *m_pQuit;
     QAction *refreshSwitch;
     KToggleAction *m_pShowMenu, *m_pShowMainToolBar, *m_pShowViewToolBar, *m_pShowSettingsToolBar;
-    KSelectAction *m_pZoomBox, *m_pRotationBox, *m_pFPSBox;
+    KSelectAction *m_pZoomBox, *m_pRotationBox, *m_pFPSBox, *m_pColorBox;
 
     /// zoom slider
     KIntNumInput *m_zoomSlider;
@@ -202,6 +214,9 @@ class KmagApp : public KXmlGuiWindow
     /// Current index into the fpsArray
     unsigned int m_fpsIndex;
 
+    /// Current index into the colorArray
+    unsigned int m_colorIndex;
+
     QStringList zoomArrayString;
     std::vector<float> zoomArray;
 
@@ -210,6 +225,9 @@ class KmagApp : public KXmlGuiWindow
 
     QStringList fpsArrayString;
     std::vector<float> fpsArray;
+
+    QStringList colorArrayString;
+    std::vector<int> colorArray;
 
   KMagZoomView* m_zoomView;
   KToggleAction *m_hideCursor;

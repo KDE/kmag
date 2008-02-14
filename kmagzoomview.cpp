@@ -6,6 +6,8 @@
     email                : sarang#users.sourceforge.net
     copyright            : (C) 2003-2004 by Olaf Schmidt
     email                : ojschmidt@kde.org
+    copyright            : (C) 2008 by Matthew Woehlke
+    email                : mw_triad@users.sourceforge.net
  ***************************************************************************/
 
 /***************************************************************************
@@ -21,6 +23,7 @@
 // application specific includes
 #include "kmagzoomview.h"
 #include "kmagzoomview.moc"
+#include "colorsim.h"
 
 // include files for Qt
 #include <QtGui/QBitmap>
@@ -198,7 +201,7 @@ void KMagZoomView::resizeEvent( QResizeEvent * e )
  */
 void KMagZoomView::drawContents ( QPainter * p, int clipx, int clipy, int clipw, int cliph )
 {
-  if(m_grabbedZoomedPixmap.isNull())
+  if(m_zoomedPixmap.isNull())
     return;
 
   // Paint empty areas Qt::black
@@ -223,18 +226,18 @@ void KMagZoomView::drawContents ( QPainter * p, int clipx, int clipy, int clipw,
   if(m_showMouse) {
 
     // Pixmap which will have the zoomed pixmap + mouse
-    zoomView = new QPixmap(m_grabbedZoomedPixmap);
+    zoomView = new QPixmap(m_zoomedPixmap);
 
     // paint the mouse cursor
     paintMouseCursor(zoomView, mousePos);
   } else { // do not show mouse
-    zoomView = &m_grabbedZoomedPixmap;
+    zoomView = &m_zoomedPixmap;
   }
 
   // bitBlt this part on to the widget.
   bitBlt(viewport(), QPoint (clipx-contentsX(), clipy-contentsY()), zoomView, QRect(clipx, clipy, clipw, cliph));
 
-  if(zoomView != &m_grabbedZoomedPixmap)
+  if(zoomView != &m_zoomedPixmap)
     delete zoomView;
 }
 
@@ -852,11 +855,17 @@ void KMagZoomView::grabFrame()
   m_grabbedPixmap = QPixmap::grabWindow(QApplication::desktop()->winId(), selRect.x(), selRect.y(),
                                         selRect.width(), selRect.height());
 
+  // colorize the grabbed pixmap, if applicable - TODO
+  if (m_colormode == 0)
+    m_coloredPixmap = m_grabbedPixmap;
+  else
+    m_coloredPixmap = ColorSim::recolor(m_grabbedPixmap, m_colormode);
+
   // zoom the image
-  m_grabbedZoomedPixmap = m_grabbedPixmap.transformed(m_zoomMatrix);
+  m_zoomedPixmap = m_coloredPixmap.transformed(m_zoomMatrix);
 
   // call repaint to display the newly grabbed image
-  resizeContents (m_grabbedZoomedPixmap.width(), m_grabbedZoomedPixmap.height());
+  resizeContents (m_zoomedPixmap.width(), m_zoomedPixmap.height());
   viewport()->repaint(false);
 }
 
@@ -906,7 +915,7 @@ void KMagZoomView::setZoom(float zoom)
   m_zoomMatrix.scale(m_zoom, m_zoom);
   m_zoomMatrix.rotate(m_rotation);
 
-  m_grabbedZoomedPixmap = m_grabbedPixmap.transformed(m_zoomMatrix);
+  m_zoomedPixmap = m_coloredPixmap.transformed(m_zoomMatrix);
 
   viewport()->repaint();
 }
@@ -928,9 +937,20 @@ void KMagZoomView::setRotation(int rotation)
   m_zoomMatrix.scale(m_zoom, m_zoom);
   m_zoomMatrix.rotate(m_rotation);
 
-  m_grabbedZoomedPixmap = m_grabbedPixmap.transformed(m_zoomMatrix);
+  m_zoomedPixmap = m_coloredPixmap.transformed(m_zoomMatrix);
 
   viewport()->repaint();
+}
+
+/**
+ * Set a new color simulation mode.
+ */
+void KMagZoomView::setColorMode(int mode)
+{
+  if (m_colormode != mode) {
+    m_colormode = mode;
+    viewport()->repaint();
+  }
 }
 
 /**
@@ -994,15 +1014,15 @@ QStringList KMagZoomView::getShowMouseStringList() const
 QPixmap KMagZoomView::getPixmap()
 {
   // show the pixel under mouse cursor
-  if(m_showMouse && !m_grabbedZoomedPixmap.isNull()) {
+  if(m_showMouse && !m_zoomedPixmap.isNull()) {
     // Pixmap which will have the zoomed pixmap + mouse
-    QPixmap zoomView(m_grabbedZoomedPixmap);
+    QPixmap zoomView(m_zoomedPixmap);
 
     // paint the mouse cursor w/o updating to a newer position
     paintMouseCursor(&zoomView, calcMousePos(false));
 
     return(zoomView);
   } else { // no mouse cursor
-     return(m_grabbedZoomedPixmap);
+     return(m_zoomedPixmap);
   }
 }

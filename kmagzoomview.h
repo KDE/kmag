@@ -6,6 +6,8 @@
     email                : sarang#users.sf.net
     copyright            : (C) 2003-2004 by Olaf Schmidt
     email                : ojschmidt@kde.org
+    copyright            : (C) 2008 by Matthew Woehlke
+    email                : mw_triad@users.sourceforge.net
  ***************************************************************************/
 
 /***************************************************************************
@@ -87,6 +89,9 @@ class KMagZoomView : public Q3ScrollView
     /// Sets the rotation to the given value
     void setRotation(int rotation = 0);
 
+    /// Sets the color mode to the given value
+    void setColorMode(int mode = 0);
+
     /// Grabs a frame from the given portion of the display
     void grabFrame();
 
@@ -158,8 +163,11 @@ class KMagZoomView : public Q3ScrollView
     /// Stores the pixmap grabbed from the screen - to be zoomed
     QPixmap m_grabbedPixmap;
 
-    /// Stores the pixmap which is zoomed from the grabbed one - this will be actaully drawn
-    QPixmap m_grabbedZoomedPixmap;
+    /// Stores the pixmap which is recolored from the grabbed one
+    QPixmap m_coloredPixmap;
+
+    /// Stores the pixmap which is zoomed from the colored one - this will be actaully drawn
+    QPixmap m_zoomedPixmap;
 
     /// The selected rectangle which is to be grabbed
     KMagSelRect m_selRect;
@@ -225,6 +233,9 @@ class KMagZoomView : public Q3ScrollView
 
     /// Stores the degrees to rotate the pixmap
     int m_rotation;
+
+    /// Stores color simulation mode to apply
+    int m_colormode;
 
     /// Fit the zoom view to the zoom window
     bool m_fitToWindow;
