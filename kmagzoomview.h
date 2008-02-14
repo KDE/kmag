@@ -38,8 +38,8 @@
 #include "kmagselrect.h"
 
 /**
- * The KMagZoomView class provides the view widget for the KmagApp instance.  
- *   
+ * The KMagZoomView class provides the view widget for the KmagApp instance.
+ *
  * @author Sarang Lakare <sarang#users.sourceforge.net>
  */
 class KMagZoomView : public Q3ScrollView
@@ -86,7 +86,7 @@ class KMagZoomView : public Q3ScrollView
 
     /// Sets the rotation to the given value
     void setRotation(int rotation = 0);
-    
+
     /// Grabs a frame from the given portion of the display
     void grabFrame();
 
@@ -123,7 +123,7 @@ class KMagZoomView : public Q3ScrollView
 
     /// Called when the widget has been resized
     void resizeEvent(QResizeEvent *e);
-    
+
     /// Called when the widget is to be repainted
     void drawContents ( QPainter * p, int clipx, int clipy, int clipw, int cliph );
 
@@ -192,10 +192,10 @@ class KMagZoomView : public Q3ScrollView
     KMagMouseMode m_mouseMode;
 
     /// stores the state of the Ctrl key
-    bool m_ctrlKeyPressed;    
+    bool m_ctrlKeyPressed;
 
     /// stores the state of the Shift key
-    bool m_shiftKeyPressed;    
+    bool m_shiftKeyPressed;
 
     /// Store the more recent updated cursor position
     QPoint m_latestCursorPos;

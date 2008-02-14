@@ -253,7 +253,7 @@ void KMagZoomView::paintMouseCursor(QPaintDevice *dev, const QPoint &mousePos)
   if(m_latestCursorPos.x() >= 0 && m_latestCursorPos.x() < m_selRect.width() &&
      m_latestCursorPos.y() >= 0 && m_latestCursorPos.y() < m_selRect.height() ) { // || updateMousePos) {
     // mouse position is indeed inside the selRect
-      
+
     // How to show the mouse :
 
     switch(m_showMouse) {
@@ -262,7 +262,7 @@ void KMagZoomView::paintMouseCursor(QPaintDevice *dev, const QPoint &mousePos)
       pz.setPen(Qt::white);
 #ifdef __GNUC__
 #warning "Port Qt4 pz.setRasterOp(Qt::XorROP);";
-#endif      
+#endif
       //pz.setRasterOp(Qt::XorROP);
       pz.drawRect(mousePos.x()-1, mousePos.y()-1, (int)m_zoom+2, (int)m_zoom+2);
       break;
@@ -291,7 +291,7 @@ void KMagZoomView::paintMouseCursor(QPaintDevice *dev, const QPoint &mousePos)
     break;
 
     case 3:
-    {    
+    {
       // 3. Actual cursor
       // Get the current cursor type
       QWidget *dummy  = KApplication::topLevelAt(QCursor::pos());
@@ -517,7 +517,7 @@ void KMagZoomView::mouseReleaseEvent(QMouseEvent *e)
 
       // restore the cursor shape
       setCursor(Qt::ArrowCursor);
-    }    
+    }
     break;
 
   case Qt::RightButton :
@@ -601,7 +601,7 @@ void KMagZoomView::mouseMoveEvent(QMouseEvent *e)
       newCenter.setY(QApplication::desktop()->height()-m_selRect.height()/2-1);
     }
 
-    // move to the new center  
+    // move to the new center
     m_selRect.moveCenter(newCenter);
     // update the grab rectangle display
     m_selRect.update();
@@ -618,7 +618,7 @@ void KMagZoomView::keyPressEvent(QKeyEvent *e)
   if (e->key() == Qt::Key_Control)
     m_ctrlKeyPressed = true;
   else if (e->key() == Qt::Key_Shift)
-    m_shiftKeyPressed = true;    
+    m_shiftKeyPressed = true;
   else if (e->key() == Qt::Key_Left)
   {
     if (e->state() & Qt::ControlModifier)
@@ -754,7 +754,7 @@ void KMagZoomView::focusOutEvent(QFocusEvent *e)
 void KMagZoomView::fitToWindow()
 {
   unsigned int newWidth, newHeight;
-  
+
   // this is a temporary solution, cast, maybe newWidth and newHeight should be float
   if ((m_rotation == 90) || (m_rotation == 270))
   {
