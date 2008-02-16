@@ -15,6 +15,9 @@
  *                                                                         *
  ***************************************************************************/
 
+#ifndef KMAGCOLORSIM_H
+#define KMAGCOLORSIM_H
+
 // include files for Qt
 #include <QtGui/QImage>
 #include <QtGui/QPixmap>
@@ -29,3 +32,4 @@ namespace ColorSim {
      */
     QPixmap recolor(const QPixmap &pm, int mode, qreal gamma = 1.0);
 }
+#endif
