@@ -123,8 +123,8 @@ static bool obscuredRegion (QRegion &region, Window winId, Window ignoreId, Wind
 KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
   : QScrollView(parent, name),
     m_selRect(0, 0, 128, 128, this),
-    m_grabTimer(parent),
-    m_mouseViewTimer(parent),
+    m_grabTimer(0),
+    m_mouseViewTimer(0),
     m_latestCursorPos(0,0),
     m_followMouse(false),
     m_showMouse(1),
