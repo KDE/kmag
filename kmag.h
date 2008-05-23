@@ -29,6 +29,7 @@
 
 // include files for Qt
 #include <QtGui/QContextMenuEvent>
+#include <QtGui/QPrinter>
 
 // include files for KDE
 #include <kxmlguiwindow.h>
@@ -237,6 +238,12 @@ class KmagApp : public KXmlGuiWindow
   unsigned int m_mouseCursorType;
 
   unsigned int m_defaultMouseCursorType;
+
+    #ifndef QT_NO_PRINTER
+    // Keep QPrinter so settings persist
+    QPrinter *m_printer;
+    #endif // QT_NO_PRINTER
+
 };
 
 

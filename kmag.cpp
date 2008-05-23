@@ -21,7 +21,6 @@
 
 // include files for QT
 #include <QtCore/QDir>
-#include <QtGui/QPrinter>
 #include <QtGui/QPrintDialog>
 #include <QtGui/QPainter>
 #include <QtGui/QLayout>
@@ -58,6 +57,7 @@
 #include <kmenu.h>
 #include <kedittoolbar.h>
 #include <kglobal.h>
+#include <kdeprintdialog.h>
 
 // application specific includes
 #include "kmag.moc"
@@ -114,6 +114,9 @@ KmagApp::KmagApp(QWidget* , const char* name)
   // read options from config file
   readOptions();
 
+  #ifndef QT_NO_PRINTER
+  m_printer = 0;
+  #endif // QT_NO_PRINTER
 }
 
 /**
@@ -122,6 +125,10 @@ KmagApp::KmagApp(QWidget* , const char* name)
 KmagApp::~KmagApp()
 {
     m_zoomView->showSelRect(false);
+
+    #ifndef QT_NO_PRINTER
+    delete m_printer;
+    #endif // QT_NO_PRINTER
 }
 
 void KmagApp::initActions()
@@ -716,7 +723,9 @@ void KmagApp::slotFilePrint()
 
   bool toggled(false);
 
-  QPrinter printer;
+  if (m_printer == 0) {
+    m_printer = new QPrinter();
+  }
 
   // stop refresh temporarily
   if (m_zoomView->getRefreshStatus()) {
@@ -728,17 +737,17 @@ void KmagApp::slotFilePrint()
 
   // use some AI to get the best orientation
   if(pixmap.width() > pixmap.height()) {
-    printer.setOrientation(QPrinter::Landscape);
+    m_printer->setOrientation(QPrinter::Landscape);
   } else {
-    printer.setOrientation(QPrinter::Portrait);
+    m_printer->setOrientation(QPrinter::Portrait);
   }
 
-  QPrintDialog printDialog(&printer, this);
+  QPrintDialog *printDialog = KdePrint::createPrintDialog(m_printer, this);
 
-  if (printDialog.exec()) {
+  if (printDialog->exec()) {
     QPainter paint;
 
-    if(!paint.begin(&printer))
+    if(!paint.begin(m_printer))
       return;
     // draw the pixmap
     paint.drawPixmap(0, 0, pixmap);
