@@ -15,7 +15,7 @@ kde4_add_executable(kmag ${kmag_SRCS})
 
 target_link_libraries(kmag ${KDE4_KIO_LIBS} ${QT_QT3SUPPORT_LIBRARY})
 
-install(TARGETS kmag  DESTINATION ${BIN_INSTALL_DIR} )
+install(TARGETS kmag  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 
 ########### install files ###############
