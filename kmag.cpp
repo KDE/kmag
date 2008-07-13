@@ -748,7 +748,10 @@ void KmagApp::slotFilePrint()
     QPainter paint;
 
     if(!paint.begin(m_printer))
+    {
+      delete printDialog;
       return;
+    }
     // draw the pixmap
     paint.drawPixmap(0, 0, pixmap);
     // end the painting
@@ -758,6 +761,7 @@ void KmagApp::slotFilePrint()
   if(toggled) {
     slotToggleRefresh();
   }
+  delete printDialog;
 #endif // QT_NO_PRINTER
 }
 
