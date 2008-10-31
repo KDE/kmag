@@ -4,7 +4,6 @@ Type=Application
 Exec=kmag -caption "%c" %i
 Icon=kmag
 X-DocPath=kmag/index.html
-Comment=
 Terminal=false
 Name=KMag
 Name[ar]=مكبَر كي
