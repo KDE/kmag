@@ -63,7 +63,7 @@ class KMagZoomView : public Q3ScrollView
     /// Returns the state of the refresh switch
     bool getRefreshStatus() const { return m_refreshSwitch; }
 
-    /// Returns teh status of followMouse
+    /// Returns the status of followMouse
     bool getFollowMouse() const { return m_followMouse; }
 
     /// Get the status of "show rect. always"
