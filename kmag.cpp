@@ -91,7 +91,7 @@ KmagApp::KmagApp(QWidget* , const char* name)
   fpsArray.push_back(15); // high
   fpsArray.push_back(25); // very high
 
-  colorArrayString << i18n("&Normal") << i18n("&Protanopia") << i18n("&Deuteranopia") << i18n("&Tritanopia") << i18n("&Achromatopsia");
+  colorArrayString << i18nc("No color-blindness simulation, i.e.'normal' vision'", "&Normal") << i18n("&Protanopia") << i18n("&Deuteranopia") << i18n("&Tritanopia") << i18n("&Achromatopsia");
 
   colorArray.push_back(0);
   colorArray.push_back(1);
@@ -253,7 +253,7 @@ void KmagApp::initActions()
   m_pFPSBox->setWhatsThis(i18n("Select the refresh rate. The higher the rate, the more computing power (CPU) will be needed."));
   m_pFPSBox->setToolTip(i18n("Refresh rate"));
 
-  m_pColorBox = new KSelectAction(i18n("&Color"),this);
+  m_pColorBox = new KSelectAction(i18nc("Color-blindness simulation mode", "&Color"),this);
   actionCollection()->addAction("color_mode", m_pColorBox);
   m_pColorBox->setItems(colorArrayString);
   m_pColorBox->setWhatsThis(i18n("Select a mode to simulate various types of color-blindness."));
@@ -664,7 +664,7 @@ void KmagApp::slotToggleRefresh()
     refreshSwitch->setToolTip(i18n("Click to stop window update"));
   } else {
     refreshSwitch->setIcon(KIcon("reload.png"));
-    refreshSwitch->setText(i18n("Start"));
+    refreshSwitch->setText(i18nc("Start updating the window", "Start"));
     refreshSwitch->setToolTip(i18n("Click to start window update"));
   }
 }

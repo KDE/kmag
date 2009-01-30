@@ -14,12 +14,13 @@
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; version 2 of the License        *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
 
-#ifndef KMagZoomView_h_
-#define KMagZoomView_h_
+#ifndef KMagZoomView_h
+#define KMagZoomView_h
 
 // include files for Qt
 #include <QtGui/QWidget>
@@ -241,4 +242,4 @@ class KMagZoomView : public Q3ScrollView
     bool m_fitToWindow;
 };
 
-#endif // KMagZoomView_h_
+#endif // KMagZoomView_h
