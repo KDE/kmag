@@ -91,7 +91,7 @@ KmagApp::KmagApp(QWidget* , const char* name)
   fpsArray.push_back(15); // high
   fpsArray.push_back(25); // very high
 
-  colorArrayString << i18nc("No color-blindness simulation, i.e.'normal' vision'", "&Normal") << i18n("&Protanopia") << i18n("&Deuteranopia") << i18n("&Tritanopia") << i18n("&Achromatopsia");
+  colorArrayString << i18nc("No color-blindness simulation, i.e. 'normal' vision", "&Normal") << i18n("&Protanopia") << i18n("&Deuteranopia") << i18n("&Tritanopia") << i18n("&Achromatopsia");
 
   colorArray.push_back(0);
   colorArray.push_back(1);
