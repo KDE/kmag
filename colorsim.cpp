@@ -75,7 +75,7 @@ xyza::xyza(const QColor &c) :
 
 inline qreal clamp(qreal n)
 {
-  return qMin(1.0, qMax(0.0, n));
+  return qMin(qreal(1.0), qMax(qreal(0.0), n));
 }
 
 QRgb xyza::rgba() const
@@ -202,7 +202,7 @@ inline QRgb recolor(QRgb c, int mode, qreal g)
     xyza n = QColor(c);
     if (g != 1.0) {
       xyza r = n.gamma(g) * rgb2lms * coef[mode-1] * lms2rgb;
-      return r.gamma(1.0 / g).rgba();
+      return r.gamma(qreal(1.0) / g).rgba();
     }
     else {
       xyza r = n * rgb2lms * coef[mode-1] * lms2rgb;
@@ -288,7 +288,7 @@ inline QRgb recolor(QRgb c, int mode, qreal g)
     xyza r = n.gamma(g) * rgb2lms;
     r = r.flatten(coef[mode-1]);
     r = r * lms2rgb;
-    return r.gamma(1.0 / g).rgba();
+    return r.gamma(qreal(1.0) / g).rgba();
   }
   else {
     return qRgb(qGray(c), qGray(c), qGray(c));
