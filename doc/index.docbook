@@ -172,9 +172,9 @@ is kept constant and the bottom-right corner is movable.</para>
 <sect1 id="kmag-features">
 <title>More &kmag; features</title>
 
-<para>&kmag; comes with lots of features. Its possible to print the zoomed
+<para>&kmag; comes with lots of features. It is possible to print the zoomed
 image directly to a printer, save the image to a file, copy the zoomed
-image to the clipboard (which can be later used to paste in other applications),
+image to the clipboard (which can be used later to paste in other applications),
 rotate the magnification image and more.
 </para>
 
