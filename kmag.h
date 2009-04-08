@@ -194,12 +194,12 @@ class KmagApp : public KXmlGuiWindow
     KSharedConfigPtr config;
 
     // KAction pointers to enable/disable actions
-    QAction *fileNewWindow, *m_pSnapshot, *m_pCopy, *m_keyConf, *m_toolConf;
+    KAction *fileNewWindow, *m_pSnapshot, *m_pCopy, *m_keyConf, *m_toolConf;
     QAction *m_pPrint;
     QAction *m_pZoomIn;
     QAction *m_pZoomOut;
     QAction *m_pQuit;
-    QAction *refreshSwitch;
+    KAction *refreshSwitch;
     KToggleAction *m_pShowMenu, *m_pShowMainToolBar, *m_pShowViewToolBar, *m_pShowSettingsToolBar;
     KSelectAction *m_pZoomBox, *m_pRotationBox, *m_pFPSBox, *m_pColorBox;
 
