@@ -659,11 +659,11 @@ void KmagApp::slotToggleRefresh()
 {
   m_zoomView->toggleRefresh();
   if(m_zoomView->getRefreshStatus()) {
-    refreshSwitch->setIcon(KIcon("stop.png"));
+    refreshSwitch->setIcon(KIcon("process-stop"));
     refreshSwitch->setText(i18n("Stop"));
     refreshSwitch->setToolTip(i18n("Click to stop window update"));
   } else {
-    refreshSwitch->setIcon(KIcon("reload.png"));
+    refreshSwitch->setIcon(KIcon("reload"));
     refreshSwitch->setText(i18nc("Start updating the window", "Start"));
     refreshSwitch->setToolTip(i18n("Click to start window update"));
   }
