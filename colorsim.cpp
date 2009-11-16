@@ -75,7 +75,7 @@ xyza::xyza(const QColor &c) :
 
 inline qreal clamp(qreal n)
 {
-  return qMin(double(1.0), qMax(double(0.0), double(n)));
+  return qMin(qreal(1.0), qMax(qreal(0.0), n));
 }
 
 QRgb xyza::rgba() const
