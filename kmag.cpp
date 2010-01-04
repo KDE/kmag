@@ -68,7 +68,7 @@
 #define havesetCheckedState
 
 KmagApp::KmagApp(QWidget* , const char* name)
-  : KXmlGuiWindow(0, Qt::WStyle_MinMax | Qt::WType_TopLevel | Qt::WDestructiveClose | Qt::WStyle_ContextHelp | Qt::WStyle_StaysOnTop),
+  : KXmlGuiWindow(0, Qt::WStyle_MinMax | Qt::WType_TopLevel | Qt::WDestructiveClose | Qt::WStyle_ContextHelp | Qt::WStyle_StaysOnTop | Qt::WindowCloseButtonHint),
     m_defaultMouseCursorType(2)
 {
   setObjectName(name);
