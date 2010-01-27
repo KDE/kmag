@@ -1,5 +1,5 @@
+if(Q_WS_X11)
 project(kmag)
-
 
 add_definitions (-DQT3_SUPPORT -DQT3_SUPPORT_WARNINGS)
 ########### next target ###############
@@ -25,3 +25,4 @@ install( FILES kmagui.rc  DESTINATION  ${DATA_INSTALL_DIR}/kmag )
 
 kde4_install_icons( ${ICON_INSTALL_DIR} )
 
+endif(Q_WS_X11)
