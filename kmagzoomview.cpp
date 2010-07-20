@@ -180,7 +180,7 @@ void KMagZoomView::followFocus(bool follow)
 
 void KMagZoomView::focusChanged(int x, int y)
 {
-    kDebug() << "x=" << x << "y=" << y;
+    //kDebug() << "x=" << x << "y=" << y;
     m_oldFocus = QPoint(x, y);
 }
 
