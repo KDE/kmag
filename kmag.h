@@ -115,6 +115,7 @@ class KmagApp : public KXmlGuiWindow
     void slotToggleRefresh();
 
     void slotModeFollowMouse();
+    void slotModeFollowFocus();
     void slotModeWholeScreen();
     void slotModeSelWin();
 
@@ -232,7 +233,7 @@ class KmagApp : public KXmlGuiWindow
 
   KMagZoomView* m_zoomView;
   KToggleAction *m_hideCursor;
-  KToggleAction *m_modeFollowMouse, *m_modeWholeScreen, *m_modeSelWin;
+  KToggleAction *m_modeFollowMouse, *m_modeFollowFocus, *m_modeWholeScreen, *m_modeSelWin;
 
   /// Stores the non-zero cursor type to be used
   unsigned int m_mouseCursorType;

@@ -39,6 +39,7 @@
 #include <QtGui/QResizeEvent>
 #include <QtGui/QMouseEvent>
 #include <QtGui/QDesktopWidget>
+#include <QtDBus/QDBusConnection>
 
 // include files for KDE
 #include <kapplication.h>
@@ -90,6 +91,7 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
     m_mouseViewTimer(parent),
     m_latestCursorPos(0,0),
     m_followMouse(false),
+    m_followFocus(false),
     m_showMouse(1),
     m_zoom(1.0),
     m_rotation(0),
@@ -143,17 +145,43 @@ KMagZoomView::~KMagZoomView()
  */
 void KMagZoomView::followMouse(bool follow)
 {
+  m_followMouse = follow;
+  m_mouseMode = Normal;
   if(follow) {
-    m_followMouse = true;
-    m_mouseMode = Normal;
     setVScrollBarMode (Q3ScrollView::AlwaysOff);
     setHScrollBarMode (Q3ScrollView::AlwaysOff);
   } else {
-    m_followMouse = false;
-    m_mouseMode = Normal;
     setVScrollBarMode (Q3ScrollView::AlwaysOn);
     setHScrollBarMode (Q3ScrollView::AlwaysOn);
   }
+}
+
+/**
+ * This function will set/reset keyboard focus following of grab window.
+ */
+void KMagZoomView::followFocus(bool follow)
+{
+  if(m_followFocus == follow)
+      return;
+  m_followFocus = follow;
+  m_mouseMode = Normal;
+  if(follow) {
+    setVScrollBarMode (Q3ScrollView::AlwaysOff);
+    setHScrollBarMode (Q3ScrollView::AlwaysOff);
+    if(QDBusConnection::sessionBus().isConnected())
+        QDBusConnection::sessionBus().connect("org.kde.kaccessibleapp", "/Adaptor", "org.kde.kaccessibleapp.Adaptor", "focusChanged", this, SLOT(focusChanged(int,int)));
+  } else {
+    setVScrollBarMode (Q3ScrollView::AlwaysOn);
+    setHScrollBarMode (Q3ScrollView::AlwaysOn);
+    if(QDBusConnection::sessionBus().isConnected())
+        QDBusConnection::sessionBus().disconnect("org.kde.kaccessibleapp", "/Adaptor", "org.kde.kaccessibleapp.Adaptor", "focusChanged", this, SLOT(focusChanged(int,int)));
+  }
+}
+
+void KMagZoomView::focusChanged(int x, int y)
+{
+    kDebug() << "x=" << x << "y=" << y;
+    m_oldFocus = QPoint(x, y);
 }
 
 /**
@@ -815,12 +843,15 @@ void KMagZoomView::grabFrame()
      return;
 
   // check if follow-mouse is enabled
-  if(m_followMouse && (m_mouseMode != ResizeSelection)) {
+  if((m_followMouse || m_followFocus) && (m_mouseMode != ResizeSelection)) {
     // in this case grab w.r.t the current mouse position
      QPoint newCenter;
 
     // set new center to be the current mouse position
     newCenter = QCursor::pos();
+    
+if(m_followFocus)
+    newCenter = m_oldFocus;
 
     // make sure the mouse position is not taking the grab window outside
     // the display
@@ -845,7 +876,7 @@ void KMagZoomView::grabFrame()
     // update the grab rectangle display
     m_selRect.update();
   }
-
+  
   //QRect r = pixmapRect();
 
   // define a normalized rectangle

@@ -65,6 +65,9 @@ class KMagZoomView : public Q3ScrollView
 
     /// Returns the status of followMouse
     bool getFollowMouse() const { return m_followMouse; }
+    
+    /// Returns the status of followFocus
+    bool getFollowFocus() const { return m_followFocus; }
 
     /// Get the status of "show rect. always"
     bool getShowSelRect() const { return (m_selRect.getAlwaysVisible()); }
@@ -100,6 +103,9 @@ class KMagZoomView : public Q3ScrollView
 
     /// Set grab-window-follows-mouse mode
     void followMouse(bool follow = true);
+    
+    /// Set grab-window-follows-keyboard-focus mode
+    void followFocus(bool follow = true);
 
     /// Shows/Hides the selection marker
     void showSelRect(bool show=true);
@@ -119,6 +125,10 @@ class KMagZoomView : public Q3ScrollView
     /// Fits the zoom view to the zoom view window
     void fitToWindow();
 
+  private slots:
+    /// Called from a dbus service when followFocus is true
+    void focusChanged(int x, int y);
+    
   protected:
     /// Called when the widget is hidden
     void hideEvent( QHideEvent * e);
@@ -186,6 +196,9 @@ class KMagZoomView : public Q3ScrollView
 
     /// Saves the center of the grab window
     QPoint m_oldCenter;
+    
+    /// Saves the keyboard focus position
+    QPoint m_oldFocus;
 
     /// Possible modes for the mouse to be in
     enum KMagMouseMode {
@@ -215,6 +228,9 @@ class KMagZoomView : public Q3ScrollView
 
     /// To follow mouse motion or not when no key is pressed
     bool m_followMouse;
+
+    /// To follow keyboard focus or not
+    bool m_followFocus;
 
     /// State of refreshing - on or off
     bool m_refreshSwitch;
