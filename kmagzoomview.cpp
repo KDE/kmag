@@ -8,6 +8,8 @@
     email                : ojschmidt@kde.org
     copyright            : (C) 2008 by Matthew Woehlke
     email                : mw_triad@users.sourceforge.net
+    copyright              (C) 2010 Sebastian Sauer
+    email                  sebsauer@kdab.com
  ***************************************************************************/
 
 /***************************************************************************
