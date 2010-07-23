@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui>
-<kpartgui name="kmag" version="13">
+<kpartgui name="kmag" version="14">
  <ToolBar noMerge="1" name="mainToolBar">
   <Action name="new_window"/>
   <Separator />
@@ -62,6 +62,7 @@
    <Action name="mode_wholescreen"/>
    <Separator />
    <Action name="hidecursor"/>
+   <Action name="staysontop"/>
    <Separator />
    <Action name="options_configure_keybinding"/>
    <Action name="options_configure_toolbars"/>
@@ -95,6 +96,7 @@
    <Action name="mode_wholescreen"/>
    <Separator />
    <Action name="hidecursor"/>
+   <Action name="staysontop"/>
    <Separator />
    <Action name="options_configure_keybinding"/>
    <Action name="options_configure_toolbars"/>

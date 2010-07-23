@@ -8,6 +8,8 @@
     email                : ojschmidt@kde.org
     copyright            : (C) 2008 by Matthew Woehlke
     email                : mw_triad@users.sourceforge.net
+    copyright              (C) 2010 Sebastian Sauer
+    email                  sebsauer@kdab.com
  ***************************************************************************/
 
 /***************************************************************************
@@ -68,7 +70,7 @@
 #define havesetCheckedState
 
 KmagApp::KmagApp(QWidget* , const char* name)
-  : KXmlGuiWindow(0, Qt::WStyle_MinMax | Qt::WType_TopLevel | Qt::WDestructiveClose | Qt::WStyle_ContextHelp | Qt::WStyle_StaysOnTop | Qt::WindowCloseButtonHint),
+  : KXmlGuiWindow(0, Qt::WStyle_MinMax | Qt::WType_TopLevel | Qt::WDestructiveClose | Qt::WStyle_ContextHelp | Qt::WindowCloseButtonHint | Qt::WStyle_StaysOnTop),
     m_defaultMouseCursorType(2)
 {
   setObjectName(name);
@@ -199,6 +201,7 @@ void KmagApp::initActions()
   actionCollection()->addAction("mode_followmouse", m_modeFollowMouse);
   connect(m_modeFollowMouse, SIGNAL(triggered(bool)), SLOT(slotModeFollowMouse()));
   m_modeFollowMouse->setShortcut(Qt::Key_F1);
+  m_modeFollowMouse->setIconText(i18n("Mouse"));
   m_modeFollowMouse->setToolTip(i18n("Magnify around the mouse cursor"));
   m_modeFollowMouse->setWhatsThis(i18n("If selected, the area around the mouse cursor is magnified"));
 
@@ -206,6 +209,7 @@ void KmagApp::initActions()
   actionCollection()->addAction("mode_followfocus", m_modeFollowFocus);
   connect(m_modeFollowFocus, SIGNAL(triggered(bool)), SLOT(slotModeFollowFocus()));
   m_modeFollowFocus->setShortcut(Qt::Key_F2);
+  m_modeFollowFocus->setIconText(i18n("Focus"));
   m_modeFollowFocus->setToolTip(i18n("Magnify around the keyboard focus"));
   m_modeFollowFocus->setWhatsThis(i18n("If selected, the area around the keyboard cursor is magnified"));
   
@@ -213,12 +217,14 @@ void KmagApp::initActions()
   actionCollection()->addAction("mode_selectionwindow", m_modeSelWin);
   connect(m_modeSelWin, SIGNAL(triggered(bool)), SLOT(slotModeSelWin()));
   m_modeSelWin->setShortcut(Qt::Key_F3);
+  m_modeSelWin->setIconText(i18n("Window"));
   m_modeSelWin->setToolTip(i18n("Show a window for selecting the magnified area"));
 
   m_modeWholeScreen = new KToggleAction(KIcon("view-fullscreen"), i18n("&Whole Screen Mode"), this);
   actionCollection()->addAction("mode_wholescreen", m_modeWholeScreen);
   connect(m_modeWholeScreen, SIGNAL(triggered(bool)), SLOT(slotModeWholeScreen()));
   m_modeWholeScreen->setShortcut(Qt::Key_F4);
+  m_modeWholeScreen->setIconText(i18n("Screen"));
   m_modeWholeScreen->setToolTip(i18n("Magnify the whole screen"));
   m_modeWholeScreen->setWhatsThis(i18n("Click on this button to fit the zoom view to the zoom window."));
 
@@ -226,11 +232,17 @@ void KmagApp::initActions()
   actionCollection()->addAction("hidecursor", m_hideCursor);
   connect(m_hideCursor, SIGNAL(triggered(bool)), SLOT(slotToggleHideCursor()));
   m_hideCursor->setShortcut(Qt::Key_F5);
-  #ifdef havesetCheckedState
+  #ifdef havesetCheckedStatef
   m_hideCursor->setCheckedState(KGuiItem(i18n("Show Mouse &Cursor")));
   #endif
+  m_hideCursor->setIconText(i18n("Hide"));
   m_hideCursor->setToolTip(i18n("Hide the mouse cursor"));
-
+  
+  m_staysOnTop = new KToggleAction(KIcon("go-top"), i18n("Stays On Top"), this);
+  actionCollection()->addAction("staysontop", m_staysOnTop);
+  connect(m_staysOnTop, SIGNAL(triggered(bool)), SLOT(slotStaysOnTop()));
+  m_staysOnTop->setToolTip(i18n("The KMagnifier Window stays on top of other windows."));
+  
   m_pZoomIn = actionCollection()->addAction(KStandardAction::ZoomIn, this, SLOT(zoomIn()));
   m_pZoomIn->setWhatsThis(i18n("Click on this button to <b>zoom-in</b> on the selected region."));
 
@@ -337,6 +349,7 @@ void KmagApp::saveOptions()
   cg.writeEntry("ColorIndex", m_colorIndex);
   cg.writeEntry("SelRect", m_zoomView->getSelRectPos());
   cg.writeEntry("ShowMouse", m_zoomView->getShowMouseType());
+  cg.writeEntry("StaysOnTop", m_staysOnTop->isChecked());
 
   if (m_modeFollowMouse->isChecked())
      cg.writeEntry("Mode", "followmouse");
@@ -417,10 +430,10 @@ void KmagApp::readOptions()
 
   m_mouseCursorType = cg.readEntry("ShowMouse", m_defaultMouseCursorType);
   m_zoomView->showMouse(m_mouseCursorType);
-  if(m_mouseCursorType)
-    m_hideCursor->setChecked(false);
-  else
-    m_hideCursor->setChecked(true);
+  m_hideCursor->setChecked(!m_mouseCursorType);
+  
+  m_staysOnTop->setChecked(cg.readEntry("StaysOnTop", true));
+  slotStaysOnTop();
 
   KConfigGroup settingsToolbarGroup(config,"Settings ToolBar");
   if( settingsToolbarGroup.exists() )
@@ -737,6 +750,16 @@ void KmagApp::slotModeFollowFocus()
 void KmagApp::slotToggleHideCursor()
 {
   showMouseCursor(!m_hideCursor->isChecked());
+}
+
+
+void KmagApp::slotStaysOnTop()
+{
+  if (m_staysOnTop->isChecked())
+      setWindowFlags( windowFlags() | Qt::WStyle_StaysOnTop );
+  else
+      setWindowFlags( windowFlags() & !Qt::WStyle_StaysOnTop );
+  show();
 }
 
 

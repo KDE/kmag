@@ -8,6 +8,8 @@
     email                : ojschmidt@kde.org
     copyright            : (C) 2008 by Matthew Woehlke
     email                : mw_triad@users.sourceforge.net
+    copyright              (C) 2010 Sebastian Sauer
+    email                  sebsauer@kdab.com
  ***************************************************************************/
 
 /***************************************************************************
@@ -18,7 +20,6 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-
 
 #ifndef KMAG_H
 #define KMAG_H
@@ -149,6 +150,7 @@ class KmagApp : public KXmlGuiWindow
     void slotShowSettingsToolBar();
 
     void slotToggleHideCursor();
+    void slotStaysOnTop();
 
     /// Opens shortcut key configuration dialog
     void slotConfKeys();
@@ -232,7 +234,7 @@ class KmagApp : public KXmlGuiWindow
     std::vector<int> colorArray;
 
   KMagZoomView* m_zoomView;
-  KToggleAction *m_hideCursor;
+  KToggleAction *m_hideCursor, *m_staysOnTop;
   KToggleAction *m_modeFollowMouse, *m_modeFollowFocus, *m_modeWholeScreen, *m_modeSelWin;
 
   /// Stores the non-zero cursor type to be used
