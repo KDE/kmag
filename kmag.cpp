@@ -70,10 +70,11 @@
 #define havesetCheckedState
 
 KmagApp::KmagApp(QWidget* , const char* name)
-  : KXmlGuiWindow(0, Qt::WStyle_MinMax | Qt::WType_TopLevel | Qt::WDestructiveClose | Qt::WStyle_ContextHelp | Qt::WindowCloseButtonHint | Qt::WStyle_StaysOnTop),
-    m_defaultMouseCursorType(2)
+  : KXmlGuiWindow(0) // Qt::WStyle_MinMax | Qt::WType_TopLevel | Qt::WDestructiveClose | Qt::WStyle_ContextHelp | Qt::WindowCloseButtonHint | Qt::WStyle_StaysOnTop
+  , m_defaultMouseCursorType(2)
 {
   setObjectName(name);
+  setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
   config=KGlobal::config();
 
   zoomArrayString << "5:1" << "2:1" << "1:1" << "1:1.5" << "1:2" << "1:3" << "1:4" << "1:5"
@@ -284,7 +285,7 @@ void KmagApp::initActions()
 void KmagApp::initView()
 {
   m_zoomView = new KMagZoomView( this, "ZoomView" );
-  m_zoomView->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)7, m_zoomView->sizePolicy().hasHeightForWidth() ) );
+//m_zoomView->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)7, m_zoomView->sizePolicy().hasHeightForWidth() ) );
   m_zoomView->setFrameShape( QFrame::StyledPanel );
   m_zoomView->setFrameShadow( QFrame::Raised );
 
@@ -483,7 +484,7 @@ void KmagApp::contextMenuEvent ( QContextMenuEvent * e )
  KXMLGUIFactory *factory = this->factory();
  QMenu *popup = (QMenu *)factory->container("mainPopUp",this);
  if (popup != 0)
-   popup->popup(e->globalPos(), 0);
+   popup->popup(e->globalPos());
  e->accept();
 }
 
@@ -647,7 +648,7 @@ void KmagApp::saveZoomPixmap()
 #ifdef __GNUC__
 #warning "kde4: port KImageIO::type \n";
 #endif
-      if(!tempFile.open() || !m_zoomView->getPixmap().save(tempFile.fileName(),"png"/*, KImageIO::type(url.fileName()).latin1()*/)) {
+      if(!tempFile.open() || !m_zoomView->getImage().save(tempFile.fileName(),"png"/*, KImageIO::type(url.fileName()).latin1()*/)) {
         KMessageBox::error(0, i18n("Unable to save temporary file (before uploading to the network file you specified)."),
                           i18n("Error Writing File"));
       } else {
@@ -664,7 +665,7 @@ void KmagApp::saveZoomPixmap()
 #ifdef __GNUC__
 #warning "kde4 : port KImageIO::type(...) \n";
 #endif
-      if(!m_zoomView->getPixmap().save(url.path(), "png"/*KImageIO::type(url.fileName()).latin1()*/)) {
+      if(!m_zoomView->getImage().save(url.path(), "png"/*KImageIO::type(url.fileName()).latin1()*/)) {
         KMessageBox::error(0, i18n("Unable to save file. Please check if you have permission to write to the directory."),
                             i18n("Error Writing File"));
       } else {
@@ -756,9 +757,9 @@ void KmagApp::slotToggleHideCursor()
 void KmagApp::slotStaysOnTop()
 {
   if (m_staysOnTop->isChecked())
-      setWindowFlags( windowFlags() | Qt::WStyle_StaysOnTop );
+      setWindowFlags( windowFlags() | Qt::WindowStaysOnTopHint );
   else
-      setWindowFlags( windowFlags() & !Qt::WStyle_StaysOnTop );
+      setWindowFlags( windowFlags() & !Qt::WindowStaysOnTopHint );
   show();
 }
 
@@ -786,7 +787,7 @@ void KmagApp::slotFilePrint()
     toggled = true;
   }
 
-  const QPixmap pixmap(m_zoomView->getPixmap());
+  const QImage pixmap(m_zoomView->getImage());
 
   // use some AI to get the best orientation
   if(pixmap.width() > pixmap.height()) {
@@ -806,7 +807,7 @@ void KmagApp::slotFilePrint()
       return;
     }
     // draw the pixmap
-    paint.drawPixmap(0, 0, pixmap);
+    paint.drawImage(0, 0, pixmap);
     // end the painting
     paint.end();
   }
@@ -844,7 +845,7 @@ void KmagApp::slotFileQuit()
 void KmagApp::copyToClipBoard()
 {
   QClipboard *cb=KApplication::clipboard();
-  cb->setPixmap(m_zoomView->getPixmap());
+  cb->setPixmap(QPixmap::fromImage(m_zoomView->getImage()));
 }
 
 void KmagApp::slotShowMenu()

@@ -48,11 +48,10 @@ int main(int argc, char *argv[])
                        "http://www.cs.sunysb.edu/~lsarang/linux");
   aboutData->addAuthor(ki18n("Michael Forster"),
                        ki18n("Original idea and author (KDE1)"), "forster@fmi.uni-passau.de");
-
   aboutData->addAuthor(ki18n("Olaf Schmidt"), ki18n("Rework of the user interface, improved selection window, speed optimization, rotation, bug fixes"), "ojschmidt@kde.org");
   aboutData->addCredit(ki18n("Matthew Woehlke"), ki18n("Color-blindness simulation"), "mw_triad@users.sourceforge.net");
-  aboutData->addCredit(ki18n("Claudiu Costin"), ki18n("Some tips"), "claudiuc@work.ro",
-                       "http://www.ro.kde.org");
+  aboutData->addCredit(ki18n("Sebastian Sauer"), ki18n("Focus tracking"), "sebsauer@kdab.com");
+  aboutData->addCredit(ki18n("Claudiu Costin"), ki18n("Some tips"), "claudiuc@work.ro", "http://www.ro.kde.org");
 
   KCmdLineArgs::init( argc, argv, aboutData );
 

@@ -48,7 +48,7 @@
  */
 class KMagZoomView : public Q3ScrollView
 {
-  Q_OBJECT
+    Q_OBJECT
   public:
     /// Constructor for the main view
     explicit KMagZoomView(QWidget *parent = 0, const char *name=0);
@@ -60,7 +60,7 @@ class KMagZoomView : public Q3ScrollView
     void toggleRefresh();
 
     /// Returns the currently displayed zoomed view
-    QPixmap getPixmap();
+    QImage getImage();
 
     /// Returns the state of the refresh switch
     bool getRefreshStatus() const { return m_refreshSwitch; }
@@ -142,6 +142,7 @@ class KMagZoomView : public Q3ScrollView
     void resizeEvent(QResizeEvent *e);
 
     /// Called when the widget is to be repainted
+    //void paintEvent(QPaintEvent *e);
     void drawContents ( QPainter * p, int clipx, int clipy, int clipw, int cliph );
 
     /// This function calculates the mouse position relative to the image
@@ -172,9 +173,6 @@ class KMagZoomView : public Q3ScrollView
     QRect pixmapRect();
 
   private:
-    /// Stores the pixmap grabbed from the screen - to be zoomed
-    QPixmap m_grabbedPixmap;
-
     /// Stores the pixmap which is recolored from the grabbed one
     QPixmap m_coloredPixmap;
 

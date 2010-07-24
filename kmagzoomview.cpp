@@ -87,7 +87,7 @@ static uchar phand_bits[] = {
 
 
 KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
-  : Q3ScrollView(parent, name),
+  : Q3ScrollView(parent),
     m_selRect(0, 0, 128, 128, this),
     m_grabTimer(parent),
     m_mouseViewTimer(parent),
@@ -99,9 +99,10 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
     m_rotation(0),
     m_fitToWindow(true)
 {
-  KApplication::setGlobalMouseTracking(true);
+  setObjectName(name);
+
   viewport()->setMouseTracking(true);
-  viewport()->setBackgroundMode (Qt::NoBackground);
+  viewport()->setAttribute(Qt::WA_NoSystemBackground, true);
   viewport()->setFocusPolicy(Qt::StrongFocus);
 
   // init the zoom matrix
@@ -139,7 +140,6 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
 
 KMagZoomView::~KMagZoomView()
 {
-  KApplication::setGlobalMouseTracking(true);
 }
 
 /**
@@ -219,7 +219,7 @@ void KMagZoomView::showEvent( QShowEvent* )
  */
 void KMagZoomView::resizeEvent( QResizeEvent * e )
 {
-  Q3ScrollView::resizeEvent (e);
+  Q3ScrollView::resizeEvent(e);
   if(m_fitToWindow)
     fitToWindow();
 }
@@ -230,6 +230,7 @@ void KMagZoomView::resizeEvent( QResizeEvent * e )
  * @param p
  */
 void KMagZoomView::drawContents ( QPainter * p, int clipx, int clipy, int clipw, int cliph )
+//void KMagZoomView::paintEvent(QPaintEvent *e)
 {
   if(m_zoomedPixmap.isNull())
     return;
@@ -247,17 +248,13 @@ void KMagZoomView::drawContents ( QPainter * p, int clipx, int clipy, int clipw,
         Qt::black);
 
   // A pixmap which will be eventually displayed
-  QPixmap *zoomView;
-
+  QPixmap *zoomView = 0;
   // Get mouse position relative to the image
   QPoint mousePos = calcMousePos (m_refreshSwitch);
-
   // show the pixel under mouse cursor
   if(m_showMouse) {
-
     // Pixmap which will have the zoomed pixmap + mouse
     zoomView = new QPixmap(m_zoomedPixmap);
-
     // paint the mouse cursor
     paintMouseCursor(zoomView, mousePos);
   } else { // do not show mouse
@@ -265,8 +262,9 @@ void KMagZoomView::drawContents ( QPainter * p, int clipx, int clipy, int clipw,
   }
 
   // bitBlt this part on to the widget.
-  bitBlt(viewport(), QPoint (clipx-contentsX(), clipy-contentsY()), zoomView, QRect(clipx, clipy, clipw, cliph));
+  bitBlt(viewport(), QPoint(clipx-contentsX(), clipy-contentsY()), zoomView, QRect(clipx, clipy, clipw, cliph));
 
+  // free the instance
   if(zoomView != &m_zoomedPixmap)
     delete zoomView;
 }
@@ -304,7 +302,7 @@ void KMagZoomView::paintMouseCursor(QPaintDevice *dev, const QPoint &mousePos)
     {
       // 2. Arrow cursor
       pz.setPen(Qt::black);
-      pz.setBackgroundColor(Qt::white);
+      pz.setBackground(Qt::white);
 
       QBitmap sCursor = QBitmap::fromData( QSize(16,  16),  left_ptr_bits);
       QBitmap mask = QBitmap::fromData( QSize(16,  16),  left_ptrmsk_bits);
@@ -330,13 +328,13 @@ void KMagZoomView::paintMouseCursor(QPaintDevice *dev, const QPoint &mousePos)
       QWidget *dummy  = KApplication::topLevelAt(QCursor::pos());
       if(!dummy)
         break;
-      kDebug() << ">" << dummy->name() << ":" << dummy->cursor().shape() << "-";
+      kDebug() << ">" << dummy->objectName() << ":" << dummy->cursor().shape() << "-";
       switch(this->cursor().shape())  {
 			  case Qt::ArrowCursor :
          {
           // 2. Arrow cursor
           pz.setPen(Qt::black);
-          pz.setBackgroundColor(Qt::white);
+          pz.setBackground(Qt::white);
 
           QBitmap sCursor = QBitmap::fromData( QSize(16,  16),  left_ptr_bits);
           QBitmap mask = QBitmap::fromData( QSize(16,  16),  left_ptrmsk_bits);
@@ -645,7 +643,7 @@ void KMagZoomView::mouseMoveEvent(QMouseEvent *e)
 void KMagZoomView::keyPressEvent(QKeyEvent *e)
 {
   int offset = 16;
-  if (e->state() & Qt::ShiftModifier)
+  if (e->modifiers() & Qt::ShiftModifier)
     offset = 1;
 
   if (e->key() == Qt::Key_Control)
@@ -654,7 +652,7 @@ void KMagZoomView::keyPressEvent(QKeyEvent *e)
     m_shiftKeyPressed = true;
   else if (e->key() == Qt::Key_Left)
   {
-    if (e->state() & Qt::ControlModifier)
+    if (e->modifiers() & Qt::ControlModifier)
     {
       if (offset >= m_selRect.width())
         m_selRect.setWidth (1);
@@ -680,7 +678,7 @@ void KMagZoomView::keyPressEvent(QKeyEvent *e)
   }
   else if (e->key() == Qt::Key_Right)
   {
-    if (e->state() & Qt::ControlModifier)
+    if (e->modifiers() & Qt::ControlModifier)
     {
       if (m_selRect.right()+offset >= QApplication::desktop()->width())
         m_selRect.setRight (QApplication::desktop()->width()-1);
@@ -706,7 +704,7 @@ void KMagZoomView::keyPressEvent(QKeyEvent *e)
   }
   else if (e->key() == Qt::Key_Up)
   {
-    if (e->state() & Qt::ControlModifier)
+    if (e->modifiers() & Qt::ControlModifier)
     {
       if (offset >= m_selRect.height())
         m_selRect.setHeight (1);
@@ -732,7 +730,7 @@ void KMagZoomView::keyPressEvent(QKeyEvent *e)
   }
   else if (e->key() == Qt::Key_Down)
   {
-    if (e->state() & Qt::ControlModifier)
+    if (e->modifiers() & Qt::ControlModifier)
     {
       if (m_selRect.bottom()+offset >= QApplication::desktop()->height())
         m_selRect.setBottom (QApplication::desktop()->height()-1);
@@ -824,7 +822,7 @@ void KMagZoomView::fitToWindow()
   // update the grab rectangle display
   m_selRect.update();
 //  m_fitToWindow = true;
-  viewport()->repaint(false);
+  viewport()->repaint();
 }
 
 void KMagZoomView::setFitToWindow(bool fit)
@@ -881,28 +879,24 @@ void KMagZoomView::grabFrame()
     // update the grab rectangle display
     m_selRect.update();
   }
-  
-  //QRect r = pixmapRect();
 
   // define a normalized rectangle
   QRect selRect = m_selRect.normalized();
 
   // grab screenshot from the screen and put it in the pixmap
-  m_grabbedPixmap = QPixmap::grabWindow(QApplication::desktop()->winId(), selRect.x(), selRect.y(),
+  m_coloredPixmap = QPixmap::grabWindow(QApplication::desktop()->winId(), selRect.x(), selRect.y(),
                                         selRect.width(), selRect.height());
 
-  // colorize the grabbed pixmap, if applicable - TODO
-  if (m_colormode == 0)
-    m_coloredPixmap = m_grabbedPixmap;
-  else
-    m_coloredPixmap = ColorSim::recolor(m_grabbedPixmap, m_colormode);
+  // colorize the grabbed pixmap
+  if (m_colormode != 0)
+    m_coloredPixmap = QPixmap::fromImage(ColorSim::recolor(m_coloredPixmap.toImage(), m_colormode));
 
   // zoom the image
   m_zoomedPixmap = m_coloredPixmap.transformed(m_zoomMatrix);
 
   // call repaint to display the newly grabbed image
   resizeContents (m_zoomedPixmap.width(), m_zoomedPixmap.height());
-  viewport()->repaint(false);
+  viewport()->repaint();
 }
 
 
@@ -915,7 +909,7 @@ void KMagZoomView::updateMouseView()
   if(m_selRect.left() <= pos.x() && pos.x() <= m_selRect.right() &&
      m_selRect.top() <= pos.y() && pos.y() <= m_selRect.bottom() &&
      m_refreshSwitch)
-    viewport()->repaint(false);
+    viewport()->repaint();
 }
 
 /**
@@ -1024,7 +1018,7 @@ void KMagZoomView::setSelRectPos(const QRect & rect)
 
 bool KMagZoomView::showMouse(unsigned int type)
 {
-  if(type > m_showMouseTypes.count()-1)
+  if(int(type) > m_showMouseTypes.count()-1)
     return (false);
   else
     m_showMouse = type;
@@ -1047,12 +1041,12 @@ QStringList KMagZoomView::getShowMouseStringList() const
  * Returns the image which is being displayed. It's again drawn by adding
  * the mouse cursor if needed.
  */
-QPixmap KMagZoomView::getPixmap()
+QImage KMagZoomView::getImage()
 {
   // show the pixel under mouse cursor
   if(m_showMouse && !m_zoomedPixmap.isNull()) {
     // Pixmap which will have the zoomed pixmap + mouse
-    QPixmap zoomView(m_zoomedPixmap);
+    QImage zoomView(m_zoomedPixmap);
 
     // paint the mouse cursor w/o updating to a newer position
     paintMouseCursor(&zoomView, calcMousePos(false));

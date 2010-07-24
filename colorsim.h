@@ -30,6 +30,6 @@ namespace ColorSim {
      * 3 - Tritanopia
      * 4 - Achromatopsia
      */
-    QPixmap recolor(const QPixmap &pm, int mode, qreal gamma = 1.0);
+    QImage recolor(const QImage &pm, int mode, qreal gamma = 1.0);
 }
 #endif

@@ -286,25 +286,21 @@ inline QRgb recolor(QRgb c, int mode, qreal g)
   if (mode > 0 && mode < 4) {
     xyza n = QColor(c);
     xyza r = n.gamma(g) * rgb2lms;
-    r = r.flatten(coef[mode-1]);
-    r = r * lms2rgb;
+    r = r.flatten(coef[mode-1]) * lms2rgb;
     return r.gamma(qreal(1.0) / g).rgba();
   }
   else {
-    return qRgb(qGray(c), qGray(c), qGray(c));
+    const int g = qGray(c);
+    return qRgb(g,g,g);
   }
 }
 
 #endif
 
-QPixmap ColorSim::recolor(const QPixmap &pm, int mode, qreal gamma)
+QImage ColorSim::recolor(const QImage &pm, int mode, qreal gamma)
 {
-  // nothing to do if either paraneter is "bad"
-  if (pm.isNull() || mode > 4 || mode < 1)
-    return pm;
-
   // get raw data in a format we can manipulate
-  QImage i = pm.toImage();
+  QImage i = pm;
   if (i.format() != QImage::Format_RGB32 && i.format() != QImage::Format_ARGB32)
     i = i.convertToFormat(QImage::Format_ARGB32);
 
@@ -313,6 +309,6 @@ QPixmap ColorSim::recolor(const QPixmap &pm, int mode, qreal gamma)
   for (int k = 0; k < n; ++k)
     d[k] = ::recolor(d[k], mode, gamma);
 
-  return QPixmap::fromImage(i);
+  return i;
 }
 // kate: indent-width 2;
