@@ -242,6 +242,7 @@ void KmagApp::initActions()
   m_staysOnTop = new KToggleAction(KIcon("go-top"), i18n("Stays On Top"), this);
   actionCollection()->addAction("staysontop", m_staysOnTop);
   connect(m_staysOnTop, SIGNAL(triggered(bool)), SLOT(slotStaysOnTop()));
+  m_staysOnTop->setShortcut(Qt::Key_F6);
   m_staysOnTop->setToolTip(i18n("The KMagnifier Window stays on top of other windows."));
   
   m_pZoomIn = actionCollection()->addAction(KStandardAction::ZoomIn, this, SLOT(zoomIn()));

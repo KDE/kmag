@@ -97,6 +97,7 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
     m_showMouse(1),
     m_zoom(1.0),
     m_rotation(0),
+    m_colormode(0),
     m_fitToWindow(true)
 {
   setObjectName(name);
@@ -171,19 +172,19 @@ void KMagZoomView::followFocus(bool follow)
     setVScrollBarMode (Q3ScrollView::AlwaysOff);
     setHScrollBarMode (Q3ScrollView::AlwaysOff);
     if(QDBusConnection::sessionBus().isConnected())
-        QDBusConnection::sessionBus().connect("org.kde.kaccessibleapp", "/Adaptor", "org.kde.kaccessibleapp.Adaptor", "focusChanged", this, SLOT(focusChanged(int,int,int,int)));
+        QDBusConnection::sessionBus().connect("org.kde.kaccessibleapp", "/Adaptor", "org.kde.kaccessibleapp.Adaptor", "focusChanged", this, SLOT(focusChanged(int,int,int,int,int,int)));
   } else {
     setVScrollBarMode (Q3ScrollView::AlwaysOn);
     setHScrollBarMode (Q3ScrollView::AlwaysOn);
     if(QDBusConnection::sessionBus().isConnected())
-        QDBusConnection::sessionBus().disconnect("org.kde.kaccessibleapp", "/Adaptor", "org.kde.kaccessibleapp.Adaptor", "focusChanged", this, SLOT(focusChanged(int,int,int,int)));
+        QDBusConnection::sessionBus().disconnect("org.kde.kaccessibleapp", "/Adaptor", "org.kde.kaccessibleapp.Adaptor", "focusChanged", this, SLOT(focusChanged(int,int,int,int,int,int)));
   }
 }
 
-void KMagZoomView::focusChanged(int x, int y, int width, int height)
+void KMagZoomView::focusChanged(int px, int py, int rx, int ry, int rwidth, int rheight)
 {
-    kDebug() << "x=" << x << "y=" << y << "width=" << width << "height=" << height;
-    m_oldFocus = QRect(QPoint(x, y), QSize(width, height));
+    //kDebug() << "px=" << px << "py=" << py << "rx=" << rx << "ry=" << ry << "rwidth=" << rwidth << "rheight=" << rheight;
+    m_oldFocus = (px >= 0 && py >= 0) ? QPoint(px, py) : QPoint( rx + qMax(0, (qMin(width(), rwidth)/2)-60), ry + qMax(0, (qMin(height(), rheight)/2)-60) );
 }
 
 /**
@@ -852,8 +853,7 @@ void KMagZoomView::grabFrame()
         newCenter = QCursor::pos();
     } else if(m_followFocus) {
         // set the new center to the current keyboard cursor position
-        newCenter = QPoint( m_oldFocus.x() + qMax(0, (qMin(width(), m_oldFocus.width())/2)-50),
-                            m_oldFocus.y() + qMax(0, (qMin(height(), m_oldFocus.height())/2)-50) );
+        newCenter = m_oldFocus;
     }
 
     // make sure the mouse position is not taking the grab window outside

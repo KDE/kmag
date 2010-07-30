@@ -129,7 +129,7 @@ class KMagZoomView : public Q3ScrollView
 
   private slots:
     /// Called from a dbus service when followFocus is true
-    void focusChanged(int x, int y, int width, int height);
+    void focusChanged(int px, int py, int rx, int ry, int rwidth, int rheight);
     
   protected:
     /// Called when the widget is hidden
@@ -198,7 +198,7 @@ class KMagZoomView : public Q3ScrollView
     QPoint m_oldCenter;
     
     /// Saves the keyboard focus position
-    QRect m_oldFocus;
+    QPoint m_oldFocus;
 
     /// Possible modes for the mouse to be in
     enum KMagMouseMode {
