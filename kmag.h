@@ -30,7 +30,7 @@
 
 #include <vector>
 // include files for Qt
-#include <qstringlist.h>
+#include <tqstringlist.h>
 
 // include files for KDE
 #include <kapplication.h>
@@ -62,7 +62,7 @@ class KmagApp : public KMainWindow
     /**
      * Construtor of KmagApp, calls all init functions to create the application.
      */
-    KmagApp(QWidget* parent=0, const char* name=0);
+    KmagApp(TQWidget* parent=0, const char* name=0);
 
     /// Default destructor
     ~KmagApp();
@@ -160,7 +160,7 @@ class KmagApp : public KMainWindow
     /// Called when "configure toolbar" is clicked
     void slotEditToolbars();
 
-    void contextMenu(QPoint pos);
+    void contextMenu(TQPoint pos);
 
   signals:
     /// This signal is raised whenever the index into the zoom array is changed
@@ -213,13 +213,13 @@ class KmagApp : public KMainWindow
     /// Current index into the fpsArray
     unsigned int m_fpsIndex;
 
-    QStringList zoomArrayString;
+    TQStringList zoomArrayString;
     std::vector<float> zoomArray;
 
-    QStringList rotationArrayString;
+    TQStringList rotationArrayString;
     std::vector<int> rotationArray;
 
-    QStringList fpsArrayString;
+    TQStringList fpsArrayString;
     std::vector<float> fpsArray;
 
   KMagZoomView* m_zoomView;

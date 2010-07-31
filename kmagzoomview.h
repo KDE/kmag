@@ -25,14 +25,14 @@
 #endif
 
 // include files for Qt
-#include <qwidget.h>
-#include <qpainter.h>
-#include <qpixmap.h>
-#include <qtimer.h>
-#include <qscrollview.h>
-#include <qstringlist.h>
-#include <qrect.h>
-#include <qcursor.h>
+#include <tqwidget.h>
+#include <tqpainter.h>
+#include <tqpixmap.h>
+#include <tqtimer.h>
+#include <tqscrollview.h>
+#include <tqstringlist.h>
+#include <tqrect.h>
+#include <tqcursor.h>
 
 //class KMagSelRect;
 #include "kmagselrect.h"
@@ -48,7 +48,7 @@ class KMagZoomView : public QScrollView
   Q_OBJECT
   public:
     /// Constructor for the main view
-    KMagZoomView(QWidget *parent = 0, const char *name=0);
+    KMagZoomView(TQWidget *parent = 0, const char *name=0);
 
     /// Destructor for the main view
     ~KMagZoomView();
@@ -57,7 +57,7 @@ class KMagZoomView : public QScrollView
     void toggleRefresh();
 
     /// Returns the currently displayed zoomed view
-    QPixmap getPixmap();
+    TQPixmap getPixmap();
 
     /// Returns the state of the refresh switch
     bool getRefreshStatus() const { return m_refreshSwitch; };
@@ -69,13 +69,13 @@ class KMagZoomView : public QScrollView
     bool getShowSelRect() const { return (m_selRect.getAlwaysVisible()); };
 
     /// Get the coordinates of the selection rectangle
-    QRect getSelRectPos() const { return static_cast<QRect>(m_selRect); };
+    TQRect getSelRectPos() const { return static_cast<TQRect>(m_selRect); };
 
     /// Returns the current state of show mouse
     unsigned int getShowMouseType() const;
 
     /// Returns the different ways of showing mouse cursor
-    QStringList getShowMouseStringList() const;
+    TQStringList getShowMouseStringList() const;
 
     /// Returns the status of "fit to window" option
     bool getFitToWindow() const { return (m_fitToWindow); };
@@ -104,7 +104,7 @@ class KMagZoomView : public QScrollView
     void showSelRect(bool show=true);
 
     /// Set the position of the selection region to the given pos
-    void setSelRectPos(const QRect & rect);
+    void setSelRectPos(const TQRect & rect);
 
     /// Set the refresh rate in fps (frames per second)
     void setRefreshRate(float fps);
@@ -119,75 +119,75 @@ class KMagZoomView : public QScrollView
     void fitToWindow();
 
   signals:
-    void contextMenu(QPoint pos);
+    void contextMenu(TQPoint pos);
 
   protected:
     /// Called when the widget is hidden
-    void hideEvent( QHideEvent * e);
+    void hideEvent( TQHideEvent * e);
 
     /// Called when the widget is shown
-    void showEvent( QShowEvent * e);
+    void showEvent( TQShowEvent * e);
 
     /// Called when the widget has been resized
-    void resizeEvent(QResizeEvent *e);
+    void resizeEvent(TQResizeEvent *e);
     
     /// Called when the widget is to be repainted
-    void drawContents ( QPainter * p, int clipx, int clipy, int clipw, int cliph );
+    void drawContents ( TQPainter * p, int clipx, int clipy, int clipw, int cliph );
 
     /// This function calculates the mouse position relative to the image
-    QPoint calcMousePos(bool updateMousePos=true);
+    TQPoint calcMousePos(bool updateMousePos=true);
 
     /// This function draws the mouse cursor
-    void paintMouseCursor(QPaintDevice *dev, QPoint mousePos);
+    void paintMouseCursor(TQPaintDevice *dev, TQPoint mousePos);
 
     /// Called when mouse click is detected
-    void mousePressEvent (QMouseEvent *e);
+    void mousePressEvent (TQMouseEvent *e);
 
     /// Called when mouse is moved
-    void mouseMoveEvent(QMouseEvent *e);
+    void mouseMoveEvent(TQMouseEvent *e);
 
     /// Mouse button release event handler
-    void mouseReleaseEvent(QMouseEvent *e);
+    void mouseReleaseEvent(TQMouseEvent *e);
 
     /// Mouse button release event handler
-    void keyPressEvent(QKeyEvent *e);
+    void keyPressEvent(TQKeyEvent *e);
 
     /// Mouse button release event handler
-    void keyReleaseEvent(QKeyEvent *e);
+    void keyReleaseEvent(TQKeyEvent *e);
 
     /// Catch context menu events
-    void contextMenuEvent (QContextMenuEvent *e);
+    void contextMenuEvent (TQContextMenuEvent *e);
 
     /// Mouse button release event handler
-    void focusOutEvent(QFocusEvent *e);
+    void focusOutEvent(TQFocusEvent *e);
 
     /// Returns the rectangle where the pixmap will be drawn
-    QRect pixmapRect();
+    TQRect pixmapRect();
 
   private:
     /// Stores the pixmap grabbed from the screen - to be zoomed
-    QPixmap m_grabbedPixmap;
+    TQPixmap m_grabbedPixmap;
 
     /// The selected rectangle which is to be grabbed
     KMagSelRect m_selRect;
 
     /// Grabs a window when the timer goes off
-    QTimer m_grabTimer;
+    TQTimer m_grabTimer;
 
     /// Updates the mouse view
-    QTimer m_mouseViewTimer;
+    TQTimer m_mouseViewTimer;
 
     /// Zoom matrix
-    QWMatrix m_zoomMatrix;
+    TQWMatrix m_zoomMatrix;
 
     /// Inverted zoom matrix
-    QWMatrix m_invertedMatrix;
+    TQWMatrix m_invertedMatrix;
 
     /// Saves the mouse position when a button is clicked and b4 the cursor is moved to new position
-    QPoint m_oldMousePos;
+    TQPoint m_oldMousePos;
 
     /// Saves the center of the grab window
-    QPoint m_oldCenter;
+    TQPoint m_oldCenter;
 
     /// Possible modes for the mouse to be in
     enum KMagMouseMode {
@@ -208,10 +208,10 @@ class KMagZoomView : public QScrollView
     bool m_shiftKeyPressed;    
 
     /// Store the more recent updated cursor position
-    QPoint m_latestCursorPos;
+    TQPoint m_latestCursorPos;
 
     /// Various ways of showing mouse cursor
-    QStringList m_showMouseTypes;
+    TQStringList m_showMouseTypes;
 
     // configuration options:
 

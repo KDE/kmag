@@ -23,9 +23,9 @@
 #include <stdlib.h>
 
 // Qt includes
-#include <qrect.h>
-#include <qwidget.h>
-#include <qlabel.h>
+#include <tqrect.h>
+#include <tqwidget.h>
+#include <tqlabel.h>
 
 class KMagSelWinCorner : public QLabel
 {
@@ -33,22 +33,22 @@ class KMagSelWinCorner : public QLabel
 
 public:
 
-    KMagSelWinCorner ( QWidget * parent = 0, const char * name = 0, WFlags f = 0 );
+    KMagSelWinCorner ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 );
 
     virtual ~KMagSelWinCorner();
 
 signals:
 
     void startResizing ();
-    void resized ( QPoint offset );
+    void resized ( TQPoint offset );
 
 protected:
 
-    QPoint oldPos;
+    TQPoint oldPos;
 
-    virtual void mousePressEvent ( QMouseEvent * e );
-    virtual void mouseReleaseEvent ( QMouseEvent * e );
-    virtual void mouseMoveEvent ( QMouseEvent * e );
+    virtual void mousePressEvent ( TQMouseEvent * e );
+    virtual void mouseReleaseEvent ( TQMouseEvent * e );
+    virtual void mouseMoveEvent ( TQMouseEvent * e );
 };
 
 class KMagSelWin : public QWidget
@@ -57,21 +57,21 @@ class KMagSelWin : public QWidget
 
 public:
 
-    KMagSelWin ( QWidget * parent = 0, const char * name = 0, WFlags f = 0 );
+    KMagSelWin ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 );
 
     virtual ~KMagSelWin();
 
-    void setSelRect ( QRect selRect );
-    QRect getSelRect ();
+    void setSelRect ( TQRect selRect );
+    TQRect getSelRect ();
 
 public slots:
 
     void startResizing ();
-    void titleMoved ( QPoint offset );
-    void topLeftResized ( QPoint offset );
-    void topRightResized ( QPoint offset );
-    void bottomLeftResized ( QPoint offset );
-    void bottomRightResized ( QPoint offset );
+    void titleMoved ( TQPoint offset );
+    void topLeftResized ( TQPoint offset );
+    void topRightResized ( TQPoint offset );
+    void bottomLeftResized ( TQPoint offset );
+    void bottomRightResized ( TQPoint offset );
 
 signals:
 
@@ -79,7 +79,7 @@ signals:
 
 protected:
 
-    QRect oldSelRect;
+    TQRect oldSelRect;
 
     KMagSelWinCorner *titleBar;
     KMagSelWinCorner *topLeftCorner;
@@ -95,18 +95,18 @@ protected:
  * @author Original : Michael Forster
  * @author Current : Sarang Lakare
  */
-class KMagSelRect : public QObject, public QRect
+class KMagSelRect : public TQObject, public QRect
 {
     Q_OBJECT
 
 public:
-    KMagSelRect(QWidget *parent=0);
-    KMagSelRect(const QPoint &topLeft, const QPoint &bottomRight,
-      QWidget *parent=0);
-    KMagSelRect(const QPoint &topLeft, const QSize &size,
-      QWidget *parent=0);
+    KMagSelRect(TQWidget *parent=0);
+    KMagSelRect(const TQPoint &topLeft, const TQPoint &bottomRight,
+      TQWidget *parent=0);
+    KMagSelRect(const TQPoint &topLeft, const TQSize &size,
+      TQWidget *parent=0);
     KMagSelRect(int left, int top, int width, int height,
-      QWidget *selWindowParent=0);
+      TQWidget *selWindowParent=0);
 
     virtual ~KMagSelRect();
 
@@ -132,15 +132,15 @@ public slots:
 
 protected:
 
-    void init(QWidget *);
+    void init(TQWidget *);
 
-    QWidget *selWindowParent;
+    TQWidget *selWindowParent;
     KMagSelWin *selectionwindow;
     bool m_alwaysVisible;
 
 };
 
-void setTitleColors (QColor title, QColor text, QColor titleBtn);
+void setTitleColors (TQColor title, TQColor text, TQColor titleBtn);
 void setFrameSize (int size);
 
 #endif // KMAGSELRECT_H

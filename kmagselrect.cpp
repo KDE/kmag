@@ -20,25 +20,25 @@
 #include "kmagselrect.h"
 #include "kmagselrect.moc"
 
-#include <qapplication.h>
-#include <qcursor.h>
-#include <qdesktopwidget.h>
-#include <qpixmap.h>
-#include <qbitmap.h>
+#include <tqapplication.h>
+#include <tqcursor.h>
+#include <tqdesktopwidget.h>
+#include <tqpixmap.h>
+#include <tqbitmap.h>
 
 #include <kapplication.h>
 #include <klocale.h>
 
 static uchar line_bits[] = {0x2d, 0x96, 0x4b, 0xa5, 0xd2, 0x69, 0xb4, 0x5a};
 
-static QColor titleColor = QColor (0,0,128);
-static QColor titleBtnColor = QColor (255,255,0);
-static QColor textColor = QColor (255,255,255);
+static TQColor titleColor = TQColor (0,0,128);
+static TQColor titleBtnColor = TQColor (255,255,0);
+static TQColor textColor = TQColor (255,255,255);
 
 static int frameSize = 10;
 static int titleSize = 24;
 
-void setTitleColors (QColor title, QColor text, QColor titleBtn)
+void setTitleColors (TQColor title, TQColor text, TQColor titleBtn)
 {
   titleColor = title;
   titleBtnColor = titleBtn;
@@ -55,17 +55,17 @@ void setTitleSize (int size)
   titleSize = size;
 }
 
-QColor getTitleColor ()
+TQColor getTitleColor ()
 {
   return titleColor;
 }
 
-QColor getTitleBtnColor ()
+TQColor getTitleBtnColor ()
 {
   return titleBtnColor;
 }
 
-QColor getTextColor ()
+TQColor getTextColor ()
 {
   return textColor;
 }
@@ -87,34 +87,34 @@ int getTitleSize ()
 //   Construction
 //--------------------------------------------------------------------------
 
-KMagSelRect::KMagSelRect(QWidget *parent) :
-  QRect()
+KMagSelRect::KMagSelRect(TQWidget *parent) :
+  TQRect()
 {
   init(parent);
 }
 
-KMagSelRect::KMagSelRect(const QPoint &topLeft, const QPoint &bottomRight,
-                 QWidget *parent) :
-QRect(topLeft, bottomRight)
+KMagSelRect::KMagSelRect(const TQPoint &topLeft, const TQPoint &bottomRight,
+                 TQWidget *parent) :
+TQRect(topLeft, bottomRight)
 {
   init(parent);
 }
 
-KMagSelRect::KMagSelRect(const QPoint &topLeft, const QSize &size,
-                 QWidget *parent) :
-QRect(topLeft, size)
+KMagSelRect::KMagSelRect(const TQPoint &topLeft, const TQSize &size,
+                 TQWidget *parent) :
+TQRect(topLeft, size)
 {
   init(parent);
 }
 
 KMagSelRect::KMagSelRect(int left, int top, int width, int height,
-                 QWidget *parent) :
-QRect(left, top, width, height)
+                 TQWidget *parent) :
+TQRect(left, top, width, height)
 {
   init(parent);
 }
 
-void KMagSelRect::init(QWidget *parent)
+void KMagSelRect::init(TQWidget *parent)
 {
   // Make sure parent is the window itself, not a widget within the window
   if (parent != 0)
@@ -162,7 +162,7 @@ void KMagSelRect::show()
 {
   if (selectionwindow == 0) {
     selectionwindow = new KMagSelWin (selWindowParent, "selectionwindow");
-    connect (selectionwindow, SIGNAL (resized ()), this, SLOT (selWinResized ()));
+    connect (selectionwindow, TQT_SIGNAL (resized ()), this, TQT_SLOT (selWinResized ()));
 
     update();
     selectionwindow->show();
@@ -184,29 +184,29 @@ void KMagSelRect::hide()
 void KMagSelRect::update()
 {
   // make sure the selection window does not go outside of the display
-  if (height() > QApplication::desktop()->geometry().height())
-    setHeight (QApplication::desktop()->geometry().height());
-  if (width() > QApplication::desktop()->geometry().width())
-    setWidth (QApplication::desktop()->geometry().width());
+  if (height() > TQApplication::desktop()->geometry().height())
+    setHeight (TQApplication::desktop()->geometry().height());
+  if (width() > TQApplication::desktop()->geometry().width())
+    setWidth (TQApplication::desktop()->geometry().width());
 
   if (top() < 0)
     moveTop (0);
   if (left() < 0)
     moveLeft (0);
-  if (bottom() > QApplication::desktop()->geometry().bottom())
-    moveBottom (QApplication::desktop()->geometry().bottom());
-  if (right() > QApplication::desktop()->geometry().right())
-    moveRight (QApplication::desktop()->geometry().right());
+  if (bottom() > TQApplication::desktop()->geometry().bottom())
+    moveBottom (TQApplication::desktop()->geometry().bottom());
+  if (right() > TQApplication::desktop()->geometry().right())
+    moveRight (TQApplication::desktop()->geometry().right());
 
   if (selectionwindow != 0)
-    selectionwindow->setSelRect (QRect (topLeft(), bottomRight()));
+    selectionwindow->setSelRect (TQRect (topLeft(), bottomRight()));
 }
 
 void KMagSelRect::selWinResized()
 {
   if (selectionwindow != 0)
   {
-    QRect newRect = selectionwindow->getSelRect();
+    TQRect newRect = selectionwindow->getSelRect();
     setRect (newRect.x(), newRect.y(), newRect.width(), newRect.height());
   }
 }
@@ -215,43 +215,43 @@ void KMagSelRect::selWinResized()
 //   KMagSelWin
 //--------------------------------------------------------------------------
 
-KMagSelWin::KMagSelWin ( QWidget * parent, const char * name, WFlags ) :
-    QWidget (parent, name, WStyle_Customize | WStyle_NoBorder | WStyle_StaysOnTop | WType_TopLevel | WX11BypassWM)
+KMagSelWin::KMagSelWin ( TQWidget * parent, const char * name, WFlags ) :
+    TQWidget (parent, name, WStyle_Customize | WStyle_NoBorder | WStyle_StaysOnTop | WType_TopLevel | WX11BypassWM)
 {
-  QBitmap line (8, 8, line_bits, true);
+  TQBitmap line (8, 8, line_bits, true);
   setPaletteBackgroundPixmap (line);
-  setBackgroundOrigin (QWidget::WindowOrigin);
+  setBackgroundOrigin (TQWidget::WindowOrigin);
 
   titleBar = new KMagSelWinCorner (this, "titlebar");
   titleBar->setPaletteBackgroundColor (getTitleColor ());
   titleBar->setPaletteForegroundColor (getTextColor ());
   titleBar->setText(i18n("Selection Window")+" - "+i18n("KMagnifier"));
-  connect (titleBar, SIGNAL (startResizing ()), this, SLOT (startResizing ()));
-  connect (titleBar, SIGNAL (resized (QPoint)), this, SLOT (titleMoved (QPoint)));
+  connect (titleBar, TQT_SIGNAL (startResizing ()), this, TQT_SLOT (startResizing ()));
+  connect (titleBar, TQT_SIGNAL (resized (TQPoint)), this, TQT_SLOT (titleMoved (TQPoint)));
 
   topLeftCorner = new KMagSelWinCorner (this, "topleft");
   topLeftCorner->setCursor (Qt::SizeFDiagCursor);
   topLeftCorner->setPaletteBackgroundColor (getTitleBtnColor ());
-  connect (topLeftCorner, SIGNAL (startResizing ()), this, SLOT (startResizing ()));
-  connect (topLeftCorner, SIGNAL (resized (QPoint)), this, SLOT (topLeftResized (QPoint)));
+  connect (topLeftCorner, TQT_SIGNAL (startResizing ()), this, TQT_SLOT (startResizing ()));
+  connect (topLeftCorner, TQT_SIGNAL (resized (TQPoint)), this, TQT_SLOT (topLeftResized (TQPoint)));
 
   topRightCorner = new KMagSelWinCorner (this, "topright");
   topRightCorner->setCursor (Qt::SizeBDiagCursor);
   topRightCorner->setPaletteBackgroundColor (getTitleBtnColor ());
-  connect (topRightCorner, SIGNAL (startResizing ()), this, SLOT (startResizing ()));
-  connect (topRightCorner, SIGNAL (resized (QPoint)), this, SLOT (topRightResized (QPoint)));
+  connect (topRightCorner, TQT_SIGNAL (startResizing ()), this, TQT_SLOT (startResizing ()));
+  connect (topRightCorner, TQT_SIGNAL (resized (TQPoint)), this, TQT_SLOT (topRightResized (TQPoint)));
 
   bottomLeftCorner = new KMagSelWinCorner (this, "bottomleft");
   bottomLeftCorner->setCursor (Qt::SizeBDiagCursor);
   bottomLeftCorner->setPaletteBackgroundColor (getTitleBtnColor ());
-  connect (bottomLeftCorner, SIGNAL (startResizing ()), this, SLOT (startResizing ()));
-  connect (bottomLeftCorner, SIGNAL (resized (QPoint)), this, SLOT (bottomLeftResized (QPoint)));
+  connect (bottomLeftCorner, TQT_SIGNAL (startResizing ()), this, TQT_SLOT (startResizing ()));
+  connect (bottomLeftCorner, TQT_SIGNAL (resized (TQPoint)), this, TQT_SLOT (bottomLeftResized (TQPoint)));
 
   bottomRightCorner = new KMagSelWinCorner (this, "bottomright");
   bottomRightCorner->setCursor (Qt::SizeFDiagCursor);
   bottomRightCorner->setPaletteBackgroundColor (getTitleBtnColor ());
-  connect (bottomRightCorner, SIGNAL (startResizing ()), this, SLOT (startResizing ()));
-  connect (bottomRightCorner, SIGNAL (resized (QPoint)), this, SLOT (bottomRightResized (QPoint)));
+  connect (bottomRightCorner, TQT_SIGNAL (startResizing ()), this, TQT_SLOT (startResizing ()));
+  connect (bottomRightCorner, TQT_SIGNAL (resized (TQPoint)), this, TQT_SLOT (bottomRightResized (TQPoint)));
 }
 
 KMagSelWin::~KMagSelWin()
@@ -263,7 +263,7 @@ KMagSelWin::~KMagSelWin()
   delete bottomRightCorner;
 }
 
-void KMagSelWin::setSelRect (QRect selRect)
+void KMagSelWin::setSelRect (TQRect selRect)
 {
   selRect = selRect.normalize();
 
@@ -271,10 +271,10 @@ void KMagSelWin::setSelRect (QRect selRect)
     selRect.setLeft (0);
   if (selRect.top() < 0)
     selRect.setTop (0);
-  if (selRect.right() > QApplication::desktop()->width())
-    selRect.setRight (QApplication::desktop()->width());
-  if (selRect.bottom() > QApplication::desktop()->height())
-    selRect.setBottom (QApplication::desktop()->height());
+  if (selRect.right() > TQApplication::desktop()->width())
+    selRect.setRight (TQApplication::desktop()->width());
+  if (selRect.bottom() > TQApplication::desktop()->height())
+    selRect.setBottom (TQApplication::desktop()->height());
 
   setGeometry (
       selRect.left() - getFrameSize(),
@@ -290,13 +290,13 @@ void KMagSelWin::setSelRect (QRect selRect)
   if (selRect.height() < h+h)
     h = static_cast<int>(selRect.height()/2);
 
-  setMask (QRegion (QRect (0, 0, width(), height ()))
-           - QRegion (QRect (getFrameSize(), getTitleSize()+2, selRect.width(), selRect.height()))
-           - QRegion (QRect (0, 0, getFrameSize()+w, getTitleSize()+2-getFrameSize()))
-           - QRegion (QRect (width()-getFrameSize()-w, 0, getFrameSize()+w, getTitleSize()+2-getFrameSize()))
-           - QRegion (QRect (0, getTitleSize()+2+h, getFrameSize()-2, selRect.height()-h-h))
-           - QRegion (QRect (width()-getFrameSize()+2, getTitleSize()+2+h, getFrameSize()-2, selRect.height()-h-h))
-           - QRegion (QRect (getFrameSize()+w, height()-getFrameSize()+2, selRect.width()-w-w, getFrameSize()-2)));
+  setMask (TQRegion (TQRect (0, 0, width(), height ()))
+           - TQRegion (TQRect (getFrameSize(), getTitleSize()+2, selRect.width(), selRect.height()))
+           - TQRegion (TQRect (0, 0, getFrameSize()+w, getTitleSize()+2-getFrameSize()))
+           - TQRegion (TQRect (width()-getFrameSize()-w, 0, getFrameSize()+w, getTitleSize()+2-getFrameSize()))
+           - TQRegion (TQRect (0, getTitleSize()+2+h, getFrameSize()-2, selRect.height()-h-h))
+           - TQRegion (TQRect (width()-getFrameSize()+2, getTitleSize()+2+h, getFrameSize()-2, selRect.height()-h-h))
+           - TQRegion (TQRect (getFrameSize()+w, height()-getFrameSize()+2, selRect.width()-w-w, getFrameSize()-2)));
 
   titleBar->setGeometry (getFrameSize()+w, 0, selRect.width()-h-h, getTitleSize());
   topLeftCorner->setGeometry (0, getTitleSize()+2-getFrameSize(), getFrameSize()+w, getFrameSize()+h);
@@ -305,9 +305,9 @@ void KMagSelWin::setSelRect (QRect selRect)
   bottomRightCorner->setGeometry (width()-getFrameSize()-w, height()-getFrameSize()-h, getFrameSize()+w, getFrameSize()+h);
 }
 
-QRect KMagSelWin::getSelRect ()
+TQRect KMagSelWin::getSelRect ()
 {
-  return QRect (
+  return TQRect (
       x() + getFrameSize(),
       y() + getTitleSize()+2,
       width() - getFrameSize() - getFrameSize(),
@@ -319,35 +319,35 @@ void KMagSelWin::startResizing ()
   oldSelRect = getSelRect();
 }
 
-void KMagSelWin::titleMoved ( QPoint offset )
+void KMagSelWin::titleMoved ( TQPoint offset )
 {
-  QRect selRect = oldSelRect;
+  TQRect selRect = oldSelRect;
   selRect.moveBy (offset.x(), offset.y());
   setSelRect (selRect);
   emit resized ();
 }
 
-void KMagSelWin::topLeftResized ( QPoint offset )
+void KMagSelWin::topLeftResized ( TQPoint offset )
 {
-  setSelRect (QRect(oldSelRect.topLeft() + offset, oldSelRect.bottomRight ()));
+  setSelRect (TQRect(oldSelRect.topLeft() + offset, oldSelRect.bottomRight ()));
   emit resized();
 }
 
-void KMagSelWin::topRightResized ( QPoint offset )
+void KMagSelWin::topRightResized ( TQPoint offset )
 {
-  setSelRect (QRect(oldSelRect.topRight() + offset, oldSelRect.bottomLeft ()));
+  setSelRect (TQRect(oldSelRect.topRight() + offset, oldSelRect.bottomLeft ()));
   emit resized();
 }
 
-void KMagSelWin::bottomLeftResized ( QPoint offset )
+void KMagSelWin::bottomLeftResized ( TQPoint offset )
 {
-  setSelRect (QRect(oldSelRect.bottomLeft() + offset, oldSelRect.topRight ()));
+  setSelRect (TQRect(oldSelRect.bottomLeft() + offset, oldSelRect.topRight ()));
   emit resized();
 }
 
-void KMagSelWin::bottomRightResized ( QPoint offset )
+void KMagSelWin::bottomRightResized ( TQPoint offset )
 {
-  setSelRect (QRect(oldSelRect.bottomRight() + offset, oldSelRect.topLeft()));
+  setSelRect (TQRect(oldSelRect.bottomRight() + offset, oldSelRect.topLeft()));
   emit resized();
 }
 
@@ -356,10 +356,10 @@ void KMagSelWin::bottomRightResized ( QPoint offset )
 //   KMagSelWinCorner
 //--------------------------------------------------------------------------
 
-KMagSelWinCorner::KMagSelWinCorner ( QWidget * parent, const char * name, WFlags f ) :
-    QLabel (parent, name, f)
+KMagSelWinCorner::KMagSelWinCorner ( TQWidget * parent, const char * name, WFlags f ) :
+    TQLabel (parent, name, f)
 {
-  setFrameStyle (QFrame::WinPanel | QFrame::Raised);
+  setFrameStyle (TQFrame::WinPanel | TQFrame::Raised);
   setLineWidth (1);
 }
 
@@ -367,19 +367,19 @@ KMagSelWinCorner::~KMagSelWinCorner()
 {
 }
 
-void KMagSelWinCorner::mousePressEvent ( QMouseEvent * e )
+void KMagSelWinCorner::mousePressEvent ( TQMouseEvent * e )
 {
   oldPos = e->globalPos ();
   emit startResizing ();
 }
 
-void KMagSelWinCorner::mouseReleaseEvent ( QMouseEvent * e )
+void KMagSelWinCorner::mouseReleaseEvent ( TQMouseEvent * e )
 {
-  setFrameShadow (QFrame::Raised);
+  setFrameShadow (TQFrame::Raised);
   emit resized (e->globalPos () - oldPos);
 }
 
-void KMagSelWinCorner::mouseMoveEvent ( QMouseEvent * e )
+void KMagSelWinCorner::mouseMoveEvent ( TQMouseEvent * e )
 {
   emit resized (e->globalPos () - oldPos);
 }

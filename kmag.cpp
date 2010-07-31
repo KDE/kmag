@@ -18,15 +18,15 @@
  ***************************************************************************/
 
 // include files for QT
-#include <qdir.h>
-#include <qprinter.h>
-#include <qpainter.h>
-#include <qlayout.h>
-#include <qclipboard.h>
-#include <qdragobject.h>
-#include <qwhatsthis.h>
-#include <qtooltip.h>
-#include <qpopupmenu.h>
+#include <tqdir.h>
+#include <tqprinter.h>
+#include <tqpainter.h>
+#include <tqlayout.h>
+#include <tqclipboard.h>
+#include <tqdragobject.h>
+#include <tqwhatsthis.h>
+#include <tqtooltip.h>
+#include <tqpopupmenu.h>
 
 #include <kdeversion.h>
 
@@ -57,7 +57,7 @@
 #include <kwin.h>
 
 #if KDE_VERSION < 220
-#include <qprinter.h>
+#include <tqprinter.h>
 #else
 #include <kprinter.h>
 #endif
@@ -74,7 +74,7 @@
 #endif
 #endif
 
-KmagApp::KmagApp(QWidget* , const char* name)
+KmagApp::KmagApp(TQWidget* , const char* name)
   : KMainWindow(0, name, WStyle_MinMax | WType_TopLevel | WStyle_StaysOnTop | WDestructiveClose | WStyle_ContextHelp),
     m_defaultMouseCursorType(2)
 {
@@ -127,91 +127,91 @@ KmagApp::~KmagApp()
 void KmagApp::initActions()
 {
   fileNewWindow = new KAction(i18n("New &Window"), "window_new", KStdAccel::openNew(), this,
-                              SLOT(slotFileNewWindow()), actionCollection(),"new_window");
+                              TQT_SLOT(slotFileNewWindow()), actionCollection(),"new_window");
   fileNewWindow->setToolTip(i18n("Open a new KMagnifier window"));
 
   refreshSwitch = new KAction(i18n("&Stop"), "stop", KStdAccel::reload(), this,
-                              SLOT(slotToggleRefresh()), actionCollection(), "start_stop_refresh");
+                              TQT_SLOT(slotToggleRefresh()), actionCollection(), "start_stop_refresh");
   refreshSwitch->setToolTip(i18n("Click to stop window refresh"));
   refreshSwitch->setWhatsThis(i18n("Clicking on this icon will <b>start</b> / <b>stop</b>\
   updating of the display. Stopping the update will zero the processing power\
   required (CPU usage)"));
 
   m_pSnapshot = new KAction(i18n("&Save Snapshot As..."), "ksnapshot", KStdAccel::save(), this,
-                            SLOT(saveZoomPixmap()), actionCollection(),"snapshot");
+                            TQT_SLOT(saveZoomPixmap()), actionCollection(),"snapshot");
   m_pSnapshot->setWhatsThis(i18n("Saves the zoomed view to an image file."));
   m_pSnapshot->setToolTip(i18n("Save image to a file"));
 
-  m_pPrint = KStdAction::print(this, SLOT(slotFilePrint()), actionCollection(), "print");
+  m_pPrint = KStdAction::print(this, TQT_SLOT(slotFilePrint()), actionCollection(), "print");
   m_pPrint->setWhatsThis(i18n("Click on this button to print the current zoomed view."));
 
-  m_pQuit = KStdAction::quit(this, SLOT(slotFileQuit()), actionCollection(), "quit");
+  m_pQuit = KStdAction::quit(this, TQT_SLOT(slotFileQuit()), actionCollection(), "quit");
   m_pQuit->setStatusText(i18n("Quits the application"));
   m_pQuit->setWhatsThis (i18n("Quits the application"));
 
-  m_pCopy = KStdAction::copy(this, SLOT(copyToClipBoard()), actionCollection(), "copy");
+  m_pCopy = KStdAction::copy(this, TQT_SLOT(copyToClipBoard()), actionCollection(), "copy");
   m_pCopy->setWhatsThis(i18n("Click on this button to copy the current zoomed view to the clipboard which you can paste in other applications."));
   m_pCopy->setToolTip(i18n("Copy zoomed image to clipboard"));
 
   m_pShowMenu = new KToggleAction(i18n("Show &Menu"), "showmenu", CTRL+Key_M, this,
-                            SLOT(slotShowMenu()), actionCollection(),"show_menu");
+                            TQT_SLOT(slotShowMenu()), actionCollection(),"show_menu");
   #ifdef havesetCheckedState
   m_pShowMenu->setCheckedState(i18n("Hide &Menu"));
   #endif
   m_pShowMainToolBar = new KToggleAction(i18n("Show Main &Toolbar"), 0, 0, this,
-                            SLOT(slotShowMainToolBar()), actionCollection(),"show_mainToolBar");
+                            TQT_SLOT(slotShowMainToolBar()), actionCollection(),"show_mainToolBar");
   #ifdef havesetCheckedState
   m_pShowMainToolBar->setCheckedState(i18n("Hide Main &Toolbar"));
   #endif
   m_pShowViewToolBar = new KToggleAction(i18n("Show &View Toolbar"), 0, 0, this,
-                            SLOT(slotShowViewToolBar()), actionCollection(),"show_viewToolBar");
+                            TQT_SLOT(slotShowViewToolBar()), actionCollection(),"show_viewToolBar");
   #ifdef havesetCheckedState
   m_pShowViewToolBar->setCheckedState(i18n("Hide &View Toolbar"));
   #endif
   m_pShowSettingsToolBar = new KToggleAction(i18n("Show &Settings Toolbar"), 0, 0, this,
-                            SLOT(slotShowSettingsToolBar()), actionCollection(),"show_settingsToolBar");
+                            TQT_SLOT(slotShowSettingsToolBar()), actionCollection(),"show_settingsToolBar");
   #ifdef havesetCheckedState
   m_pShowSettingsToolBar->setCheckedState(i18n("Hide &Settings Toolbar"));
   #endif
 
   m_modeFollowMouse = new KRadioAction(i18n("&Follow Mouse Mode"), "followmouse", Key_F1, this,
-                            SLOT(slotModeFollowMouse()), actionCollection(), "mode_followmouse");
+                            TQT_SLOT(slotModeFollowMouse()), actionCollection(), "mode_followmouse");
   m_modeFollowMouse->setToolTip(i18n("Magnify mouse area into window"));
   m_modeFollowMouse->setWhatsThis(i18n("In this mode the area around the mouse cursor is shown in a normal window."));
 
   m_modeSelWin = new KRadioAction(i18n("S&election Window Mode"), "window", Key_F2, this,
-                            SLOT(slotModeSelWin()), actionCollection(), "mode_selectionwindow");
+                            TQT_SLOT(slotModeSelWin()), actionCollection(), "mode_selectionwindow");
   m_modeSelWin->setToolTip(i18n("Magnify selected area into window"));
   m_modeSelWin->setWhatsThis(i18n("In this mode a selection window is opened. The selected area is shown in a normal window."));
 
   m_modeEdgeTop = new KRadioAction(i18n("&Top Screen Edge Mode"), 0, 0, this,
-                              SLOT(slotModeEdgeTop()), actionCollection(),"mode_edgetop");
+                              TQT_SLOT(slotModeEdgeTop()), actionCollection(),"mode_edgetop");
   m_modeEdgeTop->setToolTip(i18n("Magnify mouse area to top screen edge"));
   m_modeEdgeTop->setWhatsThis(i18n("In this mode the area around the mouse is magnified to the top screen edge."));
 
   m_modeEdgeLeft = new KRadioAction(i18n("&Left Screen Edge Mode"), 0, 0, this,
-                              SLOT(slotModeEdgeLeft()), actionCollection(),"mode_edgeleft");
+                              TQT_SLOT(slotModeEdgeLeft()), actionCollection(),"mode_edgeleft");
   m_modeEdgeLeft->setToolTip(i18n("Magnify mouse area to left screen edge"));
   m_modeEdgeLeft->setWhatsThis(i18n("In this mode the area around the mouse is magnified to the left screen edge."));
 
   m_modeEdgeRight = new KRadioAction(i18n("&Right Screen Edge Mode"), 0, 0, this,
-                              SLOT(slotModeEdgeRight()), actionCollection(),"mode_edgeright");
+                              TQT_SLOT(slotModeEdgeRight()), actionCollection(),"mode_edgeright");
   m_modeEdgeRight->setToolTip(i18n("Magnify mouse area to right screen edge"));
   m_modeEdgeRight->setWhatsThis(i18n("In this mode the area around the mouse is magnified to the right screen edge."));
 
   m_modeEdgeBottom = new KRadioAction(i18n("&Bottom Screen Edge Mode"), 0, 0, this,
-                              SLOT(slotModeEdgeBottom()), actionCollection(),"mode_edgebottom");
+                              TQT_SLOT(slotModeEdgeBottom()), actionCollection(),"mode_edgebottom");
   m_modeEdgeBottom->setToolTip(i18n("Magnify mouse area to bottom screen edge"));
   m_modeEdgeBottom->setWhatsThis(i18n("In this mode the area around the mouse is magnified to the bottom screen edge."));
 
   m_hideCursor = new KToggleAction(i18n("Hide Mouse &Cursor"), "hidemouse", Key_F4, this,
-                            SLOT(slotToggleHideCursor()), actionCollection(), "hidecursor");
+                            TQT_SLOT(slotToggleHideCursor()), actionCollection(), "hidecursor");
   #ifdef havesetCheckedState
   m_hideCursor->setCheckedState(i18n("Show Mouse &Cursor"));
   #endif
   m_hideCursor->setToolTip(i18n("Hide the mouse cursor"));
 
-  m_pZoomIn = KStdAction::zoomIn(this, SLOT(zoomIn()), actionCollection(), "zoom_in");
+  m_pZoomIn = KStdAction::zoomIn(this, TQT_SLOT(zoomIn()), actionCollection(), "zoom_in");
   m_pZoomIn->setWhatsThis(i18n("Click on this button to <b>zoom-in</b> on the selected region."));
 
   m_pZoomBox = new KSelectAction(i18n("&Zoom"),0,actionCollection(),"zoom");
@@ -219,11 +219,11 @@ void KmagApp::initActions()
   m_pZoomBox->setWhatsThis(i18n("Select the zoom factor."));
   m_pZoomBox->setToolTip(i18n("Zoom factor"));
 
-  m_pZoomOut = KStdAction::zoomOut(this, SLOT(zoomOut()), actionCollection(), "zoom_out");
+  m_pZoomOut = KStdAction::zoomOut(this, TQT_SLOT(zoomOut()), actionCollection(), "zoom_out");
   m_pZoomOut->setWhatsThis(i18n("Click on this button to <b>zoom-out</b> on the selected region."));
 
   m_pInvert = new KToggleAction(i18n("&Invert Colors"), 0, Key_F6, this,
-                            SLOT(slotToggleInvert()), actionCollection(), "invert");
+                            TQT_SLOT(slotToggleInvert()), actionCollection(), "invert");
 
   m_pRotationBox = new KSelectAction(i18n("&Rotation"),0,actionCollection(),"rotation");
   m_pRotationBox->setItems(rotationArrayString);
@@ -232,8 +232,8 @@ void KmagApp::initActions()
 
   // KHelpMenu *newHelpMenu = new KHelpMenu(this, KGlobal::instance()->aboutData());
 
-  m_keyConf = KStdAction::keyBindings( this, SLOT( slotConfKeys() ), actionCollection(), "key_conf");
-  m_toolConf = KStdAction::configureToolbars( this, SLOT( slotEditToolbars() ),
+  m_keyConf = KStdAction::keyBindings( this, TQT_SLOT( slotConfKeys() ), actionCollection(), "key_conf");
+  m_toolConf = KStdAction::configureToolbars( this, TQT_SLOT( slotEditToolbars() ),
                                               actionCollection(), "toolbar_conf");
 
   m_pFPSBox = new KSelectAction(i18n("Re&fresh"),0,actionCollection(),"fps_selector");
@@ -247,9 +247,9 @@ void KmagApp::initActions()
 void KmagApp::initView()
 {
   m_zoomView = new KMagZoomView( this, "ZoomView" );
-  m_zoomView->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)7, m_zoomView->sizePolicy().hasHeightForWidth() ) );
-  m_zoomView->setFrameShape( QFrame::StyledPanel );
-  m_zoomView->setFrameShadow( QFrame::Raised );
+  m_zoomView->setSizePolicy( TQSizePolicy( (TQSizePolicy::SizeType)7, (TQSizePolicy::SizeType)7, m_zoomView->sizePolicy().hasHeightForWidth() ) );
+  m_zoomView->setFrameShape( TQFrame::StyledPanel );
+  m_zoomView->setFrameShadow( TQFrame::Raised );
 
   setCentralWidget(m_zoomView);
 }
@@ -260,21 +260,21 @@ void KmagApp::initView()
 void KmagApp::initConnections()
 {
   // change in zoom value -> update the view
-  connect(this, SIGNAL(updateZoomValue(float)), m_zoomView, SLOT(setZoom(float)));
-  connect(this, SIGNAL(updateRotationValue(int)), m_zoomView, SLOT(setRotation(int)));
-  connect(this, SIGNAL(updateFPSValue(float)), m_zoomView, SLOT(setRefreshRate(float)));
+  connect(this, TQT_SIGNAL(updateZoomValue(float)), m_zoomView, TQT_SLOT(setZoom(float)));
+  connect(this, TQT_SIGNAL(updateRotationValue(int)), m_zoomView, TQT_SLOT(setRotation(int)));
+  connect(this, TQT_SIGNAL(updateFPSValue(float)), m_zoomView, TQT_SLOT(setRefreshRate(float)));
 
   // change in zoom index -> update the selector
-  connect(this, SIGNAL(updateZoomIndex(int)), m_pZoomBox, SLOT(setCurrentItem(int)));
-  connect(this, SIGNAL(updateRotationIndex(int)), m_pRotationBox, SLOT(setCurrentItem(int)));
-  connect(this, SIGNAL(updateFPSIndex(int)), m_pFPSBox, SLOT(setCurrentItem(int)));
+  connect(this, TQT_SIGNAL(updateZoomIndex(int)), m_pZoomBox, TQT_SLOT(setCurrentItem(int)));
+  connect(this, TQT_SIGNAL(updateRotationIndex(int)), m_pRotationBox, TQT_SLOT(setCurrentItem(int)));
+  connect(this, TQT_SIGNAL(updateFPSIndex(int)), m_pFPSBox, TQT_SLOT(setCurrentItem(int)));
 
   // selector selects a zoom index -> set the zoom index
-  connect(m_pZoomBox, SIGNAL(activated(int)), this, SLOT(setZoomIndex(int)));
-  connect(m_pRotationBox, SIGNAL(activated(int)), this, SLOT(setRotationIndex(int)));
-  connect(m_pFPSBox, SIGNAL(activated(int)), this, SLOT(setFPSIndex(int)));
+  connect(m_pZoomBox, TQT_SIGNAL(activated(int)), this, TQT_SLOT(setZoomIndex(int)));
+  connect(m_pRotationBox, TQT_SIGNAL(activated(int)), this, TQT_SLOT(setRotationIndex(int)));
+  connect(m_pFPSBox, TQT_SIGNAL(activated(int)), this, TQT_SLOT(setFPSIndex(int)));
 
-  connect(m_zoomView, SIGNAL(contextMenu(QPoint)), this, SLOT(contextMenu(QPoint)));
+  connect(m_zoomView, TQT_SIGNAL(contextMenu(TQPoint)), this, TQT_SLOT(contextMenu(TQPoint)));
 }
 
 /**
@@ -322,9 +322,9 @@ void KmagApp::saveOptions()
  */
 void KmagApp::readOptions()
 {
-  QColor blue (0,0,128);
-  QColor yellow (255,255,0);
-  QColor white (255,255,255);
+  TQColor blue (0,0,128);
+  TQColor yellow (255,255,0);
+  TQColor white (255,255,255);
 
   config->setGroup ("WM");
   setTitleColors (
@@ -334,8 +334,8 @@ void KmagApp::readOptions()
 
   config->setGroup("General Options");
 
-  QSize defSize(460,390);
-  QSize size=config->readSizeEntry("Geometry", &defSize);
+  TQSize defSize(460,390);
+  TQSize size=config->readSizeEntry("Geometry", &defSize);
   if(!size.isEmpty())
   {
     resize(size);
@@ -357,7 +357,7 @@ void KmagApp::readOptions()
   setFPSIndex(fpsIndex);
   emit updateFPSIndex(m_fpsIndex);
 
-  QRect defaultRect(0,0,211,164);
+  TQRect defaultRect(0,0,211,164);
   m_zoomView->setSelRectPos(config->readRectEntry("SelRect", &defaultRect));
 
   m_mouseCursorType = config->readUnsignedNumEntry("ShowMouse", m_defaultMouseCursorType);
@@ -391,7 +391,7 @@ void KmagApp::readOptions()
   config->setGroup("General Options");
 
   edgesize = config->readNumEntry("EdgeSize", 0);
-  QString mode = config->readEntry("Mode", "followmouse");
+  TQString mode = config->readEntry("Mode", "followmouse");
   if (mode == "selectionwindow")
     slotModeSelWin();
   else if (mode == "edgetop")
@@ -419,7 +419,7 @@ bool KmagApp::queryExit()
 
 
 /////////////////////////////////////////////////////////////////////
-// SLOT IMPLEMENTATION
+// TQT_SLOT IMPLEMENTATION
 /////////////////////////////////////////////////////////////////////
 
 /**
@@ -555,7 +555,7 @@ void KmagApp::saveZoomPixmap()
     toggled = true;
   }
 
-  KURL url = KFileDialog::getSaveURL(QString::null,
+  KURL url = KFileDialog::getSaveURL(TQString::null,
               KImageIO::pattern(KImageIO::Writing),
              0,i18n("Save Snapshot As"));
 
@@ -636,7 +636,7 @@ void KmagApp::slotModeEdgeTop()
   int newedgesize; bool ok;
   newedgesize = KInputDialog::getInteger (i18n ("Magnify to Screen Edge - Select Size"),
                                           i18n ("Size:"), edgesize > 0 ? edgesize : 300, 200,
-                                          QApplication::desktop()->screenGeometry( this ).height()/2,
+                                          TQApplication::desktop()->screenGeometry( this ).height()/2,
                                           25, 10, &ok, 0, "getedgesize");
 
   if (ok) {
@@ -652,7 +652,7 @@ void KmagApp::slotModeEdgeLeft()
   int newedgesize; bool ok;
   newedgesize = KInputDialog::getInteger (i18n ("Magnify to Left Screen Edge - Select Size"),
                                           i18n ("Size:"), edgesize > 0 ? edgesize : 300, 200,
-                                          QApplication::desktop()->screenGeometry( this ).width()/2,
+                                          TQApplication::desktop()->screenGeometry( this ).width()/2,
                                           25, 10, &ok, 0, "getedgesize");
 
   if (ok) {
@@ -668,7 +668,7 @@ void KmagApp::slotModeEdgeRight()
   int newedgesize; bool ok;
   newedgesize = KInputDialog::getInteger (i18n ("Magnify to Right Screen Edge - Select Size"),
                                           i18n ("Size:"), edgesize > 0 ? edgesize : 300, 200,
-                                          QApplication::desktop()->screenGeometry( this ).width()/2,
+                                          TQApplication::desktop()->screenGeometry( this ).width()/2,
                                           25, 10, &ok, 0, "getedgesize");
 
   if (ok) {
@@ -684,7 +684,7 @@ void KmagApp::slotModeEdgeBottom()
   int newedgesize; bool ok;
   newedgesize = KInputDialog::getInteger (i18n ("Magnify to Bottom Screen Edge - Select Size"),
                                           i18n ("Size:"), edgesize > 0 ? edgesize : 300, 200,
-                                          QApplication::desktop()->screenGeometry( this ).height()/2,
+                                          TQApplication::desktop()->screenGeometry( this ).height()/2,
                                           25, 10, &ok, 0, "getedgesize");
 
   if (ok) {
@@ -697,11 +697,11 @@ void KmagApp::slotModeEdgeBottom()
 void KmagApp::setEdgeMode (KToggleAction *mode)
 {
   if (m_modeEdgeLeft || mode == m_modeEdgeRight) {
-    if (edgesize < 200 || edgesize > QApplication::desktop()->screenGeometry( this ).width()/2)
-      edgesize = QApplication::desktop()->screenGeometry( this ).width()/4;
+    if (edgesize < 200 || edgesize > TQApplication::desktop()->screenGeometry( this ).width()/2)
+      edgesize = TQApplication::desktop()->screenGeometry( this ).width()/4;
   } else {
-    if (edgesize < 200 || edgesize > QApplication::desktop()->screenGeometry( this ).height()/2)
-      edgesize = QApplication::desktop()->screenGeometry( this ).height()/4;
+    if (edgesize < 200 || edgesize > TQApplication::desktop()->screenGeometry( this ).height()/2)
+      edgesize = TQApplication::desktop()->screenGeometry( this ).height()/4;
   }
 
   m_modeFollowMouse->setChecked(false);
@@ -716,7 +716,7 @@ void KmagApp::setEdgeMode (KToggleAction *mode)
   m_zoomView->followMouse(true);
   m_zoomView->showSelRect(false);
 
-  m_zoomView->reparent (0, QPoint(), false);
+  m_zoomView->reparent (0, TQPoint(), false);
   KWin::setType(m_zoomView->winId(), NET::Dock);
   KWin::setState(m_zoomView->winId(), NET::Sticky | NET::KeepBelow | NET::SkipTaskbar | NET::SkipPager);
   KWin::setOnAllDesktops(m_zoomView->winId(), true);
@@ -729,27 +729,27 @@ void KmagApp::setEdgeMode (KToggleAction *mode)
   hide();
 
   if (mode == m_modeEdgeTop) {
-    QRect r = QApplication::desktop()->screenGeometry( this );
+    TQRect r = TQApplication::desktop()->screenGeometry( this );
     r.setBottom( r.top() + edgesize );
     m_zoomView->setGeometry ( r );
     KWin::setExtendedStrut (m_zoomView->winId(), 0, 0, 0, 0, 0, 0,
                             edgesize, r.left(), r.right(), 0, 0, 0);
   } else if (mode == m_modeEdgeLeft) {
-    QRect r = QApplication::desktop()->screenGeometry( this );
+    TQRect r = TQApplication::desktop()->screenGeometry( this );
     r.setRight( r.left() + edgesize );
     m_zoomView->setGeometry ( r );
     KWin::setExtendedStrut (m_zoomView->winId(),
                             edgesize, r.top(), r.bottom(),
                             0, 0, 0, 0, 0, 0, 0, 0, 0);
   } else if (mode == m_modeEdgeRight) {
-    QRect r = QApplication::desktop()->screenGeometry( this );
+    TQRect r = TQApplication::desktop()->screenGeometry( this );
     r.setLeft( r.right() - edgesize );
     m_zoomView->setGeometry ( r );
     KWin::setExtendedStrut (m_zoomView->winId(), 0, 0, 0,
                             edgesize, r.top(), r.bottom(),
                             0, 0, 0, 0, 0, 0);
   } else {
-    QRect r = QApplication::desktop()->screenGeometry( this );
+    TQRect r = TQApplication::desktop()->screenGeometry( this );
     r.setTop( r.bottom() - edgesize );
     m_zoomView->setGeometry ( r );
     KWin::setExtendedStrut (m_zoomView->winId(), 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -771,7 +771,7 @@ void KmagApp::unsetEdgeMode (KToggleAction *mode)
   m_modeEdgeBottom->setChecked(false);
   mode->setChecked (true);
 
-  m_zoomView->reparent (this, QPoint(), true);
+  m_zoomView->reparent (this, TQPoint(), true);
   setCentralWidget(m_zoomView);
   KWin::setExtendedStrut (winId(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
@@ -804,7 +804,7 @@ void KmagApp::slotFilePrint()
   bool toggled(false);
 
 #if KDE_VERSION < 220
-  QPrinter printer;
+  TQPrinter printer;
 #else
   KPrinter printer;
 #endif
@@ -815,7 +815,7 @@ void KmagApp::slotFilePrint()
     toggled = true;
   }
 
-  const QPixmap pixmap(m_zoomView->getPixmap());
+  const TQPixmap pixmap(m_zoomView->getPixmap());
 
 #if KDE_VERSION >= 220
   // use some AI to get the best orientation
@@ -827,7 +827,7 @@ void KmagApp::slotFilePrint()
 #endif
 
   if (printer.setup(this)) {
-    QPainter paint;
+    TQPainter paint;
 
     if(!paint.begin(&printer))
       return;
@@ -935,17 +935,17 @@ void KmagApp::slotEditToolbars()
 {
   saveMainWindowSettings( KGlobal::config(), "MainWindow" );
   KEditToolbar dlg( actionCollection() );
-  connect( &dlg, SIGNAL( newToolbarConfig() ), this, SLOT( slotNewToolbarConfig() ) );
+  connect( &dlg, TQT_SIGNAL( newToolbarConfig() ), this, TQT_SLOT( slotNewToolbarConfig() ) );
   if ( dlg.exec() )
     createGUI();
 }
 
 
-void KmagApp::contextMenu (QPoint pos)
+void KmagApp::contextMenu (TQPoint pos)
 {
  // show popup
  KXMLGUIFactory *factory = this->factory();
- QPopupMenu *popup = (QPopupMenu *)factory->container("mainPopUp",this);
+ TQPopupMenu *popup = (TQPopupMenu *)factory->container("mainPopUp",this);
  if (popup != 0)
    popup->popup(pos, 0);
 }
