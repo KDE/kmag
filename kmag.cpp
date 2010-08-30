@@ -917,7 +917,7 @@ void KmagApp::slotEditToolbars()
   KConfigGroup cg( KGlobal::config(), "MainWindow" );
   saveMainWindowSettings( cg );
   KEditToolBar dlg( actionCollection() );
-  connect( &dlg, SIGNAL( newToolbarConfig() ), this, SLOT( slotNewToolbarConfig() ) );
+  connect( &dlg, SIGNAL( newToolBarConfig() ), this, SLOT( slotNewToolbarConfig() ) );
   if ( dlg.exec() )
     createGUI();
 }
