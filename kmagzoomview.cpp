@@ -100,7 +100,7 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
     m_colormode(0),
     m_fitToWindow(true)
 {
-  setObjectName(name);
+  setObjectName( QLatin1String( name ));
 
   viewport()->setMouseTracking(true);
   viewport()->setAttribute(Qt::WA_NoSystemBackground, true);
@@ -133,7 +133,7 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
  selected region. The contents will be magnified according to the zoom level that is set."));
 
   // different ways to show the cursor.
-  m_showMouseTypes << "Hidden" << "Box" << "Arrow" << "Actual";
+  m_showMouseTypes << QLatin1String( "Hidden" ) << QLatin1String( "Box" ) << QLatin1String( "Arrow" ) << QLatin1String( "Actual" );
 
   if(m_fitToWindow)
     fitToWindow();
@@ -172,12 +172,12 @@ void KMagZoomView::followFocus(bool follow)
     setVScrollBarMode (Q3ScrollView::AlwaysOff);
     setHScrollBarMode (Q3ScrollView::AlwaysOff);
     if(QDBusConnection::sessionBus().isConnected())
-        QDBusConnection::sessionBus().connect("org.kde.kaccessibleapp", "/Adaptor", "org.kde.kaccessibleapp.Adaptor", "focusChanged", this, SLOT(focusChanged(int,int,int,int,int,int)));
+        QDBusConnection::sessionBus().connect(QLatin1String( "org.kde.kaccessibleapp" ), QLatin1String( "/Adaptor" ), QLatin1String( "org.kde.kaccessibleapp.Adaptor" ), QLatin1String( "focusChanged" ), this, SLOT(focusChanged(int,int,int,int,int,int)));
   } else {
     setVScrollBarMode (Q3ScrollView::AlwaysOn);
     setHScrollBarMode (Q3ScrollView::AlwaysOn);
     if(QDBusConnection::sessionBus().isConnected())
-        QDBusConnection::sessionBus().disconnect("org.kde.kaccessibleapp", "/Adaptor", "org.kde.kaccessibleapp.Adaptor", "focusChanged", this, SLOT(focusChanged(int,int,int,int,int,int)));
+        QDBusConnection::sessionBus().disconnect(QLatin1String( "org.kde.kaccessibleapp" ), QLatin1String( "/Adaptor" ), QLatin1String( "org.kde.kaccessibleapp.Adaptor" ), QLatin1String( "focusChanged" ), this, SLOT(focusChanged(int,int,int,int,int,int)));
   }
 }
 

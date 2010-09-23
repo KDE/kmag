@@ -133,7 +133,7 @@ KMagSelRect::~KMagSelRect()
 }
 
 //--------------------------------------------------------------------------
-//   
+//
 //--------------------------------------------------------------------------
 
 bool KMagSelRect::visible()
@@ -205,7 +205,7 @@ KMagSelWin::KMagSelWin ( QWidget * parent, Qt::WFlags ) :
     QWidget(parent) //Qt::WStyle_Customize | Qt::WStyle_NoBorder | Qt::WStyle_StaysOnTop | Qt::WType_TopLevel | Qt::WX11BypassWM)
 {
   setWindowFlags( Qt::CustomizeWindowHint | Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint | Qt::X11BypassWindowManagerHint);
-    
+
   QPalette p = palette();
   p.setBrush(backgroundRole(), QBrush(QBitmap::fromData( QSize(8,  8),  line_bits)));
   setPalette(p);
@@ -214,7 +214,7 @@ KMagSelWin::KMagSelWin ( QWidget * parent, Qt::WFlags ) :
   titleBar->setObjectName( QLatin1String("titlebar" ));
   setPaletteColor(titleBar, QPalette::Background, getTitleColor());
   setPaletteColor(titleBar, QPalette::Foreground, getTextColor());
-  titleBar->setText(i18n("Selection Window")+" - "+i18n("KMagnifier"));
+  titleBar->setText(i18n("Selection Window")+QLatin1String( " - " )+i18n("KMagnifier"));
   connect (titleBar, SIGNAL (startResizing ()), this, SLOT (startResizing ()));
   connect (titleBar, SIGNAL (resized (QPoint)), this, SLOT (titleMoved (QPoint)));
 
