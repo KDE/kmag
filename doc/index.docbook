@@ -50,8 +50,8 @@
 
 
 
-<date>2009-12-19</date>
-<releaseinfo>1.0</releaseinfo>
+<date>2010-09-15</date>
+<releaseinfo>1.0 &kde; 4.5</releaseinfo>
 
 <!-- Abstract about this handbook -->
 
@@ -132,8 +132,7 @@ Thus, it shows the default &kde;/&Qt; cursor.
 
 <sect1 id="changing-selection-window">
 <title>Changing the part of the screen to be magnified</title>
-<para>
-When in <guilabel>Selection Window Mode</guilabel>, the selection window can be moved and resized
+<para>When in <guilabel>Selection Window Mode</guilabel>, the zoom window and the selection window can be moved and resized
 using the &LMB; like any window.
 You can also change the position and size of the selection window using the arrow keys on the keyboard,
 or by clicking into the zoom window:
@@ -141,24 +140,16 @@ or by clicking into the zoom window:
 
 <variablelist>
 <varlistentry>
-<term><keycap>Arrow keys</keycap> or &LMB;</term>
+<term><keycap>Arrow keys</keycap>, &LMB; or &MMB;</term>
 <listitem>
-<para>By keeping the left mouse button pressed and moving the
-mouse, you can move the zoom window.
-You can also use the arrow keys.</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>&Shift; &LMB; or &MMB;</term>
-<listitem>
-<para>By additionally pressing &Shift; or using the &MMB;,
-you can move the selection window.
-</para>
+<para>By keeping the &LMB; or &MMB; pressed in the zoom window and moving the
+mouse, you can move the selection window.
+You can also use the arrow keys if the selection window has the focus.</para>
 </listitem>
 </varlistentry>
 <varlistentry>
 <term><keycombo>&Ctrl;<keycap>Arrow Keys</keycap></keycombo> or
-&Ctrl; &LMB;</term>
+<keycombo>&Ctrl;<mousebutton>&LMB;</mousebutton></keycombo></term>
 <listitem>
 <para>By using this combination, you can resize the selection
 window. Keep in mind that the top-left corner of the selection window
@@ -182,10 +173,13 @@ rotate the magnification image and more.
 </chapter>
 
 
-<chapter id="menus"> 
-<title>Menu Reference</title> 
+<chapter id="menu-shortcuts"> 
+<title>Menus and Shortcuts</title> 
  
-<sect1 id="the-file-menu"> 
+<sect1 id="menus"> 
+<title>Menu Reference</title> 
+
+<sect2 id="the-file-menu">
 <title>The <guimenu>File</guimenu> Menu</title> 
  
 <variablelist> 
@@ -238,9 +232,9 @@ rotate the magnification image and more.
 <listitem><para>Quits the application</para></listitem> 
 </varlistentry> 
 </variablelist> 
-</sect1> 
+</sect2> 
  
-<sect1 id="the-edit-menu"> 
+<sect2 id="the-edit-menu"> 
 <title>The <guimenu>Edit</guimenu> Menu</title> 
  
 <variablelist> 
@@ -258,9 +252,9 @@ rotate the magnification image and more.
 you can paste in other applications.</para></listitem> 
 </varlistentry> 
 </variablelist> 
-</sect1> 
+</sect2> 
  
-<sect1 id="the-view-menu"> 
+<sect2 id="the-view-menu"> 
 <title>The <guimenu>View</guimenu> Menu</title> 
  
 <variablelist> 
@@ -344,9 +338,9 @@ blindness, but good for designing accessible interfaces.</para></listitem>
 </varlistentry> 
  
 </variablelist>
-</sect1>
+</sect2>
 
-<sect1 id="the-settings-menu">
+<sect2 id="the-settings-menu">
 <title>The <guimenu>Settings</guimenu> Menu</title>
 
 <variablelist>
@@ -453,17 +447,17 @@ shortcuts for many menu commands.</para></listitem>
 in the toolbar.</para></listitem>
 </varlistentry>
 </variablelist>
-</sect1>
+</sect2>
 
-<sect1 id="the-help-menu">
+<sect2 id="the-help-menu">
 <title>The <guimenu>Help</guimenu> Menu</title>
 
 &help.menu.documentation;
 
+</sect2>
 </sect1>
-</chapter>
 
-<chapter id="commands">
+<sect1 id="commands">
 <title>Command Reference</title>
 
 <para>&kmag; automatically uses all your default shortcuts for saving
@@ -543,7 +537,7 @@ clipboard.</para>
 </tgroup>
 
 </table>
-
+</sect1>
 </chapter>
 
 <!--
