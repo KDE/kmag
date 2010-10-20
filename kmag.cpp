@@ -80,34 +80,33 @@ KmagApp::KmagApp(QWidget* , const char* name)
   zoomArrayString << QLatin1String( "5:1" ) << QLatin1String( "2:1" ) << QLatin1String( "1:1" ) << QLatin1String( "1:1.5" ) << QLatin1String( "1:2" ) << QLatin1String( "1:3" ) << QLatin1String( "1:4" ) << QLatin1String( "1:5" )
     << QLatin1String( "1:6" ) << QLatin1String( "1:7" ) << QLatin1String( "1:8" ) << QLatin1String( "1:12" ) << QLatin1String( "1:16" ) << QLatin1String( "1:20" );
 
-  // Is there a better way to initialize a vector array?
-  zoomArray.push_back(0.2); zoomArray.push_back(0.5); zoomArray.push_back(1.0);
-  zoomArray.push_back(1.5); zoomArray.push_back(2.0); zoomArray.push_back(3.0);
-  zoomArray.push_back(4.0); zoomArray.push_back(5.0); zoomArray.push_back(6.0); zoomArray.push_back(7.0);
-  zoomArray.push_back(8.0); zoomArray.push_back(12.0); zoomArray.push_back(16.0); zoomArray.push_back(20.0);
+  zoomArray << 0.2 <<0.5 << 1.0;
+  zoomArray << 1.5 << 2.0 << 3.0;
+  zoomArray << 4.0 << 5.0 << 6.0 << 7.0;
+  zoomArray << 8.0 << 12.0 << 16.0 << 20.0;
 
   fpsArrayString << i18nc("Zoom at very low", "&Very Low") << i18nc("Zoom at low", "&Low") << i18nc("Zoom at medium", "&Medium") << i18nc("Zoom at high", "&High") << i18nc("Zoom at very high", "V&ery High");
 
-  fpsArray.push_back(2); // very low
-  fpsArray.push_back(6); // low
-  fpsArray.push_back(10); // medium
-  fpsArray.push_back(15); // high
-  fpsArray.push_back(25); // very high
+  fpsArray.append(2); // very low
+  fpsArray.append(6); // low
+  fpsArray.append(10); // medium
+  fpsArray.append(15); // high
+  fpsArray.append(25); // very high
 
   colorArrayString << i18nc("No color-blindness simulation, i.e. 'normal' vision", "&Normal") << i18n("&Protanopia") << i18n("&Deuteranopia") << i18n("&Tritanopia") << i18n("&Achromatopsia");
 
-  colorArray.push_back(0);
-  colorArray.push_back(1);
-  colorArray.push_back(2);
-  colorArray.push_back(3);
-  colorArray.push_back(4);
+  colorArray.append(0);
+  colorArray.append(1);
+  colorArray.append(2);
+  colorArray.append(3);
+  colorArray.append(4);
 
   rotationArrayString << i18n("&No Rotation (0 Degrees)") << i18n("&Left (90 Degrees)") << i18n("&Upside Down (180 Degrees)") << i18n("&Right (270 Degrees)");
 
-  rotationArray.push_back(0); // no rotation
-  rotationArray.push_back(90); // left
-  rotationArray.push_back(180); // upside down
-  rotationArray.push_back(270); // right
+  rotationArray.append(0); // no rotation
+  rotationArray.append(90); // left
+  rotationArray.append(180); // upside down
+  rotationArray.append(270); // right
 
   // call inits to invoke all other construction parts
   initView();
@@ -562,7 +561,7 @@ void KmagApp::setZoomIndex(int index)
   }
 
   // signal change in zoom value
-  emit updateZoomValue(zoomArray[m_zoomIndex]);
+  emit updateZoomValue(zoomArray.at(m_zoomIndex));
 }
 
 /**
@@ -582,7 +581,7 @@ void KmagApp::setRotationIndex(int index)
   }
 
   // signal change in zoom value
-  emit updateRotationValue(rotationArray[m_rotationIndex]);
+  emit updateRotationValue(rotationArray.at(m_rotationIndex));
 }
 
 /**
@@ -602,7 +601,7 @@ void KmagApp::setFPSIndex(int index)
   }
 
   // signal change in fps value
-  emit updateFPSValue(fpsArray[m_fpsIndex]);
+  emit updateFPSValue(fpsArray.at(m_fpsIndex));
 }
 
 /**
@@ -622,7 +621,7 @@ void KmagApp::setColorIndex(int index)
   }
 
   // signal change in fps value
-  emit updateColorValue(colorArray[m_colorIndex]);
+  emit updateColorValue(colorArray.at(m_colorIndex));
 }
 
 /**

@@ -26,8 +26,6 @@
 
 #include "kmagzoomview.h"
 
-#include <vector>
-
 // include files for Qt
 #include <QtGui/QContextMenuEvent>
 #include <QtGui/QPrinter>
@@ -221,16 +219,16 @@ class KmagApp : public KXmlGuiWindow
     unsigned int m_colorIndex;
 
     QStringList zoomArrayString;
-    std::vector<float> zoomArray;
+    QVector<float> zoomArray;
 
     QStringList rotationArrayString;
-    std::vector<int> rotationArray;
+    QVector<int> rotationArray;
 
     QStringList fpsArrayString;
-    std::vector<float> fpsArray;
+    QVector<float> fpsArray;
 
     QStringList colorArrayString;
-    std::vector<int> colorArray;
+    QVector<int> colorArray;
 
   KMagZoomView* m_zoomView;
   KToggleAction *m_hideCursor, *m_staysOnTop;
