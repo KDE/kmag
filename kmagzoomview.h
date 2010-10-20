@@ -180,6 +180,9 @@ class KMagZoomView : public QAbstractScrollArea
     int visibleHeight() const;
     void setContentsPos(int x, int y);
 
+    /// Setup transformation matrix for zooming, rotating, and mirroring
+    void setupMatrix();
+
   private:
     /// Stores the pixmap which is recolored from the grabbed one
     QPixmap m_coloredPixmap;

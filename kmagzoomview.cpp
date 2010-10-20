@@ -105,12 +105,11 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
 
   viewport()->setMouseTracking(true);
   viewport()->setAttribute(Qt::WA_NoSystemBackground, true);
+  viewport()->setAutoFillBackground(false);
   viewport()->setFocusPolicy(Qt::StrongFocus);
 
   // init the zoom matrix
-  m_zoomMatrix.reset();
-  m_zoomMatrix.scale(m_zoom, m_zoom);
-  m_zoomMatrix.rotate(m_rotation);
+  setupMatrix();
 
   m_ctrlKeyPressed = false;
   m_shiftKeyPressed = false;
@@ -178,6 +177,13 @@ void KMagZoomView::setContentsPos(int x, int y)
 {
   horizontalScrollBar()->setValue(x);
   verticalScrollBar()->setValue(y);
+}
+
+void KMagZoomView::setupMatrix()
+{
+  m_zoomMatrix.reset();
+  m_zoomMatrix.scale(m_zoom, m_zoom);
+  m_zoomMatrix.rotate(m_rotation);
 }
 
 /**
@@ -964,9 +970,7 @@ void KMagZoomView::setZoom(float zoom)
     fitToWindow();
 
   // recompute the zoom matrix
-  m_zoomMatrix.reset();
-  m_zoomMatrix.scale(m_zoom, m_zoom);
-  m_zoomMatrix.rotate(m_rotation);
+  setupMatrix();
 
   viewport()->update();
 }
@@ -984,9 +988,7 @@ void KMagZoomView::setRotation(int rotation)
     fitToWindow();
 
   // recompute the zoom matrix
-  m_zoomMatrix.reset();
-  m_zoomMatrix.scale(m_zoom, m_zoom);
-  m_zoomMatrix.rotate(m_rotation);
+  setupMatrix();
 
   viewport()->update();
 }
