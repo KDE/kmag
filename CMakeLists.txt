@@ -1,7 +1,6 @@
 if(Q_WS_X11)
 project(kmag)
 
-add_definitions (-DQT3_SUPPORT -DQT3_SUPPORT_WARNINGS)
 ########### next target ###############
 
 set(kmag_SRCS 
@@ -13,7 +12,7 @@ set(kmag_SRCS
 
 kde4_add_executable(kmag ${kmag_SRCS})
 
-target_link_libraries(kmag ${KDE4_KIO_LIBS} ${QT_QT3SUPPORT_LIBRARY})
+target_link_libraries(kmag ${KDE4_KIO_LIBS})
 
 install(TARGETS kmag  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 

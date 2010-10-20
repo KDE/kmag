@@ -28,7 +28,7 @@
 #include <QtGui/QPainter>
 #include <QtGui/QPixmap>
 #include <QtCore/QTimer>
-#include <Qt3Support/Q3ScrollView>
+#include <QtGui/QAbstractScrollArea>
 #include <QtCore/QRect>
 #include <QtGui/QCursor>
 #include <QtGui/QFocusEvent>
@@ -46,7 +46,7 @@
  *
  * @author Sarang Lakare <sarang#users.sourceforge.net>
  */
-class KMagZoomView : public Q3ScrollView
+class KMagZoomView : public QAbstractScrollArea
 {
     Q_OBJECT
   public:
@@ -142,8 +142,7 @@ class KMagZoomView : public Q3ScrollView
     void resizeEvent(QResizeEvent *e);
 
     /// Called when the widget is to be repainted
-    //void paintEvent(QPaintEvent *e);
-    void drawContents ( QPainter * p, int clipx, int clipy, int clipw, int cliph );
+    void paintEvent(QPaintEvent *e);
 
     /// This function calculates the mouse position relative to the image
     QPoint calcMousePos(bool updateMousePos=true);
@@ -171,6 +170,15 @@ class KMagZoomView : public Q3ScrollView
 
     /// Returns the rectangle where the pixmap will be drawn
     QRect pixmapRect();
+
+    /// Q3ScrollView porting helpers, maybe inline them
+    int contentsX() const;
+    int contentsY() const;
+    int contentsWidth() const;
+    int contentsHeight() const;
+    int visibleWidth() const;
+    int visibleHeight() const;
+    void setContentsPos(int x, int y);
 
   private:
     /// Stores the pixmap which is recolored from the grabbed one
