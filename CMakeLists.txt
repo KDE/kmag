@@ -1,4 +1,3 @@
-if(Q_WS_X11)
 project(kmag)
 
 ########### next target ###############
@@ -23,5 +22,3 @@ install( PROGRAMS kmag.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
 install( FILES kmagui.rc  DESTINATION  ${DATA_INSTALL_DIR}/kmag )
 
 kde4_install_icons( ${ICON_INSTALL_DIR} )
-
-endif(Q_WS_X11)
