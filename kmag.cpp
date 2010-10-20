@@ -286,8 +286,7 @@ void KmagApp::initView()
 {
   m_zoomView = new KMagZoomView( this, "ZoomView" );
 //m_zoomView->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)7, m_zoomView->sizePolicy().hasHeightForWidth() ) );
-  m_zoomView->setFrameShape( QFrame::StyledPanel );
-  m_zoomView->setFrameShadow( QFrame::Raised );
+  m_zoomView->setFrameShape( QFrame::NoFrame );
 
   setCentralWidget(m_zoomView);
 }

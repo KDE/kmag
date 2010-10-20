@@ -128,7 +128,7 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
   // connect it to updateMouseView()
   connect(&m_mouseViewTimer, SIGNAL(timeout()), SLOT(updateMouseView()));
   // start the grabTimer @ 25 frames per second!
-  m_mouseViewTimer.start(25);
+  m_mouseViewTimer.start(40);
 
   this->setWhatsThis( i18n("This is the main window which shows the contents of the\
  selected region. The contents will be magnified according to the zoom level that is set."));
@@ -311,10 +311,6 @@ void KMagZoomView::paintMouseCursor(QPaintDevice *dev, const QPoint &mousePos)
   // painter for the zoom view
   QPainter pz(dev);
 
-  if(m_latestCursorPos.x() >= 0 && m_latestCursorPos.x() < m_selRect.width() &&
-     m_latestCursorPos.y() >= 0 && m_latestCursorPos.y() < m_selRect.height() ) { // || updateMousePos) {
-    // mouse position is indeed inside the selRect
-
     // How to show the mouse :
 
     switch(m_showMouse) {
@@ -392,7 +388,6 @@ void KMagZoomView::paintMouseCursor(QPaintDevice *dev, const QPoint &mousePos)
       // do not show anything
       break;
     } // switch(m_showMouse)
-  }
 }
 
 
@@ -852,7 +847,7 @@ void KMagZoomView::fitToWindow()
   // update the grab rectangle display
   m_selRect.update();
 //  m_fitToWindow = true;
-  viewport()->repaint();
+  viewport()->update();
 }
 
 void KMagZoomView::setFitToWindow(bool fit)
@@ -926,7 +921,7 @@ void KMagZoomView::grabFrame()
   // call repaint to display the newly grabbed image
   horizontalScrollBar()->setPageStep(m_zoomedPixmap.width());
   verticalScrollBar()->setPageStep(m_zoomedPixmap.height());
-  viewport()->repaint();
+  viewport()->update();
 }
 
 
@@ -935,11 +930,8 @@ void KMagZoomView::grabFrame()
  */
 void KMagZoomView::updateMouseView()
 {
-  QPoint pos(QCursor::pos());
-  if(m_selRect.left() <= pos.x() && pos.x() <= m_selRect.right() &&
-     m_selRect.top() <= pos.y() && pos.y() <= m_selRect.bottom() &&
-     m_refreshSwitch)
-    viewport()->repaint();
+    if (m_fps < 8)
+        viewport()->update();
 }
 
 /**
@@ -977,7 +969,7 @@ void KMagZoomView::setZoom(float zoom)
 
   m_zoomedPixmap = m_coloredPixmap.transformed(m_zoomMatrix);
 
-  viewport()->repaint();
+  viewport()->update();
 }
 
 /**
@@ -999,7 +991,7 @@ void KMagZoomView::setRotation(int rotation)
 
   m_zoomedPixmap = m_coloredPixmap.transformed(m_zoomMatrix);
 
-  viewport()->repaint();
+  viewport()->update();
 }
 
 /**
@@ -1009,7 +1001,7 @@ void KMagZoomView::setColorMode(int mode)
 {
   if (m_colormode != mode) {
     m_colormode = mode;
-    viewport()->repaint();
+    viewport()->update();
   }
 }
 
