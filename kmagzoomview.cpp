@@ -271,7 +271,7 @@ void KMagZoomView::resizeEvent( QResizeEvent * e )
  */
 void KMagZoomView::paintEvent(QPaintEvent *e)
 {
-  if(m_zoomedPixmap.isNull())
+  if(m_coloredPixmap.isNull())
     return;
 
   QPainter p(viewport());
@@ -292,7 +292,10 @@ void KMagZoomView::paintEvent(QPaintEvent *e)
         & e->rect(),
         Qt::black);
 
-  p.drawPixmap(QPoint(clipx-contentsX(), clipy-contentsY()), m_zoomedPixmap, e->rect());
+  p.translate(visibleWidth() / 2.0, visibleHeight() / 2.0);
+  p.setMatrix(m_zoomMatrix, true);
+  p.translate(-m_coloredPixmap.width() / 2.0, -m_coloredPixmap.height() / 2.0);
+  p.drawPixmap(QPoint(clipx-contentsX(), clipy-contentsY()), m_coloredPixmap);
   p.end();
 
   if (m_showMouse)
@@ -915,12 +918,10 @@ void KMagZoomView::grabFrame()
   if (m_colormode != 0)
     m_coloredPixmap = QPixmap::fromImage(ColorSim::recolor(m_coloredPixmap.toImage(), m_colormode));
 
-  // zoom the image
-  m_zoomedPixmap = m_coloredPixmap.transformed(m_zoomMatrix);
-
+  QRect r = m_zoomMatrix.mapRect(m_coloredPixmap.rect());
   // call repaint to display the newly grabbed image
-  horizontalScrollBar()->setPageStep(m_zoomedPixmap.width());
-  verticalScrollBar()->setPageStep(m_zoomedPixmap.height());
+  horizontalScrollBar()->setPageStep(r.width());
+  verticalScrollBar()->setPageStep(r.height());
   viewport()->update();
 }
 
@@ -967,8 +968,6 @@ void KMagZoomView::setZoom(float zoom)
   m_zoomMatrix.scale(m_zoom, m_zoom);
   m_zoomMatrix.rotate(m_rotation);
 
-  m_zoomedPixmap = m_coloredPixmap.transformed(m_zoomMatrix);
-
   viewport()->update();
 }
 
@@ -988,8 +987,6 @@ void KMagZoomView::setRotation(int rotation)
   m_zoomMatrix.reset();
   m_zoomMatrix.scale(m_zoom, m_zoom);
   m_zoomMatrix.rotate(m_rotation);
-
-  m_zoomedPixmap = m_coloredPixmap.transformed(m_zoomMatrix);
 
   viewport()->update();
 }
@@ -1065,16 +1062,12 @@ QStringList KMagZoomView::getShowMouseStringList() const
  */
 QImage KMagZoomView::getImage()
 {
+  QImage image = m_coloredPixmap.transformed(m_zoomMatrix).toImage();
+
   // show the pixel under mouse cursor
-  if(m_showMouse && !m_zoomedPixmap.isNull()) {
-    // Pixmap which will have the zoomed pixmap + mouse
-    QImage zoomView = m_zoomedPixmap.toImage();
-
+  if(m_showMouse && !image.isNull()) {
     // paint the mouse cursor w/o updating to a newer position
-    paintMouseCursor(&zoomView, calcMousePos(false));
-
-    return(zoomView);
-  } else { // no mouse cursor
-     return(m_zoomedPixmap.toImage());
+    paintMouseCursor(&image, calcMousePos(false));
   }
+  return(image);
 }

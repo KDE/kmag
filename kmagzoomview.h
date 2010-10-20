@@ -184,9 +184,6 @@ class KMagZoomView : public QAbstractScrollArea
     /// Stores the pixmap which is recolored from the grabbed one
     QPixmap m_coloredPixmap;
 
-    /// Stores the pixmap which is zoomed from the colored one - this will be actaully drawn
-    QPixmap m_zoomedPixmap;
-
     /// The selected rectangle which is to be grabbed
     KMagSelRect m_selRect;
 
