@@ -1,6 +1,6 @@
 <!DOCTYPE kpartgui>
-<kpartgui name="kmag" version="14">
- <ToolBar noMerge="1" name="mainToolBar">
+<kpartgui name="kmag" version="15">
+ <ToolBar noMerge="1" name="mainToolBar"><text>Main Toolbar</text>
   <Action name="new_window"/>
   <Separator />
   <Action name="snapshot"/>
@@ -8,7 +8,7 @@
   <Action name="edit_copy"/>
  </ToolBar>
 
- <ToolBar noMerge="1" name="viewToolBar">
+ <ToolBar noMerge="1" name="viewToolBar"><text>View Toolbar</text>
   <Action name="start_stop_refresh"/>
   <Separator />
   <Action name="view_zoom_in"/>
@@ -18,7 +18,7 @@
   <Action name="fps_selector"/>
  </ToolBar>
 
- <ToolBar noMerge="1" name="settingsToolBar">
+ <ToolBar noMerge="1" name="settingsToolBar"><text>Settings Toolbar</text>
   <Action name="mode_followmouse"/>
   <Action name="mode_followfocus"/>
   <Action name="mode_selectionwindow"/>
@@ -50,11 +50,12 @@
    <Separator />
    <Action name="color_mode"/>
   </Menu>
-  <Menu name="settings"><text>&amp;Settings</text>
-   <Action name="show_menu"/>
-   <Action name="show_mainToolBar"/>
+  <Menu name="settings" noMerge="1"><text>&amp;Settings</text>
+   <Action name="options_show_menubar"/>
+   <Merge name="StandardToolBarMenuHandler"/>
+   <!--Action name="show_mainToolBar"/>
    <Action name="show_viewToolBar"/>
-   <Action name="show_settingsToolBar"/>
+   <Action name="show_settingsToolBar"/-->
    <Separator />
    <Action name="mode_followmouse"/>
    <Action name="mode_followfocus"/>

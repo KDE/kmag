@@ -142,9 +142,6 @@ class KmagApp : public KXmlGuiWindow
     void showMouseCursor(bool show);
 
     void slotShowMenu();
-    void slotShowMainToolBar();
-    void slotShowViewToolBar();
-    void slotShowSettingsToolBar();
 
     void slotToggleHideCursor();
     void slotStaysOnTop();
@@ -200,7 +197,7 @@ class KmagApp : public KXmlGuiWindow
     QAction *m_pZoomOut;
     QAction *m_pQuit;
     KAction *refreshSwitch;
-    KToggleAction *m_pShowMenu, *m_pShowMainToolBar, *m_pShowViewToolBar, *m_pShowSettingsToolBar;
+    KToggleAction *m_pShowMenu;
     KSelectAction *m_pZoomBox, *m_pRotationBox, *m_pFPSBox, *m_pColorBox;
 
     /// zoom slider

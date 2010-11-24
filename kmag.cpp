@@ -67,8 +67,6 @@
 #include "kmagselrect.h"
 
 
-#define havesetCheckedState
-
 KmagApp::KmagApp(QWidget* , const char* name)
   : KXmlGuiWindow(0) // Qt::WStyle_MinMax | Qt::WType_TopLevel | Qt::WDestructiveClose | Qt::WStyle_ContextHelp | Qt::WindowCloseButtonHint | Qt::WStyle_StaysOnTop
   , m_defaultMouseCursorType(2)
@@ -171,31 +169,9 @@ void KmagApp::initActions()
   m_pCopy->setWhatsThis(i18n("Click on this button to copy the current zoomed view to the clipboard which you can paste in other applications."));
   m_pCopy->setToolTip(i18n("Copy zoomed image to clipboard"));
 
-  m_pShowMenu = new KToggleAction(KIcon(QLatin1String( "show-menu" )), i18n("Show &Menu"), this);
-  actionCollection()->addAction(QLatin1String( "show_menu" ), m_pShowMenu);
-  connect(m_pShowMenu, SIGNAL(triggered(bool)), SLOT(slotShowMenu()));
-  m_pShowMenu->setShortcut(Qt::CTRL+Qt::Key_M);
-  #ifdef havesetCheckedState
-  m_pShowMenu->setCheckedState(KGuiItem(i18n("Hide &Menu")));
-  #endif
-  m_pShowMainToolBar = new KToggleAction(i18n("Show Main &Toolbar"), this);
-  actionCollection()->addAction(QLatin1String( "show_mainToolBar" ), m_pShowMainToolBar);
-  connect(m_pShowMainToolBar, SIGNAL(triggered(bool)), SLOT(slotShowMainToolBar()));
-  #ifdef havesetCheckedState
-  m_pShowMainToolBar->setCheckedState(KGuiItem(i18n("Hide Main &Toolbar")));
-  #endif
-  m_pShowViewToolBar = new KToggleAction(i18n("Show &View Toolbar"), this);
-  actionCollection()->addAction(QLatin1String( "show_viewToolBar" ), m_pShowViewToolBar);
-  connect(m_pShowViewToolBar, SIGNAL(triggered(bool)), SLOT(slotShowViewToolBar()));
-  #ifdef havesetCheckedState
-  m_pShowViewToolBar->setCheckedState(KGuiItem(i18n("Hide &View Toolbar")));
-  #endif
-  m_pShowSettingsToolBar = new KToggleAction(i18n("Show &Settings Toolbar"), this);
-  actionCollection()->addAction(QLatin1String( "show_settingsToolBar" ), m_pShowSettingsToolBar);
-  connect(m_pShowSettingsToolBar, SIGNAL(triggered(bool)), SLOT(slotShowSettingsToolBar()));
-  #ifdef havesetCheckedState
-  m_pShowSettingsToolBar->setCheckedState(KGuiItem(i18n("Hide &Settings Toolbar")));
-  #endif
+  m_pShowMenu = KStandardAction::showMenubar(this, SLOT(slotShowMenu()), actionCollection());
+
+  setStandardToolBarMenuEnabled(true);
 
   m_modeFollowMouse = new KToggleAction(KIcon(QLatin1String( "followmouse" )), i18n("&Follow Mouse Mode"), this);
   actionCollection()->addAction(QLatin1String( "mode_followmouse" ), m_modeFollowMouse);
@@ -279,7 +255,7 @@ void KmagApp::initActions()
   m_pColorBox->setWhatsThis(i18n("Select a mode to simulate various types of color-blindness."));
   m_pColorBox->setToolTip(i18n("Color-blindness Simulation Mode"));
 
-  createGUI();
+  setupGUI();
 }
 
 void KmagApp::initView()
@@ -359,18 +335,6 @@ void KmagApp::saveOptions()
      cg.writeEntry("Mode", "wholescreen");
   else if (m_modeSelWin->isChecked())
      cg.writeEntry("Mode", "selectionwindow");
-
-  cg.writeEntry("ShowMenu", m_pShowMenu->isChecked());
-  cg.writeEntry("ShowMainToolBar", m_pShowMainToolBar->isChecked());
-  cg.writeEntry("ShowViewToolBar", m_pShowViewToolBar->isChecked());
-  cg.writeEntry("ShowSettingsToolBar", m_pShowSettingsToolBar->isChecked());
-
-  KConfigGroup mainToolBarGroup(config,"Main ToolBar");
-  toolBar(QLatin1String( "mainToolBar" ))->saveSettings( mainToolBarGroup );
-  KConfigGroup viewToolBarGroup(config,"View ToolBar" );
-  toolBar(QLatin1String( "viewToolBar" ))->saveSettings( viewToolBarGroup );
-  KConfigGroup settingsToolbarGroup(config,"Settings ToolBar" );
-  toolBar(QLatin1String( "settingsToolBar" ))->saveSettings( settingsToolbarGroup );
 }
 
 
@@ -435,30 +399,8 @@ void KmagApp::readOptions()
   m_staysOnTop->setChecked(cg.readEntry("StaysOnTop", true));
   slotStaysOnTop();
 
-  KConfigGroup settingsToolbarGroup(config,"Settings ToolBar");
-  if( settingsToolbarGroup.exists() )
-      toolBar(QLatin1String( "settingsToolBar" ))->applySettings(settingsToolbarGroup );
-
-  KConfigGroup mainToolbarGroup(config,"Main ToolBar");
-  if( mainToolbarGroup.exists() )
-      toolBar(QLatin1String( "mainToolBar" ))->applySettings( mainToolbarGroup );
-
-  KConfigGroup viewToolbarGroup(config,"View ToolBar" );
-  if( viewToolbarGroup.exists() )
-      toolBar(QLatin1String( "viewToolBar" ))->applySettings( viewToolbarGroup );
-
-  KConfigGroup generalOptionGroup(config,"General Options");
-  m_pShowMenu->setChecked( generalOptionGroup.readEntry("ShowMenu", true));
-  slotShowMenu();
-
-  m_pShowMainToolBar->setChecked(generalOptionGroup.readEntry("ShowMainToolBar", false));
-  slotShowMainToolBar();
-
-  m_pShowViewToolBar->setChecked(generalOptionGroup.readEntry("ShowViewToolBar", true));
-  slotShowViewToolBar();
-
-  m_pShowSettingsToolBar->setChecked(generalOptionGroup.readEntry("ShowSettingsToolBar", true));
-  slotShowSettingsToolBar();
+  // XMLGui has already read and set up the menuBar for us
+  m_pShowMenu->setChecked(menuBar()->isVisible());
 }
 
 bool KmagApp::queryClose()
@@ -858,50 +800,6 @@ void KmagApp::slotShowMenu()
   else
   {
     menuBar()->show();
-  }
-
-
-}
-
-void KmagApp::slotShowMainToolBar()
-{
-  ///////////////////////////////////////////////////////////////////
-  // turn mainToolbar on or off
-  if(!m_pShowMainToolBar->isChecked())
-  {
-    toolBar(QLatin1String( "mainToolBar" ))->hide();
-  }
-  else
-  {
-    toolBar(QLatin1String( "mainToolBar" ))->show();
-  }
-}
-
-void KmagApp::slotShowViewToolBar()
-{
-  ///////////////////////////////////////////////////////////////////
-  // turn viewToolbar on or off
-  if(!m_pShowViewToolBar->isChecked())
-  {
-    toolBar(QLatin1String( "viewToolBar" ))->hide();
-  }
-  else
-  {
-    toolBar(QLatin1String( "viewToolBar" ))->show();
-  }
-}
-
-void KmagApp::slotShowSettingsToolBar()
-{
-  ///////////////////////////////////////////////////////////////////
-  // turn viewToolbar on or off
-  if(!m_pShowSettingsToolBar->isChecked())
-  {
-    toolBar(QLatin1String( "settingsToolBar" ))->hide();
-  }
-  else
-  {
-    toolBar(QLatin1String( "settingsToolBar" ))->show();
   }
 }
 
