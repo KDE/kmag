@@ -1,5 +1,6 @@
 project(kmag)
 
+add_subdirectory( doc )
 ########### next target ###############
 
 set(kmag_SRCS 
