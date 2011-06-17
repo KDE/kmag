@@ -22,7 +22,7 @@
 #include "kmagzoomview.h"
 #include "kmagzoomview.moc"
 
-// include files for Qt
+// include files for TQt
 #include <tqbitmap.h>
 #include <tqpixmap.h>
 #include <tqimage.h>
@@ -80,22 +80,22 @@ static uchar phand_bits[] = {
 
 
 static bool obscuredRegion (TQRegion &region, Window winId, Window ignoreId, Window start = 0, int level = -1) {
-  Window root, parent, *children; uint nchildren;
+  Window root, tqparent, *tqchildren; uint ntqchildren;
   if (0 == start)
     start = qt_xrootwin();
 
   bool winIdFound = false;
-  if (0 != XQueryTree (qt_xdisplay(), start, &root, &parent, &children, &nchildren)) {
-    for (uint i=0; i < nchildren; ++i) {
+  if (0 != XQueryTree (qt_xdisplay(), start, &root, &tqparent, &tqchildren, &ntqchildren)) {
+    for (uint i=0; i < ntqchildren; ++i) {
       if (winIdFound) {
-        if (ignoreId != children [i]) {
+        if (ignoreId != tqchildren [i]) {
           XWindowAttributes atts;
-          XGetWindowAttributes (qt_xdisplay(), children [i], &atts);
+          XGetWindowAttributes (qt_xdisplay(), tqchildren [i], &atts);
           if (atts.map_state == IsViewable)
             region -= TQRegion (atts.x, atts.y, atts.width, atts.height, TQRegion::Rectangle);
         }
       }
-      else if (winId == children [i])
+      else if (winId == tqchildren [i])
         winIdFound = true;
 
       // According to tests, my own window ID is either on toplevel or two levels below.
@@ -103,15 +103,15 @@ static bool obscuredRegion (TQRegion &region, Window winId, Window ignoreId, Win
       // then to five recursion levels, and make a full recursive search only if that
       // was unsuccessful.
       else if (level > 1)
-        winIdFound = obscuredRegion (region, winId, ignoreId, children [i], level-1);
+        winIdFound = obscuredRegion (region, winId, ignoreId, tqchildren [i], level-1);
       else if (level == -1)
-        if (! (winIdFound = obscuredRegion (region, winId, ignoreId, children [i], 0)))
-          if (! (winIdFound = obscuredRegion (region, winId, ignoreId, children [i], 1)))
-            winIdFound = obscuredRegion (region, winId, ignoreId, children [i], -1);
+        if (! (winIdFound = obscuredRegion (region, winId, ignoreId, tqchildren [i], 0)))
+          if (! (winIdFound = obscuredRegion (region, winId, ignoreId, tqchildren [i], 1)))
+            winIdFound = obscuredRegion (region, winId, ignoreId, tqchildren [i], -1);
     }
 
-    if (children != NULL)
-      XFree (children);
+    if (tqchildren != NULL)
+      XFree (tqchildren);
   }
 
   return winIdFound;
@@ -120,8 +120,8 @@ static bool obscuredRegion (TQRegion &region, Window winId, Window ignoreId, Win
 
 
 
-KMagZoomView::KMagZoomView(TQWidget *parent, const char *name)
-  : TQScrollView(parent, name),
+KMagZoomView::KMagZoomView(TQWidget *tqparent, const char *name)
+  : TQScrollView(tqparent, name),
     m_selRect(0, 0, 128, 128, this),
     m_grabTimer(0),
     m_mouseViewTimer(0),
@@ -136,7 +136,7 @@ KMagZoomView::KMagZoomView(TQWidget *parent, const char *name)
   KApplication::setGlobalMouseTracking(TRUE);
   viewport()->setMouseTracking(TRUE);
   viewport()->setBackgroundMode (NoBackground);
-  viewport()->setFocusPolicy(TQWidget::StrongFocus);
+  viewport()->setFocusPolicy(TQ_StrongFocus);
   
   m_ctrlKeyPressed = false;
   m_shiftKeyPressed = false;
@@ -227,7 +227,7 @@ void KMagZoomView::resizeEvent( TQResizeEvent * e )
 }
 
 /**
- * Called when the widget is to be repainted
+ * Called when the widget is to be tqrepainted
  *
  * @param p
  */
@@ -246,7 +246,7 @@ void KMagZoomView::drawContents ( TQPainter * p, int clipx, int clipy, int clipw
   // show the pixel under mouse cursor
   if(m_showMouse) {
     // paint the mouse cursor
-    paintMouseCursor(&clippedPixmap, calcMousePos (m_refreshSwitch)-TQPoint (areaToPaint.x(), areaToPaint.y()));
+    paintMouseCursor(TQT_TQPAINTDEVICE(&clippedPixmap), calcMousePos (m_refreshSwitch)-TQPoint (areaToPaint.x(), areaToPaint.y()));
   }
 
   TQPixmap zoomedPixmap;
@@ -255,9 +255,9 @@ void KMagZoomView::drawContents ( TQPainter * p, int clipx, int clipy, int clipw
   if (m_invert) {
     TQImage zoomedImage;
     zoomedImage = zoomedPixmap.convertToImage();
-    zoomedImage.invertPixels (false);
+    zoomedImage.tqinvertPixels (false);
     p->drawImage (TQPoint (clipx-contentsX(), clipy-contentsY()), zoomedImage, zoomedImage.rect(),
-                  Qt::ThresholdDither | Qt::ThresholdAlphaDither | Qt::AvoidDither);
+                  TQt::ThresholdDither | TQt::ThresholdAlphaDither | TQt::AvoidDither);
   } else {
     p->drawPixmap (TQPoint (clipx, clipy), zoomedPixmap, zoomedPixmap.rect());
   }
@@ -283,20 +283,20 @@ void KMagZoomView::paintMouseCursor(TQPaintDevice *dev, TQPoint mousePos)
     switch(m_showMouse) {
     case 1:
       // 1. Square around the pixel
-      pz.setPen(Qt::white);
-      pz.setRasterOp(Qt::XorROP);
+      pz.setPen(TQt::white);
+      pz.setRasterOp(TQt::XorROP);
       pz.drawRect(mousePos.x()-1, mousePos.y()-1, 3, 3);
       break;
 
     case 2:
     {
       // 2. Arrow cursor
-      pz.setPen(Qt::black);
-      pz.setBackgroundColor(Qt::white);
+      pz.setPen(TQt::black);
+      pz.setBackgroundColor(TQt::white);
 
       TQBitmap sCursor( 16, 16, left_ptr_bits, TRUE );
-      TQBitmap mask( 16, 16, left_ptrmsk_bits, TRUE );
-      sCursor.setMask(mask);
+      TQBitmap tqmask( 16, 16, left_ptrmsk_bits, TRUE );
+      sCursor.setMask(tqmask);
 
       // since hot spot is at 3,1
       pz.drawPixmap(mousePos.x()-3, mousePos.y()-1, sCursor);
@@ -315,12 +315,12 @@ void KMagZoomView::paintMouseCursor(TQPaintDevice *dev, TQPoint mousePos)
         case ArrowCursor :
          {
           // 2. Arrow cursor
-          pz.setPen(Qt::black);
-          pz.setBackgroundColor(Qt::white);
+          pz.setPen(TQt::black);
+          pz.setBackgroundColor(TQt::white);
 
           TQBitmap sCursor( 16, 16, left_ptr_bits, TRUE );
-          TQBitmap mask( 16, 16, left_ptrmsk_bits, TRUE );
-          sCursor.setMask(mask);
+          TQBitmap tqmask( 16, 16, left_ptrmsk_bits, TRUE );
+          sCursor.setMask(tqmask);
 
           // since hot spot is at 3,1
           pz.drawPixmap(mousePos.x()-3, mousePos.y()-1, sCursor);
@@ -328,8 +328,8 @@ void KMagZoomView::paintMouseCursor(TQPaintDevice *dev, TQPoint mousePos)
         break;
         default:
           TQBitmap sCursor( 32, 32, phand_bits, TRUE );
-          TQBitmap mask( 32, 32, phandm_bits, TRUE );
-          sCursor.setMask(mask);
+          TQBitmap tqmask( 32, 32, phandm_bits, TRUE );
+          sCursor.setMask(tqmask);
 
           pz.drawPixmap(mousePos.x(), mousePos.y(), sCursor);
         break;
@@ -370,7 +370,7 @@ TQPoint KMagZoomView::calcMousePos(bool updateMousePos)
 void KMagZoomView::mousePressEvent(TQMouseEvent *e)
 {
   switch(e->button()) {
-  case TQMouseEvent::LeftButton :
+  case Qt::LeftButton :
     if(m_ctrlKeyPressed) {
       // check if currently in resize mode
       // don't do anything if fitToWindow is enabled
@@ -392,10 +392,8 @@ void KMagZoomView::mousePressEvent(TQMouseEvent *e)
         m_selRect.show();
       }
       else {
-        #if QT_VERSION >= 300
-        // ignore this button press.. so it goes to the parent
+        // ignore this button press.. so it goes to the tqparent
         e->ignore();
-        #endif
       }
     } else if(m_shiftKeyPressed) {
       // check if currently in move mode
@@ -417,10 +415,8 @@ void KMagZoomView::mousePressEvent(TQMouseEvent *e)
         m_selRect.show();
       }
       else {
-        #if QT_VERSION >= 300
-        // ignore this button press.. so it goes to the parent
+        // ignore this button press.. so it goes to the tqparent
         e->ignore();
-        #endif
       }
     } else {
       // check if currently in move mode
@@ -441,15 +437,13 @@ void KMagZoomView::mousePressEvent(TQMouseEvent *e)
         m_selRect.show();
       }
       else {
-        #if QT_VERSION >= 300
-        // ignore this button press.. so it goes to the parent
+        // ignore this button press.. so it goes to the tqparent
         e->ignore();
-        #endif
       }
     }
     break;
 
-  case TQMouseEvent::MidButton :
+  case Qt::MidButton :
     // check if currently in move mode
     // don't do anything if follow mouse is enabled
     if ((m_mouseMode != MoveSelection) && !m_followMouse) {
@@ -469,18 +463,14 @@ void KMagZoomView::mousePressEvent(TQMouseEvent *e)
       m_selRect.show();
     }
     else {
-      #if QT_VERSION >= 300
-      // ignore this button press.. so it goes to the parent
+      // ignore this button press.. so it goes to the tqparent
       e->ignore();
-      #endif
     }
     break;
   // do nothing
   default:
-#if QT_VERSION >= 300
-    // ignore this button press.. so it goes to the parent
+    // ignore this button press.. so it goes to the tqparent
     e->ignore();
-#endif
     break;
   }
 }
@@ -494,8 +484,8 @@ void KMagZoomView::mousePressEvent(TQMouseEvent *e)
 void KMagZoomView::mouseReleaseEvent(TQMouseEvent *e)
 {
   switch(e->button()) {
-  case TQMouseEvent::LeftButton :
-  case TQMouseEvent::MidButton :
+  case Qt::LeftButton :
+  case Qt::MidButton :
     // check if currently in move mode
     if(m_mouseMode == MoveSelection) {
       // hide the selection window
@@ -503,7 +493,7 @@ void KMagZoomView::mouseReleaseEvent(TQMouseEvent *e)
       // set the mouse mode to normal
       m_mouseMode = Normal;
 
-      // restore the cursor shape
+      // restore the cursor tqshape
       setCursor(arrowCursor);
 
       // restore the cursor position
@@ -514,7 +504,7 @@ void KMagZoomView::mouseReleaseEvent(TQMouseEvent *e)
       // set the mouse mode to normal
       m_mouseMode = Normal;
 
-      // restore the cursor shape
+      // restore the cursor tqshape
       setCursor(arrowCursor);
 
       // restore the cursor position
@@ -526,14 +516,14 @@ void KMagZoomView::mouseReleaseEvent(TQMouseEvent *e)
       // set the mouse mode to normal
       m_mouseMode = Normal;
 
-      // restore the cursor shape
+      // restore the cursor tqshape
       setCursor(arrowCursor);
     }    
     break;
 
-  case TQMouseEvent::RightButton :
+  case Qt::RightButton :
     break;
-  case TQMouseEvent::NoButton :
+  case Qt::NoButton :
     break;
 
   // do nothing
@@ -582,16 +572,16 @@ void KMagZoomView::mouseMoveEvent(TQMouseEvent *e)
 void KMagZoomView::keyPressEvent(TQKeyEvent *e)
 {
   int offset = 16;
-  if (e->state() & TQKeyEvent::ShiftButton)
+  if (e->state() & TQt::ShiftButton)
     offset = 1;
 
-  if (e->key() == TQKeyEvent::Key_Control)
+  if (e->key() == TQt::Key_Control)
     m_ctrlKeyPressed = true;
-  else if (e->key() == TQKeyEvent::Key_Shift)
-    m_shiftKeyPressed = true;    
-  else if (e->key() == TQKeyEvent::Key_Left)
+  else if (e->key() == TQt::Key_Shift)
+    m_shiftKeyPressed = true;
+  else if (e->key() == TQt::Key_Left)
   {
-    if (e->state() & TQKeyEvent::ControlButton)
+    if (e->state() & TQt::ControlButton)
     {
       if (offset >= m_selRect.width())
         m_selRect.setWidth (1);
@@ -615,9 +605,9 @@ void KMagZoomView::keyPressEvent(TQKeyEvent *e)
     }
     m_selRect.update();
   }
-  else if (e->key() == TQKeyEvent::Key_Right)
+  else if (e->key() == TQt::Key_Right)
   {
-    if (e->state() & TQKeyEvent::ControlButton)
+    if (e->state() & TQt::ControlButton)
       m_selRect.setRight (m_selRect.right()+offset);
     else if (contentsX() < contentsWidth()-visibleWidth())
     {
@@ -632,9 +622,9 @@ void KMagZoomView::keyPressEvent(TQKeyEvent *e)
 
     m_selRect.update();
   }
-  else if (e->key() == TQKeyEvent::Key_Up)
+  else if (e->key() == TQt::Key_Up)
   {
-    if (e->state() & TQKeyEvent::ControlButton)
+    if (e->state() & TQt::ControlButton)
     {
       if (offset >= m_selRect.height())
         m_selRect.setHeight (1);
@@ -658,9 +648,9 @@ void KMagZoomView::keyPressEvent(TQKeyEvent *e)
     }
     m_selRect.update();
   }
-  else if (e->key() == TQKeyEvent::Key_Down)
+  else if (e->key() == TQt::Key_Down)
   {
-    if (e->state() & TQKeyEvent::ControlButton)
+    if (e->state() & TQt::ControlButton)
       m_selRect.setBottom (m_selRect.bottom()+offset);
     else if (contentsY() < contentsHeight()-visibleHeight())
     {
@@ -680,9 +670,9 @@ void KMagZoomView::keyPressEvent(TQKeyEvent *e)
 
 void KMagZoomView::keyReleaseEvent(TQKeyEvent *e)
 {
-  if (e->key() == TQKeyEvent::Key_Control)
+  if (e->key() == TQt::Key_Control)
     m_ctrlKeyPressed = false;
-  else if (e->key() == TQKeyEvent::Key_Shift)
+  else if (e->key() == TQt::Key_Shift)
     m_shiftKeyPressed = false;
   else
     e->ignore();
@@ -716,7 +706,7 @@ void KMagZoomView::fitToWindow()
   m_selRect.moveCenter(currCenter);
   m_selRect.update();
 
-  viewport()->repaint(false);
+  viewport()->tqrepaint(false);
 }
 
 void KMagZoomView::setFitToWindow(bool fit)
@@ -761,18 +751,18 @@ void KMagZoomView::grabFrame()
   intersection &= TQRegion (selRect, TQRegion::Rectangle);
 
   // We don't want to overpaint other windows that happen to be on top
-  obscuredRegion (intersection, topLevelWidget()->winId(), m_selRect.winId());
+  obscuredRegion (intersection, tqtopLevelWidget()->winId(), m_selRect.winId());
   intersection.translate (-selRect.x(), -selRect.y());
 
   TQPainter painter (&m_grabbedPixmap, true);
-  TQMemArray<TQRect> rects (intersection.rects());
+  TQMemArray<TQRect> rects (intersection.tqrects());
   for (uint i = 0; i < rects.size(); i++)
     painter.fillRect (rects[i], TQBrush (TQColor (128, 128, 128)));
 
-  // call repaint to display the newly grabbed image
+  // call tqrepaint to display the newly grabbed image
   TQRect newSize = m_zoomMatrix.mapRect (m_grabbedPixmap.rect());
   resizeContents (newSize.width(), newSize.height());
-  viewport()->repaint(false);
+  viewport()->tqrepaint(false);
 }
 
 
@@ -785,7 +775,7 @@ void KMagZoomView::updateMouseView()
   if(m_selRect.left() <= pos.x() && pos.x() <= m_selRect.right() &&
      m_selRect.top() <= pos.y() && pos.y() <= m_selRect.bottom() &&
      m_refreshSwitch)
-    viewport()->repaint(false);
+    viewport()->tqrepaint(false);
 }
 
 /**
@@ -811,7 +801,7 @@ void KMagZoomView::setZoom(float zoom)
 {
   m_zoom = zoom;
   updateMatrix();
-  viewport()->repaint();
+  viewport()->tqrepaint();
 }
 
 /**
@@ -821,7 +811,7 @@ void KMagZoomView::setRotation(int rotation)
 {
   m_rotation = rotation;
   updateMatrix();
-  viewport()->repaint();
+  viewport()->tqrepaint();
 }
 
 /**
@@ -830,7 +820,7 @@ void KMagZoomView::setRotation(int rotation)
 void KMagZoomView::setInvertation(bool invert)
 {
   m_invert = invert;
-  viewport()->repaint();
+  viewport()->tqrepaint();
 }
 
 /**
@@ -899,7 +889,7 @@ TQPixmap KMagZoomView::getPixmap()
     TQPixmap mousePixmap(m_grabbedPixmap);
 
     // paint the mouse cursor w/o updating to a newer position
-    paintMouseCursor(&mousePixmap, calcMousePos(false));
+    paintMouseCursor(TQT_TQPAINTDEVICE(&mousePixmap), calcMousePos(false));
     
     return(mousePixmap);
   } else { // no mouse cursor

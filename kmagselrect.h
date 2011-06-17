@@ -22,18 +22,19 @@
 
 #include <stdlib.h>
 
-// Qt includes
+// TQt includes
 #include <tqrect.h>
 #include <tqwidget.h>
 #include <tqlabel.h>
 
-class KMagSelWinCorner : public QLabel
+class KMagSelWinCorner : public TQLabel
 {
     Q_OBJECT
+  TQ_OBJECT
 
 public:
 
-    KMagSelWinCorner ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 );
+    KMagSelWinCorner ( TQWidget * tqparent = 0, const char * name = 0, WFlags f = 0 );
 
     virtual ~KMagSelWinCorner();
 
@@ -51,13 +52,14 @@ protected:
     virtual void mouseMoveEvent ( TQMouseEvent * e );
 };
 
-class KMagSelWin : public QWidget
+class KMagSelWin : public TQWidget
 {
     Q_OBJECT
+  TQ_OBJECT
 
 public:
 
-    KMagSelWin ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 );
+    KMagSelWin ( TQWidget * tqparent = 0, const char * name = 0, WFlags f = 0 );
 
     virtual ~KMagSelWin();
 
@@ -95,16 +97,17 @@ protected:
  * @author Original : Michael Forster
  * @author Current : Sarang Lakare
  */
-class KMagSelRect : public TQObject, public QRect
+class KMagSelRect : public TQObject, public TQRect
 {
     Q_OBJECT
+  TQ_OBJECT
 
 public:
-    KMagSelRect(TQWidget *parent=0);
+    KMagSelRect(TQWidget *tqparent=0);
     KMagSelRect(const TQPoint &topLeft, const TQPoint &bottomRight,
-      TQWidget *parent=0);
+      TQWidget *tqparent=0);
     KMagSelRect(const TQPoint &topLeft, const TQSize &size,
-      TQWidget *parent=0);
+      TQWidget *tqparent=0);
     KMagSelRect(int left, int top, int width, int height,
       TQWidget *selWindowParent=0);
 

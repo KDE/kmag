@@ -29,7 +29,7 @@
 #include "kmagzoomview.h"
 
 #include <vector>
-// include files for Qt
+// include files for TQt
 #include <tqstringlist.h>
 
 // include files for KDE
@@ -57,12 +57,13 @@
 class KmagApp : public KMainWindow
 {
   Q_OBJECT
+  TQ_OBJECT
 
   public:
     /**
      * Construtor of KmagApp, calls all init functions to create the application.
      */
-    KmagApp(TQWidget* parent=0, const char* name=0);
+    KmagApp(TQWidget* tqparent=0, const char* name=0);
 
     /// Default destructor
     ~KmagApp();
@@ -70,7 +71,7 @@ class KmagApp : public KMainWindow
 
 
   protected:
-    /** save general Options like all bar positions and status as well as the geometry and the recent file list to the configuration
+    /** save general Options like all bar positions and status as well as the tqgeometry and the recent file list to the configuration
      * file
      */
     void saveOptions();

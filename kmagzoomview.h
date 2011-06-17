@@ -24,7 +24,7 @@
 #include <config.h>
 #endif
 
-// include files for Qt
+// include files for TQt
 #include <tqwidget.h>
 #include <tqpainter.h>
 #include <tqpixmap.h>
@@ -43,12 +43,13 @@
  * @author Olaf Schmikt <ojschmidt@kde.org>
  * @author Sarang Lakare <sarang#users.sourceforge.net>
  */
-class KMagZoomView : public QScrollView
+class KMagZoomView : public TQScrollView
 {
   Q_OBJECT
+  TQ_OBJECT
   public:
     /// Constructor for the main view
-    KMagZoomView(TQWidget *parent = 0, const char *name=0);
+    KMagZoomView(TQWidget *tqparent = 0, const char *name=0);
 
     /// Destructor for the main view
     ~KMagZoomView();
@@ -60,7 +61,7 @@ class KMagZoomView : public QScrollView
     TQPixmap getPixmap();
 
     /// Returns the state of the refresh switch
-    bool getRefreshStatus() const { return m_refreshSwitch; };
+    bool getRefreshtqStatus() const { return m_refreshSwitch; };
 
     /// Returns teh status of followMouse
     bool getFollowMouse() const { return m_followMouse; };
@@ -69,7 +70,7 @@ class KMagZoomView : public QScrollView
     bool getShowSelRect() const { return (m_selRect.getAlwaysVisible()); };
 
     /// Get the coordinates of the selection rectangle
-    TQRect getSelRectPos() const { return static_cast<TQRect>(m_selRect); };
+    TQRect getSelRectPos() const { return (TQRect&)(m_selRect); };
 
     /// Returns the current state of show mouse
     unsigned int getShowMouseType() const;
@@ -131,7 +132,7 @@ class KMagZoomView : public QScrollView
     /// Called when the widget has been resized
     void resizeEvent(TQResizeEvent *e);
     
-    /// Called when the widget is to be repainted
+    /// Called when the widget is to be tqrepainted
     void drawContents ( TQPainter * p, int clipx, int clipy, int clipw, int cliph );
 
     /// This function calculates the mouse position relative to the image
