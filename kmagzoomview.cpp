@@ -227,7 +227,7 @@ void KMagZoomView::resizeEvent( TQResizeEvent * e )
 }
 
 /**
- * Called when the widget is to be tqrepainted
+ * Called when the widget is to be repainted
  *
  * @param p
  */

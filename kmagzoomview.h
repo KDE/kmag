@@ -132,7 +132,7 @@ class KMagZoomView : public TQScrollView
     /// Called when the widget has been resized
     void resizeEvent(TQResizeEvent *e);
     
-    /// Called when the widget is to be tqrepainted
+    /// Called when the widget is to be repainted
     void drawContents ( TQPainter * p, int clipx, int clipy, int clipw, int cliph );
 
     /// This function calculates the mouse position relative to the image
