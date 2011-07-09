@@ -118,8 +118,8 @@ void KMagSelRect::init(TQWidget *tqparent)
 {
   // Make sure tqparent is the window itself, not a widget within the window
   if (tqparent != 0)
-    while (tqparent->tqparentWidget (true) != 0)
-      tqparent=tqparent->tqparentWidget (true);
+    while (tqparent->parentWidget (true) != 0)
+      tqparent=tqparent->parentWidget (true);
 
   selectionwindow = 0;
   selWindowParent = tqparent;
