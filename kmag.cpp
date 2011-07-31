@@ -136,14 +136,14 @@ void KmagApp::initActions()
   fileNewWindow = actionCollection()->addAction(QLatin1String( "new_window" ));
   fileNewWindow->setIcon(KIcon(QLatin1String( "window-new" )));
   fileNewWindow->setText(i18n("New &Window"));
-  connect(fileNewWindow, SIGNAL(triggered(bool) ), SLOT(slotFileNewWindow()));
+  connect(fileNewWindow, SIGNAL(triggered(bool)), SLOT(slotFileNewWindow()));
   fileNewWindow->setShortcuts(KStandardShortcut::openNew());
   fileNewWindow->setToolTip(i18n("Open a new KMagnifier window"));
 
   refreshSwitch = actionCollection()->addAction(QLatin1String( "start_stop_refresh" ));
   refreshSwitch->setIcon(KIcon(QLatin1String( "process-stop" )));
   refreshSwitch->setText(i18n("&Stop"));
-  connect(refreshSwitch, SIGNAL(triggered(bool) ), SLOT(slotToggleRefresh()));
+  connect(refreshSwitch, SIGNAL(triggered(bool)), SLOT(slotToggleRefresh()));
   refreshSwitch->setShortcuts(KStandardShortcut::reload());
   refreshSwitch->setToolTip(i18n("Click to stop window refresh"));
   refreshSwitch->setWhatsThis(i18n("Clicking on this icon will <b>start</b> / <b>stop</b>\
@@ -153,7 +153,7 @@ void KmagApp::initActions()
   m_pSnapshot = actionCollection()->addAction(QLatin1String( "snapshot" ));
   m_pSnapshot->setIcon(KIcon(QLatin1String( "ksnapshot" )));
   m_pSnapshot->setText(i18n("&Save Snapshot As..."));
-  connect(m_pSnapshot, SIGNAL(triggered(bool) ), SLOT(saveZoomPixmap()));
+  connect(m_pSnapshot, SIGNAL(triggered(bool)), SLOT(saveZoomPixmap()));
   m_pSnapshot->setShortcuts(KStandardShortcut::save());
   m_pSnapshot->setWhatsThis(i18n("Saves the zoomed view to an image file."));
   m_pSnapshot->setToolTip(i18n("Save image to a file"));
@@ -813,7 +813,7 @@ void KmagApp::slotEditToolbars()
   KConfigGroup cg( KGlobal::config(), "MainWindow" );
   saveMainWindowSettings( cg );
   KEditToolBar dlg( actionCollection() );
-  connect( &dlg, SIGNAL( newToolBarConfig() ), this, SLOT( slotNewToolbarConfig() ) );
+  connect( &dlg, SIGNAL(newToolBarConfig()), this, SLOT(slotNewToolbarConfig()) );
   if ( dlg.exec() )
     createGUI();
 }
