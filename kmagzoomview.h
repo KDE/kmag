@@ -49,7 +49,7 @@ class KMagZoomView : public TQScrollView
   TQ_OBJECT
   public:
     /// Constructor for the main view
-    KMagZoomView(TQWidget *tqparent = 0, const char *name=0);
+    KMagZoomView(TQWidget *parent = 0, const char *name=0);
 
     /// Destructor for the main view
     ~KMagZoomView();

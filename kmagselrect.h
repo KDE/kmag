@@ -34,7 +34,7 @@ class KMagSelWinCorner : public TQLabel
 
 public:
 
-    KMagSelWinCorner ( TQWidget * tqparent = 0, const char * name = 0, WFlags f = 0 );
+    KMagSelWinCorner ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 );
 
     virtual ~KMagSelWinCorner();
 
@@ -59,7 +59,7 @@ class KMagSelWin : public TQWidget
 
 public:
 
-    KMagSelWin ( TQWidget * tqparent = 0, const char * name = 0, WFlags f = 0 );
+    KMagSelWin ( TQWidget * parent = 0, const char * name = 0, WFlags f = 0 );
 
     virtual ~KMagSelWin();
 
@@ -103,11 +103,11 @@ class KMagSelRect : public TQObject, public TQRect
   TQ_OBJECT
 
 public:
-    KMagSelRect(TQWidget *tqparent=0);
+    KMagSelRect(TQWidget *parent=0);
     KMagSelRect(const TQPoint &topLeft, const TQPoint &bottomRight,
-      TQWidget *tqparent=0);
+      TQWidget *parent=0);
     KMagSelRect(const TQPoint &topLeft, const TQSize &size,
-      TQWidget *tqparent=0);
+      TQWidget *parent=0);
     KMagSelRect(int left, int top, int width, int height,
       TQWidget *selWindowParent=0);
 

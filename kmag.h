@@ -63,7 +63,7 @@ class KmagApp : public KMainWindow
     /**
      * Construtor of KmagApp, calls all init functions to create the application.
      */
-    KmagApp(TQWidget* tqparent=0, const char* name=0);
+    KmagApp(TQWidget* parent=0, const char* name=0);
 
     /// Default destructor
     ~KmagApp();

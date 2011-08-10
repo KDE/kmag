@@ -87,42 +87,42 @@ int getTitleSize ()
 //   Construction
 //--------------------------------------------------------------------------
 
-KMagSelRect::KMagSelRect(TQWidget *tqparent) :
+KMagSelRect::KMagSelRect(TQWidget *parent) :
   TQRect()
 {
-  init(tqparent);
+  init(parent);
 }
 
 KMagSelRect::KMagSelRect(const TQPoint &topLeft, const TQPoint &bottomRight,
-                 TQWidget *tqparent) :
+                 TQWidget *parent) :
 TQRect(topLeft, bottomRight)
 {
-  init(tqparent);
+  init(parent);
 }
 
 KMagSelRect::KMagSelRect(const TQPoint &topLeft, const TQSize &size,
-                 TQWidget *tqparent) :
+                 TQWidget *parent) :
 TQRect(topLeft, size)
 {
-  init(tqparent);
+  init(parent);
 }
 
 KMagSelRect::KMagSelRect(int left, int top, int width, int height,
-                 TQWidget *tqparent) :
+                 TQWidget *parent) :
 TQRect(left, top, width, height)
 {
-  init(tqparent);
+  init(parent);
 }
 
-void KMagSelRect::init(TQWidget *tqparent)
+void KMagSelRect::init(TQWidget *parent)
 {
-  // Make sure tqparent is the window itself, not a widget within the window
-  if (tqparent != 0)
-    while (tqparent->parentWidget (true) != 0)
-      tqparent=tqparent->parentWidget (true);
+  // Make sure parent is the window itself, not a widget within the window
+  if (parent != 0)
+    while (parent->parentWidget (true) != 0)
+      parent=parent->parentWidget (true);
 
   selectionwindow = 0;
-  selWindowParent = tqparent;
+  selWindowParent = parent;
 
   m_alwaysVisible = false;
 }
@@ -215,8 +215,8 @@ void KMagSelRect::selWinResized()
 //   KMagSelWin
 //--------------------------------------------------------------------------
 
-KMagSelWin::KMagSelWin ( TQWidget * tqparent, const char * name, WFlags ) :
-    TQWidget (tqparent, name, WStyle_Customize | WStyle_NoBorder | WStyle_StaysOnTop | WType_TopLevel | WX11BypassWM)
+KMagSelWin::KMagSelWin ( TQWidget * parent, const char * name, WFlags ) :
+    TQWidget (parent, name, WStyle_Customize | WStyle_NoBorder | WStyle_StaysOnTop | WType_TopLevel | WX11BypassWM)
 {
   TQBitmap line (8, 8, line_bits, true);
   setPaletteBackgroundPixmap (line);
@@ -356,8 +356,8 @@ void KMagSelWin::bottomRightResized ( TQPoint offset )
 //   KMagSelWinCorner
 //--------------------------------------------------------------------------
 
-KMagSelWinCorner::KMagSelWinCorner ( TQWidget * tqparent, const char * name, WFlags f ) :
-    TQLabel (tqparent, name, f)
+KMagSelWinCorner::KMagSelWinCorner ( TQWidget * parent, const char * name, WFlags f ) :
+    TQLabel (parent, name, f)
 {
   setFrameStyle (TQFrame::WinPanel | TQFrame::Raised);
   setLineWidth (1);
