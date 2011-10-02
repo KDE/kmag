@@ -23,6 +23,7 @@
 
 // include files for QT
 #include <QtCore/QDir>
+#include <QtCore/QPointer>
 #include <QtGui/QPrintDialog>
 #include <QtGui/QPainter>
 #include <QtGui/QLayout>
@@ -812,10 +813,11 @@ void KmagApp::slotEditToolbars()
 {
   KConfigGroup cg( KGlobal::config(), "MainWindow" );
   saveMainWindowSettings( cg );
-  KEditToolBar dlg( actionCollection() );
-  connect( &dlg, SIGNAL(newToolBarConfig()), this, SLOT(slotNewToolbarConfig()) );
-  if ( dlg.exec() )
+  QPointer<KEditToolBar> dlg = new KEditToolBar( actionCollection() );
+  connect(dlg, SIGNAL(newToolBarConfig()), this, SLOT(slotNewToolbarConfig()) );
+  if ( dlg->exec() )
     createGUI();
+  delete dlg;
 }
 
 
