@@ -49,6 +49,7 @@
 #include <kcursor.h>
 #include <kdebug.h>
 #include <klocale.h>
+#include <kdeaccessibilityclient/accessibleobject.h>
 
 // include bitmaps for cursors
 static uchar left_ptr_bits[] = {
@@ -137,6 +138,9 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
 
   if(m_fitToWindow)
     fitToWindow();
+
+  //subscribe to focus events from registry
+  m_registry.subscribeEventListeners(KAccessibleClient::Registry::Focus);
 }
 
 KMagZoomView::~KMagZoomView()
@@ -214,20 +218,23 @@ void KMagZoomView::followFocus(bool follow)
   if(follow) {
     setVerticalScrollBarPolicy (Qt::ScrollBarAlwaysOff);
     setHorizontalScrollBarPolicy (Qt::ScrollBarAlwaysOff);
-    if(QDBusConnection::sessionBus().isConnected())
-        QDBusConnection::sessionBus().connect(QLatin1String( "org.kde.kaccessibleapp" ), QLatin1String( "/Adaptor" ), QLatin1String( "org.kde.kaccessibleapp.Adaptor" ), QLatin1String( "focusChanged" ), this, SLOT(focusChanged(int,int,int,int,int,int)));
+
+    connect(&m_registry,SIGNAL(focusChanged(const KAccessibleClient::AccessibleObject &)),
+            this, SLOT(focusChanged(const KAccessibleClient::AccessibleObject &)));
+
   } else {
     setVerticalScrollBarPolicy (Qt::ScrollBarAlwaysOn);
     setHorizontalScrollBarPolicy (Qt::ScrollBarAlwaysOn);
-    if(QDBusConnection::sessionBus().isConnected())
-        QDBusConnection::sessionBus().disconnect(QLatin1String( "org.kde.kaccessibleapp" ), QLatin1String( "/Adaptor" ), QLatin1String( "org.kde.kaccessibleapp.Adaptor" ), QLatin1String( "focusChanged" ), this, SLOT(focusChanged(int,int,int,int,int,int)));
+
+    disconnect(&m_registry, SIGNAL(focusChanged(const KAccessibleClient::AccessibleObject &)),
+            this, SLOT(focusChanged(const KAccessibleClient::AccessibleObject &)));
   }
 }
 
-void KMagZoomView::focusChanged(int px, int py, int rx, int ry, int rwidth, int rheight)
+void KMagZoomView::focusChanged(const KAccessibleClient::AccessibleObject &object)
 {
-    //kDebug() << "px=" << px << "py=" << py << "rx=" << rx << "ry=" << ry << "rwidth=" << rwidth << "rheight=" << rheight;
-    m_oldFocus = (px >= 0 && py >= 0) ? QPoint(px, py) : QPoint( rx + qMax(0, (qMin(width(), rwidth)/2)-60), ry + qMax(0, (qMin(height(), rheight)/2)-60) );
+    m_oldFocus = object.focusPoint();
+    qDebug() << m_oldFocus;
 }
 
 /**

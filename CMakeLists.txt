@@ -24,6 +24,7 @@ set(kmag_SRCS
 kde4_add_executable(kmag ${kmag_SRCS})
 
 target_link_libraries(kmag ${KDE4_KIO_LIBS})
+target_link_libraries(kmag kdeaccessibilityclient)
 
 install(TARGETS kmag  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 

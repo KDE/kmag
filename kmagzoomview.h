@@ -39,6 +39,8 @@
 #include <QtGui/QResizeEvent>
 #include <QtGui/QMouseEvent>
 
+#include <kdeaccessibilityclient/registry.h>
+
 //class KMagSelRect;
 #include "kmagselrect.h"
 
@@ -130,7 +132,7 @@ class KMagZoomView : public QAbstractScrollArea
 
   private slots:
     /// Called from a dbus service when followFocus is true
-    void focusChanged(int px, int py, int rx, int ry, int rwidth, int rheight);
+    void focusChanged(const KAccessibleClient::AccessibleObject &object);
     
   protected:
     /// Called when the widget is hidden
@@ -185,6 +187,9 @@ class KMagZoomView : public QAbstractScrollArea
     void setupMatrix();
 
   private:
+    /// Global Accessibility Registry
+    KAccessibleClient::Registry m_registry;
+
     /// Stores the pixmap which is recolored from the grabbed one
     QPixmap m_coloredPixmap;
 
