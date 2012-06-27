@@ -4,7 +4,12 @@ find_package(KDE4 REQUIRED)
 include (KDE4Defaults)
 include (MacroLibrary)
 
-find_package(LibKdeAccessibilityClient)
+macro_optional_find_package(LibKdeAccessibilityClient)
+macro_log_feature(LibKdeAccessibilityClient_FOUND "libkdeaccessibilityclient" "KDE client-side accessibility library" "https://projects.kde.org/projects/playground/accessibility/libkdeaccessibilityclient" FALSE "" "Required to enable keyboard focus tracking.")
+
+configure_file(
+    "${PROJECT_SOURCE_DIR}/focustrackconfig.h.in"
+    "${PROJECT_BINARY_DIR}/focustrackconfig.h")
 
 add_definitions (${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
 add_definitions( -DQT_NO_CAST_FROM_ASCII )
@@ -26,9 +31,13 @@ set(kmag_SRCS
 kde4_add_executable(kmag ${kmag_SRCS})
 
 target_link_libraries(kmag ${KDE4_KIO_LIBS})
-target_link_libraries(kmag kdeaccessibilityclient)
+if(LibKdeAccessibilityClient_FOUND)
+    target_link_libraries(kmag kdeaccessibilityclient)
+endif(LibKdeAccessibilityClient_FOUND)
 
 install(TARGETS kmag  ${INSTALL_TARGETS_DEFAULT_ARGS} )
+
+macro_display_feature_log()
 
 
 ########### install files ###############

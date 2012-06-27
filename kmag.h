@@ -25,6 +25,7 @@
 #define KMAG_H
 
 #include "kmagzoomview.h"
+#include "focustrackconfig.h"
 
 // include files for Qt
 #include <QtGui/QContextMenuEvent>
@@ -113,7 +114,9 @@ class KmagApp : public KXmlGuiWindow
     void slotToggleRefresh();
 
     void slotModeFollowMouse();
+#ifdef LibKdeAccessibilityClient_FOUND
     void slotModeFollowFocus();
+#endif
     void slotModeWholeScreen();
     void slotModeSelWin();
 

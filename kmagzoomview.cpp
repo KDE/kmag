@@ -139,8 +139,10 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
   if(m_fitToWindow)
     fitToWindow();
 
+#ifdef LibKdeAccessibilityClient_FOUND
   //subscribe to focus events from registry
   m_registry.subscribeEventListeners(KAccessibleClient::Registry::Focus);
+#endif
 }
 
 KMagZoomView::~KMagZoomView()
@@ -206,6 +208,7 @@ void KMagZoomView::followMouse(bool follow)
   }
 }
 
+#ifdef LibKdeAccessibilityClient_FOUND
 /**
  * This function will set/reset keyboard focus following of grab window.
  */
@@ -236,6 +239,7 @@ void KMagZoomView::focusChanged(const KAccessibleClient::AccessibleObject &objec
     m_oldFocus = object.focusPoint();
     qDebug() << m_oldFocus;
 }
+#endif
 
 /**
  * Called when the widget is hidden. Stop refresh when this happens.
@@ -891,9 +895,11 @@ void KMagZoomView::grabFrame()
     if(m_followMouse) {
         // set new center to be the current mouse position
         newCenter = QCursor::pos();
+#ifdef LibKdeAccessibilityClient_FOUND
     } else if(m_followFocus) {
         // set the new center to the current keyboard cursor position
         newCenter = m_oldFocus;
+#endif
     }
 
     // make sure the mouse position is not taking the grab window outside

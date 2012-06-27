@@ -182,6 +182,7 @@ void KmagApp::initActions()
   m_modeFollowMouse->setToolTip(i18n("Magnify around the mouse cursor"));
   m_modeFollowMouse->setWhatsThis(i18n("If selected, the area around the mouse cursor is magnified"));
 
+#ifdef LibKdeAccessibilityClient_FOUND
   m_modeFollowFocus = new KToggleAction(KIcon(QLatin1String( "view-restore" )), i18n("&Follow Focus Mode"), this);
   actionCollection()->addAction(QLatin1String( "mode_followfocus" ), m_modeFollowFocus);
   connect(m_modeFollowFocus, SIGNAL(triggered(bool)), SLOT(slotModeFollowFocus()));
@@ -189,6 +190,7 @@ void KmagApp::initActions()
   m_modeFollowFocus->setIconText(i18n("Focus"));
   m_modeFollowFocus->setToolTip(i18n("Magnify around the keyboard focus"));
   m_modeFollowFocus->setWhatsThis(i18n("If selected, the area around the keyboard cursor is magnified"));
+#endif
 
   m_modeSelWin = new KToggleAction(KIcon(QLatin1String( "window" )), i18n("Se&lection Window Mode"), this);
   actionCollection()->addAction(QLatin1String( "mode_selectionwindow" ), m_modeSelWin);
@@ -330,8 +332,10 @@ void KmagApp::saveOptions()
 
   if (m_modeFollowMouse->isChecked())
      cg.writeEntry("Mode", "followmouse");
+#ifdef LibKdeAccessibilityClient_FOUND
   else if (m_modeFollowFocus->isChecked())
      cg.writeEntry("Mode", "followfocus");
+#endif
   else if (m_modeWholeScreen->isChecked())
      cg.writeEntry("Mode", "wholescreen");
   else if (m_modeSelWin->isChecked())
@@ -385,8 +389,10 @@ void KmagApp::readOptions()
     slotModeWholeScreen();
   else if (mode == QLatin1String( "selectionwindow" ))
     slotModeSelWin();
+#ifdef LibKdeAccessibilityClient_FOUND
   else if (mode == QLatin1String( "followfocus" ))
     slotModeFollowFocus();
+#endif
   else
     slotModeFollowMouse();
 
@@ -640,12 +646,14 @@ void KmagApp::slotToggleRefresh()
 void KmagApp::slotModeWholeScreen()
 {
   m_zoomView->followMouse(false);
-  m_zoomView->followFocus(false);
   m_zoomView->setSelRectPos(QRect (0, 0, QApplication::desktop()->width(), QApplication::desktop()->height()));
   m_zoomView->showSelRect(false);
   m_zoomView->setFitToWindow (false);
   m_modeFollowMouse->setChecked(false);
+#ifdef LibKdeAccessibilityClient_FOUND
+  m_zoomView->followFocus(false);
   m_modeFollowFocus->setChecked(false);
+#endif
   m_modeWholeScreen->setChecked(true);
   m_modeSelWin->setChecked(false);
 }
@@ -654,11 +662,13 @@ void KmagApp::slotModeWholeScreen()
 void KmagApp::slotModeSelWin()
 {
   m_zoomView->followMouse(false);
-  m_zoomView->followFocus(false);
   m_zoomView->showSelRect(true);
   m_zoomView->setFitToWindow (false);
   m_modeFollowMouse->setChecked(false);
+#ifdef LibKdeAccessibilityClient_FOUND
+  m_zoomView->followFocus(false);
   m_modeFollowFocus->setChecked(false);
+#endif
   m_modeWholeScreen->setChecked(false);
   m_modeSelWin->setChecked(true);
 }
@@ -667,16 +677,19 @@ void KmagApp::slotModeSelWin()
 void KmagApp::slotModeFollowMouse()
 {
   m_zoomView->followMouse(true);
-  m_zoomView->followFocus(false);
   m_zoomView->showSelRect(false);
   m_zoomView->setFitToWindow (true);
   m_modeFollowMouse->setChecked(true);
+#ifdef LibKdeAccessibilityClient_FOUND
+  m_zoomView->followFocus(false);
   m_modeFollowFocus->setChecked(false);
+#endif
   m_modeWholeScreen->setChecked(false);
   m_modeSelWin->setChecked(false);
 }
 
 
+#ifdef LibKdeAccessibilityClient_FOUND
 void KmagApp::slotModeFollowFocus()
 {
   m_zoomView->followMouse(false);
@@ -688,7 +701,7 @@ void KmagApp::slotModeFollowFocus()
   m_modeWholeScreen->setChecked(false);
   m_modeSelWin->setChecked(false);
 }
-
+#endif
 
 void KmagApp::slotToggleHideCursor()
 {

@@ -44,6 +44,8 @@
 //class KMagSelRect;
 #include "kmagselrect.h"
 
+#include "focustrackconfig.h"
+
 /**
  * The KMagZoomView class provides the view widget for the KmagApp instance.
  *
@@ -70,9 +72,11 @@ class KMagZoomView : public QAbstractScrollArea
 
     /// Returns the status of followMouse
     bool getFollowMouse() const { return m_followMouse; }
-    
+
+#ifdef LibKdeAccessibilityClient_FOUND
     /// Returns the status of followFocus
     bool getFollowFocus() const { return m_followFocus; }
+#endif
 
     /// Get the status of "show rect. always"
     bool getShowSelRect() const { return (m_selRect.getAlwaysVisible()); }
@@ -109,8 +113,10 @@ class KMagZoomView : public QAbstractScrollArea
     /// Set grab-window-follows-mouse mode
     void followMouse(bool follow = true);
     
+#ifdef LibKdeAccessibilityClient_FOUND
     /// Set grab-window-follows-keyboard-focus mode
     void followFocus(bool follow = true);
+#endif
 
     /// Shows/Hides the selection marker
     void showSelRect(bool show=true);
@@ -130,10 +136,11 @@ class KMagZoomView : public QAbstractScrollArea
     /// Fits the zoom view to the zoom view window
     void fitToWindow();
 
+#ifdef LibKdeAccessibilityClient_FOUND
   private slots:
     /// Called from a dbus service when followFocus is true
     void focusChanged(const KAccessibleClient::AccessibleObject &object);
-    
+#endif
   protected:
     /// Called when the widget is hidden
     void hideEvent( QHideEvent * e);
@@ -187,8 +194,11 @@ class KMagZoomView : public QAbstractScrollArea
     void setupMatrix();
 
   private:
+
+#ifdef LibKdeAccessibilityClient_FOUND
     /// Global Accessibility Registry
     KAccessibleClient::Registry m_registry;
+#endif
 
     /// Stores the pixmap which is recolored from the grabbed one
     QPixmap m_coloredPixmap;
@@ -211,8 +221,10 @@ class KMagZoomView : public QAbstractScrollArea
     /// Saves the center of the grab window
     QPoint m_oldCenter;
     
+#ifdef LibKdeAccessibilityClient_FOUND
     /// Saves the keyboard focus position
     QPoint m_oldFocus;
+#endif
 
     /// Possible modes for the mouse to be in
     enum KMagMouseMode {
