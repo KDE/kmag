@@ -18,21 +18,28 @@ add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 
 include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES})
 
+if(LibKdeAccessibilityClient_FOUND)
+    include(FindPkgConfig)
+    pkg_check_modules(ATSPI2 REQUIRED atspi-2)
+    include_directories(${LIBKDEACCESSIBILITYCLIENT_INCLUDE_DIR} ${ATSPI2_INCLUDE_DIRS})
+endif(LibKdeAccessibilityClient_FOUND)
+
+
 add_subdirectory( doc )
 ########### next target ###############
 
 set(kmag_SRCS 
-   kmagzoomview.cpp 
-   kmagselrect.cpp 
-   kmag.cpp 
-   colorsim.cpp
-   main.cpp )
+    kmagzoomview.cpp
+    kmagselrect.cpp
+    kmag.cpp
+    colorsim.cpp
+    main.cpp )
 
 kde4_add_executable(kmag ${kmag_SRCS})
 
 target_link_libraries(kmag ${KDE4_KIO_LIBS})
 if(LibKdeAccessibilityClient_FOUND)
-    target_link_libraries(kmag kdeaccessibilityclient)
+    target_link_libraries(kmag ${LIBKDEACCESSIBILITYCLIENT_LIBS})
 endif(LibKdeAccessibilityClient_FOUND)
 
 install(TARGETS kmag  ${INSTALL_TARGETS_DEFAULT_ARGS} )
