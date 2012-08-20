@@ -49,7 +49,9 @@
 #include <kcursor.h>
 #include <kdebug.h>
 #include <klocale.h>
+#ifdef LibKdeAccessibilityClient_FOUND
 #include <kdeaccessibilityclient/accessibleobject.h>
+#endif
 
 // include bitmaps for cursors
 static uchar left_ptr_bits[] = {

@@ -39,7 +39,9 @@
 #include <QtGui/QResizeEvent>
 #include <QtGui/QMouseEvent>
 
+#ifdef LibKdeAccessibilityClient_FOUND
 #include <kdeaccessibilityclient/registry.h>
+#endif
 
 //class KMagSelRect;
 #include "kmagselrect.h"
