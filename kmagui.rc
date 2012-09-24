@@ -1,11 +1,6 @@
 <!DOCTYPE kpartgui>
-<kpartgui name="kmag" version="15">
+<kpartgui name="kmag" version="16">
  <ToolBar noMerge="1" name="mainToolBar"><text>Main Toolbar</text>
-  <Action name="new_window"/>
-  <Separator />
-  <Action name="snapshot"/>
-  <Action name="file_print"/>
-  <Action name="edit_copy"/>
  </ToolBar>
 
  <ToolBar noMerge="1" name="viewToolBar"><text>View Toolbar</text>
@@ -23,8 +18,6 @@
   <Action name="mode_followfocus"/>
   <Action name="mode_selectionwindow"/>
   <Action name="mode_wholescreen"/>
-  <Separator />
-  <Action name="hidecursor"/>
  </ToolBar>
 
  <MenuBar>
