@@ -143,7 +143,7 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
 
 #ifdef QAccessibilityClient_FOUND
   //subscribe to focus events from registry
-  m_registry.subscribeEventListeners(QAccessibleClient::Registry::Focus);
+  m_registry.subscribeEventListeners(QAccessibleClient::Registry::Focus | QAccessibleClient::Registry::TextCaretMoved);
 #endif
 }
 
