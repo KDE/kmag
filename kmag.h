@@ -114,7 +114,7 @@ class KmagApp : public KXmlGuiWindow
     void slotToggleRefresh();
 
     void slotModeFollowMouse();
-#ifdef LibKdeAccessibilityClient_FOUND
+#ifdef QAccessibilityClient_FOUND
     void slotModeFollowFocus();
 #endif
     void slotModeWholeScreen();

@@ -1,1 +1,1 @@
-#cmakedefine LibKdeAccessibilityClient_FOUND
+#cmakedefine QAccessibilityClient_FOUND

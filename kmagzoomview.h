@@ -39,14 +39,13 @@
 #include <QtGui/QResizeEvent>
 #include <QtGui/QMouseEvent>
 
-#ifdef LibKdeAccessibilityClient_FOUND
-#include <kdeaccessibilityclient/registry.h>
-#endif
-
 //class KMagSelRect;
 #include "kmagselrect.h"
 
 #include "focustrackconfig.h"
+#ifdef QAccessibilityClient_FOUND
+#include <qaccessibilityclient/registry.h>
+#endif
 
 /**
  * The KMagZoomView class provides the view widget for the KmagApp instance.
@@ -75,7 +74,7 @@ class KMagZoomView : public QAbstractScrollArea
     /// Returns the status of followMouse
     bool getFollowMouse() const { return m_followMouse; }
 
-#ifdef LibKdeAccessibilityClient_FOUND
+#ifdef QAccessibilityClient_FOUND
     /// Returns the status of followFocus
     bool getFollowFocus() const { return m_followFocus; }
 #endif
@@ -115,7 +114,7 @@ class KMagZoomView : public QAbstractScrollArea
     /// Set grab-window-follows-mouse mode
     void followMouse(bool follow = true);
     
-#ifdef LibKdeAccessibilityClient_FOUND
+#ifdef QAccessibilityClient_FOUND
     /// Set grab-window-follows-keyboard-focus mode
     void followFocus(bool follow = true);
 #endif
@@ -138,10 +137,10 @@ class KMagZoomView : public QAbstractScrollArea
     /// Fits the zoom view to the zoom view window
     void fitToWindow();
 
-#ifdef LibKdeAccessibilityClient_FOUND
+#ifdef QAccessibilityClient_FOUND
   private slots:
     /// Called from a dbus service when followFocus is true
-    void focusChanged(const KAccessibleClient::AccessibleObject &object);
+    void focusChanged(const QAccessibleClient::AccessibleObject &object);
 #endif
   protected:
     /// Called when the widget is hidden
@@ -197,9 +196,9 @@ class KMagZoomView : public QAbstractScrollArea
 
   private:
 
-#ifdef LibKdeAccessibilityClient_FOUND
+#ifdef QAccessibilityClient_FOUND
     /// Global Accessibility Registry
-    KAccessibleClient::Registry m_registry;
+    QAccessibleClient::Registry m_registry;
 #endif
 
     /// Stores the pixmap which is recolored from the grabbed one
@@ -223,7 +222,7 @@ class KMagZoomView : public QAbstractScrollArea
     /// Saves the center of the grab window
     QPoint m_oldCenter;
     
-#ifdef LibKdeAccessibilityClient_FOUND
+#ifdef QAccessibilityClient_FOUND
     /// Saves the keyboard focus position
     QPoint m_oldFocus;
 #endif

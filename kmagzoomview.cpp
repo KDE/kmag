@@ -49,8 +49,8 @@
 #include <kcursor.h>
 #include <kdebug.h>
 #include <klocale.h>
-#ifdef LibKdeAccessibilityClient_FOUND
-#include <kdeaccessibilityclient/accessibleobject.h>
+#ifdef QAccessibilityClient_FOUND
+#include <qaccessibilityclient/accessibleobject.h>
 #endif
 
 // include bitmaps for cursors
@@ -141,9 +141,9 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
   if(m_fitToWindow)
     fitToWindow();
 
-#ifdef LibKdeAccessibilityClient_FOUND
+#ifdef QAccessibilityClient_FOUND
   //subscribe to focus events from registry
-  m_registry.subscribeEventListeners(KAccessibleClient::Registry::Focus);
+  m_registry.subscribeEventListeners(QAccessibleClient::Registry::Focus);
 #endif
 }
 
@@ -210,7 +210,7 @@ void KMagZoomView::followMouse(bool follow)
   }
 }
 
-#ifdef LibKdeAccessibilityClient_FOUND
+#ifdef QAccessibilityClient_FOUND
 /**
  * This function will set/reset keyboard focus following of grab window.
  */
@@ -224,19 +224,19 @@ void KMagZoomView::followFocus(bool follow)
     setVerticalScrollBarPolicy (Qt::ScrollBarAlwaysOff);
     setHorizontalScrollBarPolicy (Qt::ScrollBarAlwaysOff);
 
-    connect(&m_registry,SIGNAL(focusChanged(const KAccessibleClient::AccessibleObject &)),
-            this, SLOT(focusChanged(const KAccessibleClient::AccessibleObject &)));
+    connect(&m_registry,SIGNAL(focusChanged(const QAccessibleClient::AccessibleObject &)),
+            this, SLOT(focusChanged(const QAccessibleClient::AccessibleObject &)));
 
   } else {
     setVerticalScrollBarPolicy (Qt::ScrollBarAlwaysOn);
     setHorizontalScrollBarPolicy (Qt::ScrollBarAlwaysOn);
 
-    disconnect(&m_registry, SIGNAL(focusChanged(const KAccessibleClient::AccessibleObject &)),
-            this, SLOT(focusChanged(const KAccessibleClient::AccessibleObject &)));
+    disconnect(&m_registry, SIGNAL(focusChanged(const QAccessibleClient::AccessibleObject &)),
+            this, SLOT(focusChanged(const QAccessibleClient::AccessibleObject &)));
   }
 }
 
-void KMagZoomView::focusChanged(const KAccessibleClient::AccessibleObject &object)
+void KMagZoomView::focusChanged(const QAccessibleClient::AccessibleObject &object)
 {
     m_oldFocus = object.focusPoint();
     qDebug() << m_oldFocus;
@@ -897,7 +897,7 @@ void KMagZoomView::grabFrame()
     if(m_followMouse) {
         // set new center to be the current mouse position
         newCenter = QCursor::pos();
-#ifdef LibKdeAccessibilityClient_FOUND
+#ifdef QAccessibilityClient_FOUND
     } else if(m_followFocus) {
         // set the new center to the current keyboard cursor position
         newCenter = m_oldFocus;
