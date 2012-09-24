@@ -258,7 +258,7 @@ void KmagApp::initActions()
   m_pColorBox->setWhatsThis(i18n("Select a mode to simulate various types of color-blindness."));
   m_pColorBox->setToolTip(i18n("Color-blindness Simulation Mode"));
 
-  setupGUI();
+  setupGUI(ToolBar | Keys | Save | Create);
 }
 
 void KmagApp::initView()
