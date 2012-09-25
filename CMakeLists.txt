@@ -32,7 +32,7 @@ kde4_add_executable(kmag ${kmag_SRCS})
 
 target_link_libraries(kmag ${KDE4_KIO_LIBS})
 if(QAccessibilityClient_FOUND)
-    target_link_libraries(kmag qaccessibilityclient)
+    target_link_libraries(kmag ${QACCESSIBILITYCLIENT_LIBRARY})
 endif(QAccessibilityClient_FOUND)
 
 install(TARGETS kmag  ${INSTALL_TARGETS_DEFAULT_ARGS} )
