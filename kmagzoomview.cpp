@@ -42,6 +42,7 @@
 #include <QtGui/QResizeEvent>
 #include <QtGui/QMouseEvent>
 #include <QtGui/QDesktopWidget>
+#include <QtGui/QCursor>
 #include <QtDBus/QDBusConnection>
 
 // include files for KDE
@@ -211,6 +212,27 @@ void KMagZoomView::followMouse(bool follow)
 }
 
 #ifdef QAccessibilityClient_FOUND
+
+void KMagZoomView::followBoth(bool follow)
+{
+    m_followBoth = follow;
+    if(follow){
+        m_followMouse = true;
+        m_followFocus = false;
+        setVerticalScrollBarPolicy (Qt::ScrollBarAlwaysOff);
+        setHorizontalScrollBarPolicy (Qt::ScrollBarAlwaysOff);
+
+        connect(&m_registry, SIGNAL(focusChanged(const QAccessibleClient::AccessibleObject &)),
+                this, SLOT(focusChanged(const QAccessibleClient::AccessibleObject &)));
+    } else {
+        setVerticalScrollBarPolicy (Qt::ScrollBarAlwaysOn);
+        setHorizontalScrollBarPolicy (Qt::ScrollBarAlwaysOn);
+
+        disconnect(&m_registry, SIGNAL(focusChanged(const QAccessibleClient::AccessibleObject &)),
+                this, SLOT(focusChanged(const QAccessibleClient::AccessibleObject &)));
+    }
+}
+
 /**
  * This function will set/reset keyboard focus following of grab window.
  */
@@ -239,8 +261,13 @@ void KMagZoomView::followFocus(bool follow)
 void KMagZoomView::focusChanged(const QAccessibleClient::AccessibleObject &object)
 {
     m_oldFocus = object.focusPoint();
-    qDebug() << m_oldFocus;
+    if(m_followBoth && !m_selRect.contains(m_oldFocus)) {
+        QCursor::setPos(m_oldFocus);
+        m_followFocus = true;
+        m_followMouse = false;
+    }
 }
+
 #endif
 
 /**
@@ -901,6 +928,10 @@ void KMagZoomView::grabFrame()
     } else if(m_followFocus) {
         // set the new center to the current keyboard cursor position
         newCenter = m_oldFocus;
+        if(m_followBoth) {
+            m_followFocus=false;
+            m_followMouse=true;
+        }
 #endif
     }
 

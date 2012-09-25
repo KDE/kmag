@@ -14,6 +14,7 @@
  </ToolBar>
 
  <ToolBar noMerge="1" name="settingsToolBar"><text>Settings Toolbar</text>
+  <Action name="mode_main"/>
   <Action name="mode_followmouse"/>
   <Action name="mode_followfocus"/>
   <Action name="mode_selectionwindow"/>
@@ -50,6 +51,7 @@
    <Action name="show_viewToolBar"/>
    <Action name="show_settingsToolBar"/-->
    <Separator />
+   <Action name="mode_main"/>
    <Action name="mode_followmouse"/>
    <Action name="mode_followfocus"/>
    <Action name="mode_selectionwindow"/>

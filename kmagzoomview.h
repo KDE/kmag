@@ -113,8 +113,11 @@ class KMagZoomView : public QAbstractScrollArea
 
     /// Set grab-window-follows-mouse mode
     void followMouse(bool follow = true);
-    
+
 #ifdef QAccessibilityClient_FOUND
+    /// Set grab-window-follows-mouse-and-keyboard-focus mode
+    void followBoth(bool follow = true);
+    
     /// Set grab-window-follows-keyboard-focus mode
     void followFocus(bool follow = true);
 #endif
@@ -258,6 +261,7 @@ class KMagZoomView : public QAbstractScrollArea
 
     /// To follow keyboard focus or not
     bool m_followFocus;
+    bool m_followBoth;
 
     /// State of refreshing - on or off
     bool m_refreshSwitch;

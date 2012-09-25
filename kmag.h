@@ -113,10 +113,7 @@ class KmagApp : public KXmlGuiWindow
     /// Toggle the refreshing of the window
     void slotToggleRefresh();
 
-    void slotModeFollowMouse();
-#ifdef QAccessibilityClient_FOUND
-    void slotModeFollowFocus();
-#endif
+    void slotModeChanged();
     void slotModeWholeScreen();
     void slotModeSelWin();
 
