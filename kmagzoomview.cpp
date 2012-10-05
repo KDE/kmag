@@ -222,14 +222,15 @@ void KMagZoomView::followBoth(bool follow)
         setVerticalScrollBarPolicy (Qt::ScrollBarAlwaysOff);
         setHorizontalScrollBarPolicy (Qt::ScrollBarAlwaysOff);
 
-        connect(&m_registry, SIGNAL(focusChanged(const QAccessibleClient::AccessibleObject &)),
-                this, SLOT(focusChanged(const QAccessibleClient::AccessibleObject &)));
+        connect(&m_registry, SIGNAL(focusChanged(QAccessibleClient::AccessibleObject)),
+                this, SLOT(focusChanged(QAccessibleClient::AccessibleObject)));
+        connect(&m_registry, SIGNAL(textCaretMoved(QAccessibleClient::AccessibleObject,int)),
+                this, SLOT(focusChanged(QAccessibleClient::AccessibleObject)));
     } else {
         setVerticalScrollBarPolicy (Qt::ScrollBarAlwaysOn);
         setHorizontalScrollBarPolicy (Qt::ScrollBarAlwaysOn);
 
-        disconnect(&m_registry, SIGNAL(focusChanged(const QAccessibleClient::AccessibleObject &)),
-                this, SLOT(focusChanged(const QAccessibleClient::AccessibleObject &)));
+        disconnect(this, SLOT(focusChanged(QAccessibleClient::AccessibleObject)));
     }
 }
 
@@ -246,15 +247,15 @@ void KMagZoomView::followFocus(bool follow)
     setVerticalScrollBarPolicy (Qt::ScrollBarAlwaysOff);
     setHorizontalScrollBarPolicy (Qt::ScrollBarAlwaysOff);
 
-    connect(&m_registry,SIGNAL(focusChanged(const QAccessibleClient::AccessibleObject &)),
-            this, SLOT(focusChanged(const QAccessibleClient::AccessibleObject &)));
-
+    connect(&m_registry,SIGNAL(focusChanged(QAccessibleClient::AccessibleObject)),
+            this, SLOT(focusChanged(QAccessibleClient::AccessibleObject)));
+    connect(&m_registry, SIGNAL(textCaretMoved(QAccessibleClient::AccessibleObject,int)),
+            this, SLOT(focusChanged(QAccessibleClient::AccessibleObject)));
   } else {
     setVerticalScrollBarPolicy (Qt::ScrollBarAlwaysOn);
     setHorizontalScrollBarPolicy (Qt::ScrollBarAlwaysOn);
 
-    disconnect(&m_registry, SIGNAL(focusChanged(const QAccessibleClient::AccessibleObject &)),
-            this, SLOT(focusChanged(const QAccessibleClient::AccessibleObject &)));
+    disconnect(this, SLOT(focusChanged(QAccessibleClient::AccessibleObject)));
   }
 }
 
