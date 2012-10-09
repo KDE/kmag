@@ -147,9 +147,9 @@ void KmagApp::initActions()
   connect(refreshSwitch, SIGNAL(triggered(bool)), SLOT(slotToggleRefresh()));
   refreshSwitch->setShortcuts(KStandardShortcut::reload());
   refreshSwitch->setToolTip(i18n("Click to stop window refresh"));
-  refreshSwitch->setWhatsThis(i18n("Clicking on this icon will <b>start</b> / <b>stop</b>\
-  updating of the display. Stopping the update will zero the processing power\
-  required (CPU usage)"));
+  refreshSwitch->setWhatsThis(i18n("Clicking on this icon will <b>start</b> / <b>stop</b> "
+                                   "updating of the display. Stopping the update will zero the processing power "
+                                   "required (CPU usage)"));
 
   m_pSnapshot = actionCollection()->addAction(QLatin1String( "snapshot" ));
   m_pSnapshot->setIcon(KIcon(QLatin1String( "ksnapshot" )));
