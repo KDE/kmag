@@ -9,7 +9,7 @@
 
 <!-- The language must NOT be changed here. -->
 
-<book lang="&language;">
+<book id="kmag" lang="&language;">
 
 
 <bookinfo>
