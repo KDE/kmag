@@ -9,10 +9,10 @@
 
 <!-- The language must NOT be changed here. -->
 
-<book lang="&language;">
+<book id="kmag" lang="&language;">
 
 
-<bookinfo>
+<book id="kmag"info>
 <title>The &kmag; Handbook</title>
 
 <authorgroup>
