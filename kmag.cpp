@@ -212,7 +212,7 @@ void KmagApp::initActions()
   m_hideCursor = new KToggleAction(KIcon(QLatin1String( "hidemouse" )), i18n("Hide Mouse &Cursor"), this);
   actionCollection()->addAction(QLatin1String( "hidecursor" ), m_hideCursor);
   connect(m_hideCursor, SIGNAL(triggered(bool)), SLOT(slotToggleHideCursor()));
-  m_hideCursor->setShortcut(Qt::Key_F5);
+  m_hideCursor->setShortcut(Qt::Key_F6);
   #ifdef havesetCheckedStatef
   m_hideCursor->setCheckedState(KGuiItem(i18n("Show Mouse &Cursor")));
   #endif
@@ -222,7 +222,7 @@ void KmagApp::initActions()
   m_staysOnTop = new KToggleAction(KIcon(QLatin1String( "go-top" )), i18n("Stays On Top"), this);
   actionCollection()->addAction(QLatin1String( "staysontop" ), m_staysOnTop);
   connect(m_staysOnTop, SIGNAL(triggered(bool)), SLOT(slotStaysOnTop()));
-  m_staysOnTop->setShortcut(Qt::Key_F6);
+  m_staysOnTop->setShortcut(Qt::Key_F7);
   m_staysOnTop->setToolTip(i18n("The KMagnifier Window stays on top of other windows."));
 
   m_pZoomIn = actionCollection()->addAction(KStandardAction::ZoomIn, this, SLOT(zoomIn()));
