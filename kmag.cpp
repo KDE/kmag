@@ -177,7 +177,7 @@ void KmagApp::initActions()
   m_modeFollowMouse = new KToggleAction(KIcon(QLatin1String( "followmouse" )), i18n("&Follow Mouse Mode"), this);
   actionCollection()->addAction(QLatin1String( "mode_followmouse" ), m_modeFollowMouse);
   connect(m_modeFollowMouse, SIGNAL(triggered(bool)), SLOT(slotModeChanged()));
-  m_modeFollowMouse->setShortcut(Qt::Key_F1);
+  m_modeFollowMouse->setShortcut(Qt::Key_F2);
   m_modeFollowMouse->setIconText(i18n("Mouse"));
   m_modeFollowMouse->setToolTip(i18n("Magnify around the mouse cursor"));
   m_modeFollowMouse->setWhatsThis(i18n("If selected, the area around the mouse cursor is magnified"));
