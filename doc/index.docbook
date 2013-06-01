@@ -48,10 +48,30 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
+<!--FIXME missing:
+"&Follow Focus Mode" 
+qaccessibilityclient  <https://projects.kde.org/projects/playground/accessibility/libkdeaccessibilityclient>
+KDE client-side accessibility library
+Required to enable keyboard focus tracking
 
+commit 035090bca3a3065800c6d9ff1862167170a0e939
+Author: Sebastian Sauer mail@dipe.org
+Date:   Tue Jul 20 20:33:23 2010 +0000
+    Add a new 'Follow Focus' mode to KMag that uses the just new kaccessible QAccessibleBridgePlugin for providing keyboard cursor focus tracking.
+    svn path=/trunk/KDE/kdeaccessibility/kmag/; revision=1152354
+commit 2278a10a069ed436d0167ae3ef099b020e35f663
+Author: Amandeep Singh aman.dedman@gmail.com
+Date:   Wed Sep 26 02:46:22 2012 +0530
+    Allowing KMag to follow both mouse + kbd-focus together
+       -Made the followMouseMode + followFocusMode selectable together.
+       -With just followMouseMode checked, Kmag follows mouse,
+         and with followFocusMode checked, Kmag follows focus.
+       -And when both are selected, it follows both the mouse,
+         and the keyboard focus, whichever is relevant.
+-->
 
-<date>2010-09-15</date>
-<releaseinfo>1.0 &kde; 4.5</releaseinfo>
+<date>2013-05-31</date>
+<releaseinfo>1.0 &kde; 4.11</releaseinfo>
 
 <!-- Abstract about this handbook -->
 
@@ -180,7 +200,7 @@ rotate the magnification image and more.
 <title>Menu Reference</title> 
 
 <sect2 id="the-file-menu">
-<title>The <guimenu>File</guimenu> Menu</title> 
+<title>The File Menu</title> 
  
 <variablelist> 
  
@@ -235,7 +255,7 @@ rotate the magnification image and more.
 </sect2> 
  
 <sect2 id="the-edit-menu"> 
-<title>The <guimenu>Edit</guimenu> Menu</title> 
+<title>The Edit Menu</title> 
  
 <variablelist> 
  
@@ -255,7 +275,7 @@ you can paste in other applications.</para></listitem>
 </sect2> 
  
 <sect2 id="the-view-menu"> 
-<title>The <guimenu>View</guimenu> Menu</title> 
+<title>The View Menu</title> 
  
 <variablelist> 
  
@@ -341,51 +361,15 @@ blindness, but good for designing accessible interfaces.</para></listitem>
 </sect2>
 
 <sect2 id="the-settings-menu">
-<title>The <guimenu>Settings</guimenu> Menu</title>
+<title>The Settings Menu</title>
 
 <variablelist>
 
 <varlistentry>
 <term><menuchoice>
 <shortcut>
-<keycombo action="simul">&Ctrl;
-<keycap>M</keycap></keycombo>
-</shortcut>
-<guimenu>Settings</guimenu> 
-<guimenuitem>Show/Hide Menu</guimenuitem>
-</menuchoice></term>
-<listitem><para>Toggles the menubar on/off.</para></listitem>
-</varlistentry>
- 
-<varlistentry>
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Show/Hide Main Toolbar</guimenuitem>
-</menuchoice></term>
-<listitem><para>Toggles the main toolbar on/off.</para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Show/Hide View Toolbar</guimenuitem>
-</menuchoice></term>
-<listitem><para>Toggles the view toolbar on/off.</para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Show/Hide Settings Toolbar</guimenuitem>
-</menuchoice></term>
-<listitem><para>Toggles the settings toolbar on/off.</para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<shortcut>
 <keycombo action="simul">
-<keycap>F1</keycap></keycombo>
+<keycap>F2</keycap></keycombo>
 </shortcut>
 <guimenu>Settings</guimenu>
 <guimenuitem>Follow Mouse Mode</guimenuitem>
@@ -397,7 +381,7 @@ blindness, but good for designing accessible interfaces.</para></listitem>
 <term><menuchoice>
 <shortcut>
 <keycombo action="simul">
-<keycap>F2</keycap></keycombo>
+<keycap>F3</keycap></keycombo>
 </shortcut>
 <guimenu>Settings</guimenu>
 <guimenuitem>Selection Window Mode</guimenuitem>
@@ -409,7 +393,7 @@ blindness, but good for designing accessible interfaces.</para></listitem>
 <term><menuchoice>
 <shortcut>
 <keycombo action="simul">
-<keycap>F3</keycap></keycombo>
+<keycap>F4</keycap></keycombo>
 </shortcut>
 <guimenu>Settings</guimenu>
 <guimenuitem>Whole Screen Mode</guimenuitem>
@@ -421,40 +405,36 @@ blindness, but good for designing accessible interfaces.</para></listitem>
 <term><menuchoice>
 <shortcut>
 <keycombo action="simul">
-<keycap>F4</keycap></keycombo>
+<keycap>F6</keycap></keycombo>
 </shortcut>
 <guimenu>Settings</guimenu>
-<guimenuitem>Show/Hide Mouse Cursor</guimenuitem>
+<guimenuitem>Hide Mouse Cursor</guimenuitem>
 </menuchoice></term>
 <listitem><para>Show or hide the mouse cursor in the magnified image.</para></listitem>
 </varlistentry>
 
-<varlistentry> 
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Configure Shortcuts...</guimenuitem>
-</menuchoice></term>
-<listitem><para>Opens a window that lets you configure the keyboard
-shortcuts for many menu commands.</para></listitem>
-</varlistentry>
-
 <varlistentry>
 <term><menuchoice>
+<shortcut>
+<keycombo action="simul">
+<keycap>F7</keycap></keycombo>
+</shortcut>
 <guimenu>Settings</guimenu>
-<guimenuitem>Configure Toolbars...</guimenuitem>
+<guimenuitem>Stays an Top</guimenuitem>
 </menuchoice></term>
-<listitem><para>Opens a window that lets you choose which icons are visible
-in the toolbar.</para></listitem>
+<listitem><para>The &kmag; window stays on top of other windows.</para></listitem>
 </varlistentry>
 </variablelist>
+
+<para>
+Additionally &kmag; has the common &kde; <guimenu>Settings</guimenu> and <guimenu>Help</guimenu>
+menu items, for more information read the sections about the <ulink url="help:/fundamentals/ui.html#menus-settings"
+>Settings Menu</ulink> and <ulink url="help:/fundamentals/ui.html#menus-help">Help Menu</ulink>
+of the &kde; Fundamentals.
+</para>
+
 </sect2>
 
-<sect2 id="the-help-menu">
-<title>The <guimenu>Help</guimenu> Menu</title>
-
-&help.menu.documentation;
-
-</sect2>
 </sect1>
 
 <sect1 id="commands">
@@ -475,23 +455,18 @@ file.</para>
 </entry>
 </row>
 <row>
-<entry><keycap>F1</keycap></entry>
+<entry><keycap>F2</keycap></entry>
 <entry><para>Switch to "Follow Mouse Mode".</para>
 </entry>
 </row>
 <row>
-<entry><keycap>F2</keycap></entry>
+<entry><keycap>F3</keycap></entry>
 <entry><para>Switch to "Selection Window Mode".</para>
 </entry>
 </row>
 <row>
-<entry><keycap>F3</keycap></entry>
-<entry><para>Switch to "Whole Screen Mode".</para>
-</entry>
-</row>
-<row>
 <entry><keycap>F4</keycap></entry>
-<entry><para>Show or hide the mouse cursor in the magnified image.</para>
+<entry><para>Switch to "Whole Screen Mode".</para>
 </entry>
 </row>
 <row>
@@ -499,6 +474,16 @@ file.</para>
 <entry><para>This will start the refresh of the zoom window if it is
 stopped, or stops the refresh of the zoom window if the refresh is
 currently on.</para>
+</entry>
+</row>
+<row>
+<entry><keycap>F6</keycap></entry>
+<entry><para>Show or hide the mouse cursor in the magnified image.</para>
+</entry>
+</row>
+<row>
+<entry><keycap>F7</keycap></entry>
+<entry><para>The &kmag; window stays on top of other windows.</para>
 </entry>
 </row>
 <row>
