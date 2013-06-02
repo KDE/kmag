@@ -420,7 +420,7 @@ blindness, but good for designing accessible interfaces.</para></listitem>
 <keycap>F7</keycap></keycombo>
 </shortcut>
 <guimenu>Settings</guimenu>
-<guimenuitem>Stays an Top</guimenuitem>
+<guimenuitem>Stays On Top</guimenuitem>
 </menuchoice></term>
 <listitem><para>The &kmag; window stays on top of other windows.</para></listitem>
 </varlistentry>
