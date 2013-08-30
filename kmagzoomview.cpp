@@ -42,7 +42,6 @@
 #include <QtGui/QResizeEvent>
 #include <QtGui/QMouseEvent>
 #include <QtGui/QDesktopWidget>
-#include <QtGui/QCursor>
 #include <QtDBus/QDBusConnection>
 
 // include files for KDE

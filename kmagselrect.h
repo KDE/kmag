@@ -101,7 +101,7 @@ class KMagSelRect : public QObject, public QRect
     Q_OBJECT
 
 public:
-    KMagSelRect(QWidget *parent=0);
+    explicit KMagSelRect(QWidget *parent=0);
     KMagSelRect(const QPoint &topLeft, const QPoint &bottomRight,
       QWidget *parent=0);
     KMagSelRect(const QPoint &topLeft, const QSize &size,
