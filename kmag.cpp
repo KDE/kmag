@@ -415,13 +415,8 @@ void KmagApp::readOptions()
 
 bool KmagApp::queryClose()
 {
-  return (true);
-}
-
-bool KmagApp::queryExit()
-{
   saveOptions();
-  return true;
+  return (true);
 }
 
 /**

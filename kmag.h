@@ -86,14 +86,6 @@ class KmagApp : public KXmlGuiWindow
 
     virtual bool queryClose();
 
-    /** queryExit is called by KTMainWindow when the last window of the application is going to be closed during the closeEvent().
-     * Against the default implementation that just returns true, this calls saveOptions() to save the settings of the last window's
-     * properties.
-     * @see KTMainWindow#queryExit
-     * @see KTMainWindow#closeEvent
-     */
-    virtual bool queryExit();
-
     /// Catch context menu events
     void contextMenuEvent ( QContextMenuEvent * e );
 
