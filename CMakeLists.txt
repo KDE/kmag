@@ -22,6 +22,7 @@ if(QAccessibilityClient_FOUND)
 endif(QAccessibilityClient_FOUND)
 
 add_subdirectory( doc )
+add_subdirectory( pics )
 ########### next target ###############
 
 set(kmag_SRCS 
