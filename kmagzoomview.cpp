@@ -28,21 +28,20 @@
 #include "colorsim.h"
 
 // include files for Qt
-#include <QtGui/QBitmap>
-#include <QtGui/QCursor>
-#include <QtCore/qglobal.h>
-#include <QtGui/QPainter>
-#include <QtGui/QWidget>
-#include <QtGui/QScrollBar>
-#include <QtGui/QPixmap>
-#include <QtGui/QFocusEvent>
-#include <QtGui/QHideEvent>
-#include <QtGui/QKeyEvent>
-#include <QtGui/QShowEvent>
-#include <QtGui/QResizeEvent>
-#include <QtGui/QMouseEvent>
-#include <QtGui/QDesktopWidget>
-#include <QtDBus/QDBusConnection>
+#include <QBitmap>
+#include <QCursor>
+#include <QPainter>
+#include <QWidget>
+#include <QScrollBar>
+#include <QPixmap>
+#include <QFocusEvent>
+#include <QHideEvent>
+#include <QKeyEvent>
+#include <QShowEvent>
+#include <QResizeEvent>
+#include <QMouseEvent>
+#include <QDesktopWidget>
+#include <QDBusConnection>
 
 // include files for KDE
 #include <kapplication.h>

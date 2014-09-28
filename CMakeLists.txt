@@ -1,17 +1,34 @@
 project(kmag)
 
-find_package(KDE4 REQUIRED)
-include (KDE4Defaults)
-include (MacroLibrary)
+cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
+set(QT_MIN_VERSION "5.2.0")
 
-macro_optional_find_package(QAccessibilityClient)
-macro_log_feature(QAccessibilityClient_FOUND "qaccessibilityclient" "KDE client-side accessibility library" "https://projects.kde.org/projects/playground/accessibility/libkdeaccessibilityclient" FALSE "" "Required to enable keyboard focus tracking.")
+find_package(ECM 1.3.0 REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
+
+add_definitions(-DTRANSLATION_DOMAIN="kmag")
+
+include(KDEInstallDirs)
+include(KDECompilerSettings)
+include(KDECMakeSettings)
+include(FeatureSummary)
+
+find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+    Core
+    Widgets
+)
+
+find_package(KF5 REQUIRED COMPONENTS
+    KDELibs4Support
+)
+
+#macro_optional_find_package(QAccessibilityClient)
+#macro_log_feature(QAccessibilityClient_FOUND "qaccessibilityclient" "KDE client-side accessibility library" "https://projects.kde.org/projects/playground/accessibility/libkdeaccessibilityclient" FALSE "" "Required to enable keyboard focus tracking.")
 
 configure_file(
     "${PROJECT_SOURCE_DIR}/focustrackconfig.h.in"
     "${PROJECT_BINARY_DIR}/focustrackconfig.h")
 
-add_definitions (${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
 add_definitions( -DQT_NO_CAST_FROM_ASCII )
 add_definitions( -DQT_NO_CAST_TO_ASCII )
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
@@ -32,21 +49,21 @@ set(kmag_SRCS
    colorsim.cpp
    main.cpp )
 
-kde4_add_executable(kmag ${kmag_SRCS})
+add_executable(kmag ${kmag_SRCS})
 
-target_link_libraries(kmag ${KDE4_KIO_LIBS})
+target_link_libraries(kmag Qt5::Core Qt5::Widgets KF5::KDELibs4Support)
 if(QAccessibilityClient_FOUND)
     target_link_libraries(kmag ${QACCESSIBILITYCLIENT_LIBRARY})
 endif(QAccessibilityClient_FOUND)
 
 install(TARGETS kmag  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
-macro_display_feature_log()
+feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
 
 ########### install files ###############
 
 install( PROGRAMS kmag.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
-install( FILES kmagui.rc  DESTINATION  ${DATA_INSTALL_DIR}/kmag )
+install( FILES kmagui.rc  DESTINATION  ${KXMLGUI_INSTALL_DIR}/kmag )
 
 kde4_install_icons( ${ICON_INSTALL_DIR} )

@@ -19,8 +19,8 @@
 #define KMAGCOLORSIM_H
 
 // include files for Qt
-#include <QtGui/QImage>
-#include <QtGui/QPixmap>
+#include <QImage>
+#include <QPixmap>
 
 namespace ColorSim {
     /**

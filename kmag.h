@@ -28,14 +28,15 @@
 #include "focustrackconfig.h"
 
 // include files for Qt
-#include <QtGui/QContextMenuEvent>
-#include <QtGui/QPrinter>
+#include <QContextMenuEvent>
+#include <QPrinter>
 
 // include files for KDE
 #include <kxmlguiwindow.h>
-#include <kaction.h>
+#include <ktoggleaction.h>
+#include <kselectaction.h>
 #include <knuminput.h>
-#include <kconfig.h>
+#include <ksharedconfig.h>
 
 /**
   * The base class for Kmag application windows. It sets up the main
@@ -183,12 +184,12 @@ class KmagApp : public KXmlGuiWindow
     KSharedConfigPtr config;
 
     // KAction pointers to enable/disable actions
-    KAction *fileNewWindow, *m_pSnapshot, *m_pCopy, *m_keyConf, *m_toolConf;
+    QAction *fileNewWindow, *m_pSnapshot, *m_pCopy, *m_keyConf, *m_toolConf;
     QAction *m_pPrint;
     QAction *m_pZoomIn;
     QAction *m_pZoomOut;
     QAction *m_pQuit;
-    KAction *refreshSwitch;
+    QAction *refreshSwitch;
     KToggleAction *m_pShowMenu;
     KSelectAction *m_pZoomBox, *m_pRotationBox, *m_pFPSBox, *m_pColorBox;
 

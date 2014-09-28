@@ -33,7 +33,7 @@ Citations:
 #include "colorsim.h"
 
 // include files for Qt
-#include <QtGui/QColor>
+#include <QColor>
 
 #include <math.h>
 

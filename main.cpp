@@ -16,7 +16,7 @@
  ***************************************************************************/
 
 #include <kcmdlineargs.h>
-#include <kaboutdata.h>
+#include <k4aboutdata.h>
 #include <klocale.h>
 #include <ktoggleaction.h>
 #include <kselectaction.h>
@@ -36,9 +36,9 @@ KmagApp *kmagapp;
 int main(int argc, char *argv[])
 {
   // about the application
-  KAboutData *aboutData = new KAboutData("kmag", 0, ki18n("KMagnifier"), KMAG_VERSION,
+  K4AboutData *aboutData = new K4AboutData("kmag", 0, ki18n("KMagnifier"), KMAG_VERSION,
                                          ki18n("Screen magnifier for the K Desktop Environment (KDE)"),
-                                         KAboutData::License_GPL,
+                                         K4AboutData::License_GPL,
                                          ki18n("Copyright 2001-2003 Sarang Lakare\nCopyright 2003-2004 Olaf Schmidt\nCopyright 2008 Matthew Woehlke"), KLocalizedString(),
                                          "http://accessibility.kde.org/");
 

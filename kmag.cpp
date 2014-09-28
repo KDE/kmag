@@ -22,15 +22,15 @@
  ***************************************************************************/
 
 // include files for QT
-#include <QtCore/QDir>
-#include <QtCore/QPointer>
-#include <QtGui/QPrintDialog>
-#include <QtGui/QPainter>
-#include <QtGui/QLayout>
-#include <QtGui/QClipboard>
-#include <QtGui/QContextMenuEvent>
-#include <QtGui/QPixmap>
-#include <QtGui/QDesktopWidget>
+#include <QDir>
+#include <QPointer>
+#include <QPrintDialog>
+#include <QPainter>
+#include <QLayout>
+#include <QClipboard>
+#include <QContextMenuEvent>
+#include <QPixmap>
+#include <QDesktopWidget>
 
 // include files for KDE
 #include <kxmlguiclient.h>
@@ -50,6 +50,7 @@
 #include <kmenubar.h>
 #include <klocale.h>
 #include <kconfig.h>
+#include <kconfiggroup.h>
 #include <kdebug.h>
 #include <kstandardaction.h>
 #include <khelpmenu.h>
@@ -63,7 +64,7 @@
 #include <kdeprintdialog.h>
 
 // application specific includes
-#include "kmag.moc"
+#include "kmag.h"
 #include "kmagzoomview.h"
 #include "kmagselrect.h"
 
@@ -583,7 +584,7 @@ void KmagApp::saveZoomPixmap()
     toggled = true;
   }
 
-  KUrl url = KFileDialog::getSaveUrl(QString(),
+  QUrl url = KFileDialog::getSaveUrl(QString(),
               KImageIO::pattern(KImageIO::Writing),
              0,i18n("Save Snapshot As"));
 
@@ -602,7 +603,7 @@ void KmagApp::saveZoomPixmap()
           KMessageBox::error(0, i18n("Unable to upload file over the network."),
                             i18n("Error Writing File"));
         } else {
-          KMessageBox::information(0, i18n("Current zoomed image saved to\n%1", url.prettyUrl()),
+          KMessageBox::information(0, i18n("Current zoomed image saved to\n%1", url.toDisplayString()),
                               i18n("Information"), QLatin1String( "save_confirm" ));
         }
       }
@@ -615,7 +616,7 @@ void KmagApp::saveZoomPixmap()
         KMessageBox::error(0, i18n("Unable to save file. Please check if you have permission to write to the directory."),
                             i18n("Error Writing File"));
       } else {
-        KMessageBox::information(0, i18n("Current zoomed image saved to\n%1", url.prettyUrl()),
+        KMessageBox::information(0, i18n("Current zoomed image saved to\n%1", url.toDisplayString()),
                                 i18n("Information"), QLatin1String( "save_confirm" ));
       }
     }

@@ -20,13 +20,13 @@
 #include "kmagselrect.h"
 #include "kmagselrect.moc"
 
-#include <QtGui/QApplication>
-#include <QtGui/QCursor>
-#include <QtGui/QPixmap>
-#include <QtGui/QBitmap>
-#include <QtGui/QMouseEvent>
-#include <QtGui/QLabel>
-#include <QtGui/QDesktopWidget>
+#include <QApplication>
+#include <QCursor>
+#include <QPixmap>
+#include <QBitmap>
+#include <QMouseEvent>
+#include <QLabel>
+#include <QDesktopWidget>
 
 #include <klocale.h>
 
