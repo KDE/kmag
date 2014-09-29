@@ -59,7 +59,6 @@
 #include <kmenu.h>
 #include <kedittoolbar.h>
 #include <kglobal.h>
-#include <kdeprintdialog.h>
 
 // application specific includes
 #include "kmag.h"
@@ -770,7 +769,7 @@ void KmagApp::slotFilePrint()
     m_printer->setOrientation(QPrinter::Portrait);
   }
 
-  QPrintDialog *printDialog = KdePrint::createPrintDialog(m_printer, this);
+  QPrintDialog *printDialog = new QPrintDialog(m_printer, this);
 
   if (printDialog->exec()) {
     QPainter paint;
