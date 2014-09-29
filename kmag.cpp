@@ -32,6 +32,7 @@
 #include <QContextMenuEvent>
 #include <QPixmap>
 #include <QDesktopWidget>
+#include <QTemporaryFile>
 
 // include files for KDE
 #include <kxmlguiclient.h>
@@ -55,7 +56,6 @@
 #include <kimageio.h>
 #include <kio/job.h>
 #include <kio/netaccess.h>
-#include <ktemporaryfile.h>
 #include <kmenu.h>
 #include <kedittoolbar.h>
 #include <kglobal.h>
@@ -589,7 +589,7 @@ void KmagApp::saveZoomPixmap()
   if(!url.fileName().isEmpty()) {
     if(!url.isLocalFile()) {
       // create a temp file.. save image to it.. copy over the n/w and then delete the temp file.
-      KTemporaryFile tempFile;
+      QTemporaryFile tempFile;
 #ifdef __GNUC__
 #warning "kde4: port KImageIO::type \n";
 #endif
