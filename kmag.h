@@ -35,7 +35,6 @@
 #include <kxmlguiwindow.h>
 #include <ktoggleaction.h>
 #include <kselectaction.h>
-#include <knuminput.h>
 #include <ksharedconfig.h>
 
 /**
@@ -192,9 +191,6 @@ class KmagApp : public KXmlGuiWindow
     QAction *refreshSwitch;
     KToggleAction *m_pShowMenu;
     KSelectAction *m_pZoomBox, *m_pRotationBox, *m_pFPSBox, *m_pColorBox;
-
-    /// zoom slider
-    KIntNumInput *m_zoomSlider;
 
     /// Current index into the zoomArray
     unsigned int m_zoomIndex;
