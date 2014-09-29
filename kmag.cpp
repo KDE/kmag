@@ -54,8 +54,7 @@
 #include <kconfiggroup.h>
 #include <kstandardaction.h>
 #include <khelpmenu.h>
-#include <kio/job.h>
-#include <kio/netaccess.h>
+#include <KIO/FileCopyJob>
 #include <kmenu.h>
 #include <kedittoolbar.h>
 
@@ -603,7 +602,8 @@ void KmagApp::saveZoomPixmap()
         KMessageBox::error(0, i18n("Unable to save temporary file (before uploading to the network file you specified)."),
                           i18n("Error Writing File"));
       } else {
-        if(!KIO::NetAccess::upload(tempFile.fileName(), url, this)) {
+        KIO::FileCopyJob *job = KIO::file_copy(QUrl::fromLocalFile(tempFile.fileName()), url);
+        if(!job) {
           KMessageBox::error(0, i18n("Unable to upload file over the network."),
                             i18n("Error Writing File"));
         } else {
