@@ -34,7 +34,7 @@ class KMagSelWinCorner : public QLabel
 
 public:
 
-    explicit KMagSelWinCorner ( QWidget * parent = 0, Qt::WFlags f = 0 );
+    explicit KMagSelWinCorner ( QWidget * parent = 0 );
 
     virtual ~KMagSelWinCorner();
 
@@ -58,7 +58,7 @@ class KMagSelWin : public QWidget
 
 public:
 
-    explicit KMagSelWin ( QWidget * parent = 0, Qt::WFlags f = 0 );
+    explicit KMagSelWin ( QWidget * parent = 0 );
 
     virtual ~KMagSelWin();
 

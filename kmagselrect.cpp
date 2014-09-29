@@ -201,7 +201,7 @@ void setPaletteColor(QWidget* w, QPalette::ColorRole r, const QColor& c)
   w->setPalette(p);
 }
 
-KMagSelWin::KMagSelWin ( QWidget * parent, Qt::WFlags ) :
+KMagSelWin::KMagSelWin ( QWidget * parent ) :
     QWidget(parent) //Qt::WStyle_Customize | Qt::WStyle_NoBorder | Qt::WStyle_StaysOnTop | Qt::WType_TopLevel | Qt::WX11BypassWM)
 {
   setWindowFlags( Qt::CustomizeWindowHint | Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint | Qt::X11BypassWindowManagerHint);
@@ -349,8 +349,8 @@ void KMagSelWin::bottomRightResized (const QPoint &offset)
 //   KMagSelWinCorner
 //--------------------------------------------------------------------------
 
-KMagSelWinCorner::KMagSelWinCorner ( QWidget * parent, Qt::WFlags f ) :
-    QLabel (parent, f)
+KMagSelWinCorner::KMagSelWinCorner ( QWidget * parent ) :
+    QLabel (parent)
 {
   setFrameStyle (QFrame::WinPanel | QFrame::Raised);
   setLineWidth (1);
