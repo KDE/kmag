@@ -58,7 +58,6 @@
 #include <kio/netaccess.h>
 #include <kmenu.h>
 #include <kedittoolbar.h>
-#include <kglobal.h>
 
 // application specific includes
 #include "kmag.h"
@@ -72,7 +71,7 @@ KmagApp::KmagApp(QWidget* , const char* name)
 {
   setObjectName( QLatin1String( name ) );
   setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
-  config=KGlobal::config();
+  config=KSharedConfig::openConfig();
 
   zoomArrayString << QLatin1String( "5:1" ) << QLatin1String( "2:1" ) << QLatin1String( "1:1" ) << QLatin1String( "1:1.5" ) << QLatin1String( "1:2" ) << QLatin1String( "1:3" ) << QLatin1String( "1:4" ) << QLatin1String( "1:5" )
     << QLatin1String( "1:6" ) << QLatin1String( "1:7" ) << QLatin1String( "1:8" ) << QLatin1String( "1:12" ) << QLatin1String( "1:16" ) << QLatin1String( "1:20" );
@@ -240,8 +239,6 @@ void KmagApp::initActions()
   m_pRotationBox->setItems(rotationArrayString);
   m_pRotationBox->setWhatsThis(i18n("Select the rotation degree."));
   m_pRotationBox->setToolTip(i18n("Rotation degree"));
-
-  // KHelpMenu *newHelpMenu = new KHelpMenu(this, KGlobal::mainComponent().aboutData());
 
   m_keyConf = actionCollection()->addAction(KStandardAction::KeyBindings, this, SLOT(slotConfKeys()));
   m_toolConf = actionCollection()->addAction(KStandardAction::ConfigureToolbars, this, SLOT(slotEditToolbars()));
@@ -842,7 +839,7 @@ void KmagApp::slotConfKeys()
 
 void KmagApp::slotEditToolbars()
 {
-  KConfigGroup cg( KGlobal::config(), "MainWindow" );
+  KConfigGroup cg( KSharedConfig::openConfig(), "MainWindow" );
   saveMainWindowSettings( cg );
   QPointer<KEditToolBar> dlg = new KEditToolBar( actionCollection() );
   connect(dlg, SIGNAL(newToolBarConfig()), this, SLOT(slotNewToolbarConfig()) );
@@ -854,6 +851,6 @@ void KmagApp::slotEditToolbars()
 
 void KmagApp::slotNewToolbarConfig()
 {
-  applyMainWindowSettings( KGlobal::config()->group( "MainWindow" ) );
+  applyMainWindowSettings( KSharedConfig::openConfig()->group( "MainWindow" ) );
   createGUI();
 }
