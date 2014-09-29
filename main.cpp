@@ -16,6 +16,7 @@
  ***************************************************************************/
 
 #include <QApplication>
+#include <QCommandLineParser>
 
 #include <KAboutData>
 #include <KLocalizedString>
@@ -61,6 +62,11 @@ int main(int argc, char *argv[])
   }
   else
   {
+    QCommandLineParser parser;
+    parser.addHelpOption();
+    parser.addVersionOption();
+    parser.process(app);
+
     kmagapp = new KmagApp();
     kmagapp->show();
   }
