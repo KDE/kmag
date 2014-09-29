@@ -25,6 +25,8 @@
 #include <QApplication>
 #include <QDebug>
 #include <QDir>
+#include <QFileDialog>
+#include <QImageReader>
 #include <QPointer>
 #include <QPrintDialog>
 #include <QPainter>
@@ -46,14 +48,12 @@
 #include <kstandardshortcut.h>
 #include <kshortcutsdialog.h>
 #include <kmessagebox.h>
-#include <kfiledialog.h>
 #include <kmenubar.h>
 #include <klocale.h>
 #include <kconfig.h>
 #include <kconfiggroup.h>
 #include <kstandardaction.h>
 #include <khelpmenu.h>
-#include <kimageio.h>
 #include <kio/job.h>
 #include <kio/netaccess.h>
 #include <kmenu.h>
@@ -578,9 +578,19 @@ void KmagApp::saveZoomPixmap()
     toggled = true;
   }
 
-  QUrl url = KFileDialog::getSaveUrl(QString(),
-              KImageIO::pattern(KImageIO::Writing),
-             0,i18n("Save Snapshot As"));
+  QStringList mimeTypes;
+  QList<QByteArray> supported = QImageReader::supportedMimeTypes();
+  foreach (QByteArray mimeType, supported) {
+    mimeTypes.append(QString::fromLatin1(mimeType));
+  }
+
+  QFileDialog fileDialog(this);
+  fileDialog.setWindowTitle(i18n("Save Snapshot As"));
+  fileDialog.setMimeTypeFilters(mimeTypes);
+  QUrl url;
+  if (fileDialog.exec() && !fileDialog.selectedUrls().isEmpty()) {
+      url = fileDialog.selectedUrls().at(0);
+  }
 
   if(!url.fileName().isEmpty()) {
     if(!url.isLocalFile()) {
