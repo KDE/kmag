@@ -22,6 +22,7 @@
  ***************************************************************************/
 
 // include files for QT
+#include <QApplication>
 #include <QDebug>
 #include <QDir>
 #include <QPointer>
@@ -42,7 +43,6 @@
 #include <kselectaction.h>
 #include <kdeversion.h>
 #include <kxmlguifactory.h>
-#include <kapplication.h>
 #include <kstandardshortcut.h>
 #include <kshortcutsdialog.h>
 #include <kmessagebox.h>
@@ -814,7 +814,7 @@ void KmagApp::slotFileQuit()
 
 void KmagApp::copyToClipBoard()
 {
-  QClipboard *cb=KApplication::clipboard();
+  QClipboard *cb=QApplication::clipboard();
   cb->setPixmap(QPixmap::fromImage(m_zoomView->getImage()));
 }
 

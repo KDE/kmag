@@ -28,6 +28,7 @@
 #include "colorsim.h"
 
 // include files for Qt
+#include <QApplication>
 #include <QBitmap>
 #include <QCursor>
 #include <QPainter>
@@ -44,7 +45,6 @@
 #include <QDBusConnection>
 
 // include files for KDE
-#include <kapplication.h>
 #include <kcursor.h>
 #include <klocale.h>
 #ifdef QAccessibilityClient_FOUND
@@ -398,7 +398,7 @@ void KMagZoomView::paintMouseCursor(QPaintDevice *dev, const QPoint &mousePos)
     {
       // 3. Actual cursor
       // Get the current cursor type
-      QWidget *dummy  = KApplication::topLevelAt(QCursor::pos());
+      QWidget *dummy  = QApplication::topLevelAt(QCursor::pos());
       if(!dummy)
         break;
       switch(this->cursor().shape())  {

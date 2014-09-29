@@ -15,12 +15,13 @@
  *                                                                         *
  ***************************************************************************/
 
+#include <QApplication>
+
 #include <kcmdlineargs.h>
 #include <k4aboutdata.h>
 #include <klocale.h>
 #include <ktoggleaction.h>
 #include <kselectaction.h>
-#include <kapplication.h>
 #include "kmag.h"
 
 #include "version.h"
@@ -59,7 +60,7 @@ int main(int argc, char *argv[])
   options.add("+[File]", ki18n("File to open"));
   KCmdLineArgs::addCmdLineOptions( options ); // Add our own options.
 
-  KApplication app;
+  QApplication app(argc, argv);
 
   if (app.isSessionRestored())
   {
