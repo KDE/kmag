@@ -17,10 +17,14 @@ include(FeatureSummary)
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
     Widgets
+    PrintSupport
 )
 
 find_package(KF5 REQUIRED COMPONENTS
-    KDELibs4Support
+    DocTools
+    I18n
+    KIO
+    XmlGui
 )
 
 #macro_optional_find_package(QAccessibilityClient)
@@ -52,7 +56,14 @@ set(kmag_SRCS
 
 add_executable(kmag ${kmag_SRCS})
 
-target_link_libraries(kmag Qt5::Core Qt5::Widgets KF5::KDELibs4Support)
+target_link_libraries(kmag
+    Qt5::Core
+    Qt5::Widgets
+    Qt5::PrintSupport
+    KF5::KIOCore
+    KF5::I18n
+    KF5::XmlGui
+)
 if(QAccessibilityClient_FOUND)
     target_link_libraries(kmag ${QACCESSIBILITYCLIENT_LIBRARY})
 endif(QAccessibilityClient_FOUND)
