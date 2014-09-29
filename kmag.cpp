@@ -40,11 +40,9 @@
 #include <kselectaction.h>
 #include <kdeversion.h>
 #include <kxmlguifactory.h>
-#include <kicon.h>
 #include <kapplication.h>
 #include <kstandardshortcut.h>
 #include <kshortcutsdialog.h>
-#include <kiconloader.h>
 #include <kmessagebox.h>
 #include <kfiledialog.h>
 #include <kmenubar.h>
@@ -136,14 +134,14 @@ KmagApp::~KmagApp()
 void KmagApp::initActions()
 {
   fileNewWindow = actionCollection()->addAction(QLatin1String( "new_window" ));
-  fileNewWindow->setIcon(KIcon(QLatin1String( "window-new" )));
+  fileNewWindow->setIcon(QIcon::fromTheme(QLatin1String( "window-new" )));
   fileNewWindow->setText(i18n("New &Window"));
   connect(fileNewWindow, SIGNAL(triggered(bool)), SLOT(slotFileNewWindow()));
   fileNewWindow->setShortcuts(KStandardShortcut::openNew());
   fileNewWindow->setToolTip(i18n("Open a new KMagnifier window"));
 
   refreshSwitch = actionCollection()->addAction(QLatin1String( "start_stop_refresh" ));
-  refreshSwitch->setIcon(KIcon(QLatin1String( "process-stop" )));
+  refreshSwitch->setIcon(QIcon::fromTheme(QLatin1String( "process-stop" )));
   refreshSwitch->setText(i18n("&Stop"));
   connect(refreshSwitch, SIGNAL(triggered(bool)), SLOT(slotToggleRefresh()));
   refreshSwitch->setShortcuts(KStandardShortcut::reload());
@@ -153,7 +151,7 @@ void KmagApp::initActions()
                                    "required (CPU usage)"));
 
   m_pSnapshot = actionCollection()->addAction(QLatin1String( "snapshot" ));
-  m_pSnapshot->setIcon(KIcon(QLatin1String( "ksnapshot" )));
+  m_pSnapshot->setIcon(QIcon::fromTheme(QLatin1String( "ksnapshot" )));
   m_pSnapshot->setText(i18n("&Save Snapshot As..."));
   connect(m_pSnapshot, SIGNAL(triggered(bool)), SLOT(saveZoomPixmap()));
   m_pSnapshot->setShortcuts(KStandardShortcut::save());
@@ -175,7 +173,7 @@ void KmagApp::initActions()
 
   setStandardToolBarMenuEnabled(true);
 
-  m_modeFollowMouse = new KToggleAction(KIcon(QLatin1String( "followmouse" )), i18n("&Follow Mouse Mode"), this);
+  m_modeFollowMouse = new KToggleAction(QIcon::fromTheme(QLatin1String( "followmouse" )), i18n("&Follow Mouse Mode"), this);
   actionCollection()->addAction(QLatin1String( "mode_followmouse" ), m_modeFollowMouse);
   connect(m_modeFollowMouse, SIGNAL(triggered(bool)), SLOT(slotModeChanged()));
   m_modeFollowMouse->setShortcut(Qt::Key_F2);
@@ -185,7 +183,7 @@ void KmagApp::initActions()
 
 #ifdef QAccessibilityClient_FOUND
 
-  m_modeFollowFocus = new KToggleAction(KIcon(QLatin1String( "view-restore" )), i18n("&Follow Focus Mode"), this);
+  m_modeFollowFocus = new KToggleAction(QIcon::fromTheme(QLatin1String( "view-restore" )), i18n("&Follow Focus Mode"), this);
   actionCollection()->addAction(QLatin1String( "mode_followfocus" ), m_modeFollowFocus);
   connect(m_modeFollowFocus, SIGNAL(triggered(bool)), SLOT(slotModeChanged()));
   m_modeFollowFocus->setShortcut(Qt::Key_F2);
@@ -195,14 +193,14 @@ void KmagApp::initActions()
 
 #endif
 
-  m_modeSelWin = new KToggleAction(KIcon(QLatin1String( "window" )), i18n("Se&lection Window Mode"), this);
+  m_modeSelWin = new KToggleAction(QIcon::fromTheme(QLatin1String( "window" )), i18n("Se&lection Window Mode"), this);
   actionCollection()->addAction(QLatin1String( "mode_selectionwindow" ), m_modeSelWin);
   connect(m_modeSelWin, SIGNAL(triggered(bool)), SLOT(slotModeSelWin()));
   m_modeSelWin->setShortcut(Qt::Key_F3);
   m_modeSelWin->setIconText(i18n("Window"));
   m_modeSelWin->setToolTip(i18n("Show a window for selecting the magnified area"));
 
-  m_modeWholeScreen = new KToggleAction(KIcon(QLatin1String( "view-fullscreen" )), i18n("&Whole Screen Mode"), this);
+  m_modeWholeScreen = new KToggleAction(QIcon::fromTheme(QLatin1String( "view-fullscreen" )), i18n("&Whole Screen Mode"), this);
   actionCollection()->addAction(QLatin1String( "mode_wholescreen" ), m_modeWholeScreen);
   connect(m_modeWholeScreen, SIGNAL(triggered(bool)), SLOT(slotModeWholeScreen()));
   m_modeWholeScreen->setShortcut(Qt::Key_F4);
@@ -210,7 +208,7 @@ void KmagApp::initActions()
   m_modeWholeScreen->setToolTip(i18n("Magnify the whole screen"));
   m_modeWholeScreen->setWhatsThis(i18n("Click on this button to fit the zoom view to the zoom window."));
 
-  m_hideCursor = new KToggleAction(KIcon(QLatin1String( "hidemouse" )), i18n("Hide Mouse &Cursor"), this);
+  m_hideCursor = new KToggleAction(QIcon::fromTheme(QLatin1String( "hidemouse" )), i18n("Hide Mouse &Cursor"), this);
   actionCollection()->addAction(QLatin1String( "hidecursor" ), m_hideCursor);
   connect(m_hideCursor, SIGNAL(triggered(bool)), SLOT(slotToggleHideCursor()));
   m_hideCursor->setShortcut(Qt::Key_F6);
@@ -220,7 +218,7 @@ void KmagApp::initActions()
   m_hideCursor->setIconText(i18n("Hide"));
   m_hideCursor->setToolTip(i18n("Hide the mouse cursor"));
 
-  m_staysOnTop = new KToggleAction(KIcon(QLatin1String( "go-top" )), i18n("Stays On Top"), this);
+  m_staysOnTop = new KToggleAction(QIcon::fromTheme(QLatin1String( "go-top" )), i18n("Stays On Top"), this);
   actionCollection()->addAction(QLatin1String( "staysontop" ), m_staysOnTop);
   connect(m_staysOnTop, SIGNAL(triggered(bool)), SLOT(slotStaysOnTop()));
   m_staysOnTop->setShortcut(Qt::Key_F7);
@@ -631,11 +629,11 @@ void KmagApp::slotToggleRefresh()
 {
   m_zoomView->toggleRefresh();
   if(m_zoomView->getRefreshStatus()) {
-    refreshSwitch->setIcon(KIcon(QLatin1String( "process-stop" )));
+    refreshSwitch->setIcon(QIcon::fromTheme(QLatin1String( "process-stop" )));
     refreshSwitch->setText(i18n("Stop"));
     refreshSwitch->setToolTip(i18n("Click to stop window update"));
   } else {
-    refreshSwitch->setIcon(KIcon(QLatin1String( "system-run" )));
+    refreshSwitch->setIcon(QIcon::fromTheme(QLatin1String( "system-run" )));
     refreshSwitch->setText(i18nc("Start updating the window", "Start"));
     refreshSwitch->setToolTip(i18n("Click to start window update"));
   }
