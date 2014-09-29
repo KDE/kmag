@@ -27,7 +27,7 @@
 #include <QDebug>
 #include <QDesktopWidget>
 #include <QFileDialog>
-#include <QImageReader>
+#include <QImageWriter>
 #include <QMenuBar>
 #include <QPainter>
 #include <QPrintDialog>
@@ -565,13 +565,15 @@ void KmagApp::saveZoomPixmap()
   }
 
   QStringList mimeTypes;
-  QList<QByteArray> supported = QImageReader::supportedMimeTypes();
+  QList<QByteArray> supported = QImageWriter::supportedMimeTypes();
   foreach (QByteArray mimeType, supported) {
     mimeTypes.append(QString::fromLatin1(mimeType));
   }
 
   QFileDialog fileDialog(this);
   fileDialog.setWindowTitle(i18n("Save Snapshot As"));
+  fileDialog.setAcceptMode(QFileDialog::AcceptSave);
+  fileDialog.setDefaultSuffix(QLatin1String("png"));
   fileDialog.setMimeTypeFilters(mimeTypes);
   QUrl url;
   if (fileDialog.exec() && !fileDialog.selectedUrls().isEmpty()) {
@@ -582,10 +584,7 @@ void KmagApp::saveZoomPixmap()
     if(!url.isLocalFile()) {
       // create a temp file.. save image to it.. copy over the n/w and then delete the temp file.
       QTemporaryFile tempFile;
-#ifdef __GNUC__
-#warning "kde4: port KImageIO::type \n";
-#endif
-      if(!tempFile.open() || !m_zoomView->getImage().save(tempFile.fileName(),"png"/*, KImageIO::type(url.fileName()).latin1()*/)) {
+      if(!tempFile.open() || !m_zoomView->getImage().save(tempFile.fileName())) {
         KMessageBox::error(0, i18n("Unable to save temporary file (before uploading to the network file you specified)."),
                           i18n("Error Writing File"));
       } else {
@@ -600,10 +599,7 @@ void KmagApp::saveZoomPixmap()
       }
 
     } else {
-#ifdef __GNUC__
-#warning "kde4 : port KImageIO::type(...) \n";
-#endif
-      if(!m_zoomView->getImage().save(url.path(), "png"/*KImageIO::type(url.fileName()).latin1()*/)) {
+      if(!m_zoomView->getImage().save(url.path())) {
         KMessageBox::error(0, i18n("Unable to save file. Please check if you have permission to write to the directory."),
                             i18n("Error Writing File"));
       } else {
