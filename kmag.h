@@ -28,14 +28,14 @@
 #include "focustrackconfig.h"
 
 // include files for Qt
-#include <QContextMenuEvent>
 #include <QPrinter>
 
 // include files for KDE
-#include <kxmlguiwindow.h>
-#include <ktoggleaction.h>
-#include <kselectaction.h>
 #include <ksharedconfig.h>
+#include <kxmlguiwindow.h>
+
+class KToggleAction;
+class KSelectAction;
 
 /**
   * The base class for Kmag application windows. It sets up the main

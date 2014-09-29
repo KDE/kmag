@@ -20,13 +20,10 @@
 #ifndef KMAGSELRECT_H
 #define KMAGSELRECT_H
 
-#include <stdlib.h>
-
-// Qt includes
-#include <QRect>
 #include <QWidget>
 #include <QLabel>
-#include <QMouseEvent>
+
+class QMouseEvent;
 
 class KMagSelWinCorner : public QLabel
 {

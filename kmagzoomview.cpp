@@ -24,29 +24,17 @@
 
 // application specific includes
 #include "kmagzoomview.h"
-#include "kmagzoomview.moc"
 #include "colorsim.h"
 
 // include files for Qt
 #include <QApplication>
 #include <QBitmap>
-#include <QCursor>
-#include <QPainter>
-#include <QWidget>
-#include <QScrollBar>
-#include <QPixmap>
-#include <QFocusEvent>
-#include <QHideEvent>
-#include <QKeyEvent>
-#include <QShowEvent>
-#include <QResizeEvent>
-#include <QMouseEvent>
 #include <QDesktopWidget>
-#include <QDBusConnection>
+#include <QScrollBar>
 
 // include files for KDE
-#include <kcursor.h>
-#include <klocale.h>
+#include <KLocalizedString>
+
 #ifdef QAccessibilityClient_FOUND
 #include <qaccessibilityclient/accessibleobject.h>
 #endif

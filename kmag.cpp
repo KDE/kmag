@@ -21,42 +21,29 @@
  *                                                                         *
  ***************************************************************************/
 
-// include files for QT
+// include files for Qt
 #include <QApplication>
+#include <QClipboard>
 #include <QDebug>
-#include <QDir>
+#include <QDesktopWidget>
 #include <QFileDialog>
 #include <QImageReader>
-#include <QPointer>
-#include <QPrintDialog>
+#include <QMenuBar>
 #include <QPainter>
-#include <QLayout>
-#include <QClipboard>
-#include <QContextMenuEvent>
-#include <QPixmap>
-#include <QDesktopWidget>
+#include <QPrintDialog>
 #include <QTemporaryFile>
 
 // include files for KDE
-#include <kxmlguiclient.h>
-#include <ktoolbar.h>
-#include <ktoggleaction.h>
-#include <kactioncollection.h>
-#include <kselectaction.h>
-#include <kdeversion.h>
-#include <kxmlguifactory.h>
-#include <kstandardshortcut.h>
-#include <kshortcutsdialog.h>
-#include <kmessagebox.h>
-#include <kmenubar.h>
-#include <klocale.h>
-#include <kconfig.h>
-#include <kconfiggroup.h>
-#include <kstandardaction.h>
-#include <khelpmenu.h>
+#include <KActionCollection>
+#include <KConfigGroup>
+#include <KEditToolBar>
+#include <KLocalizedString>
+#include <KMessageBox>
+#include <KSelectAction>
+#include <KShortcutsDialog>
+#include <KToggleAction>
+#include <KXMLGUIFactory>
 #include <KIO/FileCopyJob>
-#include <kmenu.h>
-#include <kedittoolbar.h>
 
 // application specific includes
 #include "kmag.h"
