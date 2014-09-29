@@ -46,7 +46,6 @@
 // include files for KDE
 #include <kapplication.h>
 #include <kcursor.h>
-#include <kdebug.h>
 #include <klocale.h>
 #ifdef QAccessibilityClient_FOUND
 #include <qaccessibilityclient/accessibleobject.h>
@@ -402,7 +401,6 @@ void KMagZoomView::paintMouseCursor(QPaintDevice *dev, const QPoint &mousePos)
       QWidget *dummy  = KApplication::topLevelAt(QCursor::pos());
       if(!dummy)
         break;
-      kDebug() << ">" << dummy->objectName() << ":" << dummy->cursor().shape() << "-";
       switch(this->cursor().shape())  {
 			  case Qt::ArrowCursor :
          {

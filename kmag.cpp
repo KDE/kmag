@@ -22,6 +22,7 @@
  ***************************************************************************/
 
 // include files for QT
+#include <QDebug>
 #include <QDir>
 #include <QPointer>
 #include <QPrintDialog>
@@ -49,7 +50,6 @@
 #include <klocale.h>
 #include <kconfig.h>
 #include <kconfiggroup.h>
-#include <kdebug.h>
 #include <kstandardaction.h>
 #include <khelpmenu.h>
 #include <kimageio.h>
@@ -480,7 +480,7 @@ void KmagApp::setZoomIndex(int index)
 {
   if(index < 0 || index >= (int)zoomArray.size()) {
     // the index is invalid
-    kWarning() << "Invalid index!" ;
+    qDebug() << "Invalid index!" ;
     return;
   } else if((int)m_zoomIndex == index) {
     // do nothing!
@@ -516,7 +516,7 @@ void KmagApp::setRotationIndex(int index)
 {
   if(index < 0 || index >= (int)rotationArray.size()) {
     // the index is invalid
-    kWarning() << "Invalid index!" ;
+    qDebug() << "Invalid index!" ;
     return;
   } else if((int)m_rotationIndex == index) {
     // do nothing!
@@ -536,7 +536,7 @@ void KmagApp::setFPSIndex(int index)
 {
   if(index < 0 || index >= (int)fpsArray.size()) {
     // the index is invalid
-    kWarning() << "Invalid index!" ;
+    qDebug() << "Invalid index!" ;
     return;
   } else if((int)m_fpsIndex == index) {
     // do nothing!
@@ -556,7 +556,7 @@ void KmagApp::setColorIndex(int index)
 {
   if(index < 0 || index >= (int)colorArray.size()) {
     // the index is invalid
-    kWarning() << "Invalid index!" ;
+    qDebug() << "Invalid index!" ;
     return;
   } else if((int)m_colorIndex == index) {
     // do nothing!
