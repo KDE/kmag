@@ -11,6 +11,7 @@ add_definitions(-DTRANSLATION_DOMAIN="kmag")
 include(KDEInstallDirs)
 include(KDECompilerSettings)
 include(KDECMakeSettings)
+include(ECMInstallIcons)
 include(FeatureSummary)
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
@@ -66,4 +67,4 @@ feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 install( PROGRAMS kmag.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
 install( FILES kmagui.rc  DESTINATION  ${KXMLGUI_INSTALL_DIR}/kmag )
 
-kde4_install_icons( ${ICON_INSTALL_DIR} )
+ecm_install_icons( ICONS 16-apps-kmag.png 32-apps-kmag.png  DESTINATION ${ICON_INSTALL_DIR} )
