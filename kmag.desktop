@@ -1,7 +1,7 @@
 # KDE Config File
 [Desktop Entry]
 Type=Application
-Exec=kmag -caption %c %i
+Exec=kmag
 Icon=kmag
 X-DocPath=kmag/index.html
 Terminal=false
