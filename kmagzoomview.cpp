@@ -970,6 +970,29 @@ void KMagZoomView::grabFrame()
   if (m_colormode != 0)
     m_coloredPixmap = QPixmap::fromImage(ColorSim::recolor(m_coloredPixmap.toImage(), m_colormode));
 
+  // erase background covered by kmag view ...
+  QRect viewRect = rect();
+  viewRect.translate(mapTo(window(), QPoint(0, 0)));
+  viewRect.translate(-selRect.topLeft());
+  viewRect.translate(window()->geometry().topLeft());
+  QRegion region(viewRect);
+
+  // ... but exclude own popups ...
+  const QList<QWidget *> siblings = QApplication::topLevelWidgets();
+  foreach (QWidget *sibling, siblings) {
+    if (sibling != window() && (sibling->windowType() & Qt::Window) && sibling->isVisible()) {
+      QRect rect = sibling->frameGeometry();
+      rect.translate(-selRect.topLeft());
+      region -= rect;
+    }
+  }
+
+  QPainter p(&m_coloredPixmap);
+  foreach (const QRect &rect, region.rects()) {
+    p.fillRect(rect, palette().dark());
+  }
+  p.end();
+
   QRect r = m_zoomMatrix.mapRect(m_coloredPixmap.rect());
   // call repaint to display the newly grabbed image
   horizontalScrollBar()->setPageStep(r.width());
