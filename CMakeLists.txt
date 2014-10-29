@@ -27,8 +27,13 @@ find_package(KF5 REQUIRED COMPONENTS
     XmlGui
 )
 
-#macro_optional_find_package(QAccessibilityClient)
-#macro_log_feature(QAccessibilityClient_FOUND "qaccessibilityclient" "KDE client-side accessibility library" "https://projects.kde.org/projects/playground/accessibility/libkdeaccessibilityclient" FALSE "" "Required to enable keyboard focus tracking.")
+find_package(QAccessibilityClient)
+set_package_properties(QAccessibilityClient PROPERTIES
+    DESCRIPTION "KDE client-side accessibility library"
+    URL "https://projects.kde.org/projects/playground/accessibility/libkdeaccessibilityclient"
+    TYPE OPTIONAL
+    PURPOSE "Required to enable keyboard focus tracking."
+)
 
 configure_file(
     "${PROJECT_SOURCE_DIR}/focustrackconfig.h.in"
