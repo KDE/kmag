@@ -59,8 +59,8 @@ KmagApp::KmagApp(QWidget* , const char* name)
   setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
   config=KSharedConfig::openConfig();
 
-  zoomArrayString << QLatin1String( "5:1" ) << QLatin1String( "2:1" ) << QLatin1String( "1:1" ) << QLatin1String( "1:1.5" ) << QLatin1String( "1:2" ) << QLatin1String( "1:3" ) << QLatin1String( "1:4" ) << QLatin1String( "1:5" )
-    << QLatin1String( "1:6" ) << QLatin1String( "1:7" ) << QLatin1String( "1:8" ) << QLatin1String( "1:12" ) << QLatin1String( "1:16" ) << QLatin1String( "1:20" );
+  zoomArrayString << QStringLiteral( "5:1" ) << QStringLiteral( "2:1" ) << QStringLiteral( "1:1" ) << QStringLiteral( "1:1.5" ) << QStringLiteral( "1:2" ) << QStringLiteral( "1:3" ) << QStringLiteral( "1:4" ) << QStringLiteral( "1:5" )
+    << QStringLiteral( "1:6" ) << QStringLiteral( "1:7" ) << QStringLiteral( "1:8" ) << QStringLiteral( "1:12" ) << QStringLiteral( "1:16" ) << QStringLiteral( "1:20" );
 
   zoomArray << 0.2 <<0.5 << 1.0;
   zoomArray << 1.5 << 2.0 << 3.0;
@@ -117,27 +117,27 @@ KmagApp::~KmagApp()
 
 void KmagApp::initActions()
 {
-  fileNewWindow = actionCollection()->addAction(QLatin1String( "new_window" ));
-  fileNewWindow->setIcon(QIcon::fromTheme(QLatin1String( "window-new" )));
+  fileNewWindow = actionCollection()->addAction(QStringLiteral( "new_window" ));
+  fileNewWindow->setIcon(QIcon::fromTheme(QStringLiteral( "window-new" )));
   fileNewWindow->setText(i18n("New &Window"));
-  connect(fileNewWindow, SIGNAL(triggered(bool)), SLOT(slotFileNewWindow()));
+  connect(fileNewWindow, &QAction::triggered, this, &KmagApp::slotFileNewWindow);
   actionCollection()->setDefaultShortcuts(fileNewWindow, KStandardShortcut::openNew());
   fileNewWindow->setToolTip(i18n("Open a new KMagnifier window"));
 
-  refreshSwitch = actionCollection()->addAction(QLatin1String( "start_stop_refresh" ));
-  refreshSwitch->setIcon(QIcon::fromTheme(QLatin1String( "process-stop" )));
+  refreshSwitch = actionCollection()->addAction(QStringLiteral( "start_stop_refresh" ));
+  refreshSwitch->setIcon(QIcon::fromTheme(QStringLiteral( "process-stop" )));
   refreshSwitch->setText(i18n("&Stop"));
-  connect(refreshSwitch, SIGNAL(triggered(bool)), SLOT(slotToggleRefresh()));
+  connect(refreshSwitch, &QAction::triggered, this, &KmagApp::slotToggleRefresh);
   actionCollection()->setDefaultShortcuts(refreshSwitch, KStandardShortcut::reload());
   refreshSwitch->setToolTip(i18n("Click to stop window refresh"));
   refreshSwitch->setWhatsThis(i18n("Clicking on this icon will <b>start</b> / <b>stop</b> "
                                    "updating of the display. Stopping the update will zero the processing power "
                                    "required (CPU usage)"));
 
-  m_pSnapshot = actionCollection()->addAction(QLatin1String( "snapshot" ));
-  m_pSnapshot->setIcon(QIcon::fromTheme(QLatin1String( "ksnapshot" )));
+  m_pSnapshot = actionCollection()->addAction(QStringLiteral( "snapshot" ));
+  m_pSnapshot->setIcon(QIcon::fromTheme(QStringLiteral( "ksnapshot" )));
   m_pSnapshot->setText(i18n("&Save Snapshot As..."));
-  connect(m_pSnapshot, SIGNAL(triggered(bool)), SLOT(saveZoomPixmap()));
+  connect(m_pSnapshot, &QAction::triggered, this, &KmagApp::saveZoomPixmap);
   actionCollection()->setDefaultShortcuts(m_pSnapshot, KStandardShortcut::save());
   m_pSnapshot->setWhatsThis(i18n("Saves the zoomed view to an image file."));
   m_pSnapshot->setToolTip(i18n("Save image to a file"));
@@ -157,9 +157,9 @@ void KmagApp::initActions()
 
   setStandardToolBarMenuEnabled(true);
 
-  m_modeFollowMouse = new KToggleAction(QIcon::fromTheme(QLatin1String( "followmouse" )), i18n("&Follow Mouse Mode"), this);
-  actionCollection()->addAction(QLatin1String( "mode_followmouse" ), m_modeFollowMouse);
-  connect(m_modeFollowMouse, SIGNAL(triggered(bool)), SLOT(slotModeChanged()));
+  m_modeFollowMouse = new KToggleAction(QIcon::fromTheme(QStringLiteral( "followmouse" )), i18n("&Follow Mouse Mode"), this);
+  actionCollection()->addAction(QStringLiteral( "mode_followmouse" ), m_modeFollowMouse);
+  connect(m_modeFollowMouse, &QAction::triggered, this, &KmagApp::slotModeChanged);
   actionCollection()->setDefaultShortcut(m_modeFollowMouse, Qt::Key_F2);
   m_modeFollowMouse->setIconText(i18n("Mouse"));
   m_modeFollowMouse->setToolTip(i18n("Magnify around the mouse cursor"));
@@ -177,24 +177,24 @@ void KmagApp::initActions()
 
 #endif
 
-  m_modeSelWin = new KToggleAction(QIcon::fromTheme(QLatin1String( "window" )), i18n("Se&lection Window Mode"), this);
-  actionCollection()->addAction(QLatin1String( "mode_selectionwindow" ), m_modeSelWin);
-  connect(m_modeSelWin, SIGNAL(triggered(bool)), SLOT(slotModeSelWin()));
+  m_modeSelWin = new KToggleAction(QIcon::fromTheme(QStringLiteral( "window" )), i18n("Se&lection Window Mode"), this);
+  actionCollection()->addAction(QStringLiteral( "mode_selectionwindow" ), m_modeSelWin);
+  connect(m_modeSelWin, &QAction::triggered, this, &KmagApp::slotModeSelWin);
   actionCollection()->setDefaultShortcut(m_modeSelWin, Qt::Key_F3);
   m_modeSelWin->setIconText(i18n("Window"));
   m_modeSelWin->setToolTip(i18n("Show a window for selecting the magnified area"));
 
-  m_modeWholeScreen = new KToggleAction(QIcon::fromTheme(QLatin1String( "view-fullscreen" )), i18n("&Whole Screen Mode"), this);
-  actionCollection()->addAction(QLatin1String( "mode_wholescreen" ), m_modeWholeScreen);
-  connect(m_modeWholeScreen, SIGNAL(triggered(bool)), SLOT(slotModeWholeScreen()));
+  m_modeWholeScreen = new KToggleAction(QIcon::fromTheme(QStringLiteral( "view-fullscreen" )), i18n("&Whole Screen Mode"), this);
+  actionCollection()->addAction(QStringLiteral( "mode_wholescreen" ), m_modeWholeScreen);
+  connect(m_modeWholeScreen, &QAction::triggered, this, &KmagApp::slotModeWholeScreen);
   actionCollection()->setDefaultShortcut(m_modeWholeScreen, Qt::Key_F4);
   m_modeWholeScreen->setIconText(i18n("Screen"));
   m_modeWholeScreen->setToolTip(i18n("Magnify the whole screen"));
   m_modeWholeScreen->setWhatsThis(i18n("Click on this button to fit the zoom view to the zoom window."));
 
-  m_hideCursor = new KToggleAction(QIcon::fromTheme(QLatin1String( "hidemouse" )), i18n("Hide Mouse &Cursor"), this);
-  actionCollection()->addAction(QLatin1String( "hidecursor" ), m_hideCursor);
-  connect(m_hideCursor, SIGNAL(triggered(bool)), SLOT(slotToggleHideCursor()));
+  m_hideCursor = new KToggleAction(QIcon::fromTheme(QStringLiteral( "hidemouse" )), i18n("Hide Mouse &Cursor"), this);
+  actionCollection()->addAction(QStringLiteral( "hidecursor" ), m_hideCursor);
+  connect(m_hideCursor, &QAction::triggered, this, &KmagApp::slotToggleHideCursor);
   actionCollection()->setDefaultShortcut(m_hideCursor, Qt::Key_F6);
   #ifdef havesetCheckedStatef
   m_hideCursor->setCheckedState(KGuiItem(i18n("Show Mouse &Cursor")));
@@ -202,9 +202,9 @@ void KmagApp::initActions()
   m_hideCursor->setIconText(i18n("Hide"));
   m_hideCursor->setToolTip(i18n("Hide the mouse cursor"));
 
-  m_staysOnTop = new KToggleAction(QIcon::fromTheme(QLatin1String( "go-top" )), i18n("Stays On Top"), this);
-  actionCollection()->addAction(QLatin1String( "staysontop" ), m_staysOnTop);
-  connect(m_staysOnTop, SIGNAL(triggered(bool)), SLOT(slotStaysOnTop()));
+  m_staysOnTop = new KToggleAction(QIcon::fromTheme(QStringLiteral( "go-top" )), i18n("Stays On Top"), this);
+  actionCollection()->addAction(QStringLiteral( "staysontop" ), m_staysOnTop);
+  connect(m_staysOnTop, &QAction::triggered, this, &KmagApp::slotStaysOnTop);
   actionCollection()->setDefaultShortcut(m_staysOnTop, Qt::Key_F7);
   m_staysOnTop->setToolTip(i18n("The KMagnifier Window stays on top of other windows."));
 
@@ -212,7 +212,7 @@ void KmagApp::initActions()
   m_pZoomIn->setWhatsThis(i18n("Click on this button to <b>zoom-in</b> on the selected region."));
 
   m_pZoomBox = new KSelectAction(i18n("&Zoom"), this);
-  actionCollection()->addAction(QLatin1String( "zoom" ), m_pZoomBox);
+  actionCollection()->addAction(QStringLiteral( "zoom" ), m_pZoomBox);
   m_pZoomBox->setItems(zoomArrayString);
   m_pZoomBox->setWhatsThis(i18n("Select the zoom factor."));
   m_pZoomBox->setToolTip(i18n("Zoom factor"));
@@ -221,7 +221,7 @@ void KmagApp::initActions()
   m_pZoomOut->setWhatsThis(i18n("Click on this button to <b>zoom-out</b> on the selected region."));
 
   m_pRotationBox = new KSelectAction(i18n("&Rotation"),this);
-  actionCollection()->addAction(QLatin1String( "rotation" ), m_pRotationBox);
+  actionCollection()->addAction(QStringLiteral( "rotation" ), m_pRotationBox);
   m_pRotationBox->setItems(rotationArrayString);
   m_pRotationBox->setWhatsThis(i18n("Select the rotation degree."));
   m_pRotationBox->setToolTip(i18n("Rotation degree"));
@@ -230,13 +230,13 @@ void KmagApp::initActions()
   m_toolConf = actionCollection()->addAction(KStandardAction::ConfigureToolbars, this, SLOT(slotEditToolbars()));
 
   m_pFPSBox = new KSelectAction(i18n("&Refresh"),this);
-  actionCollection()->addAction(QLatin1String( "fps_selector" ), m_pFPSBox);
+  actionCollection()->addAction(QStringLiteral( "fps_selector" ), m_pFPSBox);
   m_pFPSBox->setItems(fpsArrayString);
   m_pFPSBox->setWhatsThis(i18n("Select the refresh rate. The higher the rate, the more computing power (CPU) will be needed."));
   m_pFPSBox->setToolTip(i18n("Refresh rate"));
 
   m_pColorBox = new KSelectAction(i18nc("Color-blindness simulation mode", "&Color"),this);
-  actionCollection()->addAction(QLatin1String( "color_mode" ), m_pColorBox);
+  actionCollection()->addAction(QStringLiteral( "color_mode" ), m_pColorBox);
   m_pColorBox->setItems(colorArrayString);
   m_pColorBox->setWhatsThis(i18n("Select a mode to simulate various types of color-blindness."));
   m_pColorBox->setToolTip(i18n("Color-blindness Simulation Mode"));
@@ -280,16 +280,16 @@ void KmagApp::slotChangeColorIndex(int index)
 void KmagApp::initConnections()
 {
   // change in zoom value -> update the view
-  connect(this, SIGNAL(updateZoomValue(float)), m_zoomView, SLOT(setZoom(float)));
-  connect(this, SIGNAL(updateRotationValue(int)), m_zoomView, SLOT(setRotation(int)));
-  connect(this, SIGNAL(updateFPSValue(float)), m_zoomView, SLOT(setRefreshRate(float)));
-  connect(this, SIGNAL(updateColorValue(int)), m_zoomView, SLOT(setColorMode(int)));
+  connect(this, &KmagApp::updateZoomValue, m_zoomView, &KMagZoomView::setZoom);
+  connect(this, &KmagApp::updateRotationValue, m_zoomView, &KMagZoomView::setRotation);
+  connect(this, &KmagApp::updateFPSValue, m_zoomView, &KMagZoomView::setRefreshRate);
+  connect(this, &KmagApp::updateColorValue, m_zoomView, &KMagZoomView::setColorMode);
 
   // change in zoom index -> update the selector
-  connect(this, SIGNAL(updateZoomIndex(int)), this, SLOT(slotChangeZoomBoxIndex(int)));
-  connect(this, SIGNAL(updateRotationIndex(int)), this, SLOT(slotChangeRotationBoxIndex(int)));
-  connect(this, SIGNAL(updateFPSIndex(int)), this, SLOT(slotChangeFPSIndex(int)));
-  connect(this, SIGNAL(updateColorIndex(int)), this, SLOT(slotChangeColorIndex(int)));
+  connect(this, &KmagApp::updateZoomIndex, this, &KmagApp::slotChangeZoomBoxIndex);
+  connect(this, &KmagApp::updateRotationIndex, this, &KmagApp::slotChangeRotationBoxIndex);
+  connect(this, &KmagApp::updateFPSIndex, this, &KmagApp::slotChangeFPSIndex);
+  connect(this, &KmagApp::updateColorIndex, this, &KmagApp::slotChangeColorIndex);
 
   // selector selects a zoom index -> set the zoom index
   connect(m_pZoomBox, SIGNAL(triggered(int)), this, SLOT(setZoomIndex(int)));
@@ -409,7 +409,7 @@ void KmagApp::contextMenuEvent ( QContextMenuEvent * e )
 {
  // show popup
  KXMLGUIFactory *factory = this->factory();
- QMenu *popup = (QMenu *)factory->container(QLatin1String( "mainPopUp" ),this);
+ QMenu *popup = (QMenu *)factory->container(QStringLiteral( "mainPopUp" ),this);
  if (popup != 0)
    popup->popup(e->globalPos());
  e->accept();
@@ -573,7 +573,7 @@ void KmagApp::saveZoomPixmap()
   QFileDialog fileDialog(this);
   fileDialog.setWindowTitle(i18n("Save Snapshot As"));
   fileDialog.setAcceptMode(QFileDialog::AcceptSave);
-  fileDialog.setDefaultSuffix(QLatin1String("png"));
+  fileDialog.setDefaultSuffix(QStringLiteral("png"));
   fileDialog.setMimeTypeFilters(mimeTypes);
   QUrl url;
   if (fileDialog.exec() && !fileDialog.selectedUrls().isEmpty()) {
@@ -594,7 +594,7 @@ void KmagApp::saveZoomPixmap()
                             i18n("Error Writing File"));
         } else {
           KMessageBox::information(0, i18n("Current zoomed image saved to\n%1", url.toDisplayString()),
-                              i18n("Information"), QLatin1String( "save_confirm" ));
+                              i18n("Information"), QStringLiteral( "save_confirm" ));
         }
       }
 
@@ -604,7 +604,7 @@ void KmagApp::saveZoomPixmap()
                             i18n("Error Writing File"));
       } else {
         KMessageBox::information(0, i18n("Current zoomed image saved to\n%1", url.toDisplayString()),
-                                i18n("Information"), QLatin1String( "save_confirm" ));
+                                i18n("Information"), QStringLiteral( "save_confirm" ));
       }
     }
   }
@@ -618,11 +618,11 @@ void KmagApp::slotToggleRefresh()
 {
   m_zoomView->toggleRefresh();
   if(m_zoomView->getRefreshStatus()) {
-    refreshSwitch->setIcon(QIcon::fromTheme(QLatin1String( "process-stop" )));
+    refreshSwitch->setIcon(QIcon::fromTheme(QStringLiteral( "process-stop" )));
     refreshSwitch->setText(i18n("Stop"));
     refreshSwitch->setToolTip(i18n("Click to stop window update"));
   } else {
-    refreshSwitch->setIcon(QIcon::fromTheme(QLatin1String( "system-run" )));
+    refreshSwitch->setIcon(QIcon::fromTheme(QStringLiteral( "system-run" )));
     refreshSwitch->setText(i18nc("Start updating the window", "Start"));
     refreshSwitch->setToolTip(i18n("Click to start window update"));
   }
@@ -835,7 +835,7 @@ void KmagApp::slotEditToolbars()
   KConfigGroup cg( KSharedConfig::openConfig(), "MainWindow" );
   saveMainWindowSettings( cg );
   QPointer<KEditToolBar> dlg = new KEditToolBar( actionCollection() );
-  connect(dlg, SIGNAL(newToolBarConfig()), this, SLOT(slotNewToolbarConfig()) );
+  connect(dlg.data(), &KEditToolBar::newToolBarConfig, this, &KmagApp::slotNewToolbarConfig );
   if ( dlg->exec() )
     createGUI();
   delete dlg;

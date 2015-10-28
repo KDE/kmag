@@ -36,22 +36,22 @@ KmagApp *kmagapp;
 int main(int argc, char *argv[])
 {
   // about the application
-  KAboutData aboutData(QLatin1String("kmag"), i18n("KMagnifier"), QLatin1String(KMAG_VERSION),
+  KAboutData aboutData(QStringLiteral("kmag"), i18n("KMagnifier"), QStringLiteral(KMAG_VERSION),
                                          i18n("Screen magnifier for the K Desktop Environment (KDE)"),
                                          KAboutLicense::GPL,
                                          i18n("Copyright 2001-2003 Sarang Lakare\nCopyright 2003-2004 Olaf Schmidt\nCopyright 2008 Matthew Woehlke"), QString(),
-                                         QLatin1String("http://accessibility.kde.org/"));
+                                         QStringLiteral("http://accessibility.kde.org/"));
 
   // about the authors
   aboutData.addAuthor(i18n("Sarang Lakare"),
-                       i18n("Rewrite"),QLatin1String("sarang@users.sf.net"),
-                       QLatin1String("http://www.cs.sunysb.edu/~lsarang/linux"));
+                       i18n("Rewrite"),QStringLiteral("sarang@users.sf.net"),
+                       QStringLiteral("http://www.cs.sunysb.edu/~lsarang/linux"));
   aboutData.addAuthor(i18n("Michael Forster"),
-                       i18n("Original idea and author (KDE1)"), QLatin1String("forster@fmi.uni-passau.de"));
-  aboutData.addAuthor(i18n("Olaf Schmidt"), i18n("Rework of the user interface, improved selection window, speed optimization, rotation, bug fixes"), QLatin1String("ojschmidt@kde.org"));
-  aboutData.addCredit(i18n("Matthew Woehlke"), i18n("Color-blindness simulation"), QLatin1String("mw_triad@users.sourceforge.net"));
-  aboutData.addCredit(i18n("Sebastian Sauer"), i18n("Focus tracking"), QLatin1String("sebsauer@kdab.com"));
-  aboutData.addCredit(i18n("Claudiu Costin"), i18n("Some tips"), QLatin1String("claudiuc@work.ro"), QLatin1String("http://www.ro.kde.org"));
+                       i18n("Original idea and author (KDE1)"), QStringLiteral("forster@fmi.uni-passau.de"));
+  aboutData.addAuthor(i18n("Olaf Schmidt"), i18n("Rework of the user interface, improved selection window, speed optimization, rotation, bug fixes"), QStringLiteral("ojschmidt@kde.org"));
+  aboutData.addCredit(i18n("Matthew Woehlke"), i18n("Color-blindness simulation"), QStringLiteral("mw_triad@users.sourceforge.net"));
+  aboutData.addCredit(i18n("Sebastian Sauer"), i18n("Focus tracking"), QStringLiteral("sebsauer@kdab.com"));
+  aboutData.addCredit(i18n("Claudiu Costin"), i18n("Some tips"), QStringLiteral("claudiuc@work.ro"), QStringLiteral("http://www.ro.kde.org"));
 
   QApplication app(argc, argv);
   KAboutData::setApplicationData(aboutData);

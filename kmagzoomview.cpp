@@ -109,12 +109,12 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
   setRefreshRate(10);
 
   // connect it to grabFrame()
-  connect(&m_grabTimer, SIGNAL(timeout()), SLOT(grabFrame()));
+  connect(&m_grabTimer, &QTimer::timeout, this, &KMagZoomView::grabFrame);
   // start the grabTimer
   m_grabTimer.start(static_cast<int>(1000.0/m_fps));
 
   // connect it to updateMouseView()
-  connect(&m_mouseViewTimer, SIGNAL(timeout()), SLOT(updateMouseView()));
+  connect(&m_mouseViewTimer, &QTimer::timeout, this, &KMagZoomView::updateMouseView);
   // start the grabTimer @ 25 frames per second!
   m_mouseViewTimer.start(40);
 
@@ -122,7 +122,7 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
  selected region. The contents will be magnified according to the zoom level that is set."));
 
   // different ways to show the cursor.
-  m_showMouseTypes << QLatin1String( "Hidden" ) << QLatin1String( "Box" ) << QLatin1String( "Arrow" ) << QLatin1String( "Actual" );
+  m_showMouseTypes << QStringLiteral( "Hidden" ) << QStringLiteral( "Box" ) << QStringLiteral( "Arrow" ) << QStringLiteral( "Actual" );
 
   if(m_fitToWindow)
     fitToWindow();
