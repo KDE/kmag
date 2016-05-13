@@ -31,6 +31,7 @@
 #include <QBitmap>
 #include <QDesktopWidget>
 #include <QScrollBar>
+#include <QScreen>
 
 // include files for KDE
 #include <KLocalizedString>
@@ -948,8 +949,9 @@ void KMagZoomView::grabFrame()
   QRect selRect = m_selRect.normalized();
 
   // grab screenshot from the screen and put it in the pixmap
-  m_coloredPixmap = QPixmap::grabWindow(QApplication::desktop()->winId(), selRect.x(), selRect.y(),
-                                        selRect.width(), selRect.height());
+  QScreen *screen = qApp->primaryScreen(); // ## How to select the right screen?
+  m_coloredPixmap = screen->grabWindow(QApplication::desktop()->winId(), selRect.x(), selRect.y(),
+                                      selRect.width(), selRect.height());
 
   // colorize the grabbed pixmap
   if (m_colormode != 0)
