@@ -33,7 +33,7 @@
 #include <QScrollBar>
 #include <QScreen>
 
-// include files for KDE
+// include files for KF5
 #include <KLocalizedString>
 
 #ifdef QAccessibilityClient_FOUND

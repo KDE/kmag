@@ -33,7 +33,7 @@
 #include <QPrintDialog>
 #include <QTemporaryFile>
 
-// include files for KDE
+// include files for KF5
 #include <KActionCollection>
 #include <KConfigGroup>
 #include <KEditToolBar>

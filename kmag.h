@@ -30,9 +30,9 @@
 // include files for Qt
 #include <QPrinter>
 
-// include files for KDE
-#include <ksharedconfig.h>
-#include <kxmlguiwindow.h>
+// include files for KF5
+#include <KSharedConfig>
+#include <KXmlGuiWindow>
 
 class KToggleAction;
 class KSelectAction;

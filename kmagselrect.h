@@ -20,6 +20,7 @@
 #ifndef KMAGSELRECT_H
 #define KMAGSELRECT_H
 
+// Qt
 #include <QWidget>
 #include <QLabel>
 

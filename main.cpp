@@ -15,9 +15,11 @@
  *                                                                         *
  ***************************************************************************/
 
+// Qt
 #include <QApplication>
 #include <QCommandLineParser>
 
+// KF5
 #include <KAboutData>
 #include <KLocalizedString>
 
