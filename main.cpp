@@ -37,6 +37,9 @@ KmagApp *kmagapp;
 
 int main(int argc, char *argv[])
 {
+  QApplication app(argc, argv);
+  KLocalizedString::setApplicationDomain("kmag");
+
   // about the application
   KAboutData aboutData(QStringLiteral("kmag"), i18n("KMagnifier"), QStringLiteral(KMAG_VERSION),
                                          i18n("Screen magnifier for the K Desktop Environment (KDE)"),
@@ -55,7 +58,6 @@ int main(int argc, char *argv[])
   aboutData.addCredit(i18n("Sebastian Sauer"), i18n("Focus tracking"), QStringLiteral("sebsauer@kdab.com"));
   aboutData.addCredit(i18n("Claudiu Costin"), i18n("Some tips"), QStringLiteral("claudiuc@work.ro"), QStringLiteral("http://www.ro.kde.org"));
 
-  QApplication app(argc, argv);
   KAboutData::setApplicationData(aboutData);
 
   if (app.isSessionRestored())
