@@ -366,9 +366,16 @@ void KMagZoomView::paintMouseCursor(QPaintDevice *dev, const QPoint &mousePos)
       pz.setPen(Qt::black);
       pz.setBackground(Qt::white);
 
-      QBitmap sCursor = QBitmap::fromData( QSize(16,  16),  left_ptr_bits);
+      QPixmap sCursor(16, 16);
+      QBitmap cursor = QBitmap::fromData( QSize(16,  16),  left_ptr_bits);
       QBitmap mask = QBitmap::fromData( QSize(16,  16),  left_ptrmsk_bits);
       sCursor.setMask(mask);
+      QPainter p(&sCursor);
+      p.setPen(Qt::gray);
+      p.drawPixmap(0, 0, mask);
+      p.setPen(Qt::black);
+      p.drawPixmap(0, 0, cursor);
+      p.end();
       sCursor = sCursor.transformed(m_zoomMatrix);
 
       // since hot spot is at 3,1
