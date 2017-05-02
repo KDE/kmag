@@ -366,7 +366,7 @@ void KmagApp::readOptions()
   unsigned int colorIndex = cg.readEntry("ColorIndex", 0);
   setColorIndex(colorIndex);
   emit updateColorIndex(colorIndex);
-/*
+
   QString mode = cg.readEntry("Mode", "followmouse");
   if (mode == QLatin1String( "wholescreen" )) {
     slotModeWholeScreen();
@@ -379,7 +379,7 @@ void KmagApp::readOptions()
     m_modeFollowMouse->setChecked(true);
     slotModeChanged();
   }
-*/
+
   QRect defaultRect(0,0,211,164);
   m_zoomView->setSelRectPos(cg.readEntry("SelRect", defaultRect));
 
