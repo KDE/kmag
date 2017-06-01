@@ -84,10 +84,10 @@ class KmagApp : public KXmlGuiWindow
     /// Initialize all connections
     void initConnections();
 
-    virtual bool queryClose();
+    bool queryClose() Q_DECL_OVERRIDE;
 
     /// Catch context menu events
-    void contextMenuEvent ( QContextMenuEvent * e );
+    void contextMenuEvent ( QContextMenuEvent * e ) Q_DECL_OVERRIDE;
 
   public slots:
     /** open a new application window by creating a new instance of KmagApp */

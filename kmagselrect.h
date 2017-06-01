@@ -45,9 +45,9 @@ protected:
 
     QPoint oldPos;
 
-    virtual void mousePressEvent ( QMouseEvent * e );
-    virtual void mouseReleaseEvent ( QMouseEvent * e );
-    virtual void mouseMoveEvent ( QMouseEvent * e );
+    void mousePressEvent ( QMouseEvent * e ) Q_DECL_OVERRIDE;
+    void mouseReleaseEvent ( QMouseEvent * e ) Q_DECL_OVERRIDE;
+    void mouseMoveEvent ( QMouseEvent * e ) Q_DECL_OVERRIDE;
 };
 
 class KMagSelWin : public QWidget

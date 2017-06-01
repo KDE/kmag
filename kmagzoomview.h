@@ -147,16 +147,16 @@ class KMagZoomView : public QAbstractScrollArea
 #endif
   protected:
     /// Called when the widget is hidden
-    void hideEvent( QHideEvent * e);
+    void hideEvent( QHideEvent * e) Q_DECL_OVERRIDE;
 
     /// Called when the widget is shown
-    void showEvent( QShowEvent * e);
+    void showEvent( QShowEvent * e) Q_DECL_OVERRIDE;
 
     /// Called when the widget has been resized
-    void resizeEvent(QResizeEvent *e);
+    void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
 
     /// Called when the widget is to be repainted
-    void paintEvent(QPaintEvent *e);
+    void paintEvent(QPaintEvent *e) Q_DECL_OVERRIDE;
 
     /// This function calculates the mouse position relative to the image
     QPoint calcMousePos(bool updateMousePos=true);
@@ -165,22 +165,22 @@ class KMagZoomView : public QAbstractScrollArea
     void paintMouseCursor(QPaintDevice *dev, const QPoint & mousePos);
 
     /// Called when mouse click is detected
-    void mousePressEvent (QMouseEvent *e);
+    void mousePressEvent (QMouseEvent *e) Q_DECL_OVERRIDE;
 
     /// Called when mouse is moved
-    void mouseMoveEvent(QMouseEvent *e);
+    void mouseMoveEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
 
     /// Mouse button release event handler
-    void mouseReleaseEvent(QMouseEvent *e);
+    void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
 
     /// Mouse button release event handler
-    void keyPressEvent(QKeyEvent *e);
+    void keyPressEvent(QKeyEvent *e) Q_DECL_OVERRIDE;
 
     /// Mouse button release event handler
-    void keyReleaseEvent(QKeyEvent *e);
+    void keyReleaseEvent(QKeyEvent *e) Q_DECL_OVERRIDE;
 
     /// Mouse button release event handler
-    void focusOutEvent(QFocusEvent *e);
+    void focusOutEvent(QFocusEvent *e) Q_DECL_OVERRIDE;
 
     /// Returns the rectangle where the pixmap will be drawn
     QRect pixmapRect();
