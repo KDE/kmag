@@ -1,8 +1,5 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-  <!ENTITY kmag "<application>KMagnifier</application>">
-  <!ENTITY kappname "&kmag;">
-  <!ENTITY package "kdeaccessibility">
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE"><!-- change language only here -->
 ]>
@@ -13,7 +10,7 @@
 
 
 <bookinfo>
-<title>The &kmag; Handbook</title>
+<title>The &kmagnifier; Handbook</title>
 
 <authorgroup>
 <author>
@@ -70,19 +67,19 @@ Date:   Wed Sep 26 02:46:22 2012 +0530
          and the keyboard focus, whichever is relevant.
 -->
 
-<date>2013-05-31</date>
-<releaseinfo>1.0 &kde; 4.11</releaseinfo>
+<date>2017-07-07</date>
+<releaseinfo>1.0 (Applications 17.08)</releaseinfo>
 
 <!-- Abstract about this handbook -->
 
 <abstract>
 <para>
-&kmag; is a screen magnifier. You can use
-&kmag; to magnify a part of the screen just as you would use a lens to magnify
+&kmagnifier; is a screen magnifier. You can use
+&kmagnifier; to magnify a part of the screen just as you would use a lens to magnify
 a newspaper fine-print or a photograph. This application is useful for a
 variety of people: from researchers to artists to web-designers to people with
 low vision. This document will try to be a complete reference manual for using
-&kmag;.
+&kmagnifier;.
 </para>
 
 </abstract>
@@ -99,55 +96,55 @@ low vision. This document will try to be a complete reference manual for using
 <title>Introduction</title>
 
 <para>
-&kmag; is a screen magnifier for the K Desktop Environment (&kde;). It can be used
+&kmagnifier; is a screen magnifier by the KDE community. It can be used
 to magnify a part of the screen. This application can be useful to various people:
 People with low vision can use this application to magnify a part of the screen which they
 are unable to view clearly,
 artists can use this application to zoom into the graphics they produce and verify it
 at the pixel level,
 image-processing researchers can use this application to zoom into images and study them closely.
-Other than these, &kmag; can be used for various other purposes &eg; is possible to use the
+Other than these, &kmagnifier; can be used for various other purposes &eg; is possible to use the
 application for grabbing a portion of the screen and saving it to the disk (with an option of
 zooming the screen captured).
 </para>
 <para>
-&kmag; is a very powerful application with new features being added all the time. It is optimized
+&kmagnifier; is a very powerful application with new features being added all the time. It is optimized
 for use on low processing power machines.
 </para>
 </chapter>
 
 <chapter id="using-kmag">
-<title>Using &kmag;</title>
+<title>Using &kmagnifier;</title>
 
 <screenshot>
-<screeninfo>Here's a screen shot of &kmag;</screeninfo>
+<screeninfo>Here's a screen shot of &kmagnifier;</screeninfo>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="screenshot.png" format="PNG"/>
 	  </imageobject>
 	  <textobject>
-	    <phrase>Screen shot of &kmag;</phrase>
+	    <phrase>Screen shot of &kmagnifier;</phrase>
 	  </textobject>
 	</mediaobject>
 </screenshot>
 
 <para>
-After running &kmag; you will get a window similar to the one show above. The main window of
-&kmag; shows the magnified (or zoomed) contents.
+After running &kmagnifier; you will get a window similar to the one show above. The main window of
+&kmagnifier; shows the magnified (or zoomed) contents.
 We refer to this window as the <quote>zoom window</quote>. The zoomed image shown inside the zoom window is
 captured from a part of the screen. The part of the screen which is magnified is referred to
 as the <quote>selection window</quote>.
 </para>
 <para>
-By default, &kmag; magnifies the region around the mouse cursor into the zoom window (think of it as a moving lens).
-Alternatively, you can ask &kmag; to magnify an chosen area of the screen 
+By default, &kmagnifier; magnifies the region around the mouse cursor into the zoom window (think of it as a moving lens).
+Alternatively, you can ask &kmagnifier; to magnify an chosen area of the screen 
 (<guilabel>Selection Window Mode</guilabel>) or the whole screen 
 (<guilabel>Whole Screen Mode</guilabel>) into the zoom window.
 </para>
 <para>
 If you would prefer not to see the mouse cursor in the zoomed image, select
-<guilabel>Hide Mouse Cursor</guilabel>. Please note that &kmag; cannot yet find out the current cursor shape.
-Thus, it shows the default &kde;/&Qt; cursor.
+<guilabel>Hide Mouse Cursor</guilabel>. Please note that &kmagnifier; cannot yet find out the current cursor shape.
+Thus, it shows the default cursor.
 </para>
 
 <sect1 id="changing-selection-window">
@@ -181,9 +178,9 @@ is kept constant and the bottom-right corner is movable.</para>
 </sect1>
 
 <sect1 id="kmag-features">
-<title>More &kmag; features</title>
+<title>More &kmagnifier; features</title>
 
-<para>&kmag; comes with lots of features. It is possible to print the zoomed
+<para>&kmagnifier; comes with lots of features. It is possible to print the zoomed
 image directly to a printer, save the image to a file, copy the zoomed
 image to the clipboard (which can be used later to paste in other applications),
 rotate the magnification image and more.
@@ -213,7 +210,7 @@ rotate the magnification image and more.
 <guimenu>File</guimenu> 
 <guimenuitem>New Window</guimenuitem> 
 </menuchoice></term> 
-<listitem><para>Opens a new &kmag; window.</para></listitem> 
+<listitem><para>Opens a new &kmagnifier; window.</para></listitem> 
 </varlistentry> 
  
 <varlistentry> 
@@ -422,12 +419,12 @@ blindness, but good for designing accessible interfaces.</para></listitem>
 <guimenu>Settings</guimenu>
 <guimenuitem>Stays On Top</guimenuitem>
 </menuchoice></term>
-<listitem><para>The &kmag; window stays on top of other windows.</para></listitem>
+<listitem><para>The &kmagnifier; window stays on top of other windows.</para></listitem>
 </varlistentry>
 </variablelist>
 
 <para>
-Additionally &kmag; has the common &kde; <guimenu>Settings</guimenu> and <guimenu>Help</guimenu>
+Additionally &kmagnifier; has the common &kde; <guimenu>Settings</guimenu> and <guimenu>Help</guimenu>
 menu items, for more information read the sections about the <ulink url="help:/fundamentals/ui.html#menus-settings"
 >Settings Menu</ulink> and <ulink url="help:/fundamentals/ui.html#menus-help">Help Menu</ulink>
 of the &kde; Fundamentals.
@@ -440,7 +437,7 @@ of the &kde; Fundamentals.
 <sect1 id="commands">
 <title>Command Reference</title>
 
-<para>&kmag; automatically uses all your default shortcuts for saving
+<para>&kmagnifier; automatically uses all your default shortcuts for saving
 file, opening new window, printing, starting/stopping refresh (reload
 button in &konqueror;), zoom-in, zoom-out &etc;</para>
 
@@ -483,12 +480,12 @@ currently on.</para>
 </row>
 <row>
 <entry><keycap>F7</keycap></entry>
-<entry><para>The &kmag; window stays on top of other windows.</para>
+<entry><para>The &kmagnifier; window stays on top of other windows.</para>
 </entry>
 </row>
 <row>
 <entry><keycombo>&Ctrl;<keycap>N</keycap></keycombo></entry>
-<entry><para>This will open a new &kmag; window.</para></entry>
+<entry><para>This will open a new &kmagnifier; window.</para></entry>
 </row>
 <row>
 <entry><keycombo>&Ctrl;<keycap>P</keycap></keycombo></entry>
@@ -525,31 +522,12 @@ clipboard.</para>
 </sect1>
 </chapter>
 
-<!--
-<chapter id="faq">
-<title>Questions and Answers</title>
-
-&reporting.bugs;
-&updating.documentation;
-
-<para>
-This section is currently empty as I have not received any questions from any users! I
-will add some FAQ if I hear from any of the users.
-</para>
-
-</chapter>
--->
 <chapter id="credits">
-
-<!-- Include credits for the programmers, documentation writers, and
-contributors here. The license for your software should then be included below
-the credits with a reference to the appropriate license file included in the KDE
-distribution. -->
 
 <title>Credits and License</title>
 
 <para>
-&kmag;
+&kmagnifier;
 </para>
 <para>
 Program copyright 2001-2003 Sarang Lakare <email>sarang@users.sf.net</email> and 2003-2005 Olaf Schmidt <email>ojschmidt@kde.org</email>.
@@ -572,25 +550,6 @@ Documentation copyright 2002 Sarang Lakare <email>sarang@users.sf.net</email> an
 &underGPL;        	 <!-- GPL License -->
 
 </chapter>
-
-<appendix id="installation">
-<title>Installation</title>
-
-<sect1 id="getting-kmag">
-<title>How to obtain &kmag;</title>
-
-&install.intro.documentation;
-
-</sect1>
-
-<sect1 id="compilation">
-<title>Compilation and Installation</title>
-
-&install.compile.documentation;
-
-</sect1>
-
-</appendix>
 
 &documentation.index;
 </book>

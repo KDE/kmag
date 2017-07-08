@@ -5,10 +5,10 @@
 
 <refentry lang="&language;">
 <refentryinfo>
-<title>&kde; User's Manual</title>
+<title>&kmagnifier; User's Manual</title>
 <author>&Lauri.Watts; &Lauri.Watts.mail;</author>
-<date>2010-10-06</date>
-<productname>K Desktop Environment</productname>
+<date>2017-07-07</date>
+<productname>KDE Applications</productname>
 </refentryinfo>
 
 <refmeta>
@@ -24,8 +24,6 @@
 <refsynopsisdiv>
 <cmdsynopsis>
 <command>kmag</command>
-<arg choice="opt">&kde; Generic Options</arg>
-<arg choice="opt">&Qt; Generic Options</arg>
 </cmdsynopsis>
 </refsynopsisdiv>
 
@@ -41,13 +39,17 @@ to web-designers to people with low vision.</para>
 <refsect1>
 <title>See Also</title>
 
-<para>More detailed user documentation is available from <ulink
+<simplelist>
+<member>More detailed user documentation is available from <ulink
 url="help:/kmag">help:/kmag</ulink>
 (either enter this &URL; into &konqueror;, or run
 <userinput><command>khelpcenter</command>
-<parameter>help:/kmag</parameter></userinput>).</para>
+<parameter>help:/kmag</parameter></userinput>).</member>
+<member>kf5options(7)</member>
+<member>qt5options(7)</member>
+<member>There is also further information available at <ulink url="http://accessibility.kde.org">the &kde; accessibility project home page.</ulink></member>
+</simplelist>
 
-<para>There is also further information available at the <ulink url="http://accessibility.kde.org/">&kde; accessibility project home page.</ulink></para>
 </refsect1>
 
 <refsect1>
