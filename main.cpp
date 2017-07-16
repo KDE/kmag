@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 
   // about the application
   KAboutData aboutData(QStringLiteral("kmag"), i18n("KMagnifier"), QStringLiteral(KMAG_VERSION),
-                                         i18n("Screen magnifier for the K Desktop Environment (KDE)"),
+                                         i18n("Screen magnifier created by KDE"),
                                          KAboutLicense::GPL,
                                          i18n("Copyright 2001-2003 Sarang Lakare\nCopyright 2003-2004 Olaf Schmidt\nCopyright 2008 Matthew Woehlke"), QString(),
                                          QStringLiteral("http://accessibility.kde.org/"));
