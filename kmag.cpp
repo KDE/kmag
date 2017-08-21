@@ -170,7 +170,7 @@ void KmagApp::initActions()
   m_modeFollowFocus = new KToggleAction(QIcon::fromTheme(QLatin1String( "view-restore" )), i18n("&Follow Focus Mode"), this);
   actionCollection()->addAction(QLatin1String( "mode_followfocus" ), m_modeFollowFocus);
   connect(m_modeFollowFocus, SIGNAL(triggered(bool)), SLOT(slotModeChanged()));
-  actionCollection()->setDefaultShortcut(m_modeFollowFocus, Qt::Key_F2);
+  actionCollection()->setDefaultShortcut(m_modeFollowFocus, Qt::Key_F8);
   m_modeFollowFocus->setIconText(i18n("Focus"));
   m_modeFollowFocus->setToolTip(i18n("Magnify around the keyboard focus"));
   m_modeFollowFocus->setWhatsThis(i18n("If selected, the area around the keyboard cursor is magnified"));
