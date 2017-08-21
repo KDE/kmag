@@ -145,5 +145,6 @@ GenericName[vi]=Phóng đại Màn hình
 GenericName[x-test]=xxScreen Magnifierxx
 GenericName[zh_CN]=屏幕放大镜
 GenericName[zh_TW]=螢幕放大鏡
+Comment=A screen magnification tool
 Categories=Qt;KDE;Utility;Accessibility;
 X-DBUS-ServiceName=org.kde.kmag
