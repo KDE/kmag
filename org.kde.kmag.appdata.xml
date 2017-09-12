@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component type="desktop">
+  <id>org.kde.kmag.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license> see https://www.freedesktop.org/software/appstream/docs/chap-Metadata.html#tag-metadata_license </project_license>
+  <name>kmag</name>
+  <summary> Screen Magnifier </summary>
+  <description>
+    <p> A screen magnification tool </p>
+  </description>
+  <url type="homepage">https://www.kde.org</url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kmag</url>
+  <url type="donation">https://www.kde.org/community/donations/?app=kmag</url>
+  <screenshots>
+    <screenshot type="default">
+      <image>
+        https://cdn.kde.org/screenshots/kmag.png
+      </image>
+    </screenshot>
+  </screenshots>
+  <provides>
+    <binary>kmag</binary>
+  </provides>
+  <project_group>KDE</project_group>
+</component>
+
+ 
