@@ -50,10 +50,10 @@ add_subdirectory( doc )
 add_subdirectory( pics )
 ########### next target ###############
 
-set(kmag_SRCS 
-   kmagzoomview.cpp 
-   kmagselrect.cpp 
-   kmag.cpp 
+set(kmag_SRCS
+   kmagzoomview.cpp
+   kmagselrect.cpp
+   kmag.cpp
    colorsim.cpp
    main.cpp )
 
@@ -80,5 +80,5 @@ feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
 install( PROGRAMS org.kde.kmag.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
 install( FILES kmagui.rc  DESTINATION  ${KXMLGUI_INSTALL_DIR}/kmag )
-
+install(FILES org.kde.kmag.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 ecm_install_icons( ICONS 16-apps-kmag.png 32-apps-kmag.png  DESTINATION ${ICON_INSTALL_DIR} )
