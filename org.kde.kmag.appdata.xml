@@ -7,19 +7,23 @@
   <name xml:lang="ca">kmag</name>
   <name xml:lang="nl">kmag</name>
   <name xml:lang="pt">kmag</name>
+  <name xml:lang="pt-BR">kmag</name>
   <name xml:lang="uk">kmag</name>
   <name xml:lang="x-test">xxkmagxx</name>
   <summary> Screen Magnifier </summary>
   <summary xml:lang="ca">Lupa de la pantalla</summary>
   <summary xml:lang="nl">Schermvergroter</summary>
   <summary xml:lang="pt">Lupa do Ecrã</summary>
+  <summary xml:lang="pt-BR">Lupa da tela</summary>
   <summary xml:lang="uk">Збільшувач екрана</summary>
   <summary xml:lang="x-test">xxScreen Magnifierxx</summary>
+  <summary xml:lang="zh-CN">屏幕放大镜</summary>
   <description>
     <p> A screen magnification tool </p>
     <p xml:lang="ca">Una eina d'ampliació de la pantalla</p>
     <p xml:lang="nl">Een hulpmiddel als vergrootglas op het scherm</p>
     <p xml:lang="pt">Uma ferramenta de ampliação do ecrã</p>
+    <p xml:lang="pt-BR">Uma lupa para a tela</p>
     <p xml:lang="uk">Цифрове збільшувальне скло для екрана</p>
     <p xml:lang="x-test">xxA screen magnification toolxx</p>
   </description>
@@ -38,6 +42,7 @@
     <binary xml:lang="ca">kmag</binary>
     <binary xml:lang="nl">kmag</binary>
     <binary xml:lang="pt">kmag</binary>
+    <binary xml:lang="pt-BR">kmag</binary>
     <binary xml:lang="uk">kmag</binary>
     <binary xml:lang="x-test">xxkmagxx</binary>
   </provides>
