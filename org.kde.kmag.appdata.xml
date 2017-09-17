@@ -10,6 +10,7 @@
   <name xml:lang="nl">kmag</name>
   <name xml:lang="pt">kmag</name>
   <name xml:lang="pt-BR">kmag</name>
+  <name xml:lang="sk">KLupa</name>
   <name xml:lang="uk">kmag</name>
   <name xml:lang="x-test">xxkmagxx</name>
   <summary> Screen Magnifier </summary>
@@ -19,6 +20,7 @@
   <summary xml:lang="nl">Schermvergroter</summary>
   <summary xml:lang="pt">Lupa do Ecrã</summary>
   <summary xml:lang="pt-BR">Lupa da tela</summary>
+  <summary xml:lang="sk">Lupa obrazovky</summary>
   <summary xml:lang="uk">Збільшувач екрана</summary>
   <summary xml:lang="x-test">xxScreen Magnifierxx</summary>
   <summary xml:lang="zh-CN">屏幕放大镜</summary>
@@ -30,8 +32,10 @@
     <p xml:lang="nl">Een hulpmiddel als vergrootglas op het scherm</p>
     <p xml:lang="pt">Uma ferramenta de ampliação do ecrã</p>
     <p xml:lang="pt-BR">Uma lupa para a tela</p>
+    <p xml:lang="sk">Nástroj na priblíženie obrazovky</p>
     <p xml:lang="uk">Цифрове збільшувальне скло для екрана</p>
     <p xml:lang="x-test">xxA screen magnification toolxx</p>
+    <p xml:lang="zh-CN">屏幕放大工具</p>
   </description>
   <url type="homepage">https://www.kde.org</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kmag</url>
@@ -51,6 +55,7 @@
     <binary xml:lang="nl">kmag</binary>
     <binary xml:lang="pt">kmag</binary>
     <binary xml:lang="pt-BR">kmag</binary>
+    <binary xml:lang="sk">KLupa</binary>
     <binary xml:lang="uk">kmag</binary>
     <binary xml:lang="x-test">xxkmagxx</binary>
   </provides>
