@@ -165,5 +165,6 @@ Comment[sr@latin]=Alatka za uveličavanje ekrana
 Comment[sv]=Ett skärmförstoringsglas
 Comment[uk]=Цифрове збільшувальне скло для екрана
 Comment[x-test]=xxA screen magnification toolxx
+Comment[zh_CN]=屏幕放大工具
 Categories=Qt;KDE;Utility;Accessibility;
 X-DBUS-ServiceName=org.kde.kmag
