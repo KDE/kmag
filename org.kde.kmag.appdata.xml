@@ -6,23 +6,33 @@
   <name>kmag</name>
   <name xml:lang="ca">kmag</name>
   <name xml:lang="ca-valencia">kmag</name>
+  <name xml:lang="de">KMag</name>
   <name xml:lang="el">kmag</name>
   <name xml:lang="es">kmag</name>
   <name xml:lang="nl">kmag</name>
   <name xml:lang="pt">kmag</name>
   <name xml:lang="pt-BR">kmag</name>
   <name xml:lang="sk">KLupa</name>
+  <name xml:lang="sr">К‑увеличање</name>
+  <name xml:lang="sr-Latn">K‑uveličanje</name>
+  <name xml:lang="sr-ijekavian">К‑увеличање</name>
+  <name xml:lang="sr-ijekavianlatin">K‑uveličanje</name>
   <name xml:lang="uk">kmag</name>
   <name xml:lang="x-test">xxkmagxx</name>
   <summary> Screen Magnifier </summary>
   <summary xml:lang="ca">Lupa de la pantalla</summary>
   <summary xml:lang="ca-valencia">Lupa de la pantalla</summary>
+  <summary xml:lang="de">Bildschirmlupe</summary>
   <summary xml:lang="el">Μεγεθυντικός φακός οθόνης</summary>
   <summary xml:lang="es">Lupa de la pantalla</summary>
   <summary xml:lang="nl">Schermvergroter</summary>
   <summary xml:lang="pt">Lupa do Ecrã</summary>
   <summary xml:lang="pt-BR">Lupa da tela</summary>
   <summary xml:lang="sk">Lupa obrazovky</summary>
+  <summary xml:lang="sr">Увеличавач екрана</summary>
+  <summary xml:lang="sr-Latn">Uveličavač ekrana</summary>
+  <summary xml:lang="sr-ijekavian">Увеличавач екрана</summary>
+  <summary xml:lang="sr-ijekavianlatin">Uveličavač ekrana</summary>
   <summary xml:lang="uk">Збільшувач екрана</summary>
   <summary xml:lang="x-test">xxScreen Magnifierxx</summary>
   <summary xml:lang="zh-CN">屏幕放大镜</summary>
@@ -30,12 +40,17 @@
     <p> A screen magnification tool </p>
     <p xml:lang="ca">Una eina d'ampliació de la pantalla</p>
     <p xml:lang="ca-valencia">Una eina d'ampliació de la pantalla</p>
+    <p xml:lang="de">Ein Programm zur Vergrößerung von Bildschirmausschnitten</p>
     <p xml:lang="el">Εργαλείο μεγέθυνσης οθόνης</p>
     <p xml:lang="es">Una herramienta para aumentar la pantalla</p>
     <p xml:lang="nl">Een hulpmiddel als vergrootglas op het scherm</p>
     <p xml:lang="pt">Uma ferramenta de ampliação do ecrã</p>
     <p xml:lang="pt-BR">Uma lupa para a tela</p>
     <p xml:lang="sk">Nástroj na priblíženie obrazovky</p>
+    <p xml:lang="sr">Алатка за увеличавање екрана</p>
+    <p xml:lang="sr-Latn">Alatka za uveličavanje ekrana</p>
+    <p xml:lang="sr-ijekavian">Алатка за увеличавање екрана</p>
+    <p xml:lang="sr-ijekavianlatin">Alatka za uveličavanje ekrana</p>
     <p xml:lang="uk">Цифрове збільшувальне скло для екрана</p>
     <p xml:lang="x-test">xxA screen magnification toolxx</p>
     <p xml:lang="zh-CN">屏幕放大工具</p>
@@ -54,12 +69,17 @@
     <binary>kmag</binary>
     <binary xml:lang="ca">kmag</binary>
     <binary xml:lang="ca-valencia">kmag</binary>
+    <binary xml:lang="de">KMag</binary>
     <binary xml:lang="el">kmag</binary>
     <binary xml:lang="es">kmag</binary>
     <binary xml:lang="nl">kmag</binary>
     <binary xml:lang="pt">kmag</binary>
     <binary xml:lang="pt-BR">kmag</binary>
     <binary xml:lang="sk">KLupa</binary>
+    <binary xml:lang="sr">К‑увеличање</binary>
+    <binary xml:lang="sr-Latn">K‑uveličanje</binary>
+    <binary xml:lang="sr-ijekavian">К‑увеличање</binary>
+    <binary xml:lang="sr-ijekavianlatin">K‑uveličanje</binary>
     <binary xml:lang="uk">kmag</binary>
     <binary xml:lang="x-test">xxkmagxx</binary>
   </provides>
