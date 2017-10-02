@@ -10,6 +10,7 @@
   <name xml:lang="el">kmag</name>
   <name xml:lang="es">kmag</name>
   <name xml:lang="nl">kmag</name>
+  <name xml:lang="pl">kmag</name>
   <name xml:lang="pt">kmag</name>
   <name xml:lang="pt-BR">kmag</name>
   <name xml:lang="sk">KLupa</name>
@@ -26,6 +27,7 @@
   <summary xml:lang="el">Μεγεθυντικός φακός οθόνης</summary>
   <summary xml:lang="es">Lupa de la pantalla</summary>
   <summary xml:lang="nl">Schermvergroter</summary>
+  <summary xml:lang="pl">Lupa ekranowa</summary>
   <summary xml:lang="pt">Lupa do Ecrã</summary>
   <summary xml:lang="pt-BR">Lupa da tela</summary>
   <summary xml:lang="sk">Lupa obrazovky</summary>
@@ -44,6 +46,7 @@
     <p xml:lang="el">Εργαλείο μεγέθυνσης οθόνης</p>
     <p xml:lang="es">Una herramienta para aumentar la pantalla</p>
     <p xml:lang="nl">Een hulpmiddel als vergrootglas op het scherm</p>
+    <p xml:lang="pl">Narzędzie powiększania ekranu</p>
     <p xml:lang="pt">Uma ferramenta de ampliação do ecrã</p>
     <p xml:lang="pt-BR">Uma lupa para a tela</p>
     <p xml:lang="sk">Nástroj na priblíženie obrazovky</p>
@@ -73,6 +76,7 @@
     <binary xml:lang="el">kmag</binary>
     <binary xml:lang="es">kmag</binary>
     <binary xml:lang="nl">kmag</binary>
+    <binary xml:lang="pl">kmag</binary>
     <binary xml:lang="pt">kmag</binary>
     <binary xml:lang="pt-BR">kmag</binary>
     <binary xml:lang="sk">KLupa</binary>
