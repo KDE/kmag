@@ -20,6 +20,7 @@
   <name xml:lang="sr-ijekavianlatin">K‑uveličanje</name>
   <name xml:lang="uk">kmag</name>
   <name xml:lang="x-test">xxkmagxx</name>
+  <name xml:lang="zh-TW">kmag</name>
   <summary> Screen Magnifier </summary>
   <summary xml:lang="ca">Lupa de la pantalla</summary>
   <summary xml:lang="ca-valencia">Lupa de la pantalla</summary>
@@ -38,6 +39,7 @@
   <summary xml:lang="uk">Збільшувач екрана</summary>
   <summary xml:lang="x-test">xxScreen Magnifierxx</summary>
   <summary xml:lang="zh-CN">屏幕放大镜</summary>
+  <summary xml:lang="zh-TW">螢幕放大器</summary>
   <description>
     <p> A screen magnification tool </p>
     <p xml:lang="ca">Una eina d'ampliació de la pantalla</p>
@@ -57,6 +59,7 @@
     <p xml:lang="uk">Цифрове збільшувальне скло для екрана</p>
     <p xml:lang="x-test">xxA screen magnification toolxx</p>
     <p xml:lang="zh-CN">屏幕放大工具</p>
+    <p xml:lang="zh-TW">螢幕放大工具</p>
   </description>
   <url type="homepage">https://www.kde.org</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kmag</url>
@@ -86,6 +89,7 @@
     <binary xml:lang="sr-ijekavianlatin">K‑uveličanje</binary>
     <binary xml:lang="uk">kmag</binary>
     <binary xml:lang="x-test">xxkmagxx</binary>
+    <binary xml:lang="zh-TW">kmag</binary>
   </provides>
   <project_group>KDE</project_group>
 </component>
