@@ -7,8 +7,10 @@
   <name xml:lang="ca">kmag</name>
   <name xml:lang="ca-valencia">kmag</name>
   <name xml:lang="cs">kmag</name>
+  <name xml:lang="da">kmag</name>
   <name xml:lang="de">KMag</name>
   <name xml:lang="el">kmag</name>
+  <name xml:lang="en-GB">kmag</name>
   <name xml:lang="es">kmag</name>
   <name xml:lang="nl">kmag</name>
   <name xml:lang="pl">kmag</name>
@@ -27,8 +29,10 @@
   <summary xml:lang="ca">Lupa de la pantalla</summary>
   <summary xml:lang="ca-valencia">Lupa de la pantalla</summary>
   <summary xml:lang="cs">Lupa obrazovky</summary>
+  <summary xml:lang="da">Skærmforstørrer</summary>
   <summary xml:lang="de">Bildschirmlupe</summary>
   <summary xml:lang="el">Μεγεθυντικός φακός οθόνης</summary>
+  <summary xml:lang="en-GB">Screen Magnifier</summary>
   <summary xml:lang="es">Lupa de la pantalla</summary>
   <summary xml:lang="nl">Schermvergroter</summary>
   <summary xml:lang="pl">Lupa ekranowa</summary>
@@ -49,8 +53,10 @@
     <p xml:lang="ca">Una eina d'ampliació de la pantalla</p>
     <p xml:lang="ca-valencia">Una eina d'ampliació de la pantalla</p>
     <p xml:lang="cs">Nástroj pro zvětšení obrazovky</p>
+    <p xml:lang="da">Et værktøj til at forstørre skærmen</p>
     <p xml:lang="de">Ein Programm zur Vergrößerung von Bildschirmausschnitten</p>
     <p xml:lang="el">Εργαλείο μεγέθυνσης οθόνης</p>
+    <p xml:lang="en-GB">A screen magnification tool</p>
     <p xml:lang="es">Una herramienta para aumentar la pantalla</p>
     <p xml:lang="nl">Een hulpmiddel als vergrootglas op het scherm</p>
     <p xml:lang="pl">Narzędzie powiększania ekranu</p>
@@ -82,8 +88,10 @@
     <binary xml:lang="ca">kmag</binary>
     <binary xml:lang="ca-valencia">kmag</binary>
     <binary xml:lang="cs">kmag</binary>
+    <binary xml:lang="da">kmag</binary>
     <binary xml:lang="de">KMag</binary>
     <binary xml:lang="el">kmag</binary>
+    <binary xml:lang="en-GB">kmag</binary>
     <binary xml:lang="es">kmag</binary>
     <binary xml:lang="nl">kmag</binary>
     <binary xml:lang="pl">kmag</binary>
