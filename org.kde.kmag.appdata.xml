@@ -30,6 +30,7 @@
   <name xml:lang="sr-ijekavianlatin">K‑uveličanje</name>
   <name xml:lang="uk">kmag</name>
   <name xml:lang="x-test">xxkmagxx</name>
+  <name xml:lang="zh-CN">kmag</name>
   <name xml:lang="zh-TW">kmag</name>
   <summary> Screen Magnifier </summary>
   <summary xml:lang="ca">Lupa de la pantalla</summary>
@@ -127,6 +128,7 @@
     <binary xml:lang="sr-ijekavianlatin">K‑uveličanje</binary>
     <binary xml:lang="uk">kmag</binary>
     <binary xml:lang="x-test">xxkmagxx</binary>
+    <binary xml:lang="zh-CN">kmag</binary>
     <binary xml:lang="zh-TW">kmag</binary>
   </provides>
   <project_group>KDE</project_group>
