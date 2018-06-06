@@ -722,7 +722,7 @@ void KmagApp::slotStaysOnTop()
   if (m_staysOnTop->isChecked())
       setWindowFlags( windowFlags() | Qt::WindowStaysOnTopHint );
   else
-      setWindowFlags( windowFlags() & !Qt::WindowStaysOnTopHint );
+      setWindowFlags( windowFlags() & ~Qt::WindowStaysOnTopHint );
   show();
 }
 
