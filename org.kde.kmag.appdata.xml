@@ -16,6 +16,7 @@
   <name xml:lang="fi">kmag</name>
   <name xml:lang="fr">kmag</name>
   <name xml:lang="gl">kmag</name>
+  <name xml:lang="it">kmag</name>
   <name xml:lang="ko">kmag</name>
   <name xml:lang="nl">kmag</name>
   <name xml:lang="nn">kmag</name>
@@ -45,6 +46,7 @@
   <summary xml:lang="fi">Suurennuslasi</summary>
   <summary xml:lang="fr">Loupe d'écran</summary>
   <summary xml:lang="gl">Lupa da pantalla</summary>
+  <summary xml:lang="it">Lente d'ingrandimento</summary>
   <summary xml:lang="ko">화면 돋보기</summary>
   <summary xml:lang="nl">Schermvergroter</summary>
   <summary xml:lang="nn">Skjermforstørrar</summary>
@@ -75,6 +77,7 @@
     <p xml:lang="fi">Näytönsuurennustyökalu</p>
     <p xml:lang="fr">Un outil loupe d'écran</p>
     <p xml:lang="gl">Unha ferramenta de aumento da pantalla.</p>
+    <p xml:lang="it">Uno strumento per l'ingrandimento dello schermo</p>
     <p xml:lang="ko">화면 돋보기 도구</p>
     <p xml:lang="nl">Een hulpmiddel als vergrootglas op het scherm</p>
     <p xml:lang="nn">Verktøy for skjermforstørring</p>
@@ -117,6 +120,7 @@
     <binary xml:lang="fi">kmag</binary>
     <binary xml:lang="fr">kmag</binary>
     <binary xml:lang="gl">kmag</binary>
+    <binary xml:lang="it">kmag</binary>
     <binary xml:lang="ko">kmag</binary>
     <binary xml:lang="nl">kmag</binary>
     <binary xml:lang="nn">kmag</binary>
