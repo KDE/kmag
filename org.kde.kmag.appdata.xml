@@ -16,6 +16,7 @@
   <name xml:lang="fi">kmag</name>
   <name xml:lang="fr">kmag</name>
   <name xml:lang="gl">kmag</name>
+  <name xml:lang="it">kmag</name>
   <name xml:lang="ko">kmag</name>
   <name xml:lang="nl">kmag</name>
   <name xml:lang="nn">kmag</name>
@@ -28,7 +29,6 @@
   <name xml:lang="sr-Latn">K‑uveličanje</name>
   <name xml:lang="sr-ijekavian">К‑увеличање</name>
   <name xml:lang="sr-ijekavianlatin">K‑uveličanje</name>
-  <name xml:lang="sv">kmag</name>
   <name xml:lang="uk">kmag</name>
   <name xml:lang="x-test">xxkmagxx</name>
   <name xml:lang="zh-CN">kmag</name>
@@ -45,6 +45,7 @@
   <summary xml:lang="fi">Suurennuslasi</summary>
   <summary xml:lang="fr">Loupe d'écran</summary>
   <summary xml:lang="gl">Lupa da pantalla</summary>
+  <summary xml:lang="it">Lente d'ingrandimento</summary>
   <summary xml:lang="ko">화면 돋보기</summary>
   <summary xml:lang="nl">Schermvergroter</summary>
   <summary xml:lang="nn">Skjermforstørrar</summary>
@@ -57,7 +58,6 @@
   <summary xml:lang="sr-Latn">Uveličavač ekrana</summary>
   <summary xml:lang="sr-ijekavian">Увеличавач екрана</summary>
   <summary xml:lang="sr-ijekavianlatin">Uveličavač ekrana</summary>
-  <summary xml:lang="sv">Skärmförstoringsglas</summary>
   <summary xml:lang="uk">Збільшувач екрана</summary>
   <summary xml:lang="x-test">xxScreen Magnifierxx</summary>
   <summary xml:lang="zh-CN">屏幕放大镜</summary>
@@ -75,6 +75,7 @@
     <p xml:lang="fi">Näytönsuurennustyökalu</p>
     <p xml:lang="fr">Un outil loupe d'écran</p>
     <p xml:lang="gl">Unha ferramenta de aumento da pantalla.</p>
+    <p xml:lang="it">Uno strumento per l'ingrandimento dello schermo</p>
     <p xml:lang="ko">화면 돋보기 도구</p>
     <p xml:lang="nl">Een hulpmiddel als vergrootglas op het scherm</p>
     <p xml:lang="nn">Verktøy for skjermforstørring</p>
@@ -87,7 +88,6 @@
     <p xml:lang="sr-Latn">Alatka za uveličavanje ekrana</p>
     <p xml:lang="sr-ijekavian">Алатка за увеличавање екрана</p>
     <p xml:lang="sr-ijekavianlatin">Alatka za uveličavanje ekrana</p>
-    <p xml:lang="sv">Ett skärmförstoringsglas</p>
     <p xml:lang="uk">Цифрове збільшувальне скло для екрана</p>
     <p xml:lang="x-test">xxA screen magnification toolxx</p>
     <p xml:lang="zh-CN">屏幕放大工具</p>
@@ -117,6 +117,7 @@
     <binary xml:lang="fi">kmag</binary>
     <binary xml:lang="fr">kmag</binary>
     <binary xml:lang="gl">kmag</binary>
+    <binary xml:lang="it">kmag</binary>
     <binary xml:lang="ko">kmag</binary>
     <binary xml:lang="nl">kmag</binary>
     <binary xml:lang="nn">kmag</binary>
@@ -129,7 +130,6 @@
     <binary xml:lang="sr-Latn">K‑uveličanje</binary>
     <binary xml:lang="sr-ijekavian">К‑увеличање</binary>
     <binary xml:lang="sr-ijekavianlatin">K‑uveličanje</binary>
-    <binary xml:lang="sv">kmag</binary>
     <binary xml:lang="uk">kmag</binary>
     <binary xml:lang="x-test">xxkmagxx</binary>
     <binary xml:lang="zh-CN">kmag</binary>
