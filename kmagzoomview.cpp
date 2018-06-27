@@ -327,7 +327,8 @@ void KMagZoomView::paintEvent(QPaintEvent *e)
 
   p.translate(visibleWidth() / 2.0, visibleHeight() / 2.0);
   p.setMatrix(m_zoomMatrix, true);
-  p.translate(-m_coloredPixmap.width() / 2.0, -m_coloredPixmap.height() / 2.0);
+  const double ratio = 0.5 / m_coloredPixmap.devicePixelRatio();
+  p.translate(-m_coloredPixmap.width() * ratio, -m_coloredPixmap.height() * ratio);
   p.drawPixmap(QPoint(clipx-contentsX(), clipy-contentsY()), m_coloredPixmap);
   p.end();
 
