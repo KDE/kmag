@@ -32,11 +32,11 @@ class KMagSelWinCorner : public QLabel
 
 public:
 
-    explicit KMagSelWinCorner ( QWidget * parent = 0 );
+    explicit KMagSelWinCorner ( QWidget * parent = nullptr );
 
     virtual ~KMagSelWinCorner();
 
-signals:
+Q_SIGNALS:
 
     void startResizing ();
     void resized ( QPoint offset );
@@ -45,9 +45,9 @@ protected:
 
     QPoint oldPos;
 
-    void mousePressEvent ( QMouseEvent * e ) Q_DECL_OVERRIDE;
-    void mouseReleaseEvent ( QMouseEvent * e ) Q_DECL_OVERRIDE;
-    void mouseMoveEvent ( QMouseEvent * e ) Q_DECL_OVERRIDE;
+    void mousePressEvent ( QMouseEvent * e ) override;
+    void mouseReleaseEvent ( QMouseEvent * e ) override;
+    void mouseMoveEvent ( QMouseEvent * e ) override;
 };
 
 class KMagSelWin : public QWidget
@@ -56,14 +56,14 @@ class KMagSelWin : public QWidget
 
 public:
 
-    explicit KMagSelWin ( QWidget * parent = 0 );
+    explicit KMagSelWin ( QWidget * parent = nullptr );
 
     virtual ~KMagSelWin();
 
     void setSelRect ( const QRect & selRect );
     QRect getSelRect ();
 
-public slots:
+public Q_SLOTS:
 
     void startResizing ();
     void titleMoved ( const QPoint & offset );
@@ -72,7 +72,7 @@ public slots:
     void bottomLeftResized ( const QPoint & offset );
     void bottomRightResized ( const QPoint & offset );
 
-signals:
+Q_SIGNALS:
 
     void resized();
 
@@ -99,13 +99,13 @@ class KMagSelRect : public QObject, public QRect
     Q_OBJECT
 
 public:
-    explicit KMagSelRect(QWidget *parent=0);
+    explicit KMagSelRect(QWidget *parent=nullptr);
     KMagSelRect(const QPoint &topLeft, const QPoint &bottomRight,
-      QWidget *parent=0);
+      QWidget *parent=nullptr);
     KMagSelRect(const QPoint &topLeft, const QSize &size,
-      QWidget *parent=0);
+      QWidget *parent=nullptr);
     KMagSelRect(int left, int top, int width, int height,
-      QWidget *selWindowParent=0);
+      QWidget *selWindowParent=nullptr);
 
     virtual ~KMagSelRect();
 
@@ -119,7 +119,7 @@ public:
       return (m_alwaysVisible);
     }
 
-public slots:
+public Q_SLOTS:
 
     void show();
     void hide();

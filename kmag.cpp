@@ -585,25 +585,25 @@ void KmagApp::saveZoomPixmap()
       // create a temp file.. save image to it.. copy over the n/w and then delete the temp file.
       QTemporaryFile tempFile;
       if(!tempFile.open() || !m_zoomView->getImage().save(tempFile.fileName())) {
-        KMessageBox::error(0, i18n("Unable to save temporary file (before uploading to the network file you specified)."),
+        KMessageBox::error(nullptr, i18n("Unable to save temporary file (before uploading to the network file you specified)."),
                           i18n("Error Writing File"));
       } else {
         KIO::FileCopyJob *job = KIO::file_copy(QUrl::fromLocalFile(tempFile.fileName()), url);
         if(!job) {
-          KMessageBox::error(0, i18n("Unable to upload file over the network."),
+          KMessageBox::error(nullptr, i18n("Unable to upload file over the network."),
                             i18n("Error Writing File"));
         } else {
-          KMessageBox::information(0, i18n("Current zoomed image saved to\n%1", url.toDisplayString()),
+          KMessageBox::information(nullptr, i18n("Current zoomed image saved to\n%1", url.toDisplayString()),
                               i18n("Information"), QStringLiteral( "save_confirm" ));
         }
       }
 
     } else {
       if(!m_zoomView->getImage().save(url.path())) {
-        KMessageBox::error(0, i18n("Unable to save file. Please check if you have permission to write to the directory."),
+        KMessageBox::error(nullptr, i18n("Unable to save file. Please check if you have permission to write to the directory."),
                             i18n("Error Writing File"));
       } else {
-        KMessageBox::information(0, i18n("Current zoomed image saved to\n%1", url.toDisplayString()),
+        KMessageBox::information(nullptr, i18n("Current zoomed image saved to\n%1", url.toDisplayString()),
                                 i18n("Information"), QStringLiteral( "save_confirm" ));
       }
     }
@@ -740,7 +740,7 @@ void KmagApp::slotFilePrint()
 
   bool toggled(false);
 
-  if (m_printer == 0) {
+  if (m_printer == nullptr) {
     m_printer = new QPrinter();
   }
 

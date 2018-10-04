@@ -116,11 +116,11 @@ QRect(left, top, width, height)
 void KMagSelRect::init(QWidget *parent)
 {
   // Make sure parent is the window itself, not a widget within the window
-  if (parent != 0)
-    while (parent->parentWidget() != 0)
+  if (parent != nullptr)
+    while (parent->parentWidget() != nullptr)
       parent=parent->parentWidget();
 
-  selectionwindow = 0;
+  selectionwindow = nullptr;
   selWindowParent = parent;
 
   m_alwaysVisible = false;
@@ -136,7 +136,7 @@ KMagSelRect::~KMagSelRect()
 
 bool KMagSelRect::visible()
 {
-  return (selectionwindow != 0);
+  return (selectionwindow != nullptr);
 }
 
 void KMagSelRect::alwaysVisible(bool visible)
@@ -151,7 +151,7 @@ void KMagSelRect::alwaysVisible(bool visible)
 
 void KMagSelRect::show()
 {
-  if (selectionwindow == 0) {
+  if (selectionwindow == nullptr) {
     selectionwindow = new KMagSelWin (selWindowParent);
     selectionwindow->setObjectName( QStringLiteral("selectionwindow" ));
     connect (selectionwindow, &KMagSelWin::resized, this, &KMagSelRect::selWinResized);
@@ -166,22 +166,22 @@ void KMagSelRect::hide()
 {
   if(m_alwaysVisible)
     return;
-  if (selectionwindow != 0) {
+  if (selectionwindow != nullptr) {
     selectionwindow->hide();
     delete selectionwindow;
-    selectionwindow = 0;
+    selectionwindow = nullptr;
   }
 }
 
 void KMagSelRect::update()
 {
-  if (selectionwindow != 0)
+  if (selectionwindow != nullptr)
     selectionwindow->setSelRect (QRect (topLeft(), bottomRight()));
 }
 
 void KMagSelRect::selWinResized()
 {
-  if (selectionwindow != 0)
+  if (selectionwindow != nullptr)
   {
     QRect newRect = selectionwindow->getSelRect();
     setRect (newRect.x(), newRect.y(), newRect.width(), newRect.height());

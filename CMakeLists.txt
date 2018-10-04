@@ -8,7 +8,7 @@ find_package(ECM ${KF5_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 include(KDEInstallDirs)
-include(KDECompilerSettings NO_POLICY_SCOPE)
+include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 include(ECMInstallIcons)
 include(FeatureSummary)
@@ -37,10 +37,6 @@ set_package_properties(QAccessibilityClient PROPERTIES
 configure_file(
     "${PROJECT_SOURCE_DIR}/focustrackconfig.h.in"
     "${PROJECT_BINARY_DIR}/focustrackconfig.h")
-
-add_definitions( -DQT_NO_CAST_FROM_ASCII )
-add_definitions( -DQT_NO_CAST_TO_ASCII )
-add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 
 include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR})
 if(QAccessibilityClient_FOUND)

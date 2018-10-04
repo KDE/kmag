@@ -57,7 +57,7 @@ class KMagZoomView : public QAbstractScrollArea
     Q_OBJECT
   public:
     /// Constructor for the main view
-    explicit KMagZoomView(QWidget *parent = 0, const char *name=0);
+    explicit KMagZoomView(QWidget *parent = nullptr, const char *name=nullptr);
 
     /// Destructor for the main view
     ~KMagZoomView();
@@ -94,7 +94,7 @@ class KMagZoomView : public QAbstractScrollArea
     /// Returns the status of "fit to window" option
     bool getFitToWindow() const { return (m_fitToWindow); }
 
-  public slots:
+  public Q_SLOTS:
 
     /// Sets zoom to the given value
     void setZoom(float zoom = 0.0);
@@ -141,22 +141,22 @@ class KMagZoomView : public QAbstractScrollArea
     void fitToWindow();
 
 #ifdef QAccessibilityClient_FOUND
-  private slots:
+  private Q_SLOTS:
     /// Called from a dbus service when followFocus is true
     void focusChanged(const QAccessibleClient::AccessibleObject &object);
 #endif
   protected:
     /// Called when the widget is hidden
-    void hideEvent( QHideEvent * e) Q_DECL_OVERRIDE;
+    void hideEvent( QHideEvent * e) override;
 
     /// Called when the widget is shown
-    void showEvent( QShowEvent * e) Q_DECL_OVERRIDE;
+    void showEvent( QShowEvent * e) override;
 
     /// Called when the widget has been resized
-    void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
+    void resizeEvent(QResizeEvent *e) override;
 
     /// Called when the widget is to be repainted
-    void paintEvent(QPaintEvent *e) Q_DECL_OVERRIDE;
+    void paintEvent(QPaintEvent *e) override;
 
     /// This function calculates the mouse position relative to the image
     QPoint calcMousePos(bool updateMousePos=true);
@@ -165,22 +165,22 @@ class KMagZoomView : public QAbstractScrollArea
     void paintMouseCursor(QPaintDevice *dev, const QPoint & mousePos);
 
     /// Called when mouse click is detected
-    void mousePressEvent (QMouseEvent *e) Q_DECL_OVERRIDE;
+    void mousePressEvent (QMouseEvent *e) override;
 
     /// Called when mouse is moved
-    void mouseMoveEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
+    void mouseMoveEvent(QMouseEvent *e) override;
 
     /// Mouse button release event handler
-    void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
+    void mouseReleaseEvent(QMouseEvent *e) override;
 
     /// Mouse button release event handler
-    void keyPressEvent(QKeyEvent *e) Q_DECL_OVERRIDE;
+    void keyPressEvent(QKeyEvent *e) override;
 
     /// Mouse button release event handler
-    void keyReleaseEvent(QKeyEvent *e) Q_DECL_OVERRIDE;
+    void keyReleaseEvent(QKeyEvent *e) override;
 
     /// Mouse button release event handler
-    void focusOutEvent(QFocusEvent *e) Q_DECL_OVERRIDE;
+    void focusOutEvent(QFocusEvent *e) override;
 
     /// Returns the rectangle where the pixmap will be drawn
     QRect pixmapRect();

@@ -59,10 +59,10 @@ class KmagApp : public KXmlGuiWindow
     /**
      * Construtor of KmagApp, calls all init functions to create the application.
      */
-    explicit KmagApp(QWidget* parent=0, const char* name=0);
+    explicit KmagApp(QWidget* parent=nullptr, const char* name=nullptr);
 
     /// Default destructor
-    ~KmagApp();
+    ~KmagApp() override;
 
 
 
@@ -84,12 +84,12 @@ class KmagApp : public KXmlGuiWindow
     /// Initialize all connections
     void initConnections();
 
-    bool queryClose() Q_DECL_OVERRIDE;
+    bool queryClose() override;
 
     /// Catch context menu events
-    void contextMenuEvent ( QContextMenuEvent * e ) Q_DECL_OVERRIDE;
+    void contextMenuEvent ( QContextMenuEvent * e ) override;
 
-  public slots:
+  public Q_SLOTS:
     /** open a new application window by creating a new instance of KmagApp */
     void slotFileNewWindow();
 
@@ -153,7 +153,7 @@ class KmagApp : public KXmlGuiWindow
     void slotChangeColorIndex(int index);
 
 
-  signals:
+  Q_SIGNALS:
     /// This signal is raised whenever the index into the zoom array is changed
     void updateZoomIndex(int);
 
