@@ -4,7 +4,6 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license> see https://www.freedesktop.org/software/appstream/docs/chap-Metadata.html#tag-metadata_license </project_license>
   <name>kmag</name>
-  <name xml:lang="ast">kmag</name>
   <name xml:lang="ca">kmag</name>
   <name xml:lang="ca-valencia">kmag</name>
   <name xml:lang="cs">kmag</name>
@@ -114,7 +113,6 @@
   </screenshots>
   <provides>
     <binary>kmag</binary>
-    <binary xml:lang="ast">kmag</binary>
     <binary xml:lang="ca">kmag</binary>
     <binary xml:lang="ca-valencia">kmag</binary>
     <binary xml:lang="cs">kmag</binary>
