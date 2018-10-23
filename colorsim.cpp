@@ -170,7 +170,7 @@ static const matrix coef[3] = {
 
  This code is based on the matrices from [2], as presented by Onur and Poliang.
  The tritanopia simulation uses different representative wavelengths (yellow
- and blue) than those reccommended by [1] and found in most other simulations
+ and blue) than those recommended by [1] and found in most other simulations
  (red and cyan).
  http://www.stanford.edu/~ofidaner/psych221_proj/colorblindness_project.htm
 
