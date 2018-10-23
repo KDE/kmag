@@ -68,7 +68,7 @@
   <summary xml:lang="zh-CN">屏幕放大镜</summary>
   <summary xml:lang="zh-TW">螢幕放大器</summary>
   <description>
-    <p> A screen magnification tool </p>
+    <p>KMag is a small utility for Linux to magnify a part of the screen. KMag is very useful for people with visual disabilities and for those working in the fields of image analysis, web development etc.</p>
     <p xml:lang="ca">Una eina d'ampliació de la pantalla</p>
     <p xml:lang="ca-valencia">Una eina d'ampliació de la pantalla</p>
     <p xml:lang="cs">Nástroj pro zvětšení obrazovky</p>
