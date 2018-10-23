@@ -21,6 +21,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "kmag.h"
+
 // include files for Qt
 #include <QApplication>
 #include <QClipboard>
@@ -46,13 +48,12 @@
 #include <KIO/FileCopyJob>
 
 // application specific includes
-#include "kmag.h"
 #include "kmagzoomview.h"
 #include "kmagselrect.h"
 
 
 KmagApp::KmagApp(QWidget* , const char* name)
-  : KXmlGuiWindow(0) // Qt::WStyle_MinMax | Qt::WType_TopLevel | Qt::WDestructiveClose | Qt::WStyle_ContextHelp | Qt::WindowCloseButtonHint | Qt::WStyle_StaysOnTop
+  : KXmlGuiWindow(nullptr) // Qt::WStyle_MinMax | Qt::WType_TopLevel | Qt::WDestructiveClose | Qt::WStyle_ContextHelp | Qt::WindowCloseButtonHint | Qt::WStyle_StaysOnTop
   , m_defaultMouseCursorType(2)
 {
   setObjectName( QLatin1String( name ) );
@@ -99,7 +100,7 @@ KmagApp::KmagApp(QWidget* , const char* name)
   readOptions();
 
   #ifndef QT_NO_PRINTER
-  m_printer = 0;
+  m_printer = nullptr;
   #endif // QT_NO_PRINTER
 }
 
@@ -410,7 +411,7 @@ void KmagApp::contextMenuEvent ( QContextMenuEvent * e )
  // show popup
  KXMLGUIFactory *factory = this->factory();
  QMenu *popup = (QMenu *)factory->container(QStringLiteral( "mainPopUp" ),this);
- if (popup != 0)
+ if (popup != nullptr)
    popup->popup(e->globalPos());
  e->accept();
 }
@@ -479,7 +480,7 @@ void KmagApp::setZoomIndex(int index)
     m_pZoomOut->setEnabled(true);
   }
 
-  if(m_zoomIndex == zoomArray.size()-1) {
+  if((int)m_zoomIndex == zoomArray.size()-1) {
     // meaning that no more zooming-in is possible
     // -> disable zoom-in icon
     m_pZoomIn->setEnabled(false);
