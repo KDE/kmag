@@ -69,37 +69,6 @@
   <summary xml:lang="zh-TW">螢幕放大器</summary>
   <description>
     <p>KMag is a small utility for Linux to magnify a part of the screen. KMag is very useful for people with visual disabilities and for those working in the fields of image analysis, web development etc.</p>
-    <p xml:lang="ca">Una eina d'ampliació de la pantalla</p>
-    <p xml:lang="ca-valencia">Una eina d'ampliació de la pantalla</p>
-    <p xml:lang="cs">Nástroj pro zvětšení obrazovky</p>
-    <p xml:lang="da">Et værktøj til at forstørre skærmen</p>
-    <p xml:lang="de">Ein Programm zur Vergrößerung von Bildschirmausschnitten</p>
-    <p xml:lang="el">Εργαλείο μεγέθυνσης οθόνης</p>
-    <p xml:lang="en-GB">A screen magnification tool</p>
-    <p xml:lang="es">Una herramienta para aumentar la pantalla</p>
-    <p xml:lang="eu">Pantailako irudia handitzeko tresna bat</p>
-    <p xml:lang="fi">Näytönsuurennustyökalu</p>
-    <p xml:lang="fr">Un outil loupe d'écran</p>
-    <p xml:lang="gl">Unha ferramenta de aumento da pantalla.</p>
-    <p xml:lang="ia">Un instrumento per aggrandir le schermo</p>
-    <p xml:lang="it">Uno strumento per l'ingrandimento dello schermo</p>
-    <p xml:lang="ko">화면 돋보기 도구</p>
-    <p xml:lang="nl">Een hulpmiddel als vergrootglas op het scherm</p>
-    <p xml:lang="nn">Verktøy for skjermforstørring</p>
-    <p xml:lang="pl">Narzędzie powiększania ekranu</p>
-    <p xml:lang="pt">Uma ferramenta de ampliação do ecrã</p>
-    <p xml:lang="pt-BR">Uma lupa para a tela</p>
-    <p xml:lang="sk">Nástroj na priblíženie obrazovky</p>
-    <p xml:lang="sl">Orodje za približanje zaslona</p>
-    <p xml:lang="sr">Алатка за увеличавање екрана</p>
-    <p xml:lang="sr-Latn">Alatka za uveličavanje ekrana</p>
-    <p xml:lang="sr-ijekavian">Алатка за увеличавање екрана</p>
-    <p xml:lang="sr-ijekavianlatin">Alatka za uveličavanje ekrana</p>
-    <p xml:lang="sv">Ett skärmförstoringsverktyg</p>
-    <p xml:lang="uk">Цифрове збільшувальне скло для екрана</p>
-    <p xml:lang="x-test">xxA screen magnification toolxx</p>
-    <p xml:lang="zh-CN">屏幕放大工具</p>
-    <p xml:lang="zh-TW">螢幕放大工具</p>
   </description>
   <url type="homepage">https://www.kde.org</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kmag</url>
