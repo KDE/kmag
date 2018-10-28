@@ -71,8 +71,11 @@
     <p>KMag is a small utility for Linux to magnify a part of the screen. KMag is very useful for people with visual disabilities and for those working in the fields of image analysis, web development etc.</p>
     <p xml:lang="ca">El KMag és una petita utilitat per al Linux per ampliar una part de la pantalla. El KMag és molt útil per a persones amb discapacitats visuals i per aquelles que treballen en els camps de l'anàlisi d'imatges, desenvolupament web, etc.</p>
     <p xml:lang="ca-valencia">El KMag és una petita utilitat per al Linux per ampliar una part de la pantalla. El KMag és molt útil per a persones amb discapacitats visuals i per aquelles que treballen en els camps de l'anàlisi d'imatges, desenvolupament web, etc.</p>
+    <p xml:lang="en-GB">KMag is a small utility for Linux to magnify a part of the screen. KMag is very useful for people with visual disabilities and for those working in the fields of image analysis, web development etc.</p>
     <p xml:lang="gl">KMag é unha pequena utilidade para Linux para aumentar unha parte da pantalla. KMag é moi útil para a xente con discapacidades visuais e para traballadores dos campos de análise de imaxes, desenvolvemento web, etc.</p>
+    <p xml:lang="it">KMag è un piccolo programma per ingrandire una parte dello schermo. È molto utile alle persone con disabilità visive e per quelli che lavorano nel campo dell'analisi delle immagini, dello sviluppo web ecc.</p>
     <p xml:lang="nl">KMag is een klein hulpprogramma voor Linux om een deel van het scherm te vergroten. KMag is erg nuttig voor mensen met een visuele beperking en voor hen die werken in het veld van analyse van afbeeldingen, webontwikkeling etc.</p>
+    <p xml:lang="nn">KMag er eit lite verktøy for å forstørra delar av skjermen. Det er veldig nyttig for alle med nedsett syn og for dei som arbeider med for eksempel biletanalyse eller vevutvikling.</p>
     <p xml:lang="pt">O KMag é um pequeno utilitário para o Linux aumentar uma parte do ecrã. O KMag é muito útil para as pessoas com incapacidades visuais e para aqueles que trabalham na área de análise de imagens, desenvolvimento na Web, etc.</p>
     <p xml:lang="sv">Kmag är ett litet verktyg för Linux som förstorar en del av skärmen. Kmag är mycket användbart för personer med synfel och för de som arbetar inom fälten bildanalys, webbutveckling, etc.</p>
     <p xml:lang="uk">KMag — невеличка програма для Linux, призначенням якої є збільшення зображення частини екрана. KMag є дуже корисною програмою для людей із вадами зору та тих, хто працює у галузях аналізу зображень, веброзробки тощо.</p>
@@ -86,8 +89,11 @@
       <caption>KMag in action</caption>
       <caption xml:lang="ca">El KMag en acció</caption>
       <caption xml:lang="ca-valencia">El KMag en acció</caption>
+      <caption xml:lang="en-GB">KMag in action</caption>
       <caption xml:lang="gl">KMag en acción</caption>
+      <caption xml:lang="it">KMag in azione</caption>
       <caption xml:lang="nl">KMag in actie</caption>
+      <caption xml:lang="nn">KMag i praksis</caption>
       <caption xml:lang="pt">O KMag em acção</caption>
       <caption xml:lang="pt-BR">KMag em ação</caption>
       <caption xml:lang="sv">Kmag i aktion</caption>
