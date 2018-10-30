@@ -72,6 +72,7 @@
     <p xml:lang="ca">El KMag és una petita utilitat per al Linux per ampliar una part de la pantalla. El KMag és molt útil per a persones amb discapacitats visuals i per aquelles que treballen en els camps de l'anàlisi d'imatges, desenvolupament web, etc.</p>
     <p xml:lang="ca-valencia">El KMag és una petita utilitat per al Linux per ampliar una part de la pantalla. El KMag és molt útil per a persones amb discapacitats visuals i per aquelles que treballen en els camps de l'anàlisi d'imatges, desenvolupament web, etc.</p>
     <p xml:lang="en-GB">KMag is a small utility for Linux to magnify a part of the screen. KMag is very useful for people with visual disabilities and for those working in the fields of image analysis, web development etc.</p>
+    <p xml:lang="es">KMag es una pequeña utilidad para Linux que aumenta una parte de la pantalla. KMag resulta muy útil para personas con problemas visuales y para los que trabajan en campos de análisis de imágenes, desarrollo web, etc.</p>
     <p xml:lang="gl">KMag é unha pequena utilidade para Linux para aumentar unha parte da pantalla. KMag é moi útil para a xente con discapacidades visuais e para traballadores dos campos de análise de imaxes, desenvolvemento web, etc.</p>
     <p xml:lang="it">KMag è un piccolo programma per ingrandire una parte dello schermo. È molto utile alle persone con disabilità visive e per quelli che lavorano nel campo dell'analisi delle immagini, dello sviluppo web ecc.</p>
     <p xml:lang="nl">KMag is een klein hulpprogramma voor Linux om een deel van het scherm te vergroten. KMag is erg nuttig voor mensen met een visuele beperking en voor hen die werken in het veld van analyse van afbeeldingen, webontwikkeling etc.</p>
@@ -90,6 +91,7 @@
       <caption xml:lang="ca">El KMag en acció</caption>
       <caption xml:lang="ca-valencia">El KMag en acció</caption>
       <caption xml:lang="en-GB">KMag in action</caption>
+      <caption xml:lang="es">KMag en acción</caption>
       <caption xml:lang="gl">KMag en acción</caption>
       <caption xml:lang="it">KMag in azione</caption>
       <caption xml:lang="nl">KMag in actie</caption>
