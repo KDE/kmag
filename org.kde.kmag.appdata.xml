@@ -109,5 +109,36 @@
   <project_group>KDE</project_group>
   <provides>
     <binary>kmag</binary>
+    <binary xml:lang="ca">kmag</binary>
+    <binary xml:lang="ca-valencia">kmag</binary>
+    <binary xml:lang="cs">kmag</binary>
+    <binary xml:lang="da">kmag</binary>
+    <binary xml:lang="de">KMag</binary>
+    <binary xml:lang="el">kmag</binary>
+    <binary xml:lang="en-GB">kmag</binary>
+    <binary xml:lang="es">kmag</binary>
+    <binary xml:lang="eu">kmag</binary>
+    <binary xml:lang="fi">kmag</binary>
+    <binary xml:lang="fr">kmag</binary>
+    <binary xml:lang="gl">kmag</binary>
+    <binary xml:lang="ia">kmag</binary>
+    <binary xml:lang="it">kmag</binary>
+    <binary xml:lang="ko">kmag</binary>
+    <binary xml:lang="nl">kmag</binary>
+    <binary xml:lang="nn">kmag</binary>
+    <binary xml:lang="pl">kmag</binary>
+    <binary xml:lang="pt">kmag</binary>
+    <binary xml:lang="pt-BR">kmag</binary>
+    <binary xml:lang="sk">KLupa</binary>
+    <binary xml:lang="sl">kmag</binary>
+    <binary xml:lang="sr">К‑увеличање</binary>
+    <binary xml:lang="sr-Latn">K‑uveličanje</binary>
+    <binary xml:lang="sr-ijekavian">К‑увеличање</binary>
+    <binary xml:lang="sr-ijekavianlatin">K‑uveličanje</binary>
+    <binary xml:lang="sv">kmag</binary>
+    <binary xml:lang="uk">kmag</binary>
+    <binary xml:lang="x-test">xxkmagxx</binary>
+    <binary xml:lang="zh-CN">kmag</binary>
+    <binary xml:lang="zh-TW">kmag</binary>
   </provides>
 </component>
