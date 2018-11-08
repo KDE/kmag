@@ -85,7 +85,7 @@
   </description>
   <url type="homepage">https://www.kde.org</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kmag</url>
-  <url type="donation">https://www.kde.org/community/donations/?app=kmag</url>
+  <url type="donation">https://www.kde.org/community/donations/?app=kmag&amp;source=appdata</url>
   <screenshots>
     <screenshot type="default">
       <caption>KMag in action</caption>
