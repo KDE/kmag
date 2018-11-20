@@ -72,6 +72,7 @@
     <p xml:lang="ca">El KMag és una petita utilitat per al Linux per ampliar una part de la pantalla. El KMag és molt útil per a persones amb discapacitats visuals i per aquelles que treballen en els camps de l'anàlisi d'imatges, desenvolupament web, etc.</p>
     <p xml:lang="ca-valencia">El KMag és una petita utilitat per al Linux per ampliar una part de la pantalla. El KMag és molt útil per a persones amb discapacitats visuals i per aquelles que treballen en els camps de l'anàlisi d'imatges, desenvolupament web, etc.</p>
     <p xml:lang="de">KMag ist ein kleines Dienstprogramm für Linux, um einen Teil des Bildschirms zu vergrößern. KMag ist sehr nützlich für Menschen mit Sehbehinderung und für Menschen, die in Bereichen der Bildanalyse, Webentwicklung usw. arbeiten.</p>
+    <p xml:lang="el">Το KMag είναι μια μικρή εφαρμογή για Linux για να μεγεθύνει μέρος της οθόνης. Το KMag είναι πολύ χρήσιμο για ανθρώπους με δυσκολίες στην όραση και για εκείνους που ασχολούνται με τα πεδία της ανάλυσης εικόνας, ανάπτυξης εφαρμογών ιστού κλπ.</p>
     <p xml:lang="en-GB">KMag is a small utility for Linux to magnify a part of the screen. KMag is very useful for people with visual disabilities and for those working in the fields of image analysis, web development etc.</p>
     <p xml:lang="es">KMag es una pequeña utilidad para Linux que aumenta una parte de la pantalla. KMag resulta muy útil para personas con problemas visuales y para los que trabajan en campos de análisis de imágenes, desarrollo web, etc.</p>
     <p xml:lang="gl">KMag é unha pequena utilidade para Linux para aumentar unha parte da pantalla. KMag é moi útil para a xente con discapacidades visuais e para traballadores dos campos de análise de imaxes, desenvolvemento web, etc.</p>
@@ -95,6 +96,7 @@
       <caption xml:lang="ca">El KMag en acció</caption>
       <caption xml:lang="ca-valencia">El KMag en acció</caption>
       <caption xml:lang="de">KMag in Aktion</caption>
+      <caption xml:lang="el">Το KMag σε δράση</caption>
       <caption xml:lang="en-GB">KMag in action</caption>
       <caption xml:lang="es">KMag en acción</caption>
       <caption xml:lang="gl">KMag en acción</caption>
