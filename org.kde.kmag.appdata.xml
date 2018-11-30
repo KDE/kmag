@@ -74,6 +74,7 @@
     <p xml:lang="de">KMag ist ein kleines Dienstprogramm für Linux, um einen Teil des Bildschirms zu vergrößern. KMag ist sehr nützlich für Menschen mit Sehbehinderung und für Menschen, die in Bereichen der Bildanalyse, Webentwicklung usw. arbeiten.</p>
     <p xml:lang="en-GB">KMag is a small utility for Linux to magnify a part of the screen. KMag is very useful for people with visual disabilities and for those working in the fields of image analysis, web development etc.</p>
     <p xml:lang="es">KMag es una pequeña utilidad para Linux que aumenta una parte de la pantalla. KMag resulta muy útil para personas con problemas visuales y para los que trabajan en campos de análisis de imágenes, desarrollo web, etc.</p>
+    <p xml:lang="fi">KMag on pieni Linux-työkalu näytön osan suurentamiseksi. KMagista on hyötyä heikkonäköisille, kuvia tarkoin tutkiville tai esimerkiksi verkkokehitystä tekeville.</p>
     <p xml:lang="gl">KMag é unha pequena utilidade para Linux para aumentar unha parte da pantalla. KMag é moi útil para a xente con discapacidades visuais e para traballadores dos campos de análise de imaxes, desenvolvemento web, etc.</p>
     <p xml:lang="it">KMag è un piccolo programma per ingrandire una parte dello schermo. È molto utile alle persone con disabilità visive e per quelli che lavorano nel campo dell'analisi delle immagini, dello sviluppo web ecc.</p>
     <p xml:lang="nl">KMag is een klein hulpprogramma voor Linux om een deel van het scherm te vergroten. KMag is erg nuttig voor mensen met een visuele beperking en voor hen die werken in het veld van analyse van afbeeldingen, webontwikkeling etc.</p>
@@ -96,6 +97,7 @@
       <caption xml:lang="de">KMag in Aktion</caption>
       <caption xml:lang="en-GB">KMag in action</caption>
       <caption xml:lang="es">KMag en acción</caption>
+      <caption xml:lang="fi">KMag toiminnassa</caption>
       <caption xml:lang="gl">KMag en acción</caption>
       <caption xml:lang="it">KMag in azione</caption>
       <caption xml:lang="nl">KMag in actie</caption>
