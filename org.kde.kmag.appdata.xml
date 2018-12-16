@@ -21,7 +21,7 @@
   <name xml:lang="ko">kmag</name>
   <name xml:lang="nl">kmag</name>
   <name xml:lang="nn">kmag</name>
-  <name xml:lang="pl">kmag</name>
+  <name xml:lang="pl">KMag</name>
   <name xml:lang="pt">kmag</name>
   <name xml:lang="pt-BR">kmag</name>
   <name xml:lang="sk">KLupa</name>
@@ -79,6 +79,7 @@
     <p xml:lang="it">KMag è un piccolo programma per ingrandire una parte dello schermo. È molto utile alle persone con disabilità visive e per quelli che lavorano nel campo dell'analisi delle immagini, dello sviluppo web ecc.</p>
     <p xml:lang="nl">KMag is een klein hulpprogramma voor Linux om een deel van het scherm te vergroten. KMag is erg nuttig voor mensen met een visuele beperking en voor hen die werken in het veld van analyse van afbeeldingen, webontwikkeling etc.</p>
     <p xml:lang="nn">KMag er eit lite verktøy for å forstørra delar av skjermen. Det er veldig nyttig for alle med nedsett syn og for dei som arbeider med for eksempel biletanalyse eller vevutvikling.</p>
+    <p xml:lang="pl">KMag jest małym narzędziem dla Linuksa do powiększania części ekranu. KMag jest bardzo użytecznym programem dla osób z niepełnosprawnością wzroku, a także dla tych, którzy pracują przy analizie obrazów i tworzeniu stron internetowych, itp.</p>
     <p xml:lang="pt">O KMag é um pequeno utilitário para o Linux aumentar uma parte do ecrã. O KMag é muito útil para as pessoas com incapacidades visuais e para aqueles que trabalham na área de análise de imagens, desenvolvimento na Web, etc.</p>
     <p xml:lang="pt-BR">O KMag é um pequeno utilitário para Linux para ampliar uma parte da tela. O  KMag é muito útil para pessoas com deficiências visuais e para aqueles trabalhando em campos de análise de imagens, desenvolvimento Web, etc.</p>
     <p xml:lang="sv">Kmag är ett litet verktyg för Linux som förstorar en del av skärmen. Kmag är mycket användbart för personer med synfel och för de som arbetar inom fälten bildanalys, webbutveckling, etc.</p>
@@ -103,6 +104,7 @@
       <caption xml:lang="it">KMag in azione</caption>
       <caption xml:lang="nl">KMag in actie</caption>
       <caption xml:lang="nn">KMag i praksis</caption>
+      <caption xml:lang="pl">KMag w działaniu</caption>
       <caption xml:lang="pt">O KMag em acção</caption>
       <caption xml:lang="pt-BR">KMag em ação</caption>
       <caption xml:lang="sv">Kmag i aktion</caption>
@@ -133,7 +135,7 @@
     <binary xml:lang="ko">kmag</binary>
     <binary xml:lang="nl">kmag</binary>
     <binary xml:lang="nn">kmag</binary>
-    <binary xml:lang="pl">kmag</binary>
+    <binary xml:lang="pl">KMag</binary>
     <binary xml:lang="pt">kmag</binary>
     <binary xml:lang="pt-BR">kmag</binary>
     <binary xml:lang="sk">KLupa</binary>
