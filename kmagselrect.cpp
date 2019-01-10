@@ -214,35 +214,35 @@ KMagSelWin::KMagSelWin ( QWidget * parent ) :
   setPaletteColor(titleBar, QPalette::Foreground, getTextColor());
   titleBar->setText(i18n("Selection Window")+QLatin1String( " - " )+i18n("KMagnifier"));
   connect (titleBar, &KMagSelWinCorner::startResizing, this, &KMagSelWin::startResizing);
-  connect (titleBar, SIGNAL (resized(QPoint)), this, SLOT (titleMoved(QPoint)));
+  connect (titleBar, &KMagSelWinCorner::resized, this, &KMagSelWin::titleMoved);
 
   topLeftCorner = new KMagSelWinCorner (this);
   topLeftCorner->setObjectName( QStringLiteral("topleft" ));
   topLeftCorner->setCursor (Qt::SizeFDiagCursor);
   setPaletteColor(topLeftCorner, QPalette::Background, getTitleBtnColor());
   connect (topLeftCorner, &KMagSelWinCorner::startResizing, this, &KMagSelWin::startResizing);
-  connect (topLeftCorner, SIGNAL (resized(QPoint)), this, SLOT (topLeftResized(QPoint)));
+  connect (topLeftCorner, &KMagSelWinCorner::resized, this, &KMagSelWin::topLeftResized);
 
   topRightCorner = new KMagSelWinCorner (this);
   topRightCorner->setObjectName( QStringLiteral("topright" ));
   topRightCorner->setCursor (Qt::SizeBDiagCursor);
   setPaletteColor(topRightCorner, QPalette::Background, getTitleBtnColor ());
   connect (topRightCorner, &KMagSelWinCorner::startResizing, this, &KMagSelWin::startResizing);
-  connect (topRightCorner, SIGNAL (resized(QPoint)), this, SLOT (topRightResized(QPoint)));
+  connect (topRightCorner, &KMagSelWinCorner::resized, this, &KMagSelWin::topRightResized);
 
   bottomLeftCorner = new KMagSelWinCorner (this);
   bottomLeftCorner->setObjectName( QStringLiteral("bottomleft" ));
   bottomLeftCorner->setCursor (Qt::SizeBDiagCursor);
   setPaletteColor(bottomLeftCorner, QPalette::Background, getTitleBtnColor());
   connect (bottomLeftCorner, &KMagSelWinCorner::startResizing, this, &KMagSelWin::startResizing);
-  connect (bottomLeftCorner, SIGNAL (resized(QPoint)), this, SLOT (bottomLeftResized(QPoint)));
+  connect (bottomLeftCorner, &KMagSelWinCorner::resized, this, &KMagSelWin::bottomLeftResized);
 
   bottomRightCorner = new KMagSelWinCorner (this);
   bottomRightCorner->setObjectName( QStringLiteral("bottomright" ));
   bottomRightCorner->setCursor (Qt::SizeFDiagCursor);
   setPaletteColor(bottomRightCorner, QPalette::Background, getTitleBtnColor ());
   connect (bottomRightCorner, &KMagSelWinCorner::startResizing, this, &KMagSelWin::startResizing);
-  connect (bottomRightCorner, SIGNAL (resized(QPoint)), this, SLOT (bottomRightResized(QPoint)));
+  connect (bottomRightCorner, &KMagSelWinCorner::resized, this, &KMagSelWin::bottomRightResized);
 }
 
 KMagSelWin::~KMagSelWin()
