@@ -17,6 +17,7 @@
   <name xml:lang="fr">kmag</name>
   <name xml:lang="gl">kmag</name>
   <name xml:lang="ia">kmag</name>
+  <name xml:lang="id">kmag</name>
   <name xml:lang="it">kmag</name>
   <name xml:lang="ko">kmag</name>
   <name xml:lang="nl">kmag</name>
@@ -49,6 +50,7 @@
   <summary xml:lang="fr">Loupe d'écran</summary>
   <summary xml:lang="gl">Lupa da pantalla</summary>
   <summary xml:lang="ia">Aggranditor de schermo</summary>
+  <summary xml:lang="id">Memperbesar Layar</summary>
   <summary xml:lang="it">Lente d'ingrandimento</summary>
   <summary xml:lang="ko">화면 돋보기</summary>
   <summary xml:lang="nl">Schermvergroter</summary>
@@ -77,6 +79,7 @@
     <p xml:lang="fi">KMag on pieni Linux-työkalu näytön osan suurentamiseksi. KMagista on hyötyä heikkonäköisille, kuvia tarkoin tutkiville tai esimerkiksi verkkokehitystä tekeville.</p>
     <p xml:lang="fr">KMag est un petit utilitaire Linux qui permet de zoomer sur une partie de l'écran. KMag est très utile pour les personnes atteintes de déficiences visuelles ou travaillant dans les domaines de l'analyse d'images, du développement Web, etc.</p>
     <p xml:lang="gl">KMag é unha pequena utilidade para Linux para aumentar unha parte da pantalla. KMag é moi útil para a xente con discapacidades visuais e para traballadores dos campos de análise de imaxes, desenvolvemento web, etc.</p>
+    <p xml:lang="id">KMag adalah utilitas kecil buat Linux untuk memperbesar bagian layar. KMag sangat berguna bagi para penyandang cacat visual dan bagi mereka yang bekerja di bidang analisis gambar, pengembangan web, dll.</p>
     <p xml:lang="it">KMag è un piccolo programma per ingrandire una parte dello schermo. È molto utile alle persone con disabilità visive e per quelli che lavorano nel campo dell'analisi delle immagini, dello sviluppo web ecc.</p>
     <p xml:lang="nl">KMag is een klein hulpprogramma voor Linux om een deel van het scherm te vergroten. KMag is erg nuttig voor mensen met een visuele beperking en voor hen die werken in het veld van analyse van afbeeldingen, webontwikkeling etc.</p>
     <p xml:lang="nn">KMag er eit lite verktøy for å forstørra delar av skjermen. Det er veldig nyttig for alle med nedsett syn og for dei som arbeider med for eksempel biletanalyse eller vevutvikling.</p>
@@ -103,6 +106,7 @@
       <caption xml:lang="fi">KMag toiminnassa</caption>
       <caption xml:lang="fr">KMag en action</caption>
       <caption xml:lang="gl">KMag en acción</caption>
+      <caption xml:lang="id">KMag beraksi</caption>
       <caption xml:lang="it">KMag in azione</caption>
       <caption xml:lang="nl">KMag in actie</caption>
       <caption xml:lang="nn">KMag i praksis</caption>
@@ -133,6 +137,7 @@
     <binary xml:lang="fr">kmag</binary>
     <binary xml:lang="gl">kmag</binary>
     <binary xml:lang="ia">kmag</binary>
+    <binary xml:lang="id">kmag</binary>
     <binary xml:lang="it">kmag</binary>
     <binary xml:lang="ko">kmag</binary>
     <binary xml:lang="nl">kmag</binary>
