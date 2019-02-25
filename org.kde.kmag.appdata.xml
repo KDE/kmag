@@ -25,6 +25,7 @@
   <name xml:lang="pl">KMag</name>
   <name xml:lang="pt">kmag</name>
   <name xml:lang="pt-BR">kmag</name>
+  <name xml:lang="ru">KMag</name>
   <name xml:lang="sk">KLupa</name>
   <name xml:lang="sl">kmag</name>
   <name xml:lang="sr">К‑увеличање</name>
@@ -147,6 +148,7 @@
     <binary xml:lang="pl">KMag</binary>
     <binary xml:lang="pt">kmag</binary>
     <binary xml:lang="pt-BR">kmag</binary>
+    <binary xml:lang="ru">KMag</binary>
     <binary xml:lang="sk">KLupa</binary>
     <binary xml:lang="sl">kmag</binary>
     <binary xml:lang="sr">К‑увеличање</binary>
