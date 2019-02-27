@@ -217,7 +217,7 @@ class KMagZoomView : public QAbstractScrollArea
     QTimer m_mouseViewTimer;
 
     /// Zoom matrix
-    QMatrix m_zoomMatrix;
+    QTransform m_zoomMatrix;
 
     /// Saves the mouse position when a button is clicked and b4 the cursor is moved to new position
     QPoint m_oldMousePos;
