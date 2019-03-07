@@ -974,7 +974,7 @@ void KMagZoomView::grabFrame()
 
   // ... but exclude own popups ...
   const QList<QWidget *> siblings = QApplication::topLevelWidgets();
-  foreach (QWidget *sibling, siblings) {
+  for (QWidget *sibling : siblings) {
     if (sibling != window() && (sibling->windowType() & Qt::Window) && sibling->isVisible()) {
       QRect rect = sibling->frameGeometry();
       rect.translate(-selRect.topLeft());
@@ -983,7 +983,7 @@ void KMagZoomView::grabFrame()
   }
 
   QPainter p(&m_coloredPixmap);
-  foreach (const QRect &rect, region.rects()) {
+  for (const QRect &rect : region) {
     p.fillRect(rect, palette().dark());
   }
   p.end();

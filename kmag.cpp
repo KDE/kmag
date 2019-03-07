@@ -566,8 +566,8 @@ void KmagApp::saveZoomPixmap()
   }
 
   QStringList mimeTypes;
-  QList<QByteArray> supported = QImageWriter::supportedMimeTypes();
-  foreach (QByteArray mimeType, supported) {
+  const QList<QByteArray> supported = QImageWriter::supportedMimeTypes();
+  for (const QByteArray& mimeType : supported) {
     mimeTypes.append(QString::fromLatin1(mimeType));
   }
 
