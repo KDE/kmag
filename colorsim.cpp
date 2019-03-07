@@ -152,7 +152,7 @@ static const matrix coef[3] = {
  These matrices are derived from the "Color Blindness Simulation" sample
  palettes from Visolve, Ryobi System Solutions, using the LMS transformations
  from [1].
- http://www.ryobi-sol.co.jp/visolve/en/simulation.html
+ https://www.ryobi-sol.co.jp/visolve/en/simulation.html
 
  ***************************************************************************/
 

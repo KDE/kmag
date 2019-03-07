@@ -47,7 +47,7 @@ url="help:/kmag">help:/kmag</ulink>
 <parameter>help:/kmag</parameter></userinput>).</member>
 <member>kf5options(7)</member>
 <member>qt5options(7)</member>
-<member>There is also further information available at <ulink url="http://accessibility.kde.org">the &kde; accessibility project home page.</ulink></member>
+<member>There is also further information available at <ulink url="https://accessibility.kde.org/">the &kde; accessibility project home page.</ulink></member>
 </simplelist>
 
 </refsect1>

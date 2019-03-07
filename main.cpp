@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
                                          i18n("Screen magnifier created by KDE"),
                                          KAboutLicense::GPL,
                                          i18n("Copyright 2001-2003 Sarang Lakare\nCopyright 2003-2004 Olaf Schmidt\nCopyright 2008 Matthew Woehlke"), QString(),
-                                         QStringLiteral("http://accessibility.kde.org/"));
+                                         QStringLiteral("https://accessibility.kde.org/"));
 
   // about the authors
   aboutData.addAuthor(i18n("Sarang Lakare"),
@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
   aboutData.addAuthor(i18n("Olaf Schmidt"), i18n("Rework of the user interface, improved selection window, speed optimization, rotation, bug fixes"), QStringLiteral("ojschmidt@kde.org"));
   aboutData.addCredit(i18n("Matthew Woehlke"), i18n("Color-blindness simulation"), QStringLiteral("mw_triad@users.sourceforge.net"));
   aboutData.addCredit(i18n("Sebastian Sauer"), i18n("Focus tracking"), QStringLiteral("sebsauer@kdab.com"));
-  aboutData.addCredit(i18n("Claudiu Costin"), i18n("Some tips"), QStringLiteral("claudiuc@work.ro"), QStringLiteral("http://www.ro.kde.org"));
+  aboutData.addCredit(i18n("Claudiu Costin"), i18n("Some tips"), QStringLiteral("claudiuc@work.ro"), QStringLiteral("https://ro.kde.org"));
 
   KAboutData::setApplicationData(aboutData);
 
