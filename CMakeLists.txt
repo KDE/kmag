@@ -55,6 +55,9 @@ set(kmag_SRCS
    colorsim.cpp
    main.cpp )
 
+qt5_add_resources(kmag_SRCS
+    kmag.qrc
+)
 add_executable(kmag ${kmag_SRCS})
 
 target_link_libraries(kmag
@@ -77,6 +80,5 @@ feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 ########### install files ###############
 
 install( PROGRAMS org.kde.kmag.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
-install( FILES kmagui.rc  DESTINATION  ${KXMLGUI_INSTALL_DIR}/kmag )
 install(FILES org.kde.kmag.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 ecm_install_icons( ICONS 16-apps-kmag.png 32-apps-kmag.png  DESTINATION ${ICON_INSTALL_DIR} )
