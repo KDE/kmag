@@ -44,6 +44,13 @@ if(QAccessibilityClient_FOUND)
     include_directories(${QACCESSIBILITYCLIENT_INCLUDE_DIR})
 endif(QAccessibilityClient_FOUND)
 
+
+add_definitions(
+    -DQT_DEPRECATED_WARNINGS
+    -DQT_DISABLE_DEPRECATED_BEFORE=0x050900
+    -DQT_STRICT_ITERATORS
+)
+
 add_subdirectory( doc )
 add_subdirectory( pics )
 ########### next target ###############
