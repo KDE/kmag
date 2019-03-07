@@ -27,10 +27,10 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     XmlGui
 )
 
-find_package(QAccessibilityClient)
+find_package(QAccessibilityClient 0.4 CONFIG)
 set_package_properties(QAccessibilityClient PROPERTIES
     DESCRIPTION "KDE client-side accessibility library"
-    URL "https://projects.kde.org/projects/playground/accessibility/libqaccessibilityclient"
+    URL "https://commits.kde.org/libqaccessibilityclient"
     TYPE OPTIONAL
     PURPOSE "Required to enable keyboard focus tracking."
 )
@@ -40,10 +40,6 @@ configure_file(
     "${PROJECT_BINARY_DIR}/focustrackconfig.h")
 
 include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR})
-if(QAccessibilityClient_FOUND)
-    include_directories(${QACCESSIBILITYCLIENT_INCLUDE_DIR})
-endif(QAccessibilityClient_FOUND)
-
 
 add_definitions(
     -DQT_DEPRECATED_WARNINGS
