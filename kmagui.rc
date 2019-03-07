@@ -1,5 +1,5 @@
-<!DOCTYPE kpartgui>
-<kpartgui name="kmag" version="16">
+<!DOCTYPE gui SYSTEM "kpartgui.dtd">
+<gui name="kmag" version="16">
  <ToolBar noMerge="1" name="mainToolBar"><text>Main Toolbar</text>
  </ToolBar>
 
@@ -101,4 +101,4 @@
   <Action name="snapshot"/>
   <Action name="file_print"/>
  </Menu>
-</kpartgui>
+</gui>
