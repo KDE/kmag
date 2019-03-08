@@ -4,39 +4,6 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>KMag</name>
-  <name xml:lang="ca">kmag</name>
-  <name xml:lang="ca-valencia">kmag</name>
-  <name xml:lang="cs">kmag</name>
-  <name xml:lang="da">kmag</name>
-  <name xml:lang="de">KMag</name>
-  <name xml:lang="el">kmag</name>
-  <name xml:lang="en-GB">kmag</name>
-  <name xml:lang="es">kmag</name>
-  <name xml:lang="eu">kmag</name>
-  <name xml:lang="fi">kmag</name>
-  <name xml:lang="fr">kmag</name>
-  <name xml:lang="gl">kmag</name>
-  <name xml:lang="ia">kmag</name>
-  <name xml:lang="id">kmag</name>
-  <name xml:lang="it">kmag</name>
-  <name xml:lang="ko">kmag</name>
-  <name xml:lang="nl">kmag</name>
-  <name xml:lang="nn">kmag</name>
-  <name xml:lang="pl">KMag</name>
-  <name xml:lang="pt">kmag</name>
-  <name xml:lang="pt-BR">kmag</name>
-  <name xml:lang="ru">KMag</name>
-  <name xml:lang="sk">KLupa</name>
-  <name xml:lang="sl">kmag</name>
-  <name xml:lang="sr">К‑увеличање</name>
-  <name xml:lang="sr-Latn">K‑uveličanje</name>
-  <name xml:lang="sr-ijekavian">К‑увеличање</name>
-  <name xml:lang="sr-ijekavianlatin">K‑uveličanje</name>
-  <name xml:lang="sv">kmag</name>
-  <name xml:lang="uk">kmag</name>
-  <name xml:lang="x-test">xxkmagxx</name>
-  <name xml:lang="zh-CN">kmag</name>
-  <name xml:lang="zh-TW">kmag</name>
   <summary>Screen Magnifier</summary>
   <summary xml:lang="ca">Lupa de la pantalla</summary>
   <summary xml:lang="ca-valencia">Lupa de la pantalla</summary>
