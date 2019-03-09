@@ -4,6 +4,11 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>KMag</name>
+  <name xml:lang="ca">KMag</name>
+  <name xml:lang="pt-BR">KMag</name>
+  <name xml:lang="sv">Kmag</name>
+  <name xml:lang="uk">KMag</name>
+  <name xml:lang="x-test">xxKMagxx</name>
   <summary>Screen Magnifier</summary>
   <summary xml:lang="ca">Lupa de la pantalla</summary>
   <summary xml:lang="ca-valencia">Lupa de la pantalla</summary>
@@ -96,6 +101,11 @@
   <project_group>KDE</project_group>
   <provides>
     <binary>kmag</binary>
+    <binary xml:lang="nn">kmag</binary>
+    <binary xml:lang="sr">К‑увеличање</binary>
+    <binary xml:lang="sr-Latn">K‑uveličanje</binary>
+    <binary xml:lang="sr-ijekavian">К‑увеличање</binary>
+    <binary xml:lang="sr-ijekavianlatin">K‑uveličanje</binary>
   </provides>
   <launchable type="desktop-id">org.kde.kmag.desktop</launchable>
 </component>
