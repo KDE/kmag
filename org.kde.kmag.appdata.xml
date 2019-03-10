@@ -5,6 +5,10 @@
   <project_license>GPL-2.0+</project_license>
   <name>KMag</name>
   <name xml:lang="ca">KMag</name>
+  <name xml:lang="es">KMag</name>
+  <name xml:lang="gl">KMag</name>
+  <name xml:lang="nl">KMag</name>
+  <name xml:lang="nn">KMag</name>
   <name xml:lang="pt-BR">KMag</name>
   <name xml:lang="sv">Kmag</name>
   <name xml:lang="uk">KMag</name>
@@ -101,7 +105,6 @@
   <project_group>KDE</project_group>
   <provides>
     <binary>kmag</binary>
-    <binary xml:lang="nn">kmag</binary>
     <binary xml:lang="sr">К‑увеличање</binary>
     <binary xml:lang="sr-Latn">K‑uveličanje</binary>
     <binary xml:lang="sr-ijekavian">К‑увеличање</binary>
