@@ -111,10 +111,6 @@
   <project_group>KDE</project_group>
   <provides>
     <binary>kmag</binary>
-    <binary xml:lang="sr">К‑увеличање</binary>
-    <binary xml:lang="sr-Latn">K‑uveličanje</binary>
-    <binary xml:lang="sr-ijekavian">К‑увеличање</binary>
-    <binary xml:lang="sr-ijekavianlatin">K‑uveličanje</binary>
   </provides>
   <launchable type="desktop-id">org.kde.kmag.desktop</launchable>
 </component>
