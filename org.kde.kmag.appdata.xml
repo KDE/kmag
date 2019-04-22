@@ -11,6 +11,7 @@
   <name xml:lang="fr">KMag</name>
   <name xml:lang="gl">KMag</name>
   <name xml:lang="it">KMag</name>
+  <name xml:lang="ko">KMag</name>
   <name xml:lang="nl">KMag</name>
   <name xml:lang="nn">KMag</name>
   <name xml:lang="pt">KMag</name>
@@ -67,6 +68,7 @@
     <p xml:lang="gl">KMag é unha pequena utilidade para Linux para aumentar unha parte da pantalla. KMag é moi útil para a xente con discapacidades visuais e para traballadores dos campos de análise de imaxes, desenvolvemento web, etc.</p>
     <p xml:lang="id">KMag adalah utilitas kecil buat Linux untuk memperbesar bagian layar. KMag sangat berguna bagi para penyandang cacat visual dan bagi mereka yang bekerja di bidang analisis gambar, pengembangan web, dll.</p>
     <p xml:lang="it">KMag è un piccolo programma per ingrandire una parte dello schermo. È molto utile alle persone con disabilità visive e per quelli che lavorano nel campo dell'analisi delle immagini, dello sviluppo web ecc.</p>
+    <p xml:lang="ko">KMag은 리눅스용 화면 돋보기입니다. 시각 장애가 있는 사용자나 이미지 분석, 웹 개발 등에 유용합니다.</p>
     <p xml:lang="nl">KMag is een klein hulpprogramma voor Linux om een deel van het scherm te vergroten. KMag is erg nuttig voor mensen met een visuele beperking en voor hen die werken in het veld van analyse van afbeeldingen, webontwikkeling etc.</p>
     <p xml:lang="nn">KMag er eit lite verktøy for å forstørra delar av skjermen. Det er veldig nyttig for alle med nedsett syn og for dei som arbeider med for eksempel biletanalyse eller vevutvikling.</p>
     <p xml:lang="pl">KMag jest małym narzędziem dla Linuksa do powiększania części ekranu. KMag jest bardzo użytecznym programem dla osób z niepełnosprawnością wzroku, a także dla tych, którzy pracują przy analizie obrazów i tworzeniu stron internetowych, itp.</p>
@@ -96,6 +98,7 @@
       <caption xml:lang="gl">KMag en acción</caption>
       <caption xml:lang="id">KMag beraksi</caption>
       <caption xml:lang="it">KMag in azione</caption>
+      <caption xml:lang="ko">KMag 사용 모습</caption>
       <caption xml:lang="nl">KMag in actie</caption>
       <caption xml:lang="nn">KMag i praksis</caption>
       <caption xml:lang="pl">KMag w działaniu</caption>
