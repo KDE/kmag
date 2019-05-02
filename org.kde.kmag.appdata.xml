@@ -8,6 +8,7 @@
   <name xml:lang="ca-valencia">KMag</name>
   <name xml:lang="en-GB">KMag</name>
   <name xml:lang="es">KMag</name>
+  <name xml:lang="eu">KMag</name>
   <name xml:lang="fi">KMag</name>
   <name xml:lang="fr">KMag</name>
   <name xml:lang="gl">KMag</name>
@@ -64,6 +65,7 @@
     <p xml:lang="el">Το KMag είναι μια μικρή εφαρμογή για Linux για να μεγεθύνει μέρος της οθόνης. Το KMag είναι πολύ χρήσιμο για ανθρώπους με δυσκολίες στην όραση και για εκείνους που ασχολούνται με τα πεδία της ανάλυσης εικόνας, ανάπτυξης εφαρμογών ιστού κλπ.</p>
     <p xml:lang="en-GB">KMag is a small utility for Linux to magnify a part of the screen. KMag is very useful for people with visual disabilities and for those working in the fields of image analysis, web development etc.</p>
     <p xml:lang="es">KMag es una pequeña utilidad para Linux que aumenta una parte de la pantalla. KMag resulta muy útil para personas con problemas visuales y para los que trabajan en campos de análisis de imágenes, desarrollo web, etc.</p>
+    <p xml:lang="eu">KMag pantailaren zati bat handitzeko Linux-erako baliagarritasun txiki bat da. KMag oso baliagarria da ikusmenean ezintasuna dutenentzako, baita irudi analisian, web diseinuan eta beste hainbat eremutan lan egiten dutenentzako ere.</p>
     <p xml:lang="fi">KMag on pieni Linux-työkalu näytön osan suurentamiseksi. KMagista on hyötyä heikkonäköisille, kuvia tarkoin tutkiville tai esimerkiksi verkkokehitystä tekeville.</p>
     <p xml:lang="fr">KMag est un petit utilitaire Linux qui permet de zoomer sur une partie de l'écran. KMag est très utile pour les personnes atteintes de déficiences visuelles ou travaillant dans les domaines de l'analyse d'images, du développement Web, etc.</p>
     <p xml:lang="gl">KMag é unha pequena utilidade para Linux para aumentar unha parte da pantalla. KMag é moi útil para a xente con discapacidades visuais e para traballadores dos campos de análise de imaxes, desenvolvemento web, etc.</p>
@@ -94,6 +96,7 @@
       <caption xml:lang="el">Το KMag σε δράση</caption>
       <caption xml:lang="en-GB">KMag in action</caption>
       <caption xml:lang="es">KMag en acción</caption>
+      <caption xml:lang="eu">KMag martxan</caption>
       <caption xml:lang="fi">KMag toiminnassa</caption>
       <caption xml:lang="fr">KMag en action</caption>
       <caption xml:lang="gl">KMag en acción</caption>
