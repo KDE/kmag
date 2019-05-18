@@ -227,7 +227,7 @@ class KmagApp : public KXmlGuiWindow
 
     #ifndef QT_NO_PRINTER
     // Keep QPrinter so settings persist
-    QPrinter *m_printer;
+    QPrinter *m_printer = nullptr;
     #endif // QT_NO_PRINTER
 
 };

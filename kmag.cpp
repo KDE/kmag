@@ -97,10 +97,6 @@ KmagApp::KmagApp(QWidget*)
 
   // read options from config file
   readOptions();
-
-  #ifndef QT_NO_PRINTER
-  m_printer = nullptr;
-  #endif // QT_NO_PRINTER
 }
 
 /**
