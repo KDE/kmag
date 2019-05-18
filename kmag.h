@@ -59,7 +59,7 @@ class KmagApp : public KXmlGuiWindow
     /**
      * Constructor of KmagApp, calls all init functions to create the application.
      */
-    explicit KmagApp(QWidget* parent=nullptr, const char* name=nullptr);
+    explicit KmagApp(QWidget* parent=nullptr);
 
     /// Default destructor
     ~KmagApp() override;
