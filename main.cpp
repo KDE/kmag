@@ -25,7 +25,7 @@
 
 #include "kmag.h"
 
-#include "version.h"
+#include "kmag_version.h"
 
 KmagApp *kmagapp;
 
@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
   KLocalizedString::setApplicationDomain("kmag");
 
   // about the application
-  KAboutData aboutData(QStringLiteral("kmag"), i18n("KMagnifier"), QStringLiteral(KMAG_VERSION),
+  KAboutData aboutData(QStringLiteral("kmag"), i18n("KMagnifier"), QStringLiteral(KMAG_VERSION_STRING),
                                          i18n("Screen magnifier created by KDE"),
                                          KAboutLicense::GPL,
                                          i18n("Copyright 2001-2003 Sarang Lakare\nCopyright 2003-2004 Olaf Schmidt\nCopyright 2008 Matthew Woehlke"), QString(),
