@@ -22,7 +22,6 @@
 // Qt
 #include <QApplication>
 #include <QBitmap>
-#include <QCursor>
 #include <QDesktopWidget>
 #include <QMouseEvent>
 // KF5

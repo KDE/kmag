@@ -32,6 +32,7 @@
 #include <QDesktopWidget>
 #include <QScrollBar>
 #include <QScreen>
+#include <QPainter>
 
 // include files for KF5
 #include <KLocalizedString>

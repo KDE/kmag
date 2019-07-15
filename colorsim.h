@@ -20,7 +20,6 @@
 
 // include files for Qt
 #include <QImage>
-#include <QPixmap>
 
 namespace ColorSim {
     /**

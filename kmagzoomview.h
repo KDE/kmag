@@ -26,12 +26,10 @@
 
 // include files for Qt
 #include <QWidget>
-#include <QPainter>
 #include <QPixmap>
 #include <QTimer>
 #include <QAbstractScrollArea>
 #include <QRect>
-#include <QCursor>
 #include <QFocusEvent>
 #include <QHideEvent>
 #include <QKeyEvent>
