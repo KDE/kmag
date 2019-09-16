@@ -210,7 +210,7 @@ KMagSelWin::KMagSelWin ( QWidget * parent ) :
   titleBar = new KMagSelWinCorner (this);
   titleBar->setObjectName( QStringLiteral("titlebar" ));
   setPaletteColor(titleBar, QPalette::Window, getTitleColor());
-  setPaletteColor(titleBar, QPalette::Foreground, getTextColor());
+  setPaletteColor(titleBar, QPalette::WindowText, getTextColor());
   titleBar->setText(i18n("Selection Window")+QLatin1String( " - " )+i18n("KMagnifier"));
   connect (titleBar, &KMagSelWinCorner::startResizing, this, &KMagSelWin::startResizing);
   connect (titleBar, &KMagSelWinCorner::resized, this, &KMagSelWin::titleMoved);
