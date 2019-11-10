@@ -47,7 +47,7 @@
 
 <!--FIXME missing:
 "&Follow Focus Mode" 
-qaccessibilityclient  <https://projects.kde.org/projects/playground/accessibility/libkdeaccessibilityclient>
+qaccessibilityclient  <https://commits.kde.org/libqaccessibilityclient>
 KDE client-side accessibility library
 Required to enable keyboard focus tracking
 
