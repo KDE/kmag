@@ -50,8 +50,7 @@ int main(int argc, char *argv[])
 
   // about the authors
   aboutData.addAuthor(i18n("Sarang Lakare"),
-                       i18n("Rewrite"),QStringLiteral("sarang@users.sf.net"),
-                       QStringLiteral("http://www.cs.sunysb.edu/~lsarang/linux"));
+                       i18n("Rewrite"),QStringLiteral("sarang@users.sf.net"));
   aboutData.addAuthor(i18n("Michael Forster"),
                        i18n("Original idea and author (KDE1)"), QStringLiteral("forster@fmi.uni-passau.de"));
   aboutData.addAuthor(i18n("Olaf Schmidt"), i18n("Rework of the user interface, improved selection window, speed optimization, rotation, bug fixes"), QStringLiteral("ojschmidt@kde.org"));
