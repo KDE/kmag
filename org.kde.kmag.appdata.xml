@@ -136,4 +136,7 @@
     <binary>kmag</binary>
   </provides>
   <launchable type="desktop-id">org.kde.kmag.desktop</launchable>
+  <releases>
+    <release version="19.12.0" date="2019-12-12"/>
+  </releases>
 </component>
