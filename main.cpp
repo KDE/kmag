@@ -67,8 +67,7 @@ int main(int argc, char *argv[])
   else
   {
     QCommandLineParser parser;
-    parser.addHelpOption();
-    parser.addVersionOption();
+    aboutData.setupCommandLine(&parser);
     parser.process(app);
 
     kmagapp = new KmagApp();
