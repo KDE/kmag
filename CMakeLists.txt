@@ -47,10 +47,7 @@ configure_file(
     "${PROJECT_BINARY_DIR}/focustrackconfig.h")
 
 include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR})
-if (EXISTS "${CMAKE_SOURCE_DIR}/.git")
-   add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
-   add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x060000)
-endif()
+
 
 add_definitions(
     -DQT_DEPRECATED_WARNINGS
