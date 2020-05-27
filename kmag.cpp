@@ -163,8 +163,8 @@ void KmagApp::initActions()
 
 #ifdef QAccessibilityClient_FOUND
 
-  m_modeFollowFocus = new KToggleAction(QIcon::fromTheme(QLatin1String( "view-restore" )), i18n("&Follow Focus Mode"), this);
-  actionCollection()->addAction(QLatin1String( "mode_followfocus" ), m_modeFollowFocus);
+  m_modeFollowFocus = new KToggleAction(QIcon::fromTheme(QStringLiteral( "view-restore" )), i18n("&Follow Focus Mode"), this);
+  actionCollection()->addAction(QStringLiteral( "mode_followfocus" ), m_modeFollowFocus);
   connect(m_modeFollowFocus, SIGNAL(triggered(bool)), SLOT(slotModeChanged()));
   actionCollection()->setDefaultShortcut(m_modeFollowFocus, Qt::Key_F8);
   m_modeFollowFocus->setIconText(i18n("Focus"));
