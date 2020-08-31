@@ -542,7 +542,7 @@ void KMagZoomView::mousePressEvent(QMouseEvent *e)
     }
     break;
 
-  case Qt::MidButton :
+  case Qt::MiddleButton :
     // check if currently in move mode
     // don't do anything if follow mouse is enabled
     if ((m_mouseMode != MoveSelection) && !m_followMouse) {
@@ -584,7 +584,7 @@ void KMagZoomView::mouseReleaseEvent(QMouseEvent *e)
 {
   switch(e->button()) {
   case Qt::LeftButton :
-  case Qt::MidButton :
+  case Qt::MiddleButton :
     // check if currently in move mode
     if(m_mouseMode == MoveSelection) {
       // hide the selection window
