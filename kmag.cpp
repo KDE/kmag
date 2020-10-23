@@ -48,7 +48,6 @@
 #include <KIO/FileCopyJob>
 
 // application specific includes
-#include "kmagzoomview.h"
 #include "kmagselrect.h"
 
 
