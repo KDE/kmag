@@ -676,15 +676,15 @@ void KmagApp::slotModeChanged()
   if (m_modeFollowMouse->isChecked()) {
 
     //MOUSE MODE
-    m_zoomView->followMouse(true);
-    m_zoomView->showSelRect(false);
-    m_zoomView->setFitToWindow (true);
-    m_modeFollowMouse->setChecked(true);
 #ifdef QAccessibilityClient_FOUND
     m_zoomView->followBoth(false);
     m_zoomView->followFocus(false);
     m_modeFollowFocus->setChecked(false);
 #endif
+    m_zoomView->followMouse(true);
+    m_zoomView->showSelRect(false);
+    m_zoomView->setFitToWindow (true);
+    m_modeFollowMouse->setChecked(true);
     m_modeWholeScreen->setChecked(false);
     m_modeSelWin->setChecked(false);
 
