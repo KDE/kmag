@@ -36,6 +36,7 @@
 #include <QTemporaryFile>
 
 // include files for KF5
+#include <kwidgetsaddons_version.h>
 #include <KActionCollection>
 #include <KConfigGroup>
 #include <KEditToolBar>
@@ -287,10 +288,17 @@ void KmagApp::initConnections()
   connect(this, &KmagApp::updateColorIndex, this, &KmagApp::slotChangeColorIndex);
 
   // selector selects a zoom index -> set the zoom index
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 78, 0)
+  connect(m_pZoomBox, &KSelectAction::indexTriggered, this, &KmagApp::setZoomIndex);
+  connect(m_pRotationBox, &KSelectAction::indexTriggered, this, &KmagApp::setRotationIndex);
+  connect(m_pFPSBox, &KSelectAction::indexTriggered, this, &KmagApp::setFPSIndex);
+  connect(m_pColorBox, &KSelectAction::indexTriggered, this, &KmagApp::setColorIndex);
+#else
   connect(m_pZoomBox, SIGNAL(triggered(int)), this, SLOT(setZoomIndex(int)));
   connect(m_pRotationBox, SIGNAL(triggered(int)), this, SLOT(setRotationIndex(int)));
   connect(m_pFPSBox, SIGNAL(triggered(int)), this, SLOT(setFPSIndex(int)));
   connect(m_pColorBox, SIGNAL(triggered(int)), this, SLOT(setColorIndex(int)));
+#endif
 }
 
 /**
