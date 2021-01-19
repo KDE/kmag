@@ -15,8 +15,9 @@ find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 include(KDEInstallDirs)
-include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
+include(KDECompilerSettings NO_POLICY_SCOPE)
+
 include(ECMInstallIcons)
 include(FeatureSummary)
 include(ECMSetupVersion)
@@ -51,6 +52,13 @@ include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR})
 
 add_definitions(
     -DQT_DEPRECATED_WARNINGS
+    -DQT_NO_CAST_TO_ASCII
+    -DQT_NO_CAST_FROM_ASCII
+    -DQT_NO_URL_CAST_FROM_STRING
+    -DQT_NO_CAST_FROM_BYTEARRAY
+    -DQT_NO_SIGNALS_SLOTS_KEYWORDS
+    -DQT_USE_QSTRINGBUILDER
+    -DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT
 )
 
 add_subdirectory( doc )
