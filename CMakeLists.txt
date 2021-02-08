@@ -91,13 +91,13 @@ if(QAccessibilityClient_FOUND)
     target_link_libraries(kmag ${QACCESSIBILITYCLIENT_LIBRARY})
 endif(QAccessibilityClient_FOUND)
 
-install(TARGETS kmag  ${INSTALL_TARGETS_DEFAULT_ARGS} )
+install(TARGETS kmag  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
 
 ########### install files ###############
 
-install( PROGRAMS org.kde.kmag.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
+install( PROGRAMS org.kde.kmag.desktop  DESTINATION  ${KDE_INSTALL_APPDIR} )
 install(FILES org.kde.kmag.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
-ecm_install_icons( ICONS 16-apps-kmag.png 32-apps-kmag.png  DESTINATION ${ICON_INSTALL_DIR} )
+ecm_install_icons( ICONS 16-apps-kmag.png 32-apps-kmag.png  DESTINATION ${KDE_INSTALL_ICONDIR} )
