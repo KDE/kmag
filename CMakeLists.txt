@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.0 FATAL_ERROR)
+cmake_minimum_required (VERSION 3.5 FATAL_ERROR)
 
 # KDE Application Version, managed by release script
 set (RELEASE_SERVICE_VERSION_MAJOR "21")
@@ -8,8 +8,8 @@ set (RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE
 
 project(kmag VERSION ${RELEASE_SERVICE_VERSION})
 
-set(QT_MIN_VERSION "5.9.0")
-set(KF5_MIN_VERSION "5.46.0")
+set(QT_MIN_VERSION "5.14.0")
+set(KF5_MIN_VERSION "5.72.0")
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
@@ -101,3 +101,6 @@ feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 install( PROGRAMS org.kde.kmag.desktop  DESTINATION  ${KDE_INSTALL_APPDIR} )
 install(FILES org.kde.kmag.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 ecm_install_icons( ICONS 16-apps-kmag.png 32-apps-kmag.png  DESTINATION ${KDE_INSTALL_ICONDIR} )
+ki18n_install(po)
+kdoctools_install(po)
+
