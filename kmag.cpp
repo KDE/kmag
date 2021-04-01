@@ -757,9 +757,9 @@ void KmagApp::slotFilePrint()
 
   // use some AI to get the best orientation
   if(pixmap.width() > pixmap.height()) {
-    m_printer->setOrientation(QPrinter::Landscape);
+    m_printer->setPageOrientation(QPageLayout::Landscape);
   } else {
-    m_printer->setOrientation(QPrinter::Portrait);
+    m_printer->setPageOrientation(QPageLayout::Portrait);
   }
 
   QPrintDialog *printDialog = new QPrintDialog(m_printer, this);
