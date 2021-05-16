@@ -8,19 +8,17 @@ ecm_setup_version(${RELEASE_SERVICE_VERSION}
     VERSION_HEADER kmag_version.h
 )
 
-set(kmag_SRCS
+add_executable(kmag)
+
+target_sources(kmag PRIVATE
     kmagzoomview.cpp
     kmagselrect.cpp
     kmag.cpp
     colorsim.cpp
     main.cpp
-)
 
-qt5_add_resources(kmag_SRCS
     kmag.qrc
 )
-
-add_executable(kmag ${kmag_SRCS})
 
 target_link_libraries(kmag
     KF5::KIOCore
