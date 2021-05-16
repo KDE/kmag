@@ -1,0 +1,41 @@
+configure_file(
+    "${CMAKE_CURRENT_SOURCE_DIR}/focustrackconfig.h.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/focustrackconfig.h"
+)
+
+ecm_setup_version(${RELEASE_SERVICE_VERSION}
+    VARIABLE_PREFIX KMAG
+    VERSION_HEADER kmag_version.h
+)
+
+set(kmag_SRCS
+    kmagzoomview.cpp
+    kmagselrect.cpp
+    kmag.cpp
+    colorsim.cpp
+    main.cpp
+)
+
+qt5_add_resources(kmag_SRCS
+    kmag.qrc
+)
+
+add_executable(kmag ${kmag_SRCS})
+
+target_link_libraries(kmag
+    KF5::KIOCore
+    KF5::I18n
+    KF5::XmlGui
+    Qt5::Core
+    Qt5::Widgets
+    Qt5::PrintSupport
+)
+
+if(QAccessibilityClient_FOUND)
+    target_link_libraries(kmag ${QACCESSIBILITYCLIENT_LIBRARY})
+endif()
+
+install(TARGETS kmag ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+
+install(PROGRAMS org.kde.kmag.desktop  DESTINATION  ${KDE_INSTALL_APPDIR})
+install(FILES org.kde.kmag.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
