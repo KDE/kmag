@@ -133,7 +133,7 @@ KMagSelRect::~KMagSelRect()
 //
 //--------------------------------------------------------------------------
 
-bool KMagSelRect::visible()
+bool KMagSelRect::visible() const
 {
   return (selectionwindow != nullptr);
 }
@@ -174,15 +174,15 @@ void KMagSelRect::hide()
 
 void KMagSelRect::update()
 {
-  if (selectionwindow != nullptr)
+  if (selectionwindow)
     selectionwindow->setSelRect (QRect (topLeft(), bottomRight()));
 }
 
 void KMagSelRect::selWinResized()
 {
-  if (selectionwindow != nullptr)
+  if (selectionwindow)
   {
-    QRect newRect = selectionwindow->getSelRect();
+    const QRect newRect = selectionwindow->getSelRect();
     setRect (newRect.x(), newRect.y(), newRect.width(), newRect.height());
   }
 }
@@ -314,31 +314,31 @@ void KMagSelWin::titleMoved (const QPoint &offset)
   QRect selRect = oldSelRect;
   selRect.translate (offset.x(), offset.y());
   setSelRect (selRect);
-  emit resized ();
+  Q_EMIT resized ();
 }
 
 void KMagSelWin::topLeftResized (const QPoint &offset)
 {
   setSelRect (QRect(oldSelRect.topLeft() + offset, oldSelRect.bottomRight ()));
-  emit resized();
+  Q_EMIT resized();
 }
 
 void KMagSelWin::topRightResized (const QPoint &offset)
 {
   setSelRect (QRect(oldSelRect.topRight() + offset, oldSelRect.bottomLeft ()));
-  emit resized();
+  Q_EMIT resized();
 }
 
 void KMagSelWin::bottomLeftResized (const QPoint &offset)
 {
   setSelRect (QRect(oldSelRect.bottomLeft() + offset, oldSelRect.topRight ()));
-  emit resized();
+  Q_EMIT resized();
 }
 
 void KMagSelWin::bottomRightResized (const QPoint &offset)
 {
   setSelRect (QRect(oldSelRect.bottomRight() + offset, oldSelRect.topLeft()));
-  emit resized();
+  Q_EMIT resized();
 }
 
 
@@ -360,16 +360,16 @@ KMagSelWinCorner::~KMagSelWinCorner()
 void KMagSelWinCorner::mousePressEvent ( QMouseEvent * e )
 {
   oldPos = e->globalPos ();
-  emit startResizing ();
+  Q_EMIT startResizing ();
 }
 
 void KMagSelWinCorner::mouseReleaseEvent ( QMouseEvent * e )
 {
   setFrameShadow (QFrame::Raised);
-  emit resized (e->globalPos () - oldPos);
+  Q_EMIT resized (e->globalPos () - oldPos);
 }
 
 void KMagSelWinCorner::mouseMoveEvent ( QMouseEvent * e )
 {
-  emit resized (e->globalPos () - oldPos);
+  Q_EMIT resized (e->globalPos () - oldPos);
 }

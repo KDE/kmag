@@ -349,19 +349,19 @@ void KmagApp::readOptions()
   // set zoom - defaults to 2x
   unsigned int zoomIndex = cg.readEntry("ZoomIndex", 4);
   setZoomIndex(zoomIndex);
-  emit updateZoomIndex(m_zoomIndex);
+  Q_EMIT updateZoomIndex(m_zoomIndex);
 
   unsigned int rotationIndex = cg.readEntry("RotationIndex", 0);
   setRotationIndex(rotationIndex);
-  emit updateRotationIndex(m_rotationIndex);
+  Q_EMIT updateRotationIndex(m_rotationIndex);
 
   unsigned int fpsIndex = cg.readEntry("FPSIndex", 2);
   setFPSIndex(fpsIndex);
-  emit updateFPSIndex(m_fpsIndex);
+  Q_EMIT updateFPSIndex(m_fpsIndex);
 
   unsigned int colorIndex = cg.readEntry("ColorIndex", 0);
   setColorIndex(colorIndex);
-  emit updateColorIndex(colorIndex);
+  Q_EMIT updateColorIndex(colorIndex);
 
   QString mode = cg.readEntry("Mode", "followmouse");
   if (mode == QLatin1String( "wholescreen" )) {
@@ -438,7 +438,7 @@ void KmagApp::zoomIn()
   // set the new index .. checking will done inside setZoom
   setZoomIndex(m_zoomIndex+1);
   // signal change in zoom index
-  emit updateZoomIndex((int)m_zoomIndex);
+  Q_EMIT updateZoomIndex((int)m_zoomIndex);
 }
 
 /**
@@ -449,7 +449,7 @@ void KmagApp::zoomOut()
   // set the new index .. checking will done inside setZoom
   setZoomIndex(m_zoomIndex-1);
   // signal change in zoom index
-  emit updateZoomIndex((int)m_zoomIndex);
+  Q_EMIT updateZoomIndex((int)m_zoomIndex);
 }
 /**
  * Sets the zoom index to index
@@ -484,7 +484,7 @@ void KmagApp::setZoomIndex(int index)
   }
 
   // signal change in zoom value
-  emit updateZoomValue(zoomArray.at(m_zoomIndex));
+  Q_EMIT updateZoomValue(zoomArray.at(m_zoomIndex));
 }
 
 /**
@@ -504,7 +504,7 @@ void KmagApp::setRotationIndex(int index)
   }
 
   // signal change in zoom value
-  emit updateRotationValue(rotationArray.at(m_rotationIndex));
+  Q_EMIT updateRotationValue(rotationArray.at(m_rotationIndex));
 }
 
 /**
@@ -524,7 +524,7 @@ void KmagApp::setFPSIndex(int index)
   }
 
   // signal change in fps value
-  emit updateFPSValue(fpsArray.at(m_fpsIndex));
+  Q_EMIT updateFPSValue(fpsArray.at(m_fpsIndex));
 }
 
 /**
@@ -544,7 +544,7 @@ void KmagApp::setColorIndex(int index)
   }
 
   // signal change in fps value
-  emit updateColorValue(colorArray.at(m_colorIndex));
+  Q_EMIT updateColorValue(colorArray.at(m_colorIndex));
 }
 
 /**

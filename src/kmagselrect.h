@@ -109,7 +109,7 @@ public:
 
     virtual ~KMagSelRect();
 
-    bool visible();
+    bool visible() const;
 
     /// Makes the rectangle always visible
     void alwaysVisible(bool visible=true);

@@ -53,7 +53,8 @@ add_definitions(
     -DQT_USE_QSTRINGBUILDER
     -DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT
 )
-
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_subdirectory( doc )
 add_subdirectory( pics )
 add_subdirectory( src )

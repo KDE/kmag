@@ -36,6 +36,9 @@
 
 // include files for KF5
 #include <KLocalizedString>
+#include <chrono>
+
+using namespace std::chrono_literals;
 
 #ifdef QAccessibilityClient_FOUND
 #include <qaccessibilityclient/accessibleobject.h>
@@ -118,7 +121,7 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
   // connect it to updateMouseView()
   connect(&m_mouseViewTimer, &QTimer::timeout, this, &KMagZoomView::updateMouseView);
   // start the grabTimer @ 25 frames per second!
-  m_mouseViewTimer.start(40);
+  m_mouseViewTimer.start(40ms);
 
   this->setWhatsThis( i18n("This is the main window which shows the contents of the\
  selected region. The contents will be magnified according to the zoom level that is set."));
