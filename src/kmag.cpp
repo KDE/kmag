@@ -36,6 +36,7 @@
 #include <QTemporaryFile>
 
 // include files for KF5
+#include <kxmlgui_version.h>
 #include <kwidgetsaddons_version.h>
 #include <KActionCollection>
 #include <KConfigGroup>
@@ -823,7 +824,11 @@ void KmagApp::slotShowMenu()
 
 void KmagApp::slotConfKeys()
 {
+#if KXMLGUI_VERSION >= QT_VERSION_CHECK(5,84,0)
+  KShortcutsDialog::showDialog(actionCollection(), KShortcutsEditor::LetterShortcutsAllowed, this);
+#else
   KShortcutsDialog::configure( actionCollection() );
+#endif
 }
 
 void KmagApp::slotEditToolbars()
