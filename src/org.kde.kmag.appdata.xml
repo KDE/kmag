@@ -18,6 +18,7 @@
   <name xml:lang="fi">KMag</name>
   <name xml:lang="fr">KMag</name>
   <name xml:lang="gl">KMag</name>
+  <name xml:lang="ia">KMag</name>
   <name xml:lang="id">KMag</name>
   <name xml:lang="it">KMag</name>
   <name xml:lang="ko">KMag</name>
@@ -124,6 +125,7 @@
       <caption xml:lang="fi">KMag toiminnassa</caption>
       <caption xml:lang="fr">KMag en action</caption>
       <caption xml:lang="gl">KMag en acción</caption>
+      <caption xml:lang="ia">KMag in action</caption>
       <caption xml:lang="id">KMag beraksi</caption>
       <caption xml:lang="it">KMag in azione</caption>
       <caption xml:lang="ko">KMag 사용 모습</caption>
