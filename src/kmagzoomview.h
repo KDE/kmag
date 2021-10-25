@@ -58,7 +58,7 @@ class KMagZoomView : public QAbstractScrollArea
     explicit KMagZoomView(QWidget *parent = nullptr, const char *name=nullptr);
 
     /// Destructor for the main view
-    ~KMagZoomView();
+    ~KMagZoomView() override;
 
     /// Toggles the refreshing of the window
     void toggleRefresh();

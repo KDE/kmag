@@ -34,7 +34,7 @@ public:
 
     explicit KMagSelWinCorner ( QWidget * parent = nullptr );
 
-    virtual ~KMagSelWinCorner();
+    ~KMagSelWinCorner() override;
 
 Q_SIGNALS:
 
@@ -58,7 +58,7 @@ public:
 
     explicit KMagSelWin ( QWidget * parent = nullptr );
 
-    virtual ~KMagSelWin();
+    ~KMagSelWin() override;
 
     void setSelRect ( const QRect & selRect );
     QRect getSelRect ();
@@ -107,7 +107,7 @@ public:
     KMagSelRect(int left, int top, int width, int height,
       QWidget *selWindowParent=nullptr);
 
-    virtual ~KMagSelRect();
+    ~KMagSelRect() override;
 
     bool visible() const;
 
