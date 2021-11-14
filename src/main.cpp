@@ -29,12 +29,6 @@
 
 KmagApp *kmagapp;
 
-// Not needed, not used.
-//static const char description[] =
-//  I18N_NOOP("Kmag");
-// INSERT A DESCRIPTION FOR YOUR APPLICATION HERE
-
-
 int main(int argc, char *argv[])
 {
   QApplication app(argc, argv);
