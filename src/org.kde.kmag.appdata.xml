@@ -20,6 +20,7 @@
   <name xml:lang="gl">KMag</name>
   <name xml:lang="ia">KMag</name>
   <name xml:lang="id">KMag</name>
+  <name xml:lang="is">KMag</name>
   <name xml:lang="it">KMag</name>
   <name xml:lang="ko">KMag</name>
   <name xml:lang="nl">KMag</name>
@@ -53,6 +54,7 @@
   <summary xml:lang="gl">Lupa da pantalla</summary>
   <summary xml:lang="ia">Aggranditor de schermo</summary>
   <summary xml:lang="id">Memperbesar Layar</summary>
+  <summary xml:lang="is">Skjástækkari</summary>
   <summary xml:lang="it">Lente d'ingrandimento</summary>
   <summary xml:lang="ko">화면 돋보기</summary>
   <summary xml:lang="nl">Schermvergroter</summary>
@@ -90,6 +92,7 @@
     <p xml:lang="gl">KMag é unha pequena utilidade para Linux para aumentar unha parte da pantalla. KMag é moi útil para a xente con discapacidades visuais e para traballadores dos campos de análise de imaxes, desenvolvemento web, etc.</p>
     <p xml:lang="ia">KMag es un parve utilitate per Linux per aggrandir un parte de schermo. KMag es multe utile per gente con dishabilitates visual e illos travaliante in le campos del analysis de image, disveloppamento web etc.</p>
     <p xml:lang="id">KMag adalah utilitas kecil buat Linux untuk memperbesar bagian layar. KMag sangat berguna bagi para penyandang cacat visual dan bagi mereka yang bekerja di bidang analisis gambar, pengembangan web, dll.</p>
+    <p xml:lang="is">KMag er lítið nytjatól fyrir Linux til að stækka hluta af skjánum. KMag nýtist vel fólki sem á við einhverskonar sjónskerðingu að stríða, en ekki síður þeim sem vinna við myndgreiningar eða vefhönnun, svo eitthvað sé talið.</p>
     <p xml:lang="it">KMag è un piccolo programma per ingrandire una parte dello schermo. È molto utile alle persone con disabilità visive e per quelli che lavorano nel campo dell'analisi delle immagini, dello sviluppo web ecc.</p>
     <p xml:lang="ko">KMag은 리눅스용 화면 돋보기입니다. 시각 장애가 있는 사용자나 이미지 분석, 웹 개발 등에 유용합니다.</p>
     <p xml:lang="nl">KMag is een klein hulpprogramma voor Linux om een deel van het scherm te vergroten. KMag is erg nuttig voor mensen met een visuele beperking en voor hen die werken in het veld van analyse van afbeeldingen, webontwikkeling etc.</p>
@@ -128,6 +131,7 @@
       <caption xml:lang="gl">KMag en acción</caption>
       <caption xml:lang="ia">KMag in action</caption>
       <caption xml:lang="id">KMag beraksi</caption>
+      <caption xml:lang="is">KMag að verki</caption>
       <caption xml:lang="it">KMag in azione</caption>
       <caption xml:lang="ko">KMag 사용 모습</caption>
       <caption xml:lang="nl">KMag in actie</caption>
