@@ -29,7 +29,6 @@
 // include files for Qt
 #include <QApplication>
 #include <QBitmap>
-#include <QDesktopWidget>
 #include <QScrollBar>
 #include <QScreen>
 #include <QPainter>
@@ -642,6 +641,7 @@ void KMagZoomView::mouseReleaseEvent(QMouseEvent *e)
  */
 void KMagZoomView::mouseMoveEvent(QMouseEvent *e)
 {
+  const QRect screenGeometry = screen()->availableGeometry();
   if(m_mouseMode == ResizeSelection) {
     // In resize selection mode
     // set the current mouse position as the bottom, right corner
@@ -657,20 +657,21 @@ void KMagZoomView::mouseMoveEvent(QMouseEvent *e)
 
     // make sure the mouse position is not taking the grab window outside
     // the display
+    const QRect screenGeometry = screen()->availableGeometry();
     if(newCenter.x() < m_selRect.width()/2) {
       // set X to the minimum possible X
       newCenter.setX(m_selRect.width()/2);
-    } else if(newCenter.x() >=  QApplication::desktop()->width()-m_selRect.width()/2) {
+    } else if(newCenter.x() >=  screenGeometry.width()-m_selRect.width()/2) {
       // set X to the maximum possible X
-      newCenter.setX(QApplication::desktop()->width()-m_selRect.width()/2-1);
+      newCenter.setX(screenGeometry.width()-m_selRect.width()/2-1);
     }
 
     if(newCenter.y() < m_selRect.height()/2) {
       // set Y to the minimum possible Y
       newCenter.setY(m_selRect.height()/2);
-    } else if(newCenter.y() >=  QApplication::desktop()->height()-m_selRect.height()/2) {
+    } else if(newCenter.y() >=  screenGeometry.height()-m_selRect.height()/2) {
       // set Y to the maximum possible Y
-      newCenter.setY(QApplication::desktop()->height()-m_selRect.height()/2-1);
+      newCenter.setY(screenGeometry.height()-m_selRect.height()/2-1);
     }
     // move to the new center
     m_selRect.moveCenter(newCenter);
@@ -691,17 +692,17 @@ void KMagZoomView::mouseMoveEvent(QMouseEvent *e)
     if(newCenter.x() < m_selRect.width()/2) {
       // set X to the minimum possible X
       newCenter.setX(m_selRect.width()/2);
-    } else if(newCenter.x() >=  QApplication::desktop()->width()-m_selRect.width()/2) {
+    } else if(newCenter.x() >=  screenGeometry.width()-m_selRect.width()/2) {
       // set X to the maximum possible X
-      newCenter.setX(QApplication::desktop()->width()-m_selRect.width()/2-1);
+      newCenter.setX(screenGeometry.width()-m_selRect.width()/2-1);
     }
 
     if(newCenter.y() < m_selRect.height()/2) {
       // set Y to the minimum possible Y
       newCenter.setY(m_selRect.height()/2);
-    } else if(newCenter.y() >=  QApplication::desktop()->height()-m_selRect.height()/2) {
+    } else if(newCenter.y() >=  screenGeometry.height()-m_selRect.height()/2) {
       // set Y to the maximum possible Y
-      newCenter.setY(QApplication::desktop()->height()-m_selRect.height()/2-1);
+      newCenter.setY(screenGeometry.height()-m_selRect.height()/2-1);
     }
 
     // move to the new center
@@ -752,8 +753,9 @@ void KMagZoomView::keyPressEvent(QKeyEvent *e)
   {
     if (e->modifiers() & Qt::ControlModifier)
     {
-      if (m_selRect.right()+offset >= QApplication::desktop()->width())
-        m_selRect.setRight (QApplication::desktop()->width()-1);
+      const QRect screenGeometry = screen()->availableGeometry();
+      if (m_selRect.right()+offset >= screenGeometry.width())
+        m_selRect.setRight (screenGeometry.width()-1);
       else
         m_selRect.setRight (m_selRect.right()+offset);
     }
@@ -767,8 +769,9 @@ void KMagZoomView::keyPressEvent(QKeyEvent *e)
     }
     else if (m_followMouse == false)
     {
-      if (m_selRect.right()+offset >= QApplication::desktop()->width())
-        m_selRect.moveTopRight (QPoint (QApplication::desktop()->width()-1, m_selRect.top()));
+      const QRect screenGeometry = screen()->availableGeometry();
+      if (m_selRect.right()+offset >= screenGeometry.width())
+        m_selRect.moveTopRight (QPoint (screenGeometry.width()-1, m_selRect.top()));
       else
         m_selRect.translate (offset,0);
     }
@@ -804,8 +807,9 @@ void KMagZoomView::keyPressEvent(QKeyEvent *e)
   {
     if (e->modifiers() & Qt::ControlModifier)
     {
-      if (m_selRect.bottom()+offset >= QApplication::desktop()->height())
-        m_selRect.setBottom (QApplication::desktop()->height()-1);
+      const QRect screenGeometry = screen()->availableGeometry();
+      if (m_selRect.bottom()+offset >= screenGeometry.height())
+        m_selRect.setBottom (screenGeometry.height()-1);
       else
         m_selRect.setBottom (m_selRect.bottom()+offset);
     }
@@ -819,8 +823,9 @@ void KMagZoomView::keyPressEvent(QKeyEvent *e)
     }
     else if (m_followMouse == false)
     {
-      if (m_selRect.bottom()+offset >= QApplication::desktop()->height())
-        m_selRect.moveBottomLeft (QPoint (m_selRect.left(), QApplication::desktop()->height()-1));
+      const QRect screenGeometry = screen()->availableGeometry();
+      if (m_selRect.bottom()+offset >= screenGeometry.height())
+        m_selRect.moveBottomLeft (QPoint (m_selRect.left(), screenGeometry.height()-1));
       else
         m_selRect.translate (0, offset);
     }
@@ -872,22 +877,22 @@ void KMagZoomView::fitToWindow()
 
   m_selRect.setWidth(newWidth);
   m_selRect.setHeight(newHeight);
-
+  const QRect screenGeometry = screen()->availableGeometry();
    // make sure the selection window does not go outside of the display
    if(currCenter.x() < m_selRect.width()/2) {
      // set X to the minimum possible X
      currCenter.setX(m_selRect.width()/2);
-   } else if(currCenter.x() >=  QApplication::desktop()->width()-m_selRect.width()/2) {
+   } else if(currCenter.x() >=  screenGeometry.width()-m_selRect.width()/2) {
      // set X to the maximum possible X
-     currCenter.setX(QApplication::desktop()->width()-m_selRect.width()/2-1);
+     currCenter.setX(screenGeometry.width()-m_selRect.width()/2-1);
    }
 
    if(currCenter.y() < m_selRect.height()/2) {
      // set Y to the minimum possible Y
      currCenter.setY(m_selRect.height()/2);
-   } else if(currCenter.y() >=  QApplication::desktop()->height()-m_selRect.height()/2) {
+   } else if(currCenter.y() >=  screenGeometry.height()-m_selRect.height()/2) {
      // set Y to the maximum possible Y
-     currCenter.setY(QApplication::desktop()->height()-m_selRect.height()/2-1);
+     currCenter.setY(screenGeometry.height()-m_selRect.height()/2-1);
    }
 
   m_selRect.moveCenter(currCenter);
@@ -935,20 +940,21 @@ void KMagZoomView::grabFrame()
 
     // make sure the mouse position is not taking the grab window outside
     // the display
+    const QRect screenGeometry = screen()->availableGeometry();
     if(newCenter.x() < m_selRect.width()/2) {
       // set X to the minimum possible X
       newCenter.setX(m_selRect.width()/2);
-    } else if(newCenter.x() >=  QApplication::desktop()->width()-m_selRect.width()/2) {
+    } else if(newCenter.x() >=  screenGeometry.width()-m_selRect.width()/2) {
       // set X to the maximum possible X
-      newCenter.setX(QApplication::desktop()->width()-m_selRect.width()/2-1);
+      newCenter.setX(screenGeometry.width()-m_selRect.width()/2-1);
     }
 
     if(newCenter.y() < m_selRect.height()/2) {
       // set Y to the minimum possible Y
       newCenter.setY(m_selRect.height()/2);
-    } else if(newCenter.y() >=  QApplication::desktop()->height()-m_selRect.height()/2) {
+    } else if(newCenter.y() >=  screenGeometry.height()-m_selRect.height()/2) {
       // set Y to the maximum possible Y
-      newCenter.setY(QApplication::desktop()->height()-m_selRect.height()/2-1);
+      newCenter.setY(screenGeometry.height()-m_selRect.height()/2-1);
     }
     // move to the new center
     m_selRect.moveCenter(newCenter);
@@ -962,7 +968,7 @@ void KMagZoomView::grabFrame()
 
   // grab screenshot from the screen and put it in the pixmap
   QScreen *screen = qApp->primaryScreen(); // ## How to select the right screen?
-  m_coloredPixmap = screen->grabWindow(QApplication::desktop()->winId(), selRect.x(), selRect.y(),
+  m_coloredPixmap = screen->grabWindow(winId(), selRect.x(), selRect.y(),
                                       selRect.width(), selRect.height());
 
   // colorize the grabbed pixmap

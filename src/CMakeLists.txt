@@ -24,9 +24,9 @@ target_link_libraries(kmag
     KF5::KIOCore
     KF5::I18n
     KF5::XmlGui
-    Qt::Core
-    Qt::Widgets
-    Qt::PrintSupport
+    Qt${QT_MAJOR_VERSION}::Core
+    Qt${QT_MAJOR_VERSION}::Widgets
+    Qt${QT_MAJOR_VERSION}::PrintSupport
 )
 
 if(QAccessibilityClient_FOUND)

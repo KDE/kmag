@@ -27,12 +27,12 @@
 #include <QApplication>
 #include <QClipboard>
 #include <QDebug>
-#include <QDesktopWidget>
 #include <QFileDialog>
 #include <QImageWriter>
 #include <QMenuBar>
 #include <QPainter>
 #include <QPrintDialog>
+#include <QScreen>
 #include <QTemporaryFile>
 
 // include files for KF5
@@ -627,7 +627,8 @@ void KmagApp::slotToggleRefresh()
 void KmagApp::slotModeWholeScreen()
 {
   m_zoomView->followMouse(false);
-  m_zoomView->setSelRectPos(QRect (0, 0, QApplication::desktop()->width(), QApplication::desktop()->height()));
+  const QRect screenGeometry = m_zoomView->screen()->availableGeometry();
+  m_zoomView->setSelRectPos(QRect (0, 0, screenGeometry.width(), screenGeometry.height()));
   m_zoomView->showSelRect(false);
   m_zoomView->setFitToWindow (false);
   m_modeFollowMouse->setChecked(false);

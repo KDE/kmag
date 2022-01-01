@@ -22,7 +22,7 @@
 // Qt
 #include <QApplication>
 #include <QBitmap>
-#include <QDesktopWidget>
+#include <QScreen>
 #include <QMouseEvent>
 // KF5
 #include <KLocalizedString>
@@ -261,10 +261,11 @@ void KMagSelWin::setSelRect (const QRect &_selRect)
     selRect.setLeft (0);
   if (selRect.top() < 0)
     selRect.setTop (0);
-  if (selRect.right() > QApplication::desktop()->width())
-    selRect.setRight (QApplication::desktop()->width());
-  if (selRect.bottom() > QApplication::desktop()->height())
-    selRect.setBottom (QApplication::desktop()->height());
+  const QRect screenGeometry = screen()->availableGeometry();
+  if (selRect.right() > screenGeometry.width())
+    selRect.setRight (screenGeometry.width());
+  if (selRect.bottom() > screenGeometry.height())
+    selRect.setBottom (screenGeometry.height());
 
   setGeometry (
       selRect.left() - getFrameSize(),
