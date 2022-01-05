@@ -4,6 +4,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>KMag</name>
+  <name xml:lang="ar">العدسة</name>
   <name xml:lang="ast">KMag</name>
   <name xml:lang="ca">KMag</name>
   <name xml:lang="ca-valencia">KMag</name>
@@ -38,6 +39,7 @@
   <name xml:lang="zh-CN">KMag</name>
   <name xml:lang="zh-TW">KMag</name>
   <summary>Screen Magnifier</summary>
+  <summary xml:lang="ar">مكبَر الشاشة</summary>
   <summary xml:lang="ast">Lente pa la pantalla</summary>
   <summary xml:lang="ca">Lupa de la pantalla</summary>
   <summary xml:lang="ca-valencia">Lupa de la pantalla</summary>
@@ -77,6 +79,7 @@
   <summary xml:lang="zh-TW">螢幕放大器</summary>
   <description>
     <p>KMag is a small utility for Linux to magnify a part of the screen. KMag is very useful for people with visual disabilities and for those working in the fields of image analysis, web development etc.</p>
+    <p xml:lang="ar">تعد العدسة أداة مساعدة صغيرة لنظام لينكس لتكبير جزء من الشاشة. يعد برنامج العدسة مفيدًا جدًا للأشخاص ذوي الإعاقات البصرية ولأولئك الذين يعملون في مجالات تحليل الصور وتطوير الويب وما إلى ذلك.</p>
     <p xml:lang="ast">KMag ye una ferramienta p'aumentar parte de la pantalla. Ye perútil pa persones con discapacidá visual y pa les que trabayen nel campu del analís d'imáxenes, desendolcu web, etc.</p>
     <p xml:lang="ca">El KMag és una petita utilitat per al Linux per a ampliar una part de la pantalla. El KMag és molt útil per a persones amb discapacitats visuals i per a aquelles que treballen en els camps de l'anàlisi d'imatges, desenvolupament web, etc.</p>
     <p xml:lang="ca-valencia">El KMag és una petita utilitat per al Linux per a ampliar una part de la pantalla. El KMag és molt útil per a persones amb discapacitats visuals i per a aquelles que treballen en els camps de l'anàlisi d'imatges, desenvolupament web, etc.</p>
@@ -116,6 +119,7 @@
   <screenshots>
     <screenshot type="default">
       <caption>KMag in action</caption>
+      <caption xml:lang="ar">العدسة وهي تعمل</caption>
       <caption xml:lang="ast">KMag n'aición</caption>
       <caption xml:lang="ca">El KMag en acció</caption>
       <caption xml:lang="ca-valencia">El KMag en acció</caption>
