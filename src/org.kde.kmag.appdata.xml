@@ -27,6 +27,7 @@
   <name xml:lang="pl">KMag</name>
   <name xml:lang="pt">KMag</name>
   <name xml:lang="pt-BR">KMag</name>
+  <name xml:lang="ro">KMag</name>
   <name xml:lang="ru">KMag</name>
   <name xml:lang="sk">KMag</name>
   <name xml:lang="sl">KMag</name>
@@ -60,6 +61,7 @@
   <summary xml:lang="pl">Lupa ekranowa</summary>
   <summary xml:lang="pt">Lupa do Ecrã</summary>
   <summary xml:lang="pt-BR">Lupa da tela</summary>
+  <summary xml:lang="ro">Lupă de ecran</summary>
   <summary xml:lang="ru">Экранная лупа</summary>
   <summary xml:lang="sk">Lupa obrazovky</summary>
   <summary xml:lang="sl">Povečevalnik zaslona</summary>
@@ -135,6 +137,7 @@
       <caption xml:lang="pl">KMag w działaniu</caption>
       <caption xml:lang="pt">O KMag em acção</caption>
       <caption xml:lang="pt-BR">KMag em ação</caption>
+      <caption xml:lang="ro">KMag în acțiune</caption>
       <caption xml:lang="ru">KMag в действии</caption>
       <caption xml:lang="sk">KMag v akcií</caption>
       <caption xml:lang="sl">KMag v akciji</caption>
