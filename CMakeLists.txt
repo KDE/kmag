@@ -38,7 +38,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
 find_package(QAccessibilityClient 0.4.2 CONFIG)
 set_package_properties(QAccessibilityClient PROPERTIES
     DESCRIPTION "KDE client-side accessibility library"
-    URL "https://commits.kde.org/libqaccessibilityclient"
+    URL "https://invent.kde.org/libraries/libqaccessibilityclient"
     TYPE OPTIONAL
     PURPOSE "Required to enable keyboard focus tracking."
 )
