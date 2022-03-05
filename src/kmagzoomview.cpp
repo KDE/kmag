@@ -968,7 +968,8 @@ void KMagZoomView::grabFrame()
 
   // grab screenshot from the screen and put it in the pixmap
   QScreen *screen = qApp->primaryScreen(); // ## How to select the right screen?
-  m_coloredPixmap = screen->grabWindow(winId(), selRect.x(), selRect.y(),
+  m_coloredPixmap = screen->grabWindow(0,  // WId == 0 is interpreted as the root window / desktop
+                                      selRect.x(), selRect.y(),
                                       selRect.width(), selRect.height());
 
   // colorize the grabbed pixmap
