@@ -261,11 +261,11 @@ void KMagSelWin::setSelRect (const QRect &_selRect)
     selRect.setLeft (0);
   if (selRect.top() < 0)
     selRect.setTop (0);
-  const QRect screenGeometry = screen()->availableGeometry();
-  if (selRect.right() > screenGeometry.width())
-    selRect.setRight (screenGeometry.width());
-  if (selRect.bottom() > screenGeometry.height())
-    selRect.setBottom (screenGeometry.height());
+  const QSize screenSize = screen()->virtualSize();
+  if (selRect.right() > screenSize.width())
+    selRect.setRight (screenSize.width());
+  if (selRect.bottom() > screenSize.height())
+    selRect.setBottom (screenSize.height());
 
   setGeometry (
       selRect.left() - getFrameSize(),

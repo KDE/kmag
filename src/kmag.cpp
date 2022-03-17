@@ -627,8 +627,7 @@ void KmagApp::slotToggleRefresh()
 void KmagApp::slotModeWholeScreen()
 {
   m_zoomView->followMouse(false);
-  const QRect screenGeometry = m_zoomView->screen()->availableGeometry();
-  m_zoomView->setSelRectPos(QRect (0, 0, screenGeometry.width(), screenGeometry.height()));
+  m_zoomView->setSelRectPos(screen()->virtualGeometry());
   m_zoomView->showSelRect(false);
   m_zoomView->setFitToWindow (false);
   m_modeFollowMouse->setChecked(false);
