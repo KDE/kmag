@@ -35,7 +35,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     XmlGui
 )
 
-find_package(QAccessibilityClient 0.4.2 CONFIG)
+find_package(QAccessibilityClient 0.4 CONFIG)
 set_package_properties(QAccessibilityClient PROPERTIES
     DESCRIPTION "KDE client-side accessibility library"
     URL "https://invent.kde.org/libraries/libqaccessibilityclient"
