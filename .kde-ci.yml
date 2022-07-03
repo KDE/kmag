@@ -9,3 +9,6 @@ Dependencies:
     'frameworks/ki18n': '@stable'
     'frameworks/kio': '@stable'
     'frameworks/kxmlgui': '@stable'
+
+Options:
+    require-passing-tests-on: [ 'Linux', 'FreeBSD' ]
