@@ -20,7 +20,6 @@
 #include "kmagselrect.h"
 
 // Qt
-#include <QApplication>
 #include <QBitmap>
 #include <QScreen>
 #include <QMouseEvent>
