@@ -1,0 +1,110 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Russian "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Руководство пользователя &kmagnifier;</title>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<date
+>2017-07-07</date>
+<productname
+>Приложения KDE</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kmag</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kmag</command
+></refname>
+<refpurpose
+>Экранная лупа</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis>
+<command
+>kmag</command>
+</cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Описание</title>
+<para
+>Приложение &kmagnifier; (<command
+>kmag</command
+>) — это экранная лупа. &kmagnifier; возможно использовать для увеличения части экрана так же, как лупу, которая позволяет прочесть мелкий текст или рассмотреть фотографию. Это приложение может быть полезно различным пользователям: разработчикам, художникам, веб-дизайнерам или людям с ослабленным зрением.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Смотрите также</title>
+
+<simplelist>
+<member
+> Более подробное руководство пользователя: <ulink url="help:/kmag"
+>help:/kmag</ulink
+> (введите этот &URL;-адрес в приложении &konqueror;, или выполните команду <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/kmag</parameter
+></userinput
+>).</member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+<member
+>Дополнительные сведения доступны на <ulink url="https://accessibility.kde.org/"
+>веб-сайте специальных возможностей &kde;.</ulink
+></member>
+</simplelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Авторы</title>
+<para
+>Авторы приложения &kmagnifier;: <personname
+><firstname
+>Olaf</firstname
+><surname
+>Schmidt</surname
+></personname
+> <email
+>ojschmidt@kde.org</email
+>, <personname
+><firstname
+>Sarang</firstname
+><surname
+>Lakare</surname
+></personname
+> <email
+>sarang@users.sf.net</email
+> и <personname
+><firstname
+>Michael</firstname
+><surname
+>Forster</surname
+></personname
+> <email
+>forster@fmi.uni-passau.de</email
+></para>
+</refsect1>
+
+</refentry>

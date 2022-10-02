@@ -1,0 +1,898 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % French "INCLUDE"
+><!-- change language only here -->
+]>
+
+<!-- The language must NOT be changed here. -->
+
+<book id="kmag" lang="&language;">
+
+
+<bookinfo>
+<title
+>Manuel utilisateur de &kmagnifier;</title>
+
+<authorgroup>
+<author
+><firstname
+>Sarang</firstname
+> <surname
+>Lakare</surname
+> <affiliation
+> <address
+><email
+>sarang@users.sf.net</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Olaf</firstname
+> <surname
+>Schmidt</surname
+> <affiliation
+> <address
+><email
+>ojschmidt@kde.org</email
+></address>
+</affiliation>
+</author>
+&traducteurRobertJacolin; &relecteurLudovicGrossard; &traducteurXavierBesnard; 
+</authorgroup>
+
+
+<copyright>
+<year
+>2000</year>
+<year
+>2002</year>
+<holder
+>Sarang Lakare</holder>
+</copyright>
+
+<copyright>
+<year
+>2004</year>
+<year
+>2005</year>
+<holder
+>Olaf Schmidt</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<!--FIXME missing:
+"&Follow Focus Mode" 
+qaccessibilityclient  <https://commits.kde.org/libqaccessibilityclient>
+KDE client-side accessibility library
+Required to enable keyboard focus tracking
+
+commit 035090bca3a3065800c6d9ff1862167170a0e939
+Author: Sebastian Sauer mail@dipe.org
+Date:   Tue Jul 20 20:33:23 2010 +0000
+    Add a new 'Follow Focus' mode to KMag that uses the just new kaccessible QAccessibleBridgePlugin for providing keyboard cursor focus tracking.
+    svn path=/trunk/KDE/kdeaccessibility/kmag/; revision=1152354
+commit 2278a10a069ed436d0167ae3ef099b020e35f663
+Author: Amandeep Singh aman.dedman@gmail.com
+Date:   Wed Sep 26 02:46:22 2012 +0530
+    Allowing KMag to follow both mouse + kbd-focus together
+       -Made the followMouseMode + followFocusMode selectable together.
+       -With just followMouseMode checked, Kmag follows mouse,
+         and with followFocusMode checked, Kmag follows focus.
+       -And when both are selected, it follows both the mouse,
+         and the keyboard focus, whichever is relevant.
+-->
+
+<date
+>07-07-2017</date>
+<releaseinfo
+>1.0 (Applications 17.08)</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>&kmagnifier; est une loupe d'écran. Vous pouvez utiliser &kmagnifier; pour grossir une partie de l'écran exactement comme vous utiliseriez une loupe pour grossir les détails d'un journal ou d'une photographie. Cette application sert pour un certain nombre de personnes : des chercheurs aux artistes en passant par les concepteurs web et les mal voyants. Ce document essaiera d'être un manuel de référence complet pour l'utilisation de &kmagnifier;. </para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kmag</keyword>
+<keyword
+>K Magnifier</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introduction</title>
+
+<para
+>&kmagnifier; est une loupe d'écran de la communauté KDE. Il peut être utilisé pour grossir une partie de l'écran. Cette application peut être utile pour diverses personnes. Les mal voyants peuvent utiliser cette application pour grossir une partie de l'écran qu'ils ne peuvent voir clairement, les artistes peuvent utiliser cette application pour zoomer sur les dessins qu'ils créent et vérifier au niveau du pixel, les chercheurs en traitement d'images peuvent l'utiliser pour zoomer sur leurs images et les étudier précisément. Pour d'autres, &kmagnifier; leur sera utile pour d'autres besoins, &pex; il est possible d'utiliser cette application pour copier une portion de l'écran et l'enregistrer sur le disque (avec une option de grossissement sur la capture d'écran). </para>
+<para
+>&kmagnifier; est une application très puissante avec de nouvelles fonctionnalités, constamment ajoutées. Il est optimisé pour une utilisation sur des machines ayant une puissance processeur limitée. </para>
+</chapter>
+
+<chapter id="using-kmag">
+<title
+>Utilisation de &kmagnifier;</title>
+
+<screenshot>
+<screeninfo
+>Voici une copie d'écran de &kmagnifier;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="screenshot.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Copie d'écran de &kmagnifier;</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para
+>Après avoir lancé &kmagnifier;, vous obtiendrez une fenêtre similaire à celle affichée ci-dessus. La fenêtre principale de &kmagnifier; contient la zone grossie (ou zoomée). Elle sera référencée sous le terme <quote
+>fenêtre zoomée</quote
+>. L'image zoomée affichée dans la fenêtre zoomée est capturée à partir d'une partie de l'écran. La partie de l'écran qui est grossie est appelée <quote
+>fenêtre de sélection</quote
+>. </para>
+<para
+>Par défaut, &kmagnifier; grossit la région autour du pointeur de la souris dans la fenêtre de grossissement (comme une loupe qui se déplace). Autrement, vous pouvez demander à &kmagnifier; de grossir une zone donnée de l'écran (<guilabel
+>Mode de sélection d'une zone</guilabel
+>) ou l'écran tout entier (<guilabel
+>Mode Grossir l'écran entier</guilabel
+>) dans la fenêtre de grossissement. </para>
+<para
+>Si vous préférez ne pas voir le curseur de la souris dans l'image zoomée, sélectionnez <guilabel
+>Cacher le pointeur de la souris</guilabel
+>. Veuillez noter que &kmagnifier; ne peut pas encore connaître l'aspect en cours du pointeur. Ainsi, il affiche le curseur par défaut. </para>
+
+<sect1 id="changing-selection-window">
+<title
+>Modifier la partie de l'écran à grossir</title>
+<para
+>Lorsqu'on est en mode <guilabel
+>Grossir un zone</guilabel
+>, la fenêtre de grossissement et la fenêtre de sélection peuvent être déplacées ou retaillées grâce au &BGS;, comme n'importe quelle autre fenêtre. Vous pouvez aussi changer la position et la taille de la fenêtre de sélection en utilisant les touches fléchées du clavier, ou en cliquant dans la fenêtre de grossissement. </para>
+
+<variablelist>
+<varlistentry>
+<term
+><keycap
+>Touches fléchées</keycap
+>, &BGS; ou &BCS;</term>
+<listitem>
+<para
+>En gardant le &BGS; ou &BCS; enfoncé dans la fenêtre de grossissement et en déplaçant la souris, vous pouvez déplacer la fenêtre de sélection. Vous pouvez aussi utiliser les touches fléchées si la fenêtre de sélection est active.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><keycombo
+>&Ctrl;<keycap
+>Touches fléchées</keycap
+></keycombo
+> ou <keycombo
+>&Ctrl;<mousebutton
+>&BGS;</mousebutton
+></keycombo
+></term>
+<listitem>
+<para
+>En utilisant cette combinaison, vous pouvez retailler la fenêtre de sélection. Gardez à l'esprit que le coin supérieur gauche de la fenêtre de sélection ne bouge pas et que le coin inférieur droit est déplacé.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="kmag-features">
+<title
+>Plus de fonctionnalités de &kmagnifier;</title>
+
+<para
+>&kmagnifier; apporte beaucoup de fonctionnalités. Il est possible d'envoyer l'image zoomée directement sur une imprimante, d'enregistrer l'image dans un fichier, de copier l'image zoomée dans le presse-papiers (pouvant être utilisée plus tard pour la coller dans d'autres applications), de tourner l'image grossie et bien plus. </para>
+
+</sect1>
+</chapter>
+
+
+<chapter id="menu-shortcuts"
+> 
+<title
+>Menus et Raccourcis</title
+> 
+ 
+<sect1 id="menus"
+> 
+<title
+>Référence des menus</title
+> 
+
+<sect2 id="the-file-menu">
+<title
+>Le menu « Fichier »</title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Fichier</guimenu
+> <guimenuitem
+>Nouvelle fenêtre</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Ouvre une nouvelle fenêtre de &kmagnifier;.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Fichier</guimenu
+> <guimenuitem
+>Enregistrer la capture sous...</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Enregistre la zone zoomée dans un fichier image.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Fichier</guimenu
+> <guimenuitem
+>Imprimer...</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Imprime la zone actuellement zoomée.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Fichier</guimenu
+> <guimenuitem
+>Quitter</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Quitte l'application</para
+></listitem
+> 
+</varlistentry
+> 
+</variablelist
+> 
+</sect2
+> 
+ 
+<sect2 id="the-edit-menu"
+> 
+<title
+>Le menu « Édition »</title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Édition</guimenu
+> <guimenuitem
+>Copier</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Copie la zone actuellement zoomée dans le presse-papiers, que vous pouvez ensuite coller dans d'autres applications.</para
+></listitem
+> 
+</varlistentry
+> 
+</variablelist
+> 
+</sect2
+> 
+ 
+<sect2 id="the-view-menu"
+> 
+<title
+>Le menu « Affichage »</title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F5</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Affichage</guimenu
+> <guimenuitem
+>Démarrer / Arrêter</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Démarre / arrête la mise à jour de l'affichage. Le processeur ne sera plus sollicité si vous arrêtez la mise à jour.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Affichage</guimenu
+> <guimenuitem
+>Zoom</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Choisi le facteur de zoom.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>-</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Affichage</guimenu
+> <guimenuitem
+>Zoom arrière</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Cliquez sur ce bouton pour zoomer en arrière la région sélectionnée.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>+</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Affichage</guimenu
+> <guimenuitem
+>Zoom avant</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Cliquez sur ce bouton pour zoomer en avant la région sélectionnée.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Affichage</guimenu
+> <guimenuitem
+>Rotation</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Sélectionne l'angle de rotation en degrés (<guimenuitem
+>pas de rotation (0°)</guimenuitem
+>, <guimenuitem
+>gauche (90°)</guimenuitem
+>, <guimenuitem
+>miroir horizontal (180°)</guimenuitem
+>, <guimenuitem
+>droite (270°)</guimenuitem
+>).</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Affichage</guimenu
+> <guimenuitem
+>Rafraîchissement</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Choisit le taux de rafraîchissement (<guimenuitem
+>très faible</guimenuitem
+>, <guimenuitem
+>faible</guimenuitem
+>, <guimenuitem
+>moyen</guimenuitem
+>, <guimenuitem
+>élevé</guimenuitem
+>, <guimenuitem
+>très élevé</guimenuitem
+>). Plus le taux est élevé, plus le processeur sera sollicité.</para
+></listitem>
+</varlistentry>
+
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Affichage</guimenu
+> <guisubmenu
+>Couleurs</guisubmenu
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Sélectionnez différentes déficiences chromatiques de vue afin de simuler le daltonisme. Ceci n'est pas utile aux personnes souffrant de daltonisme, mais plutôt pour la mise au point d'interfaces accessibles.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+</variablelist>
+</sect2>
+
+<sect2 id="the-settings-menu">
+<title
+>Le menu « Configuration »</title>
+
+<variablelist>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F2</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Configuration</guimenu
+> <guimenuitem
+>Mode avec suivi de la souris</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Dans ce mode, la zone autour du pointeur de souris est affichée dans une fenêtre normale.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F3</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Configuration</guimenu
+> <guimenuitem
+>Mode de sélection de fenêtre</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Dans ce mode, une fenêtre de sélection est ouverte. La zone sélectionnée est affichée dans une fenêtre normale.</para
+></listitem>
+</varlistentry>
+
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F4</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Configuration</guimenu
+> <guimenuitem
+>Mode Plein écran</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Dans ce mode, l'écran tout entier est agrandi dans la zone de grossissement.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F6</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Configuration</guimenu
+> <guimenuitem
+>Cacher le pointeur de la souris</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Montre ou cache le pointeur de la souris dans l'image grossie.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F7</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Configuration</guimenu
+> <guimenuitem
+>Maintenir au dessus</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>La fenêtre de &kmagnifier; reste au dessus des autres fenêtres.</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>En plus, &kmagnifier; possède des éléments communs de menus KDE <guimenu
+>Configuration</guimenu
+> et <guimenu
+>Aide</guimenu
+>. Pour plus d'informations, veuillez consulter les sections <ulink url="help:/fundamentals/ui.html#menus-settings"
+>Menu de configuration</ulink
+> et <ulink url="help:/fundamentals/ui.html#menus-help"
+>Menu d'aide</ulink
+> des fondamentaux de &kde;. </para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="commands">
+<title
+>Référence des commandes</title>
+
+<para
+>&kmagnifier; utilise automatiquement tous les raccourcis par défaut pour enregistrer un fichier, ouvrir une nouvelle fenêtre, imprimer, démarrer / arrêter le rafraîchissement (bouton « Recharger » dans &konqueror;), zoomer en avant ou en arrière, &etc;</para>
+
+<table>
+<title
+>Raccourcis clavier par défaut</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Enregistrer le contenu de la fenêtre zoomée dans un fichier.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F2</keycap
+></entry>
+<entry
+><para
+>Basculer en « Mode de suivi de la souris ».</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F3</keycap
+></entry>
+<entry
+><para
+>Basculer en mode « grossir une zone ».</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F4</keycap
+></entry>
+<entry
+><para
+>Basculer en « Grossir l'écran entier ».</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F5</keycap
+></entry>
+<entry
+><para
+>Démarrer le rafraîchissement de la fenêtre zoomée s'il a été arrête, ou arrêter le rafraîchissement de la fenêtre zoomée s'il était activé.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F6</keycap
+></entry>
+<entry
+><para
+>Montre ou cache le pointeur de la souris dans l'image grossie.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F7</keycap
+></entry>
+<entry
+><para
+>La fenêtre de &kmagnifier; reste au dessus des autres fenêtres.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Ceci ouvre une nouvelle fenêtre de &kmagnifier;.</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Ouvre la boîte de dialogue d'impression pour imprimer le contenu de la fenêtre zoomée.</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Copie le contenu de la fenêtre zoomée dans le presse-papiers.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+></entry
+> 
+<entry
+><para
+>Affiche / cache la barre de menu.</para
+> 
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>-</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Zoom arrière</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Zoom avant</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry
+> 
+<entry
+><para
+>Quitte l'application.</para
+></entry
+> 
+</row>
+</tbody>
+</tgroup>
+
+</table>
+</sect1>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Remerciements et licence</title>
+
+<para
+>&kmagnifier; </para>
+<para
+>Programme copyright 2001-2003 Sarang Lakare <email
+>sarang@users.sf.net</email
+> and 2003-2005 Olaf Schmidt <email
+>ojschmidt@kde.org</email
+>. </para>
+<para
+>Contributeurs : <itemizedlist
+> <listitem
+><para
+>Michael Forster <email
+>forster@fmi.uni-passau.de</email
+> (auteur initial)</para
+></listitem>
+</itemizedlist>
+</para>
+
+
+<para
+>Documentation copyright 2002 Sarang Lakare <email
+>sarang@users.sf.net</email
+> and 2004-2005 Olaf Schmidt <email
+>ojschmidt@kde.org</email
+> </para>
+
+<para
+>Traduction française par &RobertJacolin; et &XavierBesnard;. Relecture par &LudovicGrossard;.</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

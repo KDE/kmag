@@ -1,0 +1,112 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % German "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>&kmagnifier;-Benutzerhandbuch</title>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<date
+>2017-07-07</date>
+<productname
+>KDE-Anwendungen</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kmag</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kmag</command
+></refname>
+<refpurpose
+>Bildschirmlupe</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis>
+<command
+>kmag</command>
+</cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Beschreibung</title>
+<para
+><command
+>kmag</command
+> auch bekannt als &kmagnifier; ist eine Bildschirmlupe. Sie können &kmagnifier; dazu benutzen einen Bereich des Bildschirms zu vergrößern, so als würden Sie eine Lupe benutzen, um das Kleingedruckte in einer Zeitung oder ein Foto zu betrachten. Diese Anwendung ist für verschiedene Menschen von Nutzen: vom Rechercheur oder Künstler bis zum Webdesigner oder Sehbehinderten.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Siehe auch</title>
+
+<simplelist>
+<member
+>Ausführlichere Benutzerdokumentation finden Sie mit <ulink url="help:/kmag"
+>help:/kmag</ulink
+> (geben Sie entweder diese <acronym
+>URL</acronym
+> in die Adressleiste von &konqueror; ein oder starten Sie <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/kmag</parameter
+></userinput
+>).</member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+<member
+>Weitere Informationen finden Sie außerdem auf der <ulink url="httpS://accessibility.kde.org/"
+>Webseite des Accessibility-Projekts von &kde;</ulink
+>.</member>
+</simplelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Autoren</title>
+<para
+>&kmagnifier; wurde entwickelt von <personname
+><firstname
+>Olaf</firstname
+><surname
+>Schmidt</surname
+></personname
+> <email
+>ojschmidt@kde.org</email
+> und <personname
+><firstname
+>Sarang</firstname
+><surname
+>Lakare</surname
+></personname
+> <email
+>sarang@users.sf.net</email
+> und <personname
+><firstname
+>Michael</firstname
+><surname
+>Forster</surname
+></personname
+> <email
+>forster@fmi.uni-passau.de</email
+>.</para>
+</refsect1>
+
+</refentry>

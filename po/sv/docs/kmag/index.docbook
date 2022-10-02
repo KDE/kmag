@@ -1,0 +1,914 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Swedish "INCLUDE"
+><!-- change language only here -->
+]>
+
+<!-- The language must NOT be changed here. -->
+
+<book id="kmag" lang="&language;">
+
+
+<bookinfo>
+<title
+>Handbok Förstoringsglaset</title>
+
+<authorgroup>
+<author
+><firstname
+>Sarang</firstname
+> <surname
+>Lakare</surname
+> <affiliation
+> <address
+><email
+>sarang@users.sf.net</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Olaf</firstname
+> <surname
+>Schmidt</surname
+> <affiliation
+> <address
+><email
+>ojschmidt@kde.org</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+><affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+><contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+
+
+<copyright>
+<year
+>2000</year>
+<year
+>2002</year>
+<holder
+>Sarang Lakare</holder>
+</copyright>
+
+<copyright>
+<year
+>2004</year>
+<year
+>2005</year>
+<holder
+>Olaf Schmidt</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<!--FIXME missing:
+"&Follow Focus Mode" 
+qaccessibilityclient  <https://commits.kde.org/libqaccessibilityclient>
+KDE client-side accessibility library
+Required to enable keyboard focus tracking
+
+commit 035090bca3a3065800c6d9ff1862167170a0e939
+Author: Sebastian Sauer mail@dipe.org
+Date:   Tue Jul 20 20:33:23 2010 +0000
+    Add a new 'Follow Focus' mode to KMag that uses the just new kaccessible QAccessibleBridgePlugin for providing keyboard cursor focus tracking.
+    svn path=/trunk/KDE/kdeaccessibility/kmag/; revision=1152354
+commit 2278a10a069ed436d0167ae3ef099b020e35f663
+Author: Amandeep Singh aman.dedman@gmail.com
+Date:   Wed Sep 26 02:46:22 2012 +0530
+    Allowing KMag to follow both mouse + kbd-focus together
+       -Made the followMouseMode + followFocusMode selectable together.
+       -With just followMouseMode checked, Kmag follows mouse,
+         and with followFocusMode checked, Kmag follows focus.
+       -And when both are selected, it follows both the mouse,
+         and the keyboard focus, whichever is relevant.
+-->
+
+<date
+>2017-07-07</date>
+<releaseinfo
+>1.0 (Program 17.08)</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>Förstoringsglaset är ett skärmförstoringsglas. Du kan använda Förstoringsglaset för att förstora en del av skärmen precis som du skulle använda ett förstoringsglas för att förstora finstilt text i en tidning eller ett fotografi. Programmet är användbart för många olika personer, från forskare, grafiker, webbkonstruktörer till personer med nedsatt syn. Det här dokumentet försöker vara en fullständig referenshandbok för användning av Förstoringsglaset. </para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kmag</keyword>
+<keyword
+>Förstoringsglas</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Inledning</title>
+
+<para
+>Förstoringsglaset är ett skärmförstoringsglas av KDE-gemenskapen. Det kan användas för att förstora en del av skärmen. Programmet kan vara användbart för många olika personer. Personer med nedsatt syn kan använda programmet för att förstora en del av skärmen som de inte kan se klart. Grafiker kan använda programmet för att zooma in över grafik som de skapat och kontrollera den på bildpunktsnivå. Bildbehandlingsforskare kan använda programmet för att zooma in i bilder och studera dem nära. Förutom detta kan Förstoringsglaset användas för diverse andra ändamål, det är t.ex. möjligt att använda programmet för att dumpa en del av skärmen och spara den till disk (med alternativet att zooma in skärmbilden som dumpas). </para>
+<para
+>Förstoringsglaset är ett mycket kraftfullt program, där nya funktioner läggs till hela tiden. Det är optimerat för användning på datorer med liten processorkraft. </para>
+</chapter>
+
+<chapter id="using-kmag">
+<title
+>Att använda Förstoringsglaset</title>
+
+<screenshot>
+<screeninfo
+>Här är en skärmbild av Förstoringsglaset</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="screenshot.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Skärmbild av Förstoringsglaset</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para
+>När du startat Förstoringsglaset, ser du ett fönster som liknar det ovanför. Huvudfönstret i Förstoringsglaset visar det förstorade (eller zoomade) innehållet. Vi kallar det här fönstret <quote
+>zoomfönstret</quote
+>. Den zoomade bilden som visas inne i zoomfönstret dumpas från någon del av skärmen. Den del av skärmen som förstoras kallas <quote
+>markeringsfönstret</quote
+>. </para>
+<para
+>Normalt förstorar Förstoringsglaset området omkring muspekaren i zoomfönstret (tänk dig den som en lins som flyttas). Som ett alternativ kan du be Förstoringsglaset att förstora ett markerat område på skärmen (<guilabel
+>Markeringsfönster</guilabel
+>) eller hela skärmen (t.ex. <guilabel
+>Hela skärmen</guilabel
+>) i zoomfönstret. </para>
+<para
+>Om du föredrar att inte se muspekaren i den zoomade bilden, välj <guilabel
+>Dölj muspekare</guilabel
+>. Observera att Förstoringsglaset ännu inte kan ta reda på nuvarande muspekare. Alltså visar den standardpekaren. </para>
+
+<sect1 id="changing-selection-window">
+<title
+>Ändra del av skärmen som ska förstoras</title>
+<para
+>När läget <guilabel
+>Markeringsfönster</guilabel
+> används, kan zoomfönstret och markeringsfönstret flyttas och storleken ändras, med användning av vänster musknapp liksom vilket fönster som helst. Du kan också ändra position och storlek på markeringsfönstret med piltangenterna på tangentbordet, eller genom att klicka i zoomfönstret: </para>
+
+<variablelist>
+<varlistentry>
+<term
+><keycap
+>Piltangenter</keycap
+>, musens vänsterknapp eller mittenknapp</term>
+<listitem>
+<para
+>Genom att hålla nere musens vänsterknapp eller mittenknapp och flytta musen, kan du flytta markeringsfönstret. Du kan också använda piltangenterna om markeringsfönstret har fokus.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><keycombo
+>&Ctrl;<keycap
+>Piltangenter</keycap
+></keycombo
+> eller <keycombo
+>&Ctrl; <mousebutton
+>vänster musknapp</mousebutton
+></keycombo
+></term>
+<listitem>
+<para
+>Genom att använda den här kombinationen kan du ändra storlek på markeringsfönstret. Kom ihåg att det övre vänstra hörnet i markeringsfönstret är konstant, och det nedre högra hörnet kan flyttas.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="kmag-features">
+<title
+>Fler funktioner i Förstoringsglaset</title>
+
+<para
+>Förstoringsglaset levereras med många funktioner. Det är möjligt att skriva ut den zoomade bilden direkt på en skrivare, spara bilden i en fil, kopiera den zoomade bilden till klippbordet (som senare kan användas för att klistra in den i andra program), rotera den förstorade bilden, med mera. </para>
+
+</sect1>
+</chapter>
+
+
+<chapter id="menu-shortcuts"
+> 
+<title
+>Menyer och genvägar</title
+> 
+ 
+<sect1 id="menus"
+> 
+<title
+>Menyreferens</title
+> 
+
+<sect2 id="the-file-menu">
+<title
+>Menyn Arkiv</title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Arkiv</guimenu
+> <guimenuitem
+>Nytt fönster</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Öppnar ett nytt förstoringsglasfönster.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Arkiv</guimenu
+> <guimenuitem
+>Spara skärmdump som...</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Sparar den zoomade vyn i en bildfil.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Arkiv</guimenu
+> <guimenuitem
+>Skriv ut...</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Skriver ut den nuvarande zoomade vyn.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Arkiv</guimenu
+> <guimenuitem
+>Avsluta</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Avslutar programmet</para
+></listitem
+> 
+</varlistentry
+> 
+</variablelist
+> 
+</sect2
+> 
+ 
+<sect2 id="the-edit-menu"
+> 
+<title
+>Menyn Redigera</title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Redigera</guimenu
+> <guimenuitem
+>Kopiera</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Kopiera den nuvarande zoomade vyn till klippbordet, som du kan klistra in i andra program.</para
+></listitem
+> 
+</varlistentry
+> 
+</variablelist
+> 
+</sect2
+> 
+ 
+<sect2 id="the-view-menu"
+> 
+<title
+>Menyn Visa</title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F5</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Visa</guimenu
+> <guimenuitem
+>Starta/Stoppa</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Starta eller stoppa uppdatering av skärmen. Att stoppa uppdateringen nollställer nödvändig processorkraft (processoranvändning)</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Visa</guimenu
+> <guimenuitem
+>Zooma</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Välj zoomningsfaktor.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>-</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Visa</guimenu
+> <guimenuitem
+>Zooma ut</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Klicka på den här knappen för att zooma ut i det valda området.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>+</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Visa</guimenu
+> <guimenuitem
+>Zooma in</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Klicka på den här knappen för att zooma in i det valda området.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Visa</guimenu
+> <guimenuitem
+>Rotation</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Välj rotationsvinkel: <guimenuitem
+>Ingen rotation (0 grader)</guimenuitem
+>, <guimenuitem
+>Vänster (90 grader)</guimenuitem
+>, <guimenuitem
+>Upp och ner (180 grader)</guimenuitem
+>, <guimenuitem
+>Höger (270 grader)</guimenuitem
+>.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Visa</guimenu
+> <guimenuitem
+>Uppdatera</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Välj uppdateringshastighet (<guimenuitem
+>Mycket låg</guimenuitem
+>, <guimenuitem
+>Låg</guimenuitem
+>, <guimenuitem
+>Normal</guimenuitem
+>, <guimenuitem
+>Hög</guimenuitem
+>, <guimenuitem
+>Mycket hög</guimenuitem
+>). Ju högre uppdateringshastighet desto mer processorkraft (CPU) behövs.</para
+></listitem>
+</varlistentry>
+
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Visa</guimenu
+> <guisubmenu
+>Färger</guisubmenu
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Välj olika brister i färgseende för att simulera färgblindhet. Det är inte användbart för personer som är färgblinda, men bra för att konstruera handikappanpassade gränssnitt.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+</variablelist>
+</sect2>
+
+<sect2 id="the-settings-menu">
+<title
+>Menyn Inställningar</title>
+
+<variablelist>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F2</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Inställningar</guimenu
+> <guimenuitem
+>Följ musen</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>I det här läget visas området omkring muspekaren i ett vanligt fönster.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F3</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Inställningar</guimenu
+> <guimenuitem
+>Markeringsfönster</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>I det här läget öppnas ett markeringsfönster. Det markerade området visas i ett vanligt fönster.</para
+></listitem>
+</varlistentry>
+
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F4</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Inställningar</guimenu
+> <guimenuitem
+>Hela skärmen</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>I det här läget förstoras hela skärmen i zoomfönstret.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F6</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Inställningar</guimenu
+> <guimenuitem
+>Dölj muspekare</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Visa eller dölj muspekaren i den förstorade bilden.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F7</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Inställningar</guimenu
+> <guimenuitem
+>Stannar överst</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Förstoringsglasets fönster förblir ovanpå övriga fönster.</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Dessutom har Förstoringsglaset de vanliga menyalternativen <guimenu
+>Inställningar</guimenu
+> och <guimenu
+>Hjälp</guimenu
+> i &kde;. För mer information, läs avsnitten  <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Menyn Inställningar</ulink
+> och <ulink url="help:/fundamentals/menus.html#menus-help"
+>Menyn Hjälp</ulink
+> i &kde;:s Grunder. </para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="commands">
+<title
+>Kommandoreferens</title>
+
+<para
+>Förstoringsglaset använder automatiskt alla dina vanliga snabbtangenter för att spara filer, öppna nya fönster, skriva ut, starta och stoppa uppdateringar (uppdateringsknappen i &konqueror;), zooma in, zooma ut, etc.</para>
+
+<table>
+<title
+>Förvalda snabbtangenter</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Det här sparar innehållet i zoomfönstret till en fil.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F2</keycap
+></entry>
+<entry
+><para
+>Byt till läget "Följ musen".</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F3</keycap
+></entry>
+<entry
+><para
+>Byt till läget "Markeringsfönster".</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F4</keycap
+></entry>
+<entry
+><para
+>Byt till läget "Hela skärmen".</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F5</keycap
+></entry>
+<entry
+><para
+>Det här startar uppdatering av zoomfönstret om den är stoppad, eller stoppar uppdateringen av zoomfönstret om den för närvarande är på.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F6</keycap
+></entry>
+<entry
+><para
+>Visa eller dölj muspekaren i den förstorade bilden.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F7</keycap
+></entry>
+<entry
+><para
+>Förstoringsglasets fönster förblir ovanpå övriga fönster.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Det här öppnar ett nytt förstoringsglasfönster.</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Det här öppnar utskriftsdialogrutan för att skriva ut innehållet i zoomfönstret.</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Det här kopierar zoomfönstrets innehåll till klippbordet.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+></entry
+> 
+<entry
+><para
+>Visa/göm menyraden.</para
+> 
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>-</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Zooma ut</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Zooma in</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry
+> 
+<entry
+><para
+>Avslutar programmet.</para
+></entry
+> 
+</row>
+</tbody>
+</tgroup>
+
+</table>
+</sect1>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Tack till och licens</title>
+
+<para
+>&kmagnifier; </para>
+<para
+>Program copyright 2001-2003 Sarang Lakare <email
+>sarang@users.sf.net</email
+> och 2003-2005 Olaf Schmidt <email
+>ojschmidt@kde.org</email
+>. </para>
+<para
+>Bidragsgivare: <itemizedlist
+> <listitem
+><para
+>Michael Forster <email
+>forster@fmi.uni-passau.de</email
+> (ursprunglig upphovsman)</para
+></listitem>
+</itemizedlist>
+</para>
+
+
+<para
+>Dokumentation copyright 2002 Sarang Lakare <email
+>sarang@users.sf.net</email
+> och 2004-2005 Olaf Schmidt <email
+>ojschmidt@kde.org</email
+> </para>
+
+<para
+>Översättning Stefan Asserhäll <email
+>stefan.asserhall@bredband.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

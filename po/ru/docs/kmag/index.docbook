@@ -1,0 +1,946 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Russian "INCLUDE"
+><!-- change language only here -->
+]>
+
+<!-- The language must NOT be changed here. -->
+
+<book id="kmag" lang="&language;">
+
+
+<bookinfo>
+<title
+>Руководство пользователя &kmagnifier;</title>
+
+<authorgroup>
+<author
+><firstname
+>Sarang</firstname
+> <surname
+>Lakare</surname
+> <affiliation
+> <address
+><email
+>sarang@users.sf.net</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Olaf</firstname
+> <surname
+>Schmidt</surname
+> <affiliation
+> <address
+><email
+>ojschmidt@kde.org</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Антон</firstname
+><surname
+>Горбачёв</surname
+> <affiliation
+><address
+><email
+>justoff@hotmail.ru</email
+></address
+></affiliation
+> <contrib
+>Перевод на русский язык</contrib
+></othercredit
+> <othercredit role="translator"
+><firstname
+>Олег</firstname
+><surname
+>Мороз</surname
+><affiliation
+><address
+><email
+>qmor@rambler.ru</email
+></address
+></affiliation
+><contrib
+>Обновление перевода</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Олеся</firstname
+><surname
+>Герасименко</surname
+><affiliation
+><address
+><email
+>translation-team@basealt.ru</email
+></address
+></affiliation
+><contrib
+>Обновление перевода</contrib
+></othercredit
+> 
+</authorgroup>
+
+
+<copyright>
+<year
+>2000</year>
+<year
+>2002</year>
+<holder
+>Sarang Lakare</holder>
+</copyright>
+
+<copyright>
+<year
+>2004</year>
+<year
+>2005</year>
+<holder
+>Olaf Schmidt</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<!--FIXME missing:
+"&Follow Focus Mode" 
+qaccessibilityclient  <https://commits.kde.org/libqaccessibilityclient>
+KDE client-side accessibility library
+Required to enable keyboard focus tracking
+
+commit 035090bca3a3065800c6d9ff1862167170a0e939
+Author: Sebastian Sauer mail@dipe.org
+Date:   Tue Jul 20 20:33:23 2010 +0000
+    Add a new 'Follow Focus' mode to KMag that uses the just new kaccessible QAccessibleBridgePlugin for providing keyboard cursor focus tracking.
+    svn path=/trunk/KDE/kdeaccessibility/kmag/; revision=1152354
+commit 2278a10a069ed436d0167ae3ef099b020e35f663
+Author: Amandeep Singh aman.dedman@gmail.com
+Date:   Wed Sep 26 02:46:22 2012 +0530
+    Allowing KMag to follow both mouse + kbd-focus together
+       -Made the followMouseMode + followFocusMode selectable together.
+       -With just followMouseMode checked, Kmag follows mouse,
+         and with followFocusMode checked, Kmag follows focus.
+       -And when both are selected, it follows both the mouse,
+         and the keyboard focus, whichever is relevant.
+-->
+
+<date
+>2017-07-07</date>
+<releaseinfo
+>1.0 (Приложения KDE 17.08)</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>&kmagnifier; — это экранная лупа. &kmagnifier; возможно использовать для увеличения части экрана так же, как лупу, которая позволяет прочесть мелкий текст или рассмотреть фотографию. Это приложение может быть полезно различным пользователям: разработчикам, художникам, веб-дизайнерам или людям с ослабленным зрением. Этот документ представляет собой подробное руководство по работе с &kmagnifier;. </para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kmag</keyword>
+<keyword
+>K Magnifier</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Введение</title>
+
+<para
+>&kmagnifier; — это экранная лупа, разработанная KDE. Она используется для увеличения части экрана. Это приложение может быть полезно различным людям: люди с ослабленным зрением могут увеличить часть экрана, которую им тяжело рассмотреть, художники — увеличить изображения, над которыми они работают, и рассмотреть их на уровне пикселов, исследователи обработки графических изображений — увеличить изображения и внимательно их изучить. Кроме того, &kmagnifier; возможно использовать и в других целях. Например, приложение позволяет захватить часть экрана и сохранить изображение на диск (причём изображение возможно увеличить перед записью). </para>
+<para
+>&kmagnifier; — это очень мощное приложение, возможности которого постоянно растут благодаря появляющимся нововведениям. Программа оптимизирована для работы на компьютерах с невысокой производительностью. </para>
+</chapter>
+
+<chapter id="using-kmag">
+<title
+>Использование &kmagnifier;</title>
+
+<screenshot>
+<screeninfo
+>Так выглядит &kmagnifier;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="screenshot.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Окно &kmagnifier;</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para
+>После запуска &kmagnifier; откроется окно, похожее на приведённое выше. Главное окно &kmagnifier; показывает увеличенное изображение. Назовём его <quote
+>смотровым окном</quote
+>. Изображение, которое отображается в смотровом окне, передаётся из какой-либо части экрана. Назовём эту часть экрана <quote
+>селектором изображения</quote
+>. </para>
+<para
+>По умолчанию &kmagnifier; увеличивает область вокруг курсора мыши (представьте себе двигающуюся лупу). В смотровом окне также возможно выбрать увеличение указанной части экрана (<guilabel
+>Показывать в окне</guilabel
+>) или всего экрана (<guilabel
+>Показывать весь экран</guilabel
+>). </para>
+<para
+>Если на увеличенном изображении не должен присутствовать указатель мыши, включите параметр <guilabel
+>Скрывать курсор мыши</guilabel
+>. Обратите внимание, что &kmagnifier; не отслеживает текущую форму указателя и всегда показывает стандартный указатель. </para>
+
+<sect1 id="changing-selection-window">
+<title
+>Изменение увеличиваемой области экрана</title>
+<para
+>В режиме <guilabel
+>Показывать в окне</guilabel
+> с помощью левой кнопки мыши возможно переместить смотровое окно и селектор изображения и изменить их размеры. Также возможно изменить положение и размеры селектора изображения с помощью клавиш со стрелками или щелчка в смотровом окне: </para>
+
+<variablelist>
+<varlistentry>
+<term
+><keycap
+>Клавиши со стрелками</keycap
+>, левая кнопка мыши или средняя кнопка мыши</term>
+<listitem>
+<para
+>Чтобы переместить селектор изображения, удерживайте нажатой левую или среднюю кнопку мыши и перемещайте мышь. Если селектор изображения имеет фокус, вместо мыши возможно использовать клавиши со стрелками.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><keycombo
+>&Ctrl;<keycap
+>клавиши со стрелками</keycap
+></keycombo
+> или <keycombo
+>&Ctrl;<mousebutton
+>левая кнопка мыши</mousebutton
+></keycombo
+></term>
+<listitem>
+<para
+>Чтобы изменить размер селектора изображения, используйте эту комбинацию клавиш. Следует только помнить, что перемещать возможно правый нижний угол окна, а левый верхний остаётся на месте.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="kmag-features">
+<title
+>Дополнительные возможности &kmagnifier;</title>
+
+<para
+>&kmagnifier; предоставляет много дополнительных опций. Возможно распечатать увеличенное изображение на принтере, сохранить его в файл, скопировать в буфер обмена (впоследствии изображение будет возможно вставить в другом приложении), повернуть и многое другое. </para>
+
+</sect1>
+</chapter>
+
+
+<chapter id="menu-shortcuts"
+> 
+<title
+>Меню и комбинации клавиш</title
+> 
+ 
+<sect1 id="menus"
+> 
+<title
+>Справочник по командам меню</title
+> 
+
+<sect2 id="the-file-menu">
+<title
+>Меню «Файл»</title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Файл</guimenu
+> <guimenuitem
+>Новое окно</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Открыть новое окно &kmagnifier;.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Файл</guimenu
+> <guimenuitem
+>Сохранить снимок как</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Сохранить увеличенное изображение в файл.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Файл</guimenu
+> <guimenuitem
+>Печать...</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Печатать текущее увеличенное изображение.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Файл</guimenu
+> <guimenuitem
+>Выход</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Закрыть приложение.</para
+></listitem
+> 
+</varlistentry
+> 
+</variablelist
+> 
+</sect2
+> 
+ 
+<sect2 id="the-edit-menu"
+> 
+<title
+>Меню «Правка»</title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Правка</guimenu
+> <guimenuitem
+>Копировать</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Копировать текущее увеличенное изображение в буфер обмена. Затем изображение будет возможно вставить в другом приложении.</para
+></listitem
+> 
+</varlistentry
+> 
+</variablelist
+> 
+</sect2
+> 
+ 
+<sect2 id="the-view-menu"
+> 
+<title
+>Меню «Вид»</title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F5</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Вид</guimenu
+> <guimenuitem
+>Запустить/Остановить</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Запустить/Остановить обновление экрана. После остановки обновления нагрузка на процессор снижается до нуля.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Вид</guimenu
+> <guimenuitem
+>Масштаб</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Выбрать коэффициент увеличения.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>-</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Вид</guimenu
+> <guimenuitem
+>Уменьшить</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Эта кнопка позволяет уменьшить выделенную область.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>+</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Вид</guimenu
+> <guimenuitem
+>Увеличить</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Эта кнопка позволяет увеличить выделенную область.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Вид</guimenu
+> <guimenuitem
+>Вращение</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Выбрать угол поворота: <guimenuitem
+>Не поворачивать (0 градусов)</guimenuitem
+>, <guimenuitem
+>Влево (90 градусов)</guimenuitem
+>, <guimenuitem
+>Перевернуть (180 градусов)</guimenuitem
+>, <guimenuitem
+>Вправо (270 градусов)</guimenuitem
+>.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Вид</guimenu
+> <guimenuitem
+>Обновить</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Выбрать частоту обновления (<guimenuitem
+>Очень низкая</guimenuitem
+>, <guimenuitem
+>Низкая</guimenuitem
+>, <guimenuitem
+>Средняя</guimenuitem
+>, <guimenuitem
+>Высокая</guimenuitem
+>, <guimenuitem
+>Очень высокая</guimenuitem
+>). По мере увеличения частоты обновления нагрузка на процессор возрастает.</para
+></listitem>
+</varlistentry>
+
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Вид</guimenu
+> <guisubmenu
+>Цветность</guisubmenu
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Выбрать вариант нарушения восприятия цвета. Эта опция не будет полезна пользователям с соответствующими нарушениями восприятия цвета, но пригодится при разработке интерфейсов, учитывающих такие особенности зрения.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+</variablelist>
+</sect2>
+
+<sect2 id="the-settings-menu">
+<title
+>Меню «Настройка»</title>
+
+<variablelist>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F2</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Настройка</guimenu
+> <guimenuitem
+>Следовать за мышью</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>В этом режиме область вокруг курсора мыши отображается в обычном окне.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F3</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Настройка</guimenu
+> <guimenuitem
+>Показывать в окне</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>В этом режиме открыт селектор изображения. Выбранная область отображается в обычном окне.</para
+></listitem>
+</varlistentry>
+
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F4</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Настройка</guimenu
+> <guimenuitem
+>Показывать весь экран</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>В этом режиме в смотровом окне увеличивается весь экран.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F6</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Настройка</guimenu
+> <guimenuitem
+>Скрывать курсор мыши</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Показывать или скрывать курсор мыши в увеличиваемой области.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F7</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Настройка</guimenu
+> <guimenuitem
+>Поддерживать окно поверх других</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Окно &kmagnifier; отображается поверх других окон.</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Кроме того, в &kmagnifier; присутствуют стандартные меню &kde;: <guimenu
+>Настройка</guimenu
+> и <guimenu
+>Справка</guimenu
+>. Дополнительные сведения доступны в разделе справки «Основы &kde;» (подразделы <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Меню «Настройка»</ulink
+> и <ulink url="help:/fundamentals/menus.html#menus-help"
+>Меню «Справка»</ulink
+>). </para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="commands">
+<title
+>Список команд</title>
+
+<para
+>&kmagnifier; автоматически использует комбинации клавиш по умолчанию для сохранения файла, открытия нового окна, печати, отключения/включения обновления изображения (кнопка перезагрузки страницы в &konqueror;), увеличения/уменьшения и так далее.</para>
+
+<table>
+<title
+>Комбинации клавиш по умолчанию</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Сохранить содержимое смотрового окна в файл.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F2</keycap
+></entry>
+<entry
+><para
+>Переключиться в режим «Следовать за мышью».</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F3</keycap
+></entry>
+<entry
+><para
+>Переключиться в режим «Показывать в окне».</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F4</keycap
+></entry>
+<entry
+><para
+>Переключиться в режим «Показывать весь экран».</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F5</keycap
+></entry>
+<entry
+><para
+>Включить обновление смотрового окна, если оно было отключено ранее, или отключить обновление смотрового окна, если оно включено.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F6</keycap
+></entry>
+<entry
+><para
+>Показывать или скрывать курсор мыши в увеличиваемой области.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F7</keycap
+></entry>
+<entry
+><para
+>Окно &kmagnifier; отображается поверх других окон.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Открыть новое окно &kmagnifier;.</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Открыть диалог печати, чтобы распечатать содержимое смотрового окна.</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Копировать содержимое смотрового окна в буфер обмена.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+></entry
+> 
+<entry
+><para
+>Показать/Скрыть строку меню.</para
+> 
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>-</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Уменьшить</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Увеличить</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry
+> 
+<entry
+><para
+>Выход из приложения.</para
+></entry
+> 
+</row>
+</tbody>
+</tgroup>
+
+</table>
+</sect1>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Авторские права и лицензия</title>
+
+<para
+>&kmagnifier; </para>
+<para
+>Авторские права на программу © Sarang Lakare <email
+>sarang@users.sf.net</email
+>, 2001-2003, и Olaf Schmidt <email
+>ojschmidt@kde.org</email
+>, 2003-2005 </para>
+<para
+>В разработке принимали участие: <itemizedlist
+> <listitem
+><para
+>Michael Forster <email
+>forster@fmi.uni-passau.de</email
+> (первоначальный автор)</para
+></listitem>
+</itemizedlist>
+</para>
+
+
+<para
+>Авторские права на документацию © Sarang Lakare <email
+>sarang@users.sf.net</email
+>, 2002, и Olaf Schmidt <email
+>ojschmidt@kde.org</email
+>, 2004-2005 </para>
+
+<para
+>Перевод на русский язык: Антон Горбачёв <email
+>justoff@hotmail.ru</email
+></para
+><para
+>Обновление перевода на русский язык: Олеся Герасименко<email
+>translation-team@basealt.ru</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

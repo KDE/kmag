@@ -1,0 +1,942 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Spanish "INCLUDE"
+><!-- change language only here -->
+]>
+
+<!-- The language must NOT be changed here. -->
+
+<book id="kmag" lang="&language;">
+
+
+<bookinfo>
+<title
+>Manual de &kmagnifier;</title>
+
+<authorgroup>
+<author
+><firstname
+>Sarang</firstname
+> <surname
+>Lakare</surname
+> <affiliation
+> <address
+><email
+>sarang@users.sf.net</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Olaf</firstname
+> <surname
+>Schmidt</surname
+> <affiliation
+> <address
+><email
+>ojschmidt@kde.org</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+> <firstname
+>Eloy</firstname
+><surname
+>Cuadra</surname
+> <affiliation
+><address
+><email
+>ecuadra@eloihr.net</email
+></address
+> </affiliation
+><contrib
+>Traductor actual</contrib
+></othercredit
+><othercredit role="translator"
+> <firstname
+>Rafael</firstname
+><surname
+>Beccar</surname
+> <affiliation
+><address
+><email
+>rafael.beccar@kdemail.net</email
+></address
+> </affiliation
+><contrib
+>Traductor anterior</contrib
+></othercredit
+> <othercredit role="translator"
+><firstname
+>Franco</firstname
+><surname
+>Mariluis</surname
+><affiliation
+><address
+><email
+>fmariluis@gmail.com</email
+></address
+></affiliation
+><contrib
+>Traductor anterior</contrib
+></othercredit
+> 
+</authorgroup>
+
+
+<copyright>
+<year
+>2000</year>
+<year
+>2002</year>
+<holder
+>Sarang Lakare</holder>
+</copyright>
+
+<copyright>
+<year
+>2004</year>
+<year
+>2005</year>
+<holder
+>Olaf Schmidt</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<!--FIXME missing:
+"&Follow Focus Mode" 
+qaccessibilityclient  <https://commits.kde.org/libqaccessibilityclient>
+KDE client-side accessibility library
+Required to enable keyboard focus tracking
+
+commit 035090bca3a3065800c6d9ff1862167170a0e939
+Author: Sebastian Sauer mail@dipe.org
+Date:   Tue Jul 20 20:33:23 2010 +0000
+    Add a new 'Follow Focus' mode to KMag that uses the just new kaccessible QAccessibleBridgePlugin for providing keyboard cursor focus tracking.
+    svn path=/trunk/KDE/kdeaccessibility/kmag/; revision=1152354
+commit 2278a10a069ed436d0167ae3ef099b020e35f663
+Author: Amandeep Singh aman.dedman@gmail.com
+Date:   Wed Sep 26 02:46:22 2012 +0530
+    Allowing KMag to follow both mouse + kbd-focus together
+       -Made the followMouseMode + followFocusMode selectable together.
+       -With just followMouseMode checked, Kmag follows mouse,
+         and with followFocusMode checked, Kmag follows focus.
+       -And when both are selected, it follows both the mouse,
+         and the keyboard focus, whichever is relevant.
+-->
+
+<date
+>2017-07-07</date>
+<releaseinfo
+>1.0 (Aplicaciones 17.08)</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>&kmagnifier; es un ampliador de pantalla. Del mismo modo que se usa una lupa para ver más de cerca el contenido de un periódico o de una foto, puede usar &kmagnifier; para ver ampliado el contenido de una parte de la pantalla. Esta aplicación puede ser útil para diversas personas: desde investigadores hasta artistas, o desde diseñadores web a personas con visión reducida. Este documento procurará ser una completa guía de referencia para el uso de &kmagnifier;. </para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kmag</keyword>
+<keyword
+>Ampliador K</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introducción</title>
+
+<para
+>&kmagnifier; es un ampliador de pantalla creado por la comunidad KDE.  Se puede usar para ampliar el contenido de la pantalla. Esta aplicación puede ser de utilidad para varios tipos de personas: las personas con visión reducida podrán usar esta aplicación para ampliar una parte de la pantalla que no puedan ver claramente; los artistas la usarán para ampliar zonas de los gráficos que producen y comprobarlas a nivel de píxeles; los investigadores que trabajen en el procesamiento de imágenes pueden usar esta aplicación para estudiarlas más de cerca. Aparte de esto, &kmagnifier; se puede usar para otros propósitos, como capturar una porción de la pantalla y guardarla en disco (con la opción de ampliar esta captura de pantalla). </para>
+<para
+>&kmagnifier; es una aplicación muy potente, optimizada para su uso en máquinas de escasos recursos y a la que constantemente se le añaden nuevas funciones. </para>
+</chapter>
+
+<chapter id="using-kmag">
+<title
+>Uso de &kmagnifier;</title>
+
+<screenshot>
+<screeninfo
+>Instantánea de &kmagnifier;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="screenshot.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Instantánea de &kmagnifier;</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para
+>Al ejecutar &kmagnifier; obtendrá una ventana similar a la mostrada arriba. Esta es la ventana principal de &kmagnifier;, que contiene la vista ampliada procedente de la captura de un área de la pantalla. Nos referiremos a esta ventana como «ventana de aumento». A su vez, para referirnos al área de la pantalla que está siendo ampliada (de la que procede la captura) usaremos la denominación «ventana de selección». </para>
+<para
+>De forma predeterminada, &kmagnifier; amplía la región de la pantalla alrededor del cursor del ratón en la ventana de aumento (piense en ella como una lupa que se mueve). Sin embargo, es posible indicarle a &kmagnifier; cuál es el área de la pantalla que debe ampliar (<guilabel
+>Modo de ventana de selección</guilabel
+>), e incluso pedirle que amplíe toda la pantalla (<guilabel
+>Modo de pantalla completa</guilabel
+>) en la ventana de aumento. </para>
+<para
+>Si prefiere que el puntero del ratón no aparezca sobre la imagen capturada, seleccione la opción <guilabel
+>Ocultar el cursor del ratón</guilabel
+>. Tenga en cuenta que por el momento &kmagnifier; no puede identificar la forma del cursor en uso, por lo que se limitará a mostrar el cursor predeterminado. </para>
+
+<sect1 id="changing-selection-window">
+<title
+>Modificando el área de la pantalla a ampliar</title>
+<para
+>Mientras se encuentre en el <guilabel
+>Modo de ventana de selección</guilabel
+>, podrá mover y redimensionar dicha ventana usando el &LMB; como cualquier ventana. También puede modificar la posición y el tamaño de la ventana de selección usando las teclas de dirección del teclado o pulsando en la ventana de ampliación: </para>
+
+<variablelist>
+<varlistentry>
+<term
+><keycap
+>Teclas de dirección</keycap
+>, &LMB; o &MMB;</term>
+<listitem>
+<para
+>Si mantiene pulsado el &LMB; o el &MMB; en la ventana de ampliación y mueve el ratón, podrá mover la ventana de selección. También puede usar las teclas de las flechas si la ventana de selección posee el foco.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><keycombo
+>&Ctrl;<keycap
+>Teclas de las flechas</keycap
+></keycombo
+> o <keycombo
+>&Ctrl;<mousebutton
+>&LMB;</mousebutton
+></keycombo
+></term>
+<listitem>
+<para
+>Esta combinación le permite modificar el tamaño la ventana de selección. Recuerde que la esquina superior izquierda de la ventana de selección permanecerá constante, mientras la esquina inferior derecha se puede mover.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="kmag-features">
+<title
+>Más características de &kmagnifier;</title>
+
+<para
+>&kmagnifier; posee muchas funciones. Es posible imprimir directamente en una impresora el contenido de la ventana de ampliación, guardar la imagen en un archivo, copiar la imagen ampliada en el portapapeles (para usarla posteriormente en otras aplicaciones) y rotar la imagen ampliada, entre otras. </para>
+
+</sect1>
+</chapter>
+
+
+<chapter id="menu-shortcuts"
+> 
+<title
+>Menús y accesos rápidos de teclado</title
+> 
+ 
+<sect1 id="menus"
+> 
+<title
+>Referencia de menús</title
+> 
+
+<sect2 id="the-file-menu">
+<title
+>El menú Archivo</title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Archivo</guimenu
+> <guimenuitem
+>Nueva ventana</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Abre una nueva ventana de &kmagnifier;.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Archivo</guimenu
+> <guimenuitem
+>Guardar instantánea como...</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Guarda la vista ampliada en un archivo de imagen.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Archivo</guimenu
+> <guimenuitem
+>Imprimir...</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Imprime la vista actual ampliada.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Archivo</guimenu
+> <guimenuitem
+>Salir</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Sale de la aplicación.</para
+></listitem
+> 
+</varlistentry
+> 
+</variablelist
+> 
+</sect2
+> 
+ 
+<sect2 id="the-edit-menu"
+> 
+<title
+>El menú Editar</title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Editar</guimenu
+> <guimenuitem
+>Copiar</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Copia la vista actual ampliada en el portapapeles para que pueda pegarla en otras aplicaciones.</para
+></listitem
+> 
+</varlistentry
+> 
+</variablelist
+> 
+</sect2
+> 
+ 
+<sect2 id="the-view-menu"
+> 
+<title
+>El menú Ver</title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F5</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Ver</guimenu
+> <guimenuitem
+>Iniciar/Parar</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Inicia o detiene la actualización de la pantalla. Detener la actualización reducirá a cero potencia de procesamiento necesaria (uso de la CPU).</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Ver</guimenu
+> <guimenuitem
+>Ampliación</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Seleccionar el factor de ampliación.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>-</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Ver</guimenu
+> <guimenuitem
+>Alejar</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Pulse este botón para alejar la zona seleccionada.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>+</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Ver</guimenu
+> <guimenuitem
+>Acercar</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Pulse este botón para acercar la zona seleccionada.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Ver</guimenu
+> <guimenuitem
+>Rotación</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Selecciona los grados de rotación (<guimenuitem
+>Sin rotación (0 grados)</guimenuitem
+>, <guimenuitem
+>Izquierda (90 grados)</guimenuitem
+>, <guimenuitem
+>Invertir (180 grados)</guimenuitem
+>, <guimenuitem
+>Derecha (270 grados)</guimenuitem
+>).</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ver</guimenu
+> <guimenuitem
+>Actualizar</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Selecciona la frecuencia de refresco (<guimenuitem
+>Muy baja</guimenuitem
+>, <guimenuitem
+>Baja</guimenuitem
+>, <guimenuitem
+>Media</guimenuitem
+>, <guimenuitem
+>Alta</guimenuitem
+>, <guimenuitem
+>Muy alta</guimenuitem
+>). La frecuencia más alta necesitará más potencia de computación (CPU).</para
+></listitem>
+</varlistentry>
+
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Ver</guimenu
+> <guimenuitem
+>Colores</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Seleccionar deficiencias de la visión del color diferentes para simular daltonismo. Esto no es muy útil para personas daltónicas, pero resulta interesante para diseñar interfaces accesibles</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+</variablelist>
+</sect2>
+
+<sect2 id="the-settings-menu">
+<title
+>El menú Preferencias</title>
+
+<variablelist>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F2</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Preferencias</guimenu
+> <guimenuitem
+>Modo de seguir al ratón</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>En este modo, el área situada alrededor del cursor del ratón se muestra en una ventana normal.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F3</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Preferencias</guimenu
+> <guimenuitem
+>Modo de selección de ventana</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>En este modo se abre una ventana de selección. El área seleccionada se muestra en una ventana normal.</para
+></listitem>
+</varlistentry>
+
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F4</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Preferencias</guimenu
+> <guimenuitem
+>Modo de pantalla completa</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>En este modo se amplía toda la pantalla en la ventana de aumento.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F6</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Preferencias</guimenu
+> <guimenuitem
+>Modo de ocultar el cursor</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Mostrar u ocultar el cursor del ratón en la imagen ampliada.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F7</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Preferencias</guimenu
+> <guimenuitem
+>Permanecer visible</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>La ventana de &kmagnifier; permanece encima del resto de ventanas.</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Además, &kmagnifier; dispone de las opciones de menú comunes de &kde; <guimenu
+>Preferencias</guimenu
+> y <guimenu
+>Ayuda</guimenu
+>. Para más información, consulte las secciones sobre el <ulink url="help:/fundamentals/menus.html#menus-settings"
+>menú de Preferencias</ulink
+> y el <ulink url="help:/fundamentals/menus.html#menus-help"
+>menú de Ayuda</ulink
+> de los fundamentos de &kde;. </para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="commands">
+<title
+>Referencia de órdenes</title>
+
+<para
+>&kmagnifier; usa automáticamente todos los accesos rápidos de teclado predeterminados para guardar archivos, abrir una nueva ventana, imprimir, arrancar o detener la actualización de la de la ventana (botón recargar en &konqueror;), acercar o alejar la imagen, etc.</para>
+
+<table>
+<title
+>Accesos rápidos de teclado predeterminados</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Guarda el contenido de la ventana de ampliación en un archivo.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F2</keycap
+></entry>
+<entry
+><para
+>Cambiar al «Modo de seguimiento del ratón».</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F3</keycap
+></entry>
+<entry
+><para
+>Cambiar al «Modo de ventana de selección».</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F4</keycap
+></entry>
+<entry
+><para
+>Cambiar al «Modo de pantalla completa».</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F5</keycap
+></entry>
+<entry
+><para
+>Esto comenzará la actualización de la ventana de ampliación, si estaba detenida, o detendrá la actualización de la ventana de ampliación, si estaba activada.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F6</keycap
+></entry>
+<entry
+><para
+>Mostrar u ocultar el cursor del ratón en la imagen ampliada.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F7</keycap
+></entry>
+<entry
+><para
+>La ventana de &kmagnifier; permanece encima del resto de ventanas.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Esto abrirá una nueva ventana de &kmagnifier;.</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Esto abrirá el dialogo de impresión, que le permitirá imprimir el contenido de la ventana de ampliación.</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Esto copiará el contenido de la ventana de ampliación en el portapapeles.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+></entry
+> 
+<entry
+><para
+>Mostrar u ocultar la barra del menú.</para
+> 
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl; <keycap
+> -</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Alejar</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Acercar</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry
+> 
+<entry
+><para
+>Sale de la aplicación.</para
+></entry
+> 
+</row>
+</tbody>
+</tgroup>
+
+</table>
+</sect1>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Créditos y Licencia</title>
+
+<para
+>&kmagnifier; </para>
+<para
+>Copyright del programa 2001-2003 Sarang Lakare <email
+>sarang@users.sf.net</email
+> y 2003-2005 Olaf Schmidt <email
+>ojschmidt@kde.org</email
+>. </para>
+<para
+>Colaboradores: <itemizedlist
+> <listitem
+><para
+>Michael Forster <email
+>forster@fmi.uni-passau.de</email
+> (autor original)</para
+></listitem>
+</itemizedlist>
+</para>
+
+
+<para
+>Copyright de la documentación 2002 Sarang Lakare <email
+>sarang@users.sf.net</email
+> y 2004-2005 Olaf Schmidt <email
+>ojschmidt@kde.org</email
+>. </para>
+
+<para
+>Traducido en la actualidad por Eloy Cuadra <email
+>ecuadra@eloihr.net</email
+> y anteriormente por Rafael Beccar <email
+>rafael.beccar@kdemail.net</email
+> y Franco Mariluis <email
+>fmariluis@gmail.com</email
+>.</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

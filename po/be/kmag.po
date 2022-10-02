@@ -1,0 +1,557 @@
+# translation of kmag.po to Belarusian
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Darafei Praliaskouski <komzpa@licei2.com>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: kmag\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:38+0000\n"
+"PO-Revision-Date: 2007-06-22 20:16+0300\n"
+"Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
+"Language-Team: Belarusian <i18n@mova.org>\n"
+"Language: be\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || n%10>=5 && n%10<=9 || n"
+"%100>=11 && n%100<=14 ? 2 : 3);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Дарафей Праляскоўскі"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "komzpa@licei2.com"
+
+#: kmag.cpp:69
+#, fuzzy, kde-format
+#| msgid "&Low"
+msgctxt "Zoom at very low"
+msgid "&Very Low"
+msgstr "&Маленькае"
+
+#: kmag.cpp:69
+#, fuzzy, kde-format
+#| msgid "&Low"
+msgctxt "Zoom at low"
+msgid "&Low"
+msgstr "&Маленькае"
+
+#: kmag.cpp:69
+#, fuzzy, kde-format
+#| msgid "&Medium"
+msgctxt "Zoom at medium"
+msgid "&Medium"
+msgstr "&Сярэдні"
+
+#: kmag.cpp:69
+#, kde-format
+msgctxt "Zoom at high"
+msgid "&High"
+msgstr ""
+
+#: kmag.cpp:69
+#, kde-format
+msgctxt "Zoom at very high"
+msgid "V&ery High"
+msgstr ""
+
+#: kmag.cpp:77
+#, kde-format
+msgctxt "No color-blindness simulation, i.e. 'normal' vision"
+msgid "&Normal"
+msgstr ""
+
+#: kmag.cpp:77
+#, kde-format
+msgid "&Protanopia"
+msgstr ""
+
+#: kmag.cpp:77
+#, kde-format
+msgid "&Deuteranopia"
+msgstr ""
+
+#: kmag.cpp:77
+#, kde-format
+msgid "&Tritanopia"
+msgstr ""
+
+#: kmag.cpp:77
+#, kde-format
+msgid "&Achromatopsia"
+msgstr ""
+
+#: kmag.cpp:85
+#, kde-format
+msgid "&No Rotation (0 Degrees)"
+msgstr ""
+
+#: kmag.cpp:85
+#, kde-format
+msgid "&Left (90 Degrees)"
+msgstr ""
+
+#: kmag.cpp:85
+#, kde-format
+msgid "&Upside Down (180 Degrees)"
+msgstr ""
+
+#: kmag.cpp:85
+#, kde-format
+msgid "&Right (270 Degrees)"
+msgstr ""
+
+#: kmag.cpp:117
+#, kde-format
+msgid "New &Window"
+msgstr "Новае &акно"
+
+#: kmag.cpp:120
+#, kde-format
+msgid "Open a new KMagnifier window"
+msgstr ""
+
+#: kmag.cpp:124
+#, kde-format
+msgid "&Stop"
+msgstr "&Спыніць"
+
+#: kmag.cpp:127
+#, kde-format
+msgid "Click to stop window refresh"
+msgstr ""
+
+#: kmag.cpp:128
+#, kde-format
+msgid ""
+"Clicking on this icon will <b>start</b> / <b>stop</b> updating of the "
+"display. Stopping the update will zero the processing power required (CPU "
+"usage)"
+msgstr ""
+
+#: kmag.cpp:134
+#, kde-format
+msgid "&Save Snapshot As..."
+msgstr ""
+
+#: kmag.cpp:137
+#, kde-format
+msgid "Saves the zoomed view to an image file."
+msgstr ""
+
+#: kmag.cpp:138
+#, kde-format
+msgid "Save image to a file"
+msgstr ""
+
+#: kmag.cpp:141
+#, kde-format
+msgid "Click on this button to print the current zoomed view."
+msgstr ""
+
+#: kmag.cpp:144 kmag.cpp:145
+#, kde-format
+msgid "Quits the application"
+msgstr "Выходзіць з праграмы"
+
+#: kmag.cpp:148
+#, kde-format
+msgid ""
+"Click on this button to copy the current zoomed view to the clipboard which "
+"you can paste in other applications."
+msgstr ""
+
+#: kmag.cpp:149
+#, kde-format
+msgid "Copy zoomed image to clipboard"
+msgstr ""
+
+#: kmag.cpp:155
+#, kde-format
+msgid "&Follow Mouse Mode"
+msgstr ""
+
+#: kmag.cpp:159
+#, kde-format
+msgid "Mouse"
+msgstr ""
+
+#: kmag.cpp:160
+#, kde-format
+msgid "Magnify around the mouse cursor"
+msgstr ""
+
+#: kmag.cpp:161
+#, kde-format
+msgid "If selected, the area around the mouse cursor is magnified"
+msgstr ""
+
+#: kmag.cpp:165
+#, kde-format
+msgid "&Follow Focus Mode"
+msgstr ""
+
+#: kmag.cpp:169
+#, kde-format
+msgid "Focus"
+msgstr ""
+
+#: kmag.cpp:170
+#, kde-format
+msgid "Magnify around the keyboard focus"
+msgstr ""
+
+#: kmag.cpp:171
+#, kde-format
+msgid "If selected, the area around the keyboard cursor is magnified"
+msgstr ""
+
+#: kmag.cpp:175
+#, kde-format
+msgid "Se&lection Window Mode"
+msgstr ""
+
+#: kmag.cpp:179
+#, fuzzy, kde-format
+#| msgid "New &Window"
+msgid "Window"
+msgstr "Новае &акно"
+
+#: kmag.cpp:180
+#, kde-format
+msgid "Show a window for selecting the magnified area"
+msgstr ""
+
+#: kmag.cpp:182
+#, kde-format
+msgid "&Whole Screen Mode"
+msgstr ""
+
+#: kmag.cpp:186
+#, kde-format
+msgid "Screen"
+msgstr ""
+
+#: kmag.cpp:187
+#, kde-format
+msgid "Magnify the whole screen"
+msgstr ""
+
+#: kmag.cpp:188
+#, kde-format
+msgid "Click on this button to fit the zoom view to the zoom window."
+msgstr ""
+
+#: kmag.cpp:190
+#, kde-format
+msgid "Hide Mouse &Cursor"
+msgstr ""
+
+#: kmag.cpp:195
+#, kde-format
+msgid "Show Mouse &Cursor"
+msgstr ""
+
+#: kmag.cpp:197
+#, kde-format
+msgid "Hide"
+msgstr ""
+
+#: kmag.cpp:198
+#, kde-format
+msgid "Hide the mouse cursor"
+msgstr ""
+
+#: kmag.cpp:200
+#, kde-format
+msgid "Stays On Top"
+msgstr ""
+
+#: kmag.cpp:204
+#, kde-format
+msgid "The KMagnifier Window stays on top of other windows."
+msgstr ""
+
+#: kmag.cpp:207
+#, kde-format
+msgid "Click on this button to <b>zoom-in</b> on the selected region."
+msgstr ""
+
+#: kmag.cpp:209
+#, kde-format
+msgid "&Zoom"
+msgstr "&Маштабаванне"
+
+#: kmag.cpp:212
+#, kde-format
+msgid "Select the zoom factor."
+msgstr ""
+
+#: kmag.cpp:213
+#, kde-format
+msgid "Zoom factor"
+msgstr ""
+
+#: kmag.cpp:216
+#, kde-format
+msgid "Click on this button to <b>zoom-out</b> on the selected region."
+msgstr ""
+
+#: kmag.cpp:218
+#, kde-format
+msgid "&Rotation"
+msgstr ""
+
+#: kmag.cpp:221
+#, kde-format
+msgid "Select the rotation degree."
+msgstr ""
+
+#: kmag.cpp:222
+#, kde-format
+msgid "Rotation degree"
+msgstr ""
+
+#: kmag.cpp:227
+#, kde-format
+msgid "&Refresh"
+msgstr "&Абнавіць"
+
+#: kmag.cpp:230
+#, kde-format
+msgid ""
+"Select the refresh rate. The higher the rate, the more computing power (CPU) "
+"will be needed."
+msgstr ""
+
+#: kmag.cpp:231
+#, kde-format
+msgid "Refresh rate"
+msgstr ""
+
+#: kmag.cpp:233
+#, kde-format
+msgctxt "Color-blindness simulation mode"
+msgid "&Color"
+msgstr ""
+
+#: kmag.cpp:236
+#, kde-format
+msgid "Select a mode to simulate various types of color-blindness."
+msgstr ""
+
+#: kmag.cpp:237
+#, kde-format
+msgid "Color-blindness Simulation Mode"
+msgstr ""
+
+#: kmag.cpp:569
+#, kde-format
+msgid "Save Snapshot As"
+msgstr ""
+
+#: kmag.cpp:583
+#, kde-format
+msgid ""
+"Unable to save temporary file (before uploading to the network file you "
+"specified)."
+msgstr ""
+
+#: kmag.cpp:584 kmag.cpp:589 kmag.cpp:599
+#, kde-format
+msgid "Error Writing File"
+msgstr ""
+
+#: kmag.cpp:588
+#, kde-format
+msgid "Unable to upload file over the network."
+msgstr ""
+
+#: kmag.cpp:591 kmag.cpp:601
+#, kde-format
+msgid ""
+"Current zoomed image saved to\n"
+"%1"
+msgstr ""
+
+#: kmag.cpp:592 kmag.cpp:602
+#, kde-format
+msgid "Information"
+msgstr "Звесткі"
+
+#: kmag.cpp:598
+#, kde-format
+msgid ""
+"Unable to save file. Please check if you have permission to write to the "
+"directory."
+msgstr ""
+
+#: kmag.cpp:617
+#, kde-format
+msgid "Stop"
+msgstr "Спыніць"
+
+#: kmag.cpp:618
+#, kde-format
+msgid "Click to stop window update"
+msgstr ""
+
+#: kmag.cpp:621
+#, fuzzy, kde-format
+#| msgid "Start"
+msgctxt "Start updating the window"
+msgid "Start"
+msgstr "Запусціць"
+
+#: kmag.cpp:622
+#, kde-format
+msgid "Click to start window update"
+msgstr ""
+
+#: kmagselrect.cpp:213
+#, kde-format
+msgid "Selection Window"
+msgstr ""
+
+#: kmagselrect.cpp:213 main.cpp:39
+#, kde-format
+msgid "KMagnifier"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kmagui.rc:3
+#, fuzzy, kde-format
+#| msgid "&Settings"
+msgid "Main Toolbar"
+msgstr "&Настаўленні"
+
+#. i18n: ectx: ToolBar (viewToolBar)
+#: kmagui.rc:6
+#, fuzzy, kde-format
+#| msgid "&Settings"
+msgid "View Toolbar"
+msgstr "&Настаўленні"
+
+#. i18n: ectx: ToolBar (settingsToolBar)
+#: kmagui.rc:16
+#, fuzzy, kde-format
+#| msgid "&Settings"
+msgid "Settings Toolbar"
+msgstr "&Настаўленні"
+
+#. i18n: ectx: Menu (file)
+#: kmagui.rc:25
+#, kde-format
+msgid "&File"
+msgstr "&Файл"
+
+#. i18n: ectx: Menu (edit)
+#: kmagui.rc:32
+#, kde-format
+msgid "&Edit"
+msgstr "&Змяніць"
+
+#. i18n: ectx: Menu (view)
+#: kmagui.rc:35 kmagui.rc:73
+#, kde-format
+msgid "&View"
+msgstr "&Выгляд"
+
+#. i18n: ectx: Menu (settings)
+#: kmagui.rc:47 kmagui.rc:83
+#, kde-format
+msgid "&Settings"
+msgstr "&Настаўленні"
+
+#: kmagzoomview.cpp:125
+#, kde-format
+msgid ""
+"This is the main window which shows the contents of the selected region. The "
+"contents will be magnified according to the zoom level that is set."
+msgstr ""
+
+#: main.cpp:40
+#, kde-format
+msgid "Screen magnifier created by KDE"
+msgstr ""
+
+#: main.cpp:42
+#, kde-format
+msgid ""
+"Copyright 2001-2003 Sarang Lakare\n"
+"Copyright 2003-2004 Olaf Schmidt\n"
+"Copyright 2008 Matthew Woehlke"
+msgstr ""
+
+#: main.cpp:46
+#, kde-format
+msgid "Sarang Lakare"
+msgstr ""
+
+#: main.cpp:47
+#, kde-format
+msgid "Rewrite"
+msgstr ""
+
+#: main.cpp:48
+#, kde-format
+msgid "Michael Forster"
+msgstr ""
+
+#: main.cpp:49
+#, kde-format
+msgid "Original idea and author (KDE1)"
+msgstr ""
+
+#: main.cpp:50
+#, kde-format
+msgid "Olaf Schmidt"
+msgstr ""
+
+#: main.cpp:50
+#, kde-format
+msgid ""
+"Rework of the user interface, improved selection window, speed optimization, "
+"rotation, bug fixes"
+msgstr ""
+
+#: main.cpp:51
+#, kde-format
+msgid "Matthew Woehlke"
+msgstr ""
+
+#: main.cpp:51
+#, kde-format
+msgid "Color-blindness simulation"
+msgstr ""
+
+#: main.cpp:52
+#, kde-format
+msgid "Sebastian Sauer"
+msgstr ""
+
+#: main.cpp:52
+#, kde-format
+msgid "Focus tracking"
+msgstr ""
+
+#: main.cpp:53
+#, kde-format
+msgid "Claudiu Costin"
+msgstr ""
+
+#: main.cpp:53
+#, kde-format
+msgid "Some tips"
+msgstr ""
+
+#~ msgid "File to open"
+#~ msgstr "Адкрыць файл"

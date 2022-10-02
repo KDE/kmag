@@ -1,0 +1,914 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Korean "INCLUDE"
+><!-- change language only here -->
+]>
+
+<!-- The language must NOT be changed here. -->
+
+<book id="kmag" lang="&language;">
+
+
+<bookinfo>
+<title
+>&kmagnifier; 도움말</title>
+
+<authorgroup>
+<author
+><firstname
+>Sarang</firstname
+> <surname
+>Lakare</surname
+> <affiliation
+> <address
+><email
+>sarang@users.sf.net</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Olaf</firstname
+> <surname
+>Schmidt</surname
+> <affiliation
+> <address
+><email
+>ojschmidt@kde.org</email
+></address>
+</affiliation>
+</author>
+<othercredit lang="ko" role="translator"
+><surname
+>박</surname
+><firstname
+>신조</firstname
+><affiliation
+><address
+><email
+>kde@peremen.name</email
+></address
+></affiliation
+><contrib
+>한국어 번역</contrib
+></othercredit
+> 
+</authorgroup>
+
+
+<copyright>
+<year
+>2000</year>
+<year
+>2002</year>
+<holder
+>Sarang Lakare</holder>
+</copyright>
+
+<copyright>
+<year
+>2004</year>
+<year
+>2005</year>
+<holder
+>Olaf Schmidt</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<!--FIXME missing:
+"&Follow Focus Mode" 
+qaccessibilityclient  <https://commits.kde.org/libqaccessibilityclient>
+KDE client-side accessibility library
+Required to enable keyboard focus tracking
+
+commit 035090bca3a3065800c6d9ff1862167170a0e939
+Author: Sebastian Sauer mail@dipe.org
+Date:   Tue Jul 20 20:33:23 2010 +0000
+    Add a new 'Follow Focus' mode to KMag that uses the just new kaccessible QAccessibleBridgePlugin for providing keyboard cursor focus tracking.
+    svn path=/trunk/KDE/kdeaccessibility/kmag/; revision=1152354
+commit 2278a10a069ed436d0167ae3ef099b020e35f663
+Author: Amandeep Singh aman.dedman@gmail.com
+Date:   Wed Sep 26 02:46:22 2012 +0530
+    Allowing KMag to follow both mouse + kbd-focus together
+       -Made the followMouseMode + followFocusMode selectable together.
+       -With just followMouseMode checked, Kmag follows mouse,
+         and with followFocusMode checked, Kmag follows focus.
+       -And when both are selected, it follows both the mouse,
+         and the keyboard focus, whichever is relevant.
+-->
+
+<date
+>2017-07-07</date>
+<releaseinfo
+>1.0(프로그램17.08)</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>&kmagnifier;는 화면 돋보기입니다. &kmagnifier;를 사용하여 신문이나 사진을 확대할 때 돋보기를 사용하는 것처럼 화면의 일부분을 확대할 수 있습니다. 이 프로그램은 연구자, 예술가, 웹 디자이너, 저시력자 등 다양한 사람들이 사용할 수 있습니다. 이 문서는 &kmagnifier;의 기능을 다루는 사용 설명서입니다. </para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kmag</keyword>
+<keyword
+>K 돋보기</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>소개</title>
+
+<para
+>&kmagnifier;는 KDE 커뮤니티의 화면 돋보기입니다. 화면의 일부를 확대할 수 있습니다. 이 프로그램은 다양한 용도로 사용할 수 있습니다. 저시력자의 경우 화면의 내용을 보기 힘들 때 내용을 확대해서 볼 수 있습니다. 예술가의 경우 그래픽의 일부를 확대하여 픽셀 단위로 검사할 수 있습니다. 이미지 처리 연구자의 경우 이미지를 확대하여 가까이서 분석할 수 있습니다. 이 외에도 &kmagnifier;를 사용하여 화면의 일부를 캡처하여 원본 크기 및 확대된 크기로 저장할 수 있습니다. </para>
+<para
+>&kmagnifier;는 저사양 시스템에서도 편리하게 사용할 수 있습니다. </para>
+</chapter>
+
+<chapter id="using-kmag">
+<title
+>&kmagnifier; 사용하기</title>
+
+<screenshot>
+<screeninfo
+>&kmagnifier; 주 창</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="screenshot.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>&kmagnifier; 스크린샷</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para
+>&kmagnifier;를 실행하면 위에 표시된 것과 같은 창이 표시됩니다. &kmagnifier; 주 창에는 확대된 내용이 표시되며 이 문서에서는 <quote
+>확대된 창</quote
+>이라고 언급합니다. 확대된 창에 있는 확대된 이미지는 화면의 일부를 캡처한 것입니다. 이 부분을 <quote
+>선택 창</quote
+>이라고 언급할 것입니다. </para>
+<para
+>기본값으로 &kmagnifier;에서는 마우스 커서 주위의 영역을 확대된 창에 표시합니다.(움직이는 렌즈와 비슷하게 작동) 또한 &kmagnifier;에서 화면의 일정한 영역을 확대하여 표시(<guilabel
+>선택 창 모드</guilabel
+>)하거나 전체 화면(<guilabel
+>전체 화면 모드</guilabel
+>)을 표시할 수 있습니다. </para>
+<para
+>확대된 이미지에 마우스 커서를 표시하지 않으려면 <guilabel
+>마우스 커서 숨기기</guilabel
+>를 선택하십시오. &kmagnifier;에서는 마우스 커서 모양을 확인할 수 없기 때문에 기본 커서를 사용합니다. </para>
+
+<sect1 id="changing-selection-window">
+<title
+>화면에서 확대할 부분 변경하기</title>
+<para
+><guilabel
+>선택 창 모드</guilabel
+>를 선택하면 확대된 창과 선택 창을 다른 창처럼 마우스 &LMB; 왼쪽 단추로 이동 및 크기 조정할 수 있습니다. 선택 창의 위치와 크기는 키보드 화살표 키로 변경하거나 확대된 창을 눌러서 변경할 수 있습니다. </para>
+
+<variablelist>
+<varlistentry>
+<term
+><keycap
+>화살표 키</keycap
+>, &LMB; 및 &MMB;</term>
+<listitem>
+<para
+>확대된 창에서 &LMB; 및 &MMB; 단추를 누르면서 마우스를 이동하면 선택 창을 이동할 수 있습니다. 선택 창에 초점이 맞은 경우 화살표 키로 이동할 수 있습니다.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><keycombo
+>&Ctrl;<keycap
+>화살표 키</keycap
+></keycombo
+> 또는 <keycombo
+>&Ctrl;<mousebutton
+>&LMB;</mousebutton
+></keycombo
+></term>
+<listitem>
+<para
+>이 조합을 사용하여 선택 창의 크기를 변경할 수 있습니다. 선택 창의 왼쪽 위 모서리는 항상 고정되어 있으며 오른쪽 아래 모서리는 이동 가능합니다.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="kmag-features">
+<title
+>더 많은 &kmagnifier; 기능</title>
+
+<para
+>&kmagnifier;에는 다양한 기능이 있습니다. 크기 조정된 그림을 프린터로 바로 인쇄하거나, 파일로 저장하거나, 클립보드로 복사해서 나중에 다른 프로그램에서 사용하거나, 그림을 회전할 수 있습니다. </para>
+
+</sect1>
+</chapter>
+
+
+<chapter id="menu-shortcuts"
+> 
+<title
+>메뉴와 단축키</title
+> 
+ 
+<sect1 id="menus"
+> 
+<title
+>메뉴 참조</title
+> 
+
+<sect2 id="the-file-menu">
+<title
+>파일 메뉴</title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>파일</guimenu
+> <guimenuitem
+>새 창</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>새 &kmagnifier; 창을 엽니다.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>파일</guimenu
+> <guimenuitem
+>다른 이름으로 스크린샷 저장...</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>확대/축소된 화면의 그림을 파일로 저장합니다.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>파일</guimenu
+> <guimenuitem
+>인쇄...</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>현재 확대/축소된 내용을 인쇄합니다.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>파일</guimenu
+> <guimenuitem
+>끝내기</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>프로그램을 끝냅니다</para
+></listitem
+> 
+</varlistentry
+> 
+</variablelist
+> 
+</sect2
+> 
+ 
+<sect2 id="the-edit-menu"
+> 
+<title
+>편집 메뉴</title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>편집</guimenu
+> <guimenuitem
+>복사</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>현재 확대/축소된 화면을 클립보드에 복사하여 다른 프로그램에 붙여넣을 수 있습니다.</para
+></listitem
+> 
+</varlistentry
+> 
+</variablelist
+> 
+</sect2
+> 
+ 
+<sect2 id="the-view-menu"
+> 
+<title
+>보기 메뉴</title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F5</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>보기</guimenu
+> <guimenuitem
+>시작/정지</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>창 새로 고침을 시작하거나 중지합니다. 새로 고치지 않으면 프로세서 자원을 사용하지 않습니다.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>보기</guimenu
+> <guimenuitem
+>확대/축소</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>확대/축소 배율을 선택하십시오.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>-</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>보기</guimenu
+> <guimenuitem
+>축소</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>선택한 영역을 축소하시려면 이 단추를 누르십시오.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>+</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>보기</guimenu
+> <guimenuitem
+>확대</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>선택한 영역을 확대하시려면 이 단추를 누르십시오.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>보기</guimenu
+> <guimenuitem
+>회전</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>회전 각도를 선택합니다(<guimenuitem
+>회전 안함(0도)</guimenuitem
+>, <guimenuitem
+>왼쪽으로(90도)</guimenuitem
+>, <guimenuitem
+>거꾸로(180도)</guimenuitem
+>, <guimenuitem
+>오른쪽으로(270도)</guimenuitem
+>).</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>보기</guimenu
+> <guimenuitem
+>새로 고침</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>새로 고침 주기를 선택합니다(<guimenuitem
+>매우 작게</guimenuitem
+>, <guimenuitem
+>작게</guimenuitem
+>, <guimenuitem
+>중간</guimenuitem
+>, <guimenuitem
+>크게</guimenuitem
+>, <guimenuitem
+>매우 크게</guimenuitem
+>). 주기가 더 빨라질수록 CPU를 더 많이 사용합니다.</para
+></listitem>
+</varlistentry>
+
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>보기</guimenu
+> <guisubmenu
+>색</guisubmenu
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>색약 사용자에게 보이는 화면을 시뮬레이션할 수 있습니다. 색약 사용자 보조 기능으로는 사용할 수 없으나, 인터페이스를 디자인할 때 색약 사용자가 보게 될 화면을 시뮬레이션할 수 있습니다.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+</variablelist>
+</sect2>
+
+<sect2 id="the-settings-menu">
+<title
+>설정 메뉴</title>
+
+<variablelist>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F2</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>설정</guimenu
+> <guimenuitem
+>마우스 따라가기 모드</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>이 모드에서는 일반 창에 마우스 커서 주변의 영역을 표시합니다.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F3</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>설정</guimenu
+> <guimenuitem
+>선택 창 모드</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>이 모드에서는 선택 창을 엽니다. 선택된 영역을 일반 창으로 표시합니다.</para
+></listitem>
+</varlistentry>
+
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F4</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>설정</guimenu
+> <guimenuitem
+>전체 화면 모드</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>이 모드에서는 전체 화면을 확대된 창에서 표시합니다.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F6</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>설정</guimenu
+> <guimenuitem
+>마우스 커서 숨기기</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>확대된 그림에서 마우스 커서를 표시하거나 숨깁니다.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F7</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>설정</guimenu
+> <guimenuitem
+>항상 위</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>&kmagnifier; 창을 항상 다른 창 위에 둡니다.</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>추가적으로 &kmagnifier;에는 공통 &kde; <guimenu
+>설정</guimenu
+> 및 <guimenu
+>도움말</guimenu
+> 메뉴 항목이 있습니다. 더 많은 정보를 보려면 &kde; 기초 문서의 <ulink url="help:/fundamentals/menus.html#menus-settings"
+>설정 메뉴</ulink
+>와 <ulink url="help:/fundamentals/menus.html#menus-help"
+>도움말 메뉴</ulink
+> 항목을 참조하십시오. </para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="commands">
+<title
+>명령 참조</title>
+
+<para
+>&kmagnifier;에서는 파일 저장, 새 창 열기, 인쇄, 갱신 시작/정지(&konqueror;의 새로 고침 단추와 동일), 확대, 축소 &etc; 작업에 사용되는 표준 단축키를 사용합니다.</para>
+
+<table>
+<title
+>기본 키보드 단축키</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry>
+<entry
+><para
+>확대된 창의 내용을 파일로 저장합니다.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F2</keycap
+></entry>
+<entry
+><para
+>"마우스 따라가기 모드"로 전환합니다.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F3</keycap
+></entry>
+<entry
+><para
+>"선택 창 모드"로 전환합니다.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F4</keycap
+></entry>
+<entry
+><para
+>"전체 화면 모드"로 전환합니다.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F5</keycap
+></entry>
+<entry
+><para
+>확대된 창 내용 업데이트를 시작하거나 중단합니다.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F6</keycap
+></entry>
+<entry
+><para
+>확대된 그림에서 마우스 커서를 표시하거나 숨깁니다.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F7</keycap
+></entry>
+<entry
+><para
+>&kmagnifier; 창을 항상 다른 창 위에 둡니다.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry>
+<entry
+><para
+>새 &kmagnifier; 창을 엽니다.</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></entry>
+<entry
+><para
+>확대된 창의 내용을 인쇄할 수 있도록 인쇄 대화 상자를 엽니다.</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></entry>
+<entry
+><para
+>확대된 창의 내용을 클립보드에 복사합니다.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+></entry
+> 
+<entry
+><para
+>메뉴 표시줄을 보이거나 숨깁니다.</para
+> 
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>-</keycap
+></keycombo
+></entry>
+<entry
+><para
+>축소</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+></entry>
+<entry
+><para
+>확대</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry
+> 
+<entry
+><para
+>프로그램을 종료합니다.</para
+></entry
+> 
+</row>
+</tbody>
+</tgroup>
+
+</table>
+</sect1>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>작성자 및 라이선스</title>
+
+<para
+>&kmagnifier; </para>
+<para
+>프로그램 저작권: Copyright 2001-2003 Sarang Lakare <email
+>sarang@users.sf.net</email
+> and 2003-2005 Olaf Schmidt <email
+>ojschmidt@kde.org</email
+>. </para>
+<para
+>기여자: <itemizedlist
+> <listitem
+><para
+>Michael Forster <email
+>forster@fmi.uni-passau.de</email
+> (원 작성자)</para
+></listitem>
+</itemizedlist>
+</para>
+
+
+<para
+>문서 저작권: Copyright 2002 Sarang Lakare <email
+>sarang@users.sf.net</email
+> and 2004-2005 Olaf Schmidt <email
+>ojschmidt@kde.org</email
+> </para>
+
+<para
+>박신조<email
+>kde@peremen.name</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

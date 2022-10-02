@@ -1,0 +1,583 @@
+# Translation of kmag into Japanese.
+# This file is distributed under the same license as the kdeaccessibility package.
+# Kenshi Muto <kmuto@debian.org>, 2004.
+# Toyohiro Asukai <toyohiro@ksmplus.com>, 2004.
+# Yukiko Bando <ybando@k6.dion.ne.jp>, 2006, 2007, 2008, 2009.
+# Fumiaki Okushi <okushi@kde.gr.jp>, 2007, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kmag\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:38+0000\n"
+"PO-Revision-Date: 2010-11-07 22:36-0800\n"
+"Last-Translator: Fumiaki Okushi <okushi@kde.gr.jp>\n"
+"Language-Team: Japanese <kde-jp@kde.org>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Kenshi Muto, Toyohiro Asukai"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kmuto@debian.org, toyohiro@ksmplus.com"
+
+#: kmag.cpp:69
+#, kde-format
+msgctxt "Zoom at very low"
+msgid "&Very Low"
+msgstr "最低(&V)"
+
+#: kmag.cpp:69
+#, kde-format
+msgctxt "Zoom at low"
+msgid "&Low"
+msgstr "低(&L)"
+
+#: kmag.cpp:69
+#, kde-format
+msgctxt "Zoom at medium"
+msgid "&Medium"
+msgstr "中(&M)"
+
+#: kmag.cpp:69
+#, kde-format
+msgctxt "Zoom at high"
+msgid "&High"
+msgstr "高(&H)"
+
+#: kmag.cpp:69
+#, kde-format
+msgctxt "Zoom at very high"
+msgid "V&ery High"
+msgstr "最高(&E)"
+
+#: kmag.cpp:77
+#, kde-format
+msgctxt "No color-blindness simulation, i.e. 'normal' vision"
+msgid "&Normal"
+msgstr "正常色覚(&N)"
+
+#: kmag.cpp:77
+#, kde-format
+msgid "&Protanopia"
+msgstr "第一色覚異常(&P)"
+
+#: kmag.cpp:77
+#, kde-format
+msgid "&Deuteranopia"
+msgstr "第二色覚異常(&D)"
+
+#: kmag.cpp:77
+#, kde-format
+msgid "&Tritanopia"
+msgstr "第三色覚異常(&T)"
+
+#: kmag.cpp:77
+#, kde-format
+msgid "&Achromatopsia"
+msgstr "全色盲(&A)"
+
+#: kmag.cpp:85
+#, kde-format
+msgid "&No Rotation (0 Degrees)"
+msgstr "回転なし (0度) (&N)"
+
+#: kmag.cpp:85
+#, kde-format
+msgid "&Left (90 Degrees)"
+msgstr "左回転 (90度) (&L)"
+
+#: kmag.cpp:85
+#, kde-format
+msgid "&Upside Down (180 Degrees)"
+msgstr "上下逆さま (180度) (&U)"
+
+#: kmag.cpp:85
+#, kde-format
+msgid "&Right (270 Degrees)"
+msgstr "右回転 (270度) (&R)"
+
+#: kmag.cpp:117
+#, kde-format
+msgid "New &Window"
+msgstr "新しいウィンドウ(&W)"
+
+#: kmag.cpp:120
+#, kde-format
+msgid "Open a new KMagnifier window"
+msgstr "新しい KMagnifier ウィンドウを開く"
+
+#: kmag.cpp:124
+#, kde-format
+msgid "&Stop"
+msgstr "停止(&S)"
+
+#: kmag.cpp:127
+#, kde-format
+msgid "Click to stop window refresh"
+msgstr "ウィンドウの更新を停止"
+
+#: kmag.cpp:128
+#, fuzzy, kde-format
+#| msgid ""
+#| "Clicking on this icon will <b>start</b> / <b>stop</b>  updating of the "
+#| "display. Stopping the update will zero the processing power  required "
+#| "(CPU usage)"
+msgid ""
+"Clicking on this icon will <b>start</b> / <b>stop</b> updating of the "
+"display. Stopping the update will zero the processing power required (CPU "
+"usage)"
+msgstr ""
+"このアイコンをクリックして表示ウィンドウの更新を開始/停止できます。更新を停止"
+"すると、必要な処理能力 (CPU の使用) が 0 になります。"
+
+#: kmag.cpp:134
+#, kde-format
+msgid "&Save Snapshot As..."
+msgstr "名前を付けてスナップショットを保存(&S)..."
+
+#: kmag.cpp:137
+#, kde-format
+msgid "Saves the zoomed view to an image file."
+msgstr "拡大/縮小された画面を画像ファイルに保存します。"
+
+#: kmag.cpp:138
+#, kde-format
+msgid "Save image to a file"
+msgstr "ファイルに画像を保存"
+
+#: kmag.cpp:141
+#, kde-format
+msgid "Click on this button to print the current zoomed view."
+msgstr ""
+"現在の拡大/縮小された画面を印刷するには、このボタンをクリックしてください。"
+
+#: kmag.cpp:144 kmag.cpp:145
+#, kde-format
+msgid "Quits the application"
+msgstr "アプリケーションを終了"
+
+#: kmag.cpp:148
+#, kde-format
+msgid ""
+"Click on this button to copy the current zoomed view to the clipboard which "
+"you can paste in other applications."
+msgstr ""
+"現在の拡大/縮小された画面をクリップボードにコピーするには、このボタンをクリッ"
+"クしてください。クリップボードにコピーした画像は、他のアプリケーションに貼り"
+"付けることができます。"
+
+#: kmag.cpp:149
+#, kde-format
+msgid "Copy zoomed image to clipboard"
+msgstr "拡大/縮小された画像をクリップボードにコピー"
+
+#: kmag.cpp:155
+#, kde-format
+msgid "&Follow Mouse Mode"
+msgstr "マウスに追従(&F)"
+
+#: kmag.cpp:159
+#, kde-format
+msgid "Mouse"
+msgstr "マウス"
+
+#: kmag.cpp:160
+#, kde-format
+msgid "Magnify around the mouse cursor"
+msgstr "マウスカーソルの周辺領域を拡大します"
+
+#: kmag.cpp:161
+#, kde-format
+msgid "If selected, the area around the mouse cursor is magnified"
+msgstr "このモードでは、マウスカーソルの周辺領域を拡大して表示します。"
+
+#: kmag.cpp:165
+#, fuzzy, kde-format
+#| msgid "&Follow Mouse Mode"
+msgid "&Follow Focus Mode"
+msgstr "マウスに追従(&F)"
+
+#: kmag.cpp:169
+#, kde-format
+msgid "Focus"
+msgstr "フォーカス"
+
+#: kmag.cpp:170
+#, fuzzy, kde-format
+#| msgid "Magnify around the mouse cursor"
+msgid "Magnify around the keyboard focus"
+msgstr "マウスカーソルの周辺領域を拡大します"
+
+#: kmag.cpp:171
+#, fuzzy, kde-format
+#| msgid "If selected, the area around the mouse cursor is magnified"
+msgid "If selected, the area around the keyboard cursor is magnified"
+msgstr "このモードでは、マウスカーソルの周辺領域を拡大して表示します。"
+
+#: kmag.cpp:175
+#, kde-format
+msgid "Se&lection Window Mode"
+msgstr "選択ウィンドウ(&L)"
+
+#: kmag.cpp:179
+#, kde-format
+msgid "Window"
+msgstr "ウィンドウ"
+
+#: kmag.cpp:180
+#, kde-format
+msgid "Show a window for selecting the magnified area"
+msgstr "拡大する領域を選択するためのウィンドウを表示します"
+
+#: kmag.cpp:182
+#, kde-format
+msgid "&Whole Screen Mode"
+msgstr "スクリーン全体(&W)"
+
+#: kmag.cpp:186
+#, kde-format
+msgid "Screen"
+msgstr "スクリーン"
+
+#: kmag.cpp:187
+#, kde-format
+msgid "Magnify the whole screen"
+msgstr "スクリーン全体を拡大します"
+
+#: kmag.cpp:188
+#, kde-format
+msgid "Click on this button to fit the zoom view to the zoom window."
+msgstr ""
+"ズームビューをズームウィンドウに合わせるには、このボタンをクリックしてくださ"
+"い。"
+
+#: kmag.cpp:190
+#, kde-format
+msgid "Hide Mouse &Cursor"
+msgstr "マウスカーソルを隠す(&C)"
+
+#: kmag.cpp:195
+#, kde-format
+msgid "Show Mouse &Cursor"
+msgstr "マウスカーソルを表示(&C)"
+
+#: kmag.cpp:197
+#, kde-format
+msgid "Hide"
+msgstr "隠す"
+
+#: kmag.cpp:198
+#, kde-format
+msgid "Hide the mouse cursor"
+msgstr "マウスカーソルを隠す"
+
+#: kmag.cpp:200
+#, kde-format
+msgid "Stays On Top"
+msgstr ""
+
+#: kmag.cpp:204
+#, kde-format
+msgid "The KMagnifier Window stays on top of other windows."
+msgstr ""
+
+#: kmag.cpp:207
+#, kde-format
+msgid "Click on this button to <b>zoom-in</b> on the selected region."
+msgstr "選択した領域を拡大するには、このボタンをクリックしてください。"
+
+#: kmag.cpp:209
+#, kde-format
+msgid "&Zoom"
+msgstr "ズーム(&Z)"
+
+#: kmag.cpp:212
+#, kde-format
+msgid "Select the zoom factor."
+msgstr "ズーム率を選択します。"
+
+#: kmag.cpp:213
+#, kde-format
+msgid "Zoom factor"
+msgstr "ズーム率"
+
+#: kmag.cpp:216
+#, kde-format
+msgid "Click on this button to <b>zoom-out</b> on the selected region."
+msgstr "選択した領域を縮小するには、このボタンをクリックしてください。"
+
+#: kmag.cpp:218
+#, kde-format
+msgid "&Rotation"
+msgstr "回転(&R)"
+
+#: kmag.cpp:221
+#, kde-format
+msgid "Select the rotation degree."
+msgstr "回転させる角度を選択します。"
+
+#: kmag.cpp:222
+#, kde-format
+msgid "Rotation degree"
+msgstr "回転角度"
+
+# ACCELERATOR changed by translator
+#: kmag.cpp:227
+#, kde-format
+msgid "&Refresh"
+msgstr "更新(&E)"
+
+#: kmag.cpp:230
+#, kde-format
+msgid ""
+"Select the refresh rate. The higher the rate, the more computing power (CPU) "
+"will be needed."
+msgstr ""
+"更新レートを選択します。レートを高くするほど、より多くの CPU を必要とし、コン"
+"ピュータに負荷がかかります。"
+
+#: kmag.cpp:231
+#, kde-format
+msgid "Refresh rate"
+msgstr "更新レート"
+
+#: kmag.cpp:233
+#, kde-format
+msgctxt "Color-blindness simulation mode"
+msgid "&Color"
+msgstr "色覚(&C)"
+
+#: kmag.cpp:236
+#, kde-format
+msgid "Select a mode to simulate various types of color-blindness."
+msgstr "シミュレートする色覚異常の種類を選択します。"
+
+#: kmag.cpp:237
+#, kde-format
+msgid "Color-blindness Simulation Mode"
+msgstr "色覚異常シミュレーションモード"
+
+#: kmag.cpp:569
+#, kde-format
+msgid "Save Snapshot As"
+msgstr "名前を付けてスナップショットを保存"
+
+#: kmag.cpp:583
+#, kde-format
+msgid ""
+"Unable to save temporary file (before uploading to the network file you "
+"specified)."
+msgstr ""
+"(指定されたファイルをネットワークにアップロードする前の) 一時ファイルを保存で"
+"きません。"
+
+#: kmag.cpp:584 kmag.cpp:589 kmag.cpp:599
+#, kde-format
+msgid "Error Writing File"
+msgstr "ファイル書き込みエラー"
+
+#: kmag.cpp:588
+#, kde-format
+msgid "Unable to upload file over the network."
+msgstr "ネットワークにファイルをアップロードできません。"
+
+#: kmag.cpp:591 kmag.cpp:601
+#, kde-format
+msgid ""
+"Current zoomed image saved to\n"
+"%1"
+msgstr ""
+"現在の拡大/縮小された画像を次に保存しました\n"
+"%1"
+
+#: kmag.cpp:592 kmag.cpp:602
+#, kde-format
+msgid "Information"
+msgstr "情報"
+
+#: kmag.cpp:598
+#, kde-format
+msgid ""
+"Unable to save file. Please check if you have permission to write to the "
+"directory."
+msgstr ""
+"ファイルを保存できません。ディレクトリに書き込む権限があるか確認してくださ"
+"い。"
+
+#: kmag.cpp:617
+#, kde-format
+msgid "Stop"
+msgstr "停止"
+
+#: kmag.cpp:618
+#, kde-format
+msgid "Click to stop window update"
+msgstr "ウィンドウの更新を停止"
+
+#: kmag.cpp:621
+#, kde-format
+msgctxt "Start updating the window"
+msgid "Start"
+msgstr "開始"
+
+#: kmag.cpp:622
+#, kde-format
+msgid "Click to start window update"
+msgstr "ウィンドウの更新を開始"
+
+#: kmagselrect.cpp:213
+#, kde-format
+msgid "Selection Window"
+msgstr "選択ウィンドウ"
+
+#: kmagselrect.cpp:213 main.cpp:39
+#, kde-format
+msgid "KMagnifier"
+msgstr "KMagnifier"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kmagui.rc:3
+#, fuzzy, kde-format
+#| msgid "Show Main &Toolbar"
+msgid "Main Toolbar"
+msgstr "メインツールバーを表示(&T)"
+
+#. i18n: ectx: ToolBar (viewToolBar)
+#: kmagui.rc:6
+#, fuzzy, kde-format
+#| msgid "Show &View Toolbar"
+msgid "View Toolbar"
+msgstr "表示ツールバーを表示(&V)"
+
+#. i18n: ectx: ToolBar (settingsToolBar)
+#: kmagui.rc:16
+#, fuzzy, kde-format
+#| msgid "Show &Settings Toolbar"
+msgid "Settings Toolbar"
+msgstr "設定ツールバーを表示(&S)"
+
+#. i18n: ectx: Menu (file)
+#: kmagui.rc:25
+#, kde-format
+msgid "&File"
+msgstr "ファイル(&F)"
+
+#. i18n: ectx: Menu (edit)
+#: kmagui.rc:32
+#, kde-format
+msgid "&Edit"
+msgstr "編集(&E)"
+
+#. i18n: ectx: Menu (view)
+#: kmagui.rc:35 kmagui.rc:73
+#, kde-format
+msgid "&View"
+msgstr "表示(&V)"
+
+#. i18n: ectx: Menu (settings)
+#: kmagui.rc:47 kmagui.rc:83
+#, kde-format
+msgid "&Settings"
+msgstr "設定(&S)"
+
+#: kmagzoomview.cpp:125
+#, kde-format
+msgid ""
+"This is the main window which shows the contents of the selected region. The "
+"contents will be magnified according to the zoom level that is set."
+msgstr ""
+"これは選択された範囲の内容を表示するメインウィンドウです。ズームレベルの設定"
+"に従って内容を拡大して表示します。"
+
+#: main.cpp:40
+#, fuzzy, kde-format
+#| msgid "Screen magnifier for the K Desktop Environment (KDE)"
+msgid "Screen magnifier created by KDE"
+msgstr "K デスクトップ環境 (KDE) のスクリーン拡大鏡"
+
+#: main.cpp:42
+#, kde-format
+msgid ""
+"Copyright 2001-2003 Sarang Lakare\n"
+"Copyright 2003-2004 Olaf Schmidt\n"
+"Copyright 2008 Matthew Woehlke"
+msgstr ""
+"Copyright 2001-2003 Sarang Lakare\n"
+"Copyright 2003-2004 Olaf Schmidt\n"
+"Copyright 2008 Matthew Woehlke"
+
+#: main.cpp:46
+#, kde-format
+msgid "Sarang Lakare"
+msgstr "Sarang Lakare"
+
+#: main.cpp:47
+#, kde-format
+msgid "Rewrite"
+msgstr "書き直し"
+
+#: main.cpp:48
+#, kde-format
+msgid "Michael Forster"
+msgstr "Michael Forster"
+
+#: main.cpp:49
+#, kde-format
+msgid "Original idea and author (KDE1)"
+msgstr "オリジナルのアイデア、作者 (KDE1)"
+
+#: main.cpp:50
+#, kde-format
+msgid "Olaf Schmidt"
+msgstr "Olaf Schmidt"
+
+#: main.cpp:50
+#, kde-format
+msgid ""
+"Rework of the user interface, improved selection window, speed optimization, "
+"rotation, bug fixes"
+msgstr ""
+"ユーザインターフェースの書き直し、選択ウィンドウの改良、速度最適化、回転、バ"
+"グ修正"
+
+#: main.cpp:51
+#, kde-format
+msgid "Matthew Woehlke"
+msgstr "Matthew Woehlke"
+
+#: main.cpp:51
+#, kde-format
+msgid "Color-blindness simulation"
+msgstr "色覚異常シミュレーション"
+
+#: main.cpp:52
+#, kde-format
+msgid "Sebastian Sauer"
+msgstr "Sebastian Sauer"
+
+#: main.cpp:52
+#, kde-format
+msgid "Focus tracking"
+msgstr ""
+
+#: main.cpp:53
+#, kde-format
+msgid "Claudiu Costin"
+msgstr "Claudiu Costin"
+
+#: main.cpp:53
+#, kde-format
+msgid "Some tips"
+msgstr "いくつかのヒント"

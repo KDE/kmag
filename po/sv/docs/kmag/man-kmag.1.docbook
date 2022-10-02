@@ -1,0 +1,110 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Swedish "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Förstoringsglaset användarhandbok</title>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<date
+>2017-07-07</date>
+<productname
+>KDE-program</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kmag</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kmag</command
+></refname>
+<refpurpose
+>Skärmförstoringsglas</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis>
+<command
+>kmag</command>
+</cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Beskrivning</title>
+<para
+><command
+>kmag</command
+>, också känt som &kmagnifier;, är ett skärmförstoringsglas. Du kan använda &kmagnifier; för att förstora en del av skärmen precis som du skulle använda ett förstoringsglas för att förstora finstilt text i en tidning eller ett fotografi. Programmet är användbart för många olika personer, från forskare, grafiker och webbkonstruktörer till personer med nedsatt syn.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Se också</title>
+
+<simplelist>
+<member
+>Mer detaljerad användardokumentation är tillgänglig med <ulink url="help:/kmag"
+>help:/kmag</ulink
+> (skriv antingen in webbadressen i &konqueror;, eller kör <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/kmag</parameter
+></userinput
+>).</member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+<member
+>Det finns också ytterligare information tillgänglig på <ulink url="https://accessibility.kde.org"
+>hemsidan för &kde;:s handikappstödsprojekt</ulink
+>.</member>
+</simplelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Upphovsmän</title>
+<para
+>&kmagnifier; är skrivet av <personname
+><firstname
+>Olaf</firstname
+><surname
+>Schmidt</surname
+></personname
+> <email
+>ojschmidt@kde.org</email
+>, <personname
+><firstname
+>Sarang</firstname
+><surname
+>Lakare</surname
+></personname
+> <email
+>sarang@users.sf.net</email
+> och <personname
+><firstname
+>Michael</firstname
+><surname
+>Forster</surname
+></personname
+> <email
+>forster@fmi.uni-passau.de</email
+></para>
+</refsect1>
+
+</refentry>

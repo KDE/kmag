@@ -1,0 +1,110 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % French "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Manuel de l'utilisateur de &kmagnifier;</title>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<date
+>07-07-2017</date>
+<productname
+>Applications de KDE</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kmag</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kmag</command
+></refname>
+<refpurpose
+>Loupe d'écran</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis>
+<command
+>kmag</command>
+</cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Description</title>
+<para
+><command
+>kmag</command
+>, appelé aussi &kmagnifier;, est une loupe d'écran. Vous pouvez utiliser &kmagnifier; pour grossir une partie de l'écran exactement comme vous utiliseriez une loupe pour grossir les détails d'un journal ou d'une photographie. Cette application sert pour un certain nombre de personnes : des chercheurs aux artistes en passant par les web designers et les mal voyants.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Voir aussi</title>
+
+<simplelist>
+<member
+>Une documentation plus détaillée est disponible avec <ulink url="help:/kmag"
+>help:/kmag</ulink
+> (vous pouvez soit saisir cette &URL; dans &konqueror;, soit lancer <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/kmag</parameter
+></userinput
+>).</member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+<member
+>Vous trouverez également des informations supplémentaires sur la page <ulink url="https://accessibility.kde.org/"
+> du site Internet du projet d'accessibilité de &kde;</ulink
+>.</member>
+</simplelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Auteurs</title>
+<para
+>&kmagnifier; est écrit par <personname
+><firstname
+>Olaf</firstname
+><surname
+>Schmidt</surname
+></personname
+> <email
+>ojschmidt@kde.org</email
+>, <personname
+><firstname
+>Sarang</firstname
+><surname
+>Lakare</surname
+></personname
+> <email
+>sarang@users.sf.net</email
+> et <personname
+><firstname
+>Michael</firstname
+><surname
+>Forster</surname
+></personname
+> <email
+>forster@fmi.uni-passau.de</email
+></para>
+</refsect1>
+
+</refentry>

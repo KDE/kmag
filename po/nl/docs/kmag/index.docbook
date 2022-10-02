@@ -1,0 +1,916 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Dutch "INCLUDE"
+><!-- change language only here -->
+]>
+
+<!-- The language must NOT be changed here. -->
+
+<book id="kmag" lang="&language;">
+
+
+<bookinfo>
+<title
+>Het handboek van &kmagnifier;</title>
+
+<authorgroup>
+<author
+><firstname
+>Sarang</firstname
+> <surname
+>Lakare</surname
+> <affiliation
+> <address
+><email
+>sarang@users.sf.net</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Olaf</firstname
+> <surname
+>Schmidt</surname
+> <affiliation
+> <address
+><email
+>ojschmidt@kde.org</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+> <firstname
+>Rob</firstname
+><surname
+>La Lau</surname
+> <affiliation
+><address
+><email
+></email
+></address
+></affiliation
+> <contrib
+>Vertaling</contrib
+> </othercredit
+> &Natalie.Koning;&Antoon.Tolboom; 
+</authorgroup>
+
+
+<copyright>
+<year
+>2000</year>
+<year
+>2002</year>
+<holder
+>Sarang Lakare</holder>
+</copyright>
+
+<copyright>
+<year
+>2004</year>
+<year
+>2005</year>
+<holder
+>Olaf Schmidt</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<!--FIXME missing:
+"&Follow Focus Mode" 
+qaccessibilityclient  <https://commits.kde.org/libqaccessibilityclient>
+KDE client-side accessibility library
+Required to enable keyboard focus tracking
+
+commit 035090bca3a3065800c6d9ff1862167170a0e939
+Author: Sebastian Sauer mail@dipe.org
+Date:   Tue Jul 20 20:33:23 2010 +0000
+    Add a new 'Follow Focus' mode to KMag that uses the just new kaccessible QAccessibleBridgePlugin for providing keyboard cursor focus tracking.
+    svn path=/trunk/KDE/kdeaccessibility/kmag/; revision=1152354
+commit 2278a10a069ed436d0167ae3ef099b020e35f663
+Author: Amandeep Singh aman.dedman@gmail.com
+Date:   Wed Sep 26 02:46:22 2012 +0530
+    Allowing KMag to follow both mouse + kbd-focus together
+       -Made the followMouseMode + followFocusMode selectable together.
+       -With just followMouseMode checked, Kmag follows mouse,
+         and with followFocusMode checked, Kmag follows focus.
+       -And when both are selected, it follows both the mouse,
+         and the keyboard focus, whichever is relevant.
+-->
+
+<date
+>2017-07-07</date>
+<releaseinfo
+>1.0 (Applications 17.08)</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>&kmagnifier; is een vergrootglas voor het scherm. U kunt &kmagnifier; gebruiken om een deel van het scherm te vergroten zoals u een lens zou gebruiken om een krant of een foto te vergroten. Dit programma is handig voor veel mensen: van onderzoekers tot grafisch ontwerpers en van web-designers tot mensen met slechte ogen. Dit document zal proberen om een compleet referentie handboek te zijn voor het gebruik van &kmagnifier;. </para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kmag</keyword>
+<keyword
+>K Magnifier</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Inleiding</title>
+
+<para
+>&kmagnifier; is een vergrootglas voor het scherm door de KDE-gemeenschap. Het kan gebruikt worden om een deel van het scherm te vergroten. Dit programma is handig voor verschillende mensen: mensen met slechte ogen kunnen dit programma gebruiken om een deel van het scherm te vergroten dat ze niet goed kunnen zien, grafisch ontwerpers kunnen dit programma gebruiken om tot pixelniveau in te zoomen op afbeeldingen die ze maken, onderzoekers kunnen dit programma gebruiken om in te zoomen op afbeeldingen en ze van dichtbij bekijken. Hiernaast kan &kmagnifier; ook voor andere doelen gebruikt worden. Het is bijvoorbeeld mogelijk om een deel van het scherm als afbeelding op te slaan (waarbij het mogelijk is om eerst in te zoomen). </para>
+<para
+>&kmagnifier; is een krachtige toepassing waar continu functionaliteit aan toegevoegd wordt. Het is geoptimaliseerd voor gebruik op computers met weinig vermogen. </para>
+</chapter>
+
+<chapter id="using-kmag">
+<title
+>&kmagnifier; gebruiken</title>
+
+<screenshot>
+<screeninfo
+>Dit is een schermafdruk van &kmagnifier;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="screenshot.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Schermafdruk van &kmagnifier;</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para
+>Als &kmagnifier; gestart is, ziet u een venster zoals hierboven afgebeeld is. Het hoofdvenster van &kmagnifier; toont het vergrote beeld. Dit venster noemen we het <quote
+>zoomvenster</quote
+>. De vergrote afbeelding die in het zoomvenster getoond wordt, wordt gekopieerd van een deel van het scherm. Het deel van het scherm dat vergroot wordt noemen we het <quote
+>selectievenster</quote
+>. </para>
+<para
+>Standaard vergroot &kmagnifier; de omgeving rond de muisaanwijzer (denk aan een beweegbare lens). U kunt &kmagnifier; ook zo instellen dat er een bepaald gedeelte van het scherm vergroot wordt (<guilabel
+>Selectievenstermodus</guilabel
+>) of het gehele scherm (<guilabel
+>Gehele scherm-modus</guilabel
+>) in het zoomscherm. </para>
+<para
+>Als u de muisaanwijzer liever niet in de vergrote afbeelding ziet, kies dan <guilabel
+>Muisaanwijzer verbergen</guilabel
+>. Houd er rekening mee dat &kmagnifier; nog niet kan bepalen wat de huidige muisaanwijzer is. In plaats daarvan toont het de standaard muisaanwijzer. </para>
+
+<sect1 id="changing-selection-window">
+<title
+>Het deel van het scherm dat vergroot wordt wijzigen</title>
+<para
+>Als <guilabel
+>Selectievenstermodus</guilabel
+> aan staat, kan het zoom- en selectievenster verplaatst worden en in grootte worden aangepast met &LMB; zoals elk venster. Dit kunt u doen door middel van de pijltjestoetsen op het toetsenbord of door op het zoomvenster te klikken: </para>
+
+<variablelist>
+<varlistentry>
+<term
+><keycap
+>Pijltjestoetsen</keycap
+>of &LMB; of &MMB;</term>
+<listitem>
+<para
+>U kunt het selectievenster  verplaatsen door de &LMB; of &MMB; ingedrukt te houden in het zoomvenster en de muis te bewegen. U kunt ook de pijltjestoetsen gebruiken als het selectievenster focus heeft.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><keycombo
+>&Ctrl;<keycap
+>Pijltjestoetsen</keycap
+></keycombo
+> of <keycombo
+>&Ctrl; <mousebutton
+>&LMB;</mousebutton
+></keycombo
+></term>
+<listitem>
+<para
+>Door deze combinatie te gebruiken,kunt u het formaat van het selectievenster wijzigen. Houd er rekening mee dat de linkerbovenhoek van het selectievenster vast staat en dat de rechterbenedenhoek verplaatst kan worden.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="kmag-features">
+<title
+>Meer &kmagnifier;-functies</title>
+
+<para
+>&kmagnifier; heeft veel functies. Het is mogelijk de vergrote afbeelding direct naar een printer te sturen, de afbeelding als een bestand op te slaan, de vergrote afbeelding naar het klembord te kopiëren (om het later in een andere toepassing te plakken), de vergrootte afbeelding te roteren, en meer. </para>
+
+</sect1>
+</chapter>
+
+
+<chapter id="menu-shortcuts"
+> 
+<title
+>Menu's en sneltoetsen</title
+> 
+ 
+<sect1 id="menus"
+> 
+<title
+>Menureferentie</title
+> 
+
+<sect2 id="the-file-menu">
+<title
+>Het menu Bestand</title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bestand</guimenu
+> <guimenuitem
+>Nieuw venster</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Opent een nieuw &kmagnifier;-venster.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bestand</guimenu
+> <guimenuitem
+>Schermafdruk opslaan als...</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Slaat de inhoud van het zoomvenster op naar een afbeelding-bestand.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bestand</guimenu
+> <guimenuitem
+>Afdrukken...</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Stuurt de inhoud van het zoomvenster naar de printer</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bestand</guimenu
+> <guimenuitem
+>Afsluiten</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Sluit de toepassing af</para
+></listitem
+> 
+</varlistentry
+> 
+</variablelist
+> 
+</sect2
+> 
+ 
+<sect2 id="the-edit-menu"
+> 
+<title
+>Het menu Bewerken</title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bewerken</guimenu
+> <guimenuitem
+>Kopiëren</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Kopieert de inhoud van het zoomvenster naar het klembord om het later in een andere toepassing te plakken.</para
+></listitem
+> 
+</varlistentry
+> 
+</variablelist
+> 
+</sect2
+> 
+ 
+<sect2 id="the-view-menu"
+> 
+<title
+>Het menu Beeld</title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F5</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Beeld</guimenu
+> <guimenuitem
+>Starten/Stoppen</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Starten/Stoppen van het verversen van het zoomvenster. Bij het stoppen van het verversen zal het processorgebruik naar nul gaan</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Beeld</guimenu
+> <guimenuitem
+>Zoomen</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Selecteer het zoomniveau.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>-</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Beeld</guimenu
+> <guimenuitem
+>Uitzoomen</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Klik op deze knop om het geselecteerde gebied te verkleinen</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>+</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Beeld</guimenu
+> <guimenuitem
+>Inzoomen</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Klik op deze knop om het geselecteerde gebied te vergroten</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Beeld</guimenu
+> <guimenuitem
+>Rotatie</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Selecteer de manier van roteren (<guimenuitem
+>Geen rotatie (0 Graden)</guimenuitem
+>, <guimenuitem
+>Linksom (90 Graden)</guimenuitem
+>, <guimenuitem
+>Ondersteboven (180 Graden)</guimenuitem
+>, <guimenuitem
+>Rechtsom (270 Graden)</guimenuitem
+>.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Beeld</guimenu
+> <guimenuitem
+>Verversen</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Selecteer de verversingssnelheid (<guimenuitem
+>Zeer langzaam</guimenuitem
+>, <guimenuitem
+>Langzaam</guimenuitem
+>, <guimenuitem
+>Middel</guimenuitem
+>, <guimenuitem
+>Snel</guimenuitem
+>, <guimenuitem
+>Zeer snel</guimenuitem
+>). Een hogere verversingssnelheid vraagt meer rekenkracht.</para
+></listitem>
+</varlistentry>
+
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Beeld</guimenu
+> <guimenuitem
+>Kleuren</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Verschillende afwijkingen in kleuren zien selecteren om kleurenblindheid te simuleren. Dit is niet bedoeld voor mensen met kleurenblindheid, maar goed voor het ontwerpen van toegankelijke interfaces.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+</variablelist>
+</sect2>
+
+<sect2 id="the-settings-menu">
+<title
+>Het menu Instellingen</title>
+
+<variablelist>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F2</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Instellingen</guimenu
+> <guimenuitem
+>Muis volgen-modus</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>In deze modus wordt het gebied rondom de muisaanwijzer in een normaal venster weergegeven</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F3</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Instellingen</guimenu
+> <guimenuitem
+>Selectievenstermodus</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>In deze modes wordt een selectievenster geopend. Het inhoud van het selectievenster wordt in het zoomvenster weergegeven</para
+></listitem>
+</varlistentry>
+
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F4</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Instellingen</guimenu
+> <guimenuitem
+>Gehele scherm-modus</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>In deze modus wordt het gehele scherm vergroot en het zoomvenster.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F6</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Instellingen</guimenu
+> <guimenuitem
+>Muisaanwijzer verbergen</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Toont of verbergt de muisaanwijzer in het vergrote gebied.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F7</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Instellingen</guimenu
+> <guimenuitem
+>Blijft bovenaan</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Het venster van &kmagnifier; blijft boven andere vensters.</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Bovendien heeft &kmagnifier; de gezamenlijke menu-items van &kde; <guimenu
+>Instellingen</guimenu
+> en <guimenu
+>Help</guimenu
+>, voor meer informatie lees de secties over de <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Menu-instellingen</ulink
+> en <ulink url="help:/fundamentals/menus.html#menus-help"
+>Menu Help</ulink
+> van &kde;-fundamentals. </para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="commands">
+<title
+>Commandoreferentie</title>
+
+<para
+>&kmagnifier; gebruikt automatisch al uw standaard sneltoetsen voor bestand opslaan, nieuw venster openen, afdrukken, verversen starten/stoppen (knop opnieuw/laden lossen in &konqueror;, inzoomen, uitzoomen, &etc;</para>
+
+<table>
+<title
+>Standaardsneltoetsen</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Slaat de inhoud van het zoomvenster op naar een bestand.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F2</keycap
+></entry>
+<entry
+><para
+>Schakelt over naar de "Muis volgen-modus".</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F3</keycap
+></entry>
+<entry
+><para
+>Schakelt over naar de "Selectievenstermodus".</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F4</keycap
+></entry>
+<entry
+><para
+>Schakelt over naar de "Gehele scherm-modus".</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F5</keycap
+></entry>
+<entry
+><para
+>Start het verversen van het zoomvenster als het uit staat, of stopt het verversen van het zoomvenster als verversen aan staat.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F6</keycap
+></entry>
+<entry
+><para
+>Toont of verbergt de muisaanwijzer in het vergrote gebied.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F7</keycap
+></entry>
+<entry
+><para
+>Het venster van &kmagnifier; blijft boven andere vensters.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Dit opent een nieuw &kmagnifier;-venster</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Opent het printerdialoogvenster om de inhoud van het zoomvenster af te drukken.</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Kopieert de inhoud van het zoomvenster naar het klembord.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+></entry
+> 
+<entry
+><para
+>Toont/verbergt de menubalk</para
+> 
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>-</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Uitzoomen</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Inzoomen</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry
+> 
+<entry
+><para
+>Sluit de toepassing af</para
+></entry
+> 
+</row>
+</tbody>
+</tgroup>
+
+</table>
+</sect1>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Dankbetuigingen en licentie</title>
+
+<para
+>&kmagnifier; </para>
+<para
+>Programma copyright 2001-2003 Sarang Lakare <email
+>sarang@users.sf.net</email
+> en 2003-2005 Olaf Schmidt <email
+>ojschmidt@kde.org</email
+>.  </para>
+<para
+>Met dank aan: <itemizedlist
+> <listitem
+><para
+>Michael Forster <email
+>forster@fmi.uni-passau.de</email
+> (oorspronkelijke auteur)</para
+></listitem>
+</itemizedlist>
+</para>
+
+
+<para
+>Documentatie copyright 2002 Sarang Lakare <email
+>sarang@users.sf.net</email
+> en 2004-2005 Olaf Schmidt <email
+>ojschmidt@kde.org</email
+> </para>
+
+<para
+>Vertaling Rob La Lau <email
+></email
+></para
+>&nagelezen.rinse;&nagelezen.natalie;<para
+>De vertaling werd nagelezen door Antoon Tolboom</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

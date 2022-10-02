@@ -1,0 +1,110 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Ukrainian "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Інструкція користувача &kmagnifier;</title>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<date
+>7 липня 2017 року</date>
+<productname
+>Програми KDE</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kmag</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kmag</command
+></refname>
+<refpurpose
+>Збільшувач екрана</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis>
+<command
+>kmag</command>
+</cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Опис</title>
+<para
+>Програма <command
+>kmag</command
+>, також відома як &kmagnifier; — це екранне збільшувальне скло. Ви можете скористатися &kmagnifier;, щоб збільшити частину екрана так, як ви використовуєте збільшувальне скло для збільшення газетного друку або фотографії. Ця програма може бути корисною для широкого кола людей: від дослідників і художників, до веброзробників і людей з вадами зору.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Прочитайте також</title>
+
+<simplelist>
+<member
+>Більше інформації можна знайти на <ulink url="help:/kmag"
+>help:/kmag</ulink
+> (або введіть цю адресу &URL; в &konqueror;, або запустіть <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/kmag</parameter
+></userinput
+>).</member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+<member
+>Більше інформації можна знайти на <ulink url="https://accessibility.kde.org"
+>домашній сторінці проєкту доступності &kde;.</ulink
+></member>
+</simplelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Автори</title>
+<para
+>&kmagnifier; написали <personname
+><firstname
+>Olaf</firstname
+><surname
+>Schmidt</surname
+></personname
+> <email
+>ojschmidt@kde.org</email
+> та <personname
+><firstname
+>Sarang</firstname
+><surname
+>Lakare</surname
+></personname
+> <email
+>sarang@users.sf.net</email
+> і <personname
+><firstname
+>Michael</firstname
+><surname
+>Forster</surname
+></personname
+> <email
+>forster@fmi.uni-passau.de</email
+></para>
+</refsect1>
+
+</refentry>

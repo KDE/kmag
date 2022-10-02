@@ -1,0 +1,110 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Catalan  "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Manual d'usuari del &kmagnifier;</title>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<date
+>7 de juliol de 2017</date>
+<productname
+>Aplicacions del KDE</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kmag</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kmag</command
+></refname>
+<refpurpose
+>Ampliador de pantalla</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis>
+<command
+>kmag</command>
+</cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Descripció</title>
+<para
+><command
+>kmag</command
+>, també conegut com a &kmagnifier; és un ampliador de pantalla. Podeu usar &kmagnifier; per a veure ampliada una part de la pantalla usant la lupa per ampliar un diari amb una impressió fina o una fotografia. Aquesta aplicació és pràctica per a una gran varietat de gent: Des d'investigadors fins artistes, des de dissenyadors web fins a gent amb problemes de visió.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Vegeu també</title>
+
+<simplelist>
+<member
+>Hi ha informació més detallada disponible en <ulink url="help:/kmag"
+>help:/kmag</ulink
+> (podeu emprar aquest &URL; al &konqueror; o bé executar <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/kmag</parameter
+></userinput
+>).</member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+<member
+>També hi ha informació disponible a la <ulink url="https://accessibility.kde.org"
+>pàgina principal del projecte d'accessibilitat del &kde;</ulink
+>.</member>
+</simplelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Autors</title>
+<para
+>&kmagnifier; ha estat escrit per <personname
+><firstname
+>Olaf</firstname
+><surname
+>Schmidt</surname
+></personname
+> <email
+>ojschmidt@kde.org</email
+> i <personname
+><firstname
+>Sarang</firstname
+><surname
+>Lakare</surname
+></personname
+> <email
+>sarang@users.sf.net</email
+> i <personname
+><firstname
+>Michael</firstname
+><surname
+>Forster</surname
+></personname
+> <email
+>forster@fmi.uni-passau.de</email
+></para>
+</refsect1>
+
+</refentry>

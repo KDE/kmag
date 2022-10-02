@@ -1,0 +1,898 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Catalan  "INCLUDE"
+><!-- change language only here -->
+]>
+
+<!-- The language must NOT be changed here. -->
+
+<book id="kmag" lang="&language;">
+
+
+<bookinfo>
+<title
+>El manual del &kmagnifier;</title>
+
+<authorgroup>
+<author
+><firstname
+>Sarang</firstname
+> <surname
+>Lakare</surname
+> <affiliation
+> <address
+><email
+>sarang@users.sf.net</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Olaf</firstname
+> <surname
+>Schmidt</surname
+> <affiliation
+> <address
+><email
+>ojschmidt@kde.org</email
+></address>
+</affiliation>
+</author>
+&traductor.Antoni.Bella; 
+</authorgroup>
+
+
+<copyright>
+<year
+>2000</year>
+<year
+>2002</year>
+<holder
+>Sarang Lakare</holder>
+</copyright>
+
+<copyright>
+<year
+>2004</year>
+<year
+>2005</year>
+<holder
+>Olaf Schmidt</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<!--FIXME missing:
+"&Follow Focus Mode" 
+qaccessibilityclient  <https://commits.kde.org/libqaccessibilityclient>
+KDE client-side accessibility library
+Required to enable keyboard focus tracking
+
+commit 035090bca3a3065800c6d9ff1862167170a0e939
+Author: Sebastian Sauer mail@dipe.org
+Date:   Tue Jul 20 20:33:23 2010 +0000
+    Add a new 'Follow Focus' mode to KMag that uses the just new kaccessible QAccessibleBridgePlugin for providing keyboard cursor focus tracking.
+    svn path=/trunk/KDE/kdeaccessibility/kmag/; revision=1152354
+commit 2278a10a069ed436d0167ae3ef099b020e35f663
+Author: Amandeep Singh aman.dedman@gmail.com
+Date:   Wed Sep 26 02:46:22 2012 +0530
+    Allowing KMag to follow both mouse + kbd-focus together
+       -Made the followMouseMode + followFocusMode selectable together.
+       -With just followMouseMode checked, Kmag follows mouse,
+         and with followFocusMode checked, Kmag follows focus.
+       -And when both are selected, it follows both the mouse,
+         and the keyboard focus, whichever is relevant.
+-->
+
+<date
+>7 de juliol de 2017</date>
+<releaseinfo
+>1.0 (Aplicacions 17.08)</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>El &kmagnifier; és una lupa de la pantalla. Això vol dir que, així com utilitzaríeu una lupa per a veure més gran el contingut d'un diari o una foto, podeu utilitzar el &kmagnifier; per a veure ampliat el contingut d'un sector de la pantalla. D'aquesta manera, tant artistes com investigadors o dissenyadors web i persones amb poca visió, podran trobar en el &kmagnifier; un aliat en el seu treball diari. A partir d'aquí, aquest document procurarà ser una completa guia de referència per al seu ús. </para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kmag</keyword>
+<keyword
+>Ampliador K</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introducció</title>
+
+<para
+>El &kmagnifier; és un ampliador de la pantalla creat per la comunitat KDE. És a dir, serveix per ampliar el contingut de la pantalla. Com ja us haureu imaginat, es pot utilitzar de diverses maneres: Gent amb poca visió podrà utilitzar-lo per ampliar una part de la pantalla que no pot veure amb claredat; els artistes el podran utilitzar per ampliar zones dels gràfics que produeixen i verificar-los a escala de píxel; fins i tot, investigadors treballant en el processament d'imatges podran optar per utilitzar-lo per estudiar-les de més a la vora. A més d'això, el &kmagnifier; es pot emprar per a altres finalitats, &pex;, posseeix la característica interessant de poder prendre una porció de la pantalla i desar-la al disc (amb l'opció d'apropar la instantània capturada). </para>
+<para
+>El &kmagnifier; és una aplicació molt poderosa optimitzada per al seu ús en màquines de baixos recursos, i a la que constantment s'afegeixen noves característiques. </para>
+</chapter>
+
+<chapter id="using-kmag">
+<title
+>Usar el &kmagnifier;</title>
+
+<screenshot>
+<screeninfo
+>Una captura de pantalla del &kmagnifier;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="screenshot.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Captura de pantalla del &kmagnifier;</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para
+>Després d'executar el &kmagnifier;, obtindreu una finestra similar a la mostrada a dalt. Aquesta és la finestra principal del &kmagnifier;, la que conté la vista ampliada procedent de la captura d'una àrea de la pantalla. Ens referirem a aquesta finestra com a <quote
+>finestra d'ampliació</quote
+>. Tanmateix, per a referir-nos l'àrea de la pantalla que s'està ampliant, utilitzarem la referència <quote
+>selecció de finestra</quote
+>. </para>
+<para
+>Per omissió, el &kmagnifier; amplia la regió de la pantalla al voltant del cursor del ratolí a la finestra d'ampliació (penseu en ella com una lupa que es mou). De tota manera, és possible indicar al &kmagnifier; quina serà l'àrea de la pantalla que haurà d'ampliar (<guilabel
+>Mode selecció de finestra</guilabel
+>), o tota la pantalla (<guilabel
+>Mode de pantalla completa</guilabel
+>). </para>
+<para
+>Si preferiu que el punter del ratolí no aparegui sobre la imatge ampliada, seleccioneu <guilabel
+>Oculta el cursor del ratolí</guilabel
+>. Si us plau, tingueu present que de moment, el &kmagnifier; no és capaç d'esbrinar quina és la figura del cursor actual. De manera que es limitarà a mostrar el cursor per omissió. </para>
+
+<sect1 id="changing-selection-window">
+<title
+>Canviar l'àrea de la pantalla a ampliar</title>
+<para
+>Mentre estigui en el <guilabel
+>Mode selecció de finestra</guilabel
+>, podreu moure i amidar la finestra d'ampliació i la selecció de finestra amb el &BER; com qualsevol finestra. També és possible fer-ho amb les tecles de cursor en el teclat, o fent clic en la finestra d'ampliació: </para>
+
+<variablelist>
+<varlistentry>
+<term
+><keycap
+>Tecles de cursor</keycap
+>, &BER;, o el &BMR;</term>
+<listitem>
+<para
+>Movent el ratolí mentre manteniu premut el &BER; o el &BMR; en la finestra d'ampliació, podreu moure-la. També es poden usar les tecles de cursor si la pantalla d'ampliació té el focus.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><keycombo
+>&Ctrl;<keycap
+>Tecles de cursor</keycap
+></keycombo
+> o <keycombo
+>&Ctrl;<mousebutton
+>&BER;</mousebutton
+></keycombo
+></term>
+<listitem>
+<para
+>Aquesta combinació, us permet modificar la mida la selecció de finestra. Recordeu que la cantonada superior esquerra de la selecció de finestra romandrà constant, i serà la cantonada inferior dreta (variable) la que usareu per a modificar la mida de la finestra.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="kmag-features">
+<title
+>Més característiques del &kmagnifier;</title>
+
+<para
+>El &kmagnifier; posseeix unes quantes característiques. És possible imprimir la imatge ampliada directament a la impressora, desar la imatge en un fitxer, copiar la imatge ampliada al porta-retalls (que després es pot utilitzar per a enganxar en altres aplicacions), girar la imatge ampliada i més. </para>
+
+</sect1>
+</chapter>
+
+
+<chapter id="menu-shortcuts"
+> 
+<title
+>Menús i dreceres</title
+> 
+ 
+<sect1 id="menus"
+> 
+<title
+>Referència del menú</title
+> 
+
+<sect2 id="the-file-menu">
+<title
+>El menú Fitxer</title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Fitxer</guimenu
+> <guimenuitem
+>Finestra nova</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Obre una finestra nova del &kmagnifier;.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Fitxer</guimenu
+> <guimenuitem
+>Desa la captura de pantalla com a...</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Desa la vista ampliada a un fitxer d'imatge.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Fitxer</guimenu
+> <guimenuitem
+>Imprimeix...</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Imprimeix la vista ampliada actual.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Fitxer</guimenu
+> <guimenuitem
+>Surt</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Surt de l'aplicació</para
+></listitem
+> 
+</varlistentry
+> 
+</variablelist
+> 
+</sect2
+> 
+ 
+<sect2 id="the-edit-menu"
+> 
+<title
+>El menú Edita</title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Edita</guimenu
+> <guimenuitem
+>Copia</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Copia la vista ampliada actual al porta-retalls de manera que podreu enganxar-la en altres aplicacions.</para
+></listitem
+> 
+</varlistentry
+> 
+</variablelist
+> 
+</sect2
+> 
+ 
+<sect2 id="the-view-menu"
+> 
+<title
+>El menú Visualitza</title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F5</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Visualitza</guimenu
+> <guimenuitem
+>Inicia/Atura</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Inicia/atura l'actualització de la pantalla. Aturar l'actualització reduirà a zero les necessitats de processament (ús de la CPU)</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Visualitza</guimenu
+> <guimenuitem
+>Ampliació</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Selecciona el factor d'apropament.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>-</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Visualitza</guimenu
+> <guimenuitem
+>Allunya</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Fer clic sobre aquest botó per allunyar la zona seleccionada.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>+</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Visualitza</guimenu
+> <guimenuitem
+>Apropa</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Fer clic sobre aquest botó per apropar la zona seleccionada.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Visualitza</guimenu
+> <guimenuitem
+>Gir</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Selecciona el grau de gir (<guimenuitem
+>Sense gir (0°)</guimenuitem
+>, <guimenuitem
+>Esquerra (90°)</guimenuitem
+>, <guimenuitem
+>Dalt a baix (180°)</guimenuitem
+>, <guimenuitem
+>Dreta (270°)</guimenuitem
+>).</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Visualitza</guimenu
+> <guimenuitem
+>Actualitza</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Selecciona la freqüència d'actualització (<guimenuitem
+>Molt baix</guimenuitem
+>, <guimenuitem
+>Baix</guimenuitem
+>, <guimenuitem
+>Mitjà</guimenuitem
+>, <guimenuitem
+>Alt</guimenuitem
+>, <guimenuitem
+>Molt alt</guimenuitem
+>). La freqüència més alta, serà la que més capacitat de computació (CPU) necessitarà.</para
+></listitem>
+</varlistentry>
+
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Visualitza</guimenu
+> <guisubmenu
+>Colors</guisubmenu
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Seleccioneu deficiències de visió de color diferents per a simular ceguesa de colors. Això no és útil per a persones amb ceguesa de color, sinó que ho és per a dissenyar interfícies accessibles.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+</variablelist>
+</sect2>
+
+<sect2 id="the-settings-menu">
+<title
+>El menú Arranjament</title>
+
+<variablelist>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F2</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Arranjament</guimenu
+> <guimenuitem
+>Mode segueix al ratolí</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>En aquest mode l'àrea al voltant del cursor del ratolí es mostrarà en una finestra normal.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F3</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Arranjament</guimenu
+> <guimenuitem
+>Mode selecció de finestra</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>En aquest mode s'obre una selecció de finestra. L'àrea seleccionada es mostra en una finestra normal.</para
+></listitem>
+</varlistentry>
+
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F4</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Arranjament</guimenu
+> <guimenuitem
+>Mode de pantalla completa</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>En aquest mode tota la pantalla s'amplia a la finestra d'ampliació.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F6</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Arranjament</guimenu
+> <guimenuitem
+>Oculta el cursor del ratolí</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Mostra o oculta el cursor del ratolí en la imatge ampliada.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F7</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Arranjament</guimenu
+> <guimenuitem
+>Està per sobre</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>La finestra del &kmagnifier; està per sobre de les altres finestres.</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>De manera addicional, el &kmagnifier; té la configuració comuna al &kde; i els elements dels menús <guimenu
+>Arranjament</guimenu
+> i <guimenu
+>Ajuda</guimenu
+>. Per a obtenir més informació, llegiu les seccions sobre <ulink url="help:/fundamentals/menus.html#menus-settings"
+>El menú Arranjament</ulink
+> i <ulink url="help:/fundamentals/menus.html#menus-help"
+>El menú Ajuda</ulink
+> en els Fonaments del &kde;. </para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="commands">
+<title
+>Referència d'ordres</title>
+
+<para
+>El &kmagnifier; utilitza automàticament totes les dreceres de teclat per omissió per a desar fitxers, obrir una finestra nova, imprimir, iniciar o aturar l'actualització de la finestra (botó recarrega al &konqueror;), apropar o allunyar la imatge, &etc;</para>
+
+<table>
+<title
+>Dreceres de teclat per omissió</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Desa a un fitxer el contingut de la finestra d'ampliació.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F2</keycap
+></entry>
+<entry
+><para
+>Canvia al «Mode segueix al ratolí».</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F3</keycap
+></entry>
+<entry
+><para
+>Canvia al «Mode selecció de finestra».</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F4</keycap
+></entry>
+<entry
+><para
+>Canvia al «Mode de pantalla completa».</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F5</keycap
+></entry>
+<entry
+><para
+>Quan comenci l'actualització de la finestra d'ampliació aquest s'aturarà. Tot i que si l'actualització d'aquesta ja és en curs, l'efecte serà invers i aturarà l'acció d'actualització.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F6</keycap
+></entry>
+<entry
+><para
+>Mostra o oculta el cursor del ratolí en la imatge ampliada.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F7</keycap
+></entry>
+<entry
+><para
+>La finestra del &kmagnifier; està per sobre de les altres finestres.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Això obrirà una finestra nova del &kmagnifier;.</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Aquesta combinació obrirà el diàleg d'impressió dels continguts de la finestra d'ampliació.</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Aquesta combinació copiarà el contingut de la finestra d'ampliació al porta-retalls.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+></entry
+> 
+<entry
+><para
+>Mostra/oculta la barra de menús.</para
+> 
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>-</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Redueix</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Amplia</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry
+> 
+<entry
+><para
+>Surt de l'aplicació.</para
+></entry
+> 
+</row>
+</tbody>
+</tgroup>
+
+</table>
+</sect1>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Crèdits i llicència</title>
+
+<para
+>&kmagnifier; </para>
+<para
+>Copyright del programa 2001-2003 Sarang Lakare <email
+>sarang@users.sf.net</email
+> i 2003-2005 Olaf Schmidt <email
+>ojschmidt@kde.org</email
+>. </para>
+<para
+>Col·laboradors: <itemizedlist
+> <listitem
+><para
+>Michael Forster <email
+>forster@fmi.uni-passau.de</email
+> (autor original)</para
+></listitem>
+</itemizedlist>
+</para>
+
+
+<para
+>Copyright de la Documentació 2002 Sarang Lakare <email
+>sarang@users.sf.net</email
+> i 2004-2005 Olaf Schmidt <email
+>ojschmidt@kde.org</email
+> </para>
+
+<para
+>Traductor de la documentació: &credits.Antoni.Bella;</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

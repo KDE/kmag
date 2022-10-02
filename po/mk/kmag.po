@@ -1,0 +1,678 @@
+# Copyright (C) 2006, 2007 Free Software Foundation, Inc.
+# translation of kmag.po to Macedonian
+#
+# Arangel Angov <ufo@linux.net.mk>, 2006.
+# Bozidar Proevski <bobibobi@freemail.com.mk>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: kmag\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:38+0000\n"
+"PO-Revision-Date: 2006-07-16 08:42+0200\n"
+"Last-Translator: Bozidar Proevski <bobibobi@freemail.com.mk>\n"
+"Language-Team: Macedonian <mkde-l10n@lists.sourceforge.net>\n"
+"Language: mk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.2\n"
+"Plural-Forms: Plural-Forms: nplurals=3; plural=n%10==1 ? 0 : n%10==2 ? 1 : "
+"2;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Арангел Ангов"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "ufo@linux.net.mk"
+
+#: kmag.cpp:69
+#, fuzzy, kde-format
+#| msgid "&Very Low"
+msgctxt "Zoom at very low"
+msgid "&Very Low"
+msgstr "&Многу ниско"
+
+#: kmag.cpp:69
+#, fuzzy, kde-format
+#| msgid "&Low"
+msgctxt "Zoom at low"
+msgid "&Low"
+msgstr "&Ниско"
+
+#: kmag.cpp:69
+#, fuzzy, kde-format
+#| msgid "&Medium"
+msgctxt "Zoom at medium"
+msgid "&Medium"
+msgstr "&Средно"
+
+#: kmag.cpp:69
+#, fuzzy, kde-format
+#| msgid "&High"
+msgctxt "Zoom at high"
+msgid "&High"
+msgstr "&Високо"
+
+#: kmag.cpp:69
+#, fuzzy, kde-format
+#| msgid "V&ery High"
+msgctxt "Zoom at very high"
+msgid "V&ery High"
+msgstr "М&ногу високо"
+
+#: kmag.cpp:77
+#, kde-format
+msgctxt "No color-blindness simulation, i.e. 'normal' vision"
+msgid "&Normal"
+msgstr ""
+
+#: kmag.cpp:77
+#, kde-format
+msgid "&Protanopia"
+msgstr ""
+
+#: kmag.cpp:77
+#, kde-format
+msgid "&Deuteranopia"
+msgstr ""
+
+#: kmag.cpp:77
+#, kde-format
+msgid "&Tritanopia"
+msgstr ""
+
+#: kmag.cpp:77
+#, kde-format
+msgid "&Achromatopsia"
+msgstr ""
+
+#: kmag.cpp:85
+#, kde-format
+msgid "&No Rotation (0 Degrees)"
+msgstr "&Без ротација (0 степени)"
+
+#: kmag.cpp:85
+#, kde-format
+msgid "&Left (90 Degrees)"
+msgstr "&Лево (90 степени)"
+
+#: kmag.cpp:85
+#, fuzzy, kde-format
+msgid "&Upside Down (180 Degrees)"
+msgstr "&Наопаку (180 степени)"
+
+#: kmag.cpp:85
+#, kde-format
+msgid "&Right (270 Degrees)"
+msgstr "&Десно (270 степени)"
+
+#: kmag.cpp:117
+#, kde-format
+msgid "New &Window"
+msgstr "Нов про&зорец"
+
+#: kmag.cpp:120
+#, kde-format
+msgid "Open a new KMagnifier window"
+msgstr "Отвора нов прозорец за KMagnifier"
+
+#: kmag.cpp:124
+#, kde-format
+msgid "&Stop"
+msgstr "&Запри"
+
+#: kmag.cpp:127
+#, kde-format
+msgid "Click to stop window refresh"
+msgstr "Кликнете за да го запрете освежувањето на прозорецот"
+
+#: kmag.cpp:128
+#, fuzzy, kde-format
+#| msgid ""
+#| "Clicking on this icon will <b>start</b> / <b>stop</b>  updating of the "
+#| "display. Stopping the update will zero the processing power  required "
+#| "(CPU usage)"
+msgid ""
+"Clicking on this icon will <b>start</b> / <b>stop</b> updating of the "
+"display. Stopping the update will zero the processing power required (CPU "
+"usage)"
+msgstr ""
+"Кликнувањето врз оваа икона ќе го <b>пушти</b> / <b>запре</b> ажурирањето на "
+"приказот. Запирањето на ажурирањето ќе ја намали потребната процесирачка моќ "
+"(употребата на процесорот)"
+
+#: kmag.cpp:134
+#, kde-format
+msgid "&Save Snapshot As..."
+msgstr "&Зачувај слика од екранот како..."
+
+#: kmag.cpp:137
+#, kde-format
+msgid "Saves the zoomed view to an image file."
+msgstr "Го зачувува зголемениот поглед во слика."
+
+#: kmag.cpp:138
+#, kde-format
+msgid "Save image to a file"
+msgstr "Зачувува слика во датотека"
+
+#: kmag.cpp:141
+#, kde-format
+msgid "Click on this button to print the current zoomed view."
+msgstr "Кликнете на ова копче за го испечатите тековниот зголемен поглед."
+
+#: kmag.cpp:144 kmag.cpp:145
+#, kde-format
+msgid "Quits the application"
+msgstr "Ја напушта апликацијата"
+
+#: kmag.cpp:148
+#, kde-format
+msgid ""
+"Click on this button to copy the current zoomed view to the clipboard which "
+"you can paste in other applications."
+msgstr ""
+"Кликнете на ова копче за да го ископирате тековниот зголемен поглед на "
+"таблата со исечоци од каде може да го вметнете во други апликации."
+
+#: kmag.cpp:149
+#, kde-format
+msgid "Copy zoomed image to clipboard"
+msgstr "Ја копира зголемената слика на таблата со исечоци"
+
+#: kmag.cpp:155
+#, kde-format
+msgid "&Follow Mouse Mode"
+msgstr "Режим „&Следи го глушецот“"
+
+#: kmag.cpp:159
+#, kde-format
+msgid "Mouse"
+msgstr ""
+
+#: kmag.cpp:160
+#, fuzzy, kde-format
+msgid "Magnify around the mouse cursor"
+msgstr "Го скрива покажувачот на глушецот"
+
+#: kmag.cpp:161
+#, fuzzy, kde-format
+msgid "If selected, the area around the mouse cursor is magnified"
+msgstr ""
+"Во овој режим областа околу покажувачот на глушецот е прикажана во "
+"нормалниот прозорец."
+
+#: kmag.cpp:165
+#, fuzzy, kde-format
+#| msgid "&Follow Mouse Mode"
+msgid "&Follow Focus Mode"
+msgstr "Режим „&Следи го глушецот“"
+
+#: kmag.cpp:169
+#, kde-format
+msgid "Focus"
+msgstr ""
+
+#: kmag.cpp:170
+#, fuzzy, kde-format
+msgid "Magnify around the keyboard focus"
+msgstr "Го скрива покажувачот на глушецот"
+
+#: kmag.cpp:171
+#, fuzzy, kde-format
+msgid "If selected, the area around the keyboard cursor is magnified"
+msgstr ""
+"Во овој режим областа околу покажувачот на глушецот е прикажана во "
+"нормалниот прозорец."
+
+#: kmag.cpp:175
+#, fuzzy, kde-format
+msgid "Se&lection Window Mode"
+msgstr "Режим „Прозорец со и&збор“"
+
+#: kmag.cpp:179
+#, fuzzy, kde-format
+#| msgid "New &Window"
+msgid "Window"
+msgstr "Нов про&зорец"
+
+#: kmag.cpp:180
+#, kde-format
+msgid "Show a window for selecting the magnified area"
+msgstr ""
+
+#: kmag.cpp:182
+#, fuzzy, kde-format
+msgid "&Whole Screen Mode"
+msgstr "Режим „&Горен раб на екранот“"
+
+#: kmag.cpp:186
+#, kde-format
+msgid "Screen"
+msgstr ""
+
+#: kmag.cpp:187
+#, fuzzy, kde-format
+msgid "Magnify the whole screen"
+msgstr "Ја зголемува областа околу глушецот во левиот раб на екранот"
+
+#: kmag.cpp:188
+#, fuzzy, kde-format
+msgid "Click on this button to fit the zoom view to the zoom window."
+msgstr "Кликнете на ова копче за го испечатите тековниот зголемен поглед."
+
+#: kmag.cpp:190
+#, kde-format
+msgid "Hide Mouse &Cursor"
+msgstr "Скриј покажувач на &глушецот"
+
+#: kmag.cpp:195
+#, kde-format
+msgid "Show Mouse &Cursor"
+msgstr "Прикажи покажувач на &глушецот"
+
+#: kmag.cpp:197
+#, kde-format
+msgid "Hide"
+msgstr ""
+
+#: kmag.cpp:198
+#, kde-format
+msgid "Hide the mouse cursor"
+msgstr "Го скрива покажувачот на глушецот"
+
+#: kmag.cpp:200
+#, kde-format
+msgid "Stays On Top"
+msgstr ""
+
+#: kmag.cpp:204
+#, kde-format
+msgid "The KMagnifier Window stays on top of other windows."
+msgstr ""
+
+#: kmag.cpp:207
+#, kde-format
+msgid "Click on this button to <b>zoom-in</b> on the selected region."
+msgstr "Кликнете на ова копче за да го <b>зголемите</b> избраниот регион."
+
+#: kmag.cpp:209
+#, kde-format
+msgid "&Zoom"
+msgstr ""
+
+#: kmag.cpp:212
+#, kde-format
+msgid "Select the zoom factor."
+msgstr "Изберете го факторот на зголемување."
+
+#: kmag.cpp:213
+#, kde-format
+msgid "Zoom factor"
+msgstr "Фактор на зголемување"
+
+#: kmag.cpp:216
+#, kde-format
+msgid "Click on this button to <b>zoom-out</b> on the selected region."
+msgstr "Кликнете на ова копче за да го <b>намалите</b> избраниот регион."
+
+#: kmag.cpp:218
+#, kde-format
+msgid "&Rotation"
+msgstr "&Ротација"
+
+#: kmag.cpp:221
+#, kde-format
+msgid "Select the rotation degree."
+msgstr "Изберете го степенот на ротација."
+
+#: kmag.cpp:222
+#, kde-format
+msgid "Rotation degree"
+msgstr "Степен на ротација"
+
+#: kmag.cpp:227
+#, fuzzy, kde-format
+msgid "&Refresh"
+msgstr "Ос&вежи"
+
+#: kmag.cpp:230
+#, kde-format
+msgid ""
+"Select the refresh rate. The higher the rate, the more computing power (CPU) "
+"will be needed."
+msgstr ""
+"Изберете ја брзината на освежување. Колку е поголема брзината толку повеќе "
+"процесорска моќ ќе биде потребна."
+
+#: kmag.cpp:231
+#, kde-format
+msgid "Refresh rate"
+msgstr "Брзина на освежување"
+
+#: kmag.cpp:233
+#, fuzzy, kde-format
+#| msgid "&Invert Colors"
+msgctxt "Color-blindness simulation mode"
+msgid "&Color"
+msgstr "&Инвертирај бои"
+
+#: kmag.cpp:236
+#, kde-format
+msgid "Select a mode to simulate various types of color-blindness."
+msgstr ""
+
+#: kmag.cpp:237
+#, kde-format
+msgid "Color-blindness Simulation Mode"
+msgstr ""
+
+#: kmag.cpp:569
+#, kde-format
+msgid "Save Snapshot As"
+msgstr "Зачувување слика од екранот како"
+
+#: kmag.cpp:583
+#, kde-format
+msgid ""
+"Unable to save temporary file (before uploading to the network file you "
+"specified)."
+msgstr ""
+"Не можам да ја зачувам привремената датотека (пред да ја качам на местото на "
+"мрежната датотека што ја одредивте)."
+
+#: kmag.cpp:584 kmag.cpp:589 kmag.cpp:599
+#, kde-format
+msgid "Error Writing File"
+msgstr "Грешка при запишување на датотеката"
+
+#: kmag.cpp:588
+#, kde-format
+msgid "Unable to upload file over the network."
+msgstr "Не можам да качам датотека на мрежата."
+
+#: kmag.cpp:591 kmag.cpp:601
+#, kde-format
+msgid ""
+"Current zoomed image saved to\n"
+"%1"
+msgstr ""
+"Тековната зголемена слика е зачувана во\n"
+"%1"
+
+#: kmag.cpp:592 kmag.cpp:602
+#, fuzzy, kde-format
+msgid "Information"
+msgstr "&Ротација"
+
+#: kmag.cpp:598
+#, kde-format
+msgid ""
+"Unable to save file. Please check if you have permission to write to the "
+"directory."
+msgstr ""
+"Не можам да ја зачувам датотеката. Проверете дали имате дозвола да "
+"запишувате во папката."
+
+#: kmag.cpp:617
+#, fuzzy, kde-format
+msgid "Stop"
+msgstr "&Запри"
+
+#: kmag.cpp:618
+#, kde-format
+msgid "Click to stop window update"
+msgstr "Кликнете да го запрете ажурирањето на прозорецот"
+
+#: kmag.cpp:621
+#, fuzzy, kde-format
+#| msgid "Start"
+msgctxt "Start updating the window"
+msgid "Start"
+msgstr "Пушти"
+
+#: kmag.cpp:622
+#, kde-format
+msgid "Click to start window update"
+msgstr "Кликнете за да го пуштите ажурирањето на прозорецот"
+
+#: kmagselrect.cpp:213
+#, kde-format
+msgid "Selection Window"
+msgstr "Прозорец за избирање"
+
+#: kmagselrect.cpp:213 main.cpp:39
+#, kde-format
+msgid "KMagnifier"
+msgstr "KMagnifier"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kmagui.rc:3
+#, fuzzy, kde-format
+#| msgid "Show Main &Toolbar"
+msgid "Main Toolbar"
+msgstr "Прикажи главен ала&тник"
+
+#. i18n: ectx: ToolBar (viewToolBar)
+#: kmagui.rc:6
+#, fuzzy, kde-format
+#| msgid "Show &View Toolbar"
+msgid "View Toolbar"
+msgstr "Прикажи алатник за пр&иказ"
+
+#. i18n: ectx: ToolBar (settingsToolBar)
+#: kmagui.rc:16
+#, fuzzy, kde-format
+#| msgid "Show &Settings Toolbar"
+msgid "Settings Toolbar"
+msgstr "Прикажи алатник за по&ставувања"
+
+#. i18n: ectx: Menu (file)
+#: kmagui.rc:25
+#, kde-format
+msgid "&File"
+msgstr ""
+
+#. i18n: ectx: Menu (edit)
+#: kmagui.rc:32
+#, kde-format
+msgid "&Edit"
+msgstr ""
+
+#. i18n: ectx: Menu (view)
+#: kmagui.rc:35 kmagui.rc:73
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: Menu (settings)
+#: kmagui.rc:47 kmagui.rc:83
+#, fuzzy, kde-format
+#| msgid "Show &Settings Toolbar"
+msgid "&Settings"
+msgstr "Прикажи алатник за по&ставувања"
+
+#: kmagzoomview.cpp:125
+#, kde-format
+msgid ""
+"This is the main window which shows the contents of the selected region. The "
+"contents will be magnified according to the zoom level that is set."
+msgstr ""
+"Ова е главниот прозорец што ја прикажува содржината на избраниот регион. "
+"Содржината ќе биде зголемена според поставеното ниво на зголемување."
+
+#: main.cpp:40
+#, fuzzy, kde-format
+#| msgid "Screen magnifier for the K Desktop Environment (KDE)"
+msgid "Screen magnifier created by KDE"
+msgstr "Зголемувач на екранот за работната околина K (KDE)"
+
+#: main.cpp:42
+#, kde-format
+msgid ""
+"Copyright 2001-2003 Sarang Lakare\n"
+"Copyright 2003-2004 Olaf Schmidt\n"
+"Copyright 2008 Matthew Woehlke"
+msgstr ""
+
+#: main.cpp:46
+#, kde-format
+msgid "Sarang Lakare"
+msgstr ""
+
+#: main.cpp:47
+#, kde-format
+msgid "Rewrite"
+msgstr ""
+
+#: main.cpp:48
+#, kde-format
+msgid "Michael Forster"
+msgstr ""
+
+#: main.cpp:49
+#, kde-format
+msgid "Original idea and author (KDE1)"
+msgstr "Оригинална идеја и автор (KDE1)"
+
+#: main.cpp:50
+#, kde-format
+msgid "Olaf Schmidt"
+msgstr ""
+
+#: main.cpp:50
+#, fuzzy, kde-format
+msgid ""
+"Rework of the user interface, improved selection window, speed optimization, "
+"rotation, bug fixes"
+msgstr ""
+"Преработка на корисничкиот интерфејс, подобрено избирање прозорци, "
+"оптимизација за забрзување, ротација и поправени грешки"
+
+#: main.cpp:51
+#, kde-format
+msgid "Matthew Woehlke"
+msgstr ""
+
+#: main.cpp:51
+#, kde-format
+msgid "Color-blindness simulation"
+msgstr ""
+
+#: main.cpp:52
+#, kde-format
+msgid "Sebastian Sauer"
+msgstr ""
+
+#: main.cpp:52
+#, kde-format
+msgid "Focus tracking"
+msgstr ""
+
+#: main.cpp:53
+#, kde-format
+msgid "Claudiu Costin"
+msgstr ""
+
+#: main.cpp:53
+#, kde-format
+msgid "Some tips"
+msgstr "Неколку совети"
+
+#~ msgid "File to open"
+#~ msgstr "Датотека за отворање"
+
+#~ msgid "Show &Menu"
+#~ msgstr "Прикажи &мени"
+
+#~ msgid "Hide &Menu"
+#~ msgstr "Скриј &мени"
+
+#~ msgid "Hide Main &Toolbar"
+#~ msgstr "Скриј главен ала&тник"
+
+#~ msgid "Hide &View Toolbar"
+#~ msgstr "Скриј алатник за пр&иказ"
+
+#~ msgid "Hide &Settings Toolbar"
+#~ msgstr "Скриј алатник за по&ставувања"
+
+#~ msgid "Rewrite and current maintainer"
+#~ msgstr "Тековен оддржувач и препис на програмата од почеток"
+
+#~ msgid "Magnify mouse area into window"
+#~ msgstr "Ја зголемува областа околу глувчето во прозорецот"
+
+#~ msgid "Magnify selected area into window"
+#~ msgstr "Ја зголемува избраната област во прозорецот"
+
+#~ msgid ""
+#~ "In this mode a selection window is opened. The selected area is shown in "
+#~ "a normal window."
+#~ msgstr ""
+#~ "Во овој режим се отвора прозорец за избирање. Избраната област ќе биде "
+#~ "прикажана во нормалниот прозорец."
+
+#~ msgid "Magnify mouse area to top screen edge"
+#~ msgstr "Ја зголемува областа околу глушецот во горниот раб на екранот"
+
+#~ msgid ""
+#~ "In this mode the area around the mouse is magnified to the top screen "
+#~ "edge."
+#~ msgstr ""
+#~ "Во овој режим областа околу глушецот е зголемена во горниот раб на "
+#~ "екранот."
+
+#~ msgid "&Left Screen Edge Mode"
+#~ msgstr "Режим „&Лев раб на екранот“"
+
+#~ msgid ""
+#~ "In this mode the area around the mouse is magnified to the left screen "
+#~ "edge."
+#~ msgstr ""
+#~ "Во овој режим областа околу глушецот е зголемена во левиот раб на екранот."
+
+#~ msgid "&Right Screen Edge Mode"
+#~ msgstr "Режим „&Десен раб на екранот“"
+
+#~ msgid "Magnify mouse area to right screen edge"
+#~ msgstr "Ја зголемува областа околу глушецот во десниот раб на екранот"
+
+#~ msgid ""
+#~ "In this mode the area around the mouse is magnified to the right screen "
+#~ "edge."
+#~ msgstr ""
+#~ "Во овој режим областа околу глушецот е зголемена во десниот раб на "
+#~ "екранот."
+
+#~ msgid "&Bottom Screen Edge Mode"
+#~ msgstr "Режим „Д&олен раб на екранот“"
+
+#~ msgid "Magnify mouse area to bottom screen edge"
+#~ msgstr "Ја зголемува областа околу глушецот во долниот раб на екранот"
+
+#~ msgid ""
+#~ "In this mode the area around the mouse is magnified to the bottom screen "
+#~ "edge."
+#~ msgstr ""
+#~ "Во овој режим областа околу глушецот е зголемена во долниот раб на "
+#~ "екранот."
+
+#~ msgid "Magnify to Screen Edge - Select Size"
+#~ msgstr "Изберете големина - Зголемување во раб на екранот"
+
+#~ msgid "Size:"
+#~ msgstr "Големина:"
+
+#~ msgid "Magnify to Left Screen Edge - Select Size"
+#~ msgstr "Изберете големина - Зголемување во левиот раб на екранот"
+
+#~ msgid "Magnify to Right Screen Edge - Select Size"
+#~ msgstr "Изберете големина - Зголемување во десниот раб на екранот"
+
+#~ msgid "Magnify to Bottom Screen Edge - Select Size"
+#~ msgstr "Изберете големина - Зголемување во долниот раб на екранот"

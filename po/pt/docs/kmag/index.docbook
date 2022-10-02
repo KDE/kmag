@@ -1,0 +1,1002 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kmag "<application
+>KMagnifier</application
+>">
+  <!ENTITY kappname "&kmag;">
+  <!ENTITY package "kdeaccessibility">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Portuguese "INCLUDE"
+><!-- change language only here -->
+]>
+
+<!-- The language must NOT be changed here. -->
+
+<book id="kmag" lang="&language;">
+
+
+<bookinfo>
+<title
+>O Manual do &kmag;</title>
+
+<authorgroup>
+<author
+><firstname
+>Sarang</firstname
+> <surname
+>Lakare</surname
+> <affiliation
+> <address
+><email
+>sarang@users.sf.net</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Olaf</firstname
+> <surname
+>Schmidt</surname
+> <affiliation
+> <address
+><email
+>ojschmidt@kde.org</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Pedro</firstname
+><surname
+>Morais</surname
+><affiliation
+><address
+><email
+>morais@kde.org</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+
+<copyright>
+<year
+>2000</year>
+<year
+>2002</year>
+<holder
+>Sarang Lakare</holder>
+</copyright>
+
+<copyright>
+<year
+>2004</year>
+<year
+>2005</year>
+<holder
+>Olaf Schmidt</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+
+
+<date
+>2010-09-15</date>
+<releaseinfo
+>1.0 &kde; 4.5</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>O &kmag; é uma lupa do ecrã. Você pode usar o &kmag; para ampliar uma parte do ecrã tal como utilizaria uma lenta para ampliar as letras pequenas de um jornal ou de uma fotografia. Esta aplicação é útil para várias pessoas: desde os investigadores até aos artistas, passando pelos desenhadores Web ou pelas pessoas com visão fraca. Este documento tentará ser um manual de referência completo para usar o &kmag;. </para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kmag</keyword>
+<keyword
+>Lupa do KDE</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introdução</title>
+
+<para
+>O &kmag; é um ampliador do ecrã para o Ambiente de Trabalho K (&kde;). ele poderá ser usado para ampliar uma parte do ecrã. Esta aplicação pode ser útil para várias pessoas: as pessoas com visão fraca podem usar esta aplicação para ampliar uma parte do ecrã que elas não consigam ver bem, os artistas poderão usar esta aplicação para ampliar as imagens que eles produzirem e verificá-la ao nível do ponto, os investigadores de processamento de imagens, podem usar esta aplicação para ampliar as imagens e analisá-las mais de perto. Para além destes casos, &eg; é possível usar a aplicação para captar uma parte do ecrã e gravá-la no disco (com a opção de ampliar o ecrã capturado). </para>
+<para
+>O &kmag; é uma aplicação muito poderosa com novas funcionalidades a serem adicionadas durante todo o tempo. É optimizada para poder ser usada em máquinas com pouca capacidade de processamento. </para>
+</chapter>
+
+<chapter id="using-kmag">
+<title
+>Utilização do &kmag;</title>
+
+<screenshot>
+<screeninfo
+>Aqui está uma imagem do &kmag;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="screenshot.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Imagem do &kmag;</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para
+>Depois de correr o &kmag;, você irá obter uma janela semelhante à que é mostrada em cima. A janela principal do &kmag; mostra o conteúdo ampliado (ou reduzido). Esta janela será referida como a <quote
+>janela de ampliação</quote
+>. A imagem ampliada mostrada dentro desta janela é capturada como sendo uma parte do ecrã. A parte do ecrã que é ampliada é denominada como sendo a <quote
+>janela da selecção</quote
+>. </para>
+<para
+>Por omissão, o &kmag; amplia a região à volta do cursor do rato (pense nele como uma lente em movimento). Em alternativa, você poderá pedir ao &kmag; para ampliar uma área escolhida do ecrã (<guilabel
+>Modo da Janela de Selecção</guilabel
+>) ou o ecrã inteiro (<guilabel
+>Modo de Ecrã Completo</guilabel
+>) na janela de ampliação. </para>
+<para
+>Se você optar por não ver o cursor do rato na imagem ampliada, seleccione a opção <guilabel
+>Esconder o Cursor do Rato</guilabel
+>. Lembre-se que o &kmag; não pode ainda encontrar a forma actual do cursor. Como tal, mostra o cursor predefinido do &kde;/&Qt;. </para>
+
+<sect1 id="changing-selection-window">
+<title
+>Mudar a parte do ecrã a ser ampliada</title>
+<para
+>Quando estiver no <guilabel
+>Modo da Janela de Selecção</guilabel
+>, a janela de selecção poderá ser movida e dimensionada com o &LMB;, como se fosse uma janela qualquer. Você poderá também alterar a posição e o tamanho da janela de selecção com as teclas de cursores no teclado ou carregando na janela de ampliação: </para>
+
+<variablelist>
+<varlistentry>
+<term
+><keycap
+>Teclas de cursores</keycap
+>, &LMB; ou &MMB;</term>
+<listitem>
+<para
+>Ao manter o &LMB; ou o &MMB; carregado e movendo o rato, você poderá capturar e arrastar o conteúdo da janela de ampliação. Poderá usar também as teclas dos cursores.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><keycombo
+>&Ctrl;<keycap
+>Cursores</keycap
+></keycombo
+> ou <keycombo
+>&Ctrl;<mousebutton
+>&LMB;</mousebutton
+></keycombo
+></term>
+<listitem>
+<para
+>Ao usar esta combinação, você poderá dimensionar a janela da selecção. Tenha em atenção que o canto superior esquerdo da janela de selecção é mantido constante e o canto inferior direito é movido.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="kmag-features">
+<title
+>Mais funcionalidades do &kmag;</title>
+
+<para
+>O &kmag; vem com montes de funcionalidades. É possível imprimir a imagem ampliada directamente numa impressora, gravar a imagem num ficheiro, copiar a imagem ampliada para a área de transferência (a qual poderá ser usada posteriormente noutras aplicações), rodar a imagem da ampliação, entre outras coisas. </para>
+
+</sect1>
+</chapter>
+
+
+<chapter id="menu-shortcuts"
+> 
+<title
+>Menus e Atalhos</title
+> 
+ 
+<sect1 id="menus"
+> 
+<title
+>Referência do Menu</title
+> 
+
+<sect2 id="the-file-menu">
+<title
+>O Menu <guimenu
+>Ficheiro</guimenu
+></title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Ficheiro</guimenu
+> <guimenuitem
+>Nova Janela</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Abre uma janela nova do &kmag;.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Ficheiro</guimenu
+> <guimenuitem
+>Gravar a Imagem Como...</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Grava a imagem ampliada para um ficheiro.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Ficheiro</guimenu
+> <guimenuitem
+>Imprimir...</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Imprime a área ampliada no momento.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Ficheiro</guimenu
+> <guimenuitem
+>Sair</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Sai da aplicação</para
+></listitem
+> 
+</varlistentry
+> 
+</variablelist
+> 
+</sect2
+> 
+ 
+<sect2 id="the-edit-menu"
+> 
+<title
+>O Menu <guimenu
+>Editar</guimenu
+></title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Editar</guimenu
+> <guimenuitem
+>Copiar</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Copia a área ampliada de momento para a área de transferência, a qual poderá ser colada noutras aplicações.</para
+></listitem
+> 
+</varlistentry
+> 
+</variablelist
+> 
+</sect2
+> 
+ 
+<sect2 id="the-view-menu"
+> 
+<title
+>O Menu <guimenu
+>Ver</guimenu
+></title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F5</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Ver</guimenu
+> <guimenuitem
+>Iniciar/Parar</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Inicia/pára a actualização da área visualizada. A interrupção da actualização irá reduzir a zero o poder de processamento necessário (utilização de CPU)</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Ver</guimenu
+> <guimenuitem
+>Ampliação</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Seleccione o factor de aplicação.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>-</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Ver</guimenu
+> <guimenuitem
+>Reduzir</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Carregue neste botão para reduzir a região seleccionado.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>+</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Ver</guimenu
+> <guimenuitem
+>Ampliar</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Carregue neste botão para ampliar a região seleccionada.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Ver</guimenu
+> <guimenuitem
+>Rotação</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Seleccione o ângulo de rotação (<guimenuitem
+>Sem Rotação (0 Graus)</guimenuitem
+>, <guimenuitem
+>Esquerda (90 Graus)</guimenuitem
+>, <guimenuitem
+>De Cima para Baixo (180 Graus)</guimenuitem
+>, <guimenuitem
+>Direita (270 Graus)</guimenuitem
+>.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ver</guimenu
+> <guimenuitem
+>Actualizar</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Seleccione a taxa de actualização (<guimenuitem
+>Muito Baixa</guimenuitem
+>, <guimenuitem
+>Baixa</guimenuitem
+>, <guimenuitem
+>Média</guimenuitem
+>, <guimenuitem
+>Alta</guimenuitem
+>, <guimenuitem
+>Muito Alta</guimenuitem
+>). Quanto maior a taxa, maior capacidade de processamento (CPU) será necessária.</para
+></listitem>
+</varlistentry>
+
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Ver</guimenu
+> <guimenuitem
+>Cores</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Selecciona as diferentes deficiências de visão das cores para simular o daltonismo. Não é útil para as pessoas daltónicas, mas é bom para desenhar interfaces acessíveis.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+</variablelist>
+</sect2>
+
+<sect2 id="the-settings-menu">
+<title
+>O Menu <guimenu
+>Configuração</guimenu
+></title>
+
+<variablelist>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>M</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Configuração</guimenu
+> <guimenuitem
+>Mostrar/Esconder o Menu</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Activa ou desactiva a barra de menu.</para
+></listitem>
+</varlistentry>
+ 
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuração</guimenu
+> <guimenuitem
+>Mostrar/Esconder a Barra Principal</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Activa ou desactiva a barra de ferramentas principal.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuração</guimenu
+> <guimenuitem
+>Mostrar/Esconder a Barra de Visualização</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Activa ou desactiva a barra de ferramentas de visualização.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuração</guimenu
+> <guimenuitem
+>Mostrar/Esconder a Barra de Configuração</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Activa ou desactiva a barra de ferramentas de configuração.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F1</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Configuração</guimenu
+> <guimenuitem
+>Modo de Seguimento do Rato</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Neste modo, a área em torno do cursor do rato é ampliada numa janela normal.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F2</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Configuração</guimenu
+> <guimenuitem
+>Modo da Janela de Selecção</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Neste modo, é aberta uma janela de selecção. A área seleccionada é então mostrada numa janela normal.</para
+></listitem>
+</varlistentry>
+
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F3</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Configuração</guimenu
+> <guimenuitem
+>Modo de Ecrã Completo</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Neste modo, a área em torno do cursor do rato é ampliada na janela de ampliação.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F4</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Configuração</guimenu
+> <guimenuitem
+>Mostrar/Esconder o Cursor do Rato</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Mostra ou esconde o cursor do rato numa imagem ampliada.</para
+></listitem>
+</varlistentry>
+
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Configuração</guimenu
+> <guimenuitem
+>Configurar os Atalhos...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Abre uma janela que lhe permite configurar os atalhos de teclado para muitos comandos do menu.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuração</guimenu
+> <guimenuitem
+>Configurar as Barras de Ferramentas...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Abre uma janela que lhe permite escolher os ícones que ficam visíveis na barra de ferramentas.</para
+></listitem>
+</varlistentry>
+</variablelist>
+</sect2>
+
+<sect2 id="the-help-menu">
+<title
+>O Menu <guimenu
+>Ajuda</guimenu
+></title>
+&help.menu.documentation; </sect2>
+</sect1>
+
+<sect1 id="commands">
+<title
+>Referência de Comandos</title>
+
+<para
+>O &kmag; usa automaticamente todos os seus atalhos predefinidos para gravar um ficheiro, abrir uma nova janela, imprimir, parar/iniciar a actualização (botão de actualização do &konqueror;), ampliar, reduzir, &etc;</para>
+
+<table>
+<title
+>Atalhos de Teclado Predefinidos</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Isto irá gravar o conteúdo da janela de ampliação num ficheiro.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F1</keycap
+></entry>
+<entry
+><para
+>Muda para o "Modo de Seguimento do Rato".</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F2</keycap
+></entry>
+<entry
+><para
+>Muda para o "Modo da Janela de Selecção".</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F3</keycap
+></entry>
+<entry
+><para
+>Muda para o "Modo de Ecrã Completo".</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F4</keycap
+></entry>
+<entry
+><para
+>Mostra ou esconde o cursor do rato numa imagem ampliada.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F5</keycap
+></entry>
+<entry
+><para
+>Isto irá iniciar o refrescamento ou actualização da janela de ampliação se estiver parada ou pára a mesma actualização se estiver activada no momento.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Isto irá abrir uma janela nova do &kmag;.</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Isto irá abrir a janela de impressão para imprimir o conteúdo da janela de ampliação.</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Isto irá copiar o conteúdo da janela de ampliação para a área de transferência.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+></entry
+> 
+<entry
+><para
+>Mostra ou esconde a barra do menu.</para
+> 
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>-</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Reduzir</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Ampliar</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry
+> 
+<entry
+><para
+>Sai da aplicação.</para
+></entry
+> 
+</row>
+</tbody>
+</tgroup>
+
+</table>
+</sect1>
+</chapter>
+
+<!--
+<chapter id="faq">
+<title
+>Questions and Answers</title>
+
+&reporting.bugs;
+&updating.documentation;
+
+<para>
+This section is currently empty as I have not received any questions from any users! I
+will add some FAQ if I hear from any of the users.
+</para>
+
+</chapter>
+-->
+<chapter id="credits">
+
+<!-- Include credits for the programmers, documentation writers, and
+contributors here. The license for your software should then be included below
+the credits with a reference to the appropriate license file included in the KDE
+distribution. -->
+
+<title
+>Créditos e Licença</title>
+
+<para
+>&kmag; </para>
+<para
+>Programa com 'copyright' 2001-2003 de Sarang Lakare <email
+>sarang@users.sf.net</email
+> e 2003-2005 de Olaf Schmidt <email
+>ojschmidt@kde.org</email
+>. </para>
+<para
+>Contribuições: <itemizedlist
+> <listitem
+><para
+>Michael Forster <email
+>forster@fmi.uni-passau.de</email
+> (autor original)</para
+></listitem>
+</itemizedlist>
+</para>
+
+
+<para
+>Documentação com 'copyright' 2002 de Sarang Lakare <email
+>sarang@users.sf.net</email
+> </para>
+
+<para
+>Tradução de Pedro Morais <email
+>morais@kde.org</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+<appendix id="installation">
+<title
+>Instalação</title>
+
+<sect1 id="getting-kmag">
+<title
+>Como obter o &kmag;</title>
+&install.intro.documentation; </sect1>
+
+<sect1 id="compilation">
+<title
+>Compilação e Instalação</title>
+&install.compile.documentation; </sect1>
+
+</appendix>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

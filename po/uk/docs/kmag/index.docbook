@@ -1,0 +1,915 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Ukrainian "INCLUDE"
+><!-- change language only here -->
+]>
+
+<!-- The language must NOT be changed here. -->
+
+<book id="kmag" lang="&language;">
+
+
+<bookinfo>
+<title
+>Довідка з &kmagnifier;</title>
+
+<authorgroup>
+<author
+><firstname
+>Sarang</firstname
+> <surname
+>Lakare</surname
+> <affiliation
+> <address
+><email
+>sarang@users.sf.net</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Olaf</firstname
+> <surname
+>Schmidt</surname
+> <affiliation
+> <address
+><email
+>ojschmidt@kde.org</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>о. Іван</firstname
+><surname
+>Петрущак</surname
+><affiliation
+><address
+><email
+>fr.ivan@ukrainian-orthodox.org</email
+></address
+></affiliation
+><contrib
+>Переклад українською</contrib
+></othercredit
+> 
+</authorgroup>
+
+
+<copyright>
+<year
+>2000</year>
+<year
+>2002</year>
+<holder
+>Sarang Lakare</holder>
+</copyright>
+
+<copyright>
+<year
+>2004</year>
+<year
+>2005</year>
+<holder
+>Olaf Schmidt</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<!--FIXME missing:
+"&Follow Focus Mode" 
+qaccessibilityclient  <https://commits.kde.org/libqaccessibilityclient>
+KDE client-side accessibility library
+Required to enable keyboard focus tracking
+
+commit 035090bca3a3065800c6d9ff1862167170a0e939
+Author: Sebastian Sauer mail@dipe.org
+Date:   Tue Jul 20 20:33:23 2010 +0000
+    Add a new 'Follow Focus' mode to KMag that uses the just new kaccessible QAccessibleBridgePlugin for providing keyboard cursor focus tracking.
+    svn path=/trunk/KDE/kdeaccessibility/kmag/; revision=1152354
+commit 2278a10a069ed436d0167ae3ef099b020e35f663
+Author: Amandeep Singh aman.dedman@gmail.com
+Date:   Wed Sep 26 02:46:22 2012 +0530
+    Allowing KMag to follow both mouse + kbd-focus together
+       -Made the followMouseMode + followFocusMode selectable together.
+       -With just followMouseMode checked, Kmag follows mouse,
+         and with followFocusMode checked, Kmag follows focus.
+       -And when both are selected, it follows both the mouse,
+         and the keyboard focus, whichever is relevant.
+-->
+
+<date
+>7 липня 2017 року</date>
+<releaseinfo
+>1.0 (Програми 17.08)</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>&kmagnifier; — це екранна лупа. Ви можете скористатися &kmagnifier;, щоб збільшити частину екрана так, як ви використовуєте лупу для збільшення газетного тексту або фотографії. Ця програма може бути корисною для широкого кола людей: від дослідників і художників, до веброзробників і людей з вадами зору. Ця документація є повною довідкою використання &kmagnifier;. </para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kmag</keyword>
+<keyword
+>K Magnifier</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Вступ</title>
+
+<para
+>&kmagnifier; — це збільшувач екрана від спільноти KDE. Цю програму можна використовувати для збільшення частини екрана. Вона може знадобитись різним людям: Люди з поганим зором можуть використовувати цю програму для збільшення частини екрана, яку вони не можуть добре розгледіти, художники можуть використовувати її для збільшення створеної ними графіки, щоб переглянути зображення на піксельному рівні, дослідники процесів обробки зображень можуть використовувати цю програму для збільшення і розглядання зображень. Крім цього &kmagnifier; можна використовувати з іншою метою, &eg; цю програму можна використовувати для захоплення ділянки екрана і збереження її на диску (якщо потрібно, то й у збільшеному вигляді). </para>
+<para
+>&kmagnifier; — це досить потужна програма, до якої часто додаються нові можливості. Її оптимізовано для використання на комп’ютерах з малопотужними процесорами. </para>
+</chapter>
+
+<chapter id="using-kmag">
+<title
+>Користування &kmagnifier;</title>
+
+<screenshot>
+<screeninfo
+>Ось знімок екрана &kmagnifier;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="screenshot.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Знімок екрана програми &kmagnifier;</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para
+>Після запуску &kmagnifier; ви побачите вікно, яке подібне до показаного вище. Головне вікно &kmagnifier; показує збільшений (або масштабований) вміст. Ми називаємо це вікно <quote
+>вікном збільшення</quote
+>. Збільшене зображення, яке показується у вікні збільшення — це частина захопленого екрана. Частину екрана, яку збільшують, ми називаємо <quote
+>вікном вибору</quote
+>. </para>
+<para
+>Типово &kmagnifier; збільшує ділянку навколо вказівника миші у вікні збільшення (мов пересувна лупа). Однак можна, щоб програма &kmagnifier; збільшувала будь-яку вибрану ділянку екрана у вікно збільшення (<guilabel
+>режим вікна вибору</guilabel
+>), або ціле зображення на екрані (<guilabel
+>Режим цілого екрана</guilabel
+>). </para>
+<para
+>Якщо ви не хочете, щоб на збільшеному зображенні було видно курсор мишки, виберіть <guilabel
+>Сховати курсор мишки</guilabel
+>. Майте на увазі, що поки що &kmagnifier; ще не може розпізнати форму курсора, тому показує типовий курсор. </para>
+
+<sect1 id="changing-selection-window">
+<title
+>Змінити ділянку екрана для збільшення</title>
+<para
+>У <guilabel
+>режимі вікна вибору</guilabel
+> можна змінити розмір або пересунути вікно масштабування та вибору за допомогою лівої кнопки миші, подібно до керування будь-яким іншим вікном. Позицію та розмір вікна вибору можна змінити і за допомогою клавіш стрілок, і клацанням у вікні збільшення: </para>
+
+<variablelist>
+<varlistentry>
+<term
+><keycap
+>Клавіші стрілок</keycap
+>, ліва кнопка миші або середня кнопка миші</term>
+<listitem>
+<para
+>Натиснувши ліву або середню кнопку миші у вікні масштабування і пересуваючи вказівник миші, ви можете пересувати вікно вибору. Також можна використовувати і клавіші стрілок, якщо вікно вибору перебуває у фокусі.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><keycombo
+>&Ctrl;<keycap
+>Клавіші стрілок</keycap
+></keycombo
+> або <keycombo
+>&Ctrl;<mousebutton
+>ліва кнопка миші</mousebutton
+></keycombo
+></term>
+<listitem>
+<para
+>За допомогою цієї комбінації можна змінити розмір вікна вибору. Майте на увазі, що верхній лівий куток вікна вибору залишається нерухомим, а нижній правий куток можна пересувати.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="kmag-features">
+<title
+>Інші можливості &kmagnifier;</title>
+
+<para
+>Програма &kmagnifier; багата на функціональність. За її допомогою можна безпосередньо надрукувати масштабоване зображення на принтері, зберегти зображення у файл, скопіювати масштабоване зображення у кишеню (яке пізніше можна вставити в інші програми), обертати збільшене зображення та багато іншого. </para>
+
+</sect1>
+</chapter>
+
+
+<chapter id="menu-shortcuts"
+> 
+<title
+>Меню і клавіатурні скорочення</title
+> 
+ 
+<sect1 id="menus"
+> 
+<title
+>Довідник з меню</title
+> 
+
+<sect2 id="the-file-menu">
+<title
+>Меню «Файл»</title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Файл</guimenu
+> <guimenuitem
+>Нове вікно</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Відкрити нове вікно &kmagnifier;.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Файл</guimenu
+> <guimenuitem
+>Зберегти знімок як...</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Зберегти збільшений вигляд у файл зображення.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Файл</guimenu
+> <guimenuitem
+>Друкувати...</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Надрукувати даний збільшений вигляд.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Файл</guimenu
+> <guimenuitem
+>Вийти</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Вихід з програми</para
+></listitem
+> 
+</varlistentry
+> 
+</variablelist
+> 
+</sect2
+> 
+ 
+<sect2 id="the-edit-menu"
+> 
+<title
+>Меню «Зміни»</title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Зміни</guimenu
+> <guimenuitem
+>Копіювати</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Скопіювати до кишені поточний збільшений вигляд, який можна вставити в інші програми.</para
+></listitem
+> 
+</varlistentry
+> 
+</variablelist
+> 
+</sect2
+> 
+ 
+<sect2 id="the-view-menu"
+> 
+<title
+>Меню «Перегляд»</title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F5</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Перегляд</guimenu
+> <guimenuitem
+>Почати / Зупинити</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Почати / зупинити оновлення екрана. При зупинці оновлення навантаження на процесор впаде (використання CPU)</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Перегляд</guimenu
+> <guimenuitem
+>Збільшити</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Виберіть коефіцієнт збільшення.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>-</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Перегляд</guimenu
+> <guimenuitem
+>Зменшити</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Натисніть цю кнопку, щоб зменшити вибрану ділянку.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>+</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Перегляд</guimenu
+> <guimenuitem
+>Збільшити</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Натисніть цю кнопку, щоб збільшити вибрану ділянку.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Перегляд</guimenu
+> <guimenuitem
+>Обертання</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Виберіть коефіцієнт обертання (<guimenuitem
+>Не обертати (0 градусів)</guimenuitem
+>, <guimenuitem
+>Ліворуч (90 градусів)</guimenuitem
+>, <guimenuitem
+>Догори ногами (180 градусів)</guimenuitem
+>, <guimenuitem
+>Праворуч (270 градусів)</guimenuitem
+>.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Перегляд</guimenu
+> <guimenuitem
+>Оновити</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Виберіть частоту оновлення (<guimenuitem
+>Дуже низька</guimenuitem
+>, <guimenuitem
+>Низька</guimenuitem
+>, <guimenuitem
+>Середня</guimenuitem
+>, <guimenuitem
+>Висока</guimenuitem
+>, <guimenuitem
+>Дуже висока</guimenuitem
+>). Чим вища частота, тим більше навантаження на процесор (CPU).</para
+></listitem>
+</varlistentry>
+
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Перегляд</guimenu
+> <guimenuitem
+>Кольори</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Ви можете вибрати іншу розкладку кольорів, щоб зімітувати зображення, яке бачитимуть люди з вадами сприйняття кольорів. Подібна зміна не дуже корисна для людей з вадами сприйняття кольорів, але може бути корисною для перевірки доступності інтерфейсу програм.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+</variablelist>
+</sect2>
+
+<sect2 id="the-settings-menu">
+<title
+>Меню «Параметри»</title>
+
+<variablelist>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F2</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Параметри</guimenu
+> <guimenuitem
+>Режим слідування за мишкою</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>В цьому режимі ділянку навколо курсора буде показано в звичайному вікні.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F3</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Параметри</guimenu
+> <guimenuitem
+>Режим вікна вибору</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>В цьому режимі відкривається вікно вибору. Вибрану ділянку буде показано в звичайному вікні.</para
+></listitem>
+</varlistentry>
+
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F4</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Параметри</guimenu
+> <guimenuitem
+>Повноекранний режим</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>В цьому режимі у вікні збільшення буде показано ціле зображення екрана.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F6</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Параметри</guimenu
+> <guimenuitem
+>Сховати вказівник миші</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Показати або сховати курсор мишки на збільшеному зображенні.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F7</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Параметри</guimenu
+> <guimenuitem
+>Завжди понад іншими вікнами</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Вікно &kmagnifier; залишається над іншими вікнами.</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Крім того, у &kmagnifier; передбачено типові для &kde; пункти меню <guimenu
+>Параметри</guimenu
+> і <guimenu
+>Довідка</guimenu
+>. Щоб дізнатися більше, ознайомтеся з розділами щодо <ulink url="help:/fundamentals/menus.html#menus-settings"
+>меню «Параметри»</ulink
+> та <ulink url="help:/fundamentals/menus.html#menus-help"
+>меню «Довідка»</ulink
+> підручника з основ роботи у &kde;. </para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="commands">
+<title
+>Довідка щодо команд</title>
+
+<para
+>&kmagnifier; автоматично використовує всі ваші типові скорочення для збереження у файл, відкривання нового вікна, друку, вмикання / вимикання оновлення (кнопка перезавантаження в &konqueror;), збільшення, зменшення &etc;</para>
+
+<table>
+<title
+>Типові скорочення клавіатури</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Зберегти вміст вікна збільшення у файл.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F2</keycap
+></entry>
+<entry
+><para
+>Перемкнути в «режим слідування за мишкою».</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F3</keycap
+></entry>
+<entry
+><para
+>Перемкнути у «режим вікна вибору».</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F4</keycap
+></entry>
+<entry
+><para
+>Перемкнути в «режим цілого екрана».</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F5</keycap
+></entry>
+<entry
+><para
+>Увімкне оновлення вікна збільшення, якщо воно вимкнене або зупинить оновлення цього вікна, якщо воно увімкнене.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F6</keycap
+></entry>
+<entry
+><para
+>Показати або сховати курсор мишки на збільшеному зображенні.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F7</keycap
+></entry>
+<entry
+><para
+>Вікно &kmagnifier; залишається над іншими вікнами.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Відкрити нове вікно &kmagnifier;.</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Відкрити діалогове вікно для друку вмісту вікна збільшення.</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Копіювати до кишені вміст вікна збільшення.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+></entry
+> 
+<entry
+><para
+>Показати / сховати панель меню.</para
+> 
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>-</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Зменшити</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Збільшити</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry
+> 
+<entry
+><para
+>Вихід з програми.</para
+></entry
+> 
+</row>
+</tbody>
+</tgroup>
+
+</table>
+</sect1>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Подяки і ліцензія</title>
+
+<para
+>&kmagnifier; </para>
+<para
+>Авторські права на програму належать Sarang Lakare <email
+>sarang@users.sf.net</email
+>, ©2001–2003  і Olaf Schmidt <email
+>ojschmidt@kde.org</email
+>, ©2003-2005. </para>
+<para
+>Учасники розробки: <itemizedlist
+> <listitem
+><para
+>Michael Forster <email
+>forster@fmi.uni-passau.de</email
+> (перший автор)</para
+></listitem>
+</itemizedlist>
+</para>
+
+
+<para
+>Авторські права на документацію належать Sarang Lakare <email
+>sarang@users.sf.net</email
+>, ©2002, і Olaf Schmidt <email
+>ojschmidt@kde.org</email
+>, ©2004-2005. </para>
+
+<para
+>о. Іван Петрущак<email
+>fr.ivan@ukrainian-orthodox.org</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

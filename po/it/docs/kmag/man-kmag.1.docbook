@@ -1,0 +1,110 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Italian "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Manuale utente di &kmagnifier;</title>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<date
+>2017-07-07</date>
+<productname
+>KDE Applications</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kmag</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kmag</command
+></refname>
+<refpurpose
+>Lente d'ingrandimento per lo schermo</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis>
+<command
+>kmag</command>
+</cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Descrizione</title>
+<para
+><command
+>kmag</command
+> è una lente d'ingrandimento per lo schermo. La puoi usare per ingrandire una parte dello schermo così come useresti una lente per ingrandire le scritte in piccolo di un giornale o una foto. Questa applicazione è utile per molta gente: dai ricercatori agli artisti, ai progettisti Web alle persone con cattiva vista.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Vedi anche</title>
+
+<simplelist>
+<member
+>Una documentazione più dettagliata è disponibile a <ulink url="help:/kmag"
+>help:/kmag</ulink
+> (inserisci questo &URL; in &konqueror; o esegui <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/kmag</parameter
+></userinput
+>).</member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+<member
+>Ci sono anche altre informazioni disponibili presso <ulink url="https://accessibility.kde.org/"
+>la pagina web del progetto di accessibilità di &kde;</ulink
+>.</member>
+</simplelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Autori</title>
+<para
+>La lente d'ingrandimento è stata scritta da <personname
+><firstname
+>Olaf</firstname
+><surname
+>Schmidt</surname
+></personname
+> <email
+>ojschmidt@kde.org</email
+> e <personname
+><firstname
+>Sarang</firstname
+><surname
+>Lakare</surname
+></personname
+> <email
+>sarang@users.sf.net</email
+> e <personname
+><firstname
+>Michael</firstname
+><surname
+>Forster</surname
+></personname
+> <email
+>forster@fmi.uni-passau.de</email
+></para>
+</refsect1>
+
+</refentry>

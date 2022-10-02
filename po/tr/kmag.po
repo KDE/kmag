@@ -1,0 +1,569 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# Adem Alp Yıldız <ademalp@linux-sevenler.org>, 2004.
+# Görkem Çetin <gorkem@kde.org>, 2004.
+# H. İbrahim Güngör <ibrahim@pardus.org.tr>, 2011.
+# Osman Yüksel <yuxel@sonsuzdongu.com>, 2005.
+# obsoleteman <tulliana@gmail.com>, 2008-2009.
+# Serhat Demirkol <serhat_demirkol@yahoo.com>, 2009.
+# Volkan Gezer <volkangezer@gmail.com>, 2013.
+# Emir SARI <emir_sari@icloud.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeaccessibility-kde4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:38+0000\n"
+"PO-Revision-Date: 2022-04-12 10:49+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 21.12.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Serdar Soytetir"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "tulliana@gmail.com"
+
+#: kmag.cpp:69
+#, kde-format
+msgctxt "Zoom at very low"
+msgid "&Very Low"
+msgstr "Ç&ok Düşük "
+
+#: kmag.cpp:69
+#, kde-format
+msgctxt "Zoom at low"
+msgid "&Low"
+msgstr "&Düşük"
+
+#: kmag.cpp:69
+#, kde-format
+msgctxt "Zoom at medium"
+msgid "&Medium"
+msgstr "&Orta"
+
+#: kmag.cpp:69
+#, kde-format
+msgctxt "Zoom at high"
+msgid "&High"
+msgstr "&Yüksek"
+
+#: kmag.cpp:69
+#, kde-format
+msgctxt "Zoom at very high"
+msgid "V&ery High"
+msgstr "Ço&k Yüksek"
+
+#: kmag.cpp:77
+#, kde-format
+msgctxt "No color-blindness simulation, i.e. 'normal' vision"
+msgid "&Normal"
+msgstr "&Normal"
+
+#: kmag.cpp:77
+#, kde-format
+msgid "&Protanopia"
+msgstr "&Kırmızı Renk Körlüğü"
+
+#: kmag.cpp:77
+#, kde-format
+msgid "&Deuteranopia"
+msgstr "&Yeşil Renk Körlüğü"
+
+#: kmag.cpp:77
+#, kde-format
+msgid "&Tritanopia"
+msgstr "&Mavi Renk Körlüğü"
+
+#: kmag.cpp:77
+#, kde-format
+msgid "&Achromatopsia"
+msgstr "&Renk körlüğü"
+
+#: kmag.cpp:85
+#, kde-format
+msgid "&No Rotation (0 Degrees)"
+msgstr "Çevir&me Yok (0°)"
+
+#: kmag.cpp:85
+#, kde-format
+msgid "&Left (90 Degrees)"
+msgstr "So&la (90°)"
+
+#: kmag.cpp:85
+#, kde-format
+msgid "&Upside Down (180 Degrees)"
+msgstr "&Üstü Altına (180°)"
+
+#: kmag.cpp:85
+#, kde-format
+msgid "&Right (270 Degrees)"
+msgstr "&Sağa (270°)"
+
+#: kmag.cpp:117
+#, kde-format
+msgid "New &Window"
+msgstr "&Yeni Pencere"
+
+#: kmag.cpp:120
+#, kde-format
+msgid "Open a new KMagnifier window"
+msgstr "Yeni bir büyüteç penceresi açar"
+
+#: kmag.cpp:124
+#, kde-format
+msgid "&Stop"
+msgstr "&Dur"
+
+#: kmag.cpp:127
+#, kde-format
+msgid "Click to stop window refresh"
+msgstr "Pencere yenilemesini durdurmak için tıklayın"
+
+#: kmag.cpp:128
+#, kde-format
+msgid ""
+"Clicking on this icon will <b>start</b> / <b>stop</b> updating of the "
+"display. Stopping the update will zero the processing power required (CPU "
+"usage)"
+msgstr ""
+"Bu simgeye tıklamak görünümü güncellemeyi <b>başlatır</b>/<b>durdurur</b>."
+"Güncellemeyi durdurmak gerekli işlemci gücünü sıfırlar (CPU Kullanımı)"
+
+#: kmag.cpp:134
+#, kde-format
+msgid "&Save Snapshot As..."
+msgstr "Ekran Görüntüsünü &Farklı Kaydet..."
+
+#: kmag.cpp:137
+#, kde-format
+msgid "Saves the zoomed view to an image file."
+msgstr "Yakınlaştırılmış görünümü bir resim dosyası olarak kaydeder."
+
+#: kmag.cpp:138
+#, kde-format
+msgid "Save image to a file"
+msgstr "Resmi dosyaya kaydet"
+
+#: kmag.cpp:141
+#, kde-format
+msgid "Click on this button to print the current zoomed view."
+msgstr "Yakınlaştırılmış görünümü yazdırmak için bu düğmeye basın."
+
+#: kmag.cpp:144 kmag.cpp:145
+#, kde-format
+msgid "Quits the application"
+msgstr "Uygulamadan çıkar"
+
+#: kmag.cpp:148
+#, kde-format
+msgid ""
+"Click on this button to copy the current zoomed view to the clipboard which "
+"you can paste in other applications."
+msgstr ""
+"Yakınlaştırılmış görünümü panoya kopyalayıp, diğer uygulamalara "
+"yapıştırabilmek için bu düğmeye tıklayın."
+
+#: kmag.cpp:149
+#, kde-format
+msgid "Copy zoomed image to clipboard"
+msgstr "Yakınlaştırılmış resmi panoya kopyala"
+
+#: kmag.cpp:155
+#, kde-format
+msgid "&Follow Mouse Mode"
+msgstr "&Fareyi İzle Kipi"
+
+#: kmag.cpp:159
+#, kde-format
+msgid "Mouse"
+msgstr "Fare"
+
+#: kmag.cpp:160
+#, kde-format
+msgid "Magnify around the mouse cursor"
+msgstr "Fare imlecinin etrafındaki alanı büyüt"
+
+#: kmag.cpp:161
+#, kde-format
+msgid "If selected, the area around the mouse cursor is magnified"
+msgstr "Seçilirse fare imlecinin etrafındaki alan büyütülür"
+
+#: kmag.cpp:165
+#, kde-format
+msgid "&Follow Focus Mode"
+msgstr "&Odağı İzle Kipi"
+
+#: kmag.cpp:169
+#, kde-format
+msgid "Focus"
+msgstr "Odak"
+
+#: kmag.cpp:170
+#, kde-format
+msgid "Magnify around the keyboard focus"
+msgstr "Klavye odağı etrafını büyüt"
+
+#: kmag.cpp:171
+#, kde-format
+msgid "If selected, the area around the keyboard cursor is magnified"
+msgstr "Bu seçenek seçilirse, klavye imlecinin etrafındaki alan büyütülür"
+
+#: kmag.cpp:175
+#, kde-format
+msgid "Se&lection Window Mode"
+msgstr "Seçim &Penceresi Kipi"
+
+#: kmag.cpp:179
+#, kde-format
+msgid "Window"
+msgstr "Pencere"
+
+#: kmag.cpp:180
+#, kde-format
+msgid "Show a window for selecting the magnified area"
+msgstr "Büyütülmüş alanı seçmek için bir pencere göster"
+
+#: kmag.cpp:182
+#, kde-format
+msgid "&Whole Screen Mode"
+msgstr "&Tüm Ekran Kipi"
+
+#: kmag.cpp:186
+#, kde-format
+msgid "Screen"
+msgstr "Ekran"
+
+#: kmag.cpp:187
+#, kde-format
+msgid "Magnify the whole screen"
+msgstr "Tüm ekranı büyüt"
+
+#: kmag.cpp:188
+#, kde-format
+msgid "Click on this button to fit the zoom view to the zoom window."
+msgstr ""
+"Yakınlaşma görünümünü yakınlaşma penceresine sığdırmak için bu düğmeye "
+"tıklayın."
+
+#: kmag.cpp:190
+#, kde-format
+msgid "Hide Mouse &Cursor"
+msgstr "&Fare İmlecini Sakla"
+
+#: kmag.cpp:195
+#, kde-format
+msgid "Show Mouse &Cursor"
+msgstr "Fare İmle&cini Göster"
+
+#: kmag.cpp:197
+#, kde-format
+msgid "Hide"
+msgstr "Gizle"
+
+#: kmag.cpp:198
+#, kde-format
+msgid "Hide the mouse cursor"
+msgstr "Fare imlecini sakla"
+
+#: kmag.cpp:200
+#, kde-format
+msgid "Stays On Top"
+msgstr "En Tepede Durur"
+
+#: kmag.cpp:204
+#, kde-format
+msgid "The KMagnifier Window stays on top of other windows."
+msgstr "KMagnifier Penceresi diğer pencerelerin üstünde durur."
+
+#: kmag.cpp:207
+#, kde-format
+msgid "Click on this button to <b>zoom-in</b> on the selected region."
+msgstr "Seçilen bölgeye <b>yakınlaşmak</b> için bu düğmeye tıklayın."
+
+#: kmag.cpp:209
+#, kde-format
+msgid "&Zoom"
+msgstr "&Yakınlaş"
+
+#: kmag.cpp:212
+#, kde-format
+msgid "Select the zoom factor."
+msgstr "Yakınlaşma oranını seç."
+
+#: kmag.cpp:213
+#, kde-format
+msgid "Zoom factor"
+msgstr "Yakınlaşma oranı"
+
+#: kmag.cpp:216
+#, kde-format
+msgid "Click on this button to <b>zoom-out</b> on the selected region."
+msgstr "Seçilen bölgeden <b>uzaklaşmak</b> için bu düğmeye tıklayın."
+
+#: kmag.cpp:218
+#, kde-format
+msgid "&Rotation"
+msgstr "Çevi&rme"
+
+#: kmag.cpp:221
+#, kde-format
+msgid "Select the rotation degree."
+msgstr "Çevirme oranını seç."
+
+#: kmag.cpp:222
+#, kde-format
+msgid "Rotation degree"
+msgstr "Çevirme oranı"
+
+#: kmag.cpp:227
+#, kde-format
+msgid "&Refresh"
+msgstr "&Tazele"
+
+#: kmag.cpp:230
+#, kde-format
+msgid ""
+"Select the refresh rate. The higher the rate, the more computing power (CPU) "
+"will be needed."
+msgstr ""
+"Tazeleme hızını belirleyin. Yüksek tazeleme hızı, daha çok işlemci gücü "
+"harcanması demektir."
+
+#: kmag.cpp:231
+#, kde-format
+msgid "Refresh rate"
+msgstr "Tazeleme oranı"
+
+#: kmag.cpp:233
+#, kde-format
+msgctxt "Color-blindness simulation mode"
+msgid "&Color"
+msgstr "&Renk"
+
+#: kmag.cpp:236
+#, kde-format
+msgid "Select a mode to simulate various types of color-blindness."
+msgstr "Çeşitli renk körlüğü tiplerini denemek için bir kip seçin."
+
+#: kmag.cpp:237
+#, kde-format
+msgid "Color-blindness Simulation Mode"
+msgstr "Renk Körlüğü Benzeştirim Kipi"
+
+#: kmag.cpp:569
+#, kde-format
+msgid "Save Snapshot As"
+msgstr "Ekran Görüntüsünü Farklı Kaydet"
+
+#: kmag.cpp:583
+#, kde-format
+msgid ""
+"Unable to save temporary file (before uploading to the network file you "
+"specified)."
+msgstr "Geçici dosya oluşturulamadı (belirttiğiniz dosya gönderilmeden önce)."
+
+#: kmag.cpp:584 kmag.cpp:589 kmag.cpp:599
+#, kde-format
+msgid "Error Writing File"
+msgstr "Dosyayı Kaydederken Hata Oluştu"
+
+#: kmag.cpp:588
+#, kde-format
+msgid "Unable to upload file over the network."
+msgstr "Dosya ağ üzerinden karşıya gönderilemiyor."
+
+#: kmag.cpp:591 kmag.cpp:601
+#, kde-format
+msgid ""
+"Current zoomed image saved to\n"
+"%1"
+msgstr ""
+"Yakınlaşılmış resim kaydedildi:\n"
+"%1"
+
+#: kmag.cpp:592 kmag.cpp:602
+#, kde-format
+msgid "Information"
+msgstr "Bilgiler"
+
+#: kmag.cpp:598
+#, kde-format
+msgid ""
+"Unable to save file. Please check if you have permission to write to the "
+"directory."
+msgstr ""
+"Dosya kaydedilemedi. Lütfen bu dizine yazma hakkınızın bulunduğuna emin olun."
+
+#: kmag.cpp:617
+#, kde-format
+msgid "Stop"
+msgstr "Dur"
+
+#: kmag.cpp:618
+#, kde-format
+msgid "Click to stop window update"
+msgstr "Pencere güncellemesini durdurmak için tıklayın"
+
+#: kmag.cpp:621
+#, kde-format
+msgctxt "Start updating the window"
+msgid "Start"
+msgstr "Başla"
+
+#: kmag.cpp:622
+#, kde-format
+msgid "Click to start window update"
+msgstr "Pencere güncellemesini başlatmak için tıklayın"
+
+#: kmagselrect.cpp:213
+#, kde-format
+msgid "Selection Window"
+msgstr "Seçim Penceresi"
+
+#: kmagselrect.cpp:213 main.cpp:39
+#, kde-format
+msgid "KMagnifier"
+msgstr "Büyüteç"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kmagui.rc:3
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Ana Araççubuğu"
+
+#. i18n: ectx: ToolBar (viewToolBar)
+#: kmagui.rc:6
+#, kde-format
+msgid "View Toolbar"
+msgstr "Araççubuğunu Göster"
+
+#. i18n: ectx: ToolBar (settingsToolBar)
+#: kmagui.rc:16
+#, kde-format
+msgid "Settings Toolbar"
+msgstr "Ayarlar Araççubuğu"
+
+#. i18n: ectx: Menu (file)
+#: kmagui.rc:25
+#, kde-format
+msgid "&File"
+msgstr "&Dosya"
+
+#. i18n: ectx: Menu (edit)
+#: kmagui.rc:32
+#, kde-format
+msgid "&Edit"
+msgstr "D&üzen"
+
+#. i18n: ectx: Menu (view)
+#: kmagui.rc:35 kmagui.rc:73
+#, kde-format
+msgid "&View"
+msgstr "&Görünüm"
+
+#. i18n: ectx: Menu (settings)
+#: kmagui.rc:47 kmagui.rc:83
+#, kde-format
+msgid "&Settings"
+msgstr "&Ayarlar"
+
+#: kmagzoomview.cpp:125
+#, kde-format
+msgid ""
+"This is the main window which shows the contents of the selected region. The "
+"contents will be magnified according to the zoom level that is set."
+msgstr ""
+"Bu pencere seçilen bölgenin içeriğini gösterir. Belirlenen yakınlaşma "
+"seviyesine göre içerik büyütülecektir."
+
+#: main.cpp:40
+#, kde-format
+msgid "Screen magnifier created by KDE"
+msgstr "KDE için ekran büyüteci"
+
+#: main.cpp:42
+#, kde-format
+msgid ""
+"Copyright 2001-2003 Sarang Lakare\n"
+"Copyright 2003-2004 Olaf Schmidt\n"
+"Copyright 2008 Matthew Woehlke"
+msgstr ""
+"Copyright 2001-2003 Sarang Lakare\n"
+"Copyright 2003-2004 Olaf Schmidt\n"
+"Copyright 2008 Matthew Woehlke"
+
+#: main.cpp:46
+#, kde-format
+msgid "Sarang Lakare"
+msgstr "Sarang Lakare"
+
+#: main.cpp:47
+#, kde-format
+msgid "Rewrite"
+msgstr "Yeniden yazma"
+
+#: main.cpp:48
+#, kde-format
+msgid "Michael Forster"
+msgstr "Michael Forster"
+
+#: main.cpp:49
+#, kde-format
+msgid "Original idea and author (KDE1)"
+msgstr "İlk yazar (KDE1)"
+
+#: main.cpp:50
+#, kde-format
+msgid "Olaf Schmidt"
+msgstr "Olaf Schmidt"
+
+#: main.cpp:50
+#, kde-format
+msgid ""
+"Rework of the user interface, improved selection window, speed optimization, "
+"rotation, bug fixes"
+msgstr ""
+"Kullanıcı arayüzü, geliştirilmiş seçim penceresi, hız uygunlaştırılması, "
+"çevirme, hata düzeltimleri üzerinde tekrar çalışımı"
+
+#: main.cpp:51
+#, kde-format
+msgid "Matthew Woehlke"
+msgstr "Matthew Woehlke"
+
+#: main.cpp:51
+#, kde-format
+msgid "Color-blindness simulation"
+msgstr "Renk körlüğü benzeştirimi"
+
+#: main.cpp:52
+#, kde-format
+msgid "Sebastian Sauer"
+msgstr "Sebastian Sauer"
+
+#: main.cpp:52
+#, kde-format
+msgid "Focus tracking"
+msgstr "Odak takibi"
+
+#: main.cpp:53
+#, kde-format
+msgid "Claudiu Costin"
+msgstr "Claudiu Costin"
+
+#: main.cpp:53
+#, kde-format
+msgid "Some tips"
+msgstr "Bazı ipuçları"

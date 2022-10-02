@@ -1,0 +1,589 @@
+# Malayalam translation of desktop_kmag.po
+# Copyright (C) 2008 This_file_is_part_of_KDE
+# This file is distributed under the same license as the kmag. package.
+# Sankaranarayanan<snalledam@dataone.in>, 2008.
+# Praveen Arimbrathodiyil <pravi.a@gmail.com>, 2008, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: desktop_kmag trunk\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:38+0000\n"
+"PO-Revision-Date: 2009-02-07 14:21-0800\n"
+"Last-Translator: Sankaranarayanan<snalledam@dataone.in>\n"
+"Language-Team: SMC <smc.org.in>\n"
+"Language: ml\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ശങ്കരനാരായണന്‍, പ്രവീണ്‍ അരിമ്പ്രത്തൊടിയില്‍"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "snalledam@dataone.in, pravi.a@gmail.com"
+
+#: kmag.cpp:69
+#, kde-format
+msgctxt "Zoom at very low"
+msgid "&Very Low"
+msgstr "&വളരെ താഴ്ന്ന"
+
+#: kmag.cpp:69
+#, kde-format
+msgctxt "Zoom at low"
+msgid "&Low"
+msgstr "&താഴ്ന്ന"
+
+#: kmag.cpp:69
+#, kde-format
+msgctxt "Zoom at medium"
+msgid "&Medium"
+msgstr "&ഇടത്തരം"
+
+#: kmag.cpp:69
+#, kde-format
+msgctxt "Zoom at high"
+msgid "&High"
+msgstr "&ഉയര്‍ന്ന"
+
+#: kmag.cpp:69
+#, kde-format
+msgctxt "Zoom at very high"
+msgid "V&ery High"
+msgstr "വ&ളരെ ഉയര്‍ന്ന"
+
+#: kmag.cpp:77
+#, kde-format
+msgctxt "No color-blindness simulation, i.e. 'normal' vision"
+msgid "&Normal"
+msgstr "&സാധാരണ"
+
+#: kmag.cpp:77
+#, kde-format
+msgid "&Protanopia"
+msgstr "&പ്രോട്ടനോപ്യ‌"
+
+#: kmag.cpp:77
+#, kde-format
+msgid "&Deuteranopia"
+msgstr "&ഡ്യൂ‌ട്ടരനോപ്യ‌"
+
+#: kmag.cpp:77
+#, kde-format
+msgid "&Tritanopia"
+msgstr "&ട്രൈറ്റാനോപ്യ‌"
+
+#: kmag.cpp:77
+#, kde-format
+msgid "&Achromatopsia"
+msgstr "&അക്രോമാടോസ്യ"
+
+#: kmag.cpp:85
+#, kde-format
+msgid "&No Rotation (0 Degrees)"
+msgstr "&ചുറ്റണ്ടതില്ല (0 ഡിഗ്രി)"
+
+#: kmag.cpp:85
+#, kde-format
+msgid "&Left (90 Degrees)"
+msgstr "&ഇടത്തോട്ട് (90ഡിഗ്രി)"
+
+#: kmag.cpp:85
+#, kde-format
+msgid "&Upside Down (180 Degrees)"
+msgstr "&തലകീഴായി (180ഡിഗ്രി)"
+
+#: kmag.cpp:85
+#, kde-format
+msgid "&Right (270 Degrees)"
+msgstr "&വലത്തോട്ട് (270ഡിഗ്രി)"
+
+#: kmag.cpp:117
+#, kde-format
+msgid "New &Window"
+msgstr "പുതിയ &ജാലകം"
+
+#: kmag.cpp:120
+#, kde-format
+msgid "Open a new KMagnifier window"
+msgstr "ഒരു കെഭൂതക്കണ്ണാടി ‍ജാലകം തുറക്കുക"
+
+#: kmag.cpp:124
+#, kde-format
+msgid "&Stop"
+msgstr "&നിര്‍ത്തുക"
+
+#: kmag.cpp:127
+#, kde-format
+msgid "Click to stop window refresh"
+msgstr "ജാലകം പുതുക്കല്‍ നിര്‍ത്താന്‍ ഞൊട്ടുക"
+
+#: kmag.cpp:128
+#, fuzzy, kde-format
+#| msgid ""
+#| "Clicking on this icon will <b>start</b> / <b>stop</b>  updating of the "
+#| "display. Stopping the update will zero the processing power  required "
+#| "(CPU usage)"
+msgid ""
+"Clicking on this icon will <b>start</b> / <b>stop</b> updating of the "
+"display. Stopping the update will zero the processing power required (CPU "
+"usage)"
+msgstr ""
+"പ്രദര്‍ശനം പുതുക്കുന്നത് <b>നടത്താനും</b> / <b>നിര്‍ത്താനും</b> ഈ ചിഹ്നത്തില്‍ ഞൊട്ടുക. പുതുക്കുന്നതു് "
+"നിര്‍ത്തുന്നത് വഴി പ്രോസസ്സറിന്റെ ഊര്‍ജ്ജാവശ്യം പൂജ്യ‌ത്തിലെത്തിക്കും (സിപിയു ഉപയോഗം) "
+
+#: kmag.cpp:134
+#, kde-format
+msgid "&Save Snapshot As..."
+msgstr "പടം ഈ പേരില്‍ &സൂക്ഷിക്കുക..."
+
+#: kmag.cpp:137
+#, kde-format
+msgid "Saves the zoomed view to an image file."
+msgstr "വലുതാക്കിയ ദൃശ്യം ഒരു ഛായാഫയലില്‍ സൂക്ഷിക്കുന്നു."
+
+#: kmag.cpp:138
+#, kde-format
+msgid "Save image to a file"
+msgstr "ഛായ ഒരു ഫയലില്‍ സൂക്ഷിക്കാം"
+
+#: kmag.cpp:141
+#, kde-format
+msgid "Click on this button to print the current zoomed view."
+msgstr "ഇപ്പോള്‍ വലുതാക്കിയ ദൃശ്യം അച്ചടിക്കാന്‍ ഈ ബട്ടണില്‍ ഞൊട്ടുക."
+
+#: kmag.cpp:144 kmag.cpp:145
+#, kde-format
+msgid "Quits the application"
+msgstr "പ്രയോഗത്തില്‍നിന്ന് വിടുന്നു"
+
+#: kmag.cpp:148
+#, kde-format
+msgid ""
+"Click on this button to copy the current zoomed view to the clipboard which "
+"you can paste in other applications."
+msgstr ""
+"ഇപ്പോള്‍ വലുതാക്കിയ ദൃശ്യം മറ്റു പ്രയോഗങ്ങളില്‍ പതിക്കാന്‍തക്കവണ്ണാം ഒരു  ഓര്‍മ്മച്ചെപ്പിലേയ്ക്കു് പകര്‍"
+"ത്താന്‍ ഈ ബട്ടണില്‍ ഞൊട്ടുക."
+
+#: kmag.cpp:149
+#, kde-format
+msgid "Copy zoomed image to clipboard"
+msgstr "വലുതാക്കിയ ഛായ ഓര്‍മ്മച്ചെപ്പിലേയ്ക്കു് പകര്‍ത്തുക"
+
+#: kmag.cpp:155
+#, kde-format
+msgid "&Follow Mouse Mode"
+msgstr "&മൌസിന്റെ ദശ പിന്തുടരുക"
+
+#: kmag.cpp:159
+#, kde-format
+msgid "Mouse"
+msgstr ""
+
+#: kmag.cpp:160
+#, kde-format
+msgid "Magnify around the mouse cursor"
+msgstr "മൌസ് ചൂണ്ടിയുടെ ചുറ്റുപാട് വലുതാക്കി കാണിക്കുക"
+
+#: kmag.cpp:161
+#, kde-format
+msgid "If selected, the area around the mouse cursor is magnified"
+msgstr "തെരഞ്ഞെടുത്താല്‍, മൌസ്ചൂണ്ടിയുടെ പരിസരം വലുതാക്കികാണിക്കുന്നു"
+
+#: kmag.cpp:165
+#, fuzzy, kde-format
+#| msgid "&Follow Mouse Mode"
+msgid "&Follow Focus Mode"
+msgstr "&മൌസിന്റെ ദശ പിന്തുടരുക"
+
+#: kmag.cpp:169
+#, kde-format
+msgid "Focus"
+msgstr ""
+
+#: kmag.cpp:170
+#, fuzzy, kde-format
+#| msgid "Magnify around the mouse cursor"
+msgid "Magnify around the keyboard focus"
+msgstr "മൌസ് ചൂണ്ടിയുടെ ചുറ്റുപാട് വലുതാക്കി കാണിക്കുക"
+
+#: kmag.cpp:171
+#, fuzzy, kde-format
+#| msgid "If selected, the area around the mouse cursor is magnified"
+msgid "If selected, the area around the keyboard cursor is magnified"
+msgstr "തെരഞ്ഞെടുത്താല്‍, മൌസ്ചൂണ്ടിയുടെ പരിസരം വലുതാക്കികാണിക്കുന്നു"
+
+#: kmag.cpp:175
+#, kde-format
+msgid "Se&lection Window Mode"
+msgstr "തെ&രഞ്ഞെടുപ്പ് ജാലകദശ"
+
+#: kmag.cpp:179
+#, fuzzy, kde-format
+#| msgid "New &Window"
+msgid "Window"
+msgstr "പുതിയ &ജാലകം"
+
+#: kmag.cpp:180
+#, kde-format
+msgid "Show a window for selecting the magnified area"
+msgstr "വലുതാക്കികാണിക്കേണ്ട പ്രദേശം തെരഞ്ഞെടുക്കാനുള്ള ഒരു ജാലകം കാണിക്കുക"
+
+#: kmag.cpp:182
+#, kde-format
+msgid "&Whole Screen Mode"
+msgstr "&മുഴുയവനിക ദശ"
+
+#: kmag.cpp:186
+#, kde-format
+msgid "Screen"
+msgstr ""
+
+#: kmag.cpp:187
+#, kde-format
+msgid "Magnify the whole screen"
+msgstr "മുഴുവന്‍ യവനികയും വലുതാക്കികാണിക്കുക"
+
+#: kmag.cpp:188
+#, kde-format
+msgid "Click on this button to fit the zoom view to the zoom window."
+msgstr "പെരുംദൃശ്യം പെരും ജാലകത്തില്‍ ഒതുക്കാന്‍ ഈ ബട്ടണില്‍ ഞൊട്ടുക"
+
+#: kmag.cpp:190
+#, kde-format
+msgid "Hide Mouse &Cursor"
+msgstr "&മൌസ്ചൂണ്ടിയെ ഒളിപ്പിക്കുക"
+
+#: kmag.cpp:195
+#, kde-format
+msgid "Show Mouse &Cursor"
+msgstr "&മൌസ്ചൂണ്ടിയെ കാണിക്കുക"
+
+#: kmag.cpp:197
+#, kde-format
+msgid "Hide"
+msgstr ""
+
+#: kmag.cpp:198
+#, kde-format
+msgid "Hide the mouse cursor"
+msgstr "മൌസ്ചൂണ്ടിയെ ഒളിപ്പിക്കുക"
+
+#: kmag.cpp:200
+#, kde-format
+msgid "Stays On Top"
+msgstr ""
+
+#: kmag.cpp:204
+#, kde-format
+msgid "The KMagnifier Window stays on top of other windows."
+msgstr ""
+
+#: kmag.cpp:207
+#, kde-format
+msgid "Click on this button to <b>zoom-in</b> on the selected region."
+msgstr "തെരഞ്ഞെടുത്ത സ്ഥാനം <b>പെരുപ്പിക്കാന്‍</b> ഈ ബട്ടണില്‍ ഞൊട്ടുക."
+
+#: kmag.cpp:209
+#, kde-format
+msgid "&Zoom"
+msgstr "&പെരുപ്പം"
+
+#: kmag.cpp:212
+#, kde-format
+msgid "Select the zoom factor."
+msgstr "പെരുപ്പത്തോത് തെരഞ്ഞെടുക്കുക."
+
+#: kmag.cpp:213
+#, kde-format
+msgid "Zoom factor"
+msgstr "പെരുപ്പത്തോത്"
+
+#: kmag.cpp:216
+#, kde-format
+msgid "Click on this button to <b>zoom-out</b> on the selected region."
+msgstr "തെരഞ്ഞെടുത്ത സ്ഥാനം <b>ചുരുക്കാന്‍ </b> ഈ ബട്ടണില്‍ ഞൊട്ടുക."
+
+#: kmag.cpp:218
+#, kde-format
+msgid "&Rotation"
+msgstr "&തിരിച്ചില്‍"
+
+#: kmag.cpp:221
+#, kde-format
+msgid "Select the rotation degree."
+msgstr "തിരിക്കേണ്ട അളവ് തെരഞ്ഞെടുക്കുക."
+
+#: kmag.cpp:222
+#, kde-format
+msgid "Rotation degree"
+msgstr "തിരിക്കേണ്ട അളവ്"
+
+#: kmag.cpp:227
+#, kde-format
+msgid "&Refresh"
+msgstr "&പുതുക്കല്‍"
+
+#: kmag.cpp:230
+#, kde-format
+msgid ""
+"Select the refresh rate. The higher the rate, the more computing power (CPU) "
+"will be needed."
+msgstr "പുതുക്കല്‍ തോത് തെരഞ്ഞെടുക്കുക. തോത് വര്‍ദ്ധിക്കും തോറും കൂടുതല്‍ ഗണനശേഷി ആവശ്യ‌മായിവരും."
+
+#: kmag.cpp:231
+#, kde-format
+msgid "Refresh rate"
+msgstr "പുതുക്കല്‍ തോത്"
+
+#: kmag.cpp:233
+#, kde-format
+msgctxt "Color-blindness simulation mode"
+msgid "&Color"
+msgstr "&വര്‍ണ്ണം"
+
+#: kmag.cpp:236
+#, kde-format
+msgid "Select a mode to simulate various types of color-blindness."
+msgstr "പല തരത്തിലുള്ള വര്‍ണ്ണാന്ധത ഭാവിക്കാനുള്ള രീതി തെരഞ്ഞെടുക്കുക."
+
+#: kmag.cpp:237
+#, kde-format
+msgid "Color-blindness Simulation Mode"
+msgstr "വര്‍ണ്ണാന്ധത ഭാവിക്കുന്ന ദശ"
+
+#: kmag.cpp:569
+#, kde-format
+msgid "Save Snapshot As"
+msgstr "പടം ഈ പേരില്‍ സൂക്ഷിക്കുക"
+
+#: kmag.cpp:583
+#, kde-format
+msgid ""
+"Unable to save temporary file (before uploading to the network file you "
+"specified)."
+msgstr ""
+"(നിങ്ങള്‍ നിര്‍ദ്ദേശിച്ച ശൃംഖലാ ഫയലിലേക്ക് കയറ്റിവിടും മുമ്പ്) താല്‍ക്കാലിക ഫയല്‍ സൂക്ഷിക്കാന്‍ "
+"കഴിഞ്ഞില്ല."
+
+#: kmag.cpp:584 kmag.cpp:589 kmag.cpp:599
+#, kde-format
+msgid "Error Writing File"
+msgstr "ഫയല്‍ എഴുതുന്നതില്‍ പിഴവ്"
+
+#: kmag.cpp:588
+#, kde-format
+msgid "Unable to upload file over the network."
+msgstr "ശൃംഖലയിലേയ്ക്കു് ഫയല്‍ കയറ്റിവിടാന്‍ കഴിഞ്ഞില്ല."
+
+#: kmag.cpp:591 kmag.cpp:601
+#, kde-format
+msgid ""
+"Current zoomed image saved to\n"
+"%1"
+msgstr ""
+"നിലവിലുള്ള പെരുപ്പിച്ച ഛായ സൂക്ഷിച്ചതു്\n"
+"%1"
+
+#: kmag.cpp:592 kmag.cpp:602
+#, kde-format
+msgid "Information"
+msgstr "വിവരം"
+
+#: kmag.cpp:598
+#, kde-format
+msgid ""
+"Unable to save file. Please check if you have permission to write to the "
+"directory."
+msgstr ""
+"ഫയല്‍ സൂക്ഷിക്കാനായില്ല. അറയില്‍ എഴുതാന്‍ നിങ്ങള്‍ക്കു് അനുവാദമുണ്ടോ എന്ന് ദയവായി പരിശോധിക്കുക."
+
+#: kmag.cpp:617
+#, kde-format
+msgid "Stop"
+msgstr "നിര്‍ത്തുക"
+
+#: kmag.cpp:618
+#, kde-format
+msgid "Click to stop window update"
+msgstr "ജാലകം പുതുക്കുന്നത് നിര്‍ത്താന്‍ ഞൊട്ടുക"
+
+#: kmag.cpp:621
+#, kde-format
+msgctxt "Start updating the window"
+msgid "Start"
+msgstr "തുടങ്ങുക"
+
+#: kmag.cpp:622
+#, kde-format
+msgid "Click to start window update"
+msgstr "ജാലകം പുതുക്കുന്നതു് തുടങ്ങാന്‍ ഞൊട്ടുക"
+
+#: kmagselrect.cpp:213
+#, kde-format
+msgid "Selection Window"
+msgstr "തെരഞ്ഞെടുപ്പ് ജാലകം"
+
+#: kmagselrect.cpp:213 main.cpp:39
+#, kde-format
+msgid "KMagnifier"
+msgstr "കെഭൂതക്കണ്ണാടി"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kmagui.rc:3
+#, fuzzy, kde-format
+#| msgid "Show Main &Toolbar"
+msgid "Main Toolbar"
+msgstr "പ്രധാന &ഉപകരണപ്പട്ട കാണിക്കുക"
+
+#. i18n: ectx: ToolBar (viewToolBar)
+#: kmagui.rc:6
+#, fuzzy, kde-format
+#| msgid "Show &View Toolbar"
+msgid "View Toolbar"
+msgstr "കാഴ്ചയുടെ &ഉപകരണപ്പട്ട കാണിക്കുക "
+
+#. i18n: ectx: ToolBar (settingsToolBar)
+#: kmagui.rc:16
+#, fuzzy, kde-format
+#| msgid "Show &Settings Toolbar"
+msgid "Settings Toolbar"
+msgstr "സജ്ജീകരണങ്ങളുടെ &ഉപകരണപ്പട്ടിക കാണിക്കുക"
+
+#. i18n: ectx: Menu (file)
+#: kmagui.rc:25
+#, kde-format
+msgid "&File"
+msgstr "&ഫയല്‍"
+
+#. i18n: ectx: Menu (edit)
+#: kmagui.rc:32
+#, kde-format
+msgid "&Edit"
+msgstr "&ചിട്ട"
+
+#. i18n: ectx: Menu (view)
+#: kmagui.rc:35 kmagui.rc:73
+#, kde-format
+msgid "&View"
+msgstr "&കാഴ്ച"
+
+#. i18n: ectx: Menu (settings)
+#: kmagui.rc:47 kmagui.rc:83
+#, kde-format
+msgid "&Settings"
+msgstr "&സജ്ജീകരണങ്ങള്‍"
+
+#: kmagzoomview.cpp:125
+#, kde-format
+msgid ""
+"This is the main window which shows the contents of the selected region. The "
+"contents will be magnified according to the zoom level that is set."
+msgstr ""
+"തെരഞ്ഞെടുത്ത സ്ഥാനത്തിന്റെ ഉള്ളടക്കം പ്രദര്‍ശിപ്പിക്കുന്ന പ്രധാന ജാലകമാണിത്.  ഒരുക്കിവെച്ച "
+"പ്രകാരമുള്ള പെരുപ്പത്തോതില്‍ഉള്ളടക്കം പെരുപ്പിച്ച്കാണിക്കും."
+
+#: main.cpp:40
+#, fuzzy, kde-format
+#| msgid "Screen magnifier for the K Desktop Environment (KDE)"
+msgid "Screen magnifier created by KDE"
+msgstr "കെ പണിയിട പരിസരത്തിനുള്ള (കെഡി‌ഇ) യവനികാഭൂതക്കണ്ണാടി "
+
+#: main.cpp:42
+#, kde-format
+msgid ""
+"Copyright 2001-2003 Sarang Lakare\n"
+"Copyright 2003-2004 Olaf Schmidt\n"
+"Copyright 2008 Matthew Woehlke"
+msgstr ""
+"പകര്‍പ്പവകാശം 2001-2003 സാരാങ് ലാകരെ\n"
+"പകര്‍പ്പവകാശം 2003-2004 ഒളാഫ് ഷ്മിത്\n"
+"പകര്‍പ്പവകാശം 2008 മാത്യൂ‌ വോയെള്‍ക്"
+
+#: main.cpp:46
+#, kde-format
+msgid "Sarang Lakare"
+msgstr "സാരാങ് ലാകരെ"
+
+#: main.cpp:47
+#, kde-format
+msgid "Rewrite"
+msgstr "പുനര്‍ലിഖിതം"
+
+#: main.cpp:48
+#, kde-format
+msgid "Michael Forster"
+msgstr "മൈക്കല്‍ ഫോര്‍സ്റ്റര്‍"
+
+#: main.cpp:49
+#, kde-format
+msgid "Original idea and author (KDE1)"
+msgstr "പ്രാഥമിക ആശയവും രചയിതാവും (കെഡി‌ഇ 1)"
+
+#: main.cpp:50
+#, kde-format
+msgid "Olaf Schmidt"
+msgstr "ഒളാഫ് ഷ്മിത്"
+
+#: main.cpp:50
+#, kde-format
+msgid ""
+"Rework of the user interface, improved selection window, speed optimization, "
+"rotation, bug fixes"
+msgstr ""
+"ഉപയോക്തൃ വിനിമയതലത്തിന്റെ പുനര്‍നിര്‍മ്മാണം, മെച്ചപ്പെട്ട തെരഞ്ഞെടുപ്പു ജാലകം, കൂടിയ "
+"വേഗതാശേഷി, തിരിക്കല്‍, പിഴവു് തിരുത്തലുകള്‍"
+
+#: main.cpp:51
+#, kde-format
+msgid "Matthew Woehlke"
+msgstr "മാത്യൂ‌ വോയെള്‍ക്"
+
+#: main.cpp:51
+#, kde-format
+msgid "Color-blindness simulation"
+msgstr "കൃത്രിമ വര്‍ണ്ണാന്ധത"
+
+#: main.cpp:52
+#, kde-format
+msgid "Sebastian Sauer"
+msgstr ""
+
+#: main.cpp:52
+#, kde-format
+msgid "Focus tracking"
+msgstr ""
+
+#: main.cpp:53
+#, kde-format
+msgid "Claudiu Costin"
+msgstr "ക്ളൊഡ്യൂ‌ കോസ്റ്റിന്‍"
+
+#: main.cpp:53
+#, kde-format
+msgid "Some tips"
+msgstr "ചില വിജ്ഞാനശകലങ്ങള്‍"
+
+#~ msgid "File to open"
+#~ msgstr "തുറക്കാനുള്ള ഫയല്‍"
+
+#~ msgid "Show &Menu"
+#~ msgstr "വിഭവങ്ങള്‍ &കാണിക്കുക"
+
+#~ msgid "Hide &Menu"
+#~ msgstr "&വിഭവങ്ങള്‍ ഒളിപ്പിക്കുക"
+
+#~ msgid "Hide Main &Toolbar"
+#~ msgstr "പ്രധാന &ഉപകരണപ്പട്ട ഒളിപ്പിയ്ക്കുക"
+
+#~ msgid "Hide &View Toolbar"
+#~ msgstr "കാഴ്ചയുടെ &ഉപകരണപ്പട്ട ഒളിപ്പിക്കുക"
+
+#~ msgid "Hide &Settings Toolbar"
+#~ msgstr "സജ്ജീകരണങ്ങളുടെ &ഉപകരണപ്പട്ടിക ഒളിപ്പിക്കുക"

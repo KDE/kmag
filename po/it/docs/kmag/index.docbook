@@ -1,0 +1,924 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Italian "INCLUDE"
+><!-- change language only here -->
+]>
+
+<!-- The language must NOT be changed here. -->
+
+<book id="kmag" lang="&language;">
+
+
+<bookinfo>
+<title
+>Manuale di &kmagnifier;</title>
+
+<authorgroup>
+<author
+><firstname
+>Sarang</firstname
+> <surname
+>Lakare</surname
+> <affiliation
+> <address
+><email
+>sarang@users.sf.net</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Olaf</firstname
+> <surname
+>Schmidt</surname
+> <affiliation
+> <address
+><email
+>ojschmidt@kde.org</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Federico</firstname
+> <surname
+>Zenith</surname
+><affiliation
+><address
+> <email
+>zenith@chemeng.ntnu.no</email
+></address
+></affiliation
+> <contrib
+>Traduzione della documentazione</contrib
+></othercredit
+> 
+</authorgroup>
+
+
+<copyright>
+<year
+>2000</year>
+<year
+>2002</year>
+<holder
+>Sarang Lakare</holder>
+</copyright>
+
+<copyright>
+<year
+>2004</year>
+<year
+>2005</year>
+<holder
+>Olaf Schmidt</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<!--FIXME missing:
+"&Follow Focus Mode" 
+qaccessibilityclient  <https://commits.kde.org/libqaccessibilityclient>
+KDE client-side accessibility library
+Required to enable keyboard focus tracking
+
+commit 035090bca3a3065800c6d9ff1862167170a0e939
+Author: Sebastian Sauer mail@dipe.org
+Date:   Tue Jul 20 20:33:23 2010 +0000
+    Add a new 'Follow Focus' mode to KMag that uses the just new kaccessible QAccessibleBridgePlugin for providing keyboard cursor focus tracking.
+    svn path=/trunk/KDE/kdeaccessibility/kmag/; revision=1152354
+commit 2278a10a069ed436d0167ae3ef099b020e35f663
+Author: Amandeep Singh aman.dedman@gmail.com
+Date:   Wed Sep 26 02:46:22 2012 +0530
+    Allowing KMag to follow both mouse + kbd-focus together
+       -Made the followMouseMode + followFocusMode selectable together.
+       -With just followMouseMode checked, Kmag follows mouse,
+         and with followFocusMode checked, Kmag follows focus.
+       -And when both are selected, it follows both the mouse,
+         and the keyboard focus, whichever is relevant.
+-->
+
+<date
+>2017-07-07</date>
+<releaseinfo
+>1.0 (Applications 17.08)</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>&kmagnifier; è una lente d'ingrandimento per lo schermo. Lo puoi usare per ingrandirne una parte proprio come useresti una lente per ingrandire una noticina o una fotografia di un giornale. Questa applicazione è utile per varie persone: da ricercatori ad artisti, a progettisti web, a persone con vista scarsa. Questo documento proverà ad essere un manuale di riferimento completo per l'uso di &kmagnifier;. </para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kmag</keyword>
+<keyword
+>K Magnifier</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introduzione</title>
+
+<para
+>&kmagnifier; è una lente d'ingrandimento dello schermo sviluppata dalla comunità KDE. Si può usare per ingrandire una parte dello schermo. Questa applicazione può essere utile a diverse persone: persone con una vista insufficiente possono usare questa applicazione per ingrandire parti dello schermo che non sono in grado di vedere chiaramente, gli artisti possono usare questa applicazione per ingrandire la grafica che producono per verificarla a livello di pixel, i ricercatori del trattamento di immagini possono usare questa applicazione per ingrandire le immagini e studiarle da vicino. Oltre a questi, &kmagnifier; può essere usata per vari altri scopi, per esempio è possibile usare l'applicazione per prendere una porzione dello schermo e salvarla su disco (con l'opzione di ingrandire la parte dello schermo catturata). </para>
+<para
+>&kmagnifier; è un'applicazione molto potente con nuove funzioni che vengono aggiunte in continuazione. È ottimizzata per l'uso su macchine con poca potenza di calcolo. </para>
+</chapter>
+
+<chapter id="using-kmag">
+<title
+>Uso di &kmagnifier;</title>
+
+<screenshot>
+<screeninfo
+>Ecco un'istantanea di &kmagnifier;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="screenshot.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Istantanea di &kmagnifier;</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para
+>Dopo aver avviato &kmagnifier; otterrai una finestra simile a quella mostrata sopra. La finestra principale di &kmagnifier; mostra i contenuti ingranditi. Chiamiamo questa finestra <quote
+>finestra d'ingrandimento</quote
+>. L'immagine ingrandita mostrata nella finestra d'ingrandimento è catturata da una parte dello schermo. Chiamiamo la parte dello schermo che è ingrandita <quote
+>finestra di selezione</quote
+>. </para>
+<para
+>Come impostazione predefinita, &kmagnifier; ingrandisce la regione attorno al cursore del mouse (immagina di spostare una lente di ingrandimento). In alternativa, puoi chiedere a &kmagnifier; di ingrandire un'area prescelta dello schermo (<guilabel
+>Modalità finestra di selezione</guilabel
+>), o tutto lo schermo (<guilabel
+>Modalità a tutto schermo</guilabel
+>). </para>
+<para
+>Se preferissi non vedere il cursore del mouse nell'immagine ingrandita, seleziona <guilabel
+>Nascondi cursore del mouse</guilabel
+>. Nota che &kmagnifier; non può ancora capire quale sia la forma corrente del cursore. Quindi, esso mostra il cursore predefinito. </para>
+
+<sect1 id="changing-selection-window">
+<title
+>Cambiare la parte di schermo da ingrandire</title>
+<para
+>Quando in <guilabel
+>Modalità finestra di selezione</guilabel
+>, la finestra di ingrandimento e quella di selezione possono essere spostate o ridimensionate con il &LMB; come tutte le altre. Puoi anche cambiare la posizione e la dimensione della finestra di selezione usando i tasti freccia sulla tastiera, o facendo clic sulla finestra di ingrandimento: </para>
+
+<variablelist>
+<varlistentry>
+<term
+><keycap
+>Tasti freccia</keycap
+>, &LMB; o &MMB;</term>
+<listitem>
+<para
+>Mantenendo premuto il &LMB; o il &MMB; nella finestra di ingrandimento e muovendo il mouse, puoi spostare la finestra di selezione. Puoi anche usare i tasti freccia se la finestra di selezione è attiva.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><keycombo
+>&Ctrl;<keycap
+>Tasti freccia</keycap
+></keycombo
+> o <keycombo
+>&Ctrl;<mousebutton
+>&LMB;</mousebutton
+></keycombo
+></term>
+<listitem>
+<para
+>Usando questa combinazione, puoi ridimensionare la finestra di selezione. Tieni presente che l'angolo in alto a sinistra della finestra di selezione è fisso e che l'angolo in basso a destra si può spostare.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="kmag-features">
+<title
+>Altre funzioni di &kmagnifier;</title>
+
+<para
+>&kmagnifier; ha molte funzioni. È possibile stampare l'immagine ingrandita direttamente su una stampante, salvare l'immagine su file, copiare l'immagine ingrandita negli appunti (che possono essere usati per incollare in altre applicazioni), ruotare l'immagine ingrandita e altro. </para>
+
+</sect1>
+</chapter>
+
+
+<chapter id="menu-shortcuts"
+> 
+<title
+>Menu e scorciatoie</title
+> 
+ 
+<sect1 id="menus"
+> 
+<title
+>Guida ai menu</title
+> 
+
+<sect2 id="the-file-menu">
+<title
+>Il menu <guimenu
+>File</guimenu
+></title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>File</guimenu
+> <guimenuitem
+>Nuova finestra</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Apre una nuova finestra di &kmagnifier;</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>File</guimenu
+> <guimenuitem
+>Salva istantanea come...</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Salva la vista ingrandita in un file immagine.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>File</guimenu
+> <guimenuitem
+>Stampa...</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Stampa la vista attualmente ingrandita.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>File</guimenu
+> <guimenuitem
+>Esci</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Esce dall'applicazione</para
+></listitem
+> 
+</varlistentry
+> 
+</variablelist
+> 
+</sect2
+> 
+ 
+<sect2 id="the-edit-menu"
+> 
+<title
+>Il menu <guimenu
+>Modifica</guimenu
+></title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Modifica</guimenu
+> <guimenuitem
+>Copia</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Copia la vista attualmente ingrandita negli appunti, che puoi in seguito incollare in altre applicazioni.</para
+></listitem
+> 
+</varlistentry
+> 
+</variablelist
+> 
+</sect2
+> 
+ 
+<sect2 id="the-view-menu"
+> 
+<title
+>Il menu <guimenu
+>Visualizza</guimenu
+></title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F5</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Visualizza</guimenu
+> <guimenuitem
+>Avvia/Ferma</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Avvia o ferma l'aggiornamento del visore. Fermare l'aggiornamento azzererà la capacità di elaborazione richiesta (uso della CPU).</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Visualizza</guimenu
+> <guimenuitem
+>Zoom</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Seleziona il fattore di ingrandimento.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>-</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Visualizza</guimenu
+> <guimenuitem
+>Zoom indietro</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Fai clic su questo pulsante per rimpicciolire nella regione selezionata.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>-</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Visualizza</guimenu
+> <guimenuitem
+>Zoom avanti</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Fai clic su questo pulsante per ingrandire nella regione selezionata.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Visualizza</guimenu
+><guimenuitem
+>Rotazione</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Seleziona l'angolo di rotazione (<guimenuitem
+>Nessuna rotazione (0 gradi)</guimenuitem
+>, <guimenuitem
+>Sinistra (90 gradi)</guimenuitem
+>, <guimenuitem
+>Ribaltato (180 gradi)</guimenuitem
+>, <guimenuitem
+>Destra (270 gradi)</guimenuitem
+>.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Visualizza</guimenu
+><guimenuitem
+>Aggiorna</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Seleziona la velocità di aggiornamento (<guimenuitem
+>Molto bassa</guimenuitem
+>, <guimenuitem
+>Bassa</guimenuitem
+>, <guimenuitem
+>Media</guimenuitem
+>, <guimenuitem
+>Alta</guimenuitem
+>, <guimenuitem
+>Molto alta</guimenuitem
+>). Più alta è la velocità, più capacità di elaborazione della CPU sarà necessaria.</para
+></listitem>
+</varlistentry>
+
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>Visualizza</guimenu
+> <guimenuitem
+>Colori</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>Seleziona diversi difetti visivi per simulare il daltonismo. Questo non serve ai daltonici, ma per progettare interfacce accessibili.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+</variablelist>
+</sect2>
+
+<sect2 id="the-settings-menu">
+<title
+>Il menu <guimenu
+>Impostazioni</guimenu
+></title>
+
+<variablelist>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F2</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Impostazioni</guimenu
+> <guimenuitem
+>Modalità segui il mouse</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>In questa modalità l'area attorno al cursore del mouse viene visualizzata in una finestra normale.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F3</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Impostazioni</guimenu
+> <guimenuitem
+> Modalità finestra di selezione</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>In questa modalità viene aperta una finestra di selezione. L'area selezionata viene mostrata in una finestra normale.</para
+></listitem>
+</varlistentry>
+
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F4</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Impostazioni</guimenu
+> <guimenuitem
+>Modalità a tutto schermo</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>In questa modalità tutto lo schermo viene ingrandito nella finestra di ingrandimento.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F6</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Impostazioni</guimenu
+> <guimenuitem
+>Nascondi il cursore del mouse</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Mostra o nascondi il cursore del mouse nell'immagine ingrandita.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F7</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Impostazioni</guimenu
+> <guimenuitem
+>Sempre in primo piano</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>La finestra di &kmagnifier; rimane al di sopra delle altre finestre.</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Inoltre, &kmagnifier;; ha le normali voci del menu di &kde; <guimenu
+>Impostazioni</guimenu
+> e <guimenu
+>Aiuto</guimenu
+>; per maggiori informazioni leggi la sezione sul <ulink url="help:/fundamentals/menus.html#menus-settings"
+>menu Impostazioni</ulink
+> e sul <ulink url="help:/fundamentals/menus.html#menus-help"
+>menu Aiuto</ulink
+> dei fondamentali di &kde;. </para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="commands">
+<title
+>Guida ai comandi</title>
+
+<para
+>&kmagnifier; usa automaticamente tutte le scorciatoie predefinite per salvare file, aprire nuove finestre, stampare, avviare o fermare l'aggiornamento (pulsante di ricarica in &konqueror;), ingrandire, rimpicciolire, eccetera.</para>
+
+<table>
+<title
+>Scorciatoie predefinite da tastiera</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Questo salverà i contenuti della finestra d'ingrandimento in un file.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F2</keycap
+></entry>
+<entry
+><para
+>Attiva la "Modalità segui il mouse".</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F3</keycap
+></entry>
+<entry
+><para
+>Attiva la <quote
+>Modalità finestra di selezione</quote
+>.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F4</keycap
+></entry>
+<entry
+><para
+>Attiva la "Modalità a tutto schermo".</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F5</keycap
+></entry>
+<entry
+><para
+>Questo avvierà l'aggiornamento della finestra di ingrandimento se è fermo, ofermerà l'aggiornamento della finestra d'ingrandimento se è correntemente attivo.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F6</keycap
+></entry>
+<entry
+><para
+>Mostra o nascondi il cursore del mouse nell'immagine ingrandita.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F7</keycap
+></entry>
+<entry
+><para
+>La finestra di &kmagnifier; rimane al di sopra delle altre finestre.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Questo aprirà una nuova finestra di &kmagnifier;.</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Questo aprirà il dialogo di stampa per stampare i contenuti della finestra d'ingrandimento.</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Questo copierà i contenuti della finestra d'ingrandimento agli appunti.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+></entry
+> 
+<entry
+><para
+>Mostra/nascondi la barra dei menu.</para
+> 
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>-</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Rimpicciolisci</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+></entry>
+<entry
+><para
+>Ingrandisci</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry
+> 
+<entry
+><para
+>Esci dall'applicazione.</para
+></entry
+> 
+</row>
+</tbody>
+</tgroup>
+
+</table>
+</sect1>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Riconoscimenti e licenza</title>
+
+<para
+>&kmagnifier; </para>
+<para
+>Copyright del programma 2001-2003 di Sarang Lakare <email
+>sarang@users.sf.net</email
+> e 2003-2005 di Olaf Schmidt <email
+>ojschmidt@kde.org</email
+>. </para>
+<para
+>Sviluppatori: <itemizedlist
+> <listitem
+><para
+>Michael Forster <email
+>forster@fmi.uni-passau.de</email
+> (autore originale)</para
+></listitem>
+</itemizedlist>
+</para>
+
+
+<para
+>Copyright della documentazione 2002 di Sarang Lakare <email
+>sarang@users.sf.net</email
+> e 2004-2005 di Olaf Schmidt <email
+>ojschmidt@kde.org</email
+> </para>
+
+<para
+>Federico Zenith<email
+>federico.zenith@member.fsf.org</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->
