@@ -136,7 +136,7 @@ msgid ""
 "usage)"
 msgstr ""
 "En fer clic sobre esta icona s'<b>iniciarà</b> / <b>pararà</b> "
-"l'actualització de la imatge. Si s'para l'actualització, el consum de "
+"l'actualització de la imatge. Si es para l'actualització, el consum de "
 "potència del processador serà zero (ús de la CPU)"
 
 #: kmag.cpp:134
@@ -328,7 +328,7 @@ msgstr "Angle de gir"
 #: kmag.cpp:227
 #, kde-format
 msgid "&Refresh"
-msgstr "&Actualitza"
+msgstr "Act&ualitza"
 
 #: kmag.cpp:230
 #, kde-format
@@ -460,7 +460,7 @@ msgstr "Barra d'eines de configuració"
 #: kmagui.rc:25
 #, kde-format
 msgid "&File"
-msgstr "&Fitxer"
+msgstr "Fi&txer"
 
 #. i18n: ectx: Menu (edit)
 #: kmagui.rc:32
