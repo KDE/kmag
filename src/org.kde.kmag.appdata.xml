@@ -24,6 +24,7 @@
   <name xml:lang="id">KMag</name>
   <name xml:lang="is">KMag</name>
   <name xml:lang="it">KMag</name>
+  <name xml:lang="ka">KMag</name>
   <name xml:lang="ko">KMag</name>
   <name xml:lang="nl">KMag</name>
   <name xml:lang="nn">KMag</name>
@@ -62,6 +63,7 @@
   <summary xml:lang="id">Memperbesar Layar</summary>
   <summary xml:lang="is">Skjástækkari</summary>
   <summary xml:lang="it">Lente d'ingrandimento</summary>
+  <summary xml:lang="ka">ეკრანის გამადიდებელი</summary>
   <summary xml:lang="ko">화면 돋보기</summary>
   <summary xml:lang="nl">Schermvergroter</summary>
   <summary xml:lang="nn">Skjermforstørrar</summary>
@@ -146,6 +148,7 @@
       <caption xml:lang="id">KMag beraksi</caption>
       <caption xml:lang="is">KMag að verki</caption>
       <caption xml:lang="it">KMag in azione</caption>
+      <caption xml:lang="ka">KMag -ის გამოყენება</caption>
       <caption xml:lang="ko">KMag 사용 모습</caption>
       <caption xml:lang="nl">KMag in actie</caption>
       <caption xml:lang="nn">KMag i praksis</caption>
