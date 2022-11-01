@@ -965,11 +965,32 @@ void KMagZoomView::grabFrame()
   // define a normalized rectangle
   QRect selRect = m_selRect.normalized();
 
+  auto cursorPos = QCursor::pos();
+  {
+    // The cursor position (QPoint) for some reason may be equal to the width or height of the screen,
+    // for example (1920, foo) or (bar, 1080) for Full HD. At the same time, the geometry rectangle (QRect)
+    // due to the 0-based coordinate system will not actually contain such point -- the QRect::contains()
+    // method will always return false, which is incorrect in our case. Therefore, we forcibly "project"
+    // the coordinates of the cursor position into the screen geometry rectangle.
+    auto vg = qApp->primaryScreen()->virtualGeometry();
+    cursorPos.rx() = qBound(vg.left(), cursorPos.x(), vg.right());
+    cursorPos.ry() = qBound(vg.top(), cursorPos.y(), vg.bottom());
+  }
+
+  auto screen = qApp->primaryScreen();
+  for (auto s : qApp->screens()) {
+    if (s->geometry().contains(cursorPos)) {
+      screen = s;
+      break;
+    }
+  }
+
   // grab screenshot from the screen and put it in the pixmap
-  QScreen *screen = qApp->primaryScreen(); // ## How to select the right screen?
-  m_coloredPixmap = screen->grabWindow(0,  // WId == 0 is interpreted as the root window / desktop
-                                      selRect.x(), selRect.y(),
-                                      selRect.width(), selRect.height());
+  m_coloredPixmap = screen->grabWindow(
+    0,  // WId == 0 is interpreted as the root window / desktop
+    selRect.x() - screen->geometry().left(),
+    selRect.y() - screen->geometry().top(),
+    selRect.width(), selRect.height());
 
   // colorize the grabbed pixmap
   if (m_colormode != 0)
