@@ -135,7 +135,7 @@ msgid ""
 "display. Stopping the update will zero the processing power required (CPU "
 "usage)"
 msgstr ""
-"En fer clic sobre esta icona s'<b>iniciarà</b> / <b>pararà</b> "
+"En fer clic damunt d'esta icona s'<b>iniciarà</b> / <b>pararà</b> "
 "l'actualització de la imatge. Si es para l'actualització, el consum de "
 "potència del processador serà zero (ús de la CPU)"
 
