@@ -1,112 +1,66 @@
 <?xml version="1.0" ?>
 <!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-<!ENTITY % German "INCLUDE">
+<!ENTITY % English "INCLUDE">
 ]>
 
 <refentry lang="&language;">
 <refentryinfo>
-<title
->&kmagnifier;-Benutzerhandbuch</title>
-<author
->&Lauri.Watts; &Lauri.Watts.mail;</author>
-<date
->2017-07-07</date>
-<productname
->KDE-Anwendungen</productname>
+<title>&kmagnifier; User's Manual</title>
+<author>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<date>2017-07-07</date>
+<productname>KDE Applications</productname>
 </refentryinfo>
 
 <refmeta>
-<refentrytitle
-><command
->kmag</command
-></refentrytitle>
-<manvolnum
->1</manvolnum>
+<refentrytitle><command>kmag</command></refentrytitle>
+<manvolnum>1</manvolnum>
 </refmeta>
 
 <refnamediv>
-<refname
-><command
->kmag</command
-></refname>
-<refpurpose
->Bildschirmlupe</refpurpose>
+<refname><command>kmag</command></refname>
+<refpurpose>Screen magnifier</refpurpose>
 </refnamediv>
 
 <refsynopsisdiv>
 <cmdsynopsis>
-<command
->kmag</command>
+<command>kmag</command>
 </cmdsynopsis>
 </refsynopsisdiv>
 
 <refsect1>
-<title
->Beschreibung</title>
-<para
-><command
->kmag</command
-> auch bekannt als &kmagnifier; ist eine Bildschirmlupe. Sie können &kmagnifier; dazu benutzen einen Bereich des Bildschirms zu vergrößern, so als würden Sie eine Lupe benutzen, um das Kleingedruckte in einer Zeitung oder ein Foto zu betrachten. Diese Anwendung ist für verschiedene Menschen von Nutzen: vom Rechercheur oder Künstler bis zum Webdesigner oder Sehbehinderten.</para>
+<title>Description</title>
+<para><command>kmag</command>, also known as &kmagnifier; is a screen
+magnifier. You can use &kmagnifier; to magnify a part of the screen just as
+you would use a lens to magnify a newspaper fine-print or a photograph. This
+application is useful for a variety of people: from researchers to artists
+to web-designers to people with low vision.</para>
 </refsect1>
 
 <refsect1>
-<title
->Siehe auch</title>
+<title>See Also</title>
 
 <simplelist>
-<member
->Ausführlichere Benutzerdokumentation finden Sie mit <ulink url="help:/kmag"
->help:/kmag</ulink
-> (geben Sie entweder diese <acronym
->URL</acronym
-> in die Adressleiste von &konqueror; ein oder starten Sie <userinput
-><command
->khelpcenter</command
-> <parameter
->help:/kmag</parameter
-></userinput
->).</member>
-<member
->kf5options(7)</member>
-<member
->qt5options(7)</member>
-<member
->Weitere Informationen finden Sie außerdem auf der <ulink url="httpS://accessibility.kde.org/"
->Webseite des Accessibility-Projekts von &kde;</ulink
->.</member>
+<member>More detailed user documentation is available from <ulink
+url="help:/kmag">help:/kmag</ulink>
+(either enter this &URL; into &konqueror;, or run
+<userinput><command>khelpcenter</command>
+<parameter>help:/kmag</parameter></userinput>).</member>
+<member>kf5options(7)</member>
+<member>qt5options(7)</member>
+<member>There is also further information available at <ulink url="https://accessibility.kde.org/">the &kde; accessibility project home page.</ulink></member>
 </simplelist>
 
 </refsect1>
 
 <refsect1>
-<title
->Autoren</title>
-<para
->&kmagnifier; wurde entwickelt von <personname
-><firstname
->Olaf</firstname
-><surname
->Schmidt</surname
-></personname
-> <email
->ojschmidt@kde.org</email
-> und <personname
-><firstname
->Sarang</firstname
-><surname
->Lakare</surname
-></personname
-> <email
->sarang@users.sf.net</email
-> und <personname
-><firstname
->Michael</firstname
-><surname
->Forster</surname
-></personname
-> <email
->forster@fmi.uni-passau.de</email
->.</para>
+<title>Authors</title>
+<para>&kmagnifier; was written by
+<personname><firstname>Olaf</firstname><surname>Schmidt</surname></personname>
+<email>ojschmidt@kde.org</email> and
+<personname><firstname>Sarang</firstname><surname>Lakare</surname></personname>
+<email>sarang@users.sf.net</email> and
+<personname><firstname>Michael</firstname><surname>Forster</surname></personname>
+<email>forster@fmi.uni-passau.de</email></para>
 </refsect1>
 
 </refentry>
