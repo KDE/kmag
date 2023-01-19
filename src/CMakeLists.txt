@@ -11,10 +11,10 @@ ecm_setup_version(${RELEASE_SERVICE_VERSION}
 add_executable(kmag)
 
 target_sources(kmag PRIVATE
-    kmagzoomview.cpp
-    kmagselrect.cpp
-    kmag.cpp
-    colorsim.cpp
+    kmagzoomview.cpp kmagzoomview.h
+    kmagselrect.cpp kmagselrect.h
+    kmag.cpp kmag.h
+    colorsim.cpp colorsim.h
     main.cpp
 
     kmag.qrc
