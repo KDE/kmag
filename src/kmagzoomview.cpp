@@ -483,8 +483,13 @@ void KMagZoomView::mousePressEvent(QMouseEvent *e)
         setCursor(Qt::SizeAllCursor);
 
         // backup the old position
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         m_oldMousePos.setX(e->globalX());
         m_oldMousePos.setY(e->globalY());
+#else
+        m_oldMousePos.setX(qRound(e->globalPosition().x()));
+        m_oldMousePos.setY(qRound(e->globalPosition().y()));
+#endif
 
         // set the cursor position to the bottom-right of the selected region
         QCursor::setPos(m_selRect.bottomRight());
@@ -506,8 +511,13 @@ void KMagZoomView::mousePressEvent(QMouseEvent *e)
         setCursor(Qt::CrossCursor);
 
         // backup the old position
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         m_oldMousePos.setX(e->globalX());
         m_oldMousePos.setY(e->globalY());
+#else
+        m_oldMousePos.setX(qRound(e->globalPosition().x()));
+        m_oldMousePos.setY(qRound(e->globalPosition().y()));
+#endif
 
         // set the cursor position to the center of the selected region
         QCursor::setPos(m_selRect.center());
@@ -529,8 +539,14 @@ void KMagZoomView::mousePressEvent(QMouseEvent *e)
         setCursor(Qt::PointingHandCursor);
 
         // store the old position
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         m_oldMousePos.setX(e->globalX());
         m_oldMousePos.setY(e->globalY());
+#else
+        m_oldMousePos.setX(qRound(e->globalPosition().x()));
+        m_oldMousePos.setY(qRound(e->globalPosition().y()));
+#endif
+
 
         m_oldCenter = m_selRect.center();
 
@@ -554,8 +570,14 @@ void KMagZoomView::mousePressEvent(QMouseEvent *e)
       setCursor(Qt::CrossCursor);
 
       // backup the old position
-      m_oldMousePos.setX(e->globalX());
-      m_oldMousePos.setY(e->globalY());
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+        m_oldMousePos.setX(e->globalX());
+        m_oldMousePos.setY(e->globalY());
+#else
+        m_oldMousePos.setX(qRound(e->globalPosition().x()));
+        m_oldMousePos.setY(qRound(e->globalPosition().y()));
+#endif
+
 
       // set the cursor position to the center of the selected region
       QCursor::setPos(m_selRect.center());
@@ -645,8 +667,14 @@ void KMagZoomView::mouseMoveEvent(QMouseEvent *e)
   if(m_mouseMode == ResizeSelection) {
     // In resize selection mode
     // set the current mouse position as the bottom, right corner
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     m_selRect.setRight(e->globalX());
     m_selRect.setBottom(e->globalY());
+#else
+    m_selRect.setRight(qRound(e->globalPosition().x()));
+    m_selRect.setBottom(qRound(e->globalPosition().y()));
+#endif
+
     m_selRect.update();
     grabFrame();
   } else if(m_mouseMode == MoveSelection) {

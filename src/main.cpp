@@ -32,7 +32,9 @@ KmagApp *kmagapp;
 int main(int argc, char *argv[])
 {
   QApplication app(argc, argv);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
   app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
+#endif
   KLocalizedString::setApplicationDomain("kmag");
 
   // about the application
