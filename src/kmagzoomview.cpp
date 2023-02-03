@@ -681,8 +681,11 @@ void KMagZoomView::mouseMoveEvent(QMouseEvent *e)
      QPoint newCenter;
 
     // set new center to be the current mouse position
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     newCenter = e->globalPos();
-
+#else
+    newCenter = e->globalPosition().toPoint();
+#endif
     // make sure the mouse position is not taking the grab window outside
     // the display
     if(newCenter.x() < m_selRect.width()/2) {
@@ -709,7 +712,11 @@ void KMagZoomView::mouseMoveEvent(QMouseEvent *e)
      QPoint newPos;
 
     // get new position
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     newPos = e->globalPos();
+#else
+     newPos = e->globalPosition().toPoint();
+#endif
 
     QPoint delta = (newPos - m_oldMousePos)/m_zoom;
     QPoint newCenter = m_oldCenter-delta;
