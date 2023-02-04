@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-26 00:38+0000\n"
+"POT-Creation-Date: 2023-02-04 00:50+0000\n"
 "PO-Revision-Date: 2007-06-22 20:16+0300\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -421,7 +421,7 @@ msgstr ""
 msgid "Selection Window"
 msgstr ""
 
-#: kmagselrect.cpp:213 main.cpp:39
+#: kmagselrect.cpp:213 main.cpp:41
 #, kde-format
 msgid "KMagnifier"
 msgstr ""
@@ -478,12 +478,12 @@ msgid ""
 "contents will be magnified according to the zoom level that is set."
 msgstr ""
 
-#: main.cpp:40
+#: main.cpp:42
 #, kde-format
 msgid "Screen magnifier created by KDE"
 msgstr ""
 
-#: main.cpp:42
+#: main.cpp:44
 #, kde-format
 msgid ""
 "Copyright 2001-2003 Sarang Lakare\n"
@@ -491,64 +491,64 @@ msgid ""
 "Copyright 2008 Matthew Woehlke"
 msgstr ""
 
-#: main.cpp:46
+#: main.cpp:48
 #, kde-format
 msgid "Sarang Lakare"
 msgstr ""
 
-#: main.cpp:47
+#: main.cpp:49
 #, kde-format
 msgid "Rewrite"
 msgstr ""
 
-#: main.cpp:48
+#: main.cpp:50
 #, kde-format
 msgid "Michael Forster"
 msgstr ""
 
-#: main.cpp:49
+#: main.cpp:51
 #, kde-format
 msgid "Original idea and author (KDE1)"
 msgstr ""
 
-#: main.cpp:50
+#: main.cpp:52
 #, kde-format
 msgid "Olaf Schmidt"
 msgstr ""
 
-#: main.cpp:50
+#: main.cpp:52
 #, kde-format
 msgid ""
 "Rework of the user interface, improved selection window, speed optimization, "
 "rotation, bug fixes"
 msgstr ""
 
-#: main.cpp:51
+#: main.cpp:53
 #, kde-format
 msgid "Matthew Woehlke"
 msgstr ""
 
-#: main.cpp:51
+#: main.cpp:53
 #, kde-format
 msgid "Color-blindness simulation"
 msgstr ""
 
-#: main.cpp:52
+#: main.cpp:54
 #, kde-format
 msgid "Sebastian Sauer"
 msgstr ""
 
-#: main.cpp:52
+#: main.cpp:54
 #, kde-format
 msgid "Focus tracking"
 msgstr ""
 
-#: main.cpp:53
+#: main.cpp:55
 #, kde-format
 msgid "Claudiu Costin"
 msgstr ""
 
-#: main.cpp:53
+#: main.cpp:55
 #, kde-format
 msgid "Some tips"
 msgstr ""

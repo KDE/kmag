@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-26 00:38+0000\n"
+"POT-Creation-Date: 2023-02-04 00:50+0000\n"
 "PO-Revision-Date: 2019-09-29 12:21+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -447,7 +447,7 @@ msgstr "Бозсозии тиреза фаъол созед"
 msgid "Selection Window"
 msgstr "Тирезаи расми интихобшуда"
 
-#: kmagselrect.cpp:213 main.cpp:39
+#: kmagselrect.cpp:213 main.cpp:41
 #, kde-format
 msgid "KMagnifier"
 msgstr "Пурбини Экрани KDE"
@@ -506,13 +506,13 @@ msgstr ""
 "Ин тирезаи асосӣ, ки қисми экрани интихобшударо намоиш мекунад. Агар дар "
 "ҳолати калонкунӣ қарор диҳем, он гоҳ намоиш калон мешавад."
 
-#: main.cpp:40
+#: main.cpp:42
 #, fuzzy, kde-format
 #| msgid "Screen magnifier for the K Desktop Environment (KDE)"
 msgid "Screen magnifier created by KDE"
 msgstr "Пурбини Экран барои гирдуатрофи KDE"
 
-#: main.cpp:42
+#: main.cpp:44
 #, kde-format
 msgid ""
 "Copyright 2001-2003 Sarang Lakare\n"
@@ -520,32 +520,32 @@ msgid ""
 "Copyright 2008 Matthew Woehlke"
 msgstr ""
 
-#: main.cpp:46
+#: main.cpp:48
 #, kde-format
 msgid "Sarang Lakare"
 msgstr ""
 
-#: main.cpp:47
+#: main.cpp:49
 #, kde-format
 msgid "Rewrite"
 msgstr ""
 
-#: main.cpp:48
+#: main.cpp:50
 #, kde-format
 msgid "Michael Forster"
 msgstr ""
 
-#: main.cpp:49
+#: main.cpp:51
 #, kde-format
 msgid "Original idea and author (KDE1)"
 msgstr "Муаллифи фикр ва таъсисдиҳанда (KDE1)"
 
-#: main.cpp:50
+#: main.cpp:52
 #, kde-format
 msgid "Olaf Schmidt"
 msgstr ""
 
-#: main.cpp:50
+#: main.cpp:52
 #, fuzzy, kde-format
 msgid ""
 "Rework of the user interface, improved selection window, speed optimization, "
@@ -554,32 +554,32 @@ msgstr ""
 "Бозсози кардани воситаи истифодабаранда, беҳтар гардонидани панҷараи "
 "интихобгардидашуда суръати беееҳинасозӣ, даврзанӣ, дуруст кардани хатогиҳо"
 
-#: main.cpp:51
+#: main.cpp:53
 #, kde-format
 msgid "Matthew Woehlke"
 msgstr ""
 
-#: main.cpp:51
+#: main.cpp:53
 #, kde-format
 msgid "Color-blindness simulation"
 msgstr ""
 
-#: main.cpp:52
+#: main.cpp:54
 #, kde-format
 msgid "Sebastian Sauer"
 msgstr ""
 
-#: main.cpp:52
+#: main.cpp:54
 #, kde-format
 msgid "Focus tracking"
 msgstr ""
 
-#: main.cpp:53
+#: main.cpp:55
 #, kde-format
 msgid "Claudiu Costin"
 msgstr ""
 
-#: main.cpp:53
+#: main.cpp:55
 #, kde-format
 msgid "Some tips"
 msgstr "Як чанд  маслиҳатҳо"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-26 00:38+0000\n"
+"POT-Creation-Date: 2023-02-04 00:50+0000\n"
 "PO-Revision-Date: 2020-04-21 00:28+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -424,7 +424,7 @@ msgstr "창 업데이트를 시작하시려면 클릭하십시오"
 msgid "Selection Window"
 msgstr "선택 창"
 
-#: kmagselrect.cpp:213 main.cpp:39
+#: kmagselrect.cpp:213 main.cpp:41
 #, kde-format
 msgid "KMagnifier"
 msgstr "KMagnifier"
@@ -480,12 +480,12 @@ msgstr ""
 "이것은 선택한 영역의 내용을 보여주는 주 창입니다. 내용물은 지정한 확대/축소 "
 "단계에 따라 크기가 조정됩니다."
 
-#: main.cpp:40
+#: main.cpp:42
 #, kde-format
 msgid "Screen magnifier created by KDE"
 msgstr "KDE 화면 돋보기"
 
-#: main.cpp:42
+#: main.cpp:44
 #, kde-format
 msgid ""
 "Copyright 2001-2003 Sarang Lakare\n"
@@ -496,64 +496,64 @@ msgstr ""
 "저작권자 2003-2004 Olaf Schmidt\n"
 "저작권자 2008 Matthew Woehlke"
 
-#: main.cpp:46
+#: main.cpp:48
 #, kde-format
 msgid "Sarang Lakare"
 msgstr "Sarang Lakare"
 
-#: main.cpp:47
+#: main.cpp:49
 #, kde-format
 msgid "Rewrite"
 msgstr "재작성"
 
-#: main.cpp:48
+#: main.cpp:50
 #, kde-format
 msgid "Michael Forster"
 msgstr "Michael Forster"
 
-#: main.cpp:49
+#: main.cpp:51
 #, kde-format
 msgid "Original idea and author (KDE1)"
 msgstr "아이디어와 원 작성자 (KDE1)"
 
-#: main.cpp:50
+#: main.cpp:52
 #, kde-format
 msgid "Olaf Schmidt"
 msgstr "Olaf Schmidt"
 
-#: main.cpp:50
+#: main.cpp:52
 #, kde-format
 msgid ""
 "Rework of the user interface, improved selection window, speed optimization, "
 "rotation, bug fixes"
 msgstr "사용자 인터페이스 재작업, 선택 창 개선, 속도 최적화, 회전, 버그 수정"
 
-#: main.cpp:51
+#: main.cpp:53
 #, kde-format
 msgid "Matthew Woehlke"
 msgstr "Matthew Woehlke"
 
-#: main.cpp:51
+#: main.cpp:53
 #, kde-format
 msgid "Color-blindness simulation"
 msgstr "색맹 시뮬레이션"
 
-#: main.cpp:52
+#: main.cpp:54
 #, kde-format
 msgid "Sebastian Sauer"
 msgstr "Sebastian Sauer"
 
-#: main.cpp:52
+#: main.cpp:54
 #, kde-format
 msgid "Focus tracking"
 msgstr "초점 따라가기"
 
-#: main.cpp:53
+#: main.cpp:55
 #, kde-format
 msgid "Claudiu Costin"
 msgstr "Claudiu Costin"
 
-#: main.cpp:53
+#: main.cpp:55
 #, kde-format
 msgid "Some tips"
 msgstr "작은 팁"

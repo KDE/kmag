@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-26 00:38+0000\n"
+"POT-Creation-Date: 2023-02-04 00:50+0000\n"
 "PO-Revision-Date: 2010-11-07 22:36-0800\n"
 "Last-Translator: Fumiaki Okushi <okushi@kde.gr.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -442,7 +442,7 @@ msgstr "ウィンドウの更新を開始"
 msgid "Selection Window"
 msgstr "選択ウィンドウ"
 
-#: kmagselrect.cpp:213 main.cpp:39
+#: kmagselrect.cpp:213 main.cpp:41
 #, kde-format
 msgid "KMagnifier"
 msgstr "KMagnifier"
@@ -501,13 +501,13 @@ msgstr ""
 "これは選択された範囲の内容を表示するメインウィンドウです。ズームレベルの設定"
 "に従って内容を拡大して表示します。"
 
-#: main.cpp:40
+#: main.cpp:42
 #, fuzzy, kde-format
 #| msgid "Screen magnifier for the K Desktop Environment (KDE)"
 msgid "Screen magnifier created by KDE"
 msgstr "K デスクトップ環境 (KDE) のスクリーン拡大鏡"
 
-#: main.cpp:42
+#: main.cpp:44
 #, kde-format
 msgid ""
 "Copyright 2001-2003 Sarang Lakare\n"
@@ -518,32 +518,32 @@ msgstr ""
 "Copyright 2003-2004 Olaf Schmidt\n"
 "Copyright 2008 Matthew Woehlke"
 
-#: main.cpp:46
+#: main.cpp:48
 #, kde-format
 msgid "Sarang Lakare"
 msgstr "Sarang Lakare"
 
-#: main.cpp:47
+#: main.cpp:49
 #, kde-format
 msgid "Rewrite"
 msgstr "書き直し"
 
-#: main.cpp:48
+#: main.cpp:50
 #, kde-format
 msgid "Michael Forster"
 msgstr "Michael Forster"
 
-#: main.cpp:49
+#: main.cpp:51
 #, kde-format
 msgid "Original idea and author (KDE1)"
 msgstr "オリジナルのアイデア、作者 (KDE1)"
 
-#: main.cpp:50
+#: main.cpp:52
 #, kde-format
 msgid "Olaf Schmidt"
 msgstr "Olaf Schmidt"
 
-#: main.cpp:50
+#: main.cpp:52
 #, kde-format
 msgid ""
 "Rework of the user interface, improved selection window, speed optimization, "
@@ -552,32 +552,32 @@ msgstr ""
 "ユーザインターフェースの書き直し、選択ウィンドウの改良、速度最適化、回転、バ"
 "グ修正"
 
-#: main.cpp:51
+#: main.cpp:53
 #, kde-format
 msgid "Matthew Woehlke"
 msgstr "Matthew Woehlke"
 
-#: main.cpp:51
+#: main.cpp:53
 #, kde-format
 msgid "Color-blindness simulation"
 msgstr "色覚異常シミュレーション"
 
-#: main.cpp:52
+#: main.cpp:54
 #, kde-format
 msgid "Sebastian Sauer"
 msgstr "Sebastian Sauer"
 
-#: main.cpp:52
+#: main.cpp:54
 #, kde-format
 msgid "Focus tracking"
 msgstr ""
 
-#: main.cpp:53
+#: main.cpp:55
 #, kde-format
 msgid "Claudiu Costin"
 msgstr "Claudiu Costin"
 
-#: main.cpp:53
+#: main.cpp:55
 #, kde-format
 msgid "Some tips"
 msgstr "いくつかのヒント"

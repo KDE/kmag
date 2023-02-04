@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-26 00:38+0000\n"
+"POT-Creation-Date: 2023-02-04 00:50+0000\n"
 "PO-Revision-Date: 2022-07-08 15:11+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -433,7 +433,7 @@ msgstr "Feu clic per a iniciar l'actualització de la finestra"
 msgid "Selection Window"
 msgstr "Seleccioneu la finestra"
 
-#: kmagselrect.cpp:213 main.cpp:39
+#: kmagselrect.cpp:213 main.cpp:41
 #, kde-format
 msgid "KMagnifier"
 msgstr "KMagnifier"
@@ -490,12 +490,12 @@ msgstr ""
 "seleccionada. El contingut es mostrarà ampliat d'acord amb el nivell "
 "d'apropament establit."
 
-#: main.cpp:40
+#: main.cpp:42
 #, kde-format
 msgid "Screen magnifier created by KDE"
 msgstr "Ampliador de pantalla, creat per la comunitat KDE"
 
-#: main.cpp:42
+#: main.cpp:44
 #, kde-format
 msgid ""
 "Copyright 2001-2003 Sarang Lakare\n"
@@ -506,32 +506,32 @@ msgstr ""
 "Copyright 2003-2004 Olaf Schmidt\n"
 "Copyright 2008 Matthew Woehlke"
 
-#: main.cpp:46
+#: main.cpp:48
 #, kde-format
 msgid "Sarang Lakare"
 msgstr "Sarang Lakare"
 
-#: main.cpp:47
+#: main.cpp:49
 #, kde-format
 msgid "Rewrite"
 msgstr "Reescriptura"
 
-#: main.cpp:48
+#: main.cpp:50
 #, kde-format
 msgid "Michael Forster"
 msgstr "Michael Forster"
 
-#: main.cpp:49
+#: main.cpp:51
 #, kde-format
 msgid "Original idea and author (KDE1)"
 msgstr "Idea original i autor (KDE 1)"
 
-#: main.cpp:50
+#: main.cpp:52
 #, kde-format
 msgid "Olaf Schmidt"
 msgstr "Olaf Schmidt"
 
-#: main.cpp:50
+#: main.cpp:52
 #, kde-format
 msgid ""
 "Rework of the user interface, improved selection window, speed optimization, "
@@ -540,32 +540,32 @@ msgstr ""
 "Refer la interfície d'usuari, selecció de finestra millorada, optimitzacions "
 "de velocitat, gir, correccions d'errors"
 
-#: main.cpp:51
+#: main.cpp:53
 #, kde-format
 msgid "Matthew Woehlke"
 msgstr "Matthew Woehlke"
 
-#: main.cpp:51
+#: main.cpp:53
 #, kde-format
 msgid "Color-blindness simulation"
 msgstr "Simulació del daltonisme"
 
-#: main.cpp:52
+#: main.cpp:54
 #, kde-format
 msgid "Sebastian Sauer"
 msgstr "Sebastian Sauer"
 
-#: main.cpp:52
+#: main.cpp:54
 #, kde-format
 msgid "Focus tracking"
 msgstr "Seguiment del focus"
 
-#: main.cpp:53
+#: main.cpp:55
 #, kde-format
 msgid "Claudiu Costin"
 msgstr "Claudiu Costin"
 
-#: main.cpp:53
+#: main.cpp:55
 #, kde-format
 msgid "Some tips"
 msgstr "Alguns consells"

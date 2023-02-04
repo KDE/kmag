@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-26 00:38+0000\n"
+"POT-Creation-Date: 2023-02-04 00:50+0000\n"
 "PO-Revision-Date: 2004-01-01 21:25+0000\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -436,7 +436,7 @@ msgstr "Cliciwch i ddechrau ailfywiad ffenestr"
 msgid "Selection Window"
 msgstr "Ffe&nestr Dewisiad"
 
-#: kmagselrect.cpp:213 main.cpp:39
+#: kmagselrect.cpp:213 main.cpp:41
 #, kde-format
 msgid "KMagnifier"
 msgstr "KChwyddydd"
@@ -496,13 +496,13 @@ msgstr ""
 "Dyma'r brif ffenestr sy'n dangos cynnwys yr ardal ddewisiedig.  Chwyddir y "
 "cynnwys os gosodir y lefel chwyddu."
 
-#: main.cpp:40
+#: main.cpp:42
 #, fuzzy, kde-format
 #| msgid "Screen magnifier for the K Desktop Environment (KDE)"
 msgid "Screen magnifier created by KDE"
 msgstr "Chwyddydd sgrîn ar gyfer yr Amgylchedd Penbwrdd K (KDE)"
 
-#: main.cpp:42
+#: main.cpp:44
 #, kde-format
 msgid ""
 "Copyright 2001-2003 Sarang Lakare\n"
@@ -510,64 +510,64 @@ msgid ""
 "Copyright 2008 Matthew Woehlke"
 msgstr ""
 
-#: main.cpp:46
+#: main.cpp:48
 #, kde-format
 msgid "Sarang Lakare"
 msgstr ""
 
-#: main.cpp:47
+#: main.cpp:49
 #, kde-format
 msgid "Rewrite"
 msgstr ""
 
-#: main.cpp:48
+#: main.cpp:50
 #, kde-format
 msgid "Michael Forster"
 msgstr ""
 
-#: main.cpp:49
+#: main.cpp:51
 #, kde-format
 msgid "Original idea and author (KDE1)"
 msgstr "Syniad gwreiddiol ac awdur (KDE1)"
 
-#: main.cpp:50
+#: main.cpp:52
 #, kde-format
 msgid "Olaf Schmidt"
 msgstr ""
 
-#: main.cpp:50
+#: main.cpp:52
 #, kde-format
 msgid ""
 "Rework of the user interface, improved selection window, speed optimization, "
 "rotation, bug fixes"
 msgstr ""
 
-#: main.cpp:51
+#: main.cpp:53
 #, kde-format
 msgid "Matthew Woehlke"
 msgstr ""
 
-#: main.cpp:51
+#: main.cpp:53
 #, kde-format
 msgid "Color-blindness simulation"
 msgstr ""
 
-#: main.cpp:52
+#: main.cpp:54
 #, kde-format
 msgid "Sebastian Sauer"
 msgstr ""
 
-#: main.cpp:52
+#: main.cpp:54
 #, kde-format
 msgid "Focus tracking"
 msgstr ""
 
-#: main.cpp:53
+#: main.cpp:55
 #, kde-format
 msgid "Claudiu Costin"
 msgstr ""
 
-#: main.cpp:53
+#: main.cpp:55
 #, kde-format
 msgid "Some tips"
 msgstr "Rhai cynghorion"

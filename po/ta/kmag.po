@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-26 00:38+0000\n"
+"POT-Creation-Date: 2023-02-04 00:50+0000\n"
 "PO-Revision-Date: 2021-01-18 19:16+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -439,7 +439,7 @@ msgstr "சாளரத்தை புதுப்பிக்க தொடங�
 msgid "Selection Window"
 msgstr "தேர்ந்தெடுப்பு சாளரம்"
 
-#: kmagselrect.cpp:213 main.cpp:39
+#: kmagselrect.cpp:213 main.cpp:41
 #, kde-format
 msgid "KMagnifier"
 msgstr "Kபெரிதாக்கி"
@@ -498,13 +498,13 @@ msgstr ""
 "இது முக்கிய சாளரம் இது தேர்ந்தெடுக்கப்பட்ட வட்டாரத்தில் உள்ள உள்ளடக்கத்தினை காட்டுகிறது. "
 "பெரிதாக்கி நிலை அமைக்கப்பட்டால் உள்ளடக்கங்கள் பெரிது ஆக்கப்படுகிறது."
 
-#: main.cpp:40
+#: main.cpp:42
 #, fuzzy, kde-format
 #| msgid "Screen magnifier for the K Desktop Environment (KDE)"
 msgid "Screen magnifier created by KDE"
 msgstr "K கணிப்பொறி வழி சூழலுக்கு திரை பெரிதாக்கி(KDE). "
 
-#: main.cpp:42
+#: main.cpp:44
 #, kde-format
 msgid ""
 "Copyright 2001-2003 Sarang Lakare\n"
@@ -512,32 +512,32 @@ msgid ""
 "Copyright 2008 Matthew Woehlke"
 msgstr ""
 
-#: main.cpp:46
+#: main.cpp:48
 #, kde-format
 msgid "Sarang Lakare"
 msgstr ""
 
-#: main.cpp:47
+#: main.cpp:49
 #, kde-format
 msgid "Rewrite"
 msgstr ""
 
-#: main.cpp:48
+#: main.cpp:50
 #, kde-format
 msgid "Michael Forster"
 msgstr ""
 
-#: main.cpp:49
+#: main.cpp:51
 #, kde-format
 msgid "Original idea and author (KDE1)"
 msgstr "உண்மையான வழி மற்றும் ஆசிரியர் (KDE1)"
 
-#: main.cpp:50
+#: main.cpp:52
 #, kde-format
 msgid "Olaf Schmidt"
 msgstr ""
 
-#: main.cpp:50
+#: main.cpp:52
 #, fuzzy, kde-format
 msgid ""
 "Rework of the user interface, improved selection window, speed optimization, "
@@ -546,32 +546,32 @@ msgstr ""
 "பயனர் இடைமுகம், மேம்படுத்தப்பட்ட தேர்ந்தெடுப்பு சாளரம், வேக குறைப்பு, சுழற்சி, பிழை "
 "நீக்கிகள் ஆகியவற்றை மாற்றியமைத்தல்"
 
-#: main.cpp:51
+#: main.cpp:53
 #, kde-format
 msgid "Matthew Woehlke"
 msgstr ""
 
-#: main.cpp:51
+#: main.cpp:53
 #, kde-format
 msgid "Color-blindness simulation"
 msgstr ""
 
-#: main.cpp:52
+#: main.cpp:54
 #, kde-format
 msgid "Sebastian Sauer"
 msgstr ""
 
-#: main.cpp:52
+#: main.cpp:54
 #, kde-format
 msgid "Focus tracking"
 msgstr ""
 
-#: main.cpp:53
+#: main.cpp:55
 #, kde-format
 msgid "Claudiu Costin"
 msgstr ""
 
-#: main.cpp:53
+#: main.cpp:55
 #, kde-format
 msgid "Some tips"
 msgstr "சில குறிப்புகள்"
