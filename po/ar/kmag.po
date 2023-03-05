@@ -484,7 +484,7 @@ msgstr ""
 #: main.cpp:42
 #, kde-format
 msgid "Screen magnifier created by KDE"
-msgstr "مكبَر الشاشة بواسطة كدي"
+msgstr "مكبَر الشاشة بواسطة كِيدِي"
 
 #: main.cpp:44
 #, kde-format
