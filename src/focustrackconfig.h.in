@@ -1,1 +1,1 @@
-#cmakedefine QAccessibilityClient_FOUND
+#cmakedefine01 HAVE_QACCESSIBILITYCLIENT

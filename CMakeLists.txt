@@ -43,13 +43,23 @@ find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
     XmlGui
 )
 
-find_package(QAccessibilityClient 0.4 CONFIG)
-set_package_properties(QAccessibilityClient PROPERTIES
-    DESCRIPTION "KDE client-side accessibility library"
-    URL "https://invent.kde.org/libraries/libqaccessibilityclient"
-    TYPE OPTIONAL
-    PURPOSE "Required to enable keyboard focus tracking."
-)
+if (QT_MAJOR_VERSION STREQUAL "6")
+    find_package(QAccessibilityClient6 0.4 CONFIG)
+    set_package_properties(QAccessibilityClient6 PROPERTIES
+        DESCRIPTION "KDE client-side accessibility library"
+        URL "https://commits.kde.org/libqaccessibilityclient"
+        TYPE OPTIONAL
+        PURPOSE "Required to enable keyboard focus tracking."
+    )
+else()
+    find_package(QAccessibilityClient 0.4 CONFIG)
+    set_package_properties(QAccessibilityClient PROPERTIES
+        DESCRIPTION "KDE client-side accessibility library"
+        URL "https://commits.kde.org/libqaccessibilityclient"
+        TYPE OPTIONAL
+        PURPOSE "Required to enable keyboard focus tracking."
+    )
+endif()
 
 ecm_set_disabled_deprecation_versions(QT 6.4  KF 5.101.0)
 

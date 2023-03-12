@@ -39,7 +39,7 @@
 
 using namespace std::chrono_literals;
 
-#ifdef QAccessibilityClient_FOUND
+#if HAVE_QACCESSIBILITYCLIENT
 #include <qaccessibilityclient/accessibleobject.h>
 #endif
 
@@ -131,7 +131,7 @@ KMagZoomView::KMagZoomView(QWidget *parent, const char *name)
   if(m_fitToWindow)
     fitToWindow();
 
-#ifdef QAccessibilityClient_FOUND
+#if HAVE_QACCESSIBILITYCLIENT
   //subscribe to focus events from registry
   m_registry.subscribeEventListeners(QAccessibleClient::Registry::Focus | QAccessibleClient::Registry::TextCaretMoved);
 #endif
@@ -200,7 +200,7 @@ void KMagZoomView::followMouse(bool follow)
   }
 }
 
-#ifdef QAccessibilityClient_FOUND
+#if HAVE_QACCESSIBILITYCLIENT
 
 void KMagZoomView::followBoth(bool follow)
 {
@@ -961,7 +961,7 @@ void KMagZoomView::grabFrame()
     if(m_followMouse) {
         // set new center to be the current mouse position
         newCenter = QCursor::pos();
-#ifdef QAccessibilityClient_FOUND
+#if HAVE_QACCESSIBILITYCLIENT
     } else if(m_followFocus) {
         // set the new center to the current keyboard cursor position
         newCenter = m_oldFocus;

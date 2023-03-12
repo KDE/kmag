@@ -1,3 +1,11 @@
+if(QAccessibilityClient6_FOUND)
+    set(HAVE_QACCESSIBILITYCLIENT TRUE)
+elseif(QAccessibilityClient_FOUND)
+    set(HAVE_QACCESSIBILITYCLIENT TRUE)
+else()
+    set(HAVE_QACCESSIBILITYCLIENT FALSE)
+endif()
+
 configure_file(
     "${CMAKE_CURRENT_SOURCE_DIR}/focustrackconfig.h.in"
     "${CMAKE_CURRENT_BINARY_DIR}/focustrackconfig.h"
@@ -29,7 +37,9 @@ target_link_libraries(kmag
     Qt${QT_MAJOR_VERSION}::PrintSupport
 )
 
-if(QAccessibilityClient_FOUND)
+if(QAccessibilityClient6_FOUND)
+    target_link_libraries(kmag QAccessibilityClient6)
+elseif(QAccessibilityClient_FOUND)
     target_link_libraries(kmag ${QACCESSIBILITYCLIENT_LIBRARY})
 endif()
 

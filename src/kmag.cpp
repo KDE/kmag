@@ -160,7 +160,7 @@ void KmagApp::initActions()
   m_modeFollowMouse->setToolTip(i18n("Magnify around the mouse cursor"));
   m_modeFollowMouse->setWhatsThis(i18n("If selected, the area around the mouse cursor is magnified"));
 
-#ifdef QAccessibilityClient_FOUND
+#if HAVE_QACCESSIBILITYCLIENT
 
   m_modeFollowFocus = new KToggleAction(QIcon::fromTheme(QStringLiteral( "view-restore" )), i18n("&Follow Focus Mode"), this);
   actionCollection()->addAction(QStringLiteral( "mode_followfocus" ), m_modeFollowFocus);
@@ -310,7 +310,7 @@ void KmagApp::saveOptions()
 
   if (m_modeFollowMouse->isChecked())
      cg.writeEntry("Mode", "followmouse");
-#ifdef QAccessibilityClient_FOUND
+#if HAVE_QACCESSIBILITYCLIENT
   else if (m_modeFollowFocus->isChecked())
      cg.writeEntry("Mode", "followfocus");
 #endif
@@ -631,7 +631,7 @@ void KmagApp::slotModeWholeScreen()
   m_zoomView->showSelRect(false);
   m_zoomView->setFitToWindow (false);
   m_modeFollowMouse->setChecked(false);
-#ifdef QAccessibilityClient_FOUND
+#if HAVE_QACCESSIBILITYCLIENT
   m_zoomView->followBoth(false);
   m_zoomView->followFocus(false);
   m_modeFollowFocus->setChecked(false);
@@ -647,7 +647,7 @@ void KmagApp::slotModeSelWin()
   m_zoomView->showSelRect(true);
   m_zoomView->setFitToWindow (false);
   m_modeFollowMouse->setChecked(false);
-#ifdef QAccessibilityClient_FOUND
+#if HAVE_QACCESSIBILITYCLIENT
   m_zoomView->followBoth(false);
   m_zoomView->followFocus(false);
   m_modeFollowFocus->setChecked(false);
@@ -658,7 +658,7 @@ void KmagApp::slotModeSelWin()
 
 void KmagApp::slotModeChanged()
 {
-#ifdef QAccessibilityClient_FOUND
+#if HAVE_QACCESSIBILITYCLIENT
   if(m_modeFollowMouse->isChecked() && m_modeFollowFocus->isChecked()) {
 
     //BOTH MODE
@@ -680,7 +680,7 @@ void KmagApp::slotModeChanged()
     m_zoomView->showSelRect(false);
     m_zoomView->setFitToWindow (true);
     m_modeFollowMouse->setChecked(true);
-#ifdef QAccessibilityClient_FOUND
+#if HAVE_QACCESSIBILITYCLIENT
     m_zoomView->followBoth(false);
     m_zoomView->followFocus(false);
     m_modeFollowFocus->setChecked(false);
@@ -688,7 +688,7 @@ void KmagApp::slotModeChanged()
     m_modeWholeScreen->setChecked(false);
     m_modeSelWin->setChecked(false);
 
-#ifdef QAccessibilityClient_FOUND
+#if HAVE_QACCESSIBILITYCLIENT
   } else if (m_modeFollowFocus->isChecked()) {
 
     //FOCUS MODE

@@ -41,7 +41,7 @@
 #include "kmagselrect.h"
 
 #include "focustrackconfig.h"
-#ifdef QAccessibilityClient_FOUND
+#if HAVE_QACCESSIBILITYCLIENT
 #include <qaccessibilityclient/registry.h>
 #endif
 
@@ -72,7 +72,7 @@ class KMagZoomView : public QAbstractScrollArea
     /// Returns the status of followMouse
     bool getFollowMouse() const { return m_followMouse; }
 
-#ifdef QAccessibilityClient_FOUND
+#if HAVE_QACCESSIBILITYCLIENT
     /// Returns the status of followFocus
     bool getFollowFocus() const { return m_followFocus; }
 #endif
@@ -112,7 +112,7 @@ class KMagZoomView : public QAbstractScrollArea
     /// Set grab-window-follows-mouse mode
     void followMouse(bool follow = true);
 
-#ifdef QAccessibilityClient_FOUND
+#if HAVE_QACCESSIBILITYCLIENT
     /// Set grab-window-follows-mouse-and-keyboard-focus mode
     void followBoth(bool follow = true);
     
@@ -138,7 +138,7 @@ class KMagZoomView : public QAbstractScrollArea
     /// Fits the zoom view to the zoom view window
     void fitToWindow();
 
-#ifdef QAccessibilityClient_FOUND
+#if HAVE_QACCESSIBILITYCLIENT
   private Q_SLOTS:
     /// Called from a dbus service when followFocus is true
     void focusChanged(const QAccessibleClient::AccessibleObject &object);
@@ -197,7 +197,7 @@ class KMagZoomView : public QAbstractScrollArea
 
   private:
 
-#ifdef QAccessibilityClient_FOUND
+#if HAVE_QACCESSIBILITYCLIENT
     /// Global Accessibility Registry
     QAccessibleClient::Registry m_registry;
 #endif
@@ -223,7 +223,7 @@ class KMagZoomView : public QAbstractScrollArea
     /// Saves the center of the grab window
     QPoint m_oldCenter;
     
-#ifdef QAccessibilityClient_FOUND
+#if HAVE_QACCESSIBILITYCLIENT
     /// Saves the keyboard focus position
     QPoint m_oldFocus;
 #endif
