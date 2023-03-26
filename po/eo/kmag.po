@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-04 00:50+0000\n"
-"PO-Revision-Date: 2004-06-30 16:26GMT\n"
-"Last-Translator: David Anema <lassi_surinen@yahoo.ca>\n"
+"PO-Revision-Date: 2023-03-25 16:19+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -80,9 +80,9 @@ msgid "&Achromatopsia"
 msgstr ""
 
 #: kmag.cpp:85
-#, fuzzy, kde-format
+#, kde-format
 msgid "&No Rotation (0 Degrees)"
-msgstr "Grandiga faktoro"
+msgstr ""
 
 #: kmag.cpp:85
 #, kde-format
@@ -120,18 +120,12 @@ msgid "Click to stop window refresh"
 msgstr "Klaku por ĉesigi fenestran refreŝigon"
 
 #: kmag.cpp:128
-#, fuzzy, kde-format
-#| msgid ""
-#| "Clicking on this icon will <b>start</b> / <b>stop</b>  updating of the "
-#| "display. Stopping the update will zero the processing power  required "
-#| "(CPU usage)"
+#, kde-format
 msgid ""
 "Clicking on this icon will <b>start</b> / <b>stop</b> updating of the "
 "display. Stopping the update will zero the processing power required (CPU "
 "usage)"
 msgstr ""
-"Klako super tiu piktogramo <b>komencigos</b>/<b>ĉesigos</b> ĝisdatiĝon de la "
-"lupeo.  Ĉesigo nuligos la procezan potencon bezonatan (Procezilan uzon)."
 
 #: kmag.cpp:134
 #, kde-format
@@ -173,9 +167,9 @@ msgid "Copy zoomed image to clipboard"
 msgstr "Kopiu rigardon al poŝilo"
 
 #: kmag.cpp:155
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Follow Mouse Mode"
-msgstr "&Sekvu muson"
+msgstr ""
 
 #: kmag.cpp:159
 #, kde-format
@@ -183,19 +177,19 @@ msgid "Mouse"
 msgstr ""
 
 #: kmag.cpp:160
-#, fuzzy, kde-format
+#, kde-format
 msgid "Magnify around the mouse cursor"
-msgstr "Kaŝu la musan kursoron"
+msgstr ""
 
 #: kmag.cpp:161
-#, fuzzy, kde-format
+#, kde-format
 msgid "If selected, the area around the mouse cursor is magnified"
-msgstr "Se elektata, la areo ĉirkaŭ la musan kursoron pligrandiĝas."
+msgstr ""
 
 #: kmag.cpp:165
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Follow Focus Mode"
-msgstr "&Sekvu muson"
+msgstr ""
 
 #: kmag.cpp:169
 #, kde-format
@@ -203,25 +197,24 @@ msgid "Focus"
 msgstr ""
 
 #: kmag.cpp:170
-#, fuzzy, kde-format
+#, kde-format
 msgid "Magnify around the keyboard focus"
-msgstr "Kaŝu la musan kursoron"
+msgstr ""
 
 #: kmag.cpp:171
-#, fuzzy, kde-format
+#, kde-format
 msgid "If selected, the area around the keyboard cursor is magnified"
-msgstr "Se elektata, la areo ĉirkaŭ la musan kursoron pligrandiĝas."
+msgstr ""
 
 #: kmag.cpp:175
-#, fuzzy, kde-format
+#, kde-format
 msgid "Se&lection Window Mode"
-msgstr "&Elektofenestro"
+msgstr ""
 
 #: kmag.cpp:179
-#, fuzzy, kde-format
-#| msgid "New &Window"
+#, kde-format
 msgid "Window"
-msgstr "Nova &Fenestro"
+msgstr ""
 
 #: kmag.cpp:180
 #, kde-format
@@ -239,14 +232,14 @@ msgid "Screen"
 msgstr "Ekrano"
 
 #: kmag.cpp:187
-#, fuzzy, kde-format
+#, kde-format
 msgid "Magnify the whole screen"
-msgstr "Grandigu ĉirkaŭ la musan kursoron"
+msgstr ""
 
 #: kmag.cpp:188
-#, fuzzy, kde-format
+#, kde-format
 msgid "Click on this button to fit the zoom view to the zoom window."
-msgstr "Klaku super tiun butonon por presi la rigardon."
+msgstr ""
 
 #: kmag.cpp:190
 #, kde-format
@@ -254,9 +247,9 @@ msgid "Hide Mouse &Cursor"
 msgstr "Kaŝu musan &kursoron"
 
 #: kmag.cpp:195
-#, fuzzy, kde-format
+#, kde-format
 msgid "Show Mouse &Cursor"
-msgstr "Kaŝu musan &kursoron"
+msgstr ""
 
 #: kmag.cpp:197
 #, kde-format
@@ -309,19 +302,19 @@ msgid "&Rotation"
 msgstr ""
 
 #: kmag.cpp:221
-#, fuzzy, kde-format
+#, kde-format
 msgid "Select the rotation degree."
-msgstr "Elektu la grandigan faktoron."
+msgstr ""
 
 #: kmag.cpp:222
-#, fuzzy, kde-format
+#, kde-format
 msgid "Rotation degree"
-msgstr "Grandiga faktoro"
+msgstr ""
 
 #: kmag.cpp:227
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Refresh"
-msgstr "&Refreŝigu"
+msgstr ""
 
 #: kmag.cpp:230
 #, kde-format
@@ -354,9 +347,9 @@ msgid "Color-blindness Simulation Mode"
 msgstr ""
 
 #: kmag.cpp:569
-#, fuzzy, kde-format
+#, kde-format
 msgid "Save Snapshot As"
-msgstr "&Sekurigu ekranbildon kiel..."
+msgstr ""
 
 #: kmag.cpp:583
 #, kde-format
@@ -401,9 +394,9 @@ msgstr ""
 "la dosierujo."
 
 #: kmag.cpp:617
-#, fuzzy, kde-format
+#, kde-format
 msgid "Stop"
-msgstr "Ĉe&su"
+msgstr ""
 
 #: kmag.cpp:618
 #, kde-format
@@ -422,9 +415,9 @@ msgid "Click to start window update"
 msgstr "Klaku por komencigi la fenestran ĝisdatiĝadon."
 
 #: kmagselrect.cpp:213
-#, fuzzy, kde-format
+#, kde-format
 msgid "Selection Window"
-msgstr "&Elektofenestro"
+msgstr ""
 
 #: kmagselrect.cpp:213 main.cpp:41
 #, kde-format
@@ -474,19 +467,16 @@ msgid "&Settings"
 msgstr "A&gordo"
 
 #: kmagzoomview.cpp:125
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This is the main window which shows the contents of the selected region. The "
 "contents will be magnified according to the zoom level that is set."
 msgstr ""
-"Tiu estas la ĉefa fenestro kiu montras la enhavon de la elektata regiono.  "
-"La enhavon grandiĝos po la indikata nivelo."
 
 #: main.cpp:42
-#, fuzzy, kde-format
-#| msgid "Screen magnifier for the K Desktop Environment (KDE)"
+#, kde-format
 msgid "Screen magnifier created by KDE"
-msgstr "Ekranlupeo por la K Tabulmedio (KDE)"
+msgstr ""
 
 #: main.cpp:44
 #, kde-format
@@ -560,56 +550,3 @@ msgstr "Claudiu Costin"
 #, kde-format
 msgid "Some tips"
 msgstr "Iom da helpnotoj"
-
-#~ msgid "File to open"
-#~ msgstr "Dosieron por malfermi"
-
-#~ msgid "Show &Menu"
-#~ msgstr "&Montru menuon"
-
-#, fuzzy
-#~ msgid "Hide &Menu"
-#~ msgstr "&Montru menuon"
-
-#, fuzzy
-#~ msgid "Hide Main &Toolbar"
-#~ msgstr "Montru Ĉefan &Ilobreton"
-
-#, fuzzy
-#~ msgid "Hide &View Toolbar"
-#~ msgstr "Montru &Rigardan Ilobreton"
-
-#, fuzzy
-#~ msgid "Hide &Settings Toolbar"
-#~ msgstr "Montru &Agordan Ilobreton"
-
-#~ msgid "Rewrite and current maintainer"
-#~ msgstr "Reskribo kaj nuna zorganto"
-
-#, fuzzy
-#~ msgid ""
-#~ "In this mode the area around the mouse is magnified to the top screen "
-#~ "edge."
-#~ msgstr "Se elektata, la areo ĉirkaŭ la musan kursoron pligrandiĝas."
-
-#, fuzzy
-#~ msgid ""
-#~ "In this mode the area around the mouse is magnified to the left screen "
-#~ "edge."
-#~ msgstr "Se elektata, la areo ĉirkaŭ la musan kursoron pligrandiĝas."
-
-#, fuzzy
-#~ msgid ""
-#~ "In this mode the area around the mouse is magnified to the right screen "
-#~ "edge."
-#~ msgstr "Se elektata, la areo ĉirkaŭ la musan kursoron pligrandiĝas."
-
-#, fuzzy
-#~ msgid ""
-#~ "In this mode the area around the mouse is magnified to the bottom screen "
-#~ "edge."
-#~ msgstr "Se elektata, la areo ĉirkaŭ la musan kursoron pligrandiĝas."
-
-#, fuzzy
-#~ msgid "Magnify to Left Screen Edge - Select Size"
-#~ msgstr "Grandigu ĉirkaŭ la musan kursoron"
