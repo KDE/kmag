@@ -61,7 +61,7 @@ else()
     )
 endif()
 
-ecm_set_disabled_deprecation_versions(QT 6.4  KF 5.101.0)
+ecm_set_disabled_deprecation_versions(QT 6.4  KF 5.105.0)
 
 add_subdirectory( doc )
 add_subdirectory( pics )
