@@ -15,8 +15,8 @@
 # Sebastien Renard <renard@kde.org>, 2013.
 # Vincent Pinon <vpinon@kde.org>, 2017.
 # Xavier Besnard <xavier.besnard@neuf.fr>, 2021.
+# Xavier BESNARD <xavier.besnard@neuf.fr>, 2023.
 #
-# Xavier BESNARD <xavier.besnard]neuf.fr>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
