@@ -13,6 +13,7 @@
   <name xml:lang="de">KMag</name>
   <name xml:lang="el">KMag</name>
   <name xml:lang="en-GB">KMag</name>
+  <name xml:lang="eo">KMag</name>
   <name xml:lang="es">KMag</name>
   <name xml:lang="et">KMag</name>
   <name xml:lang="eu">KMag</name>
@@ -51,6 +52,7 @@
   <summary xml:lang="de">Bildschirmlupe</summary>
   <summary xml:lang="el">Μεγεθυντικός φακός οθόνης</summary>
   <summary xml:lang="en-GB">Screen Magnifier</summary>
+  <summary xml:lang="eo">Ekranlupeo</summary>
   <summary xml:lang="es">Lupa de la pantalla</summary>
   <summary xml:lang="et">Ekraani suurendusklaas</summary>
   <summary xml:lang="eu">Pantailako lupa</summary>
@@ -135,6 +137,7 @@
       <caption xml:lang="de">KMag in Aktion</caption>
       <caption xml:lang="el">Το KMag σε δράση</caption>
       <caption xml:lang="en-GB">KMag in action</caption>
+      <caption xml:lang="eo">KMag en aktivo</caption>
       <caption xml:lang="es">KMag en acción</caption>
       <caption xml:lang="et">KMag tegevuses</caption>
       <caption xml:lang="eu">KMag martxan</caption>
