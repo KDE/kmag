@@ -261,7 +261,7 @@ msgstr "Agochar o &cursor do rato"
 #: kmag.cpp:195
 #, kde-format
 msgid "Show Mouse &Cursor"
-msgstr "Mostrar o &cursor do rato"
+msgstr "Amosar o &cursor do rato"
 
 #: kmag.cpp:197
 #, kde-format
@@ -485,7 +485,7 @@ msgid ""
 "contents will be magnified according to the zoom level that is set."
 msgstr ""
 "Esta é a xanela principal que mostra o contido da área escollida. O contido "
-"mostrarase ampliado de acordo co nivel de ampliación escollido."
+"amosarase ampliado de acordo co nivel de ampliación escollido."
 
 #: main.cpp:42
 #, kde-format
