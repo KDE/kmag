@@ -1203,3 +1203,5 @@ QImage KMagZoomView::getImage()
   }
   return(image);
 }
+
+#include "moc_kmagzoomview.cpp"

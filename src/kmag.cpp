@@ -842,3 +842,5 @@ void KmagApp::slotNewToolbarConfig()
   applyMainWindowSettings( KSharedConfig::openConfig()->group( "MainWindow" ) );
   createGUI();
 }
+
+#include "moc_kmag.cpp"

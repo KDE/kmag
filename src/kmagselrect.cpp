@@ -387,3 +387,5 @@ void KMagSelWinCorner::mouseMoveEvent ( QMouseEvent * e )
 #endif
   Q_EMIT resized (p - oldPos);
 }
+
+#include "moc_kmagselrect.cpp"
