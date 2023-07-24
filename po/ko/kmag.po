@@ -3,14 +3,14 @@
 # Kwonwoo Nam <kwnam@haansoft.com>, 2004.
 # Hongsoo Byun <hsbyun@haansoft.com>, 2005.
 # Sung-Jae, Cho <jachin@hanafos.com>, 2005.
-# Shinjo Park <kde@peremen.name>, 2007, 2009, 2010, 2011, 2013, 2015, 2017, 2020.
+# Shinjo Park <kde@peremen.name>, 2007, 2009, 2010, 2011, 2013, 2015, 2017, 2020, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-04 00:50+0000\n"
-"PO-Revision-Date: 2020-04-21 00:28+0200\n"
+"PO-Revision-Date: 2023-07-23 23:55+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 19.04.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -159,7 +159,7 @@ msgstr "현재 확대/축소된 화면을 인쇄하려면 클릭하십시오."
 #: kmag.cpp:144 kmag.cpp:145
 #, kde-format
 msgid "Quits the application"
-msgstr "프로그램을 종료합니다"
+msgstr "앱을 종료합니다"
 
 #: kmag.cpp:148
 #, kde-format
@@ -167,8 +167,8 @@ msgid ""
 "Click on this button to copy the current zoomed view to the clipboard which "
 "you can paste in other applications."
 msgstr ""
-"현재 확대/축소된 화면을 클립보드에 복사하여 다른 프로그램에 사용하시려면 이 "
-"단추를 클릭하십시오."
+"현재 확대/축소된 화면을 클립보드에 복사하여 다른 앱에서 사용하려면 이 단추를 "
+"클릭하십시오."
 
 #: kmag.cpp:149
 #, kde-format
@@ -198,17 +198,17 @@ msgstr "선택하면 마우스 커서 주변의 영역이 확대됩니다"
 #: kmag.cpp:165
 #, kde-format
 msgid "&Follow Focus Mode"
-msgstr "초점 따라가기 모드(&F)"
+msgstr "포커스 따라가기 모드(&F)"
 
 #: kmag.cpp:169
 #, kde-format
 msgid "Focus"
-msgstr "초점"
+msgstr "포커스"
 
 #: kmag.cpp:170
 #, kde-format
 msgid "Magnify around the keyboard focus"
-msgstr "키보드 초점 근처를 확대합니다"
+msgstr "키보드 포커스 근처를 확대합니다"
 
 #: kmag.cpp:171
 #, kde-format
@@ -477,8 +477,8 @@ msgid ""
 "This is the main window which shows the contents of the selected region. The "
 "contents will be magnified according to the zoom level that is set."
 msgstr ""
-"이것은 선택한 영역의 내용을 보여주는 주 창입니다. 내용물은 지정한 확대/축소 "
-"단계에 따라 크기가 조정됩니다."
+"선택한 영역의 내용을 보여 주는 주 창입니다. 내용물은 지정한 확대/축소 단계에 "
+"따라 크기가 조정됩니다."
 
 #: main.cpp:42
 #, kde-format
@@ -546,7 +546,7 @@ msgstr "Sebastian Sauer"
 #: main.cpp:54
 #, kde-format
 msgid "Focus tracking"
-msgstr "초점 따라가기"
+msgstr "포커스 추적"
 
 #: main.cpp:55
 #, kde-format
