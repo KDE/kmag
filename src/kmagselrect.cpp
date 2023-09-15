@@ -359,32 +359,20 @@ KMagSelWinCorner::~KMagSelWinCorner()
 
 void KMagSelWinCorner::mousePressEvent ( QMouseEvent * e )
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-  oldPos = e->globalPos ();
-#else
     oldPos = e->globalPosition().toPoint();
-#endif
   Q_EMIT startResizing ();
 }
 
 void KMagSelWinCorner::mouseReleaseEvent ( QMouseEvent * e )
 {
   setFrameShadow (QFrame::Raised);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-  QPoint p = e->globalPos ();
-#else
   QPoint p = e->globalPosition().toPoint();
-#endif
   Q_EMIT resized (p - oldPos);
 }
 
 void KMagSelWinCorner::mouseMoveEvent ( QMouseEvent * e )
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-  QPoint p = e->globalPos ();
-#else
   QPoint p = e->globalPosition().toPoint();
-#endif
   Q_EMIT resized (p - oldPos);
 }
 
