@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-04 00:50+0000\n"
+"POT-Creation-Date: 2023-09-16 01:54+0000\n"
 "PO-Revision-Date: 2017-07-17 08:23+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -430,7 +430,7 @@ msgstr "Клацніть, щоб почати оновлення вікна"
 msgid "Selection Window"
 msgstr "Вікно вибору"
 
-#: kmagselrect.cpp:213 main.cpp:41
+#: kmagselrect.cpp:213 main.cpp:38
 #, kde-format
 msgid "KMagnifier"
 msgstr "KMagnifier"
@@ -486,12 +486,12 @@ msgstr ""
 "Це головне вікно, яке показує вміст вибраної ділянки. Вміст буде збільшено "
 "відповідно до вказаного коефіцієнта."
 
-#: main.cpp:42
+#: main.cpp:39
 #, kde-format
 msgid "Screen magnifier created by KDE"
 msgstr "Збільшувач екрана, який створено KDE"
 
-#: main.cpp:44
+#: main.cpp:41
 #, kde-format
 msgid ""
 "Copyright 2001-2003 Sarang Lakare\n"
@@ -502,32 +502,32 @@ msgstr ""
 "© Olaf Schmidt, 2003–2004\n"
 "© Matthew Woehlke, 2008"
 
-#: main.cpp:48
+#: main.cpp:45
 #, kde-format
 msgid "Sarang Lakare"
 msgstr "Sarang Lakare"
 
-#: main.cpp:49
+#: main.cpp:46
 #, kde-format
 msgid "Rewrite"
 msgstr "Переписування"
 
-#: main.cpp:50
+#: main.cpp:47
 #, kde-format
 msgid "Michael Forster"
 msgstr "Michael Forster"
 
-#: main.cpp:51
+#: main.cpp:48
 #, kde-format
 msgid "Original idea and author (KDE1)"
 msgstr "Перший автор (KDE1)"
 
-#: main.cpp:52
+#: main.cpp:49
 #, kde-format
 msgid "Olaf Schmidt"
 msgstr "Olaf Schmidt"
 
-#: main.cpp:52
+#: main.cpp:49
 #, kde-format
 msgid ""
 "Rework of the user interface, improved selection window, speed optimization, "
@@ -536,32 +536,32 @@ msgstr ""
 "Переробка графічного інтерфейсу, вдосконалення вікна вибору, оптимізація "
 "швидкості, обертання, виправлення помилок"
 
-#: main.cpp:53
+#: main.cpp:50
 #, kde-format
 msgid "Matthew Woehlke"
 msgstr "Matthew Woehlke"
 
-#: main.cpp:53
+#: main.cpp:50
 #, kde-format
 msgid "Color-blindness simulation"
 msgstr "Симуляція дальтонізму"
 
-#: main.cpp:54
+#: main.cpp:51
 #, kde-format
 msgid "Sebastian Sauer"
 msgstr "Sebastian Sauer"
 
-#: main.cpp:54
+#: main.cpp:51
 #, kde-format
 msgid "Focus tracking"
 msgstr "Стеження за фокусом"
 
-#: main.cpp:55
+#: main.cpp:52
 #, kde-format
 msgid "Claudiu Costin"
 msgstr "Claudiu Costin"
 
-#: main.cpp:55
+#: main.cpp:52
 #, kde-format
 msgid "Some tips"
 msgstr "Деякі підказки"

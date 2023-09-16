@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-04 00:50+0000\n"
+"POT-Creation-Date: 2023-09-16 01:54+0000\n"
 "PO-Revision-Date: 2013-10-18 19:26+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <lokal@lugbih.org>\n"
@@ -428,7 +428,7 @@ msgstr "Kliknite ovdje da biste pokrenuli obnavljanje prozora"
 msgid "Selection Window"
 msgstr "Prozor za izbor"
 
-#: kmagselrect.cpp:213 main.cpp:41
+#: kmagselrect.cpp:213 main.cpp:38
 #, kde-format
 msgid "KMagnifier"
 msgstr "KMagnifier"
@@ -484,13 +484,13 @@ msgstr ""
 "Ovo je glavni prozor, koji pokazuje sadržaj izabrane oblasti. Sadržaj će "
 "biti uvećan u skladu sa zadatim nivoom uvećanja."
 
-#: main.cpp:42
+#: main.cpp:39
 #, fuzzy, kde-format
 #| msgid "Screen magnifier for the K Desktop Environment (KDE)"
 msgid "Screen magnifier created by KDE"
 msgstr "Povećavanje ekrana za KDE"
 
-#: main.cpp:44
+#: main.cpp:41
 #, kde-format
 msgid ""
 "Copyright 2001-2003 Sarang Lakare\n"
@@ -501,32 +501,32 @@ msgstr ""
 "Copyright 2003-2004 Olaf Schmidt\n"
 "Copyright 2008 Matthew Woehlke"
 
-#: main.cpp:48
+#: main.cpp:45
 #, kde-format
 msgid "Sarang Lakare"
 msgstr "Саранг Лакаре"
 
-#: main.cpp:49
+#: main.cpp:46
 #, kde-format
 msgid "Rewrite"
 msgstr "Napisao iznova"
 
-#: main.cpp:50
+#: main.cpp:47
 #, kde-format
 msgid "Michael Forster"
 msgstr "Mihael Forster"
 
-#: main.cpp:51
+#: main.cpp:48
 #, kde-format
 msgid "Original idea and author (KDE1)"
 msgstr "Prvobitna ideja i autor (KDE1)"
 
-#: main.cpp:52
+#: main.cpp:49
 #, kde-format
 msgid "Olaf Schmidt"
 msgstr "Olaf Schmidt"
 
-#: main.cpp:52
+#: main.cpp:49
 #, kde-format
 msgid ""
 "Rework of the user interface, improved selection window, speed optimization, "
@@ -535,32 +535,32 @@ msgstr ""
 "Prerada korisničkog sučelja, poboljšan prozor izbora, optimizacija brzine, "
 "rotacija, ispravke grešaka"
 
-#: main.cpp:53
+#: main.cpp:50
 #, kde-format
 msgid "Matthew Woehlke"
 msgstr "Matthew Woehlke"
 
-#: main.cpp:53
+#: main.cpp:50
 #, kde-format
 msgid "Color-blindness simulation"
 msgstr "Simulacija sljepila za boje"
 
-#: main.cpp:54
+#: main.cpp:51
 #, kde-format
 msgid "Sebastian Sauer"
 msgstr "Sebastian Sauer"
 
-#: main.cpp:54
+#: main.cpp:51
 #, kde-format
 msgid "Focus tracking"
 msgstr "Praćenje fokusa"
 
-#: main.cpp:55
+#: main.cpp:52
 #, kde-format
 msgid "Claudiu Costin"
 msgstr "Claudiu Costin"
 
-#: main.cpp:55
+#: main.cpp:52
 #, kde-format
 msgid "Some tips"
 msgstr "Neki savjeti"

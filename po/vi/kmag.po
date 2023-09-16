@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-04 00:50+0000\n"
+"POT-Creation-Date: 2023-09-16 01:54+0000\n"
 "PO-Revision-Date: 2022-02-09 18:25+0100\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -424,7 +424,7 @@ msgstr "Bấm để bắt đầu cập nhật cửa sổ"
 msgid "Selection Window"
 msgstr "Cửa sổ chọn"
 
-#: kmagselrect.cpp:213 main.cpp:41
+#: kmagselrect.cpp:213 main.cpp:38
 #, kde-format
 msgid "KMagnifier"
 msgstr "KMagnifier"
@@ -480,12 +480,12 @@ msgstr ""
 "Đây là cửa sổ chính hiển thị nội dung của vùng được chọn. Nội dung sẽ được "
 "phóng đại theo mức độ thu phóng đã được đặt."
 
-#: main.cpp:42
+#: main.cpp:39
 #, kde-format
 msgid "Screen magnifier created by KDE"
 msgstr "Trình phóng đại màn hình do KDE tạo ra"
 
-#: main.cpp:44
+#: main.cpp:41
 #, kde-format
 msgid ""
 "Copyright 2001-2003 Sarang Lakare\n"
@@ -496,32 +496,32 @@ msgstr ""
 "Bản quyền 2003-2004 Olaf Schmidt\n"
 "Bản quyền 2008 Matthew Woehlke"
 
-#: main.cpp:48
+#: main.cpp:45
 #, kde-format
 msgid "Sarang Lakare"
 msgstr "Sarang Lakare"
 
-#: main.cpp:49
+#: main.cpp:46
 #, kde-format
 msgid "Rewrite"
 msgstr "Viết lại"
 
-#: main.cpp:50
+#: main.cpp:47
 #, kde-format
 msgid "Michael Forster"
 msgstr "Michael Forster"
 
-#: main.cpp:51
+#: main.cpp:48
 #, kde-format
 msgid "Original idea and author (KDE1)"
 msgstr "Ý tưởng và tác giả gốc (KDE1)"
 
-#: main.cpp:52
+#: main.cpp:49
 #, kde-format
 msgid "Olaf Schmidt"
 msgstr "Olaf Schmidt"
 
-#: main.cpp:52
+#: main.cpp:49
 #, kde-format
 msgid ""
 "Rework of the user interface, improved selection window, speed optimization, "
@@ -530,32 +530,32 @@ msgstr ""
 "Thay đổi giao diện người dùng, cải thiện cửa sổ chọn, tối ưu hoá tốc độ, "
 "xoay, sửa lỗi"
 
-#: main.cpp:53
+#: main.cpp:50
 #, kde-format
 msgid "Matthew Woehlke"
 msgstr "Matthew Woehlke"
 
-#: main.cpp:53
+#: main.cpp:50
 #, kde-format
 msgid "Color-blindness simulation"
 msgstr "Mô phỏng mù màu"
 
-#: main.cpp:54
+#: main.cpp:51
 #, kde-format
 msgid "Sebastian Sauer"
 msgstr "Sebastian Sauer"
 
-#: main.cpp:54
+#: main.cpp:51
 #, kde-format
 msgid "Focus tracking"
 msgstr "Theo dõi nhắm"
 
-#: main.cpp:55
+#: main.cpp:52
 #, kde-format
 msgid "Claudiu Costin"
 msgstr "Claudiu Costin"
 
-#: main.cpp:55
+#: main.cpp:52
 #, kde-format
 msgid "Some tips"
 msgstr "Vài gợi ý"
