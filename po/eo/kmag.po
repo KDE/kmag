@@ -1,27 +1,31 @@
+# Translation of kmag into esperanto.
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# Oliver Kellogg <okellogg@users.sourceforge.net>, 2023.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-16 01:54+0000\n"
-"PO-Revision-Date: 2023-03-25 16:19+0100\n"
+"PO-Revision-Date: 2023-09-16 08:00+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 0.9.5\n"
+"X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "David Anema"
+msgstr "David Anema,Oliver Kellogg"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "lassi_surinen@yahoo.ca"
+msgstr "lassi_surinen@yahoo.ca,okellogg@users.sourceforge.net"
 
 #: kmag.cpp:69
 #, kde-format
@@ -62,42 +66,42 @@ msgstr "&Normal"
 #: kmag.cpp:77
 #, kde-format
 msgid "&Protanopia"
-msgstr ""
+msgstr "Protanopia"
 
 #: kmag.cpp:77
 #, kde-format
 msgid "&Deuteranopia"
-msgstr ""
+msgstr "Deuteranopia"
 
 #: kmag.cpp:77
 #, kde-format
 msgid "&Tritanopia"
-msgstr ""
+msgstr "Tritanopia"
 
 #: kmag.cpp:77
 #, kde-format
 msgid "&Achromatopsia"
-msgstr ""
+msgstr "&Akromatopsio"
 
 #: kmag.cpp:85
 #, kde-format
 msgid "&No Rotation (0 Degrees)"
-msgstr ""
+msgstr "&Neniu Rotacio (0 Gradoj)"
 
 #: kmag.cpp:85
 #, kde-format
 msgid "&Left (90 Degrees)"
-msgstr ""
+msgstr "&Maldekstre (90 Gradoj)"
 
 #: kmag.cpp:85
 #, kde-format
 msgid "&Upside Down (180 Degrees)"
-msgstr ""
+msgstr "renverse (180 gradoj)"
 
 #: kmag.cpp:85
 #, kde-format
 msgid "&Right (270 Degrees)"
-msgstr ""
+msgstr "&Dekstra (270 Gradoj)"
 
 #: kmag.cpp:117
 #, kde-format
@@ -126,6 +130,9 @@ msgid ""
 "display. Stopping the update will zero the processing power required (CPU "
 "usage)"
 msgstr ""
+"Klako sur ĉi tiu piktogramo <b>komencos</b> / <b>ĉesigos</b> ĝisdatigon de "
+"la ekrano. Ĉesigi la ĝisdatigon nuligos la bezonatan pretigan potencon "
+"(uzado de CPU)"
 
 #: kmag.cpp:134
 #, kde-format
@@ -169,62 +176,62 @@ msgstr "Kopiu rigardon al poŝilo"
 #: kmag.cpp:155
 #, kde-format
 msgid "&Follow Mouse Mode"
-msgstr ""
+msgstr "&Sekvi Musan Reĝimon"
 
 #: kmag.cpp:159
 #, kde-format
 msgid "Mouse"
-msgstr ""
+msgstr "Muso"
 
 #: kmag.cpp:160
 #, kde-format
 msgid "Magnify around the mouse cursor"
-msgstr ""
+msgstr "Pligrandigi ĉirkaŭ la muskursoro"
 
 #: kmag.cpp:161
 #, kde-format
 msgid "If selected, the area around the mouse cursor is magnified"
-msgstr ""
+msgstr "Se elektita, la areo ĉirkaŭ la muskursoro estas pligrandigita"
 
 #: kmag.cpp:165
 #, kde-format
 msgid "&Follow Focus Mode"
-msgstr ""
+msgstr "Sekvi &Fokusan Reĝimon"
 
 #: kmag.cpp:169
 #, kde-format
 msgid "Focus"
-msgstr ""
+msgstr "Fokuso"
 
 #: kmag.cpp:170
 #, kde-format
 msgid "Magnify around the keyboard focus"
-msgstr ""
+msgstr "Pligrandigi ĉirkaŭ la klavarfokuso"
 
 #: kmag.cpp:171
 #, kde-format
 msgid "If selected, the area around the keyboard cursor is magnified"
-msgstr ""
+msgstr "Se elektita, la areo ĉirkaŭ la klavarkurso estas pligrandigita"
 
 #: kmag.cpp:175
 #, kde-format
 msgid "Se&lection Window Mode"
-msgstr ""
+msgstr "Elekto-Fenestra Reĝimo"
 
 #: kmag.cpp:179
 #, kde-format
 msgid "Window"
-msgstr ""
+msgstr "Fenestro"
 
 #: kmag.cpp:180
 #, kde-format
 msgid "Show a window for selecting the magnified area"
-msgstr ""
+msgstr "Montri fenestron por elekti la pligrandigitan areon"
 
 #: kmag.cpp:182
 #, kde-format
 msgid "&Whole Screen Mode"
-msgstr ""
+msgstr "&Tuta Ekrana Reĝimo"
 
 #: kmag.cpp:186
 #, kde-format
@@ -234,12 +241,12 @@ msgstr "Ekrano"
 #: kmag.cpp:187
 #, kde-format
 msgid "Magnify the whole screen"
-msgstr ""
+msgstr "Pligrandigi la tutan ekranon"
 
 #: kmag.cpp:188
 #, kde-format
 msgid "Click on this button to fit the zoom view to the zoom window."
-msgstr ""
+msgstr "Alklaku ĉi tiun butonon por alĝustigi la zomvidon al la zomfenestro."
 
 #: kmag.cpp:190
 #, kde-format
@@ -249,12 +256,12 @@ msgstr "Kaŝu musan &kursoron"
 #: kmag.cpp:195
 #, kde-format
 msgid "Show Mouse &Cursor"
-msgstr ""
+msgstr "Montri Mus&kursoron"
 
 #: kmag.cpp:197
 #, kde-format
 msgid "Hide"
-msgstr ""
+msgstr "Kaŝi"
 
 #: kmag.cpp:198
 #, kde-format
@@ -264,12 +271,12 @@ msgstr "Kaŝu la musan kursoron"
 #: kmag.cpp:200
 #, kde-format
 msgid "Stays On Top"
-msgstr ""
+msgstr "Restas Sur Supre"
 
 #: kmag.cpp:204
 #, kde-format
 msgid "The KMagnifier Window stays on top of other windows."
-msgstr ""
+msgstr "La KMagnifier Fenestro restas super aliaj fenestroj."
 
 #: kmag.cpp:207
 #, kde-format
@@ -299,22 +306,22 @@ msgstr "Klaku super tiun butonon por <b>malzomi</b> la elektitan regionon."
 #: kmag.cpp:218
 #, kde-format
 msgid "&Rotation"
-msgstr ""
+msgstr "&Rotacio"
 
 #: kmag.cpp:221
 #, kde-format
 msgid "Select the rotation degree."
-msgstr ""
+msgstr "Elektu la rotacian gradon."
 
 #: kmag.cpp:222
 #, kde-format
 msgid "Rotation degree"
-msgstr ""
+msgstr "Rotacia grado"
 
 #: kmag.cpp:227
 #, kde-format
 msgid "&Refresh"
-msgstr ""
+msgstr "&Refreŝigi"
 
 #: kmag.cpp:230
 #, kde-format
@@ -339,17 +346,17 @@ msgstr "&Koloro"
 #: kmag.cpp:236
 #, kde-format
 msgid "Select a mode to simulate various types of color-blindness."
-msgstr ""
+msgstr "Elektu reĝimon por simuli diversajn specojn de kolorblindeco."
 
 #: kmag.cpp:237
 #, kde-format
 msgid "Color-blindness Simulation Mode"
-msgstr ""
+msgstr "Kolorblindeca Simulada Reĝimo"
 
 #: kmag.cpp:569
 #, kde-format
 msgid "Save Snapshot As"
-msgstr ""
+msgstr "Konservi Momentfoton Kiel"
 
 #: kmag.cpp:583
 #, kde-format
@@ -396,7 +403,7 @@ msgstr ""
 #: kmag.cpp:617
 #, kde-format
 msgid "Stop"
-msgstr ""
+msgstr "Halti"
 
 #: kmag.cpp:618
 #, kde-format
@@ -417,7 +424,7 @@ msgstr "Klaku por komencigi la fenestran ĝisdatiĝadon."
 #: kmagselrect.cpp:213
 #, kde-format
 msgid "Selection Window"
-msgstr ""
+msgstr "Elekta Fenestro"
 
 #: kmagselrect.cpp:213 main.cpp:38
 #, kde-format
@@ -472,11 +479,13 @@ msgid ""
 "This is the main window which shows the contents of the selected region. The "
 "contents will be magnified according to the zoom level that is set."
 msgstr ""
+"Ĉi tiu estas la ĉefa fenestro, kiu montras la enhavon de la elektita "
+"regiono. La enhavo estos pligrandigita laŭ la zomnivelo agordita."
 
 #: main.cpp:39
 #, kde-format
 msgid "Screen magnifier created by KDE"
-msgstr ""
+msgstr "Ekrangrandigilo kreita de KDE"
 
 #: main.cpp:41
 #, kde-format
@@ -497,7 +506,7 @@ msgstr "Sarang Lakare"
 #: main.cpp:46
 #, kde-format
 msgid "Rewrite"
-msgstr ""
+msgstr "Reskribi"
 
 #: main.cpp:47
 #, kde-format
@@ -520,6 +529,8 @@ msgid ""
 "Rework of the user interface, improved selection window, speed optimization, "
 "rotation, bug fixes"
 msgstr ""
+"Relaboro de la uzantinterfaco, plibonigita elektofenestro, "
+"rapidecoptimumigo, rotacio, korektoj de cimoj"
 
 #: main.cpp:50
 #, kde-format
@@ -529,17 +540,17 @@ msgstr "Matthew Woehlke"
 #: main.cpp:50
 #, kde-format
 msgid "Color-blindness simulation"
-msgstr ""
+msgstr "Simulado de kolorblindeco"
 
 #: main.cpp:51
 #, kde-format
 msgid "Sebastian Sauer"
-msgstr ""
+msgstr "Sebastian Sauer"
 
 #: main.cpp:51
 #, kde-format
 msgid "Focus tracking"
-msgstr ""
+msgstr "Fokuso spurado"
 
 #: main.cpp:52
 #, kde-format
