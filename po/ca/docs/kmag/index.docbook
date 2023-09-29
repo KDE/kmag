@@ -115,7 +115,7 @@ Date:   Wed Sep 26 02:46:22 2012 +0530
 >Introducció</title>
 
 <para
->El &kmagnifier; és un ampliador de la pantalla creat per la comunitat KDE. És a dir, serveix per ampliar el contingut de la pantalla. Com ja us haureu imaginat, es pot utilitzar de diverses maneres: Gent amb poca visió podrà utilitzar-lo per ampliar una part de la pantalla que no pot veure amb claredat; els artistes el podran utilitzar per ampliar zones dels gràfics que produeixen i verificar-los a escala de píxel; fins i tot, investigadors treballant en el processament d'imatges podran optar per utilitzar-lo per estudiar-les de més a la vora. A més d'això, el &kmagnifier; es pot emprar per a altres finalitats, &pex;, posseeix la característica interessant de poder prendre una porció de la pantalla i desar-la al disc (amb l'opció d'apropar la instantània capturada). </para>
+>El &kmagnifier; és un ampliador de la pantalla creat per la comunitat KDE. És a dir, serveix per a ampliar el contingut de la pantalla. Com ja us haureu imaginat, es pot utilitzar de diverses maneres: Gent amb poca visió podrà utilitzar-lo per a ampliar una part de la pantalla que no pot veure amb claredat; els artistes el podran utilitzar per a ampliar zones dels gràfics que produeixen i verificar-los a escala de píxel; fins i tot, investigadors treballant en el processament d'imatges podran optar per utilitzar-lo per a estudiar-les de més a la vora. A més d'això, el &kmagnifier; es pot emprar per a altres finalitats, &pex;, posseeix la característica interessant de poder prendre una porció de la pantalla i desar-la al disc (amb l'opció d'apropar la instantània capturada). </para>
 <para
 >El &kmagnifier; és una aplicació molt poderosa optimitzada per al seu ús en màquines de baixos recursos, i a la que constantment s'afegeixen noves característiques. </para>
 </chapter>
@@ -439,7 +439,7 @@ Date:   Wed Sep 26 02:46:22 2012 +0530
 > 
 <listitem
 ><para
->Fer clic sobre aquest botó per allunyar la zona seleccionada.</para
+>Fer clic sobre aquest botó per a allunyar la zona seleccionada.</para
 ></listitem
 > 
 </varlistentry
@@ -464,7 +464,7 @@ Date:   Wed Sep 26 02:46:22 2012 +0530
 > 
 <listitem
 ><para
->Fer clic sobre aquest botó per apropar la zona seleccionada.</para
+>Fer clic sobre aquest botó per a apropar la zona seleccionada.</para
 ></listitem
 > 
 </varlistentry
