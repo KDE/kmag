@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-04 00:50+0000\n"
-"PO-Revision-Date: 2023-07-23 23:55+0200\n"
+"PO-Revision-Date: 2023-10-08 23:41+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -69,7 +69,7 @@ msgstr "일반(&N)"
 #: kmag.cpp:77
 #, kde-format
 msgid "&Protanopia"
-msgstr "적녹색맹(&P)"
+msgstr "적색맹(&P)"
 
 #: kmag.cpp:77
 #, kde-format
@@ -84,27 +84,27 @@ msgstr "청황색맹(&T)"
 #: kmag.cpp:77
 #, kde-format
 msgid "&Achromatopsia"
-msgstr "색맹(&A)"
+msgstr "전색맹(&A)"
 
 #: kmag.cpp:85
 #, kde-format
 msgid "&No Rotation (0 Degrees)"
-msgstr "회전 안함 (0도)(&N)"
+msgstr "회전 안 함(0도)(&N)"
 
 #: kmag.cpp:85
 #, kde-format
 msgid "&Left (90 Degrees)"
-msgstr "왼쪽으로 (90도)(&L)"
+msgstr "왼쪽으로(90도)(&L)"
 
 #: kmag.cpp:85
 #, kde-format
 msgid "&Upside Down (180 Degrees)"
-msgstr "거꾸로 (180도)(&U)"
+msgstr "거꾸로(180도)(&U)"
 
 #: kmag.cpp:85
 #, kde-format
 msgid "&Right (270 Degrees)"
-msgstr "오른쪽으로 (270도)(&R)"
+msgstr "오른쪽으로(270도)(&R)"
 
 #: kmag.cpp:117
 #, kde-format
@@ -347,12 +347,12 @@ msgstr "색(&C)"
 #: kmag.cpp:236
 #, kde-format
 msgid "Select a mode to simulate various types of color-blindness."
-msgstr "다양한 색맹 장애를 시험해 볼 수 있는 모드를 선택하십시오."
+msgstr "다양한 색각 이상을 시험해 볼 수 있는 모드를 선택하십시오."
 
 #: kmag.cpp:237
 #, kde-format
 msgid "Color-blindness Simulation Mode"
-msgstr "색맹 시험 모드"
+msgstr "색각 이상 시험 모드"
 
 #: kmag.cpp:569
 #, kde-format
@@ -536,7 +536,7 @@ msgstr "Matthew Woehlke"
 #: main.cpp:53
 #, kde-format
 msgid "Color-blindness simulation"
-msgstr "색맹 시뮬레이션"
+msgstr "색각 이상 시뮬레이션"
 
 #: main.cpp:54
 #, kde-format
