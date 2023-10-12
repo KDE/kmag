@@ -246,7 +246,7 @@ Date:   Wed Sep 26 02:46:22 2012 +0530
 <chapter id="menu-shortcuts"
 > 
 <title
->Menús y accesos rápidos de teclado</title
+>Menús y atajos de teclado</title
 > 
  
 <sect1 id="menus"
@@ -713,11 +713,11 @@ Date:   Wed Sep 26 02:46:22 2012 +0530
 >Referencia de órdenes</title>
 
 <para
->&kmagnifier; usa automáticamente todos los accesos rápidos de teclado predeterminados para guardar archivos, abrir una nueva ventana, imprimir, arrancar o detener la actualización de la de la ventana (botón recargar en &konqueror;), acercar o alejar la imagen, etc.</para>
+>&kmagnifier; usa automáticamente todos los atajos de teclado predeterminados para guardar archivos, abrir una nueva ventana, imprimir, arrancar o detener la actualización de la de la ventana (botón recargar en &konqueror;), acercar o alejar la imagen, etc.</para>
 
 <table>
 <title
->Accesos rápidos de teclado predeterminados</title>
+>Atajos de teclado predeterminados</title>
 <tgroup cols="2">
 <tbody>
 <row>
