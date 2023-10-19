@@ -205,16 +205,16 @@ class KmagApp : public KXmlGuiWindow
     unsigned int m_colorIndex;
 
     QStringList zoomArrayString;
-    QVector<float> zoomArray;
+    QList<float> zoomArray;
 
     QStringList rotationArrayString;
-    QVector<int> rotationArray;
+    QList<int> rotationArray;
 
     QStringList fpsArrayString;
-    QVector<float> fpsArray;
+    QList<float> fpsArray;
 
     QStringList colorArrayString;
-    QVector<int> colorArray;
+    QList<int> colorArray;
 
   KMagZoomView* m_zoomView;
   KToggleAction *m_hideCursor, *m_staysOnTop;
