@@ -20,6 +20,7 @@
   <name xml:lang="fi">KMag</name>
   <name xml:lang="fr">KMag</name>
   <name xml:lang="gl">KMag</name>
+  <name xml:lang="he">KMag</name>
   <name xml:lang="ia">KMag</name>
   <name xml:lang="id">KMag</name>
   <name xml:lang="is">KMag</name>
@@ -59,6 +60,7 @@
   <summary xml:lang="fi">Suurennuslasi</summary>
   <summary xml:lang="fr">Loupe d'écran</summary>
   <summary xml:lang="gl">Lupa da pantalla</summary>
+  <summary xml:lang="he">זכוכית מגדלת למסך</summary>
   <summary xml:lang="ia">Aggranditor de schermo</summary>
   <summary xml:lang="id">Memperbesar Layar</summary>
   <summary xml:lang="is">Skjástækkari</summary>
@@ -102,6 +104,7 @@
     <p xml:lang="fi">KMag on pieni Linux-työkalu näytön osan suurentamiseksi. KMagista on hyötyä heikkonäköisille, kuvia tarkoin tutkiville tai esimerkiksi verkkokehitystä tekeville.</p>
     <p xml:lang="fr">KMag est un petit utilitaire Linux qui permet de zoomer sur une partie de l'écran. KMag est très utile pour les personnes atteintes de déficiences visuelles ou travaillant dans les domaines de l'analyse d'images, du développement Web, etc.</p>
     <p xml:lang="gl">KMag é unha pequena utilidade para Linux para aumentar unha parte da pantalla. KMag é moi útil para a xente con discapacidades visuais e para traballadores dos campos de análise de imaxes, desenvolvemento web, etc.</p>
+    <p xml:lang="he">KMag הוא כלי קטן ללינוקס להגדלת חלק מהמסך. KMag הוא מאוד שימוש לאנשים עם מוגבלות ראייה ולאלו שעובדים כתחומי ניתוח תמונות, פיתוח אתרים ועוד.</p>
     <p xml:lang="ia">KMag es un parve utilitate per Linux per aggrandir un parte de schermo. KMag es multe utile per gente con dishabilitates visual e illos travaliante in le campos del analysis de image, disveloppamento web etc.</p>
     <p xml:lang="id">KMag adalah utilitas kecil buat Linux untuk memperbesar bagian layar. KMag sangat berguna bagi para penyandang cacat visual dan bagi mereka yang bekerja di bidang analisis gambar, pengembangan web, dll.</p>
     <p xml:lang="is">KMag er lítið nytjatól fyrir Linux til að stækka hluta af skjánum. KMag nýtist vel fólki sem á við einhverskonar sjónskerðingu að stríða, en ekki síður þeim sem vinna við myndgreiningar eða vefhönnun, svo eitthvað sé talið.</p>
@@ -145,6 +148,7 @@
       <caption xml:lang="fi">KMag toiminnassa</caption>
       <caption xml:lang="fr">KMag en action</caption>
       <caption xml:lang="gl">KMag en acción</caption>
+      <caption xml:lang="he">KMag בפעולה</caption>
       <caption xml:lang="ia">KMag in action</caption>
       <caption xml:lang="id">KMag beraksi</caption>
       <caption xml:lang="is">KMag að verki</caption>
