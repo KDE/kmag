@@ -19,82 +19,82 @@ msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-16 01:54+0000\n"
-"PO-Revision-Date: 2017-05-16 06:58-0400\n"
+"PO-Revision-Date: 2023-10-23 14:41+0300\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: <he@li.org>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Lev Polvoi, Sagiv Barhoom"
+msgstr "Lev Polvoi, Sagiv Barhoom,צוות התרגום של KDE ישראל"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "lev@israsrv.net.il,Sagiv.Barhoom@KDEmail.net"
+msgstr "lev@israsrv.net.il,Sagiv.Barhoom@KDEmail.net,kde-l10n-he@kde.org"
 
 #: kmag.cpp:69
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Zoom at very low"
 msgid "&Very Low"
-msgstr "&נמוך מאוד"
+msgstr "נ&מוך מאוד"
 
 #: kmag.cpp:69
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Zoom at low"
 msgid "&Low"
-msgstr "נ&מוך"
+msgstr "&נמוך"
 
 #: kmag.cpp:69
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Zoom at medium"
 msgid "&Medium"
 msgstr "&בינוני"
 
 #: kmag.cpp:69
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Zoom at high"
 msgid "&High"
 msgstr "&גבוה"
 
 #: kmag.cpp:69
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Zoom at very high"
 msgid "V&ery High"
-msgstr "גב&וה מאוד"
+msgstr "גבוה מ&אוד"
 
 #: kmag.cpp:77
 #, kde-format
 msgctxt "No color-blindness simulation, i.e. 'normal' vision"
 msgid "&Normal"
-msgstr ""
+msgstr "%רגיל"
 
 #: kmag.cpp:77
 #, kde-format
 msgid "&Protanopia"
-msgstr ""
+msgstr "&פרוטנופיה"
 
 #: kmag.cpp:77
 #, kde-format
 msgid "&Deuteranopia"
-msgstr ""
+msgstr "&דיוטרנופיה"
 
 #: kmag.cpp:77
 #, kde-format
 msgid "&Tritanopia"
-msgstr ""
+msgstr "&טריטנופיה"
 
 #: kmag.cpp:77
 #, kde-format
 msgid "&Achromatopsia"
-msgstr ""
+msgstr "&אכרומטופסיה"
 
 #: kmag.cpp:85
 #, kde-format
@@ -124,32 +124,32 @@ msgstr "&חלון חדש"
 #: kmag.cpp:120
 #, kde-format
 msgid "Open a new KMagnifier window"
-msgstr "פתח חלון KMagnifier חדש"
+msgstr "פתיחת חלון KMagnifier חדש"
 
 #: kmag.cpp:124
 #, kde-format
 msgid "&Stop"
-msgstr "&עצור"
+msgstr "&עצירה"
 
 #: kmag.cpp:127
 #, kde-format
 msgid "Click to stop window refresh"
-msgstr "לחץ כדי להפסיק את רענון החלון"
+msgstr "לחיצה תפסיק את רענון החלון"
 
 #: kmag.cpp:128
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Clicking on this icon will <b>start</b> / <b>stop</b> updating of the "
 "display. Stopping the update will zero the processing power required (CPU "
 "usage)"
 msgstr ""
-"לחיצה על סמל זה <b>תתחיל</b> או <b>תפסיק</b> את עדכון התצוגה. הפסקת העדכון "
-"תוריד את עוצמת העיבוד הנדרשת (השימוש במעבד) לאפס"
+"לחיצה על הכפתור הזה <b>תתחיל</b> / <b>תעצור</b> את עדכון התצוגה. עצירת "
+"העדכון תאפס את כוח החישוב הדרוש (ניצולת מעבד)"
 
 #: kmag.cpp:134
 #, kde-format
 msgid "&Save Snapshot As..."
-msgstr "שמירת &תצלום בשם..."
+msgstr "שמירת &צילום בשם…"
 
 #: kmag.cpp:137
 #, kde-format
@@ -159,12 +159,12 @@ msgstr "שומר תצוגה מוגדלת כקובץ תמונה."
 #: kmag.cpp:138
 #, kde-format
 msgid "Save image to a file"
-msgstr "שמור את התמונה לקובץ"
+msgstr "שמירת תמונה לקובץ"
 
 #: kmag.cpp:141
 #, kde-format
 msgid "Click on this button to print the current zoomed view."
-msgstr "לחץ על כפתור זה כדי להדפיס את התצוגה המוגדלת הנוכחית."
+msgstr "לחיצה על כפתור זה תדפיס את האזור המוגדל."
 
 #: kmag.cpp:144 kmag.cpp:145
 #, kde-format
@@ -177,103 +177,103 @@ msgid ""
 "Click on this button to copy the current zoomed view to the clipboard which "
 "you can paste in other applications."
 msgstr ""
-"לחץ על כפתור זה כדי להעתיק את התצוגה המוגדלת הנוכחית ללוח העריכה, משם ניתן "
-"יהיה להדביק אותה ביישומים אחרים."
+"כפתור זה מעתיק את האזור המוגדל ללוח הגזירים כדי לאפשר את הדבקתו ביישומים "
+"אחרים."
 
 #: kmag.cpp:149
 #, kde-format
 msgid "Copy zoomed image to clipboard"
-msgstr "העתק את התמונה המוגדלת ללוח העריכה"
+msgstr "העתקת תמונה מוגדלת ללוח גזירים"
 
 #: kmag.cpp:155
 #, kde-format
 msgid "&Follow Mouse Mode"
-msgstr "&עקוב אחר העכבר"
+msgstr "מצב מ&עקב עכבר"
 
 #: kmag.cpp:159
 #, kde-format
 msgid "Mouse"
-msgstr ""
+msgstr "עכבר"
 
 #: kmag.cpp:160
-#, fuzzy, kde-format
+#, kde-format
 msgid "Magnify around the mouse cursor"
-msgstr "מסתיר את מצביע העכבר"
+msgstr "הגדלה סביב סמן העכבר"
 
 #: kmag.cpp:161
-#, fuzzy, kde-format
+#, kde-format
 msgid "If selected, the area around the mouse cursor is magnified"
-msgstr "במצב זה האזור מסביב לעכבר מוצג בחלון רגיל."
+msgstr "אם האפשרות נבחרה, האזור שסביב סמן העכבר מוגדל"
 
 #: kmag.cpp:165
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Follow Focus Mode"
-msgstr "&עקוב אחר העכבר"
+msgstr "מ&צב מעקב מיקוד"
 
 #: kmag.cpp:169
 #, kde-format
 msgid "Focus"
-msgstr ""
+msgstr "מיקוד"
 
 #: kmag.cpp:170
-#, fuzzy, kde-format
+#, kde-format
 msgid "Magnify around the keyboard focus"
-msgstr "מסתיר את מצביע העכבר"
+msgstr "הגדלה סביב מיקוד המקלדת"
 
 #: kmag.cpp:171
-#, fuzzy, kde-format
+#, kde-format
 msgid "If selected, the area around the keyboard cursor is magnified"
-msgstr "במצב זה האזור מסביב לעכבר מוצג בחלון רגיל."
+msgstr "אם האפשרות נבחרה, האזור שסביב זמן המקלדת יוגדל"
 
 #: kmag.cpp:175
-#, fuzzy, kde-format
+#, kde-format
 msgid "Se&lection Window Mode"
-msgstr "מצב &בחירת חלון"
+msgstr "מצב חלון &בחירה"
 
 #: kmag.cpp:179
-#, fuzzy, kde-format
+#, kde-format
 msgid "Window"
-msgstr "&חלון חדש"
+msgstr "חלון"
 
 #: kmag.cpp:180
 #, kde-format
 msgid "Show a window for selecting the magnified area"
-msgstr ""
+msgstr "הצגת חלון לבחירת האזור המוגדל"
 
 #: kmag.cpp:182
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Whole Screen Mode"
-msgstr "מצב &קצה המסך העליון"
+msgstr "מצב מ&סך מלא"
 
 #: kmag.cpp:186
 #, kde-format
 msgid "Screen"
-msgstr ""
+msgstr "מסך"
 
 #: kmag.cpp:187
 #, kde-format
 msgid "Magnify the whole screen"
-msgstr ""
+msgstr "הגדלת כל המסך"
 
 #: kmag.cpp:188
-#, fuzzy, kde-format
+#, kde-format
 msgid "Click on this button to fit the zoom view to the zoom window."
-msgstr "לחץ על כפתור זה כדי להדפיס את התצוגה המוגדלת הנוכחית."
+msgstr "לחיצה על כפתור זה תתאים את תצוגת התקריב לחלון התקריב."
 
 #: kmag.cpp:190
 #, kde-format
 msgid "Hide Mouse &Cursor"
-msgstr "ה&סתר את מצביע העכבר"
+msgstr "ה&סתרת מצביע העכבר"
 
 #: kmag.cpp:195
 #, kde-format
 msgid "Show Mouse &Cursor"
-msgstr "הצג את &מצביע העכבר"
+msgstr "ה&צגת מצביע העכבר"
 
 #: kmag.cpp:197
 #, kde-format
 msgid "Hide"
-msgstr ""
+msgstr "הסתרה"
 
 #: kmag.cpp:198
 #, kde-format
@@ -283,57 +283,57 @@ msgstr "מסתיר את מצביע העכבר"
 #: kmag.cpp:200
 #, kde-format
 msgid "Stays On Top"
-msgstr ""
+msgstr "תמיד מרחף"
 
 #: kmag.cpp:204
 #, kde-format
 msgid "The KMagnifier Window stays on top of other windows."
-msgstr ""
+msgstr "החלון של KMagnifier תמיד ירחף מעל חלונות אחרים."
 
 #: kmag.cpp:207
 #, kde-format
 msgid "Click on this button to <b>zoom-in</b> on the selected region."
-msgstr "לחץ על כפתור זה כדי <b>להתקרב</b> לשטח הנבחר."
+msgstr "כפתור זה <b>מקרב</b> את השטח הנבחר."
 
 #: kmag.cpp:209
 #, kde-format
 msgid "&Zoom"
-msgstr ""
+msgstr "ת&קריב"
 
 #: kmag.cpp:212
 #, kde-format
 msgid "Select the zoom factor."
-msgstr "בחר את גורם ההתקרבות."
+msgstr "נא לבחור גורם התקריב."
 
 #: kmag.cpp:213
 #, kde-format
 msgid "Zoom factor"
-msgstr "גורם התקרבות"
+msgstr "גורם תקריב"
 
 #: kmag.cpp:216
 #, kde-format
 msgid "Click on this button to <b>zoom-out</b> on the selected region."
-msgstr "לחץ כפתור זה כדי <b>להתרחק</b> מהשטח הנבחר."
+msgstr "כפתור זה <b>מרחיק</b> את השטח הנבחר."
 
 #: kmag.cpp:218
 #, kde-format
 msgid "&Rotation"
-msgstr "&סיבוב"
+msgstr "ה&טיה"
 
 #: kmag.cpp:221
 #, kde-format
 msgid "Select the rotation degree."
-msgstr "בחר את גורם הסיבוב."
+msgstr "בחירת זווית ההטיה."
 
 #: kmag.cpp:222
 #, kde-format
 msgid "Rotation degree"
-msgstr "גורם הסיבוב"
+msgstr "זווית ההטיה"
 
 #: kmag.cpp:227
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Refresh"
-msgstr "&רענן"
+msgstr "&רענון"
 
 #: kmag.cpp:230
 #, kde-format
@@ -341,8 +341,7 @@ msgid ""
 "Select the refresh rate. The higher the rate, the more computing power (CPU) "
 "will be needed."
 msgstr ""
-"בחר את קצב הרענון. ככל שהקצב גבוה יותר, כך יהיה צורך ביותר עוצמת מחשוב "
-"(מעבד)."
+"בחירת קצב הרענון. ככל שהקצב גבוה יותר, כך צריך יותר עוצמת חישוב (מעבד)."
 
 #: kmag.cpp:231
 #, kde-format
@@ -353,29 +352,29 @@ msgstr "קצב רענון"
 #, kde-format
 msgctxt "Color-blindness simulation mode"
 msgid "&Color"
-msgstr ""
+msgstr "&צבע"
 
 #: kmag.cpp:236
 #, kde-format
 msgid "Select a mode to simulate various types of color-blindness."
-msgstr ""
+msgstr "נא לבחור מצב להדמיית סוגים שונים של עיוורון צבעים."
 
 #: kmag.cpp:237
 #, kde-format
 msgid "Color-blindness Simulation Mode"
-msgstr ""
+msgstr "מצב הדמיית עיוורון צבעים"
 
 #: kmag.cpp:569
 #, kde-format
 msgid "Save Snapshot As"
-msgstr "שמירת תצלום בשם"
+msgstr "שמירת צילום בשם"
 
 #: kmag.cpp:583
 #, kde-format
 msgid ""
 "Unable to save temporary file (before uploading to the network file you "
 "specified)."
-msgstr "אין אפשרות לשמור קובץ זמני (לפני העלאה לרשת של הקובץ שציינת)."
+msgstr "אי אפשר לשמור קובץ זמני (לפני העלאה לרשת של הקובץ שציינת)."
 
 #: kmag.cpp:584 kmag.cpp:589 kmag.cpp:599
 #, kde-format
@@ -385,7 +384,7 @@ msgstr "שגיאה בכתיבת הקובץ"
 #: kmag.cpp:588
 #, kde-format
 msgid "Unable to upload file over the network."
-msgstr "אין אפשרות להעלות את הקובץ דרך הרשת."
+msgstr "אי אפשר להעלות את הקובץ דרך הרשת."
 
 #: kmag.cpp:591 kmag.cpp:601
 #, kde-format
@@ -397,37 +396,37 @@ msgstr ""
 " %1"
 
 #: kmag.cpp:592 kmag.cpp:602
-#, fuzzy, kde-format
+#, kde-format
 msgid "Information"
-msgstr "&סיבוב"
+msgstr "מידע"
 
 #: kmag.cpp:598
 #, kde-format
 msgid ""
 "Unable to save file. Please check if you have permission to write to the "
 "directory."
-msgstr "אין אפשרות לשמור את הקובץ. בדוק אם יש לך הרשאה לכתוב לספריה."
+msgstr "אי אפשר לשמור את הקובץ. נא לבדוק אם יש לך הרשאה לכתוב לתיקייה."
 
 #: kmag.cpp:617
-#, fuzzy, kde-format
+#, kde-format
 msgid "Stop"
-msgstr "&עצור"
+msgstr "עצירה"
 
 #: kmag.cpp:618
 #, kde-format
 msgid "Click to stop window update"
-msgstr "לחץ כדי להפסיק את עדכון החלון"
+msgstr "לחיצה תעצור את עדכון החלון"
 
 #: kmag.cpp:621
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Start updating the window"
 msgid "Start"
-msgstr "התחל"
+msgstr "התחלה"
 
 #: kmag.cpp:622
 #, kde-format
 msgid "Click to start window update"
-msgstr "לחץ כדי להתחיל את עדכון החלון"
+msgstr "לחיצה תפעיל את עדכון החלון"
 
 #: kmagselrect.cpp:213
 #, kde-format
@@ -441,45 +440,45 @@ msgstr "KMagnifier"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kmagui.rc:3
-#, fuzzy, kde-format
+#, kde-format
 msgid "Main Toolbar"
-msgstr "סרגל כלים &ראשי"
+msgstr "סרגל כלים ראשי"
 
 #. i18n: ectx: ToolBar (viewToolBar)
 #: kmagui.rc:6
-#, fuzzy, kde-format
+#, kde-format
 msgid "View Toolbar"
-msgstr "סרגל הכלים של ת&צוגה"
+msgstr "סרגל תצוגה"
 
 #. i18n: ectx: ToolBar (settingsToolBar)
 #: kmagui.rc:16
-#, fuzzy, kde-format
+#, kde-format
 msgid "Settings Toolbar"
-msgstr "סרגל הכלים של הג&דרות"
+msgstr "סרגל הגדרות"
 
 #. i18n: ectx: Menu (file)
 #: kmagui.rc:25
 #, kde-format
 msgid "&File"
-msgstr ""
+msgstr "&קובץ"
 
 #. i18n: ectx: Menu (edit)
 #: kmagui.rc:32
 #, kde-format
 msgid "&Edit"
-msgstr ""
+msgstr "ע&ריכה"
 
 #. i18n: ectx: Menu (view)
 #: kmagui.rc:35 kmagui.rc:73
 #, kde-format
 msgid "&View"
-msgstr ""
+msgstr "&תצוגה"
 
 #. i18n: ectx: Menu (settings)
 #: kmagui.rc:47 kmagui.rc:83
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Settings"
-msgstr "סרגל הכלים של הג&דרות"
+msgstr "ה&גדרות"
 
 #: kmagzoomview.cpp:125
 #, kde-format
@@ -487,14 +486,13 @@ msgid ""
 "This is the main window which shows the contents of the selected region. The "
 "contents will be magnified according to the zoom level that is set."
 msgstr ""
-"זהו החלון הראשי, המציג את תוכן האזור הנבחר. תוכן זה יוגדל לפי הגדרת רמת "
-"התקרבות."
+"זה החלון הראשי, שמציג את תוכן האזור הנבחר. תוכן זה יוגדל לפי הגדרת רמת "
+"התקריב."
 
 #: main.cpp:39
-#, fuzzy, kde-format
-#| msgid "Screen magnifier for the K Desktop Environment (KDE)"
+#, kde-format
 msgid "Screen magnifier created by KDE"
-msgstr "מגדיל מסך לסביבת שולחן העבודה KDE"
+msgstr "זכוכית מגדלת לשולחן העבודה נוצרה על ידי KDE"
 
 #: main.cpp:41
 #, kde-format
@@ -503,66 +501,69 @@ msgid ""
 "Copyright 2003-2004 Olaf Schmidt\n"
 "Copyright 2008 Matthew Woehlke"
 msgstr ""
+"כל הזכויות שמורות 2001-2003 סרנג לקאר\n"
+"כל הזכויות שמורות 2003-2004 אולף שמידט\n"
+"כל הזכויות שמורות 2008 מתיו וולקה"
 
 #: main.cpp:45
 #, kde-format
 msgid "Sarang Lakare"
-msgstr ""
+msgstr "סרנג לקאר"
 
 #: main.cpp:46
 #, kde-format
 msgid "Rewrite"
-msgstr ""
+msgstr "שכתוב"
 
 #: main.cpp:47
 #, kde-format
 msgid "Michael Forster"
-msgstr ""
+msgstr "מייקל פורסטר"
 
 #: main.cpp:48
 #, kde-format
 msgid "Original idea and author (KDE1)"
-msgstr "הרעיון המקורי וכותב (KDE 1)"
+msgstr "הוגה הרעיון המקורי ויוצר (KDE1)"
 
 #: main.cpp:49
 #, kde-format
 msgid "Olaf Schmidt"
-msgstr ""
+msgstr "אולף שמידט"
 
 #: main.cpp:49
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Rework of the user interface, improved selection window, speed optimization, "
 "rotation, bug fixes"
 msgstr ""
-"שכתוב של הממשק, שיפור בחירת חלון, שיפורי מהירויות, סיבוב, תיקונים באגים"
+"שכתוב ממשק המשתמש, שיפורים בחלון הבחירה, שיפורי ביצועים, הטיה, תיקוני תקלות"
 
 #: main.cpp:50
 #, kde-format
 msgid "Matthew Woehlke"
-msgstr ""
+msgstr "מתיו וולקה"
 
 #: main.cpp:50
 #, kde-format
 msgid "Color-blindness simulation"
-msgstr ""
+msgstr "הדמיית עיוורון צבעים"
 
 #: main.cpp:51
 #, kde-format
 msgid "Sebastian Sauer"
-msgstr ""
+msgstr "סבסטיאן סויר"
 
 #: main.cpp:51
 #, kde-format
 msgid "Focus tracking"
-msgstr ""
+msgstr "מעקב אחר מיקוד"
 
 #: main.cpp:52
 #, kde-format
 msgid "Claudiu Costin"
-msgstr ""
+msgstr "קלאודיו קוסטין"
 
 #: main.cpp:52
 #, kde-format
 msgid "Some tips"
-msgstr "כמה טיפים"
+msgstr "כמה עצות"
