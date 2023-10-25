@@ -32,7 +32,7 @@ KmagApp *kmagapp;
 int main(int argc, char *argv[])
 {
   QApplication app(argc, argv);
-  KLocalizedString::setApplicationDomain("kmag");
+  KLocalizedString::setApplicationDomain(QByteArrayLiteral("kmag"));
 
   // about the application
   KAboutData aboutData(QStringLiteral("kmag"), i18n("KMagnifier"), QStringLiteral(KMAG_VERSION_STRING),
