@@ -139,11 +139,7 @@ Date:   Wed Sep 26 02:46:22 2012 +0530
 </screenshot>
 
 <para
->Després d'executar el &kmagnifier;, obtindreu una finestra similar a la mostrada a dalt. Aquesta és la finestra principal del &kmagnifier;, la que conté la vista ampliada procedent de la captura d'una àrea de la pantalla. Ens referirem a aquesta finestra com a <quote
->finestra d'ampliació</quote
->. Tanmateix, per a referir-nos l'àrea de la pantalla que s'està ampliant, utilitzarem la referència <quote
->selecció de finestra</quote
->. </para>
+>Després d'executar el &kmagnifier;, obtindreu una finestra similar a la mostrada a dalt. Aquesta és la finestra principal del &kmagnifier;, la que conté la vista ampliada procedent de la captura d'una àrea de la pantalla. Ens referirem a aquesta finestra com a «finestra d'ampliació». Tanmateix, per a referir-nos l'àrea de la pantalla que s'està ampliant, utilitzarem la referència «selecció de finestra». </para>
 <para
 >Per omissió, el &kmagnifier; amplia la regió de la pantalla al voltant del cursor del ratolí a la finestra d'ampliació (penseu en ella com una lupa que es mou). De tota manera, és possible indicar al &kmagnifier; quina serà l'àrea de la pantalla que haurà d'ampliar (<guilabel
 >Mode selecció de finestra</guilabel
