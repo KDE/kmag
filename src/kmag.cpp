@@ -298,7 +298,7 @@ void KmagApp::initConnections()
  */
 void KmagApp::saveOptions()
 {
-  KConfigGroup cg( config, "General Options");
+  KConfigGroup cg( config, QStringLiteral("General Options"));
   cg.writeEntry("Geometry", size());
   cg.writeEntry("ZoomIndex", m_zoomIndex);
   cg.writeEntry("RotationIndex", m_rotationIndex);
@@ -330,13 +330,13 @@ void KmagApp::readOptions()
   QColor yellow (255,255,0);
   QColor white (255,255,255);
 
-  KConfigGroup cgWM( config, "WM");
+  KConfigGroup cgWM( config, QStringLiteral("WM"));
   setTitleColors (
       cgWM.readEntry("inactiveBackground", blue),
       cgWM.readEntry("inactiveForeground", white),
       cgWM.readEntry("inactiveTitleBtnBg", yellow));
 
-  KConfigGroup cg(config,"General Options");
+  KConfigGroup cg(config, QStringLiteral("General Options"));
 
   QSize defSize(460,390);
   QSize size=cg.readEntry("Geometry", defSize);
@@ -827,7 +827,7 @@ void KmagApp::slotConfKeys()
 
 void KmagApp::slotEditToolbars()
 {
-  KConfigGroup cg( KSharedConfig::openConfig(), "MainWindow" );
+  KConfigGroup cg( KSharedConfig::openConfig(), QStringLiteral("MainWindow") );
   saveMainWindowSettings( cg );
   QPointer<KEditToolBar> dlg = new KEditToolBar( actionCollection() );
   connect(dlg.data(), &KEditToolBar::newToolBarConfig, this, &KmagApp::slotNewToolbarConfig );
@@ -839,7 +839,7 @@ void KmagApp::slotEditToolbars()
 
 void KmagApp::slotNewToolbarConfig()
 {
-  applyMainWindowSettings( KSharedConfig::openConfig()->group( "MainWindow" ) );
+  applyMainWindowSettings( KSharedConfig::openConfig()->group( QStringLiteral("MainWindow") ) );
   createGUI();
 }
 
