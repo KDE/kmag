@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-16 01:54+0000\n"
-"PO-Revision-Date: 2023-09-16 08:00+0100\n"
+"PO-Revision-Date: 2023-11-26 16:02+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -211,7 +211,7 @@ msgstr "Pligrandigi ĉirkaŭ la klavarfokuso"
 #: kmag.cpp:171
 #, kde-format
 msgid "If selected, the area around the keyboard cursor is magnified"
-msgstr "Se elektita, la areo ĉirkaŭ la klavarkurso estas pligrandigita"
+msgstr "Se elektita, la areo ĉirkaŭ la klavarkursoro estas pligrandigita"
 
 #: kmag.cpp:175
 #, kde-format
