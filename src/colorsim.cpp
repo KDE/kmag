@@ -1,19 +1,5 @@
-/***************************************************************************
-                          colorsim.cpp  -  description
-                             -------------------
-    begin                : Mon Jan 21 14:54:37 CST 2008
-    copyright            : (C) 2008 by Matthew Woehlke
-    email                : mw_triad@users.sourceforge.net
- ***************************************************************************/
-
-/***************************************************************************
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- ***************************************************************************/
+// SPDX-FileCopyrightText: 2008 by Matthew Woehlke <mw_triad@users.sourceforge.net>
+// SPDX-License-Identifier: GPL-2.0-or-later
 
 /***************************************************************************
 
