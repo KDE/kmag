@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:54+0000\n"
+"POT-Creation-Date: 2023-12-08 01:33+0000\n"
 "PO-Revision-Date: 2010-12-18 08:39+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -27,103 +27,103 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "donga.nb@gmail.com"
 
-#: kmag.cpp:69
+#: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at very low"
 msgid "&Very Low"
 msgstr "ต่ำ&มาก"
 
-#: kmag.cpp:69
+#: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at low"
 msgid "&Low"
 msgstr "&ต่ำ"
 
-#: kmag.cpp:69
+#: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at medium"
 msgid "&Medium"
 msgstr "&ปานกลาง"
 
-#: kmag.cpp:69
+#: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at high"
 msgid "&High"
 msgstr "&สูง"
 
-#: kmag.cpp:69
+#: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at very high"
 msgid "V&ery High"
 msgstr "สูงมา&ก"
 
-#: kmag.cpp:77
+#: kmag.cpp:60
 #, kde-format
 msgctxt "No color-blindness simulation, i.e. 'normal' vision"
 msgid "&Normal"
 msgstr "ปก&ติ"
 
-#: kmag.cpp:77
+#: kmag.cpp:60
 #, kde-format
 msgid "&Protanopia"
 msgstr "โ&พรทาโนเปีย"
 
-#: kmag.cpp:77
+#: kmag.cpp:60
 #, kde-format
 msgid "&Deuteranopia"
 msgstr "&ดิวเทอราโนเปีย"
 
-#: kmag.cpp:77
+#: kmag.cpp:60
 #, kde-format
 msgid "&Tritanopia"
 msgstr "ไ&ตรทาโนเปีย"
 
-#: kmag.cpp:77
+#: kmag.cpp:60
 #, kde-format
 msgid "&Achromatopsia"
 msgstr "&อะโครมาโตปเซีย"
 
-#: kmag.cpp:85
+#: kmag.cpp:68
 #, kde-format
 msgid "&No Rotation (0 Degrees)"
 msgstr "ไม่มีการหมุ&น (0 องศา)"
 
-#: kmag.cpp:85
+#: kmag.cpp:68
 #, kde-format
 msgid "&Left (90 Degrees)"
 msgstr "ซ้&าย (90 องศา)"
 
-#: kmag.cpp:85
+#: kmag.cpp:68
 #, kde-format
 msgid "&Upside Down (180 Degrees)"
 msgstr "กลับหั&ว (180 องศา)"
 
-#: kmag.cpp:85
+#: kmag.cpp:68
 #, kde-format
 msgid "&Right (270 Degrees)"
 msgstr "&ขวา (270 องศา)"
 
-#: kmag.cpp:117
+#: kmag.cpp:100
 #, kde-format
 msgid "New &Window"
 msgstr "&หน้าต่างใหม่"
 
-#: kmag.cpp:120
+#: kmag.cpp:103
 #, kde-format
 msgid "Open a new KMagnifier window"
 msgstr "เปิดหน้าต่างแว่นขยาย-K ใหม่"
 
-#: kmag.cpp:124
+#: kmag.cpp:107
 #, kde-format
 msgid "&Stop"
 msgstr "ห&ยุด"
 
-#: kmag.cpp:127
+#: kmag.cpp:110
 #, kde-format
 msgid "Click to stop window refresh"
 msgstr "คลิกเพื่อหยุดการรีเฟรชหน้าต่าง"
 
-#: kmag.cpp:128
+#: kmag.cpp:111
 #, fuzzy, kde-format
 #| msgid ""
 #| "Clicking on this icon will <b>start</b> / <b>stop</b>  updating of the "
@@ -137,32 +137,32 @@ msgstr ""
 "คลิกที่ไอคอนนี้เพื่อทำการ<b>เริ่ม</b>หรือ<b>หยุด</b>การปรับปรุงการแสดงผล "
 "ซึ่งการหยุดการปรับปรุงการแสดงผลจะทำให้ลดการใช้งานหน่วยประมวลผล (CPU) ลงมาก"
 
-#: kmag.cpp:134
+#: kmag.cpp:117
 #, kde-format
 msgid "&Save Snapshot As..."
 msgstr "&บันทึกการจับภาพเป็น..."
 
-#: kmag.cpp:137
+#: kmag.cpp:120
 #, kde-format
 msgid "Saves the zoomed view to an image file."
 msgstr "บันทึกพื้นที่ที่ย่อ/ขยายไปเป็นแฟ้มภาพ"
 
-#: kmag.cpp:138
+#: kmag.cpp:121
 #, kde-format
 msgid "Save image to a file"
 msgstr "บันทึกภาพเป็นแฟ้มภาพ"
 
-#: kmag.cpp:141
+#: kmag.cpp:124
 #, kde-format
 msgid "Click on this button to print the current zoomed view."
 msgstr "คลิกที่ปุ่มนี้เพื่อพิมพ์พื้นที่ที่ย่อ/ขยายอยู่ในปัจจุบัน"
 
-#: kmag.cpp:144 kmag.cpp:145
+#: kmag.cpp:127 kmag.cpp:128
 #, kde-format
 msgid "Quits the application"
 msgstr "ออกจากโปรแกรม"
 
-#: kmag.cpp:148
+#: kmag.cpp:131
 #, kde-format
 msgid ""
 "Click on this button to copy the current zoomed view to the clipboard which "
@@ -170,212 +170,212 @@ msgid ""
 msgstr ""
 "คลิกที่ปุ่่มนี้เพื่อคัดลอกพื้นที่ย่อ/ขยายปัจจุบันไปยังคลิปบอร์ด ซึ่งคุณสามารถนำไปวางในโปรแกรมอื่นได้"
 
-#: kmag.cpp:149
+#: kmag.cpp:132
 #, kde-format
 msgid "Copy zoomed image to clipboard"
 msgstr "คัดลอกภาพที่ย่อ/ขยายไปยังคลิปบอร์ด"
 
-#: kmag.cpp:155
+#: kmag.cpp:138
 #, kde-format
 msgid "&Follow Mouse Mode"
 msgstr "โห&มดตามเม้าส์"
 
-#: kmag.cpp:159
+#: kmag.cpp:142
 #, kde-format
 msgid "Mouse"
 msgstr "เมาส์"
 
-#: kmag.cpp:160
+#: kmag.cpp:143
 #, kde-format
 msgid "Magnify around the mouse cursor"
 msgstr "ขยายรอบๆ เคอร์เซอร์เม้าส์"
 
-#: kmag.cpp:161
+#: kmag.cpp:144
 #, kde-format
 msgid "If selected, the area around the mouse cursor is magnified"
 msgstr "หากเลือก พื้นที่่รอบเคอร์เซอร์เม้าส์จะถูกขยาย"
 
-#: kmag.cpp:165
+#: kmag.cpp:148
 #, kde-format
 msgid "&Follow Focus Mode"
 msgstr "โห&มดตามเม้าส์"
 
-#: kmag.cpp:169
+#: kmag.cpp:152
 #, kde-format
 msgid "Focus"
 msgstr "การโฟกัส"
 
-#: kmag.cpp:170
+#: kmag.cpp:153
 #, kde-format
 msgid "Magnify around the keyboard focus"
 msgstr "ขยายรอบๆ ส่วนที่ได้รับโฟกัสจากแป้นพิมพ์"
 
-#: kmag.cpp:171
+#: kmag.cpp:154
 #, kde-format
 msgid "If selected, the area around the keyboard cursor is magnified"
 msgstr "หากเลือก พื้นที่่รอบส่วนที่ได้รับโฟกัสจากแป้นพิมพ์ (เคอร์เซอร์รอรับการพิมพ์) จะถูกขยาย"
 
-#: kmag.cpp:175
+#: kmag.cpp:158
 #, kde-format
 msgid "Se&lection Window Mode"
 msgstr "โหมดหน้าต่างการเ&ลือก"
 
-#: kmag.cpp:179
+#: kmag.cpp:162
 #, kde-format
 msgid "Window"
 msgstr "หน้าต่าง"
 
-#: kmag.cpp:180
+#: kmag.cpp:163
 #, kde-format
 msgid "Show a window for selecting the magnified area"
 msgstr "แสดงหน้าต่างของส่วนพื้นที่ที่ถูกขยาย"
 
-#: kmag.cpp:182
+#: kmag.cpp:165
 #, kde-format
 msgid "&Whole Screen Mode"
 msgstr "โหมดทั้งหน้า&จอ"
 
-#: kmag.cpp:186
+#: kmag.cpp:169
 #, kde-format
 msgid "Screen"
 msgstr "หน้าจอ"
 
-#: kmag.cpp:187
+#: kmag.cpp:170
 #, kde-format
 msgid "Magnify the whole screen"
 msgstr "ขยายหน้าจอทั้งหมด"
 
-#: kmag.cpp:188
+#: kmag.cpp:171
 #, kde-format
 msgid "Click on this button to fit the zoom view to the zoom window."
 msgstr "คลิกที่ปุ่มนี้เพื่อปรับพื้นที่ที่ย่อ/ขยายให้เต็มพอดีกับหน้าต่าง"
 
-#: kmag.cpp:190
+#: kmag.cpp:173
 #, kde-format
 msgid "Hide Mouse &Cursor"
 msgstr "ซ่อนเ&คอร์เซอร์เม้าส์"
 
-#: kmag.cpp:195
+#: kmag.cpp:178
 #, kde-format
 msgid "Show Mouse &Cursor"
 msgstr "แสดงเ&คอร์เซอร์เม้าส์"
 
-#: kmag.cpp:197
+#: kmag.cpp:180
 #, kde-format
 msgid "Hide"
 msgstr "ซ่อน"
 
-#: kmag.cpp:198
+#: kmag.cpp:181
 #, kde-format
 msgid "Hide the mouse cursor"
 msgstr "ซ่อนเคอร์เซอร์เม้าส์"
 
-#: kmag.cpp:200
+#: kmag.cpp:183
 #, kde-format
 msgid "Stays On Top"
 msgstr "อยู่บนสุดเสมอ"
 
-#: kmag.cpp:204
+#: kmag.cpp:187
 #, kde-format
 msgid "The KMagnifier Window stays on top of other windows."
 msgstr "หน้าต่างแว่นขยาย-K จะอยู่บนสุดเหนือหน้าต่างอื่นเสมอ"
 
-#: kmag.cpp:207
+#: kmag.cpp:190
 #, kde-format
 msgid "Click on this button to <b>zoom-in</b> on the selected region."
 msgstr "คลิกที่ปุ่มนี้เพื่อ<b>ขยายขนาด</b>พื้นที่ที่เลือกไว้"
 
-#: kmag.cpp:209
+#: kmag.cpp:192
 #, kde-format
 msgid "&Zoom"
 msgstr "&ย่อ/ขยาย"
 
-#: kmag.cpp:212
+#: kmag.cpp:195
 #, kde-format
 msgid "Select the zoom factor."
 msgstr "เลือกค่าการย่อ/ขยาย"
 
-#: kmag.cpp:213
+#: kmag.cpp:196
 #, kde-format
 msgid "Zoom factor"
 msgstr "ค่าการย่อ/ขยาย"
 
-#: kmag.cpp:216
+#: kmag.cpp:199
 #, kde-format
 msgid "Click on this button to <b>zoom-out</b> on the selected region."
 msgstr "คลิกที่ปุ่มนี้เพื่อ<b>ย่อขนาด</b>พื้นที่ที่เลือกไว้"
 
-#: kmag.cpp:218
+#: kmag.cpp:201
 #, kde-format
 msgid "&Rotation"
 msgstr "หมุน"
 
-#: kmag.cpp:221
+#: kmag.cpp:204
 #, kde-format
 msgid "Select the rotation degree."
 msgstr "เลือกมุมการหมุน"
 
-#: kmag.cpp:222
+#: kmag.cpp:205
 #, kde-format
 msgid "Rotation degree"
 msgstr "มุมการหมุน"
 
-#: kmag.cpp:227
+#: kmag.cpp:210
 #, kde-format
 msgid "&Refresh"
 msgstr "รีเฟรช"
 
-#: kmag.cpp:230
+#: kmag.cpp:213
 #, kde-format
 msgid ""
 "Select the refresh rate. The higher the rate, the more computing power (CPU) "
 "will be needed."
 msgstr "เลือกอัตรารีเฟรช ค่าที่มากจะต้องการใช้พลังหน่วยประมวลผล (CPU) มากตามไปด้วย"
 
-#: kmag.cpp:231
+#: kmag.cpp:214
 #, kde-format
 msgid "Refresh rate"
 msgstr "อัตรารีเฟรช"
 
-#: kmag.cpp:233
+#: kmag.cpp:216
 #, kde-format
 msgctxt "Color-blindness simulation mode"
 msgid "&Color"
 msgstr "&สี"
 
-#: kmag.cpp:236
+#: kmag.cpp:219
 #, kde-format
 msgid "Select a mode to simulate various types of color-blindness."
 msgstr "เลือกโหมดเพื่อจำลองตาบอดสีประเภทต่าง ๆ"
 
-#: kmag.cpp:237
+#: kmag.cpp:220
 #, kde-format
 msgid "Color-blindness Simulation Mode"
 msgstr "โหมดจำลองตาบอดสี"
 
-#: kmag.cpp:569
+#: kmag.cpp:552
 #, kde-format
 msgid "Save Snapshot As"
 msgstr "บันทึกการจับภาพเป็น"
 
-#: kmag.cpp:583
+#: kmag.cpp:566
 #, kde-format
 msgid ""
 "Unable to save temporary file (before uploading to the network file you "
 "specified)."
 msgstr "ไม่สามารถบันทึกแฟ้มชั่วคราวได้ (ก่อนทำการอัพโหลดไปเป็นเอกสารเครือข่ายตามที่คุณกำหนด)"
 
-#: kmag.cpp:584 kmag.cpp:589 kmag.cpp:599
+#: kmag.cpp:567 kmag.cpp:572 kmag.cpp:582
 #, kde-format
 msgid "Error Writing File"
 msgstr "เกิดข้อผิดพลาดในการเขียนแฟ้ม"
 
-#: kmag.cpp:588
+#: kmag.cpp:571
 #, kde-format
 msgid "Unable to upload file over the network."
 msgstr "ไม่สามารถอัพโหลดแฟ้มผ่านเครือข่ายได้"
 
-#: kmag.cpp:591 kmag.cpp:601
+#: kmag.cpp:574 kmag.cpp:584
 #, kde-format
 msgid ""
 "Current zoomed image saved to\n"
@@ -384,45 +384,45 @@ msgstr ""
 "ภาพขยายปัจจุบันถูกบันทึกไปยังแฟ้ม\n"
 "%1 แล้ว"
 
-#: kmag.cpp:592 kmag.cpp:602
+#: kmag.cpp:575 kmag.cpp:585
 #, kde-format
 msgid "Information"
 msgstr "ข้อมูล"
 
-#: kmag.cpp:598
+#: kmag.cpp:581
 #, kde-format
 msgid ""
 "Unable to save file. Please check if you have permission to write to the "
 "directory."
 msgstr "ไม่สามารถบันทึกแฟ้มได้ โปรดตรวจสอบว่าคุณมีสิทธิ์ในการเขียนไปยังไดเรกทอรีหรือไม่"
 
-#: kmag.cpp:617
+#: kmag.cpp:600
 #, kde-format
 msgid "Stop"
 msgstr "หยุด"
 
-#: kmag.cpp:618
+#: kmag.cpp:601
 #, kde-format
 msgid "Click to stop window update"
 msgstr "คลิกเพื่อหยุดการปรับปรุงหน้าต่าง"
 
-#: kmag.cpp:621
+#: kmag.cpp:604
 #, kde-format
 msgctxt "Start updating the window"
 msgid "Start"
 msgstr "เริ่ม"
 
-#: kmag.cpp:622
+#: kmag.cpp:605
 #, kde-format
 msgid "Click to start window update"
 msgstr "คลิกเพื่อเริ่มการปรับปรุงหน้าต่าง"
 
-#: kmagselrect.cpp:213
+#: kmagselrect.cpp:198
 #, kde-format
 msgid "Selection Window"
 msgstr "หน้าต่างการเลือก"
 
-#: kmagselrect.cpp:213 main.cpp:38
+#: kmagselrect.cpp:198 main.cpp:38
 #, kde-format
 msgid "KMagnifier"
 msgstr "แว่นขยาย-K"
@@ -469,7 +469,7 @@ msgstr "&มุมมอง"
 msgid "&Settings"
 msgstr "&ตั้งค่า"
 
-#: kmagzoomview.cpp:125
+#: kmagzoomview.cpp:107
 #, kde-format
 msgid ""
 "This is the main window which shows the contents of the selected region. The "

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:54+0000\n"
+"POT-Creation-Date: 2023-12-08 01:33+0000\n"
 "PO-Revision-Date: 2022-11-29 06:17+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -28,103 +28,103 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Temuri.doghonadze@gmail.com"
 
-#: kmag.cpp:69
+#: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at very low"
 msgid "&Very Low"
 msgstr "&ძალიან დაბალი"
 
-#: kmag.cpp:69
+#: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at low"
 msgid "&Low"
 msgstr "&დაბალი"
 
-#: kmag.cpp:69
+#: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at medium"
 msgid "&Medium"
 msgstr "&საშუალო"
 
-#: kmag.cpp:69
+#: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at high"
 msgid "&High"
 msgstr "&მაღალი"
 
-#: kmag.cpp:69
+#: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at very high"
 msgid "V&ery High"
 msgstr "&ძალიან მაღალი"
 
-#: kmag.cpp:77
+#: kmag.cpp:60
 #, kde-format
 msgctxt "No color-blindness simulation, i.e. 'normal' vision"
 msgid "&Normal"
 msgstr "&ნორმალური"
 
-#: kmag.cpp:77
+#: kmag.cpp:60
 #, kde-format
 msgid "&Protanopia"
 msgstr "&პროთანოპია"
 
-#: kmag.cpp:77
+#: kmag.cpp:60
 #, kde-format
 msgid "&Deuteranopia"
 msgstr "&დეიტერანოპია"
 
-#: kmag.cpp:77
+#: kmag.cpp:60
 #, kde-format
 msgid "&Tritanopia"
 msgstr "&ტრიტანოპია"
 
-#: kmag.cpp:77
+#: kmag.cpp:60
 #, kde-format
 msgid "&Achromatopsia"
 msgstr "&აქრომათოფსია"
 
-#: kmag.cpp:85
+#: kmag.cpp:68
 #, kde-format
 msgid "&No Rotation (0 Degrees)"
 msgstr "&მობრუნების გარეშე (0 გრადუსი)"
 
-#: kmag.cpp:85
+#: kmag.cpp:68
 #, kde-format
 msgid "&Left (90 Degrees)"
 msgstr "&მარცხნივ (90 გრადუსი)"
 
-#: kmag.cpp:85
+#: kmag.cpp:68
 #, kde-format
 msgid "&Upside Down (180 Degrees)"
 msgstr "&ზემოდან ქვემოთ (180 გრადუსი)"
 
-#: kmag.cpp:85
+#: kmag.cpp:68
 #, kde-format
 msgid "&Right (270 Degrees)"
 msgstr "&მარჯვნივ (270 გრადუსი)"
 
-#: kmag.cpp:117
+#: kmag.cpp:100
 #, kde-format
 msgid "New &Window"
 msgstr "&ახალი ფანჯარა"
 
-#: kmag.cpp:120
+#: kmag.cpp:103
 #, kde-format
 msgid "Open a new KMagnifier window"
 msgstr "KMagnifier -ის ახალი ფანჯარის გახსნა"
 
-#: kmag.cpp:124
+#: kmag.cpp:107
 #, kde-format
 msgid "&Stop"
 msgstr "გაჩერება"
 
-#: kmag.cpp:127
+#: kmag.cpp:110
 #, kde-format
 msgid "Click to stop window refresh"
 msgstr "ფანჯრის განახლების შესაჩერებლად დააწკაპუნეთ"
 
-#: kmag.cpp:128
+#: kmag.cpp:111
 #, kde-format
 msgid ""
 "Clicking on this icon will <b>start</b> / <b>stop</b> updating of the "
@@ -134,32 +134,32 @@ msgstr ""
 "ამ ხატულაზე დაწკაპუნება <b>დაიწყებს</b> / <b>დაამთავრებს</b> ეკრანის "
 "განახლებას. განახლების შეწყვეტა CPU-ის გამოყენებას გაანულებს"
 
-#: kmag.cpp:134
+#: kmag.cpp:117
 #, kde-format
 msgid "&Save Snapshot As..."
 msgstr "&სწრაფი ასლის შენახვა, როგორც..."
 
-#: kmag.cpp:137
+#: kmag.cpp:120
 #, kde-format
 msgid "Saves the zoomed view to an image file."
 msgstr "გადიდებული ხედის გამოსახულების ფაილში შენახვა."
 
-#: kmag.cpp:138
+#: kmag.cpp:121
 #, kde-format
 msgid "Save image to a file"
 msgstr "გამოსახულების ფაილში შენახვა"
 
-#: kmag.cpp:141
+#: kmag.cpp:124
 #, kde-format
 msgid "Click on this button to print the current zoomed view."
 msgstr "მიმდინარე გადიდებული ხედის დასაბეჭდად ამ ღილაკს დააწექით."
 
-#: kmag.cpp:144 kmag.cpp:145
+#: kmag.cpp:127 kmag.cpp:128
 #, kde-format
 msgid "Quits the application"
 msgstr "აპლიკაციიდან გასვლა"
 
-#: kmag.cpp:148
+#: kmag.cpp:131
 #, kde-format
 msgid ""
 "Click on this button to copy the current zoomed view to the clipboard which "
@@ -168,162 +168,162 @@ msgstr ""
 "დააწკაპუნეთ მიმდინარე გადიდებული ხედის ბუფერში დასაკოპირებლად, საიდანაც ის "
 "სხვა აპლიკაციებში შეგიძლიათ, ჩასვათ."
 
-#: kmag.cpp:149
+#: kmag.cpp:132
 #, kde-format
 msgid "Copy zoomed image to clipboard"
 msgstr "გადიდებული გამოსახულების ბუფერში კოპირება"
 
-#: kmag.cpp:155
+#: kmag.cpp:138
 #, kde-format
 msgid "&Follow Mouse Mode"
 msgstr "&თაგუნას მიყოლის რეჟიმი"
 
-#: kmag.cpp:159
+#: kmag.cpp:142
 #, kde-format
 msgid "Mouse"
 msgstr "თაგუნა"
 
-#: kmag.cpp:160
+#: kmag.cpp:143
 #, kde-format
 msgid "Magnify around the mouse cursor"
 msgstr "გადიდება თაგუნას კურსორის გარშემო"
 
-#: kmag.cpp:161
+#: kmag.cpp:144
 #, kde-format
 msgid "If selected, the area around the mouse cursor is magnified"
 msgstr "თუ მონიშნულია, ადგილი თაგუნას კურსორის გარშემო გადიდდება"
 
-#: kmag.cpp:165
+#: kmag.cpp:148
 #, kde-format
 msgid "&Follow Focus Mode"
 msgstr "&ფოკუსის მიყოლის რეჟიმი"
 
-#: kmag.cpp:169
+#: kmag.cpp:152
 #, kde-format
 msgid "Focus"
 msgstr "ფოკუსი"
 
-#: kmag.cpp:170
+#: kmag.cpp:153
 #, kde-format
 msgid "Magnify around the keyboard focus"
 msgstr "გადიდება კლავიატურის კურსორის გარშემო"
 
-#: kmag.cpp:171
+#: kmag.cpp:154
 #, kde-format
 msgid "If selected, the area around the keyboard cursor is magnified"
 msgstr "თუ მონიშნულია, ადგილი კლავიატურის კურსორის გარშემო გადიდდება"
 
-#: kmag.cpp:175
+#: kmag.cpp:158
 #, kde-format
 msgid "Se&lection Window Mode"
 msgstr "&მონიშნული ფანჯრის რეჟიმი"
 
-#: kmag.cpp:179
+#: kmag.cpp:162
 #, kde-format
 msgid "Window"
 msgstr "ფანჯარა"
 
-#: kmag.cpp:180
+#: kmag.cpp:163
 #, kde-format
 msgid "Show a window for selecting the magnified area"
 msgstr "გასადიდებელი ადგილის მოსანიშნი ფანჯრის ჩვენება"
 
-#: kmag.cpp:182
+#: kmag.cpp:165
 #, kde-format
 msgid "&Whole Screen Mode"
 msgstr "&მთელი ეკრანის რეჟიმი"
 
-#: kmag.cpp:186
+#: kmag.cpp:169
 #, kde-format
 msgid "Screen"
 msgstr "ეკრანი"
 
-#: kmag.cpp:187
+#: kmag.cpp:170
 #, kde-format
 msgid "Magnify the whole screen"
 msgstr "მთელი ეკრანის გადიდება"
 
-#: kmag.cpp:188
+#: kmag.cpp:171
 #, kde-format
 msgid "Click on this button to fit the zoom view to the zoom window."
 msgstr "დააწექით ამ ღილაკს გადიდების ხედის გადიდების ფანჯარაში ჩასატევად."
 
-#: kmag.cpp:190
+#: kmag.cpp:173
 #, kde-format
 msgid "Hide Mouse &Cursor"
 msgstr "&თაგუნას კურსორის დამალვა"
 
-#: kmag.cpp:195
+#: kmag.cpp:178
 #, kde-format
 msgid "Show Mouse &Cursor"
 msgstr "&თაგუნას კურსორის ჩვენება"
 
-#: kmag.cpp:197
+#: kmag.cpp:180
 #, kde-format
 msgid "Hide"
 msgstr "დამალვა"
 
-#: kmag.cpp:198
+#: kmag.cpp:181
 #, kde-format
 msgid "Hide the mouse cursor"
 msgstr "თაგუნას კურსორის დამალვა"
 
-#: kmag.cpp:200
+#: kmag.cpp:183
 #, kde-format
 msgid "Stays On Top"
 msgstr "ყველაზე ზემოთ დარჩენა"
 
-#: kmag.cpp:204
+#: kmag.cpp:187
 #, kde-format
 msgid "The KMagnifier Window stays on top of other windows."
 msgstr "KMagnifier -ის ფანჯარა სხვა ფანჯრებზე მაღლა დარჩება."
 
-#: kmag.cpp:207
+#: kmag.cpp:190
 #, kde-format
 msgid "Click on this button to <b>zoom-in</b> on the selected region."
 msgstr "მონიშნული რეგიონის <b>გასადიდებლად</b> ამ ღილაკზე დააწკაპუნეთ."
 
-#: kmag.cpp:209
+#: kmag.cpp:192
 #, kde-format
 msgid "&Zoom"
 msgstr "&გადიდება"
 
-#: kmag.cpp:212
+#: kmag.cpp:195
 #, kde-format
 msgid "Select the zoom factor."
 msgstr "აირჩიეთ გადიდების კოეფიციენტი."
 
-#: kmag.cpp:213
+#: kmag.cpp:196
 #, kde-format
 msgid "Zoom factor"
 msgstr "გადიდების კოეფიციენტი"
 
-#: kmag.cpp:216
+#: kmag.cpp:199
 #, kde-format
 msgid "Click on this button to <b>zoom-out</b> on the selected region."
 msgstr "მონიშნული რეგიონის <b>დასაპატარავებლად</b> ამ ღილაკზე დააწკაპუნეთ."
 
-#: kmag.cpp:218
+#: kmag.cpp:201
 #, kde-format
 msgid "&Rotation"
 msgstr "&შემობრუნება"
 
-#: kmag.cpp:221
+#: kmag.cpp:204
 #, kde-format
 msgid "Select the rotation degree."
 msgstr "აირჩიეთ მობრუნების კუთხე."
 
-#: kmag.cpp:222
+#: kmag.cpp:205
 #, kde-format
 msgid "Rotation degree"
 msgstr "მობრუნების კუთხე"
 
-#: kmag.cpp:227
+#: kmag.cpp:210
 #, kde-format
 msgid "&Refresh"
 msgstr "&განახლება"
 
-#: kmag.cpp:230
+#: kmag.cpp:213
 #, kde-format
 msgid ""
 "Select the refresh rate. The higher the rate, the more computing power (CPU) "
@@ -332,50 +332,50 @@ msgstr ""
 "აირჩიეთ განახლების სიჩქარე. რაც მეტია ის, მით მეტი პროცესორის დროა (CPU) "
 "საჭირო."
 
-#: kmag.cpp:231
+#: kmag.cpp:214
 #, kde-format
 msgid "Refresh rate"
 msgstr "განახლების სიხშირე"
 
-#: kmag.cpp:233
+#: kmag.cpp:216
 #, kde-format
 msgctxt "Color-blindness simulation mode"
 msgid "&Color"
 msgstr "&ფერი"
 
-#: kmag.cpp:236
+#: kmag.cpp:219
 #, kde-format
 msgid "Select a mode to simulate various types of color-blindness."
 msgstr "აირჩიეთ ფერების ვერ-აღქმის სხვადასხვა ტიპის სიმულაციის რეჟიმი."
 
-#: kmag.cpp:237
+#: kmag.cpp:220
 #, kde-format
 msgid "Color-blindness Simulation Mode"
 msgstr "ფერების სიბრმავის სიმულაციის რეჟიმი"
 
-#: kmag.cpp:569
+#: kmag.cpp:552
 #, kde-format
 msgid "Save Snapshot As"
 msgstr "სწრაფი ასლის შენახვა, როგორც"
 
-#: kmag.cpp:583
+#: kmag.cpp:566
 #, kde-format
 msgid ""
 "Unable to save temporary file (before uploading to the network file you "
 "specified)."
 msgstr "დროებითი ფაილის შენახვის შეცდომა (მიუთითეთ ქსელში ატვირთვამდე)."
 
-#: kmag.cpp:584 kmag.cpp:589 kmag.cpp:599
+#: kmag.cpp:567 kmag.cpp:572 kmag.cpp:582
 #, kde-format
 msgid "Error Writing File"
 msgstr "შეცდომა ფაილის ჩაწერისას"
 
-#: kmag.cpp:588
+#: kmag.cpp:571
 #, kde-format
 msgid "Unable to upload file over the network."
 msgstr "ფაილის ქსელში ატვირთვის შეცდომა."
 
-#: kmag.cpp:591 kmag.cpp:601
+#: kmag.cpp:574 kmag.cpp:584
 #, kde-format
 msgid ""
 "Current zoomed image saved to\n"
@@ -384,12 +384,12 @@ msgstr ""
 "ამჟამად გადიდებული გამოსახულება შენახულია, როგორც\n"
 "%1"
 
-#: kmag.cpp:592 kmag.cpp:602
+#: kmag.cpp:575 kmag.cpp:585
 #, kde-format
 msgid "Information"
 msgstr "ინფორმაცია"
 
-#: kmag.cpp:598
+#: kmag.cpp:581
 #, kde-format
 msgid ""
 "Unable to save file. Please check if you have permission to write to the "
@@ -397,33 +397,33 @@ msgid ""
 msgstr ""
 "ფაილის შენახვის შეცდომა. შეამოწმეთ თქვენი წვდომები მითითებულ საქაღალდეზე."
 
-#: kmag.cpp:617
+#: kmag.cpp:600
 #, kde-format
 msgid "Stop"
 msgstr "შეჩერება"
 
-#: kmag.cpp:618
+#: kmag.cpp:601
 #, kde-format
 msgid "Click to stop window update"
 msgstr "დააწკაპუნეთ ფანჯრის განახლების შესაჩერებლად"
 
-#: kmag.cpp:621
+#: kmag.cpp:604
 #, kde-format
 msgctxt "Start updating the window"
 msgid "Start"
 msgstr "გაშვება"
 
-#: kmag.cpp:622
+#: kmag.cpp:605
 #, kde-format
 msgid "Click to start window update"
 msgstr "დააწკაპუნეთ ფანჯრის განახლების დასაწყებად"
 
-#: kmagselrect.cpp:213
+#: kmagselrect.cpp:198
 #, kde-format
 msgid "Selection Window"
 msgstr "მონიშვნის ფანჯარა"
 
-#: kmagselrect.cpp:213 main.cpp:38
+#: kmagselrect.cpp:198 main.cpp:38
 #, kde-format
 msgid "KMagnifier"
 msgstr "KMagnifier"
@@ -470,7 +470,7 @@ msgstr "&ხედი"
 msgid "&Settings"
 msgstr "&მორგება"
 
-#: kmagzoomview.cpp:125
+#: kmagzoomview.cpp:107
 #, kde-format
 msgid ""
 "This is the main window which shows the contents of the selected region. The "

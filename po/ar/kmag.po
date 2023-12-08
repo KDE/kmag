@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:54+0000\n"
+"POT-Creation-Date: 2023-12-08 01:33+0000\n"
 "PO-Revision-Date: 2022-01-04 19:12+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -30,103 +30,103 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ghosn@php4arab.info,metehyi@free.fr"
 
-#: kmag.cpp:69
+#: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at very low"
 msgid "&Very Low"
 msgstr "مُنخفِض &جداً"
 
-#: kmag.cpp:69
+#: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at low"
 msgid "&Low"
 msgstr "&منخفض"
 
-#: kmag.cpp:69
+#: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at medium"
 msgid "&Medium"
 msgstr "&متوسط"
 
-#: kmag.cpp:69
+#: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at high"
 msgid "&High"
 msgstr "&عالي"
 
-#: kmag.cpp:69
+#: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at very high"
 msgid "V&ery High"
 msgstr "عالي &جداً"
 
-#: kmag.cpp:77
+#: kmag.cpp:60
 #, kde-format
 msgctxt "No color-blindness simulation, i.e. 'normal' vision"
 msgid "&Normal"
 msgstr "عا&دي"
 
-#: kmag.cpp:77
+#: kmag.cpp:60
 #, kde-format
 msgid "&Protanopia"
 msgstr "عمى الأ&حمر"
 
-#: kmag.cpp:77
+#: kmag.cpp:60
 #, kde-format
 msgid "&Deuteranopia"
 msgstr "عمى الأ&خضر"
 
-#: kmag.cpp:77
+#: kmag.cpp:60
 #, kde-format
 msgid "&Tritanopia"
 msgstr "عمى الأ&زرق"
 
-#: kmag.cpp:77
+#: kmag.cpp:60
 #, kde-format
 msgid "&Achromatopsia"
 msgstr "&عمى الألوان"
 
-#: kmag.cpp:85
+#: kmag.cpp:68
 #, kde-format
 msgid "&No Rotation (0 Degrees)"
 msgstr "&بدون تدوير (0 درجة)"
 
-#: kmag.cpp:85
+#: kmag.cpp:68
 #, kde-format
 msgid "&Left (90 Degrees)"
 msgstr "يسار (90 درجة)"
 
-#: kmag.cpp:85
+#: kmag.cpp:68
 #, kde-format
 msgid "&Upside Down (180 Degrees)"
 msgstr "الأ&على أسفل (180 درجة)"
 
-#: kmag.cpp:85
+#: kmag.cpp:68
 #, kde-format
 msgid "&Right (270 Degrees)"
 msgstr "&يمين (270 درجة)"
 
-#: kmag.cpp:117
+#: kmag.cpp:100
 #, kde-format
 msgid "New &Window"
 msgstr "&نافذة جديدة"
 
-#: kmag.cpp:120
+#: kmag.cpp:103
 #, kde-format
 msgid "Open a new KMagnifier window"
 msgstr "إفتح نافذة عدسة تكبير جديدة"
 
-#: kmag.cpp:124
+#: kmag.cpp:107
 #, kde-format
 msgid "&Stop"
 msgstr "&قف"
 
-#: kmag.cpp:127
+#: kmag.cpp:110
 #, kde-format
 msgid "Click to stop window refresh"
 msgstr "آنقر لإيقاف إنعاش النَّافذة"
 
-#: kmag.cpp:128
+#: kmag.cpp:111
 #, kde-format
 msgid ""
 "Clicking on this icon will <b>start</b> / <b>stop</b> updating of the "
@@ -137,32 +137,32 @@ msgstr ""
 "إيقاف التّحديث سيلغي مجمل طاقة المعالجة المطلوبة (استخدام وحدة المعالجة "
 "المركزيّة - CPU)"
 
-#: kmag.cpp:134
+#: kmag.cpp:117
 #, kde-format
 msgid "&Save Snapshot As..."
 msgstr "&إحفظ لَقطة الشاشة كـ..."
 
-#: kmag.cpp:137
+#: kmag.cpp:120
 #, kde-format
 msgid "Saves the zoomed view to an image file."
 msgstr "يحفظ العرض المكبّر في ملف صورة."
 
-#: kmag.cpp:138
+#: kmag.cpp:121
 #, kde-format
 msgid "Save image to a file"
 msgstr "إحفظ الصّورة في ملف"
 
-#: kmag.cpp:141
+#: kmag.cpp:124
 #, kde-format
 msgid "Click on this button to print the current zoomed view."
 msgstr "آنقر على هذا الزُّر لطباعة الرُّؤية المُكبّرة الحاليّة."
 
-#: kmag.cpp:144 kmag.cpp:145
+#: kmag.cpp:127 kmag.cpp:128
 #, kde-format
 msgid "Quits the application"
 msgstr "ينهي التَّطبيق"
 
-#: kmag.cpp:148
+#: kmag.cpp:131
 #, kde-format
 msgid ""
 "Click on this button to copy the current zoomed view to the clipboard which "
@@ -171,162 +171,162 @@ msgstr ""
 "أنقر على هذا الزرّ لنسخ الرؤية المكبرة حالياً إلى الحافظة كي تستطيع إلصاقها في "
 "تطبيقات أخرى."
 
-#: kmag.cpp:149
+#: kmag.cpp:132
 #, kde-format
 msgid "Copy zoomed image to clipboard"
 msgstr "أنسخ الصُّورة المُكبّرة إلى الحافظة"
 
-#: kmag.cpp:155
+#: kmag.cpp:138
 #, kde-format
 msgid "&Follow Mouse Mode"
 msgstr "&إتبع الفأرة"
 
-#: kmag.cpp:159
+#: kmag.cpp:142
 #, kde-format
 msgid "Mouse"
 msgstr "الفأرة"
 
-#: kmag.cpp:160
+#: kmag.cpp:143
 #, kde-format
 msgid "Magnify around the mouse cursor"
 msgstr "كبّر حول مؤشّر الفأرة"
 
-#: kmag.cpp:161
+#: kmag.cpp:144
 #, kde-format
 msgid "If selected, the area around the mouse cursor is magnified"
 msgstr "في حالة التحديد ، ستكبر المنطقة المحيطة بمؤشر الفأرة"
 
-#: kmag.cpp:165
+#: kmag.cpp:148
 #, kde-format
 msgid "&Follow Focus Mode"
 msgstr "نمط اتبع ال&تركيز"
 
-#: kmag.cpp:169
+#: kmag.cpp:152
 #, kde-format
 msgid "Focus"
 msgstr "التركيز"
 
-#: kmag.cpp:170
+#: kmag.cpp:153
 #, kde-format
 msgid "Magnify around the keyboard focus"
 msgstr "كبّر حول تركيز لوحة المفاتيح"
 
-#: kmag.cpp:171
+#: kmag.cpp:154
 #, kde-format
 msgid "If selected, the area around the keyboard cursor is magnified"
 msgstr "في حالة التحديد، ستكبر المنطقة المحيطة بمؤشر لوحة المفاتيح"
 
-#: kmag.cpp:175
+#: kmag.cpp:158
 #, kde-format
 msgid "Se&lection Window Mode"
 msgstr "نمط تحديد ال&نافذة"
 
-#: kmag.cpp:179
+#: kmag.cpp:162
 #, kde-format
 msgid "Window"
 msgstr "النافذة"
 
-#: kmag.cpp:180
+#: kmag.cpp:163
 #, kde-format
 msgid "Show a window for selecting the magnified area"
 msgstr "أظهر نافذة لاختيار المنطقة المكبرة"
 
-#: kmag.cpp:182
+#: kmag.cpp:165
 #, kde-format
 msgid "&Whole Screen Mode"
 msgstr "نمط &كل الشاشة"
 
-#: kmag.cpp:186
+#: kmag.cpp:169
 #, kde-format
 msgid "Screen"
 msgstr "الشاشة"
 
-#: kmag.cpp:187
+#: kmag.cpp:170
 #, kde-format
 msgid "Magnify the whole screen"
 msgstr "كبّر كل الشاشة"
 
-#: kmag.cpp:188
+#: kmag.cpp:171
 #, kde-format
 msgid "Click on this button to fit the zoom view to the zoom window."
 msgstr "انقر فوق هذا الزر لملاءمة حجم العرض مع لنافذة التكبير."
 
-#: kmag.cpp:190
+#: kmag.cpp:173
 #, kde-format
 msgid "Hide Mouse &Cursor"
 msgstr "إخفاء &مؤشر الفأرة"
 
-#: kmag.cpp:195
+#: kmag.cpp:178
 #, kde-format
 msgid "Show Mouse &Cursor"
 msgstr "إظهار &مؤشر الفأرة"
 
-#: kmag.cpp:197
+#: kmag.cpp:180
 #, kde-format
 msgid "Hide"
 msgstr "أخفِ"
 
-#: kmag.cpp:198
+#: kmag.cpp:181
 #, kde-format
 msgid "Hide the mouse cursor"
 msgstr "إخفاء مؤشر الفأرة"
 
-#: kmag.cpp:200
+#: kmag.cpp:183
 #, kde-format
 msgid "Stays On Top"
 msgstr "تبقى في الأعلى"
 
-#: kmag.cpp:204
+#: kmag.cpp:187
 #, kde-format
 msgid "The KMagnifier Window stays on top of other windows."
 msgstr "تظل نافذة العدسة أعلى النوافذ الأخرى."
 
-#: kmag.cpp:207
+#: kmag.cpp:190
 #, kde-format
 msgid "Click on this button to <b>zoom-in</b> on the selected region."
 msgstr "آنقر على هذا الزُّر كي <b> تكبّر </b> المنطقة المحددة."
 
-#: kmag.cpp:209
+#: kmag.cpp:192
 #, kde-format
 msgid "&Zoom"
 msgstr "&كبر"
 
-#: kmag.cpp:212
+#: kmag.cpp:195
 #, kde-format
 msgid "Select the zoom factor."
 msgstr "إختر معامل التَّكبير. "
 
-#: kmag.cpp:213
+#: kmag.cpp:196
 #, kde-format
 msgid "Zoom factor"
 msgstr "معامل التَّكبير"
 
-#: kmag.cpp:216
+#: kmag.cpp:199
 #, kde-format
 msgid "Click on this button to <b>zoom-out</b> on the selected region."
 msgstr "آنقر على هذا الزُّر كي <b>تصغّر </b> المنطقة المحددة."
 
-#: kmag.cpp:218
+#: kmag.cpp:201
 #, kde-format
 msgid "&Rotation"
 msgstr "ال&دوران"
 
-#: kmag.cpp:221
+#: kmag.cpp:204
 #, kde-format
 msgid "Select the rotation degree."
 msgstr "إختر درجة الدوران."
 
-#: kmag.cpp:222
+#: kmag.cpp:205
 #, kde-format
 msgid "Rotation degree"
 msgstr "درجة الدوران"
 
-#: kmag.cpp:227
+#: kmag.cpp:210
 #, kde-format
 msgid "&Refresh"
 msgstr "أن&عِش"
 
-#: kmag.cpp:230
+#: kmag.cpp:213
 #, kde-format
 msgid ""
 "Select the refresh rate. The higher the rate, the more computing power (CPU) "
@@ -335,50 +335,50 @@ msgstr ""
 "إختر مُعدَّل التحديث. كلما زاد المُعدَّل ، كلما إزدادت الطَّاقة الحاسوبيّة (وحدة "
 "المعالجة المركزيّة - CPU) المحتاجة."
 
-#: kmag.cpp:231
+#: kmag.cpp:214
 #, kde-format
 msgid "Refresh rate"
 msgstr "مُعدَّل التحديث"
 
-#: kmag.cpp:233
+#: kmag.cpp:216
 #, kde-format
 msgctxt "Color-blindness simulation mode"
 msgid "&Color"
 msgstr "ال&لون"
 
-#: kmag.cpp:236
+#: kmag.cpp:219
 #, kde-format
 msgid "Select a mode to simulate various types of color-blindness."
 msgstr "حدد وضعًا لمحاكاة أنواع مختلفة من عمى الألوان."
 
-#: kmag.cpp:237
+#: kmag.cpp:220
 #, kde-format
 msgid "Color-blindness Simulation Mode"
 msgstr "وضع محاكاة عمى الألوان"
 
-#: kmag.cpp:569
+#: kmag.cpp:552
 #, kde-format
 msgid "Save Snapshot As"
 msgstr "إ&حفظ لَّقطة الشاشة كـ"
 
-#: kmag.cpp:583
+#: kmag.cpp:566
 #, kde-format
 msgid ""
 "Unable to save temporary file (before uploading to the network file you "
 "specified)."
 msgstr "تعذر حفظ الملف المؤقت (قبل تصعيد الملف إلى ملف الشَّبكة الذي حدَّدته)."
 
-#: kmag.cpp:584 kmag.cpp:589 kmag.cpp:599
+#: kmag.cpp:567 kmag.cpp:572 kmag.cpp:582
 #, kde-format
 msgid "Error Writing File"
 msgstr "خطأ عند كتابة الملف"
 
-#: kmag.cpp:588
+#: kmag.cpp:571
 #, kde-format
 msgid "Unable to upload file over the network."
 msgstr "غير قادر على رفع الملف عبر الشَّبكة."
 
-#: kmag.cpp:591 kmag.cpp:601
+#: kmag.cpp:574 kmag.cpp:584
 #, kde-format
 msgid ""
 "Current zoomed image saved to\n"
@@ -387,45 +387,45 @@ msgstr ""
 "حفظت الصُّورة المُكبّرة  الحاليّة إلى\n"
 "%1"
 
-#: kmag.cpp:592 kmag.cpp:602
+#: kmag.cpp:575 kmag.cpp:585
 #, kde-format
 msgid "Information"
 msgstr "المعلومات"
 
-#: kmag.cpp:598
+#: kmag.cpp:581
 #, kde-format
 msgid ""
 "Unable to save file. Please check if you have permission to write to the "
 "directory."
 msgstr "تعذر حفظ الملف. الرجاءً تَفَقَّد إذا كان لديك أذن الكِتابة في المجلد."
 
-#: kmag.cpp:617
+#: kmag.cpp:600
 #, kde-format
 msgid "Stop"
 msgstr "أوقف"
 
-#: kmag.cpp:618
+#: kmag.cpp:601
 #, kde-format
 msgid "Click to stop window update"
 msgstr "أنقر لإيقاف تحديث النَّافذة"
 
-#: kmag.cpp:621
+#: kmag.cpp:604
 #, kde-format
 msgctxt "Start updating the window"
 msgid "Start"
 msgstr "ابدأ"
 
-#: kmag.cpp:622
+#: kmag.cpp:605
 #, kde-format
 msgid "Click to start window update"
 msgstr "أنقر لبدء تحديث النَّافذة"
 
-#: kmagselrect.cpp:213
+#: kmagselrect.cpp:198
 #, kde-format
 msgid "Selection Window"
 msgstr "نافذة إختيار المنطقة"
 
-#: kmagselrect.cpp:213 main.cpp:38
+#: kmagselrect.cpp:198 main.cpp:38
 #, kde-format
 msgid "KMagnifier"
 msgstr "KMagnifier"
@@ -472,7 +472,7 @@ msgstr "ال&عرض"
 msgid "&Settings"
 msgstr "إ&عدادات"
 
-#: kmagzoomview.cpp:125
+#: kmagzoomview.cpp:107
 #, kde-format
 msgid ""
 "This is the main window which shows the contents of the selected region. The "

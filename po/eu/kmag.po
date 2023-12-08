@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:54+0000\n"
+"POT-Creation-Date: 2023-12-08 01:33+0000\n"
 "PO-Revision-Date: 2017-08-30 13:40+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
 "Language-Team: Basque <kde-i18n-doc@kde.org>\n"
@@ -34,103 +34,103 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "igaztanaga@gmail.com"
 
-#: kmag.cpp:69
+#: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at very low"
 msgid "&Very Low"
 msgstr "&Oso baxua"
 
-#: kmag.cpp:69
+#: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at low"
 msgid "&Low"
 msgstr "&Baxua"
 
-#: kmag.cpp:69
+#: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at medium"
 msgid "&Medium"
 msgstr "&Ertaina"
 
-#: kmag.cpp:69
+#: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at high"
 msgid "&High"
 msgstr "&Altua"
 
-#: kmag.cpp:69
+#: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at very high"
 msgid "V&ery High"
 msgstr "O&so altua"
 
-#: kmag.cpp:77
+#: kmag.cpp:60
 #, kde-format
 msgctxt "No color-blindness simulation, i.e. 'normal' vision"
 msgid "&Normal"
 msgstr "&Normala"
 
-#: kmag.cpp:77
+#: kmag.cpp:60
 #, kde-format
 msgid "&Protanopia"
 msgstr "&Protanopia"
 
-#: kmag.cpp:77
+#: kmag.cpp:60
 #, kde-format
 msgid "&Deuteranopia"
 msgstr "&Deuteranopsia"
 
-#: kmag.cpp:77
+#: kmag.cpp:60
 #, kde-format
 msgid "&Tritanopia"
 msgstr "&Tritanopia"
 
-#: kmag.cpp:77
+#: kmag.cpp:60
 #, kde-format
 msgid "&Achromatopsia"
 msgstr "&Akromatopsia"
 
-#: kmag.cpp:85
+#: kmag.cpp:68
 #, kde-format
 msgid "&No Rotation (0 Degrees)"
 msgstr "Biraketarik &ez (0 gradu)"
 
-#: kmag.cpp:85
+#: kmag.cpp:68
 #, kde-format
 msgid "&Left (90 Degrees)"
 msgstr "&Ezkerra (90 gradu)"
 
-#: kmag.cpp:85
+#: kmag.cpp:68
 #, kde-format
 msgid "&Upside Down (180 Degrees)"
 msgstr "&Alderantzia (180 gradu)"
 
-#: kmag.cpp:85
+#: kmag.cpp:68
 #, kde-format
 msgid "&Right (270 Degrees)"
 msgstr "&Eskuina (270 gradu)"
 
-#: kmag.cpp:117
+#: kmag.cpp:100
 #, kde-format
 msgid "New &Window"
 msgstr "&Lehio berria"
 
-#: kmag.cpp:120
+#: kmag.cpp:103
 #, kde-format
 msgid "Open a new KMagnifier window"
 msgstr "Ireki KMagnifier-en lehio berri bat"
 
-#: kmag.cpp:124
+#: kmag.cpp:107
 #, kde-format
 msgid "&Stop"
 msgstr "&Gelditu"
 
-#: kmag.cpp:127
+#: kmag.cpp:110
 #, kde-format
 msgid "Click to stop window refresh"
 msgstr "Klikatu lehioaren freskatzea gelditzeko"
 
-#: kmag.cpp:128
+#: kmag.cpp:111
 #, kde-format
 msgid ""
 "Clicking on this icon will <b>start</b> / <b>stop</b> updating of the "
@@ -141,32 +141,32 @@ msgstr ""
 "<b>gelditu</b>ko du. Eguneratzea gelditzean behar den prozesatzeko indarra "
 "hutsera jaitsiko da (PUZ-aren erabilera)."
 
-#: kmag.cpp:134
+#: kmag.cpp:117
 #, kde-format
 msgid "&Save Snapshot As..."
 msgstr "&Gorde argazkia honela..."
 
-#: kmag.cpp:137
+#: kmag.cpp:120
 #, kde-format
 msgid "Saves the zoomed view to an image file."
 msgstr "Handitutako ikuspegia irudi-fitxategi batera gordetzen du."
 
-#: kmag.cpp:138
+#: kmag.cpp:121
 #, kde-format
 msgid "Save image to a file"
 msgstr "Gorde irudia fitxategi batera"
 
-#: kmag.cpp:141
+#: kmag.cpp:124
 #, kde-format
 msgid "Click on this button to print the current zoomed view."
 msgstr "Klikatu botoi honetan uneko handitutako ikuspegia inprimatzeko."
 
-#: kmag.cpp:144 kmag.cpp:145
+#: kmag.cpp:127 kmag.cpp:128
 #, kde-format
 msgid "Quits the application"
 msgstr "Aplikazioa ixten du"
 
-#: kmag.cpp:148
+#: kmag.cpp:131
 #, kde-format
 msgid ""
 "Click on this button to copy the current zoomed view to the clipboard which "
@@ -175,163 +175,163 @@ msgstr ""
 "Klikatu botoi honetan uneko handitutako ikuspegia arbelera kopiatzeko. "
 "Geroago beste aplikaziotan itsas dezakezu."
 
-#: kmag.cpp:149
+#: kmag.cpp:132
 #, kde-format
 msgid "Copy zoomed image to clipboard"
 msgstr "Kopiatu handitutako irudia arbelera"
 
-#: kmag.cpp:155
+#: kmag.cpp:138
 #, kde-format
 msgid "&Follow Mouse Mode"
 msgstr "&Jarraitu sagua"
 
-#: kmag.cpp:159
+#: kmag.cpp:142
 #, kde-format
 msgid "Mouse"
 msgstr "Sagua"
 
-#: kmag.cpp:160
+#: kmag.cpp:143
 #, kde-format
 msgid "Magnify around the mouse cursor"
 msgstr "Handitu saguaren kurtsorearen inguruan"
 
-#: kmag.cpp:161
+#: kmag.cpp:144
 #, kde-format
 msgid "If selected, the area around the mouse cursor is magnified"
 msgstr "Hautatzen bada, saguaren kurtsorearen inguruko area handitu egingo da"
 
-#: kmag.cpp:165
+#: kmag.cpp:148
 #, kde-format
 msgid "&Follow Focus Mode"
 msgstr "&Jarraitu sagua modua"
 
-#: kmag.cpp:169
+#: kmag.cpp:152
 #, kde-format
 msgid "Focus"
 msgstr "Fokua"
 
-#: kmag.cpp:170
+#: kmag.cpp:153
 #, kde-format
 msgid "Magnify around the keyboard focus"
 msgstr "Handitu teklatu fokuaren inguruan"
 
-#: kmag.cpp:171
+#: kmag.cpp:154
 #, kde-format
 msgid "If selected, the area around the keyboard cursor is magnified"
 msgstr ""
 "Hautatzen bada, teklatuaren kurtsore inguruko azalera handitu egiten da"
 
-#: kmag.cpp:175
+#: kmag.cpp:158
 #, kde-format
 msgid "Se&lection Window Mode"
 msgstr "&Hautapen-lehioaren modua"
 
-#: kmag.cpp:179
+#: kmag.cpp:162
 #, kde-format
 msgid "Window"
 msgstr "Leihoa"
 
-#: kmag.cpp:180
+#: kmag.cpp:163
 #, kde-format
 msgid "Show a window for selecting the magnified area"
 msgstr "Erakutsi leihoa handitutako area hautatzeko"
 
-#: kmag.cpp:182
+#: kmag.cpp:165
 #, kde-format
 msgid "&Whole Screen Mode"
 msgstr "Pantaila &osoko modua"
 
-#: kmag.cpp:186
+#: kmag.cpp:169
 #, kde-format
 msgid "Screen"
 msgstr "Pantaila"
 
-#: kmag.cpp:187
+#: kmag.cpp:170
 #, kde-format
 msgid "Magnify the whole screen"
 msgstr "Handitu pantaila osoa"
 
-#: kmag.cpp:188
+#: kmag.cpp:171
 #, kde-format
 msgid "Click on this button to fit the zoom view to the zoom window."
 msgstr "Egin klik botoi honetan zoomaren ikuspegia zoomaren leihora doitzeko."
 
-#: kmag.cpp:190
+#: kmag.cpp:173
 #, kde-format
 msgid "Hide Mouse &Cursor"
 msgstr "Ezkutatu saguaren &kurtsorea"
 
-#: kmag.cpp:195
+#: kmag.cpp:178
 #, kde-format
 msgid "Show Mouse &Cursor"
 msgstr "Erakutsi saguaren &kurtsorea"
 
-#: kmag.cpp:197
+#: kmag.cpp:180
 #, kde-format
 msgid "Hide"
 msgstr "Ezkutatu"
 
-#: kmag.cpp:198
+#: kmag.cpp:181
 #, kde-format
 msgid "Hide the mouse cursor"
 msgstr "Ezkutatu saguaren kurtsorea"
 
-#: kmag.cpp:200
+#: kmag.cpp:183
 #, kde-format
 msgid "Stays On Top"
 msgstr "Gainean egoten da"
 
-#: kmag.cpp:204
+#: kmag.cpp:187
 #, kde-format
 msgid "The KMagnifier Window stays on top of other windows."
 msgstr "KMagnifier leihoa beste leihoen gainean egoten da."
 
-#: kmag.cpp:207
+#: kmag.cpp:190
 #, kde-format
 msgid "Click on this button to <b>zoom-in</b> on the selected region."
 msgstr "Klikatu botoi honetan hautatutako barrutia <b>handitzeko</b>."
 
-#: kmag.cpp:209
+#: kmag.cpp:192
 #, kde-format
 msgid "&Zoom"
 msgstr "&Zooma"
 
-#: kmag.cpp:212
+#: kmag.cpp:195
 #, kde-format
 msgid "Select the zoom factor."
 msgstr "Hautatu zoomaren faktorea."
 
-#: kmag.cpp:213
+#: kmag.cpp:196
 #, kde-format
 msgid "Zoom factor"
 msgstr "Zoomaren faktorea"
 
-#: kmag.cpp:216
+#: kmag.cpp:199
 #, kde-format
 msgid "Click on this button to <b>zoom-out</b> on the selected region."
 msgstr "Klikatu botoi honetan hautatutako barrutia <b>txikiagotzeko</b>."
 
-#: kmag.cpp:218
+#: kmag.cpp:201
 #, kde-format
 msgid "&Rotation"
 msgstr "&Biraketa"
 
-#: kmag.cpp:221
+#: kmag.cpp:204
 #, kde-format
 msgid "Select the rotation degree."
 msgstr "Hautatu biraketaren graduak."
 
-#: kmag.cpp:222
+#: kmag.cpp:205
 #, kde-format
 msgid "Rotation degree"
 msgstr "Biraketaren graduak"
 
-#: kmag.cpp:227
+#: kmag.cpp:210
 #, kde-format
 msgid "&Refresh"
 msgstr "&Freskatu"
 
-#: kmag.cpp:230
+#: kmag.cpp:213
 #, kde-format
 msgid ""
 "Select the refresh rate. The higher the rate, the more computing power (CPU) "
@@ -340,33 +340,33 @@ msgstr ""
 "Hautatu freskatze-tasa. Gero eta handiagoa, gero eta errekurtso (PUZ-aren "
 "erabilera) gehiago behar dira."
 
-#: kmag.cpp:231
+#: kmag.cpp:214
 #, kde-format
 msgid "Refresh rate"
 msgstr "Freskatze-tasa"
 
-#: kmag.cpp:233
+#: kmag.cpp:216
 #, kde-format
 msgctxt "Color-blindness simulation mode"
 msgid "&Color"
 msgstr "&Kolorea"
 
-#: kmag.cpp:236
+#: kmag.cpp:219
 #, kde-format
 msgid "Select a mode to simulate various types of color-blindness."
 msgstr "Hautatu modu bat koloreen itxutasun mota desberdinak simulatzeko."
 
-#: kmag.cpp:237
+#: kmag.cpp:220
 #, kde-format
 msgid "Color-blindness Simulation Mode"
 msgstr "Koloreen itxutasunaren simulazioaren modua"
 
-#: kmag.cpp:569
+#: kmag.cpp:552
 #, kde-format
 msgid "Save Snapshot As"
 msgstr "Gorde argazkia honela"
 
-#: kmag.cpp:583
+#: kmag.cpp:566
 #, kde-format
 msgid ""
 "Unable to save temporary file (before uploading to the network file you "
@@ -375,17 +375,17 @@ msgstr ""
 "Ezin da behin-behineko fitxategi batera gorde (zehaztutako sare-fitxategia "
 "kargatu aurretik)."
 
-#: kmag.cpp:584 kmag.cpp:589 kmag.cpp:599
+#: kmag.cpp:567 kmag.cpp:572 kmag.cpp:582
 #, kde-format
 msgid "Error Writing File"
 msgstr "Errorea fitxategia idaztean"
 
-#: kmag.cpp:588
+#: kmag.cpp:571
 #, kde-format
 msgid "Unable to upload file over the network."
 msgstr "Ezin da fitxategia sarearen bidez kargatu."
 
-#: kmag.cpp:591 kmag.cpp:601
+#: kmag.cpp:574 kmag.cpp:584
 #, kde-format
 msgid ""
 "Current zoomed image saved to\n"
@@ -394,12 +394,12 @@ msgstr ""
 "Uneko handitutako irudia hona gorde da:\n"
 "%1"
 
-#: kmag.cpp:592 kmag.cpp:602
+#: kmag.cpp:575 kmag.cpp:585
 #, kde-format
 msgid "Information"
 msgstr "Informazioa"
 
-#: kmag.cpp:598
+#: kmag.cpp:581
 #, kde-format
 msgid ""
 "Unable to save file. Please check if you have permission to write to the "
@@ -407,33 +407,33 @@ msgid ""
 msgstr ""
 "Ezin da fitxategia gorde. Egiaztatu direktorioa idazteko baimenik duzun."
 
-#: kmag.cpp:617
+#: kmag.cpp:600
 #, kde-format
 msgid "Stop"
 msgstr "Gelditu"
 
-#: kmag.cpp:618
+#: kmag.cpp:601
 #, kde-format
 msgid "Click to stop window update"
 msgstr "Klikatu lehioaren eguneratzea gelditzeko"
 
-#: kmag.cpp:621
+#: kmag.cpp:604
 #, kde-format
 msgctxt "Start updating the window"
 msgid "Start"
 msgstr "Hasi"
 
-#: kmag.cpp:622
+#: kmag.cpp:605
 #, kde-format
 msgid "Click to start window update"
 msgstr "Klikatu lehioaren eguneratzea hasteko"
 
-#: kmagselrect.cpp:213
+#: kmagselrect.cpp:198
 #, kde-format
 msgid "Selection Window"
 msgstr "Hautapen lehioa"
 
-#: kmagselrect.cpp:213 main.cpp:38
+#: kmagselrect.cpp:198 main.cpp:38
 #, kde-format
 msgid "KMagnifier"
 msgstr "KMagnifier"
@@ -480,7 +480,7 @@ msgstr "&Ikusi"
 msgid "&Settings"
 msgstr "&Ezarpenak"
 
-#: kmagzoomview.cpp:125
+#: kmagzoomview.cpp:107
 #, kde-format
 msgid ""
 "This is the main window which shows the contents of the selected region. The "

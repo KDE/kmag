@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:54+0000\n"
+"POT-Creation-Date: 2023-12-08 01:33+0000\n"
 "PO-Revision-Date: 2017-07-17 20:03+0100\n"
 "Last-Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -32,103 +32,103 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "gregor.rakar@kiss.si,andrejm@ubuntu.si"
 
-#: kmag.cpp:69
+#: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at very low"
 msgid "&Very Low"
 msgstr "&Zelo nizko"
 
-#: kmag.cpp:69
+#: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at low"
 msgid "&Low"
 msgstr "&Nizko"
 
-#: kmag.cpp:69
+#: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at medium"
 msgid "&Medium"
 msgstr "&Srednje "
 
-#: kmag.cpp:69
+#: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at high"
 msgid "&High"
 msgstr "&Visoko"
 
-#: kmag.cpp:69
+#: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at very high"
 msgid "V&ery High"
 msgstr "Z&elo visoko"
 
-#: kmag.cpp:77
+#: kmag.cpp:60
 #, kde-format
 msgctxt "No color-blindness simulation, i.e. 'normal' vision"
 msgid "&Normal"
 msgstr "&Običajna"
 
-#: kmag.cpp:77
+#: kmag.cpp:60
 #, kde-format
 msgid "&Protanopia"
 msgstr "&Protanopija"
 
-#: kmag.cpp:77
+#: kmag.cpp:60
 #, kde-format
 msgid "&Deuteranopia"
 msgstr "&Devteranopija"
 
-#: kmag.cpp:77
+#: kmag.cpp:60
 #, kde-format
 msgid "&Tritanopia"
 msgstr "&Tritanopjia"
 
-#: kmag.cpp:77
+#: kmag.cpp:60
 #, kde-format
 msgid "&Achromatopsia"
 msgstr "&Akromatopsija"
 
-#: kmag.cpp:85
+#: kmag.cpp:68
 #, kde-format
 msgid "&No Rotation (0 Degrees)"
 msgstr "&Brez vrtenja (0°)"
 
-#: kmag.cpp:85
+#: kmag.cpp:68
 #, kde-format
 msgid "&Left (90 Degrees)"
 msgstr "&Levo (90°)"
 
-#: kmag.cpp:85
+#: kmag.cpp:68
 #, kde-format
 msgid "&Upside Down (180 Degrees)"
 msgstr "&Postavljeno na glavo (180°)"
 
-#: kmag.cpp:85
+#: kmag.cpp:68
 #, kde-format
 msgid "&Right (270 Degrees)"
 msgstr "&Desno (270°)"
 
-#: kmag.cpp:117
+#: kmag.cpp:100
 #, kde-format
 msgid "New &Window"
 msgstr "Novo &okno"
 
-#: kmag.cpp:120
+#: kmag.cpp:103
 #, kde-format
 msgid "Open a new KMagnifier window"
 msgstr "Odpri novo okno KMagnifier"
 
-#: kmag.cpp:124
+#: kmag.cpp:107
 #, kde-format
 msgid "&Stop"
 msgstr "Za&ustavi"
 
-#: kmag.cpp:127
+#: kmag.cpp:110
 #, kde-format
 msgid "Click to stop window refresh"
 msgstr "Kliknite za zaustavitev osveževanja okna"
 
-#: kmag.cpp:128
+#: kmag.cpp:111
 #, kde-format
 msgid ""
 "Clicking on this icon will <b>start</b> / <b>stop</b> updating of the "
@@ -138,32 +138,32 @@ msgstr ""
 "Klik na to ikono bo <b>začel</b>/<b>zaustavil</b> posodabljanje zaslona. "
 "Zaustavitev posodabljanja bo izničila potrebno računsko moč (uporabo CPE)"
 
-#: kmag.cpp:134
+#: kmag.cpp:117
 #, kde-format
 msgid "&Save Snapshot As..."
 msgstr "&Shrani posnetek kot ..."
 
-#: kmag.cpp:137
+#: kmag.cpp:120
 #, kde-format
 msgid "Saves the zoomed view to an image file."
 msgstr "Shrani približan pogled v slikovno datoteko."
 
-#: kmag.cpp:138
+#: kmag.cpp:121
 #, kde-format
 msgid "Save image to a file"
 msgstr "Shrani sliko v datoteko"
 
-#: kmag.cpp:141
+#: kmag.cpp:124
 #, kde-format
 msgid "Click on this button to print the current zoomed view."
 msgstr "Kliknite na ta gumb, da natisnete trenutno približan pogled."
 
-#: kmag.cpp:144 kmag.cpp:145
+#: kmag.cpp:127 kmag.cpp:128
 #, kde-format
 msgid "Quits the application"
 msgstr "Konča program"
 
-#: kmag.cpp:148
+#: kmag.cpp:131
 #, kde-format
 msgid ""
 "Click on this button to copy the current zoomed view to the clipboard which "
@@ -172,163 +172,163 @@ msgstr ""
 "Klik na ta gumb bo kopiral trenutno približan prikaz na odložišče, od koder "
 "lahko prilepite v druge programe."
 
-#: kmag.cpp:149
+#: kmag.cpp:132
 #, kde-format
 msgid "Copy zoomed image to clipboard"
 msgstr "Kopiraj približano sliko v odložišče"
 
-#: kmag.cpp:155
+#: kmag.cpp:138
 #, kde-format
 msgid "&Follow Mouse Mode"
 msgstr "Način s&ledenja miški"
 
-#: kmag.cpp:159
+#: kmag.cpp:142
 #, kde-format
 msgid "Mouse"
 msgstr "Miška"
 
-#: kmag.cpp:160
+#: kmag.cpp:143
 #, kde-format
 msgid "Magnify around the mouse cursor"
 msgstr "Približaj okoli miškine kazalke"
 
-#: kmag.cpp:161
+#: kmag.cpp:144
 #, kde-format
 msgid "If selected, the area around the mouse cursor is magnified"
 msgstr "Če to izberete, bo območje miškine kazalke približano"
 
-#: kmag.cpp:165
+#: kmag.cpp:148
 #, kde-format
 msgid "&Follow Focus Mode"
 msgstr "Način s&ledenja žarišču"
 
-#: kmag.cpp:169
+#: kmag.cpp:152
 #, kde-format
 msgid "Focus"
 msgstr "Žarišče"
 
-#: kmag.cpp:170
+#: kmag.cpp:153
 #, kde-format
 msgid "Magnify around the keyboard focus"
 msgstr "Približaj okoli žarišča tipkovnice"
 
-#: kmag.cpp:171
+#: kmag.cpp:154
 #, kde-format
 msgid "If selected, the area around the keyboard cursor is magnified"
 msgstr "Če to izberete, bo območje kazalke tipkovnice približano"
 
-#: kmag.cpp:175
+#: kmag.cpp:158
 #, kde-format
 msgid "Se&lection Window Mode"
 msgstr "Način okna za i&zbiro"
 
-#: kmag.cpp:179
+#: kmag.cpp:162
 #, kde-format
 msgid "Window"
 msgstr "Okno"
 
-#: kmag.cpp:180
+#: kmag.cpp:163
 #, kde-format
 msgid "Show a window for selecting the magnified area"
 msgstr "Prikaži okno za izbiro približanega območja"
 
-#: kmag.cpp:182
+#: kmag.cpp:165
 #, kde-format
 msgid "&Whole Screen Mode"
 msgstr "&Celozaslonski način"
 
-#: kmag.cpp:186
+#: kmag.cpp:169
 #, kde-format
 msgid "Screen"
 msgstr "Zaslon"
 
-#: kmag.cpp:187
+#: kmag.cpp:170
 #, kde-format
 msgid "Magnify the whole screen"
 msgstr "Približa celoten zaslon"
 
-#: kmag.cpp:188
+#: kmag.cpp:171
 #, kde-format
 msgid "Click on this button to fit the zoom view to the zoom window."
 msgstr ""
 "Kliknite na ta gumb, da prilagodite približan prikaz oknu s približanjem."
 
-#: kmag.cpp:190
+#: kmag.cpp:173
 #, kde-format
 msgid "Hide Mouse &Cursor"
 msgstr "Skrij miškino &kazalko"
 
-#: kmag.cpp:195
+#: kmag.cpp:178
 #, kde-format
 msgid "Show Mouse &Cursor"
 msgstr "Pokaži miškino &kazalko"
 
-#: kmag.cpp:197
+#: kmag.cpp:180
 #, kde-format
 msgid "Hide"
 msgstr "Skrij"
 
-#: kmag.cpp:198
+#: kmag.cpp:181
 #, kde-format
 msgid "Hide the mouse cursor"
 msgstr "Skrij miškino kazalko"
 
-#: kmag.cpp:200
+#: kmag.cpp:183
 #, kde-format
 msgid "Stays On Top"
 msgstr "Ohrani na vrhu"
 
-#: kmag.cpp:204
+#: kmag.cpp:187
 #, kde-format
 msgid "The KMagnifier Window stays on top of other windows."
 msgstr "Okno programa KMagnifier bo ostalo nad ostalimi okni."
 
-#: kmag.cpp:207
+#: kmag.cpp:190
 #, kde-format
 msgid "Click on this button to <b>zoom-in</b> on the selected region."
 msgstr "Klik na ta gumb bo <b>približal</b> izbrano območje."
 
-#: kmag.cpp:209
+#: kmag.cpp:192
 #, kde-format
 msgid "&Zoom"
 msgstr "&Približanje"
 
-#: kmag.cpp:212
+#: kmag.cpp:195
 #, kde-format
 msgid "Select the zoom factor."
 msgstr "Izberite faktor približanja."
 
-#: kmag.cpp:213
+#: kmag.cpp:196
 #, kde-format
 msgid "Zoom factor"
 msgstr "Faktor približanja"
 
-#: kmag.cpp:216
+#: kmag.cpp:199
 #, kde-format
 msgid "Click on this button to <b>zoom-out</b> on the selected region."
 msgstr "Klik na ta gumb bo <b>oddaljil</b> izbrano območje."
 
-#: kmag.cpp:218
+#: kmag.cpp:201
 #, kde-format
 msgid "&Rotation"
 msgstr "Vr&tenje"
 
-#: kmag.cpp:221
+#: kmag.cpp:204
 #, kde-format
 msgid "Select the rotation degree."
 msgstr "Izberite kot vrtenja."
 
-#: kmag.cpp:222
+#: kmag.cpp:205
 #, kde-format
 msgid "Rotation degree"
 msgstr "Kot vrtenja"
 
-#: kmag.cpp:227
+#: kmag.cpp:210
 #, kde-format
 msgid "&Refresh"
 msgstr "&Osveži"
 
-#: kmag.cpp:230
+#: kmag.cpp:213
 #, kde-format
 msgid ""
 "Select the refresh rate. The higher the rate, the more computing power (CPU) "
@@ -337,33 +337,33 @@ msgstr ""
 "Izberite hitrost osveževanja. Višja je hitrost, več bo potrebne računske "
 "moči."
 
-#: kmag.cpp:231
+#: kmag.cpp:214
 #, kde-format
 msgid "Refresh rate"
 msgstr "Hitrost osveževanja"
 
-#: kmag.cpp:233
+#: kmag.cpp:216
 #, kde-format
 msgctxt "Color-blindness simulation mode"
 msgid "&Color"
 msgstr "&Barva"
 
-#: kmag.cpp:236
+#: kmag.cpp:219
 #, kde-format
 msgid "Select a mode to simulate various types of color-blindness."
 msgstr "Izberite način za simulacijo različnih vrst barvne slepote."
 
-#: kmag.cpp:237
+#: kmag.cpp:220
 #, kde-format
 msgid "Color-blindness Simulation Mode"
 msgstr "Način simulacije barvne slepote"
 
-#: kmag.cpp:569
+#: kmag.cpp:552
 #, kde-format
 msgid "Save Snapshot As"
 msgstr "Shrani posnetek kot"
 
-#: kmag.cpp:583
+#: kmag.cpp:566
 #, kde-format
 msgid ""
 "Unable to save temporary file (before uploading to the network file you "
@@ -372,17 +372,17 @@ msgstr ""
 "Ni mogoče shraniti začasne datoteke (pred pošiljanjem v navedeno omrežno "
 "datoteko)."
 
-#: kmag.cpp:584 kmag.cpp:589 kmag.cpp:599
+#: kmag.cpp:567 kmag.cpp:572 kmag.cpp:582
 #, kde-format
 msgid "Error Writing File"
 msgstr "Napaka med zapisovanjem datoteke"
 
-#: kmag.cpp:588
+#: kmag.cpp:571
 #, kde-format
 msgid "Unable to upload file over the network."
 msgstr "Ni mogoče poslati datoteke preko omrežja."
 
-#: kmag.cpp:591 kmag.cpp:601
+#: kmag.cpp:574 kmag.cpp:584
 #, kde-format
 msgid ""
 "Current zoomed image saved to\n"
@@ -391,12 +391,12 @@ msgstr ""
 "Trenutno približana slika shranjena v\n"
 "%1"
 
-#: kmag.cpp:592 kmag.cpp:602
+#: kmag.cpp:575 kmag.cpp:585
 #, kde-format
 msgid "Information"
 msgstr "Podrobnosti"
 
-#: kmag.cpp:598
+#: kmag.cpp:581
 #, kde-format
 msgid ""
 "Unable to save file. Please check if you have permission to write to the "
@@ -405,33 +405,33 @@ msgstr ""
 "Ni mogoče shraniti datoteke. Preverite, če imate dovoljenja za pisanje v "
 "mapo."
 
-#: kmag.cpp:617
+#: kmag.cpp:600
 #, kde-format
 msgid "Stop"
 msgstr "Zaustavi"
 
-#: kmag.cpp:618
+#: kmag.cpp:601
 #, kde-format
 msgid "Click to stop window update"
 msgstr "Kliknite za zaustavitev posodabljanja okna."
 
-#: kmag.cpp:621
+#: kmag.cpp:604
 #, kde-format
 msgctxt "Start updating the window"
 msgid "Start"
 msgstr "Začni"
 
-#: kmag.cpp:622
+#: kmag.cpp:605
 #, kde-format
 msgid "Click to start window update"
 msgstr "Kliknite za začetek posodabljanja okna"
 
-#: kmagselrect.cpp:213
+#: kmagselrect.cpp:198
 #, kde-format
 msgid "Selection Window"
 msgstr "Izbirno okno"
 
-#: kmagselrect.cpp:213 main.cpp:38
+#: kmagselrect.cpp:198 main.cpp:38
 #, kde-format
 msgid "KMagnifier"
 msgstr "KMagnifier"
@@ -478,7 +478,7 @@ msgstr "&Pogled"
 msgid "&Settings"
 msgstr "&Nastavitve"
 
-#: kmagzoomview.cpp:125
+#: kmagzoomview.cpp:107
 #, kde-format
 msgid ""
 "This is the main window which shows the contents of the selected region. The "
