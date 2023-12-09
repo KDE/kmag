@@ -1,4 +1,12 @@
 <?xml version="1.0" ?>
+<!--
+SPDX-FileCopyrightText: 2002 Sarang Lakare <email
+>sarang@users.sf.net</email
+> and
+SPDX-FileCopyrightText: 2004-2005 Olaf Schmidt <email
+>ojschmidt@kde.org</email>
+SPDX-License-Identifier: GFDL-1.2-only AND GPL-2.0-or-later
+-->
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % French "INCLUDE"
