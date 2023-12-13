@@ -134,8 +134,9 @@
     <p xml:lang="zh-CN">KMag 是放大屏幕一部分的小工具。KMag 对视力障碍用户非常有帮助，也能辅助图像分析或网页开发等领域的专业人士。</p>
     <p xml:lang="zh-TW">KMag 是個給 Linux 用來放大螢幕區塊的小工具。KMag 是個對有視覺障礙、從事圖片分析或網頁開發…的使用者十分有用的工具。</p>
   </description>
-  <url type="homepage">https://kde.org/applications/utilities/kmag/</url>
+  <url type="homepage">https://apps.kde.org/kmag</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kmag</url>
+  <url type="help">https://docs.kde.org/?application=kmag</url>
   <url type="donation">https://www.kde.org/community/donations/?app=kmag&amp;source=appdata</url>
   <screenshots>
     <screenshot type="default">
@@ -193,4 +194,5 @@
     <release version="24.02.0" date="2024-02-28"/>
     <release version="23.08.5" date="2024-02-15"/>
   </releases>
+  <content_rating type="oars-1.1"/>
 </component>
