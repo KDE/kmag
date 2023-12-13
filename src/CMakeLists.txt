@@ -46,4 +46,4 @@ endif()
 install(TARGETS kmag ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(PROGRAMS org.kde.kmag.desktop  DESTINATION  ${KDE_INSTALL_APPDIR})
-install(FILES org.kde.kmag.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
+install(FILES org.kde.kmag.metainfo.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
