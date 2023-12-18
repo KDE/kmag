@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-08 01:33+0000\n"
-"PO-Revision-Date: 2023-12-09 09:24\n"
+"PO-Revision-Date: 2023-12-17 11:26\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -86,22 +86,22 @@ msgstr "全色盲(&A)"
 #: kmag.cpp:68
 #, kde-format
 msgid "&No Rotation (0 Degrees)"
-msgstr "不旋转 (0°)(&N)"
+msgstr "不旋转 (0°) (&N)"
 
 #: kmag.cpp:68
 #, kde-format
 msgid "&Left (90 Degrees)"
-msgstr "左(90°)(&L)"
+msgstr "左 (90°) (&L)"
 
 #: kmag.cpp:68
 #, kde-format
 msgid "&Upside Down (180 Degrees)"
-msgstr "上下颠倒(180°)(&U)"
+msgstr "上下颠倒 (180°) (&U)"
 
 #: kmag.cpp:68
 #, kde-format
 msgid "&Right (270 Degrees)"
-msgstr "右(270°)(&R)"
+msgstr "右 (270°) (&R)"
 
 #: kmag.cpp:100
 #, kde-format
