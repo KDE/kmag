@@ -170,13 +170,13 @@ msgid ""
 "Click on this button to copy the current zoomed view to the clipboard which "
 "you can paste in other applications."
 msgstr ""
-"Feu clic damunt d'este botó per a copiar la vista ampliada al porta-retalls "
-"i així poder-la apegar en altres aplicacions."
+"Feu clic damunt d'este botó per a copiar la vista ampliada a dins del porta-"
+"retalls i així poder-la apegar en altres aplicacions."
 
 #: kmag.cpp:132
 #, kde-format
 msgid "Copy zoomed image to clipboard"
-msgstr "Copia la imatge ampliada al porta-retalls"
+msgstr "Copia la imatge ampliada a dins del porta-retalls"
 
 #: kmag.cpp:138
 #, kde-format
