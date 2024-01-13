@@ -2,30 +2,31 @@
 # Tamas Szanto <tszanto@interware.hu>, 2003.
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2010.
 # Balázs Úr <urbalazs@gmail.com>, 2012.
+# SPDX-FileCopyrightText: 2024 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-08 01:33+0000\n"
-"PO-Revision-Date: 2012-10-10 21:41+0200\n"
-"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"PO-Revision-Date: 2024-01-12 21:38+0100\n"
+"Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.4\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Szántó Tamás"
+msgstr "Kiszel Kristóf"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "tszanto@interware.hu"
+msgstr "ulysses@fsf.hu"
 
 #: kmag.cpp:52
 #, kde-format
@@ -489,10 +490,9 @@ msgstr ""
 "megadott nagyítási tényezővel kinagyítva."
 
 #: main.cpp:39
-#, fuzzy, kde-format
-#| msgid "Screen magnifier for the K Desktop Environment (KDE)"
+#, kde-format
 msgid "Screen magnifier created by KDE"
-msgstr "KDE képernyőnagyító"
+msgstr "Képernyőnagyító a KDE-től"
 
 #: main.cpp:41
 #, kde-format
