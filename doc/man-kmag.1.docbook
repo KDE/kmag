@@ -50,8 +50,8 @@ url="help:/kmag">help:/kmag</ulink>
 (either enter this &URL; into &konqueror;, or run
 <userinput><command>khelpcenter</command>
 <parameter>help:/kmag</parameter></userinput>).</member>
-<member>kf5options(7)</member>
-<member>qt5options(7)</member>
+<member>kf6options(7)</member>
+<member>qt6options(7)</member>
 <member>There is also further information available at <ulink url="https://accessibility.kde.org/">the &kde; accessibility project home page.</ulink></member>
 </simplelist>
 
