@@ -73,9 +73,9 @@ SPDX-License-Identifier: GFDL-1.2-only AND GPL-2.0-or-later
 ></userinput
 > uit).</member>
 <member
->kf5options(7)</member>
+>kf6options(7)</member>
 <member
->qt5options(7)</member>
+>qt6options(7)</member>
 <member
 >Er is ook meer informatie verkrijgbaar van <ulink url="https://accessibility.kde.org/"
 >De startpagina van het Accessibility project van &kde;</ulink
