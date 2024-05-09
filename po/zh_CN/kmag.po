@@ -20,12 +20,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "KDE 中国"
+msgstr "KDE 中国, Guo Yunhe, Tyson Tan"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "kde-china@kde.org"
+msgstr "kde-china@kde.org, i@guoyunhe.me, tds00@qq.com"
 
 #: kmag.cpp:52
 #, kde-format
@@ -43,7 +43,7 @@ msgstr "低(&L)"
 #, kde-format
 msgctxt "Zoom at medium"
 msgid "&Medium"
-msgstr "中等(&M)"
+msgstr "中(&M)"
 
 #: kmag.cpp:52
 #, kde-format
@@ -61,7 +61,7 @@ msgstr "非常高(&E)"
 #, kde-format
 msgctxt "No color-blindness simulation, i.e. 'normal' vision"
 msgid "&Normal"
-msgstr "普通(&N)"
+msgstr "正常(&N)"
 
 #: kmag.cpp:60
 #, kde-format
@@ -86,12 +86,12 @@ msgstr "全色盲(&A)"
 #: kmag.cpp:68
 #, kde-format
 msgid "&No Rotation (0 Degrees)"
-msgstr "不旋转 (0°) (&N)"
+msgstr "不旋转 (0°)(&N)"
 
 #: kmag.cpp:68
 #, kde-format
 msgid "&Left (90 Degrees)"
-msgstr "左 (90°) (&L)"
+msgstr "左(90°)(&L)"
 
 #: kmag.cpp:68
 #, kde-format
@@ -101,7 +101,7 @@ msgstr "上下颠倒 (180°) (&U)"
 #: kmag.cpp:68
 #, kde-format
 msgid "&Right (270 Degrees)"
-msgstr "右 (270°) (&R)"
+msgstr "右(270°)(&R)"
 
 #: kmag.cpp:100
 #, kde-format
@@ -111,7 +111,7 @@ msgstr "新建窗口(&W)"
 #: kmag.cpp:103
 #, kde-format
 msgid "Open a new KMagnifier window"
-msgstr "打开一个新的 KDE 放大镜窗口"
+msgstr "打开一个新的 KMag 放大镜窗口"
 
 #: kmag.cpp:107
 #, kde-format
@@ -121,7 +121,7 @@ msgstr "停止(&S)"
 #: kmag.cpp:110
 #, kde-format
 msgid "Click to stop window refresh"
-msgstr "点击停止窗口刷新"
+msgstr "点击以停止窗口刷新"
 
 #: kmag.cpp:111
 #, kde-format
@@ -130,8 +130,8 @@ msgid ""
 "display. Stopping the update will zero the processing power required (CPU "
 "usage)"
 msgstr ""
-"点击该图标将 <b>启动</b> / <b>停止</b> 显示的更新。停止更新将把所需处理性能"
-"(CPU 的使用)降为零。"
+"点击该图标将 <b>启动</b> / <b>停止</b> 窗口内容的更新。停止更新时将不消耗任何"
+"算力 (CPU 占用为零)。"
 
 #: kmag.cpp:117
 #, kde-format
@@ -141,17 +141,17 @@ msgstr "截图另存为(&S)..."
 #: kmag.cpp:120
 #, kde-format
 msgid "Saves the zoomed view to an image file."
-msgstr "把缩放过的视图保存为图像文件。"
+msgstr "将缩放过的视图内容保存为图像文件。"
 
 #: kmag.cpp:121
 #, kde-format
 msgid "Save image to a file"
-msgstr "把图像存入一个文件"
+msgstr "保存图像为文件"
 
 #: kmag.cpp:124
 #, kde-format
 msgid "Click on this button to print the current zoomed view."
-msgstr "点击该按钮打印当前缩放的视图。"
+msgstr "点击此按钮以打印当前缩放状态的视图内容。"
 
 #: kmag.cpp:127 kmag.cpp:128
 #, kde-format
@@ -163,12 +163,13 @@ msgstr "退出应用程序"
 msgid ""
 "Click on this button to copy the current zoomed view to the clipboard which "
 "you can paste in other applications."
-msgstr "点击该按钮复制当前缩放的视图到剪贴板, 您可以把它粘贴到其他应用程序。"
+msgstr ""
+"点击此按钮以复制当前缩放状态的视图到剪贴板，以便将它粘贴到其他应用程序。"
 
 #: kmag.cpp:132
 #, kde-format
 msgid "Copy zoomed image to clipboard"
-msgstr "复制缩放的视图到剪贴板"
+msgstr "复制缩放状态的视图内容到剪贴板"
 
 #: kmag.cpp:138
 #, kde-format
@@ -183,12 +184,12 @@ msgstr "鼠标"
 #: kmag.cpp:143
 #, kde-format
 msgid "Magnify around the mouse cursor"
-msgstr "放大鼠标光标周围区域"
+msgstr "放大鼠标光标周围的区域"
 
 #: kmag.cpp:144
 #, kde-format
 msgid "If selected, the area around the mouse cursor is magnified"
-msgstr "勾选此项后，鼠标光标周围的区域将被放大显示"
+msgstr "选择此项时，鼠标光标周围的区域将被放大显示"
 
 #: kmag.cpp:148
 #, kde-format
@@ -203,17 +204,17 @@ msgstr "焦点"
 #: kmag.cpp:153
 #, kde-format
 msgid "Magnify around the keyboard focus"
-msgstr "在键盘焦点附近放大"
+msgstr "放大键盘焦点周围的区域"
 
 #: kmag.cpp:154
 #, kde-format
 msgid "If selected, the area around the keyboard cursor is magnified"
-msgstr "若选中此选项的话，将放大键盘指针周围的区域"
+msgstr "选择此项时，键盘光标周围的区域将被放大显示"
 
 #: kmag.cpp:158
 #, kde-format
 msgid "Se&lection Window Mode"
-msgstr "选择窗口模式(&E)"
+msgstr "窗口选区模式(&E)"
 
 #: kmag.cpp:162
 #, kde-format
@@ -223,17 +224,17 @@ msgstr "窗口"
 #: kmag.cpp:163
 #, kde-format
 msgid "Show a window for selecting the magnified area"
-msgstr "显示一个窗口，以便选择要放大的区域"
+msgstr "显示一个窗口，并通过它来选择需要放大的区域"
 
 #: kmag.cpp:165
 #, kde-format
 msgid "&Whole Screen Mode"
-msgstr "全屏幕模式(&W)"
+msgstr "全屏模式(&W)"
 
 #: kmag.cpp:169
 #, kde-format
 msgid "Screen"
-msgstr "屏幕"
+msgstr "全屏"
 
 #: kmag.cpp:170
 #, kde-format
@@ -243,7 +244,7 @@ msgstr "放大整个屏幕"
 #: kmag.cpp:171
 #, kde-format
 msgid "Click on this button to fit the zoom view to the zoom window."
-msgstr "点击此按钮将使得缩放视图适合缩放窗口。"
+msgstr "点击此按钮将把缩放视图适合窗口大小显示。"
 
 #: kmag.cpp:173
 #, kde-format
@@ -268,17 +269,17 @@ msgstr "隐藏鼠标光标"
 #: kmag.cpp:183
 #, kde-format
 msgid "Stays On Top"
-msgstr "置顶"
+msgstr "置顶显示"
 
 #: kmag.cpp:187
 #, kde-format
 msgid "The KMagnifier Window stays on top of other windows."
-msgstr "KMagnifier 窗口将位于其他窗口之上。"
+msgstr "KMag 屏幕放大镜的窗口将保持在其他窗口之上显示。"
 
 #: kmag.cpp:190
 #, kde-format
 msgid "Click on this button to <b>zoom-in</b> on the selected region."
-msgstr "点击该按钮 <b>放大</b> 所选的区域。"
+msgstr "点击此按钮以 <b>放大</b> 所选的区域。"
 
 #: kmag.cpp:192
 #, kde-format
@@ -288,17 +289,17 @@ msgstr "缩放(&Z)"
 #: kmag.cpp:195
 #, kde-format
 msgid "Select the zoom factor."
-msgstr "选择缩放因子。"
+msgstr "选择缩放倍数。"
 
 #: kmag.cpp:196
 #, kde-format
 msgid "Zoom factor"
-msgstr "缩放因子"
+msgstr "缩放倍数"
 
 #: kmag.cpp:199
 #, kde-format
 msgid "Click on this button to <b>zoom-out</b> on the selected region."
-msgstr "点击该按钮 <b>缩小</b> 所选的区域。"
+msgstr "点击此按钮以 <b>缩小</b> 所选的区域。"
 
 #: kmag.cpp:201
 #, kde-format
@@ -318,14 +319,14 @@ msgstr "旋转角度"
 #: kmag.cpp:210
 #, kde-format
 msgid "&Refresh"
-msgstr "刷新(&R)"
+msgstr "刷新率(&R)"
 
 #: kmag.cpp:213
 #, kde-format
 msgid ""
 "Select the refresh rate. The higher the rate, the more computing power (CPU) "
 "will be needed."
-msgstr "选择刷新率。刷新率越高，对计算性能(CPU)的要求越高。"
+msgstr "选择刷新率。刷新率越高，对算力 (CPU 占用) 要求越高。"
 
 #: kmag.cpp:214
 #, kde-format
@@ -336,7 +337,7 @@ msgstr "刷新率"
 #, kde-format
 msgctxt "Color-blindness simulation mode"
 msgid "&Color"
-msgstr "颜色(&C)"
+msgstr "色盲模拟(&C)"
 
 #: kmag.cpp:219
 #, kde-format
@@ -351,19 +352,19 @@ msgstr "色盲模拟模式"
 #: kmag.cpp:552
 #, kde-format
 msgid "Save Snapshot As"
-msgstr "保存截图"
+msgstr "截图另存为"
 
 #: kmag.cpp:566
 #, kde-format
 msgid ""
 "Unable to save temporary file (before uploading to the network file you "
 "specified)."
-msgstr "无法保存临时文件(在上传到您指定的网络文件之前)。"
+msgstr "无法保存临时文件 (在上传到您指定的网络文件之前保存的本地文件)。"
 
 #: kmag.cpp:567 kmag.cpp:572 kmag.cpp:582
 #, kde-format
 msgid "Error Writing File"
-msgstr "写入文件错误"
+msgstr "文件写入错误"
 
 #: kmag.cpp:571
 #, kde-format
@@ -376,7 +377,7 @@ msgid ""
 "Current zoomed image saved to\n"
 "%1"
 msgstr ""
-"当前缩放的图像被保存到\n"
+"当前缩放状态的图像已保存为\n"
 "%1"
 
 #: kmag.cpp:575 kmag.cpp:585
@@ -389,7 +390,7 @@ msgstr "信息"
 msgid ""
 "Unable to save file. Please check if you have permission to write to the "
 "directory."
-msgstr "无法保存文件。请检查您是否拥有该目录的写权限。"
+msgstr "无法保存文件。请检查您是否具备该目录的写入权限。"
 
 #: kmag.cpp:600
 #, kde-format
@@ -399,7 +400,7 @@ msgstr "停止"
 #: kmag.cpp:601
 #, kde-format
 msgid "Click to stop window update"
-msgstr "点击停止窗口更新"
+msgstr "点击以停止窗口更新"
 
 #: kmag.cpp:604
 #, kde-format
@@ -410,7 +411,7 @@ msgstr "开始"
 #: kmag.cpp:605
 #, kde-format
 msgid "Click to start window update"
-msgstr "点击即开始窗口更新"
+msgstr "点击以开始窗口更新"
 
 #: kmagselrect.cpp:198
 #, kde-format
@@ -420,7 +421,7 @@ msgstr "选择窗口"
 #: kmagselrect.cpp:198 main.cpp:38
 #, kde-format
 msgid "KMagnifier"
-msgstr "放大镜"
+msgstr "KMag 屏幕放大镜"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kmagui.rc:3
@@ -470,12 +471,13 @@ msgid ""
 "This is the main window which shows the contents of the selected region. The "
 "contents will be magnified according to the zoom level that is set."
 msgstr ""
-"这是将所选区域的内容显示出来的主窗口。内容会根据设定的缩放级别加以放大。"
+"这是用于显示所选区域内容的主窗口。窗口中显示的内容将根据您选择的的缩放级别进"
+"行缩放。"
 
 #: main.cpp:39
 #, kde-format
 msgid "Screen magnifier created by KDE"
-msgstr "由 KDE 创建的屏幕放大镜"
+msgstr "KDE 社区制作的的屏幕放大镜工具"
 
 #: main.cpp:41
 #, kde-format
@@ -506,7 +508,7 @@ msgstr "Michael Forster"
 #: main.cpp:48
 #, kde-format
 msgid "Original idea and author (KDE1)"
-msgstr "原始创意和作者(KDE1)"
+msgstr "原案和作者 (KDE1)"
 
 #: main.cpp:49
 #, kde-format
@@ -518,7 +520,7 @@ msgstr "Olaf Schmidt"
 msgid ""
 "Rework of the user interface, improved selection window, speed optimization, "
 "rotation, bug fixes"
-msgstr "改良了用户界面，改进了选择窗口，速度优化，旋转，错误修正"
+msgstr "重新设计用户界面、改进选择窗口、速度优化、旋转、程序缺陷修复"
 
 #: main.cpp:50
 #, kde-format
