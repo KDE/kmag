@@ -46,7 +46,7 @@
   <name xml:lang="uk">KMag</name>
   <name xml:lang="vi">KMag</name>
   <name xml:lang="x-test">xxKMagxx</name>
-  <name xml:lang="zh-CN">KMag</name>
+  <name xml:lang="zh-CN">KMag 屏幕放大镜</name>
   <name xml:lang="zh-TW">KMag</name>
   <summary>Screen Magnifier</summary>
   <summary xml:lang="ar">مكبَر الشاشة</summary>
@@ -131,7 +131,7 @@
     <p xml:lang="uk">KMag — невеличка програма для Linux, призначенням якої є збільшення зображення частини екрана. KMag є дуже корисною програмою для людей із вадами зору та тих, хто працює у галузях аналізу зображень, веброзробки тощо.</p>
     <p xml:lang="vi">KMag là một tiện ích nhỏ cho Linux để phóng đại một phần của màn hình. KMag rất hữu ích cho người có khuyết tật thị giác và người làm việc trong các ngành như phân tích ảnh, phát triển web, v.v.</p>
     <p xml:lang="x-test">xxKMag is a small utility for Linux to magnify a part of the screen. KMag is very useful for people with visual disabilities and for those working in the fields of image analysis, web development etc.xx</p>
-    <p xml:lang="zh-CN">KMag 是放大屏幕一部分的小工具。KMag 对视力障碍用户非常有帮助，也能辅助图像分析或网页开发等领域的专业人士。</p>
+    <p xml:lang="zh-CN">KMag 是一款为 Linux 设计的用于放大显示一定屏幕区域的小工具。KMag 可以帮助视力障碍用户看清屏幕内容，也可以在图像分析或者网页开发等领域发挥辅助作用。</p>
     <p xml:lang="zh-TW">KMag 是個給 Linux 用來放大螢幕區塊的小工具。KMag 是個對有視覺障礙、從事圖片分析或網頁開發…的使用者十分有用的工具。</p>
   </description>
   <url type="homepage">https://apps.kde.org/kmag</url>
@@ -178,7 +178,7 @@
       <caption xml:lang="uk">KMag у дії</caption>
       <caption xml:lang="vi">Sử dụng KMag</caption>
       <caption xml:lang="x-test">xxKMag in actionxx</caption>
-      <caption xml:lang="zh-CN">KMag 使用过程中</caption>
+      <caption xml:lang="zh-CN">KMag 的工作状态</caption>
       <caption xml:lang="zh-TW">KMag 正使用中</caption>
       <image type="source" width="769" height="600">https://cdn.kde.org/screenshots/kmag.png</image>
     </screenshot>
