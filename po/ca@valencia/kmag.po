@@ -142,7 +142,7 @@ msgstr ""
 #: kmag.cpp:117
 #, kde-format
 msgid "&Save Snapshot As..."
-msgstr "Guar&da la captura de pantalla com a..."
+msgstr "Anomena i &guarda la captura de pantalla…"
 
 #: kmag.cpp:120
 #, kde-format
@@ -363,7 +363,7 @@ msgstr "Mode simulació del daltonisme"
 #: kmag.cpp:552
 #, kde-format
 msgid "Save Snapshot As"
-msgstr "Guarda la captura de pantalla com a"
+msgstr "Anomena i guarda la captura de pantalla"
 
 #: kmag.cpp:566
 #, kde-format
@@ -538,7 +538,7 @@ msgid ""
 "rotation, bug fixes"
 msgstr ""
 "Refer la interfície d'usuari, selecció de finestra millorada, optimitzacions "
-"de velocitat, gir, correccions d'errors"
+"de velocitat, gir, esmenes d'errors"
 
 #: main.cpp:50
 #, kde-format
