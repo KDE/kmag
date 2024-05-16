@@ -1,6 +1,6 @@
 # Translation of kmag into esperanto.
 # Copyright (C) 2010 Free Software Foundation, Inc.
-# Oliver Kellogg <okellogg@users.sourceforge.net>, 2023.
+# Oliver Kellogg <olivermkellogg@gmail.com>, 2023.
 #
 msgid ""
 msgstr ""
@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-08 01:33+0000\n"
 "PO-Revision-Date: 2023-11-26 16:02+0100\n"
-"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr "David Anema,Oliver Kellogg"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "lassi_surinen@yahoo.ca,okellogg@users.sourceforge.net"
+msgstr "lassi_surinen@yahoo.ca,olivermkellogg@gmail.com"
 
 #: kmag.cpp:52
 #, kde-format
