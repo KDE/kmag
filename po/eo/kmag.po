@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-08 01:33+0000\n"
-"PO-Revision-Date: 2023-11-26 16:02+0100\n"
+"PO-Revision-Date: 2024-05-30 07:49+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -66,17 +66,17 @@ msgstr "&Normal"
 #: kmag.cpp:60
 #, kde-format
 msgid "&Protanopia"
-msgstr "Protanopia"
+msgstr "&Protanopia"
 
 #: kmag.cpp:60
 #, kde-format
 msgid "&Deuteranopia"
-msgstr "Deuteranopia"
+msgstr "&Deuteranopia"
 
 #: kmag.cpp:60
 #, kde-format
 msgid "&Tritanopia"
-msgstr "Tritanopia"
+msgstr "&Tritanopia"
 
 #: kmag.cpp:60
 #, kde-format
@@ -91,17 +91,17 @@ msgstr "&Neniu Rotacio (0 Gradoj)"
 #: kmag.cpp:68
 #, kde-format
 msgid "&Left (90 Degrees)"
-msgstr "&Maldekstre (90 Gradoj)"
+msgstr "Ma&ldekstren (90 Gradoj)"
 
 #: kmag.cpp:68
 #, kde-format
 msgid "&Upside Down (180 Degrees)"
-msgstr "renverse (180 gradoj)"
+msgstr "S&upro Malsupren (180 Gradoj)"
 
 #: kmag.cpp:68
 #, kde-format
 msgid "&Right (270 Degrees)"
-msgstr "&Dekstra (270 Gradoj)"
+msgstr "Dekst&ren (270 Gradoj)"
 
 #: kmag.cpp:100
 #, kde-format
@@ -216,7 +216,7 @@ msgstr "Se elektita, la areo ĉirkaŭ la klavarkursoro estas pligrandigita"
 #: kmag.cpp:158
 #, kde-format
 msgid "Se&lection Window Mode"
-msgstr "Elekto-Fenestra Reĝimo"
+msgstr "E&lekto-Fenestra Reĝimo"
 
 #: kmag.cpp:162
 #, kde-format
