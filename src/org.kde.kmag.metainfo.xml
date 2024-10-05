@@ -180,7 +180,7 @@
       <caption xml:lang="x-test">xxKMag in actionxx</caption>
       <caption xml:lang="zh-CN">KMag 的工作状态</caption>
       <caption xml:lang="zh-TW">KMag 正使用中</caption>
-      <image type="source" width="769" height="600">https://cdn.kde.org/screenshots/kmag.png</image>
+      <image type="source" width="1090" height="841">https://cdn.kde.org/screenshots/kmag/kmag.png</image>
     </screenshot>
   </screenshots>
   <project_group>KDE</project_group>

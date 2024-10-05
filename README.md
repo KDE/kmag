@@ -4,7 +4,7 @@ KMag is a screen magnifier.
 
 Website: https://kde.org/applications/utilities/org.kde.kmag
 
-![Screenshot](https://cdn.kde.org/screenshots/kmag.png)
+![Screenshot](https://cdn.kde.org/screenshots/kmag/kmag.png)
 
 ## Building
 
