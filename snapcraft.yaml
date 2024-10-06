@@ -33,7 +33,7 @@ package-repositories:
 parts:
   kmag:
     parse-info:
-      - usr/share/metainfo/org.kde.kmag.appdata.xml
+      - usr/share/metainfo/org.kde.kmag.metainfo.xml
     plugin: cmake
     source: .
     source-type: local
