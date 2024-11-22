@@ -2,13 +2,14 @@
 # Stanislav Visnovsky <visnovsky@kde.org>, 2003, 2004.
 # Richard Fric <Richard.Fric@kdemail.net>, 2006, 2009.
 # Roman Paholík <wizzardsk@gmail.com>, 2012, 2017.
+# Jose Riha <jose1711@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-08 01:33+0000\n"
-"PO-Revision-Date: 2017-07-31 21:31+0100\n"
-"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
+"PO-Revision-Date: 2024-11-21 19:16+0100\n"
+"Last-Translator: Jose Riha <jose1711@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +32,7 @@ msgstr "orpheus@hq.alert.sk"
 #, kde-format
 msgctxt "Zoom at very low"
 msgid "&Very Low"
-msgstr "Veľmi nízke"
+msgstr "&Veľmi nízke"
 
 #: kmag.cpp:52
 #, kde-format
@@ -49,13 +50,13 @@ msgstr "&Stredné"
 #, kde-format
 msgctxt "Zoom at high"
 msgid "&High"
-msgstr "Vysoké"
+msgstr "Vyso&ké"
 
 #: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at very high"
 msgid "V&ery High"
-msgstr "Veľmi vysoké"
+msgstr "V&eľmi vysoké"
 
 #: kmag.cpp:60
 #, kde-format
@@ -111,7 +112,7 @@ msgstr "&Nové okno"
 #: kmag.cpp:103
 #, kde-format
 msgid "Open a new KMagnifier window"
-msgstr "Otvoriť nové okno K Lupy"
+msgstr "Otvoriť nové okno KLupy"
 
 #: kmag.cpp:107
 #, kde-format
@@ -121,7 +122,7 @@ msgstr "Za&staviť"
 #: kmag.cpp:110
 #, kde-format
 msgid "Click to stop window refresh"
-msgstr "Kliknite pre stopnutie obnovy okna"
+msgstr "Kliknite pre zastavenie obnovovania okna"
 
 #: kmag.cpp:111
 #, kde-format
@@ -130,7 +131,7 @@ msgid ""
 "display. Stopping the update will zero the processing power required (CPU "
 "usage)"
 msgstr ""
-"Kliknutím na túto ikonu <b>spustíte</b> / <b>zastavíte</b> aktualizáciu "
+"Kliknutím na túto ikonu <b>spustíte</b>/<b>zastavíte</b> aktualizáciu "
 "zobrazenia. Zastavenie zníži používanie procesora na nulu"
 
 #: kmag.cpp:117
@@ -175,7 +176,7 @@ msgstr "Kopírovať zväčšený pohľad do schránky"
 #: kmag.cpp:138
 #, kde-format
 msgid "&Follow Mouse Mode"
-msgstr "Režim ná&sledovania myši"
+msgstr "Režim &sledovania myši"
 
 #: kmag.cpp:142
 #, kde-format
@@ -195,7 +196,7 @@ msgstr "Ak je vybrané, zväčší sa oblasť okolo kurzora myši"
 #: kmag.cpp:148
 #, kde-format
 msgid "&Follow Focus Mode"
-msgstr "Sledovať režim zamerania"
+msgstr "Sledovať režim z&amerania"
 
 #: kmag.cpp:152
 #, kde-format
@@ -275,7 +276,7 @@ msgstr "Vždy navrchu"
 #: kmag.cpp:187
 #, kde-format
 msgid "The KMagnifier Window stays on top of other windows."
-msgstr "Okno KMagnifiera ostane na vrchu ostatných okien."
+msgstr "Okno KLupy sa bude zobrazovať nad ostatnými oknami."
 
 #: kmag.cpp:190
 #, kde-format
@@ -327,7 +328,9 @@ msgstr "O&bnoviť"
 msgid ""
 "Select the refresh rate. The higher the rate, the more computing power (CPU) "
 "will be needed."
-msgstr "Vyberte rýchlosť aktualizácie. Vyššia vyžaduje viac výkonu procesora."
+msgstr ""
+"Vyberte rýchlosť aktualizácie. Vyššia rýchlosť vyžaduje viac výkonu "
+"procesora."
 
 #: kmag.cpp:214
 #, kde-format
@@ -404,7 +407,7 @@ msgstr "Zastaviť"
 #: kmag.cpp:601
 #, kde-format
 msgid "Click to stop window update"
-msgstr "Kliknite pre stopnutie aktualizácie okna"
+msgstr "Kliknite pre zastavenie aktualizácie okna"
 
 #: kmag.cpp:604
 #, kde-format
@@ -415,7 +418,7 @@ msgstr "Spustiť"
 #: kmag.cpp:605
 #, kde-format
 msgid "Click to start window update"
-msgstr "Kliknite pre štart aktualizácie okna"
+msgstr "Kliknite pre spustenie aktualizácie okna"
 
 #: kmagselrect.cpp:198
 #, kde-format
