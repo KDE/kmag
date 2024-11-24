@@ -32,6 +32,7 @@ target_link_libraries(kmag
     KF6::KIOCore
     KF6::I18n
     KF6::XmlGui
+    KF6::Crash
     Qt6::Core
     Qt6::Widgets
     Qt6::PrintSupport

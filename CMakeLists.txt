@@ -34,6 +34,7 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     I18n
     KIO
     XmlGui
+    Crash
 )
 
 find_package(QAccessibilityClient6 0.4 CONFIG)

@@ -19,9 +19,9 @@
 #include <QApplication>
 #include <QCommandLineParser>
 
-// KF5
 #include <KAboutData>
 #include <KLocalizedString>
+#include <KCrash>
 
 #include "kmag.h"
 
@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
   aboutData.addCredit(i18n("Claudiu Costin"), i18n("Some tips"), QStringLiteral("claudiuc@work.ro"), QStringLiteral("https://ro.kde.org"));
 
   KAboutData::setApplicationData(aboutData);
-
+  KCrash::initialize(); 
   QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("kmag")));
 
   if (app.isSessionRestored())
