@@ -19,48 +19,48 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "भवतः नामानि"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "भवतः ईमेलपत्राणि"
 
 #: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at very low"
 msgid "&Very Low"
-msgstr ""
+msgstr "&अति न्यूनम्"
 
 #: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at low"
 msgid "&Low"
-msgstr ""
+msgstr "&न्यूनम्‌"
 
 #: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at medium"
 msgid "&Medium"
-msgstr ""
+msgstr "&मध्यम"
 
 #: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at high"
 msgid "&High"
-msgstr ""
+msgstr "&उच्चैः"
 
 #: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at very high"
 msgid "V&ery High"
-msgstr ""
+msgstr "V&ery उच्चम्"
 
 #: kmag.cpp:60
 #, kde-format
 msgctxt "No color-blindness simulation, i.e. 'normal' vision"
 msgid "&Normal"
-msgstr ""
+msgstr "&सामान्य"
 
 #: kmag.cpp:60
 #, kde-format
@@ -339,7 +339,7 @@ msgstr "ताजगी दर"
 #, kde-format
 msgctxt "Color-blindness simulation mode"
 msgid "&Color"
-msgstr ""
+msgstr "&वर्ण"
 
 #: kmag.cpp:219
 #, kde-format
@@ -410,7 +410,7 @@ msgstr "विण्डो अपडेट् स्थगयितुं क्
 #, kde-format
 msgctxt "Start updating the window"
 msgid "Start"
-msgstr ""
+msgstr "प्रारंभः"
 
 #: kmag.cpp:605
 #, kde-format
