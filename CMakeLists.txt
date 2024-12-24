@@ -23,6 +23,8 @@ include(ECMInstallIcons)
 include(FeatureSummary)
 include(ECMSetupVersion)
 
+option(BUILD_DOC "Whether to build the documentation" ON)
+
 find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
     Widgets
@@ -30,12 +32,19 @@ find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
 )
 
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
-    DocTools
     I18n
     KIO
     XmlGui
     Crash
 )
+
+if (BUILD_DOC)
+    find_package(KF6DocTools ${KF_MIN_VERSION})
+    set_package_properties(KF6DocTools PROPERTIES
+        DESCRIPTION "Tools to generate documentation"
+        TYPE REQUIRED
+)
+endif()
 
 find_package(QAccessibilityClient6 0.4 CONFIG)
 set_package_properties(QAccessibilityClient6 PROPERTIES
@@ -47,11 +56,14 @@ set_package_properties(QAccessibilityClient6 PROPERTIES
 
 ecm_set_disabled_deprecation_versions(QT 6.8.0  KF 6.5.0)
 
-add_subdirectory( doc )
 add_subdirectory( pics )
 add_subdirectory( src )
 
+if (BUILD_DOC)
+    add_subdirectory(doc)
+    kdoctools_install(po)
+endif()
+
 ki18n_install(po)
-kdoctools_install(po)
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
