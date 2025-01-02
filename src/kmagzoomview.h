@@ -163,9 +163,6 @@ class KMagZoomView : public QAbstractScrollArea
     /// Mouse button release event handler
     void focusOutEvent(QFocusEvent *e) override;
 
-    /// Returns the rectangle where the pixmap will be drawn
-    QRect pixmapRect();
-
     /// Q3ScrollView porting helpers, maybe inline them
     int contentsX() const;
     int contentsY() const;
