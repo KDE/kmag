@@ -9,13 +9,13 @@
 # obsoleteman <tulliana@gmail.com>, 2008-2009.
 # Serhat Demirkol <serhat_demirkol@yahoo.com>, 2009.
 # Volkan Gezer <volkangezer@gmail.com>, 2013.
-# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2025 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeaccessibility-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-08 01:33+0000\n"
-"PO-Revision-Date: 2023-05-08 11:30+0300\n"
+"PO-Revision-Date: 2025-01-26 13:13+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.03.70\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -144,7 +144,7 @@ msgstr ""
 #: kmag.cpp:117
 #, kde-format
 msgid "&Save Snapshot As..."
-msgstr "Ekran Görüntüsünü &Farklı Kaydet..."
+msgstr "Ekran Görüntüsünü &Farklı Kaydet…"
 
 #: kmag.cpp:120
 #, kde-format
@@ -500,9 +500,9 @@ msgid ""
 "Copyright 2003-2004 Olaf Schmidt\n"
 "Copyright 2008 Matthew Woehlke"
 msgstr ""
-"Copyright 2001-2003 Sarang Lakare\n"
-"Copyright 2003-2004 Olaf Schmidt\n"
-"Copyright 2008 Matthew Woehlke"
+"© 2001–2003 Sarang Lakare\n"
+"© 2003–2004 Olaf Schmidt\n"
+"© 2008 Matthew Woehlke"
 
 #: main.cpp:45
 #, kde-format
