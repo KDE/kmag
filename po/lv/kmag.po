@@ -5,37 +5,38 @@
 # Maris Nartiss <maris.kde@gmail.com>, 2007, 2008.
 # Viesturs Zarins <viesturs.zarins@mii.lu.lv>, 2008.
 # Viesturs Zariņš <viesturs.zarins@mii.lu.lv>, 2009.
+# SPDX-FileCopyrightText: 2025 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-08 01:33+0000\n"
-"PO-Revision-Date: 2009-05-16 09:00+0300\n"
-"Last-Translator: Viesturs Zariņš <viesturs.zarins@mii.lu.lv>\n"
-"Language-Team: Latvian <locale@laka.lv>\n"
+"PO-Revision-Date: 2025-01-28 14:17+0200\n"
+"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 0.3\n"
+"X-Generator: Lokalize 24.12.1\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Māris Nartišs"
+msgstr "Māris Nartišs, Toms Trasūns"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "maris.kde@gmail.com"
+msgstr "maris.kde@gmail.com, toms.trasuns@posteo.net"
 
 #: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at very low"
 msgid "&Very Low"
-msgstr "Ļo&ti zema"
+msgstr "Ļoti ze&ma"
 
 #: kmag.cpp:52
 #, kde-format
@@ -70,42 +71,42 @@ msgstr "&Normāla"
 #: kmag.cpp:60
 #, kde-format
 msgid "&Protanopia"
-msgstr ""
+msgstr "&Protanopija"
 
 #: kmag.cpp:60
 #, kde-format
 msgid "&Deuteranopia"
-msgstr ""
+msgstr "&Deiteranopija"
 
 #: kmag.cpp:60
 #, kde-format
 msgid "&Tritanopia"
-msgstr ""
+msgstr "&Tritanopija"
 
 #: kmag.cpp:60
 #, kde-format
 msgid "&Achromatopsia"
-msgstr ""
+msgstr "A&hromatopsija"
 
 #: kmag.cpp:68
 #, kde-format
 msgid "&No Rotation (0 Degrees)"
-msgstr "&Nav rotācijas (0 grādi)"
+msgstr "&Bez pagriešanas (0 grādu)"
 
 #: kmag.cpp:68
 #, kde-format
 msgid "&Left (90 Degrees)"
-msgstr "Pa &kreisi (90 grādi)"
+msgstr "Pa &kreisi (90 grādu)"
 
 #: kmag.cpp:68
 #, kde-format
 msgid "&Upside Down (180 Degrees)"
-msgstr "Ar &kājām gaisā (180 grādi)"
+msgstr "Ar &kājām gaisā (180 grādu)"
 
 #: kmag.cpp:68
 #, kde-format
 msgid "&Right (270 Degrees)"
-msgstr "Pa &labi (270 grādi)"
+msgstr "Pa &labi (270 grādu)"
 
 #: kmag.cpp:100
 #, kde-format
@@ -115,7 +116,7 @@ msgstr "Jauns &logs"
 #: kmag.cpp:103
 #, kde-format
 msgid "Open a new KMagnifier window"
-msgstr "Atver jaunu KMag logu"
+msgstr "Atver jaunu „KMagnifier“ logu"
 
 #: kmag.cpp:107
 #, kde-format
@@ -128,18 +129,14 @@ msgid "Click to stop window refresh"
 msgstr "Klikšķiniet, lai apturētu loga atjaunināšanu"
 
 #: kmag.cpp:111
-#, fuzzy, kde-format
-#| msgid ""
-#| "Clicking on this icon will <b>start</b> / <b>stop</b>  updating of the "
-#| "display. Stopping the update will zero the processing power  required "
-#| "(CPU usage)"
+#, kde-format
 msgid ""
 "Clicking on this icon will <b>start</b> / <b>stop</b> updating of the "
 "display. Stopping the update will zero the processing power required (CPU "
 "usage)"
 msgstr ""
-"Uzklikšķinot uz šīs ikonas tiks <b>palaists</b> / <b>apturēts</b> ekrāna "
-"atjaunināšanas process. Apturēšanas gadījumā dators (CPU) netiek noslogots."
+"Uzklikšķinot uz šīs ikonas, sistēma <b>sāks</b> / <b>apturēs</b> ekrāna "
+"atjaunināšanas procesu. Apturēšanas laikā dators (CPU) netiks noslogots."
 
 #: kmag.cpp:117
 #, kde-format
@@ -149,12 +146,12 @@ msgstr "&Saglabāt momentuzņēmumu kā..."
 #: kmag.cpp:120
 #, kde-format
 msgid "Saves the zoomed view to an image file."
-msgstr "Saglabā pietuvināto skatu kā attēla failu."
+msgstr "Saglabā pietuvināto skatu kā attēla datni."
 
 #: kmag.cpp:121
 #, kde-format
 msgid "Save image to a file"
-msgstr "Saglabā attēlu failā"
+msgstr "Saglabā attēlu datnē"
 
 #: kmag.cpp:124
 #, kde-format
@@ -178,7 +175,7 @@ msgstr ""
 #: kmag.cpp:132
 #, kde-format
 msgid "Copy zoomed image to clipboard"
-msgstr "Kopē pietuvināto attēlu uz starpliktuvi"
+msgstr "Kopē pietuvināto attēlu starpliktuvē"
 
 #: kmag.cpp:138
 #, kde-format
@@ -188,40 +185,37 @@ msgstr "Sekot &pelei"
 #: kmag.cpp:142
 #, kde-format
 msgid "Mouse"
-msgstr ""
+msgstr "Pele"
 
 #: kmag.cpp:143
 #, kde-format
 msgid "Magnify around the mouse cursor"
-msgstr "Palielina ap peles kursoru"
+msgstr "Palielināt apgabalu ap peles kursoru"
 
 #: kmag.cpp:144
 #, kde-format
 msgid "If selected, the area around the mouse cursor is magnified"
-msgstr "Ja ir izvēlēts, tad palielina apgabalu ap peles kursoru"
+msgstr "Ja ir ieslēgts, tad palielina apgabalu ap peles kursoru"
 
 #: kmag.cpp:148
-#, fuzzy, kde-format
-#| msgid "&Follow Mouse Mode"
+#, kde-format
 msgid "&Follow Focus Mode"
 msgstr "Sekot &pelei"
 
 #: kmag.cpp:152
 #, kde-format
 msgid "Focus"
-msgstr ""
+msgstr "Fokuss"
 
 #: kmag.cpp:153
-#, fuzzy, kde-format
-#| msgid "Magnify around the mouse cursor"
+#, kde-format
 msgid "Magnify around the keyboard focus"
-msgstr "Palielina ap peles kursoru"
+msgstr "Palielināt apgabalu ap tastatūras kursoru"
 
 #: kmag.cpp:154
-#, fuzzy, kde-format
-#| msgid "If selected, the area around the mouse cursor is magnified"
+#, kde-format
 msgid "If selected, the area around the keyboard cursor is magnified"
-msgstr "Ja ir izvēlēts, tad palielina apgabalu ap peles kursoru"
+msgstr "Ja ir ieslēgts, tad palielina apgabalu ap peles kursoru"
 
 #: kmag.cpp:158
 #, kde-format
@@ -229,15 +223,14 @@ msgid "Se&lection Window Mode"
 msgstr "Loga izvē&les režīms"
 
 #: kmag.cpp:162
-#, fuzzy, kde-format
-#| msgid "New &Window"
+#, kde-format
 msgid "Window"
-msgstr "Jauns &logs"
+msgstr "Logs"
 
 #: kmag.cpp:163
 #, kde-format
 msgid "Show a window for selecting the magnified area"
-msgstr "Rādīt logu ar kuru var izvēlēties palielināmo apgabalu"
+msgstr "Rādīt logu palielināmā apgabala atlasīšanai"
 
 #: kmag.cpp:165
 #, kde-format
@@ -247,12 +240,12 @@ msgstr "&Visa ekrāna režīms"
 #: kmag.cpp:169
 #, kde-format
 msgid "Screen"
-msgstr ""
+msgstr "Ekrāns"
 
 #: kmag.cpp:170
 #, kde-format
 msgid "Magnify the whole screen"
-msgstr "Palielina visu ekrānu"
+msgstr "Palielināt visu ekrānu"
 
 #: kmag.cpp:171
 #, kde-format
@@ -273,7 +266,7 @@ msgstr "Rādīt peles &kursoru"
 #: kmag.cpp:180
 #, kde-format
 msgid "Hide"
-msgstr ""
+msgstr "Slēpt"
 
 #: kmag.cpp:181
 #, kde-format
@@ -283,12 +276,12 @@ msgstr "Paslēpj peles kursoru"
 #: kmag.cpp:183
 #, kde-format
 msgid "Stays On Top"
-msgstr ""
+msgstr "Turēt virspusē"
 
 #: kmag.cpp:187
 #, kde-format
 msgid "The KMagnifier Window stays on top of other windows."
-msgstr ""
+msgstr "„KMagnifier“ logs vienmēr būs virs citiem logiem."
 
 #: kmag.cpp:190
 #, kde-format
@@ -298,7 +291,7 @@ msgstr "Klikšķiniet uz šīs pogas, lai <b>pietuvinātu</b> izvēlēto reģion
 #: kmag.cpp:192
 #, kde-format
 msgid "&Zoom"
-msgstr "&Tuvināt"
+msgstr "&Tuvinājums"
 
 #: kmag.cpp:195
 #, kde-format
@@ -318,22 +311,22 @@ msgstr "Klikšķiniet uz šīs pogas, lai <b>tālinātu</b> izvēlēto reģionu.
 #: kmag.cpp:201
 #, kde-format
 msgid "&Rotation"
-msgstr "&Rotācija"
+msgstr "&Pagriešana"
 
 #: kmag.cpp:204
 #, kde-format
 msgid "Select the rotation degree."
-msgstr "Izvēlieties rotācijas pakāpi."
+msgstr "Izvēlieties pagriešanas pakāpi."
 
 #: kmag.cpp:205
 #, kde-format
 msgid "Rotation degree"
-msgstr "Rotācijas pakāpe"
+msgstr "Pagriešanas pakāpe"
 
 #: kmag.cpp:210
 #, kde-format
 msgid "&Refresh"
-msgstr "&Atjaunināt"
+msgstr "&Atjaunināšana"
 
 #: kmag.cpp:213
 #, kde-format
@@ -341,8 +334,8 @@ msgid ""
 "Select the refresh rate. The higher the rate, the more computing power (CPU) "
 "will be needed."
 msgstr ""
-"Izvēlieties atjaunināšanas biežumu. Jo lielāks biežums, jo lielāki datora "
-"resursi (CPU) būs nepieciešami."
+"Izvēlieties atjaunināšanas biežumu. Jo lielāks biežums, jo būs nepieciešami "
+"lielāki datora resursi (CPU)."
 
 #: kmag.cpp:214
 #, kde-format
@@ -358,7 +351,7 @@ msgstr "&Krāsa"
 #: kmag.cpp:219
 #, kde-format
 msgid "Select a mode to simulate various types of color-blindness."
-msgstr "Izvēlieties režīmu dažādu krāsu akluma simulēšanai."
+msgstr "Atlasiet režīmu dažādu krāsu akluma simulēšanai."
 
 #: kmag.cpp:220
 #, kde-format
@@ -376,17 +369,17 @@ msgid ""
 "Unable to save temporary file (before uploading to the network file you "
 "specified)."
 msgstr ""
-"Neizdevās saglabāt pagaidu failu pirms norādītā tīkla faila augšuplādes."
+"Neizdevās saglabāt pagaidu datni pirms norādītās datnes augšupielādes tīklā."
 
 #: kmag.cpp:567 kmag.cpp:572 kmag.cpp:582
 #, kde-format
 msgid "Error Writing File"
-msgstr "Kļūda rakstot failā"
+msgstr "Kļūda, rakstot datnē"
 
 #: kmag.cpp:571
 #, kde-format
 msgid "Unable to upload file over the network."
-msgstr "Neizdevās augšuplādēt failu pa tīklu."
+msgstr "Neizdevās tīklā augšupielādēt datni."
 
 #: kmag.cpp:574 kmag.cpp:584
 #, kde-format
@@ -394,7 +387,7 @@ msgid ""
 "Current zoomed image saved to\n"
 "%1"
 msgstr ""
-"Pašlaik pietuvinātais attēls saglabāts kā\n"
+"Pašlaik pietuvinātais attēls ir saglabāts kā\n"
 "%1"
 
 #: kmag.cpp:575 kmag.cpp:585
@@ -408,8 +401,8 @@ msgid ""
 "Unable to save file. Please check if you have permission to write to the "
 "directory."
 msgstr ""
-"Neizdevās saglabāt failu. Pārbaudiet vai jums ir tiesības rakstīt norādītajā "
-"mapē."
+"Neizdevās saglabāt datni. Pārbaudiet, vai jums ir tiesības rakstīt "
+"norādītajā mapē."
 
 #: kmag.cpp:600
 #, kde-format
@@ -425,7 +418,7 @@ msgstr "Klikšķiniet, lai apturētu loga atjaunināšanu"
 #, kde-format
 msgctxt "Start updating the window"
 msgid "Start"
-msgstr "Palaist"
+msgstr "Sākt"
 
 #: kmag.cpp:605
 #, kde-format
@@ -435,7 +428,7 @@ msgstr "Klikšķiniet, lai palaistu loga atjaunināšanu"
 #: kmagselrect.cpp:198
 #, kde-format
 msgid "Selection Window"
-msgstr "Izvēles logs"
+msgstr "Atlasīšanas logs"
 
 #: kmagselrect.cpp:198 main.cpp:38
 #, kde-format
@@ -444,30 +437,27 @@ msgstr "KMagnifier"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kmagui.rc:3
-#, fuzzy, kde-format
-#| msgid "Show Main &Toolbar"
+#, kde-format
 msgid "Main Toolbar"
-msgstr "Rādīt galveno &rīkjoslu"
+msgstr "Pamata rīkjosla"
 
 #. i18n: ectx: ToolBar (viewToolBar)
 #: kmagui.rc:6
-#, fuzzy, kde-format
-#| msgid "Show &View Toolbar"
+#, kde-format
 msgid "View Toolbar"
-msgstr "Rādīt &skata rīkjoslu"
+msgstr "Skata rīkjosla"
 
 #. i18n: ectx: ToolBar (settingsToolBar)
 #: kmagui.rc:16
-#, fuzzy, kde-format
-#| msgid "Show &Settings Toolbar"
+#, kde-format
 msgid "Settings Toolbar"
-msgstr "Rādīt ie&statījumu rīkjoslu"
+msgstr "Iestatījumu rīkjosla"
 
 #. i18n: ectx: Menu (file)
 #: kmagui.rc:25
 #, kde-format
 msgid "&File"
-msgstr "&Fails"
+msgstr "&Datne"
 
 #. i18n: ectx: Menu (edit)
 #: kmagui.rc:32
@@ -493,14 +483,13 @@ msgid ""
 "This is the main window which shows the contents of the selected region. The "
 "contents will be magnified according to the zoom level that is set."
 msgstr ""
-"Šis ir galvenais logs, kurā tiek rādīts pietuvinātā apgabala saturs. Saturs "
-"tiks pietuvināts līdz iestatīajai tuvināšanas pakāpei."
+"Šis ir galvenais logs, kurā ir redzams pietuvinātā apgabala saturs. Saturs "
+"tiks pietuvināts līdz noteiktajai tuvināšanas pakāpei."
 
 #: main.cpp:39
-#, fuzzy, kde-format
-#| msgid "Screen magnifier for the K Desktop Environment (KDE)"
+#, kde-format
 msgid "Screen magnifier created by KDE"
-msgstr "Ekrāna palielināmais stikls KDE videi"
+msgstr "KDE veidots ekrāna palielinātājs"
 
 #: main.cpp:41
 #, kde-format
@@ -509,9 +498,9 @@ msgid ""
 "Copyright 2003-2004 Olaf Schmidt\n"
 "Copyright 2008 Matthew Woehlke"
 msgstr ""
-"(c) 2001-2003 Sarang Lakare\n"
-"(c) 2003-2004 Olaf Schmidt\n"
-"(c) 2008 Matthew Woehlke"
+"Autortiesības 2001—2003 Sarang Lakare\n"
+"Autortiesības 2003—2004 Olaf Schmidt\n"
+"Autortiesības 2008 Matthew Woehlke"
 
 #: main.cpp:45
 #, kde-format
@@ -521,7 +510,7 @@ msgstr "Sarang Lakare"
 #: main.cpp:46
 #, kde-format
 msgid "Rewrite"
-msgstr "Pārrakstīts"
+msgstr "Pārrakstīja"
 
 #: main.cpp:47
 #, kde-format
@@ -544,8 +533,8 @@ msgid ""
 "Rework of the user interface, improved selection window, speed optimization, "
 "rotation, bug fixes"
 msgstr ""
-"Lietotāja saskarnes pārstrādāšana, uzlabots izvēles logs, ātrdarbības "
-"uzlabojumi, rotācija un kļūdu labojumi."
+"Pārstrādāja lietotāja saskarni, uzlaboja atlasīšanas logu, palielināja "
+"ātrdarbību, ieviesa pagriešanu un novērsa kļūdas."
 
 #: main.cpp:50
 #, kde-format
@@ -560,12 +549,12 @@ msgstr "Krāsu akluma simulācija"
 #: main.cpp:51
 #, kde-format
 msgid "Sebastian Sauer"
-msgstr ""
+msgstr "Sebastian Sauer"
 
 #: main.cpp:51
 #, kde-format
 msgid "Focus tracking"
-msgstr ""
+msgstr "Fokusa izsekošana"
 
 #: main.cpp:52
 #, kde-format
