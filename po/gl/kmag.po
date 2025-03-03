@@ -380,7 +380,7 @@ msgstr "Erro ao escribir o ficheiro"
 #: kmag.cpp:571
 #, kde-format
 msgid "Unable to upload file over the network."
-msgstr "Non é posíbel enviar o ficheiro a través da rede."
+msgstr "Non é posíbel subir o ficheiro a través da rede."
 
 #: kmag.cpp:574 kmag.cpp:584
 #, kde-format
