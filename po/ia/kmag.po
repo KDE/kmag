@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Giovanni Sora <g.sora@tiscali.it>, 2016, 2018, 2021.
+# SPDX-FileCopyrightText: 2016, 2018, 2021, 2025 Giovanni Sora <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-08 01:33+0000\n"
-"PO-Revision-Date: 2021-11-29 23:17+0100\n"
+"PO-Revision-Date: 2025-05-09 18:44+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.08.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -376,7 +376,7 @@ msgstr "Error de scriptura del file"
 #: kmag.cpp:571
 #, kde-format
 msgid "Unable to upload file over the network."
-msgstr "Incapace a incarcar file ex le rete."
+msgstr "Incapace a incargar file ex le rete."
 
 #: kmag.cpp:574 kmag.cpp:584
 #, kde-format
