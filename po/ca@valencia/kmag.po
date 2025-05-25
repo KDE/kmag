@@ -126,7 +126,7 @@ msgstr "A&tura"
 #: kmag.cpp:110
 #, kde-format
 msgid "Click to stop window refresh"
-msgstr "Feu clic per a parar l'actualització de la finestra"
+msgstr "Cliqueu per a parar l'actualització de la finestra"
 
 #: kmag.cpp:111
 #, kde-format
@@ -135,7 +135,7 @@ msgid ""
 "display. Stopping the update will zero the processing power required (CPU "
 "usage)"
 msgstr ""
-"En fer clic damunt d'esta icona s'<b>iniciarà</b> / <b>pararà</b> "
+"Quan es clique damunt d'esta icona s'<b>iniciarà</b> / <b>pararà</b> "
 "l'actualització de la imatge. Si es para l'actualització, el consum de "
 "potència del processador serà zero (ús de la CPU)"
 
@@ -157,7 +157,7 @@ msgstr "Guarda la imatge a un fitxer"
 #: kmag.cpp:124
 #, kde-format
 msgid "Click on this button to print the current zoomed view."
-msgstr "Feu clic damunt d'este botó per a imprimir la vista ampliada."
+msgstr "Cliqueu damunt d'este botó per a imprimir la vista ampliada."
 
 #: kmag.cpp:127 kmag.cpp:128
 #, kde-format
@@ -170,7 +170,7 @@ msgid ""
 "Click on this button to copy the current zoomed view to the clipboard which "
 "you can paste in other applications."
 msgstr ""
-"Feu clic damunt d'este botó per a copiar la vista ampliada a dins del porta-"
+"Cliqueu damunt d'este botó per a copiar la vista ampliada a dins del porta-"
 "retalls i així poder-la apegar en altres aplicacions."
 
 #: kmag.cpp:132
@@ -252,7 +252,7 @@ msgstr "Amplia la pantalla completa"
 #, kde-format
 msgid "Click on this button to fit the zoom view to the zoom window."
 msgstr ""
-"Feu clic damunt d'este botó per a encaixar la vista ampliada en la finestra "
+"Cliqueu damunt d'este botó per a encaixar la vista ampliada en la finestra "
 "ampliada."
 
 #: kmag.cpp:173
@@ -288,7 +288,7 @@ msgstr "La finestra de KMagnifier està per damunt de les altres."
 #: kmag.cpp:190
 #, kde-format
 msgid "Click on this button to <b>zoom-in</b> on the selected region."
-msgstr "Feu clic damunt d'este botó per a <b>acostar</b> l'àrea seleccionada."
+msgstr "Cliqueu damunt d'este botó per a <b>acostar</b> l'àrea seleccionada."
 
 #: kmag.cpp:192
 #, kde-format
@@ -308,7 +308,7 @@ msgstr "Factor d'apropament"
 #: kmag.cpp:199
 #, kde-format
 msgid "Click on this button to <b>zoom-out</b> on the selected region."
-msgstr "Feu clic damunt d'este botó per a <b>allunyar</b> l'àrea seleccionada."
+msgstr "Cliqueu damunt d'este botó per a <b>allunyar</b> l'àrea seleccionada."
 
 #: kmag.cpp:201
 #, kde-format
@@ -415,7 +415,7 @@ msgstr "Para"
 #: kmag.cpp:601
 #, kde-format
 msgid "Click to stop window update"
-msgstr "Feu clic per a parar l'actualització de la finestra"
+msgstr "Cliqueu per a parar l'actualització de la finestra"
 
 #: kmag.cpp:604
 #, kde-format
@@ -426,7 +426,7 @@ msgstr "Inicia"
 #: kmag.cpp:605
 #, kde-format
 msgid "Click to start window update"
-msgstr "Feu clic per a iniciar l'actualització de la finestra"
+msgstr "Cliqueu per a iniciar l'actualització de la finestra"
 
 #: kmagselrect.cpp:198
 #, kde-format
