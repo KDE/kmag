@@ -54,7 +54,7 @@ set_package_properties(QAccessibilityClient6 PROPERTIES
     PURPOSE "Required to enable keyboard focus tracking."
 )
 
-ecm_set_disabled_deprecation_versions(QT 6.8.0  KF 6.11.0)
+ecm_set_disabled_deprecation_versions(QT 6.9.0  KF 6.16.0)
 
 add_subdirectory( pics )
 add_subdirectory( src )
