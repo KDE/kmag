@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-08 01:33+0000\n"
-"PO-Revision-Date: 2025-06-28 17:35+0400\n"
+"PO-Revision-Date: 2025-08-03 12:03+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -89,7 +89,7 @@ msgstr "&عمى الألوان"
 #: kmag.cpp:68
 #, kde-format
 msgid "&No Rotation (0 Degrees)"
-msgstr "&بدون تدوير (0 درجة)"
+msgstr "بلا &تدوير (0 درجة)"
 
 #: kmag.cpp:68
 #, kde-format
