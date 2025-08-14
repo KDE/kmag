@@ -194,7 +194,7 @@ msgstr "كبّر حول مؤشّر الفأرة"
 #: kmag.cpp:144
 #, kde-format
 msgid "If selected, the area around the mouse cursor is magnified"
-msgstr "في حالة التحديد ، ستكبر المنطقة المحيطة بمؤشر الفأرة"
+msgstr "في حالة التحديد، ستكبر المنطقة المحيطة بمؤشر الفأرة"
 
 #: kmag.cpp:148
 #, kde-format
@@ -332,7 +332,7 @@ msgid ""
 "Select the refresh rate. The higher the rate, the more computing power (CPU) "
 "will be needed."
 msgstr ""
-"إختر مُعدَّل التحديث. كلما زاد المُعدَّل ، كلما إزدادت الطَّاقة الحاسوبيّة (وحدة "
+"إختر مُعدَّل التحديث. كلما زاد المُعدَّل، كلما إزدادت الطَّاقة الحاسوبيّة (وحدة "
 "المعالجة المركزيّة - CPU) المحتاجة."
 
 #: kmag.cpp:214
