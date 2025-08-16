@@ -1,31 +1,25 @@
-# translation of kmag.po to Español
-# traducción de kmag.po a Español
-# translation of kmag.po to
-# translation of kmag.po to
-# translation of kmag.po to
-# translation of kmag.po to
-# Copyright (C) 2003, 2004, 2005, 2006, 2007, 2008 Free Software Foundation, Inc.
+# Spanish translations for kmag.po package.
+# Copyright (C) 2003-2025 This file is copyright:
+# This file is distributed under the same license as the kmag package.
 #
-# Miguel Revilla Rodríguez <yo@miguelrevilla.com>, 2003.
-# Antonio Crevillen <antonio.crevillen@hispalinux.es>, 2003.
-# Vicente Herrera Cobo <vicente.herrera@hispalinux.es>, 2003.
-# Vicente Herrera Cobo <vherrera@andaluciajunta.es>, 2004.
-# Rafael Beccar <rafael.beccar@kdemail.net>, 2005.
-# santi <santi@kde-es.org>, 2005.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2005, 2011, 2012, 2017.
-# Santiago Fernandez Sancho <santi@kde-es.org>, 2005, 2006.
-# Pablo de Vicente <pablo.devicente@gmail.com>, 2006.
-# Santiago Fernández Sancho <santi@kde-es.org>, 2007, 2008.
-# Jaime Robles <jaime@kde.org>, 2008.
-# Franco Mariluis <fmariluis@gmail.com>, 2008, 2009.
-# Adrián Martínez <sfxgt3@gmail.com>, 2009.
-# Ricardo Varas Santana <ricardoivaras@gmail.com>, 2010.
+# SPDX-FileCopyrightText: 2003 Miguel Revilla Rodríguez <yo@miguelrevilla.com>
+# SPDX-FileCopyrightText: 2003 Antonio Crevillen <antonio.crevillen@hispalinux.es>
+# SPDX-FileCopyrightText: 2003 Vicente Herrera Cobo <vicente.herrera@hispalinux.es>
+# SPDX-FileCopyrightText: 2004 Vicente Herrera Cobo <vherrera@andaluciajunta.es>
+# SPDX-FileCopyrightText: 2005 Rafael Beccar <rafael.beccar@kdemail.net>
+# SPDX-FileCopyrightText: 2005, 2006, 2007, 2008 Santiago Fernández Sancho <santi@kde-es.org>
+# SPDX-FileCopyrightText: 2005, 2011, 2012, 2017, 2025 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2006 Pablo de Vicente <pablo.devicente@gmail.com>
+# SPDX-FileCopyrightText: 2008 Jaime Robles <jaime@kde.org>
+# SPDX-FileCopyrightText: 2008, 2009 Franco Mariluis <fmariluis@gmail.com>
+# SPDX-FileCopyrightText: 2009 Adrián Martínez <sfxgt3@gmail.com>
+# SPDX-FileCopyrightText: 2010 Ricardo Varas Santana <ricardoivaras@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-08 01:33+0000\n"
-"PO-Revision-Date: 2017-07-18 19:08+0100\n"
+"PO-Revision-Date: 2025-08-16 02:22+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -159,7 +153,7 @@ msgstr ""
 #: kmag.cpp:117
 #, kde-format
 msgid "&Save Snapshot As..."
-msgstr "&Guardar captura como..."
+msgstr "&Guardar captura como…"
 
 #: kmag.cpp:120
 #, kde-format
@@ -588,21 +582,3 @@ msgstr "Claudiu Costin"
 #, kde-format
 msgid "Some tips"
 msgstr "Algunos consejos"
-
-#~ msgid "File to open"
-#~ msgstr "Archivo a abrir"
-
-#~ msgid "Show &Menu"
-#~ msgstr "Mostrar &Menú"
-
-#~ msgid "Hide &Menu"
-#~ msgstr "Ocultar &Menú"
-
-#~ msgid "Hide Main &Toolbar"
-#~ msgstr "Ocul&tar la barra de herramientas principal"
-
-#~ msgid "Hide &View Toolbar"
-#~ msgstr "Ocultar la barra de herramientas &Ver"
-
-#~ msgid "Hide &Settings Toolbar"
-#~ msgstr "Ocultar la barra de herramientas de Preferencia&s"
