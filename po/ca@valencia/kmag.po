@@ -196,7 +196,7 @@ msgstr "Amplia al voltant del cursor del ratolí"
 #: kmag.cpp:144
 #, kde-format
 msgid "If selected, the area around the mouse cursor is magnified"
-msgstr "Si se selecciona, s'ampliarà l'àrea al voltant del cursor del ratolí"
+msgstr "Si es tria, s'ampliarà l'àrea al voltant del cursor del ratolí"
 
 #: kmag.cpp:148
 #, kde-format
@@ -216,7 +216,7 @@ msgstr "Amplia al voltant del focus del teclat"
 #: kmag.cpp:154
 #, kde-format
 msgid "If selected, the area around the keyboard cursor is magnified"
-msgstr "Si se selecciona, s'ampliarà l'àrea al voltant del cursor del teclat"
+msgstr "Si es tria, s'ampliarà l'àrea al voltant del cursor del teclat"
 
 #: kmag.cpp:158
 #, kde-format
@@ -298,7 +298,7 @@ msgstr "&Zoom"
 #: kmag.cpp:195
 #, kde-format
 msgid "Select the zoom factor."
-msgstr "Selecciona el factor d'apropament."
+msgstr "Tria el factor d'apropament."
 
 #: kmag.cpp:196
 #, kde-format
@@ -318,7 +318,7 @@ msgstr "&Gir"
 #: kmag.cpp:204
 #, kde-format
 msgid "Select the rotation degree."
-msgstr "Seleccioneu l'angle de gir."
+msgstr "Trieu l'angle de gir."
 
 #: kmag.cpp:205
 #, kde-format
@@ -336,8 +336,8 @@ msgid ""
 "Select the refresh rate. The higher the rate, the more computing power (CPU) "
 "will be needed."
 msgstr ""
-"Selecciona la freqüència d'actualització. A una freqüència més alta, s'haurà "
-"de menester més potència de processador."
+"Tria la freqüència d'actualització. A una freqüència més alta, s'haurà de "
+"menester més potència de processador."
 
 #: kmag.cpp:214
 #, kde-format
@@ -353,7 +353,7 @@ msgstr "&Color"
 #: kmag.cpp:219
 #, kde-format
 msgid "Select a mode to simulate various types of color-blindness."
-msgstr "Seleccioneu un mode per a simular diferents tipus de daltonisme."
+msgstr "Trieu un mode per a simular diferents tipus de daltonisme."
 
 #: kmag.cpp:220
 #, kde-format
@@ -431,7 +431,7 @@ msgstr "Cliqueu per a iniciar l'actualització de la finestra"
 #: kmagselrect.cpp:198
 #, kde-format
 msgid "Selection Window"
-msgstr "Seleccioneu la finestra"
+msgstr "Trieu la finestra"
 
 #: kmagselrect.cpp:198 main.cpp:38
 #, kde-format
