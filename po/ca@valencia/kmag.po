@@ -142,7 +142,7 @@ msgstr ""
 #: kmag.cpp:117
 #, kde-format
 msgid "&Save Snapshot As..."
-msgstr "Anomena i &guarda la captura de pantalla…"
+msgstr "Anomena i guar&da la captura de pantalla…"
 
 #: kmag.cpp:120
 #, kde-format
