@@ -11,20 +11,21 @@
 # Og Maciel <ogmaciel@gnome.org>, 2008.
 # Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2009, 2010, 2017.
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2009, 2010, 2011, 2012, 2015.
+# SPDX-FileCopyrightText: 2025 Marcus Gama <marcus.gama@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-08 01:33+0000\n"
-"PO-Revision-Date: 2017-09-14 15:31-0300\n"
-"Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
-"Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
+"PO-Revision-Date: 2025-09-14 08:10-0300\n"
+"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
+"Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -241,7 +242,7 @@ msgstr "Exibir uma janela para selecionar a área ampliada"
 #: kmag.cpp:165
 #, kde-format
 msgid "&Whole Screen Mode"
-msgstr "Modo de &tela inteira"
+msgstr "Modo de &tela cheia"
 
 #: kmag.cpp:169
 #, kde-format
@@ -251,7 +252,7 @@ msgstr "Tela"
 #: kmag.cpp:170
 #, kde-format
 msgid "Magnify the whole screen"
-msgstr "Amplia a tela inteira"
+msgstr "Amplia toda a tela"
 
 #: kmag.cpp:171
 #, kde-format
