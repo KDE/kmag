@@ -2,7 +2,7 @@
 # translation of @PACKAGE.po to @LANGUAGE
 # Copyright (C) 2004 Free Software Foundation, Inc.
 # Claudiu Costin <claudiuc@kde.org>, 2003, 2004.
-# Sergiu Bivol <sergiu@cip.md>, 2008, 2009, 2012, 2020.
+# SPDX-FileCopyrightText: 2008, 2009, 2012, 2020, 2025 Sergiu Bivol <sergiu@cip.md>
 # Laurenţiu Buzdugan <lbuz@rolix.org>, 2009.
 #
 msgid ""
@@ -10,16 +10,16 @@ msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-08 01:33+0000\n"
-"PO-Revision-Date: 2020-09-29 22:23+0100\n"
+"PO-Revision-Date: 2025-10-01 17:01+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
-"Language-Team: Romanian\n"
+"Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 19.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -265,7 +265,7 @@ msgstr ""
 #: kmag.cpp:173
 #, kde-format
 msgid "Hide Mouse &Cursor"
-msgstr "Ascunde &cursorul mouse-ului"
+msgstr "Ascunde &cursorul șoricelului"
 
 #: kmag.cpp:178
 #, kde-format
@@ -275,7 +275,7 @@ msgstr "Afișează &cursorul mouse-ului"
 #: kmag.cpp:180
 #, kde-format
 msgid "Hide"
-msgstr ""
+msgstr "Ascunde"
 
 #: kmag.cpp:181
 #, kde-format
@@ -285,7 +285,7 @@ msgstr "Ascunde cursorul mausului"
 #: kmag.cpp:183
 #, kde-format
 msgid "Stays On Top"
-msgstr ""
+msgstr "Stă deasupra"
 
 #: kmag.cpp:187
 #, kde-format
@@ -452,17 +452,15 @@ msgstr "Bara de unelte principală"
 
 #. i18n: ectx: ToolBar (viewToolBar)
 #: kmagui.rc:6
-#, fuzzy, kde-format
-#| msgid "Show &View Toolbar"
+#, kde-format
 msgid "View Toolbar"
-msgstr "Afișează bara de &vizualizare"
+msgstr "Bara de vizualizare"
 
 #. i18n: ectx: ToolBar (settingsToolBar)
 #: kmagui.rc:16
-#, fuzzy, kde-format
-#| msgid "Show &Settings Toolbar"
+#, kde-format
 msgid "Settings Toolbar"
-msgstr "Afișează bara de unelte a &setărilor"
+msgstr "Bara de configurări"
 
 #. i18n: ectx: Menu (file)
 #: kmagui.rc:25
@@ -561,12 +559,12 @@ msgstr ""
 #: main.cpp:51
 #, kde-format
 msgid "Sebastian Sauer"
-msgstr ""
+msgstr "Sebastian Sauer"
 
 #: main.cpp:51
 #, kde-format
 msgid "Focus tracking"
-msgstr ""
+msgstr "Urmărirea focalizării"
 
 #: main.cpp:52
 #, kde-format
