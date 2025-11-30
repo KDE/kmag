@@ -1,4 +1,12 @@
 <?xml version="1.0" ?>
+<!--
+SPDX-FileCopyrightText: 2002 Sarang Lakare <email
+>sarang@users.sf.net</email
+> and
+SPDX-FileCopyrightText: 2004-2005 Olaf Schmidt <email
+>ojschmidt@kde.org</email>
+SPDX-License-Identifier: GFDL-1.2-only AND GPL-2.0-or-later
+-->
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % Brazilian-Portuguese "INCLUDE"
@@ -162,7 +170,7 @@ Date:   Wed Sep 26 02:46:22 2012 +0530
 >Por padrão, o &kmagnifier; amplia a região ao redor do cursor do mouse (pense nele como uma lente em movimento). Alternativamente, você poderá pedir ao &kmagnifier; para ampliar uma área escolhida da tela (<guilabel
 >Modo da janela de seleção</guilabel
 >) ou toda a tela (<guilabel
->Modo de tela inteira</guilabel
+>Modo de toda a tela</guilabel
 >) na janela de ampliação. </para>
 <para
 >Se você preferir não ver o cursor do mouse na imagem ampliada, selecione a opção <guilabel
@@ -617,7 +625,7 @@ Date:   Wed Sep 26 02:46:22 2012 +0530
 > <guimenu
 >Configurações</guimenu
 > <guimenuitem
->Modo tela inteira</guimenuitem
+>Modo de toda a tela</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -735,7 +743,7 @@ Date:   Wed Sep 26 02:46:22 2012 +0530
 ></entry>
 <entry
 ><para
->Muda para o "Modo de tela inteira".</para>
+>Muda para o "Modo de toda a tela".</para>
 </entry>
 </row>
 <row>

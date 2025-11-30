@@ -1,4 +1,12 @@
 <?xml version="1.0" ?>
+<!--
+SPDX-FileCopyrightText: 2002 Sarang Lakare <email
+>sarang@users.sf.net</email
+> and
+SPDX-FileCopyrightText: 2004-2005 Olaf Schmidt <email
+>ojschmidt@kde.org</email>
+SPDX-License-Identifier: GFDL-1.2-only AND GPL-2.0-or-later
+-->
 <!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
 <!ENTITY % Brazilian-Portuguese "INCLUDE">
 ]>
@@ -65,9 +73,9 @@
 ></userinput
 >).</member>
 <member
->kf5options(7)</member>
+>kf6options(7)</member>
 <member
->qt5options(7)</member>
+>qt6options(7)</member>
 <member
 >Existem ainda mais informações disponíveis no <ulink url="https://accessibility.kde.org/"
 >site do projeto de acessibilidade do &kde;.</ulink
