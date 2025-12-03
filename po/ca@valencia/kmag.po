@@ -377,7 +377,7 @@ msgstr ""
 #: kmag.cpp:567 kmag.cpp:572 kmag.cpp:582
 #, kde-format
 msgid "Error Writing File"
-msgstr "S'ha produït un error en escriure en el fitxer"
+msgstr "S'ha produït un error mentre s'escrivia al fitxer"
 
 #: kmag.cpp:571
 #, kde-format
