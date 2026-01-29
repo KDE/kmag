@@ -121,7 +121,7 @@ msgstr "Obri una finestra nova de KMagnifier"
 #: kmag.cpp:107
 #, kde-format
 msgid "&Stop"
-msgstr "A&tura"
+msgstr "&Para"
 
 #: kmag.cpp:110
 #, kde-format
