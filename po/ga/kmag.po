@@ -491,10 +491,9 @@ msgstr ""
 "Formhéadaítear an t-inneachar de réir an leibhéil súmála a roghnaíodh."
 
 #: main.cpp:39
-#, fuzzy, kde-format
-#| msgid "Screen magnifier for the K Desktop Environment (KDE)"
+#, kde-format
 msgid "Screen magnifier created by KDE"
-msgstr "Formhéadaitheoir scáileáin don Timpeallacht Deisce K (KDE)"
+msgstr ""
 
 #: main.cpp:41
 #, kde-format
@@ -571,30 +570,3 @@ msgstr "Claudiu Costin"
 #, kde-format
 msgid "Some tips"
 msgstr "Cúpla leid"
-
-#~ msgid "File to open"
-#~ msgstr "Comhad le hoscailt"
-
-#~ msgid "Show &Menu"
-#~ msgstr "Taispeáin &Roghchlár"
-
-#~ msgid "Hide &Menu"
-#~ msgstr "Folaigh &Roghchlár"
-
-#~ msgid "Hide Main &Toolbar"
-#~ msgstr "&Folaigh an Príomhbharra Uirlisí"
-
-#~ msgid "Hide &View Toolbar"
-#~ msgstr "Folaigh Barra Uirlisí an &Amhairc"
-
-#~ msgid "Hide &Settings Toolbar"
-#~ msgstr "Folaigh Barra Uirlisí na &Socruithe"
-
-#~ msgid "(C) 2001-2003, Sarang Lakare"
-#~ msgstr "© 2001-2003, Sarang Lakare"
-
-#~ msgid "Rewrite and current maintainer"
-#~ msgstr "Athscríobh agus cothaitheoir reatha"
-
-#~ msgid "Size:"
-#~ msgstr "Méid:"
