@@ -101,6 +101,7 @@
     <p xml:lang="bg">KMag е малка помощна програма за Linux за увеличаване на част от екрана. KMag е много полезна за хора със зрителни увреждания и за работещите в в областта на анализа на изображения, разработването на уеб сайтове и др.</p>
     <p xml:lang="ca">El KMag és una petita utilitat per al Linux per a ampliar una part de la pantalla. El KMag és molt útil per a persones amb discapacitats visuals i per a aquelles que treballen en els camps de l'anàlisi d'imatges, desenvolupament web, etc.</p>
     <p xml:lang="ca-valencia">KMag és una xicoteta utilitat per a Linux per a ampliar una part de la pantalla. KMag és molt útil per a persones amb discapacitats visuals i per a aquelles que treballen en els camps de l'anàlisi d'imatges, desenvolupament web, etc.</p>
+    <p xml:lang="cs">KMag je malý nástroj pro Linux, který slouží k zvětšení části obrazovky. KMag je velmi užitečný pro osoby se zrakovým postižením a pro ty, kteří pracují v oblasti analýzy obrazu, vývoje webových stránek atd.</p>
     <p xml:lang="da">KMag er et lille redskab til Linux som forstørrer en del af skærmen. KMag er meget nyttig til personer med synshandikap og dem der arbejder med billedanalyse, webudvikling osv.</p>
     <p xml:lang="de">KMag ist ein kleines Dienstprogramm für Linux, um einen Teil des Bildschirms zu vergrößern. KMag ist sehr nützlich für Menschen mit Sehbehinderung und für Menschen, die in Bereichen der Bildanalyse, Webentwicklung usw. arbeiten.</p>
     <p xml:lang="el">Το KMag είναι μια μικρή εφαρμογή για Linux για να μεγεθύνει μέρος της οθόνης. Το KMag είναι πολύ χρήσιμο για ανθρώπους με δυσκολίες στην όραση και για εκείνους που ασχολούνται με τα πεδία της ανάλυσης εικόνας, ανάπτυξης εφαρμογών ιστού κλπ.</p>
@@ -149,6 +150,7 @@
       <caption xml:lang="bg">KMag в действие</caption>
       <caption xml:lang="ca">El KMag en acció</caption>
       <caption xml:lang="ca-valencia">KMag en acció</caption>
+      <caption xml:lang="cs">KMag v činnosti</caption>
       <caption xml:lang="da">KMag i brug</caption>
       <caption xml:lang="de">KMag in Aktion</caption>
       <caption xml:lang="el">Το KMag σε δράση</caption>
