@@ -2,7 +2,7 @@
 # translation of @PACKAGE.po to @LANGUAGE
 # Copyright (C) 2004 Free Software Foundation, Inc.
 # Claudiu Costin <claudiuc@kde.org>, 2003, 2004.
-# SPDX-FileCopyrightText: 2008, 2009, 2012, 2020, 2025 Sergiu Bivol <sergiu@cip.md>
+# SPDX-FileCopyrightText: 2008, 2009, 2012, 2020, 2025, 2026 Sergiu Bivol <sergiu@cip.md>
 # Laurenţiu Buzdugan <lbuz@rolix.org>, 2009.
 #
 msgid ""
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:48+0000\n"
-"PO-Revision-Date: 2025-10-01 17:01+0100\n"
+"PO-Revision-Date: 2026-03-18 21:21+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -128,19 +128,14 @@ msgid "Click to stop window refresh"
 msgstr "Dați clic pentru a opri actualizarea ferestrei"
 
 #: kmag.cpp:111
-#, fuzzy, kde-format
-#| msgid ""
-#| "Clicking on this icon will <b>start</b> / <b>stop</b>  updating of the "
-#| "display. Stopping the update will zero the processing power  required "
-#| "(CPU usage)"
+#, kde-format
 msgid ""
 "Clicking on this icon will <b>start</b> / <b>stop</b> updating of the "
 "display. Stopping the update will zero the processing power required (CPU "
 "usage)"
 msgstr ""
-"Dacă dați clic pe această pictogramă veți <b>porni</b> / <b>opri</b> "
-"actualizarea ferestrei. Cînd actualizarea este oprită, consumul de procesor "
-"scade la zero."
+"Apăsarea pe această pictogramă va <b>porni</b> / <b>opri</b> actualizarea "
+"afișajului. Când actualizarea este oprită, consumul de procesor scade la zero"
 
 #: kmag.cpp:117
 #, kde-format
@@ -184,45 +179,42 @@ msgstr "Copiază imaginea scalată în clipboard"
 #: kmag.cpp:138
 #, kde-format
 msgid "&Follow Mouse Mode"
-msgstr "&Urmărește mouse-ul"
+msgstr "&Urmărește șoricelul"
 
 #: kmag.cpp:142
 #, kde-format
 msgid "Mouse"
-msgstr ""
+msgstr "Șoricel"
 
 #: kmag.cpp:143
 #, kde-format
 msgid "Magnify around the mouse cursor"
-msgstr "Mărește în jurul cursorului mausului"
+msgstr "Mărește în jurul cursorului șoricelului"
 
 #: kmag.cpp:144
 #, kde-format
 msgid "If selected, the area around the mouse cursor is magnified"
-msgstr "Dacă opțiunea este selectată, zona din jurul cursorului este mărită"
+msgstr "Dacă e activ, zona din jurul cursorului șoricelului este mărită"
 
 #: kmag.cpp:148
-#, fuzzy, kde-format
-#| msgid "&Follow Mouse Mode"
+#, kde-format
 msgid "&Follow Focus Mode"
-msgstr "&Urmărește mouse-ul"
+msgstr "Regim de urmărire a &focalizării"
 
 #: kmag.cpp:152
 #, kde-format
 msgid "Focus"
-msgstr ""
+msgstr "Focalizare"
 
 #: kmag.cpp:153
-#, fuzzy, kde-format
-#| msgid "Magnify around the mouse cursor"
+#, kde-format
 msgid "Magnify around the keyboard focus"
-msgstr "Mărește în jurul cursorului mausului"
+msgstr "Mărește în jurul focalizării tastaturii"
 
 #: kmag.cpp:154
-#, fuzzy, kde-format
-#| msgid "If selected, the area around the mouse cursor is magnified"
+#, kde-format
 msgid "If selected, the area around the keyboard cursor is magnified"
-msgstr "Dacă opțiunea este selectată, zona din jurul cursorului este mărită"
+msgstr "Dacă e activ, zona din jurul cursorului tastaturii este mărită"
 
 #: kmag.cpp:158
 #, kde-format
@@ -230,10 +222,9 @@ msgid "Se&lection Window Mode"
 msgstr "Regim fereastră de se&lecție"
 
 #: kmag.cpp:162
-#, fuzzy, kde-format
-#| msgid "New &Window"
+#, kde-format
 msgid "Window"
-msgstr "Fereastră no&uă"
+msgstr "Fereastră"
 
 #: kmag.cpp:163
 #, kde-format
@@ -248,7 +239,7 @@ msgstr "Regim &ecran complet"
 #: kmag.cpp:169
 #, kde-format
 msgid "Screen"
-msgstr ""
+msgstr "Ecran"
 
 #: kmag.cpp:170
 #, kde-format
@@ -270,7 +261,7 @@ msgstr "Ascunde &cursorul șoricelului"
 #: kmag.cpp:178
 #, kde-format
 msgid "Show Mouse &Cursor"
-msgstr "Afișează &cursorul mouse-ului"
+msgstr "Arată &cursorul șoricelului"
 
 #: kmag.cpp:180
 #, kde-format
@@ -280,7 +271,7 @@ msgstr "Ascunde"
 #: kmag.cpp:181
 #, kde-format
 msgid "Hide the mouse cursor"
-msgstr "Ascunde cursorul mausului"
+msgstr "Ascunde cursorul șoricelului"
 
 #: kmag.cpp:183
 #, kde-format
@@ -290,7 +281,7 @@ msgstr "Stă deasupra"
 #: kmag.cpp:187
 #, kde-format
 msgid "The KMagnifier Window stays on top of other windows."
-msgstr ""
+msgstr "Fereastra KMagnifier stă deasupra celorlalte ferestre."
 
 #: kmag.cpp:190
 #, kde-format
@@ -360,12 +351,12 @@ msgstr "&Color"
 #: kmag.cpp:219
 #, kde-format
 msgid "Select a mode to simulate various types of color-blindness."
-msgstr ""
+msgstr "Alegeți un regim pentru a simula diverse tipuri de daltonism."
 
 #: kmag.cpp:220
 #, kde-format
 msgid "Color-blindness Simulation Mode"
-msgstr ""
+msgstr "Regim de simulare a daltonismului"
 
 #: kmag.cpp:552
 #, kde-format
@@ -496,10 +487,9 @@ msgstr ""
 "Conținutul va fi mărit în funcție de nivelul de scalare."
 
 #: main.cpp:39
-#, fuzzy, kde-format
-#| msgid "Screen magnifier for the K Desktop Environment (KDE)"
+#, kde-format
 msgid "Screen magnifier created by KDE"
-msgstr "Lupă de ecran pentru KDE"
+msgstr "Lupă pentru ecran creată de către KDE"
 
 #: main.cpp:41
 #, kde-format
@@ -554,7 +544,7 @@ msgstr "Matthew Woehlke"
 #: main.cpp:50
 #, kde-format
 msgid "Color-blindness simulation"
-msgstr ""
+msgstr "Simularea daltonismului"
 
 #: main.cpp:51
 #, kde-format
