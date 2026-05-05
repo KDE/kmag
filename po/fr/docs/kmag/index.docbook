@@ -134,14 +134,14 @@ Date:   Wed Sep 26 02:46:22 2012 +0530
 
 <screenshot>
 <screeninfo
->Voici une copie d'écran de &kmagnifier;</screeninfo>
+>Voici une capture d'écran de &kmagnifier;</screeninfo>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="screenshot.png" format="PNG"/>
 	  </imageobject>
 	  <textobject>
 	    <phrase
->Copie d'écran de &kmagnifier;</phrase>
+>Capture d'écran de &kmagnifier;</phrase>
 	  </textobject>
 	</mediaobject>
 </screenshot>
