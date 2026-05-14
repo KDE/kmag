@@ -1,7 +1,5 @@
 if(QAccessibilityClient6_FOUND)
     set(HAVE_QACCESSIBILITYCLIENT TRUE)
-elseif(QAccessibilityClient_FOUND)
-    set(HAVE_QACCESSIBILITYCLIENT TRUE)
 else()
     set(HAVE_QACCESSIBILITYCLIENT FALSE)
 endif()
@@ -40,8 +38,6 @@ target_link_libraries(kmag
 
 if(QAccessibilityClient6_FOUND)
     target_link_libraries(kmag QAccessibilityClient6)
-elseif(QAccessibilityClient_FOUND)
-    target_link_libraries(kmag ${QACCESSIBILITYCLIENT_LIBRARY})
 endif()
 
 install(TARGETS kmag ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
