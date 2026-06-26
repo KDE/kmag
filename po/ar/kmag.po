@@ -3,13 +3,13 @@
 # Hafid BENHADRIA <ghosn@php4arab.info>, 2003.
 # محمد سعد  Mohamed SAAD <metehyi@free.fr>, 2006.
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
-# SPDX-FileCopyrightText: 2022, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2022, 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:48+0000\n"
-"PO-Revision-Date: 2025-08-03 12:03+0400\n"
+"PO-Revision-Date: 2026-06-25 10:57+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -124,7 +124,7 @@ msgstr "&قف"
 #: kmag.cpp:110
 #, kde-format
 msgid "Click to stop window refresh"
-msgstr "آنقر لإيقاف إنعاش النَّافذة"
+msgstr "انقر لإيقاف إنعاش النَّافذة"
 
 #: kmag.cpp:111
 #, kde-format
@@ -155,7 +155,7 @@ msgstr "إحفظ الصّورة في ملف"
 #: kmag.cpp:124
 #, kde-format
 msgid "Click on this button to print the current zoomed view."
-msgstr "آنقر على هذا الزُّر لطباعة الرُّؤية المُكبّرة الحاليّة."
+msgstr "انقر على هذا الزُّر لطباعة الرُّؤية المُكبّرة الحاليّة."
 
 #: kmag.cpp:127 kmag.cpp:128
 #, kde-format
@@ -284,7 +284,7 @@ msgstr "تظل نافذة العدسة أعلى النوافذ الأخرى."
 #: kmag.cpp:190
 #, kde-format
 msgid "Click on this button to <b>zoom-in</b> on the selected region."
-msgstr "آنقر على هذا الزُّر كي <b> تكبّر </b> المنطقة المحددة."
+msgstr "انقر على هذا الزُّر كي <b> تكبّر </b> المنطقة المحددة."
 
 #: kmag.cpp:192
 #, kde-format
@@ -304,7 +304,7 @@ msgstr "معامل التَّكبير"
 #: kmag.cpp:199
 #, kde-format
 msgid "Click on this button to <b>zoom-out</b> on the selected region."
-msgstr "آنقر على هذا الزُّر كي <b>تصغّر </b> المنطقة المحددة."
+msgstr "انقر على هذا الزُّر كي <b>تصغّر </b> المنطقة المحددة."
 
 #: kmag.cpp:201
 #, kde-format
