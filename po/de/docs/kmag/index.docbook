@@ -131,7 +131,7 @@ Date:   Wed Sep 26 02:46:22 2012 +0530
 
 <abstract>
 <para
->&kmagnifier; ist eine Bildschirmlupe. Sie können mit &kmagnifier; einen Teil des Bildschirms vergrößern, so als würden Sie beim Zeitung lesen eine Lupe für das Kleingedruckte oder das genaue Betrachten eines Fotos benutzen. Diese Anwendung ist für verschiedene Benutzer interessant: Dazu gehören Künstler, Web-Designer und Menschen mit einer Sehbehinderung. Diese Dokumentation soll ein vollständiges Handbuch für die Benutzung von &kmagnifier; sein. </para>
+>&kmagnifier; ist eine Bildschirmlupe. Sie können mit &kmagnifier; einen Teil des Bildschirms vergrößern, so als würden Sie beim Zeitung lesen eine Lupe für das Kleingedruckte oder das genaue Betrachten eines Fotos verwenden. Diese Anwendung ist für verschiedene Benutzer interessant: Dazu gehören Künstler, Web-Designer und Menschen mit einer Sehbehinderung. Diese Dokumentation soll ein vollständiges Handbuch für die Benutzung von &kmagnifier; sein. </para>
 
 </abstract>
 
@@ -151,7 +151,7 @@ Date:   Wed Sep 26 02:46:22 2012 +0530
 >Einleitung</title>
 
 <para
->&kmagnifier; ist eine Bildschirmlupe von der KDE-Gemeinschaft. Mit &kmagnifier; kann ein Bereich des Bildschirms vergrößert werden. Diese Anwendung kann für verschiedene Benutzergruppen nützlich sein: Menschen mit einer Sehbehinderung können diese Anwendung dazu benutzen, Bereiche des Bildschirms vergrößert anzuzeigen, die sie ansonsten nur schwer erkennen könnten; Künstler können damit Bereiche einer von ihnen erstellen Grafik vergrößern, um diese auf Pixelebene zu betrachten; Personen, die auf dem Gebiet der Bildverarbeitung arbeiten, können kleinste Einzelheiten von Bildern genauer betrachten. Darüber hinaus kann &kmagnifier; für viele weitere Dinge benutzt werden. So ist es möglich einen Bildschirmbereich einzufangen und diesen vergrößert in eine Datei zu speichern. </para>
+>&kmagnifier; ist eine Bildschirmlupe von der KDE-Gemeinschaft. Mit &kmagnifier; kann ein Bereich des Bildschirms vergrößert werden. Diese Anwendung kann für verschiedene Benutzergruppen nützlich sein: Menschen mit einer Sehbehinderung können diese Anwendung dazu verwenden, Bereiche des Bildschirms vergrößert anzuzeigen, die sie ansonsten nur schwer erkennen könnten; Künstler können damit Bereiche einer von ihnen erstellen Grafik vergrößern, um diese auf Pixelebene zu betrachten; Personen, die auf dem Gebiet der Bildverarbeitung arbeiten, können kleinste Einzelheiten von Bildern genauer betrachten. Darüber hinaus kann &kmagnifier; für viele weitere Dinge verwendet werden. So ist es möglich einen Bildschirmbereich einzufangen und diesen vergrößert in eine Datei zu speichern. </para>
 <para
 >&kmagnifier; ist eine sehr leistungsfähige Anwendung, die ständig um neue Funktionen erweitert wird. Sie ist für den Einsatz auf leistungsschwachen Rechnern optimiert. </para>
 </chapter>
