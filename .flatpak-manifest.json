@@ -5,16 +5,25 @@
     "runtime-version": "6.11",
     "sdk": "org.kde.Sdk",
     "command": "kmag",
-    "tags": ["nightly"],
+    "tags": [
+        "nightly"
+    ],
     "desktop-file-name-suffix": " (Nightly)",
-    "finish-args": ["--share=ipc", "--socket=fallback-x11", "--socket=wayland", "--filesystem=host" ],
-
+    "finish-args": [
+        "--share=ipc",
+        "--socket=fallback-x11",
+        "--socket=wayland",
+        "--filesystem=host"
+    ],
     "modules": [
         {
             "name": "kmag",
             "buildsystem": "cmake-ninja",
             "sources": [
-                { "type": "dir", "path": "." }
+                {
+                    "type": "dir",
+                    "path": "."
+                }
             ]
         }
     ]
