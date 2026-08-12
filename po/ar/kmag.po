@@ -34,7 +34,7 @@ msgstr "ghosn@php4arab.info,metehyi@free.fr"
 #, kde-format
 msgctxt "Zoom at very low"
 msgid "&Very Low"
-msgstr "مُنخفِض &جداً"
+msgstr "مُنخفِض &جدًا"
 
 #: kmag.cpp:52
 #, kde-format
@@ -58,7 +58,7 @@ msgstr "&عالي"
 #, kde-format
 msgctxt "Zoom at very high"
 msgid "V&ery High"
-msgstr "عالي &جداً"
+msgstr "عالي &جدًا"
 
 #: kmag.cpp:60
 #, kde-format
@@ -168,7 +168,7 @@ msgid ""
 "Click on this button to copy the current zoomed view to the clipboard which "
 "you can paste in other applications."
 msgstr ""
-"أنقر على هذا الزرّ لنسخ الرؤية المكبرة حالياً إلى الحافظة كي تستطيع إلصاقها في "
+"أنقر على هذا الزرّ لنسخ الرؤية المكبرة حاليًا إلى الحافظة كي تستطيع إلصاقها في "
 "تطبيقات أخرى."
 
 #: kmag.cpp:132
