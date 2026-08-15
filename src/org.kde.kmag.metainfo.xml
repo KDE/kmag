@@ -144,6 +144,9 @@
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kmag</url>
   <url type="help">https://docs.kde.org/?application=kmag</url>
   <url type="donation">https://www.kde.org/community/donations/?app=kmag&amp;source=appdata</url>
+  <custom>
+    <value key="KDE::mailinglist">kde-accessibility@kde.org</value>
+  </custom>
   <screenshots>
     <screenshot type="default">
       <caption>KMag in action</caption>
