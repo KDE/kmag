@@ -4,13 +4,13 @@
 Dependencies:
  - 'on': ['Linux', 'FreeBSD']
    'require':
-    'frameworks/extra-cmake-modules': '@latest-kf6'
-    'frameworks/kdoctools': '@latest-kf6'
-    'frameworks/ki18n': '@latest-kf6'
-    'frameworks/kio': '@latest-kf6'
-    'frameworks/kxmlgui': '@latest-kf6'
-    'libraries/libqaccessibilityclient': '@latest-kf6'
-    'frameworks/kcrash': '@latest-kf6'
+    'frameworks/extra-cmake-modules': 'Frameworks/6.24'
+    'frameworks/kdoctools': 'Frameworks/6.24'
+    'frameworks/ki18n': 'Frameworks/6.24'
+    'frameworks/kio': 'Frameworks/6.24'
+    'frameworks/kxmlgui': 'Frameworks/6.24'
+    'libraries/libqaccessibilityclient': 'v0.6.0'
+    'frameworks/kcrash': 'Frameworks/6.24'
 
 Options:
  require-passing-tests-on: ['Linux', 'FreeBSD']
