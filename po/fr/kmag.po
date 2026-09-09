@@ -139,7 +139,7 @@ msgstr "A&rrêter"
 #: kmag.cpp:110
 #, kde-format
 msgid "Click to stop window refresh"
-msgstr "Cliquez pour arrêter le rafraîchissement de la fenêtre"
+msgstr "Cliquez pour arrêter le rafraichissement de la fenêtre"
 
 #: kmag.cpp:111
 #, kde-format
@@ -345,7 +345,7 @@ msgstr "Angle de rotation"
 #: kmag.cpp:210
 #, kde-format
 msgid "&Refresh"
-msgstr "&Rafraîchissement"
+msgstr "&Rafraichissement"
 
 #: kmag.cpp:213
 #, kde-format
@@ -353,13 +353,13 @@ msgid ""
 "Select the refresh rate. The higher the rate, the more computing power (CPU) "
 "will be needed."
 msgstr ""
-"Sélectionnez le taux de rafraîchissement. Plus il est élevé, plus la "
+"Sélectionnez le taux de rafraichissement. Plus il est élevé, plus la "
 "puissance de traitement (processeur) sera requise."
 
 #: kmag.cpp:214
 #, kde-format
 msgid "Refresh rate"
-msgstr "Taux de rafraîchissement"
+msgstr "Taux de rafraichissement"
 
 #: kmag.cpp:216
 #, kde-format
