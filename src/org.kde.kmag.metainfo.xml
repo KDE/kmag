@@ -43,6 +43,10 @@
   <name xml:lang="sa">KMag</name>
   <name xml:lang="sk">KMag</name>
   <name xml:lang="sl">KMag</name>
+  <name xml:lang="sr">К‑увеличање</name>
+  <name xml:lang="sr-Latn">K‑uveličanje</name>
+  <name xml:lang="sr-ijekavian">К‑увеличање</name>
+  <name xml:lang="sr-ijekavianlatin">K‑uveličanje</name>
   <name xml:lang="sv">Kmag</name>
   <name xml:lang="tr">K Büyüteç</name>
   <name xml:lang="uk">KMag</name>
@@ -133,6 +137,10 @@
     <p xml:lang="sa">KMag इति Linux कृते स्क्रीनस्य भागं वर्धयितुं लघुः उपयोगिता अस्ति । दृष्टिविकलाङ्गजनानाम् अपि च प्रतिबिम्बविश्लेषणं, जालविकासादिक्षेत्रेषु कार्यं कुर्वतां कृते KMag अतीव उपयोगी अस्ति ।</p>
     <p xml:lang="sk">KMag je malý nástroj pre Linux na zväčšenie časti obrazovky. KMag je veľmi užitočný pre ľudí so zrakovým postihnutím a pre tých čo pracujú v oblasti analýzy obrazu, vývoja webových aplikácií atď.</p>
     <p xml:lang="sl">KMag je majhen pripomoček za Linux za povečanje dela zaslona. KMag je zelo koristen za osebe z motnjami vida in za tiste, ki delajo na področjih analize slik, spletnega razvoja itd.</p>
+    <p xml:lang="sr">К‑увеличање је мала алатка за Линукс која увеличава део екрана. К‑увеличање је од велике користи особама са оштећеним видом и онима који раде у областима анализе слика, веб развоја итд.</p>
+    <p xml:lang="sr-Latn">K‑uveličanje je mala alatka za Linux koja uveličava deo ekrana. K‑uveličanje je od velike koristi osobama sa oštećenim vidom i onima koji rade u oblastima analize slika, veb razvoja itd.</p>
+    <p xml:lang="sr-ijekavian">К‑увеличање је мала алатка за Линукс која увеличава дио екрана. К‑увеличање је од велике користи особама са оштећеним видом и онима који раде у областима анализе слика, веб развоја итд.</p>
+    <p xml:lang="sr-ijekavianlatin">K‑uveličanje je mala alatka za Linux koja uveličava dio ekrana. K‑uveličanje je od velike koristi osobama sa oštećenim vidom i onima koji rade u oblastima analize slika, veb razvoja itd.</p>
     <p xml:lang="sv">Kmag är ett litet verktyg för Linux som förstorar en del av skärmen. Kmag är mycket användbart för personer med synfel och för de som arbetar inom fälten bildanalys, webbutveckling, etc.</p>
     <p xml:lang="tr">K Büyüteç, Linux için yapılmış ekranınızın bir köşesini büyütmeye yarayan ufak bir izlencedir. KMag, görsel zorlukları olan kişiler ve görsel çözümlemesi veya web geliştirmesi gibi alanlarda çalışan kişiler için pek yararlıdır.</p>
     <p xml:lang="uk">KMag — невеличка програма для Linux, призначенням якої є збільшення зображення частини екрана. KMag є дуже корисною програмою для людей із вадами зору та тих, хто працює у галузях аналізу зображень, веброзробки тощо.</p>
@@ -182,6 +190,10 @@
       <caption xml:lang="sa">केमाग् कर्मणि</caption>
       <caption xml:lang="sk">KMag v akcií</caption>
       <caption xml:lang="sl">KMag v akciji</caption>
+      <caption xml:lang="sr">К‑увеличање у раду</caption>
+      <caption xml:lang="sr-Latn">K‑uveličanje u radu</caption>
+      <caption xml:lang="sr-ijekavian">К‑увеличање у раду</caption>
+      <caption xml:lang="sr-ijekavianlatin">K‑uveličanje u radu</caption>
       <caption xml:lang="sv">Kmag i aktion</caption>
       <caption xml:lang="tr">K Büyüteç çalışırken</caption>
       <caption xml:lang="uk">KMag у дії</caption>
