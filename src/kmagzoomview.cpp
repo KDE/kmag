@@ -974,6 +974,11 @@ void KMagZoomView::grabFrame()
     selRect.y() - screen->geometry().top(),
     selRect.width(), selRect.height());
 
+  if (m_coloredPixmap.isNull()) {
+    Q_EMIT grabFailed();
+    return;
+  }
+
   // colorize the grabbed pixmap
   if (m_colormode != 0)
     m_coloredPixmap = QPixmap::fromImage(ColorSim::recolor(m_coloredPixmap.toImage(), m_colormode));

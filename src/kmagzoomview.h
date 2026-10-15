@@ -121,6 +121,9 @@ class KMagZoomView : public QAbstractScrollArea
     /// Fits the zoom view to the zoom view window
     void fitToWindow();
 
+  Q_SIGNALS:
+    void grabFailed();
+
 #if HAVE_QACCESSIBILITYCLIENT
   private Q_SLOTS:
     /// Called from a dbus service when followFocus is true

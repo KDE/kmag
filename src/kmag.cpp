@@ -262,6 +262,7 @@ void KmagApp::initConnections()
   connect(this, &KmagApp::updateRotationValue, m_zoomView, &KMagZoomView::setRotation);
   connect(this, &KmagApp::updateFPSValue, m_zoomView, &KMagZoomView::setRefreshRate);
   connect(this, &KmagApp::updateColorValue, m_zoomView, &KMagZoomView::setColorMode);
+  connect(m_zoomView, &KMagZoomView::grabFailed, this, &KmagApp::slotGrabFailed);
 
   // change in zoom index -> update the selector
   connect(this, &KmagApp::updateZoomIndex, this, &KmagApp::slotChangeZoomBoxIndex);
@@ -606,6 +607,17 @@ void KmagApp::slotToggleRefresh()
   }
 }
 
+void KmagApp::slotGrabFailed()
+{
+  slotToggleRefresh();
+  static bool dialogShown = false;
+  if (!dialogShown) {
+    dialogShown = true;
+    KMessageBox::error(this,
+                       xi18nc("@info:usagetip", "Grabbing the desktop failed. If you are on Plasma Wayland, instead try the built-in shortcuts to zoom in: <shortcut>Meta + Plus/Minus</shortcut> and <shortcut>Meta + Ctrl + [scroll]</shortcut>"),
+                       i18nc("@title:window", "Unsupported Platform"));
+  }
+}
 
 void KmagApp::slotModeWholeScreen()
 {

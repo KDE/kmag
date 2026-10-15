@@ -88,6 +88,8 @@ class KmagApp : public KXmlGuiWindow
     /// Toggle the refreshing of the window
     void slotToggleRefresh();
 
+    void slotGrabFailed();
+
     void slotModeChanged();
     void slotModeWholeScreen();
     void slotModeSelWin();
