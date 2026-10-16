@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:48+0000\n"
+"POT-Creation-Date: 2026-10-16 00:42+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -354,12 +354,12 @@ msgstr "विभिन्नप्रकारस्य वर्ण-अन्�
 msgid "Color-blindness Simulation Mode"
 msgstr "वर्ण-अन्धता अनुकरण मोड"
 
-#: kmag.cpp:552
+#: kmag.cpp:553
 #, kde-format
 msgid "Save Snapshot As"
 msgstr "स्नैपशॉट् इत्यस्य रक्षणं कुर्वन्तु"
 
-#: kmag.cpp:566
+#: kmag.cpp:567
 #, kde-format
 msgid ""
 "Unable to save temporary file (before uploading to the network file you "
@@ -367,17 +367,17 @@ msgid ""
 msgstr ""
 "अस्थायीसञ्चिकां रक्षितुं असमर्थः (भवता निर्दिष्टायां संजालसञ्चिकायां अपलोड् कर्तुं पूर्वं) ।"
 
-#: kmag.cpp:567 kmag.cpp:572 kmag.cpp:582
+#: kmag.cpp:568 kmag.cpp:573 kmag.cpp:583
 #, kde-format
 msgid "Error Writing File"
 msgstr "त्रुटि लेखन सञ्चिका"
 
-#: kmag.cpp:571
+#: kmag.cpp:572
 #, kde-format
 msgid "Unable to upload file over the network."
 msgstr "जालपुटेन सञ्चिकां अपलोड् कर्तुं असमर्थः ।"
 
-#: kmag.cpp:574 kmag.cpp:584
+#: kmag.cpp:575 kmag.cpp:585
 #, kde-format
 msgid ""
 "Current zoomed image saved to\n"
@@ -386,12 +386,12 @@ msgstr ""
 "वर्तमानं जूम कृतं चित्रं रक्षितम् अस्ति\n"
 "%1"
 
-#: kmag.cpp:575 kmag.cpp:585
+#: kmag.cpp:576 kmag.cpp:586
 #, kde-format
 msgid "Information"
 msgstr "सूचना"
 
-#: kmag.cpp:581
+#: kmag.cpp:582
 #, kde-format
 msgid ""
 "Unable to save file. Please check if you have permission to write to the "
@@ -399,26 +399,41 @@ msgid ""
 msgstr ""
 "सञ्चिकां रक्षितुं असमर्थः। कृपया पश्यन्तु यत् भवतः निर्देशिकायां लेखनस्य अनुमतिः अस्ति वा ।"
 
-#: kmag.cpp:600
+#: kmag.cpp:601
 #, kde-format
 msgid "Stop"
 msgstr "विरमतु"
 
-#: kmag.cpp:601
+#: kmag.cpp:602
 #, kde-format
 msgid "Click to stop window update"
 msgstr "विण्डो अपडेट् स्थगयितुं क्लिक् कुर्वन्तु"
 
-#: kmag.cpp:604
+#: kmag.cpp:605
 #, kde-format
 msgctxt "Start updating the window"
 msgid "Start"
 msgstr "प्रारंभः"
 
-#: kmag.cpp:605
+#: kmag.cpp:606
 #, kde-format
 msgid "Click to start window update"
 msgstr "विण्डो अपडेट् आरभ्यतुं क्लिक् कुर्वन्तु"
+
+#: kmag.cpp:617
+#, kde-kuit-format
+msgctxt "@info:usagetip"
+msgid ""
+"Grabbing the desktop failed. If you are on Plasma Wayland, instead try the "
+"built-in shortcuts to zoom in: <shortcut>Meta + Plus/Minus</shortcut> and "
+"<shortcut>Meta + Ctrl + [scroll]</shortcut>"
+msgstr ""
+
+#: kmag.cpp:618
+#, kde-format
+msgctxt "@title:window"
+msgid "Unsupported Platform"
+msgstr ""
 
 #: kmagselrect.cpp:198
 #, kde-format

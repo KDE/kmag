@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:48+0000\n"
+"POT-Creation-Date: 2026-10-16 00:42+0000\n"
 "PO-Revision-Date: 2024-05-30 07:49+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -353,12 +353,12 @@ msgstr "Elektu reĝimon por simuli diversajn specojn de kolorblindeco."
 msgid "Color-blindness Simulation Mode"
 msgstr "Kolorblindeca Simulada Reĝimo"
 
-#: kmag.cpp:552
+#: kmag.cpp:553
 #, kde-format
 msgid "Save Snapshot As"
 msgstr "Konservi Momentfoton Kiel"
 
-#: kmag.cpp:566
+#: kmag.cpp:567
 #, kde-format
 msgid ""
 "Unable to save temporary file (before uploading to the network file you "
@@ -367,17 +367,17 @@ msgstr ""
 "Ne eblis sekurigi la provizoran dosieron (antaŭ elŝuto al la retan dosieron "
 "vi indikis)."
 
-#: kmag.cpp:567 kmag.cpp:572 kmag.cpp:582
+#: kmag.cpp:568 kmag.cpp:573 kmag.cpp:583
 #, kde-format
 msgid "Error Writing File"
 msgstr "Eraro dum skribo de dosiero"
 
-#: kmag.cpp:571
+#: kmag.cpp:572
 #, kde-format
 msgid "Unable to upload file over the network."
 msgstr "Ne eblis alŝuti la dosieron tra la reto."
 
-#: kmag.cpp:574 kmag.cpp:584
+#: kmag.cpp:575 kmag.cpp:585
 #, kde-format
 msgid ""
 "Current zoomed image saved to\n"
@@ -386,12 +386,12 @@ msgstr ""
 "Nuna bildo sekuriĝis al\n"
 "%1"
 
-#: kmag.cpp:575 kmag.cpp:585
+#: kmag.cpp:576 kmag.cpp:586
 #, kde-format
 msgid "Information"
 msgstr "Informo"
 
-#: kmag.cpp:581
+#: kmag.cpp:582
 #, kde-format
 msgid ""
 "Unable to save file. Please check if you have permission to write to the "
@@ -400,26 +400,41 @@ msgstr ""
 "Ne eblis sekurigi dosieron.  Bonvolu kontroli se vi havas permeson skribi al "
 "la dosierujo."
 
-#: kmag.cpp:600
+#: kmag.cpp:601
 #, kde-format
 msgid "Stop"
 msgstr "Halti"
 
-#: kmag.cpp:601
+#: kmag.cpp:602
 #, kde-format
 msgid "Click to stop window update"
 msgstr "Klaku por ĉesigi la fenestran ĝisdatiĝon."
 
-#: kmag.cpp:604
+#: kmag.cpp:605
 #, kde-format
 msgctxt "Start updating the window"
 msgid "Start"
 msgstr "Komencigu"
 
-#: kmag.cpp:605
+#: kmag.cpp:606
 #, kde-format
 msgid "Click to start window update"
 msgstr "Klaku por komencigi la fenestran ĝisdatiĝadon."
+
+#: kmag.cpp:617
+#, kde-kuit-format
+msgctxt "@info:usagetip"
+msgid ""
+"Grabbing the desktop failed. If you are on Plasma Wayland, instead try the "
+"built-in shortcuts to zoom in: <shortcut>Meta + Plus/Minus</shortcut> and "
+"<shortcut>Meta + Ctrl + [scroll]</shortcut>"
+msgstr ""
+
+#: kmag.cpp:618
+#, kde-format
+msgctxt "@title:window"
+msgid "Unsupported Platform"
+msgstr ""
 
 #: kmagselrect.cpp:198
 #, kde-format

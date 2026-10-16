@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:48+0000\n"
+"POT-Creation-Date: 2026-10-16 00:42+0000\n"
 "PO-Revision-Date: 2026-03-06 16:19-0300\n"
 "Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -370,12 +370,12 @@ msgstr "Selecione um modo para simular vários tipos de daltonismo."
 msgid "Color-blindness Simulation Mode"
 msgstr "Modo de simulação de daltonismo"
 
-#: kmag.cpp:552
+#: kmag.cpp:553
 #, kde-format
 msgid "Save Snapshot As"
 msgstr "Salvar imagem como"
 
-#: kmag.cpp:566
+#: kmag.cpp:567
 #, kde-format
 msgid ""
 "Unable to save temporary file (before uploading to the network file you "
@@ -384,17 +384,17 @@ msgstr ""
 "Não foi possível salvar o arquivo temporário (antes de enviar para o arquivo "
 "da rede que você especificou)."
 
-#: kmag.cpp:567 kmag.cpp:572 kmag.cpp:582
+#: kmag.cpp:568 kmag.cpp:573 kmag.cpp:583
 #, kde-format
 msgid "Error Writing File"
 msgstr "Erro ao gravar arquivo"
 
-#: kmag.cpp:571
+#: kmag.cpp:572
 #, kde-format
 msgid "Unable to upload file over the network."
 msgstr "Não foi possível enviar arquivo pela rede."
 
-#: kmag.cpp:574 kmag.cpp:584
+#: kmag.cpp:575 kmag.cpp:585
 #, kde-format
 msgid ""
 "Current zoomed image saved to\n"
@@ -403,12 +403,12 @@ msgstr ""
 "Imagem ampliada atual salva em\n"
 "%1"
 
-#: kmag.cpp:575 kmag.cpp:585
+#: kmag.cpp:576 kmag.cpp:586
 #, kde-format
 msgid "Information"
 msgstr "Informações"
 
-#: kmag.cpp:581
+#: kmag.cpp:582
 #, kde-format
 msgid ""
 "Unable to save file. Please check if you have permission to write to the "
@@ -417,26 +417,41 @@ msgstr ""
 "Não foi possível salvar o arquivo. Verifique se você tem permissão de "
 "gravação na pasta."
 
-#: kmag.cpp:600
+#: kmag.cpp:601
 #, kde-format
 msgid "Stop"
 msgstr "Parar"
 
-#: kmag.cpp:601
+#: kmag.cpp:602
 #, kde-format
 msgid "Click to stop window update"
 msgstr "Clique para parar a atualização da janela"
 
-#: kmag.cpp:604
+#: kmag.cpp:605
 #, kde-format
 msgctxt "Start updating the window"
 msgid "Start"
 msgstr "Iniciar"
 
-#: kmag.cpp:605
+#: kmag.cpp:606
 #, kde-format
 msgid "Click to start window update"
 msgstr "Clique para iniciar atualização da janela"
+
+#: kmag.cpp:617
+#, kde-kuit-format
+msgctxt "@info:usagetip"
+msgid ""
+"Grabbing the desktop failed. If you are on Plasma Wayland, instead try the "
+"built-in shortcuts to zoom in: <shortcut>Meta + Plus/Minus</shortcut> and "
+"<shortcut>Meta + Ctrl + [scroll]</shortcut>"
+msgstr ""
+
+#: kmag.cpp:618
+#, kde-format
+msgctxt "@title:window"
+msgid "Unsupported Platform"
+msgstr ""
 
 #: kmagselrect.cpp:198
 #, kde-format

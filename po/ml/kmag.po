@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop_kmag trunk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:48+0000\n"
+"POT-Creation-Date: 2026-10-16 00:42+0000\n"
 "PO-Revision-Date: 2009-02-07 14:21-0800\n"
 "Last-Translator: Sankaranarayanan<snalledam@dataone.in>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -358,12 +358,12 @@ msgstr "പല തരത്തിലുള്ള വര്‍ണ്ണാന്�
 msgid "Color-blindness Simulation Mode"
 msgstr "വര്‍ണ്ണാന്ധത ഭാവിക്കുന്ന ദശ"
 
-#: kmag.cpp:552
+#: kmag.cpp:553
 #, kde-format
 msgid "Save Snapshot As"
 msgstr "പടം ഈ പേരില്‍ സൂക്ഷിക്കുക"
 
-#: kmag.cpp:566
+#: kmag.cpp:567
 #, kde-format
 msgid ""
 "Unable to save temporary file (before uploading to the network file you "
@@ -372,17 +372,17 @@ msgstr ""
 "(നിങ്ങള്‍ നിര്‍ദ്ദേശിച്ച ശൃംഖലാ ഫയലിലേക്ക് കയറ്റിവിടും മുമ്പ്) താല്‍ക്കാലിക ഫയല്‍ സൂക്ഷിക്കാന്‍ "
 "കഴിഞ്ഞില്ല."
 
-#: kmag.cpp:567 kmag.cpp:572 kmag.cpp:582
+#: kmag.cpp:568 kmag.cpp:573 kmag.cpp:583
 #, kde-format
 msgid "Error Writing File"
 msgstr "ഫയല്‍ എഴുതുന്നതില്‍ പിഴവ്"
 
-#: kmag.cpp:571
+#: kmag.cpp:572
 #, kde-format
 msgid "Unable to upload file over the network."
 msgstr "ശൃംഖലയിലേയ്ക്കു് ഫയല്‍ കയറ്റിവിടാന്‍ കഴിഞ്ഞില്ല."
 
-#: kmag.cpp:574 kmag.cpp:584
+#: kmag.cpp:575 kmag.cpp:585
 #, kde-format
 msgid ""
 "Current zoomed image saved to\n"
@@ -391,12 +391,12 @@ msgstr ""
 "നിലവിലുള്ള പെരുപ്പിച്ച ഛായ സൂക്ഷിച്ചതു്\n"
 "%1"
 
-#: kmag.cpp:575 kmag.cpp:585
+#: kmag.cpp:576 kmag.cpp:586
 #, kde-format
 msgid "Information"
 msgstr "വിവരം"
 
-#: kmag.cpp:581
+#: kmag.cpp:582
 #, kde-format
 msgid ""
 "Unable to save file. Please check if you have permission to write to the "
@@ -404,26 +404,41 @@ msgid ""
 msgstr ""
 "ഫയല്‍ സൂക്ഷിക്കാനായില്ല. അറയില്‍ എഴുതാന്‍ നിങ്ങള്‍ക്കു് അനുവാദമുണ്ടോ എന്ന് ദയവായി പരിശോധിക്കുക."
 
-#: kmag.cpp:600
+#: kmag.cpp:601
 #, kde-format
 msgid "Stop"
 msgstr "നിര്‍ത്തുക"
 
-#: kmag.cpp:601
+#: kmag.cpp:602
 #, kde-format
 msgid "Click to stop window update"
 msgstr "ജാലകം പുതുക്കുന്നത് നിര്‍ത്താന്‍ ഞൊട്ടുക"
 
-#: kmag.cpp:604
+#: kmag.cpp:605
 #, kde-format
 msgctxt "Start updating the window"
 msgid "Start"
 msgstr "തുടങ്ങുക"
 
-#: kmag.cpp:605
+#: kmag.cpp:606
 #, kde-format
 msgid "Click to start window update"
 msgstr "ജാലകം പുതുക്കുന്നതു് തുടങ്ങാന്‍ ഞൊട്ടുക"
+
+#: kmag.cpp:617
+#, kde-kuit-format
+msgctxt "@info:usagetip"
+msgid ""
+"Grabbing the desktop failed. If you are on Plasma Wayland, instead try the "
+"built-in shortcuts to zoom in: <shortcut>Meta + Plus/Minus</shortcut> and "
+"<shortcut>Meta + Ctrl + [scroll]</shortcut>"
+msgstr ""
+
+#: kmag.cpp:618
+#, kde-format
+msgctxt "@title:window"
+msgid "Unsupported Platform"
+msgstr ""
 
 #: kmagselrect.cpp:198
 #, kde-format

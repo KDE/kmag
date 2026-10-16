@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:48+0000\n"
+"POT-Creation-Date: 2026-10-16 00:42+0000\n"
 "PO-Revision-Date: 2021-01-18 19:16+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -365,12 +365,12 @@ msgstr ""
 msgid "Color-blindness Simulation Mode"
 msgstr ""
 
-#: kmag.cpp:552
+#: kmag.cpp:553
 #, kde-format
 msgid "Save Snapshot As"
 msgstr "திரைகாப்பாக சேமி"
 
-#: kmag.cpp:566
+#: kmag.cpp:567
 #, kde-format
 msgid ""
 "Unable to save temporary file (before uploading to the network file you "
@@ -379,17 +379,17 @@ msgstr ""
 "தற்காலிக கோப்பினை சேமிக்க இயலவில்லை.(பிணை கோப்பில் மேலே ஏற்றல் செய்வதற்கு முன் "
 "குறிப்பிடவேண்டும்)."
 
-#: kmag.cpp:567 kmag.cpp:572 kmag.cpp:582
+#: kmag.cpp:568 kmag.cpp:573 kmag.cpp:583
 #, kde-format
 msgid "Error Writing File"
 msgstr "எழுதுகின்ற கோப்பில் பிழை"
 
-#: kmag.cpp:571
+#: kmag.cpp:572
 #, kde-format
 msgid "Unable to upload file over the network."
 msgstr "வலைதளத்தில் கோப்பினை மேலேற்ற இயலவில்லை."
 
-#: kmag.cpp:574 kmag.cpp:584
+#: kmag.cpp:575 kmag.cpp:585
 #, kde-format
 msgid ""
 "Current zoomed image saved to\n"
@@ -398,12 +398,12 @@ msgstr ""
 "பெரிதாக்கப்பட்ட நடப்பு தோற்றம் சேமிக்கப்பட்டது.\n"
 "%1"
 
-#: kmag.cpp:575 kmag.cpp:585
+#: kmag.cpp:576 kmag.cpp:586
 #, fuzzy, kde-format
 msgid "Information"
 msgstr "&சுழற்சி"
 
-#: kmag.cpp:581
+#: kmag.cpp:582
 #, kde-format
 msgid ""
 "Unable to save file. Please check if you have permission to write to the "
@@ -412,27 +412,42 @@ msgstr ""
 "கோப்பினை சேமிக்க இயலவில்லை, தயவு செய்து கோப்பகத்தில் எழுதுவதற்கு அனுமதி உள்ளதா என்பதை "
 "சரிபார்க்கவும்."
 
-#: kmag.cpp:600
+#: kmag.cpp:601
 #, fuzzy, kde-format
 msgid "Stop"
 msgstr "&நிறுத்து"
 
-#: kmag.cpp:601
+#: kmag.cpp:602
 #, kde-format
 msgid "Click to stop window update"
 msgstr "சாளரத்தை புதுப்பிக்க தொடங்க சொடுக்கு"
 
-#: kmag.cpp:604
+#: kmag.cpp:605
 #, fuzzy, kde-format
 #| msgid "Start"
 msgctxt "Start updating the window"
 msgid "Start"
 msgstr "தொடங்கு"
 
-#: kmag.cpp:605
+#: kmag.cpp:606
 #, kde-format
 msgid "Click to start window update"
 msgstr "சாளரத்தை புதுப்பிக்க தொடங்க சொடுக்கு"
+
+#: kmag.cpp:617
+#, kde-kuit-format
+msgctxt "@info:usagetip"
+msgid ""
+"Grabbing the desktop failed. If you are on Plasma Wayland, instead try the "
+"built-in shortcuts to zoom in: <shortcut>Meta + Plus/Minus</shortcut> and "
+"<shortcut>Meta + Ctrl + [scroll]</shortcut>"
+msgstr ""
+
+#: kmag.cpp:618
+#, kde-format
+msgctxt "@title:window"
+msgid "Unsupported Platform"
+msgstr ""
 
 #: kmagselrect.cpp:198
 #, kde-format
