@@ -1,5 +1,5 @@
 # Spanish translations for kmag.po package.
-# Copyright (C) 2003-2025 This file is copyright:
+# Copyright (C) 2003-2026 This file is copyright:
 # This file is distributed under the same license as the kmag package.
 #
 # SPDX-FileCopyrightText: 2003 Miguel Revilla Rodríguez <yo@miguelrevilla.com>
@@ -7,11 +7,11 @@
 # SPDX-FileCopyrightText: 2003 Vicente Herrera Cobo <vicente.herrera@hispalinux.es>
 # SPDX-FileCopyrightText: 2004 Vicente Herrera Cobo <vherrera@andaluciajunta.es>
 # SPDX-FileCopyrightText: 2005 Rafael Beccar <rafael.beccar@kdemail.net>
-# SPDX-FileCopyrightText: 2005, 2006, 2007, 2008 Santiago Fernández Sancho <santi@kde-es.org>
-# SPDX-FileCopyrightText: 2005, 2011, 2012, 2017, 2025 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2005-2008 Santiago Fernández Sancho <santi@kde-es.org>
+# SPDX-FileCopyrightText: 2005, 2011-2012, 2017, 2025-2026 Eloy Cuadra <ecuadra@eloihr.net>
 # SPDX-FileCopyrightText: 2006 Pablo de Vicente <pablo.devicente@gmail.com>
 # SPDX-FileCopyrightText: 2008 Jaime Robles <jaime@kde.org>
-# SPDX-FileCopyrightText: 2008, 2009 Franco Mariluis <fmariluis@gmail.com>
+# SPDX-FileCopyrightText: 2008-2009 Franco Mariluis <fmariluis@gmail.com>
 # SPDX-FileCopyrightText: 2009 Adrián Martínez <sfxgt3@gmail.com>
 # SPDX-FileCopyrightText: 2010 Ricardo Varas Santana <ricardoivaras@gmail.com>
 msgid ""
@@ -19,14 +19,14 @@ msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-16 00:42+0000\n"
-"PO-Revision-Date: 2025-08-16 01:59+0100\n"
+"PO-Revision-Date: 2026-10-17 00:26+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 26.08.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -449,12 +449,16 @@ msgid ""
 "built-in shortcuts to zoom in: <shortcut>Meta + Plus/Minus</shortcut> and "
 "<shortcut>Meta + Ctrl + [scroll]</shortcut>"
 msgstr ""
+"No se ha podido capturar el escritorio. Si usa Plasma Wayland, pruebe en su "
+"lugar los atajos de teclado integrados para ampliar la imagen: "
+"<shortcut>Meta + Más/menos</shortcut> y <shortcut>Meta + Ctrl+ "
+"[desplazamiento]</shortcut>."
 
 #: kmag.cpp:618
 #, kde-format
 msgctxt "@title:window"
 msgid "Unsupported Platform"
-msgstr ""
+msgstr "Plataforma no admitida"
 
 #: kmagselrect.cpp:198
 #, kde-format

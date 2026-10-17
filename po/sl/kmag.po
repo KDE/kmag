@@ -11,16 +11,16 @@ msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-16 00:42+0000\n"
-"PO-Revision-Date: 2017-07-17 20:03+0100\n"
-"Last-Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
+"PO-Revision-Date: 2026-10-16 07:06+0200\n"
+"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 2.0\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -36,25 +36,25 @@ msgstr "gregor.rakar@kiss.si,andrejm@ubuntu.si"
 #, kde-format
 msgctxt "Zoom at very low"
 msgid "&Very Low"
-msgstr "&Zelo nizko"
+msgstr "Zelo nizko"
 
 #: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at low"
 msgid "&Low"
-msgstr "&Nizko"
+msgstr "Nizko"
 
 #: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at medium"
 msgid "&Medium"
-msgstr "&Srednje "
+msgstr "Srednje"
 
 #: kmag.cpp:52
 #, kde-format
 msgctxt "Zoom at high"
 msgid "&High"
-msgstr "&Visoko"
+msgstr "Visoko"
 
 #: kmag.cpp:52
 #, kde-format
@@ -66,7 +66,7 @@ msgstr "Z&elo visoko"
 #, kde-format
 msgctxt "No color-blindness simulation, i.e. 'normal' vision"
 msgid "&Normal"
-msgstr "&Običajna"
+msgstr "Običajna"
 
 #: kmag.cpp:60
 #, kde-format
@@ -91,7 +91,7 @@ msgstr "&Akromatopsija"
 #: kmag.cpp:68
 #, kde-format
 msgid "&No Rotation (0 Degrees)"
-msgstr "&Brez vrtenja (0°)"
+msgstr "Brez vrtenja (0°)"
 
 #: kmag.cpp:68
 #, kde-format
@@ -101,17 +101,17 @@ msgstr "&Levo (90°)"
 #: kmag.cpp:68
 #, kde-format
 msgid "&Upside Down (180 Degrees)"
-msgstr "&Postavljeno na glavo (180°)"
+msgstr "Postavljeno na glavo (180°)"
 
 #: kmag.cpp:68
 #, kde-format
 msgid "&Right (270 Degrees)"
-msgstr "&Desno (270°)"
+msgstr "Desno (270°)"
 
 #: kmag.cpp:100
 #, kde-format
 msgid "New &Window"
-msgstr "Novo &okno"
+msgstr "Novo okno"
 
 #: kmag.cpp:103
 #, kde-format
@@ -121,7 +121,7 @@ msgstr "Odpri novo okno KMagnifier"
 #: kmag.cpp:107
 #, kde-format
 msgid "&Stop"
-msgstr "Za&ustavi"
+msgstr "Zau&stavi"
 
 #: kmag.cpp:110
 #, kde-format
@@ -141,7 +141,7 @@ msgstr ""
 #: kmag.cpp:117
 #, kde-format
 msgid "&Save Snapshot As..."
-msgstr "&Shrani posnetek kot ..."
+msgstr "&Shrani posnetek kot..."
 
 #: kmag.cpp:120
 #, kde-format
@@ -180,7 +180,7 @@ msgstr "Kopiraj približano sliko v odložišče"
 #: kmag.cpp:138
 #, kde-format
 msgid "&Follow Mouse Mode"
-msgstr "Način s&ledenja miški"
+msgstr "Način sledenja miški"
 
 #: kmag.cpp:142
 #, kde-format
@@ -200,7 +200,7 @@ msgstr "Če to izberete, bo območje miškine kazalke približano"
 #: kmag.cpp:148
 #, kde-format
 msgid "&Follow Focus Mode"
-msgstr "Način s&ledenja žarišču"
+msgstr "Način sledenja žarišču"
 
 #: kmag.cpp:152
 #, kde-format
@@ -220,7 +220,7 @@ msgstr "Če to izberete, bo območje kazalke tipkovnice približano"
 #: kmag.cpp:158
 #, kde-format
 msgid "Se&lection Window Mode"
-msgstr "Način okna za i&zbiro"
+msgstr "Način okna za izbiro"
 
 #: kmag.cpp:162
 #, kde-format
@@ -235,7 +235,7 @@ msgstr "Prikaži okno za izbiro približanega območja"
 #: kmag.cpp:165
 #, kde-format
 msgid "&Whole Screen Mode"
-msgstr "&Celozaslonski način"
+msgstr "Celozaslonski način"
 
 #: kmag.cpp:169
 #, kde-format
@@ -256,12 +256,12 @@ msgstr ""
 #: kmag.cpp:173
 #, kde-format
 msgid "Hide Mouse &Cursor"
-msgstr "Skrij miškino &kazalko"
+msgstr "Skrij miškino kazalko"
 
 #: kmag.cpp:178
 #, kde-format
 msgid "Show Mouse &Cursor"
-msgstr "Pokaži miškino &kazalko"
+msgstr "Pokaži miškino kazalko"
 
 #: kmag.cpp:180
 #, kde-format
@@ -291,7 +291,7 @@ msgstr "Klik na ta gumb bo <b>približal</b> izbrano območje."
 #: kmag.cpp:192
 #, kde-format
 msgid "&Zoom"
-msgstr "&Približanje"
+msgstr "Približanje"
 
 #: kmag.cpp:195
 #, kde-format
@@ -311,7 +311,7 @@ msgstr "Klik na ta gumb bo <b>oddaljil</b> izbrano območje."
 #: kmag.cpp:201
 #, kde-format
 msgid "&Rotation"
-msgstr "Vr&tenje"
+msgstr "Vrtenje"
 
 #: kmag.cpp:204
 #, kde-format
@@ -326,7 +326,7 @@ msgstr "Kot vrtenja"
 #: kmag.cpp:210
 #, kde-format
 msgid "&Refresh"
-msgstr "&Osveži"
+msgstr "Osveži"
 
 #: kmag.cpp:213
 #, kde-format
@@ -346,7 +346,7 @@ msgstr "Hitrost osveževanja"
 #, kde-format
 msgctxt "Color-blindness simulation mode"
 msgid "&Color"
-msgstr "&Barva"
+msgstr "Barva"
 
 #: kmag.cpp:219
 #, kde-format
@@ -413,7 +413,7 @@ msgstr "Zaustavi"
 #: kmag.cpp:602
 #, kde-format
 msgid "Click to stop window update"
-msgstr "Kliknite za zaustavitev posodabljanja okna."
+msgstr "Kliknite za zaustavitev posodabljanja okna"
 
 #: kmag.cpp:605
 #, kde-format
@@ -434,12 +434,15 @@ msgid ""
 "built-in shortcuts to zoom in: <shortcut>Meta + Plus/Minus</shortcut> and "
 "<shortcut>Meta + Ctrl + [scroll]</shortcut>"
 msgstr ""
+"Zajem namizja ni uspel. Če uporabljate Plasma Wayland, namesto tega "
+"poskusite uporabiti vgrajene bližnjice za povečavo: <shortcut>Meta + Plus/"
+"Minus</shortcut> in <shortcut>Meta + Ctrl + [pomik]</shortcut>"
 
 #: kmag.cpp:618
 #, kde-format
 msgctxt "@title:window"
 msgid "Unsupported Platform"
-msgstr ""
+msgstr "Nepodprta platforma"
 
 #: kmagselrect.cpp:198
 #, kde-format
@@ -473,25 +476,25 @@ msgstr "Orodna vrstica nastavitev"
 #: kmagui.rc:25
 #, kde-format
 msgid "&File"
-msgstr "&Datoteka"
+msgstr "Datoteka"
 
 #. i18n: ectx: Menu (edit)
 #: kmagui.rc:32
 #, kde-format
 msgid "&Edit"
-msgstr "&Uredi"
+msgstr "Uredi"
 
 #. i18n: ectx: Menu (view)
 #: kmagui.rc:35 kmagui.rc:73
 #, kde-format
 msgid "&View"
-msgstr "&Pogled"
+msgstr "Pogled"
 
 #. i18n: ectx: Menu (settings)
 #: kmagui.rc:47 kmagui.rc:83
 #, kde-format
 msgid "&Settings"
-msgstr "&Nastavitve"
+msgstr "Nastavitve"
 
 #: kmagzoomview.cpp:107
 #, kde-format
