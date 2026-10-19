@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-16 00:42+0000\n"
-"PO-Revision-Date: 2013-05-03 20:02+0300\n"
+"PO-Revision-Date: 2026-10-18 19:55+0300\n"
 "Last-Translator: Liudas Ališauskas <liudas@akmc.lt>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -122,7 +122,7 @@ msgstr "&Sustabdyti"
 #: kmag.cpp:110
 #, kde-format
 msgid "Click to stop window refresh"
-msgstr "Spustelėkite, kad sustabdyti lango atnaujinimą"
+msgstr "Spustelėkite norėdami sustabdyti lango atnaujinimą"
 
 #: kmag.cpp:111
 #, kde-format
@@ -135,7 +135,7 @@ msgstr ""
 #: kmag.cpp:117
 #, kde-format
 msgid "&Save Snapshot As..."
-msgstr "Įrašyti ekrano nuotrauką &kaip..."
+msgstr "Įrašyti ekrano kopiją &kaip..."
 
 #: kmag.cpp:120
 #, kde-format
@@ -350,7 +350,7 @@ msgstr ""
 #: kmag.cpp:553
 #, kde-format
 msgid "Save Snapshot As"
-msgstr "Įrašyti ekrano nuotrauką kaip"
+msgstr "Įrašyti ekrano kopiją kaip"
 
 #: kmag.cpp:567
 #, kde-format
@@ -444,13 +444,13 @@ msgstr "Pagrindinė įrankių juosta"
 #: kmagui.rc:6
 #, kde-format
 msgid "View Toolbar"
-msgstr "Rodymo įrankių juosta"
+msgstr "Rodinio įrankių juosta"
 
 #. i18n: ectx: ToolBar (settingsToolBar)
 #: kmagui.rc:16
 #, kde-format
 msgid "Settings Toolbar"
-msgstr "Nustatymų įrankių juosta"
+msgstr "Nuostatų įrankių juosta"
 
 #. i18n: ectx: Menu (file)
 #: kmagui.rc:25
@@ -462,13 +462,13 @@ msgstr "&Failas"
 #: kmagui.rc:32
 #, kde-format
 msgid "&Edit"
-msgstr "&Keisti"
+msgstr "&Taisa"
 
 #. i18n: ectx: Menu (view)
 #: kmagui.rc:35 kmagui.rc:73
 #, kde-format
 msgid "&View"
-msgstr "&Rodymas"
+msgstr "&Rodinys"
 
 #. i18n: ectx: Menu (settings)
 #: kmagui.rc:47 kmagui.rc:83
@@ -496,9 +496,9 @@ msgid ""
 "Copyright 2003-2004 Olaf Schmidt\n"
 "Copyright 2008 Matthew Woehlke"
 msgstr ""
-"Copyright 2001-2003 Sarang Lakare\n"
-"Copyright 2003-2004 Olaf Schmidt\n"
-"Copyright 2008 Matthew Woehlke"
+"Autorių teisės 2001–2003 Sarang Lakare\n"
+"Autorių teisės 2003–2004 Olaf Schmidt\n"
+"Autorių teisės 2008 Matthew Woehlke"
 
 #: main.cpp:45
 #, kde-format
