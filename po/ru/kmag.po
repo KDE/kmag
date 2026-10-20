@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-16 00:42+0000\n"
-"PO-Revision-Date: 2020-04-24 15:12+0300\n"
+"PO-Revision-Date: 2026-10-19 09:57+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -442,12 +442,16 @@ msgid ""
 "built-in shortcuts to zoom in: <shortcut>Meta + Plus/Minus</shortcut> and "
 "<shortcut>Meta + Ctrl + [scroll]</shortcut>"
 msgstr ""
+"Не удалось захватить изображение рабочего стола. В Plasma Wayland "
+"используйте вместо этого встроенные комбинации клавиш для увеличения: "
+"<shortcut>Meta + Плюс/Минус</shortcut> и <shortcut>Meta + Ctrl + "
+"[прокрутка]</shortcut>"
 
 #: kmag.cpp:618
 #, kde-format
 msgctxt "@title:window"
 msgid "Unsupported Platform"
-msgstr ""
+msgstr "Платформа не поддерживается"
 
 #: kmagselrect.cpp:198
 #, kde-format
