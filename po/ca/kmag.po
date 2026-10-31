@@ -571,6 +571,3 @@ msgstr "Claudiu Costin"
 #, kde-format
 msgid "Some tips"
 msgstr "Alguns consells"
-
-#~ msgid "File to open"
-#~ msgstr "Fitxer a obrir"
