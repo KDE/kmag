@@ -3,13 +3,13 @@
 # Hafid BENHADRIA <ghosn@php4arab.info>, 2003.
 # محمد سعد  Mohamed SAAD <metehyi@free.fr>, 2006.
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
-# SPDX-FileCopyrightText: 2022, 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2022, 2025-2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-16 00:42+0000\n"
-"PO-Revision-Date: 2026-06-25 10:57+0400\n"
+"PO-Revision-Date: 2026-10-31 17:17+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -428,12 +428,15 @@ msgid ""
 "built-in shortcuts to zoom in: <shortcut>Meta + Plus/Minus</shortcut> and "
 "<shortcut>Meta + Ctrl + [scroll]</shortcut>"
 msgstr ""
+"فشلت عملية التقاط سطح المكتب. إذا كنت تستخدم بيئة بلازما مع ميفاق ويلاند، "
+"فجرب بدلاً من ذلك الاختصارات المدمجة للتكبير: <shortcut>Meta + Plus/Minus</"
+"shortcut> و <shortcut>Meta + Ctrl + [تمرير]</shortcut>"
 
 #: kmag.cpp:618
 #, kde-format
 msgctxt "@title:window"
 msgid "Unsupported Platform"
-msgstr ""
+msgstr "منصة غير مدعومة"
 
 #: kmagselrect.cpp:198
 #, kde-format
