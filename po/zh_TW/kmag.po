@@ -4,19 +4,20 @@
 # Franklin Weng <franklin at goodhorse dot idv dot tw>, 2007, 2008.
 # Franklin Weng <franklin@mail.everfocus.com.tw>, 2010, 2012.
 # Jeff Huang <s8321414@gmail.com>, 2017.
+# SPDX-FileCopyrightText: 2026 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-16 00:42+0000\n"
-"PO-Revision-Date: 2017-07-30 21:47+0800\n"
-"Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
-"Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2026-11-03 19:56+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 26.11.70\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -326,12 +327,12 @@ msgstr "刷新(&R)"
 msgid ""
 "Select the refresh rate. The higher the rate, the more computing power (CPU) "
 "will be needed."
-msgstr "請選擇刷新頻率。頻率越高，會吃掉越多的 CPU 時間。"
+msgstr "請選擇更新頻率。頻率越高，會吃掉越多的 CPU 時間。"
 
 #: kmag.cpp:214
 #, kde-format
 msgid "Refresh rate"
-msgstr "刷新頻率"
+msgstr "更新頻率"
 
 #: kmag.cpp:216
 #, kde-format
@@ -421,12 +422,15 @@ msgid ""
 "built-in shortcuts to zoom in: <shortcut>Meta + Plus/Minus</shortcut> and "
 "<shortcut>Meta + Ctrl + [scroll]</shortcut>"
 msgstr ""
+"取得桌面失敗。如果您目前使用 Plasma Wayland，請試著改用內建放大功能的快捷鍵："
+"<shortcut>Meta + \"+\" 或 \"-\"</shortcut>，以及<shortcut>Meta + Ctrl + 捲動"
+"</shortcut>"
 
 #: kmag.cpp:618
 #, kde-format
 msgctxt "@title:window"
 msgid "Unsupported Platform"
-msgstr ""
+msgstr "不支援的平台"
 
 #: kmagselrect.cpp:198
 #, kde-format
