@@ -1,0 +1,118 @@
+<?xml version="1.0" ?>
+<!--
+SPDX-FileCopyrightText: 2002 Sarang Lakare <email
+>sarang@users.sf.net</email
+> and
+SPDX-FileCopyrightText: 2004-2005 Olaf Schmidt <email
+>ojschmidt@kde.org</email>
+SPDX-License-Identifier: GFDL-1.2-only AND GPL-2.0-or-later
+-->
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Arabic "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>دليل مستخدم العدسة</title>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<date
+>2017-07-07</date>
+<productname
+>تطبيقات كِيدِي</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kmag</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kmag</command
+></refname>
+<refpurpose
+>مكبَر الشاشة</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis>
+<command
+>kmag</command>
+</cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>الوصف</title>
+<para
+><command
+>kmag</command
+>، المعروف أيضًا باسم مكبر الشاشة، هو مكبّر شاشة. يمكنك استخدام مكبر الشاشة لتكبير جزء من الشاشة تمامًا كما تستخدم عدسة لتكبير النص الدقيق في صحيفة أو صورة فوتوغرافية. هذا التطبيق مفيد لمجموعة متنوعة من الأشخاص: من الباحثين إلى الفنانين إلى مصممي الويب إلى الأشخاص ذوي الإعاقة البصرية.</para>
+</refsect1>
+
+<refsect1>
+<title
+>انظر أيضًا</title>
+
+<simplelist>
+<member
+>وثائق المستخدم الأكثر تفصيلًا متوفرة من <ulink url="help:/kmag"
+>help:/kmag</ulink
+> (إما أدخل هذا &URL; في &konqueror;، أو شغّل <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/kmag</parameter
+></userinput
+>).</member>
+<member
+>kf6options(7)</member>
+<member
+>qt6options(7)</member>
+<member
+>تتوفر أيضًا معلومات إضافية في <ulink url="https://accessibility.kde.org/"
+>الصفحة الرئيسية لمشروع إمكانية الوصول في &kde;.</ulink
+></member>
+</simplelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>المؤلفون</title>
+<para
+>مكبر الشاشة كُتب بواسطة <personname
+><firstname
+>أولاف</firstname
+><surname
+>شميت</surname
+></personname
+> <email
+>ojschmidt@kde.org</email
+> و<personname
+><firstname
+>سارانغ</firstname
+><surname
+>لاكاري</surname
+></personname
+> <email
+>sarang@users.sf.net</email
+> و<personname
+><firstname
+>مايكل</firstname
+><surname
+>فورستر</surname
+></personname
+> <email
+>forster@fmi.uni-passau.de</email
+></para>
+</refsect1>
+
+</refentry>
