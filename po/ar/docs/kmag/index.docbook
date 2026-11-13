@@ -1,0 +1,922 @@
+<?xml version="1.0" ?>
+<!--
+SPDX-FileCopyrightText: 2002 Sarang Lakare <email
+>sarang@users.sf.net</email
+> and
+SPDX-FileCopyrightText: 2004-2005 Olaf Schmidt <email
+>ojschmidt@kde.org</email>
+SPDX-License-Identifier: GFDL-1.2-only AND GPL-2.0-or-later
+-->
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Arabic "INCLUDE"
+><!-- change language only here -->
+]>
+
+<!-- The language must NOT be changed here. -->
+
+<book id="kmag" lang="&language;">
+
+
+<bookinfo>
+<title
+>دليل العدسة</title>
+
+<authorgroup>
+<author
+><firstname
+>Sarang</firstname
+> <surname
+>Lakare</surname
+> <affiliation
+> <address
+><email
+>sarang@users.sf.net</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Olaf</firstname
+> <surname
+>Schmidt</surname
+> <affiliation
+> <address
+><email
+>ojschmidt@kde.org</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+
+
+<copyright>
+<year
+>2000</year>
+<year
+>2002</year>
+<holder
+>Sarang Lakare</holder>
+</copyright>
+
+<copyright>
+<year
+>2004</year>
+<year
+>2005</year>
+<holder
+>أولاف شميت</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<!--FIXME missing:
+"&Follow Focus Mode" 
+qaccessibilityclient  <https://commits.kde.org/libqaccessibilityclient>
+KDE client-side accessibility library
+Required to enable keyboard focus tracking
+
+commit 035090bca3a3065800c6d9ff1862167170a0e939
+Author: Sebastian Sauer mail@dipe.org
+Date:   Tue Jul 20 20:33:23 2010 +0000
+    Add a new 'Follow Focus' mode to KMag that uses the just new kaccessible QAccessibleBridgePlugin for providing keyboard cursor focus tracking.
+    svn path=/trunk/KDE/kdeaccessibility/kmag/; revision=1152354
+commit 2278a10a069ed436d0167ae3ef099b020e35f663
+Author: Amandeep Singh aman.dedman@gmail.com
+Date:   Wed Sep 26 02:46:22 2012 +0530
+    Allowing KMag to follow both mouse + kbd-focus together
+       -Made the followMouseMode + followFocusMode selectable together.
+       -With just followMouseMode checked, Kmag follows mouse,
+         and with followFocusMode checked, Kmag follows focus.
+       -And when both are selected, it follows both the mouse,
+         and the keyboard focus, whichever is relevant.
+-->
+
+<date
+>2017-07-07</date>
+<releaseinfo
+>1.0 (تطبيقات 17.08)</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>مكبر الشاشة هو مكبّر شاشة. يمكنك استخدام مكبر الشاشة لتكبير جزء من الشاشة كما تستخدم عدسة لتكبير الطباعة الدقيقة في صحيفة أو صورة فوتوغرافية. هذا التطبيق مفيد لمجموعة متنوعة من الأشخاص: من الباحثين إلى الفنانين إلى مصممي الويب إلى الأشخاص ذوي الإبصار الضعيف. ستسعى هذه الوثيقة لتكون دليلًا مرجعيًا كاملًا لاستخدام مكبر الشاشة. </para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>كيدي</keyword>
+<keyword
+>العدسة</keyword>
+<keyword
+>مكبّر ك</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>مقدمة</title>
+
+<para
+>مكبر الشاشة هو مكبّر شاشة من مجتمع كيدي. يمكن استخدامه لتكبير جزء من الشاشة. هذا التطبيق يمكن أن يكون مفيدًا لأشخاص مختلفين: الأشخاص ذوو الإبصار الضعيف يمكنهم استخدام هذا التطبيق لتكبير جزء من الشاشة لا يستطيعون رؤيته بوضوح، والفنانون يمكنهم استخدام هذا التطبيق للتكبير على الرسومات التي ينتجونها والتحقق منها على مستوى البكسل، والباحثون في معالجة الصور يمكنهم استخدام هذا التطبيق للتكبير على الصور ودراستها عن كثب. بالإضافة إلى هذه، يمكن استخدام مكبر الشاشة لأغراض أخرى متنوعة، على سبيل المثال، من الممكن استخدام التطبيق لالتقاط جزء من الشاشة وحفظه على القرص (مع خيار تكبير الشاشة الملتقطة). </para>
+<para
+>مكبر الشاشة هو تطبيق قوي جدًا مع إضافة ميزات جديدة طوال الوقت. إنه محسّن للاستخدام على الأجهزة منخفضة القدرة الحاسوبية. </para>
+</chapter>
+
+<chapter id="using-kmag">
+<title
+>استخدام مكبر الشاشة</title>
+
+<screenshot>
+<screeninfo
+>هذه لقطة شاشة لـ مكبر الشاشة</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="screenshot.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>لقطة شاشة لـ مكبر الشاشة</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para
+>بعد تشغيل مكبر الشاشة ستحصل على نافذة مشابهة لتلك المعروضة أعلاه. النافذة الرئيسة لـ مكبر الشاشة تُظهر المحتويات المكبّرة (أو الموسّعة). نشير إلى هذه النافذة باسم <quote
+>نافذة التكبير</quote
+>. الصورة المكبّرة المعروضة داخل نافذة التكبير ملتقطة من جزء من الشاشة. الجزء من الشاشة الذي يُكبّر يُشار إليه باسم <quote
+>نافذة التحديد</quote
+>. </para>
+<para
+>بشكل مبدئي، يُكبّر مكبر الشاشة المنطقة حول مؤشر الفأرة في نافذة التكبير (فكر فيها كعدسة متحركة). بدلًا من ذلك، يمكنك أن تطلب من مكبر الشاشة تكبير منطقة مختارة من الشاشة (<guilabel
+>وضع نافذة التحديد</guilabel
+>) أو الشاشة بأكملها (<guilabel
+>وضع الشاشة بأكملها</guilabel
+>) في نافذة التكبير. </para>
+<para
+>إذا كنت تفضل عدم رؤية مؤشر الفأرة في الصورة المكبّرة، فاختر <guilabel
+>إخفاء مؤشر الفأرة</guilabel
+>. يُرجى ملاحظة أن مكبر الشاشة لا يستطيع بعد معرفة شكل المؤشر الحالي. وبالتالي، فهو يُظهر المؤشر المبدئي. </para>
+
+<sect1 id="changing-selection-window">
+<title
+>تغيير الجزء من الشاشة المراد تكبيره</title>
+<para
+>عندما تكون في <guilabel
+>وضع نافذة التحديد</guilabel
+>، يمكن تحريك نافذة التكبير ونافذة التحديد وتغيير حجمهما باستخدام زر الفأرة الأيسر مثل أي نافذة. يمكنك أيضًا تغيير موضع وحجم نافذة التحديد باستخدام مفاتيح الأسهم على لوحة المفاتيح، أو بالنقر داخل نافذة التكبير: </para>
+
+<variablelist>
+<varlistentry>
+<term
+><keycap
+>مفاتيح الأسهم</keycap
+>، زر الفأرة الأيسر أو زر الفأرة الأوسط</term>
+<listitem>
+<para
+>بإبقاء زر الفأرة الأيسر أو زر الفأرة الأوسط مضغوطًا في نافذة التكبير وتحريك الفأرة، يمكنك تحريك نافذة التحديد. يمكنك أيضًا استخدام مفاتيح الأسهم إذا كانت نافذة التحديد هي محور التركيز.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><keycombo
+>&Ctrl;<keycap
+>مفاتيح الأسهم</keycap
+></keycombo
+> أو <keycombo
+>&Ctrl;<mousebutton
+>زر الفأرة الأيسر</mousebutton
+></keycombo
+></term>
+<listitem>
+<para
+>باستخدام هذه المجموعة، يمكنك تغيير حجم نافذة التحديد. ضع في اعتبارك أن الزاوية العلوية اليسرى من نافذة التحديد تبقى ثابتة والزاوية السفلية اليمنى قابلة للتحريك.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="kmag-features">
+<title
+>المزيد من ميزات مكبر الشاشة</title>
+
+<para
+>يأتي مكبر الشاشة مع الكثير من الميزات. من الممكن طباعة الصورة المكبّرة مباشرة إلى طابعة، وحفظ الصورة في ملف، ونسخ الصورة المكبّرة إلى الحافظة (والتي يمكن استخدامها لاحقًا للصق في تطبيقات أخرى)، وتدوير صورة التكبير والمزيد. </para>
+
+</sect1>
+</chapter>
+
+
+<chapter id="menu-shortcuts"
+> 
+<title
+>القوائم والاختصارات</title
+> 
+ 
+<sect1 id="menus"
+> 
+<title
+>مرجع القائمة</title
+> 
+
+<sect2 id="the-file-menu">
+<title
+>قائمة ملف</title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>ملف</guimenu
+> <guimenuitem
+>نافذة جديدة</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>يفتح نافذة مكبر الشاشة جديدة.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>ملف</guimenu
+> <guimenuitem
+>حفظ اللقطة باسم...</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>يحفظ العرض المكبّر في ملف صورة.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>ملف</guimenu
+> <guimenuitem
+>اطبع...</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>يطبع العرض المكبّر الحالي.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>ملف</guimenu
+> <guimenuitem
+>أنهِ</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>ينهي التَّطبيق</para
+></listitem
+> 
+</varlistentry
+> 
+</variablelist
+> 
+</sect2
+> 
+ 
+<sect2 id="the-edit-menu"
+> 
+<title
+>قائمة حرر</title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>حرر</guimenu
+> <guimenuitem
+>انسخ</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>انسخ العرض المكبّر الحالي إلى الحافظة التي يمكنك لصقها في تطبيقات أخرى.</para
+></listitem
+> 
+</varlistentry
+> 
+</variablelist
+> 
+</sect2
+> 
+ 
+<sect2 id="the-view-menu"
+> 
+<title
+>قائمة عرض</title
+> 
+ 
+<variablelist
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F5</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>عرض</guimenu
+> <guimenuitem
+>بدء/إيقاف</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>بدء/إيقاف تحديث الشاشة. إيقاف التحديث سيُصفر القدرة الحاسوبية المطلوبة (استخدام وحدة المعالجة المركزية)</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>عرض</guimenu
+><guimenuitem
+>كبر</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>إختر معامل التَّكبير. </para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>-</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>عرض</guimenu
+> <guimenuitem
+>بعد</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>انقر على هذا الزُّر كي تصغّر  المنطقة المحددة.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>عرض</guimenu
+> <guimenuitem
+>قرب</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>آنقر على هذا الزُّر كي  تكبّر  المنطقة المحددة.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>عرض</guimenu
+> <guimenuitem
+>تدوير</guimenuitem
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>اختر درجة التدوير (<guimenuitem
+>بدون تدوير (0 درجة)</guimenuitem
+>، <guimenuitem
+>يسار (90 درجة)</guimenuitem
+>، <guimenuitem
+>مقلوب (180 درجة)</guimenuitem
+>، <guimenuitem
+>يمين (270 درجة)</guimenuitem
+>.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>عرض</guimenu
+> <guimenuitem
+>حدث</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>اختر معدل التحديث (<guimenuitem
+>منخفض جدًا</guimenuitem
+>، <guimenuitem
+>منخفض</guimenuitem
+>، <guimenuitem
+>متوسط</guimenuitem
+>، <guimenuitem
+>عالي</guimenuitem
+>، <guimenuitem
+>عالي جدًا</guimenuitem
+>). كلما زاد المعدل، زادت القدرة الحاسوبية (وحدة المعالجة المركزية) المطلوبة.</para
+></listitem>
+</varlistentry>
+
+<varlistentry
+> 
+<term
+><menuchoice
+><guimenu
+>عرض</guimenu
+> <guisubmenu
+>الألوان</guisubmenu
+> </menuchoice
+></term
+> 
+<listitem
+><para
+>اختر نقص رؤية ألوان مختلفًا لمحاكاة عمى الألوان. هذا ليس مفيدًا للأشخاص المصابين بعمى الألوان، ولكنه جيد لتصميم واجهات قابلة للوصول.</para
+></listitem
+> 
+</varlistentry
+> 
+ 
+</variablelist>
+</sect2>
+
+<sect2 id="the-settings-menu">
+<title
+>قائمة الإعدادات</title>
+
+<variablelist>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F2</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>إعدادات</guimenu
+> <guimenuitem
+>وضع تتبع الفأرة</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>في هذا الوضع، تُعرض المنطقة المحيطة بمؤشر الفأرة في نافذة عادية.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F3</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>الإعدادات</guimenu
+> <guimenuitem
+>وضع نافذة التحديد</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>في هذا الوضع، تُفتح نافذة تحديد. تُعرض المنطقة المحددة في نافذة عادية.</para
+></listitem>
+</varlistentry>
+
+<varlistentry
+> 
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F4</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>الإعدادات</guimenu
+> <guimenuitem
+>وضع الشاشة الكاملة</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>في هذا الوضع، تُكبَّر الشاشة بأكملها في نافذة التكبير.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F6</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>الإعدادات</guimenu
+> <guimenuitem
+>إخفاء مؤشر الفأرة</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>أظهر أو أخفِ مؤشر الفأرة في الصورة المكبَّرة.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+> <keycap
+>F7</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>الإعدادات</guimenu
+> <guimenuitem
+>البقاء في المقدمة</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>تظل نافذة العدسة أعلى النوافذ الأخرى.</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>بالإضافة إلى ذلك، يحتوي مكبر الشاشة على عناصر القائمة الشائعة في كيدي <guimenu
+>الإعدادات</guimenu
+> و<guimenu
+>مساعدة</guimenu
+>. لمزيد من المعلومات، اقرأ الأقسام المتعلقة بـ <ulink url="help:/fundamentals/menus.html#menus-settings"
+>قائمة الإعدادات</ulink
+> و<ulink url="help:/fundamentals/menus.html#menus-help"
+>قائمة المساعدة</ulink
+> من أساسيات كيدي. </para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="commands">
+<title
+>مرجع الأوامر</title>
+
+<para
+>يستخدم مكبر الشاشة آليًا جميع اختصاراتك المبدئية لحفظ الملف، وفتح نافذة جديدة، والطباعة، وبدء/إيقاف التحديث (زر إعادة التحميل في &konqueror;)، والتكبير، والتصغير، وغيرها.</para>
+
+<table>
+<title
+>اختصارات لوحة المفاتيح الافتراضية</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry>
+<entry
+><para
+>سيحفظ هذا محتويات نافذة التكبير إلى ملف.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F2</keycap
+></entry>
+<entry
+><para
+>التبديل إلى 'وضع تتبع الفأرة'.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F3</keycap
+></entry>
+<entry
+><para
+>التبديل إلى 'وضع نافذة التحديد'.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F4</keycap
+></entry>
+<entry
+><para
+>التبديل إلى 'وضع الشاشة الكاملة'.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F5</keycap
+></entry>
+<entry
+><para
+>سيبدأ هذا تحديث نافذة التكبير إذا كانت متوقفة، أو يوقف تحديث نافذة التكبير إذا كان التحديث قيد التشغيل حاليًا.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F6</keycap
+></entry>
+<entry
+><para
+>أظهر أو أخفِ مؤشر الفأرة في الصورة المكبَّرة.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycap
+>F7</keycap
+></entry>
+<entry
+><para
+>تظل نافذة العدسة أعلى النوافذ الأخرى.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry>
+<entry
+><para
+>سيفتح هذا نافذة مكبر الشاشة جديدة.</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></entry>
+<entry
+><para
+>سيفتح هذا حوار الطباعة لطباعة محتويات نافذة التكبير.</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></entry>
+<entry
+><para
+>سينسخ هذا محتويات نافذة التكبير إلى الحافظة.</para>
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+></entry
+> 
+<entry
+><para
+>أظهر/أخفِ شريط القوائم.</para
+> 
+</entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>-</keycap
+></keycombo
+></entry>
+<entry
+><para
+>بعّد</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+></entry>
+<entry
+><para
+>قرّب</para
+></entry>
+</row>
+<row>
+<entry
+><keycombo
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry
+> 
+<entry
+><para
+>ينهي التَّطبيق</para
+></entry
+> 
+</row>
+</tbody>
+</tgroup>
+
+</table>
+</sect1>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>الحقوق والترخيص</title>
+
+<para
+>مكبر الشاشة </para>
+<para
+>حقوق البرنامج 2001-2003 سارانج لاكاري <email
+>sarang@users.sf.net</email
+> و2003-2005 أولاف شميدت <email
+>ojschmidt@kde.org</email
+>. </para>
+<para
+>المساهمون: <itemizedlist
+> <listitem
+><para
+>مايكل فورستر <email
+>forster@fmi.uni-passau.de</email
+> (المؤلف الأصلي)</para
+></listitem>
+</itemizedlist>
+</para>
+
+
+<para
+>حقوق التوثيق 2002 سارانج لاكاري <email
+>sarang@users.sf.net</email
+> و2004-2005 أولاف شميدت <email
+>ojschmidt@kde.org</email
+> </para>
+
+<para
+>الترجمة: زايد السعيدي <email
+>zayed.alsaidi@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->
