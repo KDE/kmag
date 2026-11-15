@@ -3,13 +3,14 @@
 # Slobodan Simic <slsimic@gmail.com>, 2004, 2005, 2009.
 # Mladen Pejakovic <pejakm@gmail.com>, 2009.
 # Dalibor Djuric <daliborddjuric@gmail.com>, 2010.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-16 00:42+0000\n"
-"PO-Revision-Date: 2017-07-24 00:24+0200\n"
-"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"PO-Revision-Date: 2026-11-14 16:15+0100\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@latin\n"
 "MIME-Version: 1.0\n"
@@ -25,12 +26,13 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Časlav Ilić,Slobodan Simić,Mladen Pejaković"
+msgstr "Časlav Ilić,Slobodan Simić,Mladen Pejaković,Nemanja Hiršl"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "caslav.ilic@gmx.net,slsimic@gmail.com,pejakm@gmail.com"
+msgstr ""
+"caslav.ilic@gmx.net,slsimic@gmail.com,pejakm@gmail.com,nemhirsl@gmail.com"
 
 #: kmag.cpp:52
 #, kde-format
@@ -449,12 +451,15 @@ msgid ""
 "built-in shortcuts to zoom in: <shortcut>Meta + Plus/Minus</shortcut> and "
 "<shortcut>Meta + Ctrl + [scroll]</shortcut>"
 msgstr ""
+"Ne mogu da zahvatim površ. Ako koristite Plasmu pod Waylandom, probajte "
+"umesto toga ugrađene prečice za uveličanje: <shortcut>Meta + Plus/Minus</"
+"shortcut> i <shortcut>Meta + Ctrl + [klizanje]</shortcut>"
 
 #: kmag.cpp:618
 #, kde-format
 msgctxt "@title:window"
 msgid "Unsupported Platform"
-msgstr ""
+msgstr "Nepodržana platforma"
 
 #: kmagselrect.cpp:198
 #, kde-format
