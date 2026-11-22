@@ -3,14 +3,14 @@
 # Kwonwoo Nam <kwnam@haansoft.com>, 2004.
 # Hongsoo Byun <hsbyun@haansoft.com>, 2005.
 # Sung-Jae, Cho <jachin@hanafos.com>, 2005.
-# Shinjo Park <kde@peremen.name>, 2007, 2009, 2010, 2011, 2013, 2015, 2017, 2020, 2023.
+# SPDX-FileCopyrightText: 2007, 2009, 2010, 2011, 2013, 2015, 2017, 2020, 2023, 2026 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-16 00:42+0000\n"
-"PO-Revision-Date: 2023-10-08 23:41+0200\n"
+"PO-Revision-Date: 2026-11-22 00:29+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -427,12 +427,15 @@ msgid ""
 "built-in shortcuts to zoom in: <shortcut>Meta + Plus/Minus</shortcut> and "
 "<shortcut>Meta + Ctrl + [scroll]</shortcut>"
 msgstr ""
+"데스크톱을 잡을 수 없습니다. Plasma Wayland를 사용 중이라면 내장 단축키를 사"
+"용하여 확대/축소가 가능합니다. <shortcut>Meta + Plus/Minus</shortcut>, "
+"<shortcut>Meta + Ctrl + [스크롤]</shortcut>"
 
 #: kmag.cpp:618
 #, kde-format
 msgctxt "@title:window"
 msgid "Unsupported Platform"
-msgstr ""
+msgstr "지원하지 않는 플랫폼"
 
 #: kmagselrect.cpp:198
 #, kde-format
