@@ -421,12 +421,15 @@ msgid ""
 "built-in shortcuts to zoom in: <shortcut>Meta + Plus/Minus</shortcut> and "
 "<shortcut>Meta + Ctrl + [scroll]</shortcut>"
 msgstr ""
+"桌面内容捕获失败。如果您正在使用 Plasma 的 Wayland 会话，请尝试改用系统内建的"
+"快捷键进行缩放：<shortcut>Meta + 加/减号键</shortcut> 或 <shortcut>Meta + "
+"Ctrl + [滚轮滚动]</shortcut>"
 
 #: kmag.cpp:618
 #, kde-format
 msgctxt "@title:window"
 msgid "Unsupported Platform"
-msgstr ""
+msgstr "不支持的平台"
 
 #: kmagselrect.cpp:198
 #, kde-format
