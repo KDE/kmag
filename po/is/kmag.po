@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kmag\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-16 00:42+0000\n"
-"PO-Revision-Date: 2026-11-25 16:02+0000\n"
+"PO-Revision-Date: 2026-11-27 10:42+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -434,6 +434,9 @@ msgid ""
 "built-in shortcuts to zoom in: <shortcut>Meta + Plus/Minus</shortcut> and "
 "<shortcut>Meta + Ctrl + [scroll]</shortcut>"
 msgstr ""
+"Myndataka af skjáborðinu mistókst. Ef þú ert á Plasma Wayland, ættirðu "
+"frekar að prófa innbyggðu flýtilyklana til að renna að: <shortcut>Meta + "
+"Plús/Mínus</shortcut> og <shortcut>Meta + Ctrl + [skrun]</shortcut>"
 
 #: kmag.cpp:618
 #, kde-format
